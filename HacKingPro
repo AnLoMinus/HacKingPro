@@ -127,12 +127,23 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
 
-          ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
-          ${BRed}[${LGrey}1${BRed}]${BBlue} -${DGrey} Planning and Scoping
-          ${BRed}[${LGrey}2${BRed}]${BBlue} -${DGrey} Reconnaissance & Vulnerability Assessment
-          ${BRed}[${LGrey}3${BRed}]${BBlue} -${DGrey} Gaining Access & Maintaining Access
-          ${BRed}[${LGrey}4${BRed}]${BBlue} -${DGrey} Covering tracks
-          ${BRed}[${LGrey}5${BRed}]${BBlue} -${DGrey} Analysis & Reporting
+          ${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
+          ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering
+          ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Vulnerability Assessment
+          ${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}Web Application HacKing
+          ${BRed}[${LGrey}04${BRed}]${BBlue} - ${DGrey}Database Assessment
+          ${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing
+          ${BRed}[${LGrey}06${BRed}]${BBlue} - ${DGrey}Wireless HacKing
+          ${BRed}[${LGrey}07${BRed}]${BBlue} - ${DGrey}Reverse Engineering
+          ${BRed}[${LGrey}08${BRed}]${BBlue} - ${DGrey}Exploit Frameworks & DataBases
+          ${BRed}[${LGrey}09${BRed}]${BBlue} - ${DGrey}Sniffing - Spoofing
+          ${BRed}[${LGrey}10${BRed}]${BBlue} - ${DGrey}Gaining & Maintaining Access
+          ${BRed}[${LGrey}11${BRed}]${BBlue} - ${DGrey}Digital Forensic
+          ${BRed}[${LGrey}12${BRed}]${BBlue} - ${DGrey}Analysis & Reporting
+          ${BRed}[${LGrey}13${BRed}]${BBlue} - ${DGrey}Social Engineering
+          ${BRed}[${LGrey}14${BRed}]${BBlue} - ${DGrey}Privilege Enumeration & Escalation
+          ${BRed}[${LGrey}15${BRed}]${BBlue} - ${DGrey}Malware Analysis Labs/Tools
+          ${BRed}[${LGrey}16${BRed}]${BBlue} - ${DGrey}Covering Tracks
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
