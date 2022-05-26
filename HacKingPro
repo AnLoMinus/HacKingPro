@@ -129,7 +129,7 @@ MainMenu(){
 
           ${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
           ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering
-          ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Vulnerability Assessment
+          ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Reconnaissance & Vulnerability Assessment
           ${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}Web Application HacKing
           ${BRed}[${LGrey}04${BRed}]${BBlue} - ${DGrey}Database Assessment
           ${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing
@@ -152,10 +152,11 @@ ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro 
 ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
-      a )
+      0 )
+      echo "\n\t\t${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity"
       ;;
       1 )
-      echo "\n\t\t${BRed}[${BBlue}1${BRed}]${BWhite} - ${BRed}Planning and Scoping"
+      echo "\n\t\t${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering"
       #
       t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
       read -p "$t1" targetIP
@@ -192,24 +193,8 @@ ${BCyan}            └──╼ ")
       echo " " >> ${targetNAME}-HacKingPro-Log.md
       echo "---" >> ${targetNAME}-HacKingPro-Log.md
       echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo "# Anlominus PenTest Report for $targetNAME " >> ${targetNAME}-HacKingPro-Log.md
+      echo "# Anlominus HacKingPro Report for $targetNAME " >> ${targetNAME}-HacKingPro-Log.md
       echo "#### Date: `date`" >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo "---" >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo "# 📜 Menu
-
-      [a] - Anonymity Surfing
-      [1] - Planning and Scoping
-      [2] - Reconnaissance & Vulnerability Assessment
-      [3] - Gaining Access & Maintaining Access
-      [4] - Covering tracks
-      [5] - Analysis & Reporting
-
-      ┌──[ Anlominus 👽 HacKingPro $~]
-      └──╼
-
-      " >> ${targetNAME}-HacKingPro-Log.md
       echo " " >> ${targetNAME}-HacKingPro-Log.md
       echo "---" >> ${targetNAME}-HacKingPro-Log.md
       #  [1] - Planning and Scoping
@@ -222,8 +207,7 @@ ${BCyan}            └──╼ ")
       ;;
       2 )
       clear
-      echo "\n\t\t${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Reconnaissance & Vulnerability Assessment"
-
+      echo "\n\t\t${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Vulnerability Assessment"
       #  [2] - Reconnaissance & Vulnerability Assessment
       echo " " >> ${targetNAME}-HacKingPro-Log.md
       echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-HacKingPro-Log.md
@@ -282,13 +266,13 @@ ${BCyan}            └──╼ ")
       echo " " >> ${targetNAME}-HacKingPro-Log.md
       ;;
       3 )
-      echo "\n\t\t${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access"
+      echo "\n\t\t${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}Web Application HacKing"
       ;;
       4 )
-      echo "\n\t\t${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Covering tracks"
+      echo "\n\t\t${BRed}[${LGrey}04${BRed}]${BBlue} - ${DGrey}Database Assessment"
       ;;
       5 )
-      echo "\n\t\t${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting"
+      echo "\n\t\t${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing"
       ;;
       x )
       clear

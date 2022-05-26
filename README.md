@@ -3,7 +3,17 @@ HacKingPro - Hack Like A Pro !
 
 
   - [ ] 00 - Anonymity
+    - [ ] 00 - Firewall Rules
+    - [ ] 01 - Clear Logs
+    - [ ] 02 - Clear History
+    - [ ] 03 - Change MAC Address
+    - [ ] 04 - Change IP Address
+    - [ ] 05 - Change Routing    
   - [ ] 01 - Information Gathering
+    - [ ] 01 - Systems Information
+    - [ ] 02 - Networks Information
+    - [ ] 03 - Social Information
+    - [ ] 04 - SubDomain Information
   - [ ] 02 - Vulnerability Assessment
   - [ ] 03 - Web Application HacKing
   - [ ] 04 - Database Assessment
@@ -43,7 +53,7 @@ HacKingPro - Hack Like A Pro !
       - [ ] [sherlock](https://github.com/sherlock-project/sherlock)
 
     - [ ] 04 - SubDomain Information
-      - [ ] [Anubis](https://github.com/jonluca/Anubis) 
+      - [ ] [Anubis](https://github.com/jonluca/Anubis)
   - [ ] 02 - Vulnerability Assessment
     - [ ] [PentMenu](https://github.com/GinjaChris/pentmenu)
     - [ ] [Legion](https://github.com/carlospolop/legion)
