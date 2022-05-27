@@ -3,10 +3,21 @@
 # [HacKingPro](https://github.com/Anlominus/HacKingPro)
 HacKingPro - Hack Like A Pro !
 
-<img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/170588901-d0dc788a-20f4-4efe-a6dc-fec2c5c03aae.png">
-
+<img width="955" alt="image" src="https://user-images.githubusercontent.com/51442719/170663044-e81ad2d6-e28f-4207-bd72-11b971e82c57.png">
+  
 </div>
 
+# 📜 Menu / To Do
+### Features
+- [x] [p] - Planning and Scoping
+  - [x] Asking for Target IP:
+  - [x] Asking for Target Name:
+  - [x] Asking for Target Phone:
+
+
+---
+
+  - [x] p - Planning and Scoping
   - [ ] 00 - Anonymity
     - [ ] 00 - Firewall Rules
     - [ ] 01 - Clear Logs
@@ -34,6 +45,10 @@ HacKingPro - Hack Like A Pro !
   - [ ] 14 - Privilege Enumeration & Escalation
   - [ ] 15 - Malware Analysis Labs/Tools
   - [ ] 16 - Covering Tracks
+
+┌──[ Anlominus 👽 HacKingPro $~]  
+└──╼  
+
 
 ---
 
