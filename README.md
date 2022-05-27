@@ -7,6 +7,17 @@ HacKingPro - Hack Like A Pro !
   
 </div>
 
+# 📜 Menu / To Do
+### Features
+- [x] [p] - Planning and Scoping
+  - [x] Asking for Target IP:
+  - [x] Asking for Target Name:
+  - [x] Asking for Target Phone:
+
+
+---
+
+  - [x] p - Planning and Scoping
   - [ ] 00 - Anonymity
     - [ ] 00 - Firewall Rules
     - [ ] 01 - Clear Logs
@@ -34,6 +45,10 @@ HacKingPro - Hack Like A Pro !
   - [ ] 14 - Privilege Enumeration & Escalation
   - [ ] 15 - Malware Analysis Labs/Tools
   - [ ] 16 - Covering Tracks
+
+┌──[ Anlominus 👽 HacKingPro $~]  
+└──╼  
+
 
 ---
 
