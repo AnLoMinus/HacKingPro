@@ -153,7 +153,20 @@ ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       0 )
+      t0="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - User Name Target: ${BRed}")"
+      read -p "$t0" UserName
       echo "\n\t\t${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity"
+      git clone https://github.com/sherlock-project/sherlock
+      pip3 install -r sherlock/requirements.txt
+
+      read cmd
+      #
+      echo "\n\t\t${BGreen}### Sherlock Scan Log"
+      echo "### Sherlock Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      echo " `python3 sherlock/sherlock/sherlock.py ${UserName}` " >> ${targetNAME}-HacKingPro-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Log.md
+
       ;;
       1 )
       echo "\n\t\t${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering"
