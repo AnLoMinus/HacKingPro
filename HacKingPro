@@ -126,6 +126,7 @@ MainMenu(){
 
           ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 📜 Target Phone: ${BRed}${targetPhone}
 
           ${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
           ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering
@@ -186,16 +187,24 @@ ${BCyan}            └──╼ ")
         echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
       fi
       #
+      t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
+      read -p "$t3" targetPhone
+      if [ -z $targetNAME ]; then
+        #statements
+        targetNAME="ChangeMe"
+        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
+      fi
+      #
       file="${targetNAME}-HacKingPro-Log.md"
       if [ -e ${file} ]; then
-        t2="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
-        read -p "$t2 " filexist
+        t4="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
+        read -p "$t4 " filexist
         case $filexist in
           y|Y)
           echo "  ${BBlue}[${BRed}!${BBlue}] Removing {${targetNAME}-HacKingPro-Log.md} file .."
           rm ${targetNAME}-HacKingPro-Log.md
           clear
-          exit
+          MainMenu
           ;;
           n|N)
           echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-HacKingPro-Log.md} file and Add to it .."
