@@ -113,6 +113,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [HT-WPS-Breaker](https://github.com/SilentGhostX/HT-WPS-Breaker)
     - [ ] [KisMac2](https://github.com/IGRSoft/KisMac2)
     - [ ] [LazyAirCrack](https://github.com/3xploitGuy/lazyaircrack)
+    - [ ] [Piracy ⚓️](https://github.com/AnonymousAt3/piracy)
   - [ ] 07 - Reverse Engineering
   - [ ] 08 - Exploit Frameworks & DataBases
     - [ ] [Metasploit Framework](https://github.com/rapid7/metasploit-framework)
