@@ -114,6 +114,11 @@ HacKingPro - Hack Like A Pro !
     - [ ] [KisMac2](https://github.com/IGRSoft/KisMac2)
     - [ ] [LazyAirCrack](https://github.com/3xploitGuy/lazyaircrack)
     - [ ] [Piracy ⚓️](https://github.com/AnonymousAt3/piracy)
+    - [ ] [WiCrackFi](https://github.com/ShineZex/WiCrackFi)
+    - [ ] [EvilTwinFramework](https://github.com/Esser50K/EvilTwinFramework)
+    - [ ] [Wifi-hacking](https://github.com/sajidhasan15/Wifi-hacking)
+    - [ ] [hack-captive-portals](https://github.com/systematicat/hack-captive-portals)
+    - [ ] []()
   - [ ] 07 - Reverse Engineering
   - [ ] 08 - Exploit Frameworks & DataBases
     - [ ] [Metasploit Framework](https://github.com/rapid7/metasploit-framework)
