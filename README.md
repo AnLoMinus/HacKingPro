@@ -11,7 +11,9 @@ HacKingPro - Hack Like A Pro !
 - [x] [p] - Planning and Scoping
   - [x] Asking for Target IP:
   - [x] Asking for Target Name:
+  - [ ] Asking for Target Nik Name:
   - [x] Asking for Target Phone:
+  - [ ] Asking for Target Email:
 
 ---
 
