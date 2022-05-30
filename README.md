@@ -31,7 +31,6 @@ HacKingPro - Hack Like A Pro !
     - [ ] 03 - Social Information
     - [ ] 04 - SubDomain Information
   - [ ] 02 - Vulnerability Assessment
-    - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
   - [ ] 03 - Web Application HacKing
   - [ ] 04 - Database Assessment
   - [ ] 05 - Password HacKing
@@ -78,6 +77,7 @@ HacKingPro - Hack Like A Pro !
   - [ ] 02 - Vulnerability Assessment
     - [ ] [PentMenu](https://github.com/GinjaChris/pentmenu)
     - [ ] [Legion](https://github.com/carlospolop/legion)
+    - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
   - [ ] 03 - Web Application HacKing
     - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools)
     - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
