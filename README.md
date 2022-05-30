@@ -7,16 +7,15 @@ HacKingPro - Hack Like A Pro !
   
 </div>
 
-# 📜 Menu / To Do
-### Features
+# 📜 Menu / Features
 - [x] [p] - Planning and Scoping
   - [x] Asking for Target IP:
   - [x] Asking for Target Name:
   - [x] Asking for Target Phone:
 
-
 ---
 
+# 📜 Menu / To Do
   - [x] p - Planning and Scoping
   - [ ] 00 - Anonymity
     - [ ] 00 - Firewall Rules
@@ -52,6 +51,7 @@ HacKingPro - Hack Like A Pro !
 
 ---
 
+# 📜 Menu / Sources
 - [ ] Anlominus:
   - [ ] 00 - Anonymity
     - [ ] 00 - Firewall Rules
@@ -82,6 +82,7 @@ HacKingPro - Hack Like A Pro !
   - [ ] 03 - Web Application HacKing
     - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools)
     - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
+    - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
   - [ ] 04 - Database Assessment
   - [ ] 05 - Password HacKing
     - [ ] [JohnTheRipper](https://github.com/magnumripper/JohnTheRipper)
