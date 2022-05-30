@@ -75,6 +75,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] 04 - SubDomain Information
       - [ ] [Anubis](https://github.com/jonluca/Anubis)
   - [ ] 02 - Vulnerability Assessment
+    - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
     - [ ] [PentMenu](https://github.com/GinjaChris/pentmenu)
     - [ ] [Legion](https://github.com/carlospolop/legion)
     - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
