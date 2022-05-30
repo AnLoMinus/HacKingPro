@@ -7,18 +7,15 @@ HacKingPro - Hack Like A Pro !
   
 </div>
 
-# 📜 Menu / Features
-- [x] [p] - Planning and Scoping
-  - [x] Asking for Target IP:
-  - [x] Asking for Target Name:
-  - [ ] Asking for Target Nik Name:
-  - [x] Asking for Target Phone:
-  - [ ] Asking for Target Email:
-
 ---
 
 # 📜 Menu / To Do
-  - [x] p - Planning and Scoping
+  - [x] [p] - Planning and Scoping
+    - [x] Asking for Target IP:
+    - [x] Asking for Target Name:
+    - [ ] Asking for Target Nik Name:
+    - [x] Asking for Target Phone:
+    - [ ] Asking for Target Email:
   - [ ] 00 - Anonymity
     - [ ] 00 - Firewall Rules
     - [ ] 01 - Clear Logs
