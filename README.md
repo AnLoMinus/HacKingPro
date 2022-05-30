@@ -124,6 +124,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] []()
   - [ ] 07 - Reverse Engineering
   - [ ] 08 - Exploit Frameworks & DataBases
+    - [ ] [Bashark](https://github.com/redcode-labs/Bashark)
     - [ ] [Metasploit Framework](https://github.com/rapid7/metasploit-framework)
     - [ ] [BeEF](https://github.com/beefproject/beef)
     - [ ] [The Social-Engineer Toolkit (SET)](https://github.com/trustedsec/social-engineer-toolkit)
