@@ -63,6 +63,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] 04 - Change IP Address
     - [ ] 05 - Change Routing    
   - [ ] 01 - Information Gathering
+  - [ ] [E4GL30S1NT](https://github.com/C0MPL3XDEV/E4GL30S1NT)
     - [ ] 01 - Systems Information
       - [ ] [Th3inspector](https://github.com/Moham3dRiahi/Th3inspector)
       - [ ] [theHarvester](https://github.com/laramies/theHarvester)
@@ -71,7 +72,6 @@ HacKingPro - Hack Like A Pro !
       - [ ] [nmap](https://github.com/nmap/nmap)
     - [ ] 03 - Social Information
       - [ ] [sherlock](https://github.com/sherlock-project/sherlock)
-
     - [ ] 04 - SubDomain Information
       - [ ] [Anubis](https://github.com/jonluca/Anubis)
   - [ ] 02 - Vulnerability Assessment
