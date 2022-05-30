@@ -31,6 +31,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] 03 - Social Information
     - [ ] 04 - SubDomain Information
   - [ ] 02 - Vulnerability Assessment
+    - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
   - [ ] 03 - Web Application HacKing
   - [ ] 04 - Database Assessment
   - [ ] 05 - Password HacKing
