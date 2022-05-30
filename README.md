@@ -78,6 +78,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [PentMenu](https://github.com/GinjaChris/pentmenu)
     - [ ] [Legion](https://github.com/carlospolop/legion)
     - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
+    - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
   - [ ] 03 - Web Application HacKing
     - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools)
     - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
