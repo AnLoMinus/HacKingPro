@@ -72,6 +72,7 @@ HacKingPro - Hack Like A Pro !
       - [ ] [RED_HAWK](https://github.com/Tuhinshubhra/RED_HAWK)
     - [ ] 02 - Networks Information
       - [ ] [nmap](https://github.com/nmap/nmap)
+      - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
     - [ ] 03 - Social Information
       - [ ] [sherlock](https://github.com/sherlock-project/sherlock)
       - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher)
@@ -98,6 +99,9 @@ HacKingPro - Hack Like A Pro !
     - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools)
     - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
     - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
+    - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit)
+    - [ ] [ffuf](https://github.com/ffuf/ffuf)
+    - [ ] 
   - ## 04 - Database Assessment
     - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
   - ## 05 - Password HacKing
@@ -182,6 +186,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [androidsploit](https://github.com/Hackeralok119/androidsploit)
   - ## pt - Penetration Testing
     - [ ] [Brutal](https://github.com/Screetsec/Brutal) 
+    - [ ] [PenBox](https://github.com/x3omdax/PenBox)
 
 ---
 
