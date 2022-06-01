@@ -19,6 +19,7 @@ HacKingPro - Hack Like A Pro !
   - [ ] 00 - Anonymity
     - [ ] 00 - Firewall Rules
     - [ ] 01 - Clear Logs
+      - [ ] [CoverMyAss](https://github.com/sundowndev/covermyass)
     - [ ] 02 - Clear History
     - [ ] 03 - Change MAC Address
     - [ ] 04 - Change IP Address
