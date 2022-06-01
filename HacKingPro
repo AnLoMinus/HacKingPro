@@ -128,6 +128,7 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Phone: ${BRed}${targetPhone}
 
+          ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
           ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping
 
           ${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
@@ -299,6 +300,48 @@ ${BCyan}            └──╼ ")
       ;;
       5 )
       echo "\n\t\t${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing"
+      ;;
+      i|I )
+      # checking for system root access
+      if [ `command -v sudo` ]; then
+        sudo="sudo"
+      else
+        sudo=""
+      fi
+      # checking for system home dir
+      if [ -d $HOME ]; then
+        home=$HOME
+      else
+        home="~/"
+      fi
+      # checking for system bin dir
+      if [ -d /data/data/com.termux/files/usr/bin ]; then
+        bin="/data/data/com.termux/files/usr/bin"
+      elif [ -d /usr/local/bin ]; then
+        bin="/usr/local/bin"
+      elif [ -d /bin ]; then
+        bin="/bin"
+      elif [ -d /sbin ]; then
+        bin="/sbin"
+      fi
+      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LGrey}Installing HacKingPro On the System"
+      sleep 1
+      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LGrey}Cloning Into [~/HacKingPro]"
+      sleep 1
+      git clone https://github.com/Anlominus/HacKingPro.git ~/HacKingPro
+      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LGrey}Copying Into [~${bin}HacKingPro]"
+      sleep 1
+      sudo cp ~/HacKingPro/HacKingPro $bin/HacKingPro
+      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LGrey} Giving all Permission To [~/${bin}HacKingPro]"
+      sleep 1
+      sudo chmod 777 $bin/HacKingPro
+      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LGrey} Successfully Installed"
+      sleep 1
+      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LGrey} Open New Terminal And type [:~> HacKingPro ] "
+      sleep 1
+      echo " "
+      read -p " Press Enter To Close: " finished
+      exit
       ;;
       x )
       clear
