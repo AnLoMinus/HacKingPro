@@ -128,7 +128,7 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Phone: ${BRed}${targetPhone}
 
-          ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
+          ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
           ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping
 
           ${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
@@ -324,20 +324,20 @@ ${BCyan}            └──╼ ")
       elif [ -d /sbin ]; then
         bin="/sbin"
       fi
-      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${BYellow}Installing HacKingPro On the System \n"
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${BYellow}Installing HacKingPro On the System \n"
       sleep 1
-      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LYellow}Cloning Into [~/HacKingPro] \n"
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Cloning Into [~/HacKingPro] \n"
       sleep 1
       git clone https://github.com/Anlominus/HacKingPro.git ~/HacKingPro
-      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LYellow}Copying Into [~${bin}/HacKingPro] \n"
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Copying Into [~${bin}/HacKingPro] \n"
       sleep 1
       sudo cp ~/HacKingPro/HacKingPro $bin/HacKingPro
-      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LYellow}Giving all Permission To [~${bin}/HacKingPro] \n"
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Giving all Permission To [~${bin}/HacKingPro] \n"
       sleep 1
       sudo chmod 777 $bin/HacKingPro
-      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${LGreen}Successfully Installed \n"
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGreen}Successfully Installed \n"
       sleep 1
-      echo "\n\t\t ${BRed}[${LGrey}i${BRed}]${BBlue} - ${BGreen}Open New Terminal And type [:~> HacKingPro ]  \n"
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${BGreen}Open New Terminal And type [:~> HacKingPro ]  \n"
       sleep 1
       echo " "
       read -p " Press Enter To Close: " finished
