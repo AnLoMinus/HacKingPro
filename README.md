@@ -152,6 +152,7 @@ HacKingPro - Hack Like A Pro !
   - [ ] 13 - Social Engineering
     - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox)
     - [ ] [Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker)
+    - [ ] [Cam-Hackers](https://github.com/AngelSecurityTeam/Cam-Hackers)
   - [ ] 14 - Privilege Enumeration & Escalation
     - [ ] Linux Enumeration:
       - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
