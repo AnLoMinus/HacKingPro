@@ -103,7 +103,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [hashcat](https://github.com/hashcat/hashcat)
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
     - [ ] [Decodify](https://github.com/s0md3v/Decodify)
-    - [ ] 
+    - [ ] [BluForce-FB](https://github.com/AngelSecurityTeam/BluForce-FB)
   - ## 06 - Wireless HacKing
     - [ ] [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng)
     - [ ] [FruityWifi](https://github.com/xtr4nge/FruityWifi)
