@@ -156,6 +156,10 @@ HacKingPro - Hack Like A Pro !
     - [ ]
   - [ ] 15 - Malware Analysis Labs/Tools
   - [ ] 16 - Covering Tracks
+  - [ ] aio - All In One
+    - [ ] [Hackingtool](https://github.com/Z4nzu/hackingtool)
+  - [ ] arm - Android HacKing
+    - [ ] [androidsploit](https://github.com/Hackeralok119/androidsploit)
 
 ---
 
