@@ -73,6 +73,7 @@ HacKingPro - Hack Like A Pro !
       - [ ] [nmap](https://github.com/nmap/nmap)
     - [ ] 03 - Social Information
       - [ ] [sherlock](https://github.com/sherlock-project/sherlock)
+      - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher)
     - [ ] 04 - SubDomain Information
       - [ ] [Anubis](https://github.com/jonluca/Anubis)
   - [ ] 02 - Vulnerability Assessment
