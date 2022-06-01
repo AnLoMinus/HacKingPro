@@ -122,6 +122,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [Wifi-hacking](https://github.com/sajidhasan15/Wifi-hacking)
     - [ ] [hack-captive-portals](https://github.com/systematicat/hack-captive-portals)
     - [ ] [HacKingWiFi](https://github.com/Anlominus/HacKingWiFi)
+    - [ ] [EAPHammer](https://github.com/s0lst1c3/eaphammer)
   - [ ] 07 - Reverse Engineering
   - [ ] 08 - Exploit Frameworks & DataBases
     - [ ] [Bashark](https://github.com/redcode-labs/Bashark)
