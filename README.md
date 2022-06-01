@@ -52,7 +52,7 @@ HacKingPro - Hack Like A Pro !
 
 # 📜 Menu / Sources
 - [ ] Anlominus:
-  - [ ] 00 - Anonymity
+  - ## 00 - Anonymity
     - [ ] 00 - Firewall Rules
       - [ ] [Iptables Essentials: Common Firewall Rules and Commands](https://github.com/trimstray/iptables-essentials)
     - [ ] 01 - Clear Logs
@@ -63,7 +63,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] 04 - Change IP Address
       - [ ] [kali-anonsurf](https://github.com/Und3rf10w/kali-anonsurf)
     - [ ] 05 - Change Routing    
-  - [ ] 01 - Information Gathering
+  - ## 01 - Information Gathering
     - [ ] [E4GL30S1NT](https://github.com/C0MPL3XDEV/E4GL30S1NT)
     - [ ] 01 - Systems Information
       - [ ] [Th3inspector](https://github.com/Moham3dRiahi/Th3inspector)
@@ -76,25 +76,31 @@ HacKingPro - Hack Like A Pro !
       - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher)
     - [ ] 04 - SubDomain Information
       - [ ] [Photon](https://github.com/s0md3v/Photon)
+      - [ ] [Breacher](https://github.com/s0md3v/Breacher)
+      - [ ] [Striker](https://github.com/s0md3v/Striker)
+      - [ ] [ReconDog](https://github.com/s0md3v/ReconDog)
+      - [ ] [Bolt](https://github.com/s0md3v/Bolt)
       - [ ] [XSStrike](https://github.com/s0md3v/XSStrike)
       - [ ] [Anubis](https://github.com/jonluca/Anubis)
-  - [ ] 02 - Vulnerability Assessment
+  - ## 02 - Scanning & Vulnerability Assessment
     - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
+    - [ ] [Silver](https://github.com/s0md3v/Silver)
+    - [ ] [Corsy](https://github.com/s0md3v/Corsy)
     - [ ] [PentMenu](https://github.com/GinjaChris/pentmenu)
     - [ ] [Legion](https://github.com/carlospolop/legion)
     - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
     - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
-  - [ ] 03 - Web Application HacKing
+  - ## 03 - Web Application HacKing
     - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools)
     - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
     - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
-  - [ ] 04 - Database Assessment
-  - [ ] 05 - Password HacKing
+  - ## 04 - Database Assessment
+  - ## 05 - Password HacKing
     - [ ] [pydictor](https://github.com/LandGrey/pydictor)
     - [ ] [JohnTheRipper](https://github.com/magnumripper/JohnTheRipper)
     - [ ] [hashcat](https://github.com/hashcat/hashcat)
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
-  - [ ] 06 - Wireless HacKing
+  - ## 06 - Wireless HacKing
     - [ ] [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng)
     - [ ] [FruityWifi](https://github.com/xtr4nge/FruityWifi)
     - [ ] [bettercap](https://github.com/bettercap/bettercap)
@@ -131,8 +137,8 @@ HacKingPro - Hack Like A Pro !
     - [ ] [EAPHammer](https://github.com/s0lst1c3/eaphammer)
     - [ ] [RougeWifi](https://github.com/s0meguy1/RougeWifi)
     - [ ] [c41n](https://github.com/MS-WEB-BN/c41n/)
-  - [ ] 07 - Reverse Engineering
-  - [ ] 08 - Exploit Frameworks & DataBases
+  - ## 07 - Reverse Engineering
+  - ## 08 - Exploit Frameworks & DataBases
     - [ ] [Bashark](https://github.com/redcode-labs/Bashark)
     - [ ] [Metasploit Framework](https://github.com/rapid7/metasploit-framework)
     - [ ] [BeEF](https://github.com/beefproject/beef)
@@ -146,25 +152,25 @@ HacKingPro - Hack Like A Pro !
     - [ ] [KitHack](https://github.com/AdrMXR/KitHack)
     - [ ] [PenBox](https://github.com/x3omdax/PenBox)
     - [ ] [PloitKit](https://github.com/rajeshmajumdar/PloitKit)
-  - [ ] 09 - Sniffing - Spoofing
+  - ## 09 - Sniffing - Spoofing
     - [ ] [ettercap](https://github.com/Ettercap/ettercap)
-  - [ ] 10 - Gaining & Maintaining Access
-  - [ ] 11 - Digital Forensic
-  - [ ] 12 - Analysis & Reporting
-  - [ ] 13 - Social Engineering
+  - ## 10 - Gaining & Maintaining Access
+  - ## 11 - Digital Forensic
+  - ## 12 - Analysis & Reporting
+  - ## 13 - Social Engineering
     - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox)
     - [ ] [Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker)
     - [ ] [Cam-Hackers](https://github.com/AngelSecurityTeam/Cam-Hackers)
-  - [ ] 14 - Privilege Enumeration & Escalation
+  - ## 14 - Privilege Enumeration & Escalation
     - [ ] Linux Enumeration:
       - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
       - [ ] [PEASS-ng](https://github.com/carlospolop/PEASS-ng)
     - [ ]
-  - [ ] 15 - Malware Analysis Labs/Tools
-  - [ ] 16 - Covering Tracks
-  - [ ] aio - All In One
+  - ## 15 - Malware Analysis Labs/Tools
+  - ## 16 - Covering Tracks
+  - ## aio - All In One
     - [ ] [Hackingtool](https://github.com/Z4nzu/hackingtool)
-  - [ ] arm - Android HacKing
+  - ## arm - Android HacKing
     - [ ] [androidsploit](https://github.com/Hackeralok119/androidsploit)
 
 ---
