@@ -75,6 +75,7 @@ HacKingPro - Hack Like A Pro !
       - [ ] [sherlock](https://github.com/sherlock-project/sherlock)
       - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher)
     - [ ] 04 - SubDomain Information
+      - [ ] [Photon](https://github.com/s0md3v/Photon)
       - [ ] [Anubis](https://github.com/jonluca/Anubis)
   - [ ] 02 - Vulnerability Assessment
     - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
