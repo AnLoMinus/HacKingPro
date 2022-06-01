@@ -88,6 +88,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
   - [ ] 04 - Database Assessment
   - [ ] 05 - Password HacKing
+    - [ ] [pydictor](https://github.com/LandGrey/pydictor)
     - [ ] [JohnTheRipper](https://github.com/magnumripper/JohnTheRipper)
     - [ ] [hashcat](https://github.com/hashcat/hashcat)
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
@@ -149,6 +150,8 @@ HacKingPro - Hack Like A Pro !
   - [ ] 11 - Digital Forensic
   - [ ] 12 - Analysis & Reporting
   - [ ] 13 - Social Engineering
+    - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox)
+    - [ ] [Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker)
   - [ ] 14 - Privilege Enumeration & Escalation
     - [ ] Linux Enumeration:
       - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
