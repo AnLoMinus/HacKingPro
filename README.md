@@ -82,6 +82,7 @@ HacKingPro - Hack Like A Pro !
       - [ ] [Bolt](https://github.com/s0md3v/Bolt)
       - [ ] [XSStrike](https://github.com/s0md3v/XSStrike)
       - [ ] [Anubis](https://github.com/jonluca/Anubis)
+      - [ ] [Sudomy](https://github.com/screetsec/Sudomy)
   - ## 02 - Scanning & Vulnerability Assessment
     - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
     - [ ] [Silver](https://github.com/s0md3v/Silver)
@@ -145,6 +146,7 @@ HacKingPro - Hack Like A Pro !
   - ## 07 - Reverse Engineering
   - ## 08 - Exploit Frameworks & DataBases
     - [ ] [Bashark](https://github.com/redcode-labs/Bashark)
+    - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit)
     - [ ] [Metasploit Framework](https://github.com/rapid7/metasploit-framework)
     - [ ] [BeEF](https://github.com/beefproject/beef)
     - [ ] [The Social-Engineer Toolkit (SET)](https://github.com/trustedsec/social-engineer-toolkit)
@@ -177,6 +179,8 @@ HacKingPro - Hack Like A Pro !
     - [ ] [Hackingtool](https://github.com/Z4nzu/hackingtool)
   - ## arm - Android HacKing
     - [ ] [androidsploit](https://github.com/Hackeralok119/androidsploit)
+  - ## pt - Penetration Testing
+    - [ ] [Brutal](https://github.com/Screetsec/Brutal) 
 
 ---
 
