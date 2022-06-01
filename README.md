@@ -92,6 +92,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
   - ## 03 - Web Application HacKing
     - [ ] [SQLMate](https://github.com/s0md3v/sqlmate)
+    - [ ] [Tishna](https://github.com/marciopocebon/Tishna)
     - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools)
     - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
     - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
