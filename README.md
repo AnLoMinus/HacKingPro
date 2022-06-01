@@ -91,6 +91,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
     - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
   - ## 03 - Web Application HacKing
+    - [ ] [SQLMate](https://github.com/s0md3v/sqlmate)
     - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools)
     - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
     - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
@@ -100,6 +101,8 @@ HacKingPro - Hack Like A Pro !
     - [ ] [JohnTheRipper](https://github.com/magnumripper/JohnTheRipper)
     - [ ] [hashcat](https://github.com/hashcat/hashcat)
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
+    - [ ] [Decodify](https://github.com/s0md3v/Decodify)
+    - [ ] 
   - ## 06 - Wireless HacKing
     - [ ] [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng)
     - [ ] [FruityWifi](https://github.com/xtr4nge/FruityWifi)
