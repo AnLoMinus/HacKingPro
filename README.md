@@ -72,7 +72,6 @@ HacKingPro - Hack Like A Pro !
       - [ ] [RED_HAWK](https://github.com/Tuhinshubhra/RED_HAWK)
     - [ ] 02 - Networks Information
       - [ ] [nmap](https://github.com/nmap/nmap)
-      - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
     - [ ] 03 - Social Information
       - [ ] [sherlock](https://github.com/sherlock-project/sherlock)
       - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher)
@@ -93,6 +92,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [Legion](https://github.com/carlospolop/legion)
     - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
     - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
+    - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
   - ## 03 - Web Application HacKing
     - [ ] [SQLMate](https://github.com/s0md3v/sqlmate)
     - [ ] [Tishna](https://github.com/marciopocebon/Tishna)
