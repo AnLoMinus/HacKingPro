@@ -97,6 +97,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
     - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
   - ## 04 - Database Assessment
+    - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
   - ## 05 - Password HacKing
     - [ ] [pydictor](https://github.com/LandGrey/pydictor)
     - [ ] [JohnTheRipper](https://github.com/magnumripper/JohnTheRipper)
