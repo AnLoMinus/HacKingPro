@@ -76,6 +76,7 @@ HacKingPro - Hack Like A Pro !
       - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher)
     - [ ] 04 - SubDomain Information
       - [ ] [Photon](https://github.com/s0md3v/Photon)
+      - [ ] [XSStrike](https://github.com/s0md3v/XSStrike)
       - [ ] [Anubis](https://github.com/jonluca/Anubis)
   - [ ] 02 - Vulnerability Assessment
     - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
