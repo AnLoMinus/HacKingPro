@@ -10,6 +10,7 @@ HacKingPro - Hack Like A Pro !
 ---
 
 # 📜 Menu / To Do
+  - [x] [I] - Install HacKingPro On the System
   - [x] [p] - Planning and Scoping
     - [x] Asking for Target IP:
     - [x] Asking for Target Name:
