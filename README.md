@@ -85,6 +85,10 @@ HacKingPro - Hack Like A Pro !
       - [ ] [Anubis](https://github.com/jonluca/Anubis)
       - [ ] [Sudomy](https://github.com/screetsec/Sudomy)
       - [ ] [Dome](https://github.com/v4d1/Dome)
+      - [ ] [Layla](https://github.com/mthf0/layla)
+      - [ ] [SubFinder](https://github.com/projectdiscovery/subfinder)
+      - [ ] [Sublist3r](https://github.com/aboul3la/Sublist3r)
+      - [ ] [dirsearch](https://github.com/maurosoria/dirsearch)
   - ## 02 - Scanning & Vulnerability Assessment
     - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
     - [ ] [Silver](https://github.com/s0md3v/Silver)
