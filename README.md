@@ -181,40 +181,40 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [TheFatRat](https://github.com/Screetsec/TheFatRat)
     - [ ] [LAZY](https://github.com/arismelachroinos/lscript)
     - [ ] [KitHack](https://github.com/AdrMXR/KitHack)
-    - [ ] [PenBox](https://github.com/x3omdax/PenBox)
     - [ ] [PloitKit](https://github.com/rajeshmajumdar/PloitKit)
   - ## 08 - Post-Exploitation Frameworks
     - [ ] [Empire](https://github.com/BC-SECURITY/Empire): Empire is a PowerShell and Python 3.x post-exploitation framework.
     - [ ] [Shad0w](https://github.com/bats3c/shad0w): A post exploitation framework designed to operate covertly on heavily monitored environments
     - [ ] [PhpSploit](https://github.com/nil0x42/phpsploit): Full-featured C2 framework which silently persists on webserver with a single-line PHP backdoor
   - Remote Administration Tool
-    - [ ] [CHAOS](https://github.com/tiagorlampert/CHAOS)
-    - [ ] [BlazeRAT](https://github.com/LimerBoy/BlazeRAT)
+    - [ ] [CHAOS](https://github.com/tiagorlampert/CHAOS): CHAOS: Remote Administration Tool <br> CHAOS is a free and open-source Remote Administration Tool that allow generate binaries to control remote operating systems.
+    - [ ] [BlazeRAT](https://github.com/LimerBoy/BlazeRAT): 🔥 Control your 🐧 Linux home computer with telegram bot.
+
   - ## 09 - Sniffing - Spoofing
-    - [ ] [ettercap](https://github.com/Ettercap/ettercap)
+    - [ ] [ettercap](https://github.com/Ettercap/ettercap):  A suite for man in the middle attacks
   - ## 10 - Gaining & Maintaining Access
   - ## 11 - Digital Forensic
   - ## 12 - Analysis & Reporting
   - ## 13 - Social Engineering
-    - [ ] [PhishMailer](https://github.com/BiZken/PhishMailer)
-    - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox)
-    - [ ] [Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker)
+    - [ ] [PhishMailer](https://github.com/BiZken/PhishMailer): Generate Professional Phishing Emails Fast And Easy
+    - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox): SocialBox is a Bruteforce Attack Framework [ Facebook , Gmail , Instagram ,Twitter ] , Coded By Belahsan Ouerghi
+    - [ ] [Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker): Social engineering tool [Access Webcam & Microphone & Location Finder] With Python
     - [ ] [Cam-Hackers](https://github.com/AngelSecurityTeam/Cam-Hackers)
   - ## 14 - Privilege Enumeration & Escalation
     - [ ] Linux Enumeration:
-      - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
-      - [ ] [PEASS-ng](https://github.com/carlospolop/PEASS-ng)
-      - [ ] [enum4linux-ng](https://github.com/cddmp/enum4linux-ng)
+      - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings): A list of useful payloads and bypass for Web Application Security and Pentest/CTF
+      - [ ] [PEASS-ng](https://github.com/carlospolop/PEASS-ng): PEASS-ng - Privilege Escalation Awesome Scripts SUITE new generation
+      - [ ] [enum4linux-ng](https://github.com/cddmp/enum4linux-ng): A next generation version of enum4linux (a Windows/Samba enumeration tool) with additional features like JSON/YAML export. Aimed for security professionals and CTF players.
     - [ ]
   - ## 15 - Malware Analysis Labs/Tools
   - ## 16 - Covering Tracks
   - ## aio - All In One
-    - [ ] [Hackingtool](https://github.com/Z4nzu/hackingtool)
+    - [ ] [Hackingtool](https://github.com/Z4nzu/hackingtool): All in One Hacking tool For Hackers🥇
   - ## arm - Android HacKing
-    - [ ] [androidsploit](https://github.com/Hackeralok119/androidsploit)
+    - [ ] [androidsploit](https://github.com/Hackeralok119/androidsploit): A tool for remote ADB exploitation in Python3.
   - ## pt - Penetration Testing
-    - [ ] [Brutal](https://github.com/Screetsec/Brutal) 
-    - [ ] [PenBox](https://github.com/x3omdax/PenBox)
+    - [ ] [Brutal](https://github.com/Screetsec/Brutal): Brutal is a toolkit to quickly create various payload,powershell attack , virus attack and launch listener for a Human Interface Device
+    - [ ] [PenBox](https://github.com/x3omdax/PenBox): A Penetration Testing Framework , The Hacker’s Repo our hope is in the last version we will have evry script that a hacker needs #Information Gathering :
     - [ ] [Pentest-Tools-Framework](https://github.com/pikpikcu/Pentest-Tools-Framework): About
 Pentest Tools Framework is a database of exploits, Scanners and tools for penetration testing. Pentest is a powerful framework includes a lot of tools for beginners. You can explore kernel vulnerabilities, network vulnerabilities
 
