@@ -92,6 +92,7 @@ HacKingPro - Hack Like A Pro !
       - [ ] [SubFinder](https://github.com/projectdiscovery/subfinder)
       - [ ] [Sublist3r](https://github.com/aboul3la/Sublist3r)
       - [ ] [dirsearch](https://github.com/maurosoria/dirsearch)
+      - [ ] [XRCross](https://github.com/pikpikcu/XRCross)
   - ## 02 - Scanning & Vulnerability Assessment
     - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
     - [ ] [Silver](https://github.com/s0md3v/Silver)
