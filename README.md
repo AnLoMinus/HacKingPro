@@ -167,6 +167,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [PloitKit](https://github.com/rajeshmajumdar/PloitKit)
   - ## 08 - Post-Exploitation Frameworks
     - [ ] [Empire](https://github.com/BC-SECURITY/Empire)
+    - [ ] [Shad0w](https://github.com/bats3c/shad0w)
   - ## 09 - Sniffing - Spoofing
     - [ ] [ettercap](https://github.com/Ettercap/ettercap)
   - ## 10 - Gaining & Maintaining Access
