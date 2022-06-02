@@ -168,6 +168,9 @@ HacKingPro - Hack Like A Pro !
   - ## 08 - Post-Exploitation Frameworks
     - [ ] [Empire](https://github.com/BC-SECURITY/Empire)
     - [ ] [Shad0w](https://github.com/bats3c/shad0w)
+  - Remote Administration Tool
+    - [ ] [CHAOS](https://github.com/tiagorlampert/CHAOS)
+    - [ ] [BlazeRAT](https://github.com/LimerBoy/BlazeRAT)
   - ## 09 - Sniffing - Spoofing
     - [ ] [ettercap](https://github.com/Ettercap/ettercap)
   - ## 10 - Gaining & Maintaining Access
