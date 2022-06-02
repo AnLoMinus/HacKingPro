@@ -98,6 +98,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
     - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
     - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
+    - [ ] [Kerbrute](https://github.com/ropnop/kerbrute)
   - ## 03 - Web Application HacKing
     - [ ] [SQLMate](https://github.com/s0md3v/sqlmate)
     - [ ] [Tishna](https://github.com/marciopocebon/Tishna)
@@ -117,7 +118,6 @@ HacKingPro - Hack Like A Pro !
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
     - [ ] [Decodify](https://github.com/s0md3v/Decodify)
     - [ ] [BluForce-FB](https://github.com/AngelSecurityTeam/BluForce-FB)
-    - [ ] [Kerbrute](https://github.com/ropnop/kerbrute)
   - ## 06 - Wireless HacKing
     - [ ] [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng)
     - [ ] [FruityWifi](https://github.com/xtr4nge/FruityWifi)
