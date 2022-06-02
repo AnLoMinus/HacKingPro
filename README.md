@@ -207,7 +207,8 @@ HacKingPro - Hack Like A Pro !
   - ## pt - Penetration Testing
     - [ ] [Brutal](https://github.com/Screetsec/Brutal) 
     - [ ] [PenBox](https://github.com/x3omdax/PenBox)
-    - [ ] [Pentest-Tools-Framework](https://github.com/pikpikcu/Pentest-Tools-Framework)
+    - [ ] [Pentest-Tools-Framework](https://github.com/pikpikcu/Pentest-Tools-Framework): About
+Pentest Tools Framework is a database of exploits, Scanners and tools for penetration testing. Pentest is a powerful framework includes a lot of tools for beginners. You can explore kernel vulnerabilities, network vulnerabilities
 
 ---
 
