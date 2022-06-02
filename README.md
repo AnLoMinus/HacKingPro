@@ -150,6 +150,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [c41n](https://github.com/MS-WEB-BN/c41n/)
   - ## 07 - Reverse Engineering
   - ## 08 - Exploit Frameworks & DataBases
+    - [ ] [Vajra](https://github.com/r3curs1v3-pr0xy/vajra)
     - [ ] [Bashark](https://github.com/redcode-labs/Bashark)
     - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit)
     - [ ] [Metasploit Framework](https://github.com/rapid7/metasploit-framework)
