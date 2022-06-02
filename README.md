@@ -84,6 +84,7 @@ HacKingPro - Hack Like A Pro !
       - [ ] [XSStrike](https://github.com/s0md3v/XSStrike)
       - [ ] [Anubis](https://github.com/jonluca/Anubis)
       - [ ] [Sudomy](https://github.com/screetsec/Sudomy)
+      - [ ] [Dome](https://github.com/v4d1/Dome)
   - ## 02 - Scanning & Vulnerability Assessment
     - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
     - [ ] [Silver](https://github.com/s0md3v/Silver)
