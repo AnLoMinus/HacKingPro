@@ -117,6 +117,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
     - [ ] [Decodify](https://github.com/s0md3v/Decodify)
     - [ ] [BluForce-FB](https://github.com/AngelSecurityTeam/BluForce-FB)
+    - [ ] [Kerbrute](https://github.com/ropnop/kerbrute)
   - ## 06 - Wireless HacKing
     - [ ] [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng)
     - [ ] [FruityWifi](https://github.com/xtr4nge/FruityWifi)
@@ -191,7 +192,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] Linux Enumeration:
       - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
       - [ ] [PEASS-ng](https://github.com/carlospolop/PEASS-ng)
-      - [ ] 
+      - [ ] [enum4linux-ng](https://github.com/cddmp/enum4linux-ng)
     - [ ]
   - ## 15 - Malware Analysis Labs/Tools
   - ## 16 - Covering Tracks
