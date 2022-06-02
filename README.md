@@ -71,6 +71,9 @@ HacKingPro - Hack Like A Pro !
       - [ ] [theHarvester](https://github.com/laramies/theHarvester)
     - [ ] 02 - Networks Information
       - [ ] [nmap](https://github.com/nmap/nmap)
+      - [ ] [Impacket](https://github.com/SecureAuthCorp/impacket): Impacket is a collection of Python classes for working with network protocols. Impacket is focused on providing low-level programmatic access to the packets and for some protocols (e.g. SMB1-3 and MSRPC) the protocol implementation itself. Packets can be constructed from scratch, as well as parsed from raw data, and the object-oriented API makes it simple to work with deep hierarchies of protocols. The library provides a set of tools as examples of what can be done within the context of this library.
+
+
     - [ ] 03 - Social Information
       - [ ] [sherlock](https://github.com/sherlock-project/sherlock)
       - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher)
@@ -98,7 +101,8 @@ HacKingPro - Hack Like A Pro !
     - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
     - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
     - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
-    - [ ] [Kerbrute](https://github.com/ropnop/kerbrute)
+    - [ ] [Kerbrute](https://github.com/ropnop/kerbrute): A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
+
   - ## 03 - Web Application HacKing
     - [ ] [SQLMate](https://github.com/s0md3v/sqlmate)
     - [ ] [Tishna](https://github.com/marciopocebon/Tishna)
