@@ -102,6 +102,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit)
     - [ ] [ffuf](https://github.com/ffuf/ffuf)
     - [ ] [HTTrack](https://github.com/xroche/httrack)
+    - [ ] [PyPhisher](https://github.com/KasRoudra/PyPhisher)
   - ## 04 - Database Assessment
     - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
   - ## 05 - Password HacKing
