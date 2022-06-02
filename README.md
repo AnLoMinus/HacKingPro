@@ -180,6 +180,7 @@ HacKingPro - Hack Like A Pro !
   - ## 08 - Post-Exploitation Frameworks
     - [ ] [Empire](https://github.com/BC-SECURITY/Empire)
     - [ ] [Shad0w](https://github.com/bats3c/shad0w)
+    - [ ] [PhpSploit](https://github.com/nil0x42/phpsploit)
   - Remote Administration Tool
     - [ ] [CHAOS](https://github.com/tiagorlampert/CHAOS)
     - [ ] [BlazeRAT](https://github.com/LimerBoy/BlazeRAT)
