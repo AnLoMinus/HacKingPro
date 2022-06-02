@@ -165,6 +165,8 @@ HacKingPro - Hack Like A Pro !
     - [ ] [KitHack](https://github.com/AdrMXR/KitHack)
     - [ ] [PenBox](https://github.com/x3omdax/PenBox)
     - [ ] [PloitKit](https://github.com/rajeshmajumdar/PloitKit)
+  - ## 08 - Post-Exploitation Frameworks
+    - [ ] [Empire](https://github.com/BC-SECURITY/Empire)
   - ## 09 - Sniffing - Spoofing
     - [ ] [ettercap](https://github.com/Ettercap/ettercap)
   - ## 10 - Gaining & Maintaining Access
