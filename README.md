@@ -178,9 +178,9 @@ HacKingPro - Hack Like A Pro !
     - [ ] [PenBox](https://github.com/x3omdax/PenBox)
     - [ ] [PloitKit](https://github.com/rajeshmajumdar/PloitKit)
   - ## 08 - Post-Exploitation Frameworks
-    - [ ] [Empire](https://github.com/BC-SECURITY/Empire)
-    - [ ] [Shad0w](https://github.com/bats3c/shad0w)
-    - [ ] [PhpSploit](https://github.com/nil0x42/phpsploit)
+    - [ ] [Empire](https://github.com/BC-SECURITY/Empire): Empire is a PowerShell and Python 3.x post-exploitation framework.
+    - [ ] [Shad0w](https://github.com/bats3c/shad0w): A post exploitation framework designed to operate covertly on heavily monitored environments
+    - [ ] [PhpSploit](https://github.com/nil0x42/phpsploit): Full-featured C2 framework which silently persists on webserver with a single-line PHP backdoor
   - Remote Administration Tool
     - [ ] [CHAOS](https://github.com/tiagorlampert/CHAOS)
     - [ ] [BlazeRAT](https://github.com/LimerBoy/BlazeRAT)
