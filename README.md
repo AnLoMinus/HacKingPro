@@ -101,7 +101,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
     - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit)
     - [ ] [ffuf](https://github.com/ffuf/ffuf)
-    - [ ] 
+    - [ ] [HTTrack](https://github.com/xroche/httrack)
   - ## 04 - Database Assessment
     - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
   - ## 05 - Password HacKing
@@ -185,6 +185,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] Linux Enumeration:
       - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
       - [ ] [PEASS-ng](https://github.com/carlospolop/PEASS-ng)
+      - [ ] 
     - [ ]
   - ## 15 - Malware Analysis Labs/Tools
   - ## 16 - Covering Tracks
