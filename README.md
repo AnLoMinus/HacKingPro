@@ -111,15 +111,15 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [Kerbrute](https://github.com/ropnop/kerbrute): A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
 
   - ## 03 - Web Application HacKing
-    - [ ] [SQLMate](https://github.com/s0md3v/sqlmate)
-    - [ ] [Tishna](https://github.com/marciopocebon/Tishna)
-    - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools)
-    - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
-    - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner)
-    - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit)
-    - [ ] [ffuf](https://github.com/ffuf/ffuf)
-    - [ ] [HTTrack](https://github.com/xroche/httrack)
-    - [ ] [PyPhisher](https://github.com/KasRoudra/PyPhisher)
+    - [ ] [SQLMate](https://github.com/s0md3v/sqlmate): There are some features that we think SQLMap should have. <br> Like finding admin panel of the target, better hash cracking etc. If you think the same, SQLMate is for you.
+    - [ ] [Tishna](https://github.com/marciopocebon/Tishna): Software have 56 Options with full automation and can be use for web security swiss knife
+    - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools): The all-in-one Red Team extension for Web Pentester 🛠 <br> HackTools, is a web extension facilitating your web application penetration tests, it includes cheat sheets as well as all the tools used during a test such as XSS payloads, Reverse shells and much more.
+    - [ ] [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS): BruteXSS is a tool written in python simply to find XSS vulnerabilities in web application. <br> This tool was originally developed by Shawar Khan in CLI. I just redesigned it and made it GUI for more convienience.
+    - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner): Offensive Security Framework for Vulnerability Scanning & Pentesting <br> Popular Pentesting scanner in Python3.6 for SQLi/XSS/LFI/RFI and other Vulns
+    - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit): BruteSploit is a collection of method for automated Generate, Bruteforce and Manipulation wordlist with interactive shell. That can be used during a penetration test to enumerate and maybe can be used in CTF for manipulation,combine,transform and permutation some words or file text :p
+    - [ ] [ffuf](https://github.com/ffuf/ffuf): Fast web fuzzer written in Go
+    - [ ] [HTTrack](https://github.com/xroche/httrack): HTTrack Website Copier, copy websites to your computer (Official repository)
+    - [ ] [PyPhisher](https://github.com/KasRoudra/PyPhisher): Easy to use phishing tool with 65 website templates. Author is not responsible for any misuse. <br> Ultimate phishing tool in python. Includes popular websites like facebook, twitter, instagram, github, reddit, gmail and many others.
   - ## 04 - Database Assessment
     - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
   - ## 05 - Password HacKing
