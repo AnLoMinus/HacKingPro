@@ -53,7 +53,7 @@ HacKingPro - Hack Like A Pro !
 
 # 📜 Menu / Sources
 - [ ] Anlominus:
-  - ## 00 - Anonymity
+  - ## 🔸 00 - Anonymity
     - [ ] 00 - Firewall Rules
       - [ ] [Iptables Essentials](https://github.com/trimstray/iptables-essentials): Common Firewall Rules and Commands
     - [ ] 01 - Clear Logs
@@ -64,7 +64,7 @@ HacKingPro - Hack Like A Pro !
     - [ ] 04 - Change IP Address
       - [ ] [kali-anonsurf](https://github.com/Und3rf10w/kali-anonsurf): ParrotSec's anonsurf and stealth, ported to work with Kali Linux.
     - [ ] 05 - Change Routing    
-  - ## 01 - Information Gathering
+  - ## 🔸 01 - Information Gathering
     - [ ] [E4GL30S1NT](https://github.com/C0MPL3XDEV/E4GL30S1NT): E4GL30S1NT - Simple Information Gathering Tool
     - [ ] 01 - Systems Information
       - [ ] [Th3inspector](https://github.com/Moham3dRiahi/Th3inspector): 
@@ -75,13 +75,13 @@ penetration test or red team engagement. <br>
 Use it for open source intelligence (OSINT) gathering to help determine a company's external threat landscape on the internet. <br>
 The tool gathers emails, names, subdomains, IPs and URLs using
 multiple public data sources that include:
-    - [ ] 02 - Networks Information
+    - [ ] 🔸 02 - Networks Information
       - [ ] [nmap](https://github.com/nmap/nmap): Nmap - the Network Mapper. 
       - [ ] [Impacket](https://github.com/SecureAuthCorp/impacket): Impacket is a collection of Python classes for working with network protocols. Impacket is focused on providing low-level programmatic access to the packets and for some protocols (e.g. SMB1-3 and MSRPC) the protocol implementation itself. Packets can be constructed from scratch, as well as parsed from raw data, and the object-oriented API makes it simple to work with deep hierarchies of protocols. The library provides a set of tools as examples of what can be done within the context of this library.
-    - [ ] 03 - Social Information
+    - [ ] 🔸 03 - Social Information
       - [ ] [sherlock](https://github.com/sherlock-project/sherlock): 🔎 Hunt down social media accounts by username across social networks
       - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher): Automated phishing tool made by AnonyminHack5 to phish various sites with 40+ templates and also has an inbuilt ngrok already to easily help you generate your link and send it to your victim. Anonphisher tool is made with pure bash script and needs required packages for it to work.
-    - [ ] 04 - SubDomain Information
+    - [ ] 🔸 04 - SubDomain Information
       - [ ] [RED_HAWK](https://github.com/Tuhinshubhra/RED_HAWK): All in one tool for Information Gathering, Vulnerability Scanning and Crawling. A must have tool for all penetration testers
       - [ ] [Photon](https://github.com/s0md3v/Photon): Incredibly fast crawler designed for OSINT.
       - [ ] [Breacher](https://github.com/s0md3v/Breacher):An advanced multithreaded admin panel finder written in python. <br> A script to find admin login pages and EAR vulnerabilites.
