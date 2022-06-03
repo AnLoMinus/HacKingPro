@@ -304,15 +304,15 @@ ${BCyan}            └──╼ ")
       li|LI )
       clear
       echo "\n\t\t${BRed}[${LGrey}LI${BRed}]${BBlue} - ${DGrey}Local Info"
-      echo "\n\t\t 🔸 ~ [ System info ] ~ 🔸"
-      echo "\n\t\t 🔸 ~ ${LBlue} Hostname: : ${BYellow} $(hostname)"
-      echo "\n\t\t 🔸 ~ ${LBlue} Distro: ${BYellow} $(uname)"
-      echo "\n\t\t 🔸 ~ ${LBlue} Kernel / Architecture: ${BYellow} $(uname -m)"
-      echo "\n\t\t 🔸 ~ ${LBlue} Machine Hardware Processor Architecture Name: ${BYellow} $(uname -p)"
-      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Release: ${BYellow} $(uname -r)"
-      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Name: ${BYellow} $(uname -s)"
-      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Version: ${BYellow} $(uname -v)" 
-      ;;
+      echo "\n\t\t 🔸 ~ [ System info ] ~ 🔸\n"
+      echo "\n\t\t 🔸 ~ ${LBlue} Hostname: : ${BYellow} $(hostname)\n"
+      echo "\n\t\t 🔸 ~ ${LBlue} Distro: ${BYellow} $(uname)\n"
+      echo "\n\t\t 🔸 ~ ${LBlue} Kernel / Architecture: ${BYellow} $(uname -m)\n"
+      echo "\n\t\t 🔸 ~ ${LBlue} Machine Hardware Processor Architecture Name: ${BYellow} $(uname -p)\n"
+      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Release: ${BYellow} $(uname -r)\n"
+      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Name: ${BYellow} $(uname -s)\n"
+      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Version: ${BYellow} $(uname -v)\n"
+       ;;
       i|I )
       # checking for system root access
       if [ `command -v sudo` ]; then
