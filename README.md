@@ -54,19 +54,19 @@ HacKingPro - Hack Like A Pro !
 # 📜 Menu / Sources
 - [ ] Anlominus:
   - ## 🔸 00 - Anonymity
-    - [ ] 00 - Firewall Rules
+    - [ ] 🔸 00 - Firewall Rules
       - [ ] [Iptables Essentials](https://github.com/trimstray/iptables-essentials): Common Firewall Rules and Commands
-    - [ ] 01 - Clear Logs
+    - [ ] 🔸 01 - Clear Logs
       - [ ] [CoverMyAss](https://github.com/sundowndev/covermyass): Shell script to cover your tracks on UNIX systems. Designed for pen testing "covering tracks" phase, before exiting the infected server. Or, permanently disable system logs for post-exploitation.
       - [ ] [Nullog](https://github.com/MrEmpy/Nullog): Nullog is a tool created in Shell Script with the aim of automating the cleaning of logs after an invasion of a Linux system.
-    - [ ] 02 - Clear History
-    - [ ] 03 - Change MAC Address
-    - [ ] 04 - Change IP Address
+    - [ ] 🔸 02 - Clear History
+    - [ ] 🔸 03 - Change MAC Address
+    - [ ] 🔸 04 - Change IP Address
       - [ ] [kali-anonsurf](https://github.com/Und3rf10w/kali-anonsurf): ParrotSec's anonsurf and stealth, ported to work with Kali Linux.
-    - [ ] 05 - Change Routing    
+    - [ ] 🔸 05 - Change Routing    
   - ## 🔸 01 - Information Gathering
     - [ ] [E4GL30S1NT](https://github.com/C0MPL3XDEV/E4GL30S1NT): E4GL30S1NT - Simple Information Gathering Tool
-    - [ ] 01 - Systems Information
+    - [ ] 🔸 01 - Systems Information
       - [ ] [Th3inspector](https://github.com/Moham3dRiahi/Th3inspector): 
 Th3inspector 🕵️ best tool for Information Gathering 🔎 <br>
       ⭐ All in one tool for Information Gathering ⭐
