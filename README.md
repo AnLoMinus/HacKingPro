@@ -236,4 +236,55 @@ Pentest Tools Framework is a database of exploits, Scanners and tools for penetr
 
 ---
 
+# 🔶 To Do ~> 📜 System Info Checker Script
+* during operation, temporary files can be created in `/tmp/HacKingPro.Log` catalog
+
+## Features list
+* 🔸 System info
+  * [ ] Hostname
+  * [ ] Distributive
+  * [ ] Local IP
+  * [ ] External IP
+  * [ ] SELinux status
+  * [ ] Kernel / Architecture
+  * [ ] Load average
+  * [ ] Active user
+* 🔸 CPU
+  * [ ] Model name
+  * [ ] Vendor
+  * [ ] Cores / MHz
+  * [ ] Hypervizor vendor
+  * [ ] CPU usage
+* 🔸 Memory usage
+  * [ ] Total / Usage
+  * [ ] Swap total / Usage
+* 🔸 Boot information
+  * [ ] Last boot
+  * [ ] Uptime
+  * [ ] Active user
+  * [ ] Last 3 reboot
+  * [ ] Last logons info
+* 🔸 Disk Usage
+  * [ ] Mount information
+  * [ ] Disk utilization
+  * [ ] Disc IO speed (Read / Write)
+  * [ ] Show read-only mounted devices
+* 🔸 Average information
+  * [ ] Top 5 memory usage processes
+  * [ ] Top 5 CPU usage processes
+* 🔸 Speedtest
+  * [ ] Washington, D.C. (east)
+  * [ ] San Jose, California (west)
+  * [ ] Frankfurt, DE, JP
+* 🔸 Checking systemd services status
+  * [ ] You can define services list
+  * [ ] Show information form default list (nginx, mongo, rsyslog and etc)
+* 🔸 Bash users
+* 🔸 Who logged
+* 🔸 Listen ports
+* 🔸 Unowned files
+* 🔸 User list from processes
+
+---
+
 ![Alt](https://repobeats.axiom.co/api/embed/fc0848f26074f3b91e5236ae960338faa3d9fb1e.svg "Repobeats analytics image")
