@@ -301,6 +301,17 @@ ${BCyan}            └──╼ ")
       5 )
       echo "\n\t\t${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing"
       ;;
+      li|LI )
+      echo "\n\t\t${BRed}[${LGrey}LI${BRed}]${BBlue} - ${DGrey}Local Info"
+      echo " 
+\n\t\t 🔸 ~ [ System info ] ~ 🔸
+ \n\t\t 🔸 ~ ${LBlue} Hostname: : ${BYellow} ${XXXX}
+ \n\t\t 🔸 ~ ${LBlue} Distro: ${BYellow} ${XXXX}
+ \n\t\t 🔸 ~ ${LBlue} Local IP: ${BYellow} ${XXXX}
+ \n\t\t 🔸 ~ ${LBlue} External IP: ${BYellow} ${XXXX}
+ \n\t\t 🔸 ~ ${LBlue} Kernel / Architecture: ${BYellow} ${XXXX}
+ "
+      ;;
       i|I )
       # checking for system root access
       if [ `command -v sudo` ]; then
