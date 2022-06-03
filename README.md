@@ -211,6 +211,7 @@ given URL. It combines the outputs of other known tools into a single one.
   - ## 🔸 10 - Gaining & Maintaining Access
   - ## 🔸 11 - Digital Forensic
   - ## 🔸 12 - Analysis & Reporting
+    - [ ] [Diablo](https://github.com/Anlominus/Diablo): Diablo ~ Hacking / Pentesting & Reporting
   - ## 🔸 13 - Social Engineering
     - [ ] [PhishMailer](https://github.com/BiZken/PhishMailer): Generate Professional Phishing Emails Fast And Easy
     - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox): SocialBox is a Bruteforce Attack Framework [ Facebook , Gmail , Instagram ,Twitter ] , Coded By Belahsan Ouerghi
