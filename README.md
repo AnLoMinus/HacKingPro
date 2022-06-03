@@ -226,10 +226,12 @@ given URL. It combines the outputs of other known tools into a single one.
   - ## 🔸 15 - Malware Analysis Labs/Tools
   - ## 🔸 16 - Covering Tracks
   - ## 🔸 aio - All In One
+    - [ ] [HacKing](https://github.com/Anlominus/HacKing)
     - [ ] [Hackingtool](https://github.com/Z4nzu/hackingtool): All in One Hacking tool For Hackers🥇
   - ## 🔸 arm - Android HacKing
     - [ ] [androidsploit](https://github.com/Hackeralok119/androidsploit): A tool for remote ADB exploitation in Python3.
   - ## 🔸 pt - Penetration Testing
+    - [ ] [PenTest](https://github.com/Anlominus/PenTest)
     - [ ] [Brutal](https://github.com/Screetsec/Brutal): Brutal is a toolkit to quickly create various payload,powershell attack , virus attack and launch listener for a Human Interface Device
     - [ ] [PenBox](https://github.com/x3omdax/PenBox): A Penetration Testing Framework , The Hacker’s Repo our hope is in the last version we will have evry script that a hacker needs #Information Gathering :
     - [ ] [Pentest-Tools-Framework](https://github.com/pikpikcu/Pentest-Tools-Framework): About
