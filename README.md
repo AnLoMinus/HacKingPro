@@ -51,7 +51,7 @@ HacKingPro - Hack Like A Pro !
 
 ---
 
-# 📜 Menu / Sources
+# 📜 To do: Tools for implementing in the menu
 - [ ] Anlominus:
   - ## 🔸 00 - Anonymity
     - [ ] 🔸 00 - Firewall Rules
