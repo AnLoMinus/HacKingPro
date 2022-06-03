@@ -109,8 +109,8 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
     - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
     - [ ] [Kerbrute](https://github.com/ropnop/kerbrute): A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
-
   - ## 03 - Web Application HacKing
+    - [ ] [liffy](https://github.com/mzfr/liffy): Local file inclusion exploitation tool
     - [ ] [SQLMate](https://github.com/s0md3v/sqlmate): There are some features that we think SQLMap should have. <br> Like finding admin panel of the target, better hash cracking etc. If you think the same, SQLMate is for you.
     - [ ] [Tishna](https://github.com/marciopocebon/Tishna): Software have 56 Options with full automation and can be use for web security swiss knife
     - [ ] [Hack-Tools](https://github.com/LasCC/Hack-Tools): The all-in-one Red Team extension for Web Pentester 🛠 <br> HackTools, is a web extension facilitating your web application penetration tests, it includes cheat sheets as well as all the tools used during a test such as XSS payloads, Reverse shells and much more.
