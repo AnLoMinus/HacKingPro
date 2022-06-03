@@ -99,7 +99,7 @@ given URL. It combines the outputs of other known tools into a single one.
       - [ ] [Sublist3r](https://github.com/aboul3la/Sublist3r): Sublist3r is a python tool designed to enumerate subdomains of websites using OSINT. It helps penetration testers and bug hunters collect and gather subdomains for the domain they are targeting. Sublist3r enumerates subdomains using many search engines such as Google, Yahoo, Bing, Baidu and Ask. Sublist3r also enumerates subdomains using Netcraft, Virustotal, ThreatCrowd, DNSdumpster and ReverseDNS.
       - [ ] [dirsearch](https://github.com/maurosoria/dirsearch): An advanced command-line tool designed to brute force directories and files in webservers, AKA web path scanner
       - [ ] [XRCross](https://github.com/pikpikcu/XRCross): XRCross is a Reconstruction, Scanner, and a tool for penetration / BugBounty testing. This tool was built to test (XSS|SSRF|CORS|SSTI|IDOR|RCE|LFI|SQLI) vulnerabilities
-  - ## 02 - Scanning & Vulnerability Assessment
+  - ## 🔸 02 - Scanning & Vulnerability Assessment
     - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
     - [ ] [Silver](https://github.com/s0md3v/Silver)
     - [ ] [Corsy](https://github.com/s0md3v/Corsy)
@@ -109,7 +109,7 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
     - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
     - [ ] [Kerbrute](https://github.com/ropnop/kerbrute): A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
-  - ## 03 - Web Application HacKing
+  - ## 🔸 03 - Web Application HacKing
     - [ ] [liffy](https://github.com/mzfr/liffy): Local file inclusion exploitation tool
     - [ ] [SQLMate](https://github.com/s0md3v/sqlmate): There are some features that we think SQLMap should have. <br> Like finding admin panel of the target, better hash cracking etc. If you think the same, SQLMate is for you.
     - [ ] [Tishna](https://github.com/marciopocebon/Tishna): Software have 56 Options with full automation and can be use for web security swiss knife
@@ -120,16 +120,16 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [ffuf](https://github.com/ffuf/ffuf): Fast web fuzzer written in Go
     - [ ] [HTTrack](https://github.com/xroche/httrack): HTTrack Website Copier, copy websites to your computer (Official repository)
     - [ ] [PyPhisher](https://github.com/KasRoudra/PyPhisher): Easy to use phishing tool with 65 website templates. Author is not responsible for any misuse. <br> Ultimate phishing tool in python. Includes popular websites like facebook, twitter, instagram, github, reddit, gmail and many others.
-  - ## 04 - Database Assessment
+  - ## 🔸 04 - Database Assessment
     - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
-  - ## 05 - Password HacKing
+  - ## 🔸 05 - Password HacKing
     - [ ] [pydictor](https://github.com/LandGrey/pydictor)
     - [ ] [JohnTheRipper](https://github.com/magnumripper/JohnTheRipper)
     - [ ] [hashcat](https://github.com/hashcat/hashcat)
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
     - [ ] [Decodify](https://github.com/s0md3v/Decodify)
     - [ ] [BluForce-FB](https://github.com/AngelSecurityTeam/BluForce-FB)
-  - ## 06 - Wireless HacKing
+  - ## 🔸 06 - Wireless HacKing
     - [ ] [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng)
       - [ ] [aircrack-ng]()
       - [ ] [airdecap-ng]()
@@ -182,8 +182,8 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [EAPHammer](https://github.com/s0lst1c3/eaphammer)
     - [ ] [RougeWifi](https://github.com/s0meguy1/RougeWifi)
     - [ ] [c41n](https://github.com/MS-WEB-BN/c41n/)
-  - ## 07 - Reverse Engineering
-  - ## 08 - Exploit Frameworks & DataBases
+  - ## 🔸 07 - Reverse Engineering
+  - ## 🔸 08 - Exploit Frameworks & DataBases
     - [ ] [Vajra](https://github.com/r3curs1v3-pr0xy/vajra)
     - [ ] [Bashark](https://github.com/redcode-labs/Bashark)
     - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit)
@@ -198,7 +198,7 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [LAZY](https://github.com/arismelachroinos/lscript)
     - [ ] [KitHack](https://github.com/AdrMXR/KitHack)
     - [ ] [PloitKit](https://github.com/rajeshmajumdar/PloitKit)
-  - ## 08 - Post-Exploitation Frameworks
+  - ## 🔸 08 - Post-Exploitation Frameworks
     - [ ] [Empire](https://github.com/BC-SECURITY/Empire): Empire is a PowerShell and Python 3.x post-exploitation framework.
     - [ ] [Shad0w](https://github.com/bats3c/shad0w): A post exploitation framework designed to operate covertly on heavily monitored environments
     - [ ] [PhpSploit](https://github.com/nil0x42/phpsploit): Full-featured C2 framework which silently persists on webserver with a single-line PHP backdoor
@@ -206,29 +206,29 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [CHAOS](https://github.com/tiagorlampert/CHAOS): CHAOS: Remote Administration Tool <br> CHAOS is a free and open-source Remote Administration Tool that allow generate binaries to control remote operating systems.
     - [ ] [BlazeRAT](https://github.com/LimerBoy/BlazeRAT): 🔥 Control your 🐧 Linux home computer with telegram bot.
 
-  - ## 09 - Sniffing - Spoofing
+  - ## 🔸 09 - Sniffing - Spoofing
     - [ ] [ettercap](https://github.com/Ettercap/ettercap):  A suite for man in the middle attacks
-  - ## 10 - Gaining & Maintaining Access
-  - ## 11 - Digital Forensic
-  - ## 12 - Analysis & Reporting
-  - ## 13 - Social Engineering
+  - ## 🔸 10 - Gaining & Maintaining Access
+  - ## 🔸 11 - Digital Forensic
+  - ## 🔸 12 - Analysis & Reporting
+  - ## 🔸 13 - Social Engineering
     - [ ] [PhishMailer](https://github.com/BiZken/PhishMailer): Generate Professional Phishing Emails Fast And Easy
     - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox): SocialBox is a Bruteforce Attack Framework [ Facebook , Gmail , Instagram ,Twitter ] , Coded By Belahsan Ouerghi
     - [ ] [Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker): Social engineering tool [Access Webcam & Microphone & Location Finder] With Python
     - [ ] [Cam-Hackers](https://github.com/AngelSecurityTeam/Cam-Hackers)
-  - ## 14 - Privilege Enumeration & Escalation
+  - ## 🔸 14 - Privilege Enumeration & Escalation
     - [ ] Linux Enumeration:
       - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings): A list of useful payloads and bypass for Web Application Security and Pentest/CTF
       - [ ] [PEASS-ng](https://github.com/carlospolop/PEASS-ng): PEASS-ng - Privilege Escalation Awesome Scripts SUITE new generation
       - [ ] [enum4linux-ng](https://github.com/cddmp/enum4linux-ng): A next generation version of enum4linux (a Windows/Samba enumeration tool) with additional features like JSON/YAML export. Aimed for security professionals and CTF players.
     - [ ]
-  - ## 15 - Malware Analysis Labs/Tools
-  - ## 16 - Covering Tracks
-  - ## aio - All In One
+  - ## 🔸 15 - Malware Analysis Labs/Tools
+  - ## 🔸 16 - Covering Tracks
+  - ## 🔸 aio - All In One
     - [ ] [Hackingtool](https://github.com/Z4nzu/hackingtool): All in One Hacking tool For Hackers🥇
-  - ## arm - Android HacKing
+  - ## 🔸 arm - Android HacKing
     - [ ] [androidsploit](https://github.com/Hackeralok119/androidsploit): A tool for remote ADB exploitation in Python3.
-  - ## pt - Penetration Testing
+  - ## 🔸 pt - Penetration Testing
     - [ ] [Brutal](https://github.com/Screetsec/Brutal): Brutal is a toolkit to quickly create various payload,powershell attack , virus attack and launch listener for a Human Interface Device
     - [ ] [PenBox](https://github.com/x3omdax/PenBox): A Penetration Testing Framework , The Hacker’s Repo our hope is in the last version we will have evry script that a hacker needs #Information Gathering :
     - [ ] [Pentest-Tools-Framework](https://github.com/pikpikcu/Pentest-Tools-Framework): About
