@@ -302,6 +302,7 @@ ${BCyan}            └──╼ ")
       echo "\n\t\t${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing"
       ;;
       li|LI )
+      clear
       echo "\n\t\t${BRed}[${LGrey}LI${BRed}]${BBlue} - ${DGrey}Local Info"
       echo " 
 \n\t\t 🔸 ~ [ System info ] ~ 🔸
