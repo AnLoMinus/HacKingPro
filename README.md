@@ -230,6 +230,8 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [Hackingtool](https://github.com/Z4nzu/hackingtool): All in One Hacking tool For Hackers🥇
   - ## 🔸 arm - Android HacKing
     - [ ] [androidsploit](https://github.com/Hackeralok119/androidsploit): A tool for remote ADB exploitation in Python3.
+    - [ ] [L3MON](https://github.com/D3VL/L3MON)
+    - [ ] [AhMyth-Android-RAT](https://github.com/AhMyth/AhMyth-Android-RAT)
   - ## 🔸 pt - Penetration Testing
     - [ ] [PenTest](https://github.com/Anlominus/PenTest): PenTest - Penetration Testing Tools Downloader
     - [ ] [Brutal](https://github.com/Screetsec/Brutal): Brutal is a toolkit to quickly create various payload,powershell attack , virus attack and launch listener for a Human Interface Device
