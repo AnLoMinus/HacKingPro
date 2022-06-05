@@ -129,6 +129,8 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
     - [ ] [Decodify](https://github.com/s0md3v/Decodify)
     - [ ] [BluForce-FB](https://github.com/AngelSecurityTeam/BluForce-FB)
+    - Wordlist
+      - [ ] [SecLists](https://github.com/danielmiessler/SecLists) 
   - ## 🔸 06 - Wireless HacKing
     - [ ] [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng)
       - [ ] [aircrack-ng]()
