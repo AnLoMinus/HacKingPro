@@ -108,6 +108,7 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
     - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
     - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
+    - [ ] [FinalRecon](https://github.com/thewhiteh4t/FinalRecon): FinalRecon is an automatic web reconnaissance tool written in python. Goal of FinalRecon is to provide an overview of the target in a short amount of time while maintaining the accuracy of results. Instead of executing several tools one after another it can provide similar results keeping dependencies small and simple.
     - [ ] [Kerbrute](https://github.com/ropnop/kerbrute): A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
   - ## 🔸 03 - Web Application HacKing
     - [ ] [liffy](https://github.com/mzfr/liffy): Local file inclusion exploitation tool
