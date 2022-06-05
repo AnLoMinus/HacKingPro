@@ -1,4 +1,6 @@
-# There are three major types of XSS attacks:
+# Cross-Site Scripting ~ XSS
+
+> There are three major types of XSS Attacks:
 - DOM (Special)
   - DOM XSS (Document Object Model-based Cross-site Scripting) uses the HTML environment to execute malicious javascript. <br> This type of attack commonly uses the <script></script> HTML tag.
 
