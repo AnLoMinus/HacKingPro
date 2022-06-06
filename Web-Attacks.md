@@ -1,4 +1,13 @@
-# Cross-Site Scripting ~ XSS
+# Web-Attacks
+
+
+## Remote Code Executions ~ RCE
+- **Web Shell**
+- **Reverse Shell**
+
+---
+
+## Cross-Site Scripting ~ XSS
 
 > There are three major types of XSS Attacks:
 - **DOM (Special)**
