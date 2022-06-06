@@ -7,18 +7,18 @@
 - Phishing Attack
 - Cryptojacking
 - Cloud Attack
-- Domain Name System (DNS) Tunneling
-- Man-in-the-Middle (MitM) Attack
-- Cross-Site Scripting (XSS)
+- DNS ~ Domain Name System (DNS) Tunneling
+- MitM ~ Man-in-the-Middle (MitM) Attack
+- XSS ~ Cross-Site Scripting (XSS)
 - Password Cracking
 - Eavesdropping
 - Clickjacking
 - Drive-By Attack
 - AI-Powered Attack
-- Internet of Things (IoT) Attack
+- IoT ~ Internet of Things (IoT) Attack
 
 ### Cyber Attacks Directed at Companies
-- Denial of Service (DoS) and Distributed Denial of Service (DDoS) Attack
+- DDoS/DoS ~ Denial of Service (DoS) and Distributed Denial of Service (DDoS) Attack
 - Supply Chain Attack
 - Formjacking
 - Zero-Day Exploit
