@@ -220,6 +220,7 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox): SocialBox is a Bruteforce Attack Framework [ Facebook , Gmail , Instagram ,Twitter ] , Coded By Belahsan Ouerghi
     - [ ] [Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker): Social engineering tool [Access Webcam & Microphone & Location Finder] With Python
     - [ ] [Cam-Hackers](https://github.com/AngelSecurityTeam/Cam-Hackers)
+    - [ ] [Camera Hacking](https://github.com/hasanfirnas/symbiote)
   - ## 🔸 14 - Privilege Enumeration & Escalation
     - [ ] Linux Enumeration:
       - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings): A list of useful payloads and bypass for Web Application Security and Pentest/CTF
