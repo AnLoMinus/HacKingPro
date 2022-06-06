@@ -2,8 +2,8 @@
 
 
 ## Remote Code Executions ~ RCE
-- **Web Shell**
-- **Reverse Shell**
+- **Web Shells**
+- **Reverse Shells**
 
 ---
 
