@@ -9,6 +9,10 @@ HacKingPro - Hack Like A Pro !
 
 ---
 
+<h1> Feel free to sponsor me for the maintenance of the tool: <a href="https://github.com/Anlominus/Diablo">Diablo</a> </h1>
+
+---
+
 # 📜 Menu / To Do
   - [x] [I] - Install HacKingPro On the System
   - [x] [p] - Planning and Scoping
