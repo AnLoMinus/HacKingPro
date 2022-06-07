@@ -281,3 +281,4 @@ Pentest Tools Framework is a database of exploits, Scanners and tools for penetr
 ---
 
 ### [HacKingPro/Cheatsheets/Attacks.md](https://github.com/Anlominus/HacKingPro/blob/main/Cheatsheets/Attacks.md)
+### [HacKingPro/Cheatsheets/Web-Attacks.md](https://github.com/Anlominus/HacKingPro/blob/main/Cheatsheets/Web-Attacks.md)
