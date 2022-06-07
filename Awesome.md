@@ -1,0 +1,1 @@
+- [Awesome Privilege Escalation](https://github.com/m0nad/awesome-privilege-escalation)
