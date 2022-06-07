@@ -279,6 +279,6 @@ Pentest Tools Framework is a database of exploits, Scanners and tools for penetr
 ![Alt](https://repobeats.axiom.co/api/embed/fc0848f26074f3b91e5236ae960338faa3d9fb1e.svg "Repobeats analytics image")
 
 ---
-
+# [Cheat Sheets](https://github.com/Anlominus/HacKingPro/tree/main/Cheatsheets)
 ### [HacKingPro / Cheatsheets / Attacks.md](https://github.com/Anlominus/HacKingPro/blob/main/Cheatsheets/Attacks.md)
 ### [HacKingPro / Cheatsheets / Web-Attacks.md](https://github.com/Anlominus/HacKingPro/blob/main/Cheatsheets/Web-Attacks.md)
