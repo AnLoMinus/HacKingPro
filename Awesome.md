@@ -1,1 +1,2 @@
 - [Awesome Privilege Escalation](https://github.com/m0nad/awesome-privilege-escalation)
+- [Awesome Incident Response](https://github.com/meirwah/awesome-incident-response)
