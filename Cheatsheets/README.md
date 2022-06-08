@@ -108,5 +108,9 @@ This kind of POST will use the Content-Type application/x-www-form-urlencoded an
 - `curl — header “Destination:https://google.com" http://www.example.com`
 
 > [curl will still think and act as if it sent a GET so it won’t send any request body etc].
-- `curl -X POST http://example.org/``
+- `curl -X POST http://example.org/`
+
+---
+
+- [CURL Cheat-Sheet](https://medium.com/@webcrat.tech/curl-cheat-sheet-9487e628968f)
 
