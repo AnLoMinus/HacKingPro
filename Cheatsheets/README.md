@@ -100,3 +100,8 @@ Ingres seems to be one of the less common database backends for web applications
 [SQL Injection](https://pentestmonkey.net/category/cheat-sheet/sql-injection) [cheatsheet](https://pentestmonkey.net/tag/cheatsheet), [database](https://pentestmonkey.net/tag/database), [ingres](https://pentestmonkey.net/tag/ingres), [pentest](https://pentestmonkey.net/tag/pentest), [sqlinjection](https://pentestmonkey.net/tag/sqlinjection), [0](https://pentestmonkey.net/cheat-sheet/sql-injection/ingres-sql-injection-cheat-sheet#respond)
 
 [](https://pentestmonkey.net/cheat-sheet/sql-injection/ingres-sql-injection-cheat-sheet)
+
+
+---
+
+- [Rico's cheatsheets](https://devhints.io/)
