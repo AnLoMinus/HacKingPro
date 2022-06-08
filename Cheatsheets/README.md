@@ -1,116 +1,107 @@
-`curl — verbose http://www.example.com`
-> [Displays request header, response header, response]
+# CheatSheets
 
-`curl -v http://www.example.com` [Shorthand]
-
-`curl http://www.example.com`
-> [Returns back the webpage in response to the GET request]
-
-`curl — include http://www.example.com`
-> [Complete header information as well]
-
-`curl -I http://www.example.com` [Shorthand]
+- Unix/Linux
+  - [Linux cheat sheet](https://reconshell.com/linux-cheat-sheet/)
+  - [All In One Linux Commands](https://reconshell.com/all-in-one-linux-commands/)
+  - [Bash Cheat Sheet](https://reconshell.com/bash-cheat-sheet/)
+  - [Linux commands and shell scripting notes](https://reconshell.com/linux-commands-and-shell-scripting-notes/)
 
 ---
 
-> [To display and save all the request response on to the file] <br>
-- `curl — trace-ascii hello.txt http://www.example.com`
+Cheat Sheets
+------------
 
-> [Display all information along with timestamp information] <br>
-- `curl — trace-ascii hello.txt — trace-time http://www.example.com`
+[Reverse Shell Cheat Sheet](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet "Permanent Link to Reverse Shell Cheat Sheet")
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
-> [Displays only the response and no header information and saves it into the hello.txt file]
-- `curl http://www.example.com -o hello.txt`
+If you’re lucky enough to find a command execution vulnerability during a penetration test, pretty soon afterwards you’ll probably want an interactive shell. If it’s not possible to add a new account / SSH key / .rhosts file and just log in, your next step is likely to be either trowing back a reverse shell or binding \[…\]
 
-> [ — resolve [DOMAIN]:[PORT]:[IP], that routes all web requests performed during the execution of a cURL command that match a given [DOMAIN] and [PORT] to a specified [IP] address. ]
-- `curl http://www.example.com — resolve www.example.com:80:127.0.0.1`
+[Shells](https://pentestmonkey.net/category/cheat-sheet/shells) [bash](https://pentestmonkey.net/tag/bash), [cheatsheet](https://pentestmonkey.net/tag/cheatsheet), [netcat](https://pentestmonkey.net/tag/netcat), [pentest](https://pentestmonkey.net/tag/pentest), [perl](https://pentestmonkey.net/tag/perl), [php](https://pentestmonkey.net/tag/php), [python](https://pentestmonkey.net/tag/python), [reverseshell](https://pentestmonkey.net/tag/reverseshell), [ruby](https://pentestmonkey.net/tag/ruby), [xterm](https://pentestmonkey.net/tag/xterm), Comments Off on Reverse Shell Cheat Sheet
 
-> [To make a request to a particular port number]
-- `curl http://www.example.com:8099/`
+[](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
 
-> [The port number you specify in the URL is the number that the server uses to offer its services. <br> Sometimes you may use a local proxy, and then you may need to specify that proxy’s port number separately for what curl needs to connect to locally. <br> Like when using an HTTP proxy on port 4321]
-- `curl — proxy http://proxy.example.com:4321 http://remote.example.com`
+[SSH Cheat Sheet](https://pentestmonkey.net/cheat-sheet/ssh-cheat-sheet "Permanent Link to SSH Cheat Sheet")
+------------------------------------------------------------------------------------------------------------
 
-> [To insert the user and password in the URL]
-- `curl http://user:password@example.org`
+SSH has several features that are useful during pentesting and auditing.  This page aims to remind us of the syntax for the most useful features. NB: This page does not attempt to replace the man page for pentesters, only to supplement it with some pertinent examples. SOCKS Proxy Set up a SOCKS proxy on 127.0.0.1:1080 that lets \[…\]
 
-> [To provide the user and password separately]
-- `curl -u user:password http://example.org`
-- `curl — user name:password http://example.com`
+[Cheat Sheets](https://pentestmonkey.net/category/cheat-sheet) [pentest](https://pentestmonkey.net/tag/pentest), [ssh](https://pentestmonkey.net/tag/ssh), Comments Off on SSH Cheat Sheet
 
+[](https://pentestmonkey.net/cheat-sheet/ssh-cheat-sheet)
 
+[John The Ripper Hash Formats](https://pentestmonkey.net/cheat-sheet/john-the-ripper-hash-formats "Permanent Link to John The Ripper Hash Formats")
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
-> [Proxy Login]
-- `curl — proxy-user proxyusername:proxypassword http://example.com`
-> Note: If you use any one of these user+password options but leave out the password part, curl will prompt for the password interactively.
+John the Ripper is a favourite password cracking tool of many pentesters.  There is plenty of documentation about its command line options. I’ve encountered the following problems using John the Ripper.  These are not problems with the tool itself, but inherent problems with pentesting and password cracking in general. Sometimes I stumble across hashes on a \[…\]
 
-> [To make a HEAD request similar to GET request, the server returns back the headers but without a body]
-- `curl http://www.example.com — head`
+[Cheat Sheets](https://pentestmonkey.net/category/cheat-sheet) [johntheripper](https://pentestmonkey.net/tag/johntheripper), [pentest](https://pentestmonkey.net/tag/pentest), Comments Off on John The Ripper Hash Formats
 
-> [Request to multiple URLs]
-- `curl http://url1.example.com http://url2.example.com`
+[](https://pentestmonkey.net/cheat-sheet/john-the-ripper-hash-formats)
 
-> [Supplies the same parameter to both URLs while making the POST call]
-- `curl — data name=rahul http://url1.example.com http://url2.example.com`
+[Informix SQL Injection Cheat Sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/informix-sql-injection-cheat-sheet "Permanent Link to Informix SQL Injection Cheat Sheet")
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-> [First a HEAD and then a GET]
-- `curl -I http://example.com — next https://google.com`
+Some useful syntax reminders for SQL Injection into Informix databases…
 
-> [POST score on URL1 then GET]
-- `curl -d [ — data] score=10 http://example.com/post — next http://google.com`
+[SQL Injection](https://pentestmonkey.net/category/cheat-sheet/sql-injection) [cheatsheet](https://pentestmonkey.net/tag/cheatsheet), [database](https://pentestmonkey.net/tag/database), [informix](https://pentestmonkey.net/tag/informix), [0](https://pentestmonkey.net/cheat-sheet/sql-injection/informix-sql-injection-cheat-sheet#respond)
 
-> [To post data via GET request]
-- `curl http://example.com?data1=1905&age=24`
+[](https://pentestmonkey.net/cheat-sheet/sql-injection/informix-sql-injection-cheat-sheet)
 
-> [To post data via POST request] [Post hidden fields also in the same way] <br>
-This kind of POST will use the Content-Type application/x-www-form-urlencoded and is the most widely used POST kind
-- `curl — data “data1=1905$age=%2024%20” http://example.com`
+[MSSQL Injection Cheat Sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet "Permanent Link to MSSQL Injection Cheat Sheet")
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-> [To encode the POST data]
-- `curl — data-urlencode “name=I am Rahul Sharma” http://example.com`
-> Note: If you repeat — data several times on the command line, curl will concatenate all the given data pieces — and put a ‘&’ symbol between each data segment.
+Some useful syntax reminders for SQL Injection into MSSQL databases…
 
-> [To upload file via form post à Content-type:multipart/form-data]
-- `curl — form upload=@filename — form press=OK http://example.com`
+[SQL Injection](https://pentestmonkey.net/category/cheat-sheet/sql-injection) [cheatsheet](https://pentestmonkey.net/tag/cheatsheet), [mssql](https://pentestmonkey.net/tag/mssql), [sqlinjection](https://pentestmonkey.net/tag/sqlinjection), [0](https://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet#respond)
 
-> [File upload using PUT request]
-- `curl — upload-file filename http://example.com`
+[](https://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet)
 
-> [A HTTP request may include a ‘referer’ field (yes it is misspelled), which can be used to tell from which URL the client got to this particular resource. <br> Some programs/scripts check the referer field of requests to verify that this wasn’t arriving from an external site or an unknown page. While this is a stupid way to check something so easily forged, many scripts still do it. Using curl, you can put anything you want in the referer-field and thus more easily be able to fool the server into serving your request.]
-- `curl — referer http://example1.com http://example.com`
+[Oracle SQL Injection Cheat Sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet "Permanent Link to Oracle SQL Injection Cheat Sheet")
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-> [Fool server by looking like Mozilla]
-- `curl — user-agent “Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)” http://example.com`
+Some useful syntax reminders for SQL Injection into Oracle databases…
 
-> [Allow redirections]
-- `curl — location http://example.com`
-> Note: If you use curl to POST to a site that immediately redirects you to another page, you can safely use — location (-L) and — data/ — form together. Curl will only use POST in the first request, and then revert to GET in the following operations.
+[SQL Injection](https://pentestmonkey.net/category/cheat-sheet/sql-injection) [cheatsheet](https://pentestmonkey.net/tag/cheatsheet), [database](https://pentestmonkey.net/tag/database), [oracle](https://pentestmonkey.net/tag/oracle), [pentest](https://pentestmonkey.net/tag/pentest), [sqlinjection](https://pentestmonkey.net/tag/sqlinjection), [0](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet#respond)
 
-> [Send cookie to the server]
-- `curl — cookie “name=Daniel” http://www.example.com`
+[](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet)
 
-> [To dump (store) cookies]
-- `curl — dump-header headers_and_cookies http://www.example.com`
+[MySQL SQL Injection Cheat Sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet "Permanent Link to MySQL SQL Injection Cheat Sheet")
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-> [Curl has a full-blown cookie parsing engine built-in that comes useful if you want to reconnect to a server and use cookies that were stored from a previous connection (or hand-crafted manually to fool the server into believing you had a previous connection)]
-- `curl — cookie stored_cookies_in_file http://www.example.com`
+Some useful syntax reminders for SQL Injection into MySQL databases…
 
-> [Curl has the ability to read and write cookie files that use the same file format that Netscape and Mozilla once used. It is a convenient way to share cookies between scripts or invokes. The — cookie (-b) switch automatically detects if a given file is such a cookie file and parses it, and by using the — cookie-jar (-c) option you’ll make curl write a new cookie file at the end of an operation]
-- `curl — cookie cookies.txt — cookie-jar newcookies.txt http://www.example.com`
+[SQL Injection](https://pentestmonkey.net/category/cheat-sheet/sql-injection) [cheatsheet](https://pentestmonkey.net/tag/cheatsheet), [database](https://pentestmonkey.net/tag/database), [mysql](https://pentestmonkey.net/tag/mysql), [pentest](https://pentestmonkey.net/tag/pentest), [sqlinjection](https://pentestmonkey.net/tag/sqlinjection), [0](https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet#respond)
 
-> [For example, you can change the POST request to a PROPFIND and send the data as “Content-Type: text/xml” (instead of the default Content-Type)]
-- `curl — data “<xml>” — header “Content-Type: text/xml” — request PROPFIND url.com`
+[](https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet)
 
-> [delete a default header by providing one without content]
-- `curl — header “Host:” http://www.example.com`
+[Postgres SQL Injection Cheat Sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet "Permanent Link to Postgres SQL Injection Cheat Sheet")
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-> [Custom headers]
-- `curl — header “Destination:https://google.com" http://www.example.com`
+Some useful syntax reminders for SQL Injection into PostgreSQL databases…
 
-> [curl will still think and act as if it sent a GET so it won’t send any request body etc].
-- `curl -X POST http://example.org/`
+[SQL Injection](https://pentestmonkey.net/category/cheat-sheet/sql-injection) [cheatsheet](https://pentestmonkey.net/tag/cheatsheet), [database](https://pentestmonkey.net/tag/database), [pentest](https://pentestmonkey.net/tag/pentest), [postgresql](https://pentestmonkey.net/tag/postgresql), [sqlinjection](https://pentestmonkey.net/tag/sqlinjection), [0](https://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet#respond)
+
+[](https://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet)
+
+[DB2 SQL Injection Cheat Sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/db2-sql-injection-cheat-sheet "Permanent Link to DB2 SQL Injection Cheat Sheet")
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Finding a SQL injection vulnerability in a web application backed by DB2 isn’t too common in my experience.  When you do find one, though it pays to be prepared…
+
+[SQL Injection](https://pentestmonkey.net/category/cheat-sheet/sql-injection) [cheatsheet](https://pentestmonkey.net/tag/cheatsheet), [database](https://pentestmonkey.net/tag/database), [db2](https://pentestmonkey.net/tag/db2), [pentest](https://pentestmonkey.net/tag/pentest), [sqlinjection](https://pentestmonkey.net/tag/sqlinjection), [0](https://pentestmonkey.net/cheat-sheet/sql-injection/db2-sql-injection-cheat-sheet#respond)
+
+[](https://pentestmonkey.net/cheat-sheet/sql-injection/db2-sql-injection-cheat-sheet)
+
+[Ingres SQL Injection Cheat Sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/ingres-sql-injection-cheat-sheet "Permanent Link to Ingres SQL Injection Cheat Sheet")
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Ingres seems to be one of the less common database backends for web applications, so I thought it would be worth installing it and making some notes to make my next Ingres-based web app test a little easier.
+
+[SQL Injection](https://pentestmonkey.net/category/cheat-sheet/sql-injection) [cheatsheet](https://pentestmonkey.net/tag/cheatsheet), [database](https://pentestmonkey.net/tag/database), [ingres](https://pentestmonkey.net/tag/ingres), [pentest](https://pentestmonkey.net/tag/pentest), [sqlinjection](https://pentestmonkey.net/tag/sqlinjection), [0](https://pentestmonkey.net/cheat-sheet/sql-injection/ingres-sql-injection-cheat-sheet#respond)
+
+[](https://pentestmonkey.net/cheat-sheet/sql-injection/ingres-sql-injection-cheat-sheet)
+
 
 ---
 
-- [CURL Cheat-Sheet](https://medium.com/@webcrat.tech/curl-cheat-sheet-9487e628968f)
-
+- [Rico's cheatsheets](https://devhints.io/)
