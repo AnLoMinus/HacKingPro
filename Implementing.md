@@ -3,6 +3,10 @@
 
 # 📜 To do: Tools for implementing in the menu
 - [ ] Anlominus:
+  - Privacy 
+    - [privacy.sexy](https://github.com/undergroundwires/privacy.sexy): Enforce privacy & security best-practices on Windows and macOS, because privacy is sexy 🍑🍆
+
+
   - ## 🔸 00 - Anonymity
     - [ ] 🔸 00 - Firewall Rules
       - [ ] [Iptables Essentials](https://github.com/trimstray/iptables-essentials): Common Firewall Rules and Commands
