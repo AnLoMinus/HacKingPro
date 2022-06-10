@@ -73,7 +73,10 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit): BruteSploit is a collection of method for automated Generate, Bruteforce and Manipulation wordlist with interactive shell. That can be used during a penetration test to enumerate and maybe can be used in CTF for manipulation,combine,transform and permutation some words or file text :p
     - [ ] [ffuf](https://github.com/ffuf/ffuf): Fast web fuzzer written in Go
     - [ ] [HTTrack](https://github.com/xroche/httrack): HTTrack Website Copier, copy websites to your computer (Official repository)
-    - [ ] [PyPhisher](https://github.com/KasRoudra/PyPhisher): Easy to use phishing tool with 65 website templates. Author is not responsible for any misuse. <br> Ultimate phishing tool in python. Includes popular websites like facebook, twitter, instagram, github, reddit, gmail and many others.
+    - [ ] [PyPhisher](https://github.com/KasRoudra/PyPhisher): Easy to use phishing tool with 65 website templates. 
+      > Author is not responsible for any misuse. <br> Ultimate phishing tool in python. <br> Includes popular websites like facebook, twitter, instagram, github, reddit, gmail and many others.
+    - [ ] [CRLFsuite](https://github.com/Nefcore/CRLFsuite): CRLFsuite - CRLF injection scanner 
+      > CRLFsuite is a fast tool specially designed to scan CRLF injection. 
   - ## 🔸 04 - Database Assessment
     - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
   - ## 🔸 05 - Password HacKing
