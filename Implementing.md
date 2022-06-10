@@ -259,9 +259,9 @@ Pentest Tools Framework is a database of exploits, Scanners and tools for penetr
 * during operation, temporary files can be created in `/tmp/HacKingPro.Log` catalog
 
 ## Features list
-* 🔸 System info
-  * [ ] Hostname
-  * [ ] Distributive
+- 🔸 System info
+  - [ ] Hostname
+  - [ ] Distributive
   * [ ] Local IP
   * [ ] External IP
   * [ ] SELinux status
