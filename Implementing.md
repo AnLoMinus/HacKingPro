@@ -3,9 +3,15 @@
 
 # 📜 To do: Tools for implementing in the menu
 - [ ] Anlominus:
+
+---
+
   - Privacy 
     - [privacy.sexy](https://github.com/undergroundwires/privacy.sexy): Enforce privacy & security best-practices on Windows and macOS, because privacy is sexy 🍑🍆
     - [whoami-project](https://github.com/owerdogan/whoami-project): Whoami provides enhanced privacy, anonymity for Debian and Arch based linux distributions
+
+---
+
   - ## 🔸 00 - Anonymity
     - [ ] 🔸 00 - Firewall Rules
       - [ ] [Iptables Essentials](https://github.com/trimstray/iptables-essentials): Common Firewall Rules and Commands
@@ -17,7 +23,10 @@
     - [ ] 🔸 04 - Change IP Address
       - [ ] [kali-anonsurf](https://github.com/Und3rf10w/kali-anonsurf): ParrotSec's anonsurf and stealth, ported to work with Kali Linux.
     - [ ] 🔸 05 - Change Routing    
-  - ## 🔸 01 - Information Gathering
+
+---
+
+- ## 🔸 01 - Information Gathering
     - [ ] [E4GL30S1NT](https://github.com/C0MPL3XDEV/E4GL30S1NT): E4GL30S1NT - Simple Information Gathering Tool
     - [ ] 🔸 01 - Systems Information
       - [ ] [Th3inspector](https://github.com/Moham3dRiahi/Th3inspector): 
@@ -52,6 +61,9 @@ given URL. It combines the outputs of other known tools into a single one.
       - [ ] [Sublist3r](https://github.com/aboul3la/Sublist3r): Sublist3r is a python tool designed to enumerate subdomains of websites using OSINT. It helps penetration testers and bug hunters collect and gather subdomains for the domain they are targeting. Sublist3r enumerates subdomains using many search engines such as Google, Yahoo, Bing, Baidu and Ask. Sublist3r also enumerates subdomains using Netcraft, Virustotal, ThreatCrowd, DNSdumpster and ReverseDNS.
       - [ ] [dirsearch](https://github.com/maurosoria/dirsearch): An advanced command-line tool designed to brute force directories and files in webservers, AKA web path scanner
       - [ ] [XRCross](https://github.com/pikpikcu/XRCross): XRCross is a Reconstruction, Scanner, and a tool for penetration / BugBounty testing. This tool was built to test (XSS|SSRF|CORS|SSTI|IDOR|RCE|LFI|SQLI) vulnerabilities
+
+---
+
   - ## 🔸 02 - Scanning & Vulnerability Assessment
     - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
     - [ ] [Silver](https://github.com/s0md3v/Silver)
@@ -63,6 +75,9 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
     - [ ] [FinalRecon](https://github.com/thewhiteh4t/FinalRecon): FinalRecon is an automatic web reconnaissance tool written in python. Goal of FinalRecon is to provide an overview of the target in a short amount of time while maintaining the accuracy of results. Instead of executing several tools one after another it can provide similar results keeping dependencies small and simple.
     - [ ] [Kerbrute](https://github.com/ropnop/kerbrute): A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
+
+---
+
   - ## 🔸 03 - Web Application HacKing
     - [ ] [liffy](https://github.com/mzfr/liffy): Local file inclusion exploitation tool
     - [ ] [SQLMate](https://github.com/s0md3v/sqlmate): There are some features that we think SQLMap should have. <br> Like finding admin panel of the target, better hash cracking etc. If you think the same, SQLMate is for you.
@@ -77,8 +92,14 @@ given URL. It combines the outputs of other known tools into a single one.
       > Author is not responsible for any misuse. <br> Ultimate phishing tool in python. <br> Includes popular websites like facebook, twitter, instagram, github, reddit, gmail and many others.
     - [ ] [CRLFsuite](https://github.com/Nefcore/CRLFsuite): CRLFsuite - CRLF injection scanner 
       > CRLFsuite is a fast tool specially designed to scan CRLF injection. 
+
+---
+
   - ## 🔸 04 - Database Assessment
     - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
+
+---
+
   - ## 🔸 05 - Password HacKing
     - [ ] [pydictor](https://github.com/LandGrey/pydictor)
     - [ ] [JohnTheRipper](https://github.com/magnumripper/JohnTheRipper)
@@ -88,6 +109,9 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [BluForce-FB](https://github.com/AngelSecurityTeam/BluForce-FB)
     - Wordlist
       - [ ] [SecLists](https://github.com/danielmiessler/SecLists) 
+
+---
+
   - ## 🔸 06 - Wireless HacKing
     - [ ] [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng)
       - [ ] [aircrack-ng]()
@@ -141,7 +165,13 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [EAPHammer](https://github.com/s0lst1c3/eaphammer)
     - [ ] [RougeWifi](https://github.com/s0meguy1/RougeWifi)
     - [ ] [c41n](https://github.com/MS-WEB-BN/c41n/)
+
+---
+
   - ## 🔸 07 - Reverse Engineering
+
+---
+
   - ## 🔸 08 - Exploit Frameworks & DataBases
     - [ ] [Vajra](https://github.com/r3curs1v3-pr0xy/vajra)
     - [ ] [Bashark](https://github.com/redcode-labs/Bashark)
@@ -157,6 +187,9 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [LAZY](https://github.com/arismelachroinos/lscript)
     - [ ] [KitHack](https://github.com/AdrMXR/KitHack)
     - [ ] [PloitKit](https://github.com/rajeshmajumdar/PloitKit)
+
+---
+
   - ## 🔸 08 - Post-Exploitation Frameworks
     - [ ] [Empire](https://github.com/BC-SECURITY/Empire): Empire is a PowerShell and Python 3.x post-exploitation framework.
     - [ ] [Shad0w](https://github.com/bats3c/shad0w): A post exploitation framework designed to operate covertly on heavily monitored environments
@@ -167,16 +200,31 @@ given URL. It combines the outputs of other known tools into a single one.
 
   - ## 🔸 09 - Sniffing - Spoofing
     - [ ] [ettercap](https://github.com/Ettercap/ettercap):  A suite for man in the middle attacks
+
+---
+
   - ## 🔸 10 - Gaining & Maintaining Access
+
+---
+
   - ## 🔸 11 - Digital Forensic
+
+---
+
   - ## 🔸 12 - Analysis & Reporting
     - [ ] [Diablo](https://github.com/Anlominus/Diablo): Diablo ~ Hacking / Pentesting & Reporting
+
+---
+
   - ## 🔸 13 - Social Engineering
     - [ ] [PhishMailer](https://github.com/BiZken/PhishMailer): Generate Professional Phishing Emails Fast And Easy
     - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox): SocialBox is a Bruteforce Attack Framework [ Facebook , Gmail , Instagram ,Twitter ] , Coded By Belahsan Ouerghi
     - [ ] [Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker): Social engineering tool [Access Webcam & Microphone & Location Finder] With Python
     - [ ] [Cam-Hackers](https://github.com/AngelSecurityTeam/Cam-Hackers)
     - [ ] [Camera Hacking](https://github.com/hasanfirnas/symbiote)
+
+---
+
   - ## 🔸 14 - Privilege Enumeration & Escalation
     - [ ] Linux Enumeration:
       - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings): A list of useful payloads and bypass for Web Application Security and Pentest/CTF
@@ -184,7 +232,13 @@ given URL. It combines the outputs of other known tools into a single one.
       - [ ] [enum4linux-ng](https://github.com/cddmp/enum4linux-ng): A next generation version of enum4linux (a Windows/Samba enumeration tool) with additional features like JSON/YAML export. Aimed for security professionals and CTF players.
     - [ ]
   - ## 🔸 15 - Malware Analysis Labs/Tools
+
+---
+
   - ## 🔸 16 - Covering Tracks
+
+---
+
   - ## 🔸 aio - All In One
     - [ ] [HacKing](https://github.com/Anlominus/HacKing): HacKing Tools Downloader: Downloading HacKing Tools and exporting by categories to $HOME directory
     - [ ] [Hackingtool](https://github.com/Z4nzu/hackingtool): All in One Hacking tool For Hackers🥇
