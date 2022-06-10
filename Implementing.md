@@ -28,6 +28,7 @@
 
 - ## 🔸 01 - Information Gathering
     - [ ] [E4GL30S1NT](https://github.com/C0MPL3XDEV/E4GL30S1NT): E4GL30S1NT - Simple Information Gathering Tool
+    - [ ] [Sn1per](https://github.com/1N3/Sn1per)
     - [ ] 🔸 01 - Systems Information
       - [ ] [Th3inspector](https://github.com/Moham3dRiahi/Th3inspector): 
 Th3inspector 🕵️ best tool for Information Gathering 🔎 <br>
