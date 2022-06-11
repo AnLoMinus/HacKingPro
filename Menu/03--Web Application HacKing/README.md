@@ -49,6 +49,13 @@
     - [XSpear](https://github.com/hahwul/XSpear): Powerfull XSS Scanning and Parameter analysis tool&gem
       > XSpear is XSS Scanner on ruby gems
         - ![image](https://user-images.githubusercontent.com/51442719/173208463-c5d170de-7ad6-4ae7-a925-656d4555f08b.png)
- 
+    - [FinDOM-XSS](https://github.com/dwisiswant0/findom-xss): A fast DOM based XSS vulnerability scanner with simplicity.
+      > FinDOM-XSS is a tool that allows you to finding for possible and/ potential DOM based XSS vulnerability in a fast manner.
+        - ![image](https://user-images.githubusercontent.com/51442719/173208520-d800c49c-6022-4f49-a780-928adad71863.png)
+    - [Garud](https://github.com/R0X4R/Garud): An automation tool that scans sub-domains, sub-domain takeover, then filters out XSS, SSTI, SSRF, and more injection point parameters and scans for some low hanging vulnerabilities automatically.
+      > An automation tool that scans sub-domains, sub-domain takeover and then filters out xss, ssti, ssrf and more injection point parameters.  
+        - ![image](https://user-images.githubusercontent.com/51442719/173208556-161db98c-ad66-4bed-93a4-b175cd086af6.png)
+    - []()
+
 
  
