@@ -12,28 +12,6 @@
 
 ---
 
----
-
-
----
-
-  - ## 🔸 02 - Scanning & Vulnerability Assessment
-    - [ ] [TireFire](https://github.com/CoolHandSquid/TireFire)
-    - [ ] [Silver](https://github.com/s0md3v/Silver)
-    - [ ] [Corsy](https://github.com/s0md3v/Corsy)
-    - [ ] [PentMenu](https://github.com/GinjaChris/pentmenu)
-    - [ ] [Legion](https://github.com/carlospolop/legion)
-    - [ ] [Recon-X](https://github.com/Yashvendra/Recon-X)
-    - [ ] [Raccoon](https://github.com/evyatarmeged/Raccoon)
-    - [ ] [VulnX](https://github.com/anouarbensaad/vulnx)
-    - [ ] [FinalRecon](https://github.com/thewhiteh4t/FinalRecon): FinalRecon is an automatic web reconnaissance tool written in python. Goal of FinalRecon is to provide an overview of the target in a short amount of time while maintaining the accuracy of results. Instead of executing several tools one after another it can provide similar results keeping dependencies small and simple.
-    - [ ] [Kerbrute](https://github.com/ropnop/kerbrute): A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
-
----
-
-
----
-
   - ## 🔸 04 - Database Assessment
     - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
       > Automated hacking tool that will find leaked databases with 97.1% accurate to grab mail + password together from recent uploads from https://pastebin.com. <br> Bruteforce support for spotify accounts, instagram accounts, ssh servers, microsoft rdp clients and gmail accounts
