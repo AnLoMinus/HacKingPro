@@ -96,6 +96,10 @@ given URL. It combines the outputs of other known tools into a single one.
       > Author is not responsible for any misuse. <br> Ultimate phishing tool in python. <br> Includes popular websites like facebook, twitter, instagram, github, reddit, gmail and many others.
     - [ ] [CRLFsuite](https://github.com/Nefcore/CRLFsuite): CRLFsuite - CRLF injection scanner 
       > CRLFsuite is a fast tool specially designed to scan CRLF injection. 
+    - [ ] [Hawk](https://github.com/medpaf/hawk)
+      - ![image](https://user-images.githubusercontent.com/51442719/173181177-c4595ee9-0060-4d57-86e7-bb13d243810e.png)   
+        > Hawk is a network and pentest utility that I developed so that I could perform different kinds of tasks using the same suite, instead of jumping from one tool to another.
+
 
 ---
 
