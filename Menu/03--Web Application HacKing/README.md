@@ -20,13 +20,20 @@
     - [ ] [V3n0M-Scanner](https://github.com/v3n0m-Scanner/V3n0M-Scanner): Popular Pentesting scanner in Python3.6 for SQLi/XSS/LFI/RFI and other Vulns
       > Offensive Security Framework for Vulnerability Scanning & Pentesting <br> Popular Pentesting scanner in Python3.6 for SQLi/XSS/LFI/RFI and other Vulns
         - ![](https://github.com/v3n0m-Scanner/V3n0M-Scanner/raw/master/src/AnimatedDemo.gif?raw=true)
-    - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit): BruteSploit is a collection of method for automated Generate, Bruteforce and Manipulation wordlist with interactive shell. That can be used during a penetration test to enumerate and maybe can be used in CTF for manipulation,combine,transform and permutation some words or file text :p
+    - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit): BruteSploit is a collection of method for automated Generate, Bruteforce and Manipulation wordlist with interactive shell. 
+      > That can be used during a penetration test to enumerate and maybe can be used in CTF for manipulation,combine,transform and permutation some words or file text :p
+        - ![image](https://user-images.githubusercontent.com/51442719/173207576-29c3bdfb-2cc8-4589-bbd5-ae13c6509398.png)
     - [ ] [ffuf](https://github.com/ffuf/ffuf): Fast web fuzzer written in Go
+      - ![image](https://user-images.githubusercontent.com/51442719/173207609-ef83947c-2708-4747-b6bf-2f36935f34c4.png)
     - [ ] [HTTrack](https://github.com/xroche/httrack): HTTrack Website Copier, copy websites to your computer (Official repository)
+      > HTTrack is an offline browser utility, allowing you to download a World Wide website from the Internet to a local directory, building recursively all directories, getting html, images, and other files from the server to your computer.
+        - ![image](https://user-images.githubusercontent.com/51442719/173207657-76bf211d-4dac-474f-8a58-b8ae0bd17034.png)
     - [ ] [PyPhisher](https://github.com/KasRoudra/PyPhisher): Easy to use phishing tool with 65 website templates. 
       > Author is not responsible for any misuse. <br> Ultimate phishing tool in python. <br> Includes popular websites like facebook, twitter, instagram, github, reddit, gmail and many others.
+        - ![](https://github.com/KasRoudra/PyPhisher/raw/main/files/pyphisher.gif)
     - [ ] [CRLFsuite](https://github.com/Nefcore/CRLFsuite): CRLFsuite - CRLF injection scanner 
       > CRLFsuite is a fast tool specially designed to scan CRLF injection. 
+        - ![image](https://user-images.githubusercontent.com/51442719/173207688-96b1b3ab-0703-43fb-afca-fc2be65c1e1f.png)
     - [ ] [Hawk](https://github.com/medpaf/hawk)
       - ![image](https://user-images.githubusercontent.com/51442719/173181177-c4595ee9-0060-4d57-86e7-bb13d243810e.png)   
         > Hawk is a network and pentest utility that I developed so that I could perform different kinds of tasks using the same suite, instead of jumping from one tool to another.
