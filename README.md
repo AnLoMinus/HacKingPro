@@ -3,6 +3,14 @@
 # [HacKingPro](https://github.com/Anlominus/HacKingPro)
 HacKingPro - Hack Like A Pro !
 
+<p align="center">
+    <img src="https://img.shields.io/github/license/oppsec/tomcter?color=yellow&logo=github&logoColor=yellow&style=for-the-badge">
+    <img src="https://img.shields.io/github/issues/oppsec/tomcter?color=yellow&logo=github&logoColor=yellow&style=for-the-badge">
+    <img src="https://img.shields.io/github/stars/oppsec/tomcter?color=yellow&label=STARS&logo=github&logoColor=yellow&style=for-the-badge">
+    <img src="https://img.shields.io/github/forks/oppsec/tomcter?color=yellow&logo=github&logoColor=yellow&style=for-the-badge">
+    <img src="https://img.shields.io/github/languages/code-size/oppsec/tomcter?color=yellow&logo=github&logoColor=yellow&style=for-the-badge">
+</p>
+
 <img width="969" alt="image" src="https://user-images.githubusercontent.com/51442719/171372724-24c1987d-b9fb-41a5-8cda-c5e5b091746f.png">
   
 </div>
