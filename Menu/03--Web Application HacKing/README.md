@@ -46,6 +46,9 @@
     - [top 25 vulnerability parameters](https://github.com/lutfumertceylan/top25-parameter)
       > For basic researches, top 25 vulnerability parameters that can be used in automation tools or manual recon. 🛡️⚔️🧙
         - ![image](https://user-images.githubusercontent.com/51442719/173206796-15d47413-4b18-4de8-ac6a-3859a02e54da.png)
+    - [XSpear](https://github.com/hahwul/XSpear): Powerfull XSS Scanning and Parameter analysis tool&gem
+      > XSpear is XSS Scanner on ruby gems
+        - ![image](https://user-images.githubusercontent.com/51442719/173208463-c5d170de-7ad6-4ae7-a925-656d4555f08b.png)
  
 
  
