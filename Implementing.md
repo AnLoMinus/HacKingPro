@@ -215,6 +215,10 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [LAZY](https://github.com/arismelachroinos/lscript)
     - [ ] [KitHack](https://github.com/AdrMXR/KitHack)
     - [ ] [PloitKit](https://github.com/rajeshmajumdar/PloitKit)
+    - [ ] [SMBploit](https://github.com/d4t4s3c/SMBploit)
+      > Offensive tool to scan & exploit vulnerabilities in Microsoft Windows over the Samba protocol (SMB) SMBv1/SMBv2 using the Metasploit Framework <br>
+      > ![](https://github.com/d4t4s3c/SMBploit/blob/master/screenshot/screenshot2.png)
+
 
 ---
 
