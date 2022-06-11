@@ -84,6 +84,10 @@ given URL. It combines the outputs of other known tools into a single one.
       - [ ] [DNSExplorer](https://github.com/dabasanta/DNSExplorer)
         > DNSExplorer is a shell script that automates the enumeration process of a domain or DNS server and its subdomains using 'host' as the main tool.
           - ![](https://raw.githubusercontent.com/dabasanta/DNSExplorer/main/examples/banner.png)
+      - [ ] [Scilia](https://github.com/edoardottt/scilla)
+        > 🏴‍☠️ Information Gathering tool 🏴‍☠️ - DNS / Subdomains / Ports / Directories enumeration
+          - ![image](https://user-images.githubusercontent.com/51442719/173204935-8c562b27-749b-41bf-a437-d2045a25c6c5.png)
+ 
 
 
 ---
