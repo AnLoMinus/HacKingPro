@@ -94,11 +94,9 @@
 
 ---
 
-  - ## 🔸 07 - Reverse Engineering
-
 ---
 
-  - ## 🔸 08 - Exploit Frameworks & DataBases
+  - ## 🔸 07 - Exploit Frameworks & DataBases
     - [ ] [Vajra](https://github.com/r3curs1v3-pr0xy/vajra)
     - [ ] [Bashark](https://github.com/redcode-labs/Bashark)
     - [ ] [BruteSploit](https://github.com/screetsec/BruteSploit)
@@ -119,17 +117,6 @@
 
 
 ---
-
-  - ## 🔸 08 - Post-Exploitation Frameworks
-    - [ ] [Empire](https://github.com/BC-SECURITY/Empire): Empire is a PowerShell and Python 3.x post-exploitation framework.
-    - [ ] [Shad0w](https://github.com/bats3c/shad0w): A post exploitation framework designed to operate covertly on heavily monitored environments
-    - [ ] [PhpSploit](https://github.com/nil0x42/phpsploit): Full-featured C2 framework which silently persists on webserver with a single-line PHP backdoor
-  - Remote Administration Tool
-    - [ ] [CHAOS](https://github.com/tiagorlampert/CHAOS): CHAOS: Remote Administration Tool <br> CHAOS is a free and open-source Remote Administration Tool that allow generate binaries to control remote operating systems.
-    - [ ] [BlazeRAT](https://github.com/LimerBoy/BlazeRAT): 🔥 Control your 🐧 Linux home computer with telegram bot.
-    - [ ] [BlackMamba](https://github.com/loseys/BlackMamba) C2/post-exploitation framework <br>
-![image](https://user-images.githubusercontent.com/51442719/173180940-ac976e77-d08a-4bc9-8040-a7ad4865abb3.png)
-        > Black Mamba is a Command and Control (C2) that works with multiple connections at same time. <br> It was developed with Python and with Qt Framework and have multiples features for a post-exploitation step.
 
 
 
