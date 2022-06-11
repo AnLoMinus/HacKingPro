@@ -201,6 +201,13 @@ given URL. It combines the outputs of other known tools into a single one.
   - Remote Administration Tool
     - [ ] [CHAOS](https://github.com/tiagorlampert/CHAOS): CHAOS: Remote Administration Tool <br> CHAOS is a free and open-source Remote Administration Tool that allow generate binaries to control remote operating systems.
     - [ ] [BlazeRAT](https://github.com/LimerBoy/BlazeRAT): 🔥 Control your 🐧 Linux home computer with telegram bot.
+    - [ ] [BlackMamba](https://github.com/loseys/BlackMamba) C2/post-exploitation framework <br>
+![image](https://user-images.githubusercontent.com/51442719/173180940-ac976e77-d08a-4bc9-8040-a7ad4865abb3.png)
+        > Black Mamba is a Command and Control (C2) that works with multiple connections at same time. <br> It was developed with Python and with Qt Framework and have multiples features for a post-exploitation step.
+
+
+
+---
 
   - ## 🔸 09 - Sniffing - Spoofing
     - [ ] [ettercap](https://github.com/Ettercap/ettercap):  A suite for man in the middle attacks
