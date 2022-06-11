@@ -299,6 +299,7 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [PenBox](https://github.com/x3omdax/PenBox): A Penetration Testing Framework , The Hacker’s Repo our hope is in the last version we will have evry script that a hacker needs #Information Gathering :
     - [ ] [Pentest-Tools-Framework](https://github.com/pikpikcu/Pentest-Tools-Framework): About
 Pentest Tools Framework is a database of exploits, Scanners and tools for penetration testing. Pentest is a powerful framework includes a lot of tools for beginners. You can explore kernel vulnerabilities, network vulnerabilities
+    - [ ] [Windows / Linux Local Privilege Escalation Workshop](https://github.com/sagishahar/lpeworkshop)
   - ## 🔸 m - Monitoring
     - [ ] [Grafana](https://github.com/grafana/grafana): The open-source platform for monitoring and observability <br>
 ![image](https://user-images.githubusercontent.com/51442719/173180126-9f2f0fdb-7fcc-4c89-9ac7-bf8dc285eaf3.png)
