@@ -22,4 +22,9 @@
     - [WebHackersWeapons](https://github.com/hahwul/WebHackersWeapons)
       > ⚔️ Web Hacker's Weapons / A collection of cool tools used by Web hackers. <br> Happy hacking , Happy bug-hunting
         - ![image](https://user-images.githubusercontent.com/51442719/173206166-7a1f02df-e14e-4973-a475-a9ad9b15a3ef.png)
+    - [top 25 vulnerability parameters](https://github.com/lutfumertceylan/top25-parameter)
+      > For basic researches, top 25 vulnerability parameters that can be used in automation tools or manual recon. 🛡️⚔️🧙
+        - ![image](https://user-images.githubusercontent.com/51442719/173206796-15d47413-4b18-4de8-ac6a-3859a02e54da.png)
+ 
+
  
