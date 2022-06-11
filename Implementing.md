@@ -123,20 +123,28 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [Hawk](https://github.com/medpaf/hawk)
       - ![image](https://user-images.githubusercontent.com/51442719/173181177-c4595ee9-0060-4d57-86e7-bb13d243810e.png)   
         > Hawk is a network and pentest utility that I developed so that I could perform different kinds of tasks using the same suite, instead of jumping from one tool to another.
+    - [ ] [Juumla](https://github.com/oppsec/juumla)
+      > 🦁 Juumla is a python tool created to identify Joomla version, scan for vulnerabilities and search for config files.
+        - ![image](https://user-images.githubusercontent.com/51442719/173205152-7fdeb386-4e19-4b58-98a4-54c325cd5263.png)
+
 
 
 ---
 
   - ## 🔸 04 - Database Assessment
     - [ ] [EMAGNET](https://github.com/wuseman/EMAGNET)
-
+      > Automated hacking tool that will find leaked databases with 97.1% accurate to grab mail + password together from recent uploads from https://pastebin.com. <br> Bruteforce support for spotify accounts, instagram accounts, ssh servers, microsoft rdp clients and gmail accounts
+        - ![](https://user-images.githubusercontent.com/26827453/167769573-375b14d2-5816-45d6-8395-82d0a7d12089.gif)
 ---
 
   - ## 🔸 05 - Password HacKing
     - [ ] `Wordlist`
       - [ ] [SecLists](https://github.com/danielmiessler/SecLists) 
     - [ ] [pydictor](https://github.com/LandGrey/pydictor)
+      > A powerful and useful hacker dictionary builder for a brute-force attack
+        - ![image](https://user-images.githubusercontent.com/51442719/173205260-3f8535d0-67ef-4778-a63c-0977e9704aaa.png) 
     - [ ] [JohnTheRipper](https://github.com/magnumripper/JohnTheRipper)
+      > John the Ripper jumbo - advanced offline password cracker, which supports hundreds of hash and cipher types, and runs on many operating systems, CPUs, GPUs, and even some FPGAs  
     - [ ] [hashcat](https://github.com/hashcat/hashcat)
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
     - [ ] [Decodify](https://github.com/s0md3v/Decodify)
