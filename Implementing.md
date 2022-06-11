@@ -14,39 +14,44 @@
 
   - ## 🔸 00 - Anonymity
     - [ ] 🔸 00 - Firewall Rules
-      - [ ] [Iptables Essentials](https://github.com/trimstray/iptables-essentials): Common Firewall Rules and Commands
+      - [ ] [Iptables Essentials](https://github.com/trimstray/iptables-essentials): 
+        > Common Firewall Rules and Commands
     - [ ] 🔸 01 - Clear Logs
-      - [ ] [CoverMyAss](https://github.com/sundowndev/covermyass): Shell script to cover your tracks on UNIX systems. Designed for pen testing "covering tracks" phase, before exiting the infected server. Or, permanently disable system logs for post-exploitation.
-      - [ ] [Nullog](https://github.com/MrEmpy/Nullog): Nullog is a tool created in Shell Script with the aim of automating the cleaning of logs after an invasion of a Linux system.
+      - [ ] [CoverMyAss](https://github.com/sundowndev/covermyass): 
+        > Shell script to cover your tracks on UNIX systems. <br> Designed for pen testing "covering tracks" phase, before exiting the infected server. Or, permanently disable system logs for post-exploitation.
+      - [ ] [Nullog](https://github.com/MrEmpy/Nullog): 
+        > Nullog is a tool created in Shell Script with the aim of automating the cleaning of logs after an invasion of a Linux system.
     - [ ] 🔸 02 - Clear History
     - [ ] 🔸 03 - Change MAC Address
     - [ ] 🔸 04 - Change IP Address
-      - [ ] [kali-anonsurf](https://github.com/Und3rf10w/kali-anonsurf): ParrotSec's anonsurf and stealth, ported to work with Kali Linux.
+      - [ ] [kali-anonsurf](https://github.com/Und3rf10w/kali-anonsurf): 
+        > ParrotSec's anonsurf and stealth, ported to work with Kali Linux.
     - [ ] 🔸 05 - Change Routing    
 
 ---
 
 - ## 🔸 01 - Information Gathering
-    - [ ] [E4GL30S1NT](https://github.com/C0MPL3XDEV/E4GL30S1NT): E4GL30S1NT - Simple Information Gathering Tool
+    - [ ] [E4GL30S1NT](https://github.com/C0MPL3XDEV/E4GL30S1NT): 
+      > E4GL30S1NT - Simple Information Gathering Tool
     - [ ] [Sn1per](https://github.com/1N3/Sn1per)
       > Attack Surface Management Platform | Sn1perSecurity LLC <br> Discover the attack surface and prioritize risks with our continuous Attack Surface Management (ASM) platform - Sn1per Professional. <br> For more information, go to https://sn1persecurity.com.
 
 
     - [ ] 🔸 01 - Systems Information
       - [ ] [Th3inspector](https://github.com/Moham3dRiahi/Th3inspector): 
-Th3inspector 🕵️ best tool for Information Gathering 🔎 <br>
-      ⭐ All in one tool for Information Gathering ⭐
-      - [ ] [theHarvester](https://github.com/laramies/theHarvester): theHarvester is a very simple to use, yet powerful and effective tool designed to be used in the early stages of a
-penetration test or red team engagement. <br>
-Use it for open source intelligence (OSINT) gathering to help determine a company's external threat landscape on the internet. <br>
-The tool gathers emails, names, subdomains, IPs and URLs using
-multiple public data sources that include:
+        > Th3inspector 🕵️ best tool for Information Gathering 🔎 <br> ⭐ All in one tool for Information Gathering ⭐
+      - [ ] [theHarvester](https://github.com/laramies/theHarvester): 
+        > theHarvester is a very simple to use, yet powerful and effective tool designed to be used in the early stages of a penetration test or red team engagement. <br> Use it for open source intelligence (OSINT) gathering to help determine a company's external threat landscape on the internet. <br> The tool gathers emails, names, subdomains, IPs and URLs using multiple public data sources that include:
     - [ ] 🔸 02 - Networks Information
-      - [ ] [nmap](https://github.com/nmap/nmap): Nmap - the Network Mapper. 
-      - [ ] [Impacket](https://github.com/SecureAuthCorp/impacket): Impacket is a collection of Python classes for working with network protocols. Impacket is focused on providing low-level programmatic access to the packets and for some protocols (e.g. SMB1-3 and MSRPC) the protocol implementation itself. Packets can be constructed from scratch, as well as parsed from raw data, and the object-oriented API makes it simple to work with deep hierarchies of protocols. The library provides a set of tools as examples of what can be done within the context of this library.
+      - [ ] [nmap](https://github.com/nmap/nmap): 
+        > Nmap - the Network Mapper. 
+      - [ ] [Impacket](https://github.com/SecureAuthCorp/impacket): 
+        > Impacket is a collection of Python classes for working with network protocols. <br> Impacket is focused on providing low-level programmatic access to the packets and for some protocols (e.g. SMB1-3 and MSRPC) the protocol implementation itself. <br> Packets can be constructed from scratch, as well as parsed from raw data, and the object-oriented API makes it simple to work with deep hierarchies of protocols. <br> The library provides a set of tools as examples of what can be done within the context of this library.
     - [ ] 🔸 03 - Social Information
-      - [ ] [sherlock](https://github.com/sherlock-project/sherlock): 🔎 Hunt down social media accounts by username across social networks
-      - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher): Automated phishing tool made by AnonyminHack5 to phish various sites with 40+ templates and also has an inbuilt ngrok already to easily help you generate your link and send it to your victim. Anonphisher tool is made with pure bash script and needs required packages for it to work.
+      - [ ] [sherlock](https://github.com/sherlock-project/sherlock): 
+        > 🔎 Hunt down social media accounts by username across social networks
+      - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher): 
+        > Automated phishing tool made by AnonyminHack5 to phish various sites with 40+ templates and also has an inbuilt ngrok already to easily help you generate your link and send it to your victim. <br> Anonphisher tool is made with pure bash script and needs required packages for it to work.
     - [ ] 🔸 04 - SubDomain Information
       - [ ] [RED_HAWK](https://github.com/Tuhinshubhra/RED_HAWK): 
         > All in one tool for Information Gathering, Vulnerability Scanning and Crawling. A must have tool for all penetration testers
