@@ -129,14 +129,19 @@ given URL. It combines the outputs of other known tools into a single one.
 ---
 
   - ## 🔸 05 - Password HacKing
+    - [ ] `Wordlist`
+      - [ ] [SecLists](https://github.com/danielmiessler/SecLists) 
     - [ ] [pydictor](https://github.com/LandGrey/pydictor)
     - [ ] [JohnTheRipper](https://github.com/magnumripper/JohnTheRipper)
     - [ ] [hashcat](https://github.com/hashcat/hashcat)
     - [ ] [thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
     - [ ] [Decodify](https://github.com/s0md3v/Decodify)
     - [ ] [BluForce-FB](https://github.com/AngelSecurityTeam/BluForce-FB)
-    - Wordlist
-      - [ ] [SecLists](https://github.com/danielmiessler/SecLists) 
+    - [ ] [ZIPcrack](https://github.com/d4t4s3c/ZIPcrack)
+      > Brute Force - Password - ZIP
+      > ![](https://github.com/d4t4s3c/ZIPcrack/blob/main/screenshot.png)
+
+
 
 ---
 
@@ -265,6 +270,9 @@ given URL. It combines the outputs of other known tools into a single one.
 ---
 
   - ## 🔸 14 - Privilege Enumeration & Escalation
+    - [ ] [suForce](https://github.com/d4t4s3c/suForce)
+      > su Brute Force - User Password
+      > ![](https://github.com/d4t4s3c/suForce/blob/main/screenshot.png)
     - [ ] Linux Enumeration:
       - [ ] [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings): A list of useful payloads and bypass for Web Application Security and Pentest/CTF
       - [ ] [PEASS-ng](https://github.com/carlospolop/PEASS-ng): PEASS-ng - Privilege Escalation Awesome Scripts SUITE new generation
