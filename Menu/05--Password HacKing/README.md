@@ -18,12 +18,6 @@
     - ## [ssb](https://github.com/kitabisa/ssb)
       > Secure Shell Bruteforcer — A faster & simpler way to bruteforce SSH server.
         - ![image](https://user-images.githubusercontent.com/51442719/173209514-f44d3ccd-9390-43d7-bfde-a1261da64a9f.png)
-    - ## [teler](https://github.com/kitabisa/teler): Real-time HTTP Intrusion Detection
-      > teler is an real-time intrusion detection and threat alert based on web log that runs in a terminal with resources that we collect and provide by the community. ❤️
-        - ![](https://user-images.githubusercontent.com/25837540/97096468-f8ccaa00-1696-11eb-8830-0d3a7be45a2d.gif)
-    - ## [FinDOM-XSS](https://github.com/dwisiswant0/findom-xss): A fast DOM based XSS vulnerability scanner with simplicity.
-      > FinDOM-XSS is a tool that allows you to finding for possible and/ potential DOM based XSS vulnerability in a fast manner.
-        - ![image](https://user-images.githubusercontent.com/51442719/173209572-180986b8-f7fb-49b2-b631-3fdf27a5fa49.png)
     - ## [uNominaCracker](https://github.com/m3n0sd0n4ld/uNominaCracker):
       > It is a script written in Python that performs brute force on workers' payroll files through the use of their DNI (National Identity Document).
         - ![image](https://user-images.githubusercontent.com/51442719/173247185-71fdb405-5d5b-4fc8-8605-6eea27321eaf.png)
