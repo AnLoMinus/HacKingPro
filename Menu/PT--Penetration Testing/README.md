@@ -15,3 +15,8 @@
       > The workshop is based on the attack tree below, which covers all known (at the time) attack vectors of local user privilege escalation on both Linux and Windows operating systems.
       > ![image](https://user-images.githubusercontent.com/51442719/173202764-dd173a41-b701-4ba5-8e96-c710bb2de031.png)
  
+---
+
+- [Pentest-Notes](https://github.com/SofianeHamlaoui/Pentest-Notes): 
+  > Collection of Pentest Notes and Cheatsheets from a lot of repos (SofianeHamlaoui,dostoevsky,mantvydasb,adon90,BriskSec)
+
