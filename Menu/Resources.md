@@ -3,5 +3,3 @@
 - [Certified ethical hacker in bullet points](https://github.com/undergroundwires/CEH-in-bullet-points)
 
 
-# KeyWords
-- [ ] `CVE` ~ Common Vulnerabilities and Exposures 
