@@ -5,3 +5,6 @@
 
 - [PyShell](https://github.com/knassar702/pyshell): Simple Remote Access Trojan Tool
   > https://user-images.githubusercontent.com/45688522/154745539-c2e646bd-c547-4f21-9faf-d00f6b01137e.mp4
+
+- [Caesar](https://github.com/0blio/Caesar): HTTP Remote Administration Tool
+  > An HTTP based RAT (Remote Administration Tool) that allows you to remotely control devices from your browser
