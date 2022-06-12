@@ -55,7 +55,14 @@
     - [Garud](https://github.com/R0X4R/Garud): An automation tool that scans sub-domains, sub-domain takeover, then filters out XSS, SSTI, SSRF, and more injection point parameters and scans for some low hanging vulnerabilities automatically.
       > An automation tool that scans sub-domains, sub-domain takeover and then filters out xss, ssti, ssrf and more injection point parameters.  
         - ![image](https://user-images.githubusercontent.com/51442719/173208556-161db98c-ad66-4bed-93a4-b175cd086af6.png)
-    - []()
+    - [Authz0](https://github.com/hahwul/authz0): 🔑 Authz0 is an automated authorization test tool. Unauthorized access can be identified based on URLs and Roles & Credentials.
+      > URLs and Roles are managed as YAML-based templates, which can be automatically created and added through authz0. <br> You can also test based on multiple authentication headers and cookies with a template file created/generated once.
+        - ![image](https://user-images.githubusercontent.com/51442719/173212036-9789d5a8-ffea-4568-9e1c-de5ad8228492.png)
+
+
+
+
+
 
 
  
