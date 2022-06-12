@@ -17,5 +17,10 @@
 ---
 
 # Privacy 
-  - [privacy.sexy](https://github.com/undergroundwires/privacy.sexy): Enforce privacy & security best-practices on Windows and macOS, because privacy is sexy 🍑🍆
-  - [whoami-project](https://github.com/owerdogan/whoami-project): Whoami provides enhanced privacy, anonymity for Debian and Arch based linux distributions
+  - [privacy.sexy](https://github.com/undergroundwires/privacy.sexy): 
+    > Enforce privacy & security best-practices on Windows and macOS, because privacy is sexy 🍑🍆
+      - ![image](https://user-images.githubusercontent.com/51442719/173209053-0826e8cc-2c15-4a03-8176-301781cf1744.png)
+
+  - [whoami-project](https://github.com/owerdogan/whoami-project): 
+    > Whoami provides enhanced privacy, anonymity for Debian and Arch based linux distributions
+      - ![](https://user-images.githubusercontent.com/59175356/124754970-cc8d4c80-def8-11eb-8606-02c6cdd7f5a2.gif)
