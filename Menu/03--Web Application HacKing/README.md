@@ -62,11 +62,6 @@
       > DalFox is an powerful open source XSS scanning tool and parameter analyzer and utility that fast the process of detecting and verify XSS flaws. <br> It comes with a powerful testing engine, many niche features for the cool hacker!
         - ![image](https://user-images.githubusercontent.com/51442719/173212096-10a8a828-fb79-43dc-8b4b-81a86783d73e.png)
         - ![image](https://user-images.githubusercontent.com/51442719/173212100-9322224e-fe6b-4c7c-93e4-40a37d598f86.png)
-
-
-
-
-
-
-
- 
+    - [ScanT3r](https://github.com/knassar702/scant3r): 
+      > ScanT3r - Module based Bug Bounty Automation Tool
+        - ![image](https://user-images.githubusercontent.com/51442719/173212239-7cdf7011-b4f5-4282-8b76-12908b23ce2d.png)
