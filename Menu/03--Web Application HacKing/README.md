@@ -58,6 +58,10 @@
     - [Authz0](https://github.com/hahwul/authz0): 🔑 Authz0 is an automated authorization test tool. Unauthorized access can be identified based on URLs and Roles & Credentials.
       > URLs and Roles are managed as YAML-based templates, which can be automatically created and added through authz0. <br> You can also test based on multiple authentication headers and cookies with a template file created/generated once.
         - ![image](https://user-images.githubusercontent.com/51442719/173212036-9789d5a8-ffea-4568-9e1c-de5ad8228492.png)
+    - [DalFox](https://github.com/hahwul/dalfox): 🌙🦊 DalFox is an powerful open source XSS scanning tool and parameter analyzer, utility
+      > DalFox is an powerful open source XSS scanning tool and parameter analyzer and utility that fast the process of detecting and verify XSS flaws. <br> It comes with a powerful testing engine, many niche features for the cool hacker!
+        - ![image](https://user-images.githubusercontent.com/51442719/173212096-10a8a828-fb79-43dc-8b4b-81a86783d73e.png)
+        - ![image](https://user-images.githubusercontent.com/51442719/173212100-9322224e-fe6b-4c7c-93e4-40a37d598f86.png)
 
 
 
