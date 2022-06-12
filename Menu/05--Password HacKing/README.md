@@ -1,6 +1,8 @@
   - ## 🔸 05 - Password HacKing
     - [ ] `Wordlist`
       - [ ] [SecLists](https://github.com/danielmiessler/SecLists) 
+      - [ ] [password-list](https://github.com/scipag/password-list): Password lists with top passwords to optimize bruteforce attacks
+        > Password lists are going back to the roots of information security. <br> They compile a list of popular passwords. <br> Often to optimize bruteforce attacks to identify (weak) passwords as quickly as possible.
     - [ ] [pydictor](https://github.com/LandGrey/pydictor)
       > A powerful and useful hacker dictionary builder for a brute-force attack
         - ![image](https://user-images.githubusercontent.com/51442719/173205260-3f8535d0-67ef-4778-a63c-0977e9704aaa.png) 
