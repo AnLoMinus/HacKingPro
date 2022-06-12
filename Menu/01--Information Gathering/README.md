@@ -67,4 +67,8 @@ given URL. It combines the outputs of other known tools into a single one.
     - [ ] [Scilia](https://github.com/edoardottt/scilla)
         > 🏴‍☠️ Information Gathering tool 🏴‍☠️ - DNS / Subdomains / Ports / Directories enumeration
           - ![image](https://user-images.githubusercontent.com/51442719/173204935-8c562b27-749b-41bf-a437-d2045a25c6c5.png)
+    - [ ] [Subrake](https://github.com/hash3liZer/Subrake): A Subdomain Enumeration and Validation tool for Bug Bounty and Pentesters.
+        - ![image](https://user-images.githubusercontent.com/51442719/173210450-dcc796c1-3f4b-408a-a61c-e7b5163c2188.png)
+
+
  
