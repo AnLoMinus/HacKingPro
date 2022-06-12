@@ -25,11 +25,11 @@
 - Supply Chain Attack
 - Formjacking
 - Zero-Day Exploit
-- `SQLI` SQL Injection
+- `SQLI` ~ SQL Injection
 - Insider Threat
 - Targeted Attack
-- `MIME` (Multipurpose Internet Mail Extension)
-- `LFI` Local file inclusion
+- `MIME` ~ (Multipurpose Internet Mail Extension)
+- `LFI` ~ Local file inclusion
 
 ![image](https://user-images.githubusercontent.com/51442719/172266820-a3b48881-74d3-4376-b007-fa30a9cc644c.png)
 ![image](https://user-images.githubusercontent.com/51442719/172266998-72ec0118-8a10-40cb-a6f9-f88b4d1313f9.png)
