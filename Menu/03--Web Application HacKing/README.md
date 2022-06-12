@@ -72,4 +72,6 @@
       > FinDOM-XSS is a tool that allows you to finding for possible and/ potential DOM based XSS vulnerability in a fast manner.
         - ![image](https://user-images.githubusercontent.com/51442719/173209572-180986b8-f7fb-49b2-b631-3fdf27a5fa49.png)
     - ## [w3af](https://github.com/andresriancho/w3af): Web Application Attack and Audit Framework
+      > ![image](https://user-images.githubusercontent.com/51442719/173247489-4db353e5-0733-467b-90ea-28efea6b03a1.png)
       > w3af is an open source web application security scanner which helps developers and penetration testers identify and exploit vulnerabilities in their web applications. <br> The scanner is able to identify 200+ vulnerabilities, including Cross-Site Scripting, SQL injection and OS commanding.
+
