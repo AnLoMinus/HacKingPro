@@ -1,7 +1,10 @@
 ## 🔸 00 - Anonymity
   - [ ] 🔸 00 - Firewall Rules
-    - ## [Iptables Essentials](https://github.com/trimstray/iptables-essentials): 
-      > Common Firewall Rules and Commands
+    - ## [Iptables Essentials](https://github.com/trimstray/iptables-essentials) - Common Firewall Rules and Commands
+    - ## [iptables-boilerplate](https://github.com/bmaeser/iptables-boilerplate) 
+      > rock solid default firewall-rules for webhosts <br>
+      > iptables-boilerplate is a set of predefined firewall rules that are typically used on "webhosts". <br>
+      > its not a set of rules, designed to secure your home or office-network or to setup a router or gatweay. think of "lamp"-servers.
   - [ ] 🔸 01 - Clear Logs
       - ## [CoverMyAss](https://github.com/sundowndev/covermyass): 
         > Shell script to cover your tracks on UNIX systems. <br> Designed for pen testing "covering tracks" phase, before exiting the infected server. Or, permanently disable system logs for post-exploitation.
