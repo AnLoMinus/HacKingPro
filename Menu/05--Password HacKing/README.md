@@ -21,8 +21,9 @@
     - ## [uNominaCracker](https://github.com/m3n0sd0n4ld/uNominaCracker):
       > It is a script written in Python that performs brute force on workers' payroll files through the use of their DNI (National Identity Document).
         - ![image](https://user-images.githubusercontent.com/51442719/173247185-71fdb405-5d5b-4fc8-8605-6eea27321eaf.png)
+    - ## [Passhunt](https://github.com/Viralmaniar/Passhunt): 
+      > ![image](https://user-images.githubusercontent.com/51442719/173314992-741c34b0-43d9-44c5-b8b1-7eaa3916c240.png) 
+      > Passhunt is a simple tool for searching of default credentials for network devices, web applications and more. <br> Search through 523 vendors and their 2084 default passwords.
 
  
-
-  
-
+ 
