@@ -23,4 +23,4 @@
 
 - [Pentest-Notes](https://github.com/SofianeHamlaoui/Pentest-Notes): 
   > Collection of Pentest Notes and Cheatsheets from a lot of repos (SofianeHamlaoui,dostoevsky,mantvydasb,adon90,BriskSec)
-
+- [Pentest-Stuff](https://github.com/Viralmaniar/Pentest-Stuff/tree/master/Pentest)
