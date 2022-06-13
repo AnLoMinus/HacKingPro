@@ -51,3 +51,11 @@
     - [ ] [EAPHammer](https://github.com/s0lst1c3/eaphammer)
     - [ ] [RougeWifi](https://github.com/s0meguy1/RougeWifi)
     - [ ] [c41n](https://github.com/MS-WEB-BN/c41n/)
+    - ## [Wifi-Dumper](https://github.com/Viralmaniar/Wifi-Dumper) 
+      > This is an open source tool to dump the wifi profiles and cleartext passwords of the connected access points on the Windows machine. <br>
+      > This tool will help you in a Wifi penetration testing. <br>
+      > Furthermore, it is useful while performing red team or an internal infrastructure engagements.
+      > ![image](https://user-images.githubusercontent.com/51442719/173315962-5e4a883b-bfee-4c16-8d1a-75ab4c32f2fe.png)
+
+
+ 
