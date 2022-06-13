@@ -24,6 +24,6 @@
     - ## [Passhunt](https://github.com/Viralmaniar/Passhunt): 
       > ![image](https://user-images.githubusercontent.com/51442719/173314992-741c34b0-43d9-44c5-b8b1-7eaa3916c240.png) 
       > Passhunt is a simple tool for searching of default credentials for network devices, web applications and more. <br> Search through 523 vendors and their 2084 default passwords.
-
+    - ## [cryptz](https://github.com/iinc0gnit0/cryptz): 🔒 [ Multi Encryption / Decryption ] 🔓
  
  
