@@ -57,6 +57,12 @@
     > This tool will help you in a Wifi penetration testing. <br>
     > Furthermore, it is useful while performing red team or an internal infrastructure engagements.
     > ![image](https://user-images.githubusercontent.com/51442719/173315962-5e4a883b-bfee-4c16-8d1a-75ab4c32f2fe.png)
+  - ## [PwrDeauther](https://github.com/adamff24/PwrDeauther): ⚡ Deauth a specific WiFi access point or an entire channel
+    > Automatic MDK3 deauther script. Fast, easy to use and powerful (MDK3 is more powerful than Aireplay). <br>
+    > This script allows you to deauth a specific SSID (Option 1) or an entire channel (Option 2). <br>
+    > ![](https://raw.githubusercontent.com/125K/PwrDeauther/master/img/1.png) <br>
+    > ![](https://raw.githubusercontent.com/125K/PwrDeauther/master/img/2.png) <br>
+
 
 
 - # 🔸 Bluetooth HacKing
