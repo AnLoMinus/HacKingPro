@@ -72,6 +72,7 @@ given URL. It combines the outputs of other known tools into a single one.
           - ![image](https://user-images.githubusercontent.com/51442719/173204935-8c562b27-749b-41bf-a437-d2045a25c6c5.png)
     - [ ] [Subrake](https://github.com/hash3liZer/Subrake): A Subdomain Enumeration and Validation tool for Bug Bounty and Pentesters.
         - ![image](https://user-images.githubusercontent.com/51442719/173210450-dcc796c1-3f4b-408a-a61c-e7b5163c2188.png)
-
+    - ## [Crips](https://github.com/Manisso/Crips): IP Tools To quickly get information about IP Address's, Web Pages and DNS records.
+        > ![](https://camo.githubusercontent.com/5ee59c9ec80b16159a7f1e67d5e7a053711d86f7c5c567bee180328408f1e2cc/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f336f687337496445667663353131344335792f67697068792e676966)
 
  
