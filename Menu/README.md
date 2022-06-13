@@ -14,10 +14,6 @@
 
 ---
 
-  - ## 🔸 15 - Malware Analysis Labs/Tools
-
----
-
   - ## 🔸 16 - Covering Tracks
 
 ---
