@@ -9,9 +9,13 @@
         > Nullog is a tool created in Shell Script with the aim of automating the cleaning of logs after an invasion of a Linux system.
   - [ ] 🔸 02 - Clear History
   - [ ] 🔸 03 - Change MAC Address
-    - ## [MacChanger](https://github.com/shilch/macchanger):  Change your mac address, for macOS
+    - ## [MacChanger](https://github.com/shilch/macchanger)
+      >  Change your mac address, for macOS
     - ## [spoof_mac](https://github.com/r00t-3xp10it/spoof_mac):
       > change mac address without using macchanger (NetworkManager9 clone bug)
+    - ## [nMAC](https://github.com/ViRb3/nMAC) 
+      > 📱 An Android device MAC changer <br>
+      > ![](https://camo.githubusercontent.com/61e3f281c6b985684215d901c09b5a1f38d123eee16f7b0816576fbac7a55493/68747470733a2f2f692e696d6775722e636f6d2f517a66526632482e706e67) 
   - [ ] 🔸 04 - Change IP Address
     - ## [kali-anonsurf](https://github.com/Und3rf10w/kali-anonsurf): 
       > ParrotSec's anonsurf and stealth, ported to work with Kali Linux.
