@@ -26,7 +26,7 @@
 
 ---
 
-# Privacy 
+# [Privacy](./Privacy)
   - ## [privacy.sexy](https://github.com/undergroundwires/privacy.sexy): 
     > Enforce privacy & security best-practices on Windows and macOS, because privacy is sexy 🍑🍆
       - ![image](https://user-images.githubusercontent.com/51442719/173209053-0826e8cc-2c15-4a03-8176-301781cf1744.png)
