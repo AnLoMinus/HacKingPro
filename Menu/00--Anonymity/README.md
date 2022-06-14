@@ -51,6 +51,10 @@
     >  ![](https://github.com/builtbybel/privatezilla/raw/master/assets/intro.gif) <br>
     >  ![](https://github.com/builtbybel/privatezilla/raw/master/assets/community-pkg.gif)
 
+  - ## [HideDroid](https://github.com/Mobile-IoT-Security-Lab/HideDroid):
+    > ![image](https://user-images.githubusercontent.com/51442719/173509846-2fa01486-132d-4b14-b5b2-3d5b805800f5.png) <br>
+    > HideDroid is an Android app that allows the per-app anonymization of collected personal data according to a privacy level chosen by the user. <br>
+    > ![](https://github.com/Mobile-IoT-Security-Lab/HideDroid/raw/main/img/app_screenshot.png)
   
  
 
