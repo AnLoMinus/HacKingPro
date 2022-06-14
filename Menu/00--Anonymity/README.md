@@ -43,6 +43,17 @@
     > Chaotic Crypto Stealth VPN for Anonymity and Untraceable Hacking Attacks with Linux and Android <br>
     > ![image](https://user-images.githubusercontent.com/51442719/173354473-6c56ff32-a76d-4224-b3d4-d60b14eb8313.png)
 
+  - ## [Privatezilla](https://github.com/builtbybel/privatezilla) _ 👀👮🐢🔥Performs a privacy & security check of Windows 10
+    > Privatezilla integrates the most critical Windows 10 privacy settings and allows you to quickly perform a privacy check against these settings. <br>
+    >  Active settings are marked with the status "Configured" and indicates that your privacy is protected. <br>
+    >  The inactive ones are declared as "Not configured". <br>
+    >  All available settings (currently 60) can be enabled as well as disabled.
+    >  ![](https://github.com/builtbybel/privatezilla/raw/master/assets/intro.gif) <br>
+    >  ![](https://github.com/builtbybel/privatezilla/raw/master/assets/community-pkg.gif)
+
+  
+ 
+
 
  
    
