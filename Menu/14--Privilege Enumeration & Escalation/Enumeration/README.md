@@ -1,4 +1,4 @@
-Understanding Privilege Escalation and 5 Common Attack Techniques
+[Understanding Privilege Escalation and 5 Common Attack Techniques](https://www.cynet.com/network-attacks/privilege-escalation/)
 =================================================================
 
 Privilege escalation is a type of [network attack used to](https://www.cynet.com/cyber-attacks/network-attacks-and-network-security-threats/) gain unauthorized access to systems within a security perimeter.
