@@ -7,7 +7,10 @@
     - # Linux Enumeration:
       - ## [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings): A list of useful payloads and bypass for Web Application Security and Pentest/CTF
       - ## [PEASS-ng](https://github.com/carlospolop/PEASS-ng): PEASS-ng - Privilege Escalation Awesome Scripts SUITE new generation
-      - ## [enum4linux-ng](https://github.com/cddmp/enum4linux-ng): A next generation version of enum4linux (a Windows/Samba enumeration tool) with additional features like JSON/YAML export. Aimed for security professionals and CTF players.
+      - ## [enum4linux-ng](https://github.com/cddmp/enum4linux-ng): A next generation version of enum4linux (a Windows/Samba enumeration tool) with additional features like JSON/YAML export. Aimed for security professionals and CTF players. <br>
+        > ![](https://github.com/cddmp/misc/raw/master/screencasts/enum4linux-ng/demo1.gif) <br>
+        > ![](https://github.com/cddmp/misc/raw/master/screencasts/enum4linux-ng/demo2.gif)
+
       - ## [Host-enumeration](https://github.com/IvanGlinkin/Host-enumeration): Have you ever faced with the lack of possibility of using NMap? <br>  For instance if you have reverse shell as an unprivileged user and there are no useful tools preinstalled? <br> This is a small script which will help you to scan a network for live hosts and top 24 ports if you have nothing.
         > ![](https://camo.githubusercontent.com/5b694af9666658b98019c7e022cd4f6f3e2ceadf030f931316a5ef81c4d6e44e/68747470733a2f2f7777772e6976616e676c696e6b696e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032302f30392f686f73745f656e756d2e676966) 
 
