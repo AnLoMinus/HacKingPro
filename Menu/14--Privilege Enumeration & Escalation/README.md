@@ -1,5 +1,6 @@
 
-  - # 🔸 14 - Privilege Enumeration & Escalation
+
+  - # 🔸 14 - Privilege Enumeration & Escalation | <br> [`Privilege-Escalation`](https://github.com/Anlominus/Privilege-Escalation)
     - ## [suForce](https://github.com/d4t4s3c/suForce)
       > su Brute Force - User Password
       > ![](https://github.com/d4t4s3c/suForce/blob/main/screenshot.png)
