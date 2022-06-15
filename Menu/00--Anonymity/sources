@@ -1,0 +1,44 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/bash
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################
+Anlominus="Anlominus"
+# Name : Anlominus ~ HacKingPro
+# Description : HacKingPro ~ enter your target and Hack Him and get Markdown Report.
+# Date : 2022 May
+# Last UPDATE : 2022 May 27
+# Aouther: Anlominus ~> RhytMix ~> HacKingPro
+# Skils: Best Copywriter IN the COSMOS!
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
+# CREDIT: To All World Creators free Scripts & Tools
+# Location: Made With LOVE IN ISRAEL !
+# Source: https://github.com/Anlominus/HacKingPro
+###############################################
+gitlist() (
+clear
+pwd
+mkdir GiTools
+cd GiTools
+pwd
+sleep 1
+echo "[1] "
+git clone https://github.com/trimstray/iptables-essentials >> GiTools.log
+echo "[2] "
+git clone https://github.com/bmaeser/iptables-boilerplate >> GiTools.log
+echo "[3] "
+git clone https://github.com/undergroundwires/privacy.sexy >> GiTools.log
+echo "[4] "
+git clone https://github.com/owerdogan/whoami-project >> GiTools.log
+echo "[5] "
+git clone https://github.com/cryptolok/GhostInTheNet >> GiTools.log
+echo "[6] "
+git clone https://github.com/cryptolok/GhostInTheChaos >> GiTools.log
+echo "[7] "
+git clone https://github.com/builtbybel/privatezilla >> GiTools.log
+echo "[8] "
+git clone https://github.com/Mobile-IoT-Security-Lab/HideDroid >> GiTools.log
+exit
+)
+gitlist
