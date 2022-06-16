@@ -71,6 +71,7 @@ HacKingPro - Hack Like A Pro !
   - [ ] 14 - Privilege Enumeration & Escalation
   - [ ] 15 - Malware Analysis Labs/Tools
   - [ ] 16 - Covering Tracks
+  - [ ] 17 - Network Security Solutions
 
 ┌──[ Anlominus 👽 HacKingPro $~]  
 └──╼  
