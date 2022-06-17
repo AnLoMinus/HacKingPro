@@ -1,4 +1,7 @@
 # [HacKingPro-Wordlists]()
+### DownRun
+`wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/05--Password%20HacKing/HacKingPro-Wordlists/HacKingPro-Passwords.sh; sh HacKingPro-Passwords.sh `
+
 ```bash
 !#/bin/bash
 clear
