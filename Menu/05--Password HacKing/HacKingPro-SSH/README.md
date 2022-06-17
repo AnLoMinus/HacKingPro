@@ -29,3 +29,8 @@ HacKingPro-SSH - Hack Like A Pro !
 </div>
 
 ---
+
+> ## [SSH Brute Forcer](https://github.com/R4stl1n/SSH-Brute-Forcer) ~ A Simple Multi-Threaded SSH Brute Forcer
+> ### Simple multi threaded SSHBrute Forcer, Standard Brute Forcing and Dictonary based attacks.
+> [`Note`]: The brute force method is really bad just trys random strings with different lengths. Also it will attempt to create a lot of threads if you say 1000 attempts it will create 1000 threads.. Why you might ask because no one should really ever use this feature.
+
