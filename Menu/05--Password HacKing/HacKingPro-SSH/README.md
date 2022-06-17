@@ -20,6 +20,11 @@
   
 ---
 
+```shell
+
+```
+
+---
 
 <div align="center">
 
@@ -31,6 +36,7 @@ HacKingPro-SSH - Hack Like A Pro !
 ---
 > ## [OrbitalDump](https://github.com/k4yt3x/orbitaldump) ~ A simple multi-threaded distributed SSH brute-forcing tool written in Python
 > ![image](https://user-images.githubusercontent.com/51442719/174398155-cac6d3c6-79f7-40b7-80fe-871aac11270d.png)
+> `python -m orbitaldump -t 10 -u usernames.txt -p passwords.txt -h example.com --proxies`
 > ## [SSH Brute Forcer](https://github.com/R4stl1n/SSH-Brute-Forcer) ~ A Simple Multi-Threaded SSH Brute Forcer
 > ### Simple multi threaded SSHBrute Forcer, Standard Brute Forcing and Dictonary based attacks.
 > [`Note`]: The brute force method is really bad just trys random strings with different lengths. Also it will attempt to create a lot of threads if you say 1000 attempts it will create 1000 threads.. Why you might ask because no one should really ever use this feature.
