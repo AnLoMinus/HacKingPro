@@ -7,7 +7,6 @@ wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/05--Passwo
 ```bash
 !#/bin/sh
 clear
-echo "\n\t\t HacKingPro/Menu/05--Password HacKing/HacKingPro-Wordlists"
 git clone https://github.com/danielmiessler/SecLists
 git clone https://github.com/scipag/password-list
 git clone https://github.com/jeanphorn/wordlist
