@@ -1,3 +1,60 @@
+# 🔸 03 - Web Application HacKing
+
+```bash
+🔸 03 - Web Application HacKing
+echo "\n\t\t[liffy]\n"
+git clone https://github.com/mzfr/liffy
+echo "\n\t\t[ffuf]\n"
+git clone https://github.com/ffuf/ffuf
+echo "\n\t\t[Hawk]\n"
+git clone https://github.com/medpaf/hawk
+echo "\n\t\t[Garud]\n"
+git clone https://github.com/R0X4R/Garud
+echo "\n\t\t[Juumla]\n"
+git clone https://github.com/oppsec/juumla
+echo "\n\t\t[XSpear]\n"
+git clone https://github.com/hahwul/XSpear
+echo "\n\t\t[DalFox]\n"
+git clone https://github.com/hahwul/dalfox
+echo "\n\t\t[Authz0]\n"
+git clone https://github.com/hahwul/authz0
+echo "\n\t\t[teler]\n"
+git clone https://github.com/kitabisa/teler
+echo "\n\t\t[Orusula]\n"
+git clone https://github.com/Squuv/Orusula
+echo "\n\t\t[HTTrack]\n"
+git clone https://github.com/xroche/httrack
+echo "\n\t\t[SQLMate]\n"
+git clone https://github.com/s0md3v/sqlmate
+echo "\n\t\t[w3af]\n"
+git clone https://github.com/andresriancho/w3af
+echo "\n\t\t[ScanT3r]\n"
+git clone https://github.com/knassar702/scant3r
+echo "\n\t\t[Tishna]\n"
+git clone https://github.com/marciopocebon/Tishna
+echo "\n\t\t[Hack-Tools]\n"
+git clone https://github.com/LasCC/Hack-Tools
+echo "\n\t\t[CRLFsuite]\n"
+git clone https://github.com/Nefcore/CRLFsuite
+echo "\n\t\t[PyPhisher]\n"
+git clone https://github.com/KasRoudra/PyPhisher
+echo "\n\t\t[BruteXSS]\n"
+git clone https://github.com/rajeshmajumdar/BruteXSS
+echo "\n\t\t[BruteSploit]\n"
+git clone https://github.com/screetsec/BruteSploit
+echo "\n\t\t[FinDOM-XSS]\n"
+git clone https://github.com/dwisiswant0/findom-xss
+echo "\n\t\t[FinDOM-XSS]\n"
+git clone https://github.com/dwisiswant0/findom-xss
+echo "\n\t\t[V3n0M-Scanner]\n"
+git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner
+echo "\n\t\t[WebHackersWeapons]\n"
+git clone https://github.com/hahwul/WebHackersWeapons
+echo "\n\t\t[top 25 vulnerability parameters]\n"
+git clone https://github.com/lutfumertceylan/top25-parameter
+```
+
+---
 
   - # 🔸 03 - Web Application HacKing
     - ## [liffy](https://github.com/mzfr/liffy): 
@@ -84,3 +141,5 @@
       > - Checks for vulnerabilities
       > - Auto shell injector
       > - Exploit dork searcher
+
+---
