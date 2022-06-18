@@ -22,5 +22,12 @@
       > ![image](https://user-images.githubusercontent.com/51442719/173314992-741c34b0-43d9-44c5-b8b1-7eaa3916c240.png) 
       > Passhunt is a simple tool for searching of default credentials for network devices, web applications and more. <br> Search through 523 vendors and their 2084 default passwords.
     - ## [cryptz](https://github.com/iinc0gnit0/cryptz): 🔒 [ Multi Encryption / Decryption ] 🔓
+    - ## [LaZagne](https://github.com/AlessandroZ/LaZagne) ~ The LaZagne Project !!!
+      > ### Description
+      > The LaZagne project is an open source application used to retrieve lots of passwords stored on a local computer. <br>
+      > Each software stores its passwords using different techniques (plaintext, APIs, custom algorithms, databases, etc.). <br>
+      > This tool has been developed for the purpose of finding these passwords for the most commonly-used software. <br>
+
+
  
  
