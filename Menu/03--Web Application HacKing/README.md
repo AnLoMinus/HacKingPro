@@ -74,4 +74,13 @@
     - ## [w3af](https://github.com/andresriancho/w3af): Web Application Attack and Audit Framework
       > ![image](https://user-images.githubusercontent.com/51442719/173247489-4db353e5-0733-467b-90ea-28efea6b03a1.png)
       > w3af is an open source web application security scanner which helps developers and penetration testers identify and exploit vulnerabilities in their web applications. <br> The scanner is able to identify 200+ vulnerabilities, including Cross-Site Scripting, SQL injection and OS commanding.
-
+    - ## [Orusula](https://github.com/Squuv/Orusula) ~ Orusula is an Website hacking tool.
+      > ## Orusula 🕷️ is An Intelligent Bot Auto Shell Exploit and detect multiple types of Cms
+      > ![image](https://user-images.githubusercontent.com/51442719/174447593-1a7b2241-bc76-48b0-ab29-850644ae1803.png)
+      > ### 🕷️ Features
+      > - Detect cms (wordpress, joomla, prestashop, drupal, opencart, magento, lokomedia)
+      > - Target informations gatherings
+      > - Multi-threading on demand
+      > - Checks for vulnerabilities
+      > - Auto shell injector
+      > - Exploit dork searcher
