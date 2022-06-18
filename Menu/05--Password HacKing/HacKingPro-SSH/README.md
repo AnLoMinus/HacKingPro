@@ -46,6 +46,10 @@ HacKingPro-SSH - Hack Like A Pro !
 > ![image](https://user-images.githubusercontent.com/51442719/174397551-61153cd8-5f0f-4baf-93bb-9d018c345e61.png)
 > ## [B0tN3tBrut3](https://github.com/YourAnonXelj/B0tN3tBrut3) ~ Brute force tool for telnet and ssh, programmed in python (with Zmap) <br>
 > ![image](https://user-images.githubusercontent.com/51442719/174427722-a7af55a2-b093-4c00-8a71-4e12ac9c0839.png)
+> ## [SSHpwn](https://github.com/d4t4s3c/SSHpwn) ~ Brute Force - Password - SSH
+> ## [RSAcrack](https://github.com/d4t4s3c/RSAcrack) ~ Brute Force - Passphrase - RSA PRIVATE KEY (id_rsa)
+
+
 
 
 
