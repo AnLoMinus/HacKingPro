@@ -1,3 +1,19 @@
+# [00 - Anonymity]()
+### DownRun
+```bash
+wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/05--Password%20HacKing/Wordlists/HacKingPro-Wordlists; sh HacKingPro-Wordlists
+```
+
+```bash
+!#/bin/sh
+clear
+git clone https://github.com/danielmiessler/SecLists
+git clone https://github.com/scipag/password-list
+git clone https://github.com/jeanphorn/wordlist
+```
+
+---
+
 ## 🔸 00 - Anonymity
   - [ ] 🔸 00 - Firewall Rules
     - ## [Iptables Essentials](https://github.com/trimstray/iptables-essentials) - Common Firewall Rules and Commands
