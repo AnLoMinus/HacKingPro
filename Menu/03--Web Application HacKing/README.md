@@ -141,5 +141,12 @@ git clone https://github.com/lutfumertceylan/top25-parameter
       > - Checks for vulnerabilities
       > - Auto shell injector
       > - Exploit dork searcher
+    - ## [tplmap](https://github.com/epinna/tplmap) 
+      > ## Server-Side Template Injection and Code Injection Detection and Exploitation Tool
+      > Tplmap assists the exploitation of Code Injection and Server-Side Template Injection vulnerabilities with a number of sandbox escape techniques to get access to the underlying operating system.
+
+
+
+ 
 
 ---
