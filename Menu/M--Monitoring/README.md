@@ -8,8 +8,8 @@
   > The tool can to be utilized as both a defensive and offensive tool.
   > <a href="https://asciinema.org/a/244739" target="_blank"><img src="https://asciinema.org/a/244739.svg" /></a>
 
-## [ElastiFlow](https://github.com/robcowart/elastiflow)
-  > Network flow analytics (Netflow, sFlow and IPFIX) with the Elastic Stack
+## [ElastiFlow](https://github.com/robcowart/elastiflow) Network flow analytics (Netflow, sFlow and IPFIX) with the Elastic Stack
+  > ### Now that the new ElastiFlow™ Unified Flow Collector is generally available, the legacy Logstash-based solution in this repository is deprecated. It will remain here for historical purposes, but will not receive updates. You are encouraged to try out the new collector. See more details below.
   > ![image](https://user-images.githubusercontent.com/51442719/174500666-67cc856c-b3fd-4711-831e-ad3aad189bfa.png) <br>
   > ![image](https://user-images.githubusercontent.com/51442719/174500688-9d24af88-c619-464e-b5d2-bd082d25a9aa.png) <br>
   > ![image](https://user-images.githubusercontent.com/51442719/174500693-343daab7-8a4f-42d1-9c89-442490b90d41.png) <br>
