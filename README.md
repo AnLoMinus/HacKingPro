@@ -44,7 +44,7 @@ HacKingPro - Hack Like A Pro !
     - [x] Asking for Target Phone:
     - [ ] Asking for Target Nik Name:
     - [ ] Asking for Target Email:
-  - [ ] 00 - [Anonymity](./tree/main/Menu/00--Anonymity)
+  - [ ] 00 - [Anonymity](./Menu/00--Anonymity)
     - [ ] 00 - Firewall Rules
     - [ ] 01 - Clear Logs
     - [ ] 02 - Clear History
