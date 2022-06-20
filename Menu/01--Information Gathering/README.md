@@ -46,6 +46,10 @@
       > 🔎 Hunt down social media accounts by username across social networks
     - [ ] [Anonphisher](https://github.com/TermuxHackz/anonphisher): 
       > Automated phishing tool made by AnonyminHack5 to phish various sites with 40+ templates and also has an inbuilt ngrok already to easily help you generate your link and send it to your victim. <br> Anonphisher tool is made with pure bash script and needs required packages for it to work.
+    - ## [Namechk](https://github.com/GONZOsint/Namechk) Osint tool based on namechk.com for checking usernames on more than 100 websites, forums and social networks.
+    - ![image](https://user-images.githubusercontent.com/51442719/174528824-9ec4d5d8-cb72-4cac-b94f-0c54d67faafc.png)
+
+
 
 ---
 
