@@ -95,3 +95,4 @@ HacKingPro - Hack Like A Pro !
 
 # Awesome
 ### [Awesome Hacking](https://github.com/jekil/awesome-hacking)
+### [Awesome Hacking Resources](https://github.com/vitalysim/Awesome-Hacking-Resources#malware-analysis)
