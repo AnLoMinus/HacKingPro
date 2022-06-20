@@ -145,8 +145,11 @@ git clone https://github.com/lutfumertceylan/top25-parameter
   > ## Server-Side Template Injection and Code Injection Detection and Exploitation Tool
   > Tplmap assists the exploitation of Code Injection and Server-Side Template Injection vulnerabilities with a number of sandbox escape techniques to get access to the underlying operating system.
 
-
-
- 
-
 ---
+
+##### CMS
+
+- [wpscan](https://github.com/wpscanteam/wpscan)
+- [joomscan](https://github.com/rezasp/joomscan)
+- [droopescan](https://github.com/droope/droopescan)
+- [cmseek](https://github.com/Tuhinshubhra/CMSeeK)
