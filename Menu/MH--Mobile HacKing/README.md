@@ -16,7 +16,9 @@
 ## [Nyuki Android Lock Cracker](https://github.com/georgenicolaou/androidlockcracker) Python script for cracking and generating Android locks
 ## [Android-BruteForce](https://github.com/Gh005t/Android-BruteForce) Android BruteForce using ADB & Shell Scripting
   > Its is a simple shell script that brute force Android Lock screen (When USB DEBUGGING is enable) its uses ADB tools FOR BruteForce
-## []()
+## [ADBSploit](https://github.com/mesquidar/adbsploit)
+  > A python based tool for exploiting and managing Android devices via ADB
+
 
 
 
