@@ -12,5 +12,11 @@
 ## [AndroidPINCrack](https://github.com/PentesterES/AndroidPINCrack) Bruteforce the Android Passcode given the hash and salt.
   > AndroidPINCrack is a Python script that bruteforce the Android Passcode given the hash and salt. <br>
   > Of course there are some other faster ways to crack than a python script, but it can be useful for numeric passcoders or wordlist attack. <br>
+## [Android Pattern Lock Cracker](https://github.com/sch3m4/androidpatternlock) A little Python tool to crack the Pattern Lock on Android devices
+## [Nyuki Android Lock Cracker](https://github.com/georgenicolaou/androidlockcracker) Python script for cracking and generating Android locks
+## [Android-BruteForce](https://github.com/Gh005t/Android-BruteForce) Android BruteForce using ADB & Shell Scripting
+  > Its is a simple shell script that brute force Android Lock screen (When USB DEBUGGING is enable) its uses ADB tools FOR BruteForce
+## []()
+
 
 
