@@ -10,5 +10,5 @@
 
 
 ## [Geo-Recon](https://github.com/radioactivetobi/geo-recon) 
-  > ###An OSINT CLI tool desgined to fast track IP Reputation and Geo-locaton look up for Security Analysts.
+  > ### An OSINT CLI tool desgined to fast track IP Reputation and Geo-locaton look up for Security Analysts.
 
