@@ -8,3 +8,7 @@
 ## [xeuledoc](https://github.com/Malfrats/xeuledoc) Fetch information about a public Google document.
   > ![](https://camo.githubusercontent.com/9331acf72942db276339fc0345deae4f4597058cb7c0d4e967cae0710278f46c/68747470733a2f2f66696c65732e636174626f782e6d6f652f6b35783361732e676966)
 
+
+## [Geo-Recon](https://github.com/radioactivetobi/geo-recon) 
+  > ###An OSINT CLI tool desgined to fast track IP Reputation and Geo-locaton look up for Security Analysts.
+
