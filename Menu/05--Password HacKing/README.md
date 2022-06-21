@@ -1,5 +1,7 @@
 # 🔸 05 - Password HacKing
 - ## [`Wordlists`](./Wordlists)
+- ## [BruteX](https://github.com/1N3/BruteX)
+  > ### Automatically brute force all services running on a target.
 - ## [pydictor](https://github.com/LandGrey/pydictor)
   > A powerful and useful hacker dictionary builder for a brute-force attack
     - ![image](https://user-images.githubusercontent.com/51442719/173205260-3f8535d0-67ef-4778-a63c-0977e9704aaa.png) 
