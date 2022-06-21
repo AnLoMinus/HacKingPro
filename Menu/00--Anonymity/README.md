@@ -15,6 +15,11 @@ git clone https://github.com/jeanphorn/wordlist
 ---
 
 ## 🔸 00 - Anonymity
+- ## [4nonimizer](https://github.com/Hackplayers/4nonimizer) 
+  > ![image](https://user-images.githubusercontent.com/51442719/174771525-c5aef9b9-542a-4f3e-9576-2b3bcb537290.png)
+  > ### A bash script for anonymizing the public IP used to browsing Internet, managing the connection to TOR network and to different VPNs providers (OpenVPN)
+  > #### It is a bash script for anonymizing the public IP used to browsing Internet, managing the connection to TOR network and to different VPNs providers (OpenVPN), whether free or paid. By default, it includes several pre-configured VPN connections to different peers (.ovpn files) and download the credentials (if the corresponding provider support it). Also, it records each used IP that we use every 300 seconds in log files.
+
   - [ ] 🔸 00 - Firewall Rules
     - ## [Iptables Essentials](https://github.com/trimstray/iptables-essentials) - Common Firewall Rules and Commands
     - ## [iptables-boilerplate](https://github.com/bmaeser/iptables-boilerplate) 
