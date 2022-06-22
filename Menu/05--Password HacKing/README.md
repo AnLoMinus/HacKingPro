@@ -30,3 +30,7 @@
   > Each software stores its passwords using different techniques (plaintext, APIs, custom algorithms, databases, etc.). <br>
   > This tool has been developed for the purpose of finding these passwords for the most commonly-used software. <br>
   > ![image](https://user-images.githubusercontent.com/51442719/174459728-fe291408-c2bb-47a9-b632-4a358088b2b1.png)
+
+- ## [SSH PuTTY login bruteforcer](https://github.com/InfosecMatter/SSH-PuTTY-login-bruteforcer) Turn PuTTY into an SSH login bruteforcing tool.
+  > - #### The ssh-putty-brute.ps1 is a wrapper script which uses PuTTY clients (either putty.exe or plink.exe) to perform SSH login bruteforce attacks.
+
