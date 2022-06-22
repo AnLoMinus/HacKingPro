@@ -2,8 +2,7 @@
 
 <a><p align="center">Nullog is a tool created in Shell Script with the aim of automating the cleaning of logs after an invasion of a Linux system.</p></a>
 
-<p align="center"><img src="image.png"></p>
-
+![image](https://user-images.githubusercontent.com/51442719/175136243-849b873a-2b24-4581-b436-ff52ea535bbf.png)
 # What does it clean?
 
 * wtmp
