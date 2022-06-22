@@ -34,3 +34,7 @@
 - ## [SSH PuTTY login bruteforcer](https://github.com/InfosecMatter/SSH-PuTTY-login-bruteforcer) Turn PuTTY into an SSH login bruteforcing tool.
   > - #### The ssh-putty-brute.ps1 is a wrapper script which uses PuTTY clients (either putty.exe or plink.exe) to perform SSH login bruteforce attacks.
 
+- ## [WBRUTER](https://github.com/wuseman/WBRUTER)
+  > - #### wbruter is is the first tool wich has been released as open source wich can guarantee 100% that your pin code will be cracked aslong as usb debugging has been enable. wbruter also includes some other brute methods like dictionary attacks for gmail, ftp, rar, zip and some other file extensions.
+  > - ![](https://raw.githubusercontent.com/1939149/wbruter/master/files/wbruter.gif)
+
