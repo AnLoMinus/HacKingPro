@@ -4,11 +4,11 @@
 
 ## Responses are grouped in 5 classes:
 
-> - Informational responses (100–199)
-> - Successful responses (200–299)
-> - Redirects (300–399)
-> - Client errors (400–499)
-> - Server errors (500–599)
+> - [Informational responses](#information-responses) (100–199)
+> - [Successful responses](#successful-responses) (200–299)
+> - [Redirects](#redirection-messages) (300–399)
+> - [Client errors](#client-error-responses) (400–499)
+> - [Server errors](#server-error-responses) (500–599)
 
 ## Information responses
 
