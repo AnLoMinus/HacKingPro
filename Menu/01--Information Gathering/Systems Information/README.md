@@ -1,7 +1,7 @@
 ## 🔸 01 - Systems Information
-  - [ ] [Th3inspector](https://github.com/Moham3dRiahi/Th3inspector): 
+  - [x] [Th3inspector](https://github.com/Moham3dRiahi/Th3inspector): 
       > Th3inspector 🕵️ best tool for Information Gathering 🔎 <br> ⭐ All in one tool for Information Gathering ⭐
-  - [ ] [theHarvester](https://github.com/laramies/theHarvester): 
+  - [x] [theHarvester](https://github.com/laramies/theHarvester): 
       > theHarvester is a very simple to use, yet powerful and effective tool designed to be used in the early stages of a penetration test or red team engagement. <br> Use it for open source intelligence (OSINT) gathering to help determine a company's external threat landscape on the internet. <br> The tool gathers emails, names, subdomains, IPs and URLs using multiple public data sources that include:
 
 #### OS Enumeration
