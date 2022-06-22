@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var argv = require('yargs')
+.usage('Usage: markn [path]')
+.example('markn', 'Run Markn')
+.example('markn foo.md', 'Open the markdown file with Markn')
+.help('h')
+.alias('h', 'help')
+.argv;
+
+var spawn = require('child_process').spawn;
+
+var platform = process.platform;
+var arch = process.arch;
+var app = path.join(__dirname, '../build/Markn-' + platform + '-' + arch + '/');
+
+var cmd, args;
+
+switch (platform) {
+  case 'darwin':
+    app += 'Markn.app/Contents/MacOS/Electron';
+    cmd = app
+    args = argv._
+    break;
+  case 'linux':
+    app += 'Markn';
+    cmd = app;
+    args = argv._;
+    break;
+  case 'win32':
+    app += 'Markn.exe';
+    cmd = app;
+    args = argv._;
+    break;
+  default:
+    console.error('Unsupported platform:', platform);
+    process.exit(1);
+    break;
+}
+
+console.log('spawn:', cmd, args);
+var Markn = spawn(cmd, args);
+Markn.stdout.on('data', function (data) {
+  console.log(data.toString('utf8'));
+});
+Markn.stderr.on('data', function (data) {
+  console.error(data.toString('utf8'));
+});
+Markn.on('close', function (code) {
+  console.log('closed:', code);
+});

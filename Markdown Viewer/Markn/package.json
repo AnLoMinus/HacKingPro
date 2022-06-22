@@ -1,0 +1,85 @@
+{
+  "name": "markn",
+  "appName": "Markn",
+  "version": "0.2.1",
+  "description": "Lightweight markdown viewer",
+  "main": "scripts/main.js",
+  "bin": {
+    "markn": "./bin/markn"
+  },
+  "scripts": {
+    "test": "exit 0;",
+    "debug": "./node_modules/gulp/bin/gulp.js",
+    "release": "./node_modules/gulp/bin/gulp.js release",
+    "prepublish": "./node_modules/gulp/bin/gulp.js package"
+  },
+  "files": [
+    "bin",
+    "build",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minodisk/markn.git"
+  },
+  "keywords": [
+    "electron",
+    "md2react",
+    "markdown",
+    "viewer"
+  ],
+  "author": {
+    "name": "minodisk",
+    "email": "daisuke.mino@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/minodisk/markn/issues"
+  },
+  "homepage": "https://github.com/minodisk/markn#readme",
+  "devDependencies": {
+    "asar": "^0.8.0",
+    "babel": "^5.8.20",
+    "babel-core": "^5.8.3",
+    "babel-loader": "^5.3.2",
+    "babel-runtime": "^5.8.25",
+    "chokidar": "^1.0.3",
+    "classnames": "^2.1.3",
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.9.3",
+    "css-loader": "^0.15.1",
+    "electron-packager": "^5.0.0",
+    "electron-prebuilt": "^0.30.4",
+    "emojione": "^1.5.0",
+    "font-awesome": "^4.3.0",
+    "github": "^0.2.4",
+    "github-markdown-css": "^2.0.9",
+    "gulp": "^3.9.0",
+    "gulp-filter": "^3.0.0",
+    "gulp-if": "^1.2.5",
+    "gulp-jade": "^1.1.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-stylus": "^2.0.6",
+    "gulp-util": "^3.0.6",
+    "highlight.js": "^8.7.0",
+    "imports-loader": "^0.6.4",
+    "json-loader": "^0.5.2",
+    "lodash": "^3.10.1",
+    "md2react": "git://github.com/minodisk/md2react.git#markn",
+    "mdast": "^0.28.0",
+    "mkdirp": "^0.5.1",
+    "raw-loader": "^0.5.1",
+    "react": "^0.13.3",
+    "react-highlight": "^0.5.0",
+    "request": "^2.60.0",
+    "semver": "^4.3.6",
+    "style-loader": "^0.12.3",
+    "stylus-loader": "^1.2.1",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.10.1",
+    "yargs": "^3.17.1"
+  }
+}

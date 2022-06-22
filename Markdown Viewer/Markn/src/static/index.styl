@@ -1,0 +1,284 @@
+nav-height = 34px
+
+html
+body
+  font-family sans-serif
+  overflow hidden
+  height 100%
+
+input
+button
+textarea
+  outline none
+  font-family sans-serif
+
+body
+  margin 0
+  padding 0
+
+.root
+  width 100%
+  height 100%
+
+.head
+  z-index 1
+  position relative
+  background-color #B2B2B2
+  border-bottom 1px solid #B2B2B2
+
+.nav
+  z-index 2
+  position relative
+  display -webkit-box
+  box-sizing border-box
+
+  padding 2px 3px 4px
+
+  width 100%
+  height nav-height
+  background -webkit-gradient(linear, left top, left bottom, from(#F2F0F0), to(#E7E6E9))
+
+.search-box
+  position absolute
+  top nav-height
+  right 32px
+  transform translateY(-31px)
+  box-sizing border-box
+  width 293px
+  height 31px
+
+.nav
+  .path
+    display block
+    -webkit-box-flex 1
+    box-sizing border-box
+    border-radius 4px
+    border 1px solid #B2B2B2
+    padding 0 8px
+    line-height 26px
+    font-size 10pt
+
+  button
+    width 29px
+    height 29px
+    border none
+    background-color transparent
+    background-size 29px*5 29px*4
+    &.backward
+      background-position-x -29px*0
+      background-image url(../assets/ui.png)
+    &.forward
+      background-position-x -29px*1
+      background-image url(../assets/ui.png)
+    &.reload
+      background-position-x -29px*2
+      background-image url(../assets/ui.png)
+    &.tools
+      display none
+      background-position-x -29px*4
+      background-image url(../assets/ui.png)
+    &:hover
+      background-position-y -29px*1
+    &:active
+      background-position-y -29px*2
+    &:disabled
+      background-position-y -29px*3
+
+.search-box
+  padding 4px 2px 4px 4px
+  overflow hidden
+  border 1px solid #B2B2B2
+  border-top none
+  border-radius 0 0 4px 4px
+  background -webkit-gradient(linear, left top, left bottom, from(#E7E6E9), to(#E0E1E0))
+  transition transform 0.15s ease-out
+
+  &.is-shown
+    transform translateY(0)
+  .search
+    display inline-block
+    float left
+    position relative
+    width 216px
+    height 22px
+    font-size 14px
+    input
+      display inline-block
+      width 167px
+      padding 0 43px 0 4px
+      line-height 20px
+      background-color #ffffff
+      border 1px solid #bbbbbd
+      border-radius 4px 0 0 4px
+      &:focus
+        padding 0 42px 0 3px
+        line-height 18px
+        border 2px solid #a8cbf7
+    .indication
+      position absolute
+      right 7px
+      top 4px
+      font-family arial, sans-serif
+      font-size 13px
+      letter-spacing 0.8px
+      color #c9c9c9
+      font-size 0.85em
+      line-height 1.4
+  .controller
+    float left
+  button
+    float left
+    width 22px
+    height 22px
+    padding 0
+    font-size 10px !important
+    color #747474
+    background none
+    border none
+    outline none
+    &.button-up, &.button-down
+      position relative
+      color #000
+      background -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#dad8d8))
+      &:before
+        position absolute
+        left 50%
+        top 50%
+        margin-top -6px
+        margin-left -5px
+      &:disabled
+        color #747474
+        background none
+      &:active
+        background #8a8a8a
+    &.button-up
+      border-top 1px solid #c8c9c9
+      border-right 1px solid #f3f4f2
+      border-bottom 1px solid #c8c9c9
+      &:disabled
+        border-right 1px solid #DADBDA
+    &.button-down
+      width 23px
+      border-top 1px solid #c8c9c9
+      border-right 1px solid #c8c9c9
+      border-bottom 1px solid #c8c9c9
+      border-radius 0 4px 4px 0
+    &.button-close
+      color #868686
+      border none
+      background none
+      width 14px
+      height 14px
+      margin-left 5px
+      margin-top 4px
+      margin-right 5px
+      &:before
+        display inline-block
+        width 12px
+        height 12px
+        border-radius 50%
+      &:hover
+        &:before
+          color #fff
+          border 1px solid #c35354
+          background #db8282
+      &:active
+        &:before
+          color #fff
+          border 1px solid #c35354
+          bg-color = #db8282;
+          background darken(bg-color,20%)
+
+.is-focused
+  .head
+    background-color #7A7A7A
+    border-color #7A7A7A
+  .nav
+    background -webkit-gradient(linear, left top, left bottom, from(#ECEAEC), to(#DDDDDC))
+  .search-box
+    border-color #7A7A7A
+    background -webkit-gradient(linear, left top, left bottom, from(#DDDDDC), to(#D3D2D2))
+
+.body
+  position relative
+  width 100%
+  height 100%
+  overflow auto
+
+  .content
+
+    .rail
+      position absolute
+      top 0
+      right 0
+      height 100%
+      .mark
+        position absolute
+        top 10px
+        right 0
+        box-sizing border-box
+        width 16px
+        height 3px
+        background #E6D580
+        border 1px solid #E6C500
+
+    .markdown-body
+      padding 30px
+      li
+        &.checked
+          &:before
+            content "\f046"
+        &.unchecked
+          &:before
+            content "\f096"
+      .icon
+        font normal normal normal 16px/1 octicons-anchor
+        display inline-block
+        text-decoration none
+        text-rendering auto
+        -webkit-font-smoothing antialiased
+        -moz-osx-font-smoothing grayscale
+        -webkit-user-select none
+        -moz-user-select none
+        -ms-user-select none
+        user-select none
+      .icon-link
+        &:before
+          content '\f05c'
+
+    li
+      & > p
+        margin-top 0 !important
+        margin-bottom 0 !important
+
+    .markdown-body li.checked,
+    .markdown-body li.unchecked
+      list-style-type none
+      position relative
+
+    .markdown-body li.checked:before,
+    .markdown-body li.unchecked:before
+      font-family FontAwesome
+      position absolute
+      left -1.3em
+
+    .markdown-body h1 .icon-link,
+    .markdown-body h2 .icon-link,
+    .markdown-body h3 .icon-link,
+    .markdown-body h4 .icon-link,
+    .markdown-body h5 .icon-link,
+    .markdown-body h6 .icon-link
+      display none
+      color #000
+      vertical-align middle
+
+    .markdown-body h1:hover .anchor .icon-link,
+    .markdown-body h2:hover .anchor .icon-link,
+    .markdown-body h3:hover .anchor .icon-link,
+    .markdown-body h4:hover .anchor .icon-link,
+    .markdown-body h5:hover .anchor .icon-link,
+    .markdown-body h6:hover .anchor .icon-link
+      display inline-block
+
+    mark.indicated
+      background-color orange

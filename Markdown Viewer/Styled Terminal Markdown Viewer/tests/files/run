@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+export MDV_THEME=729.8953
+export MDV_CODE_THEME=729.8953
+export d="`dirname "${BASH_SOURCE[0]}"`"
+cd "$d"
+#MDV='../../mdv/markdownviewer.py'
+MDV=mdv # pip install -e .
+#MDV="`which mdv`"
+res='/tmp/mdv_expected'
+
+for col in 20 40 80 200; do
+    echo "Setting Columns to $col"
+    export width=$col
+    rd="result.$col"
+    mkdir -p "$rd"
+    for f in *.md; do
+        if [ "x$1" = "xbuild" ]; then
+            echo "building result for $f (col $col)"
+            $MDV -x $f > "$rd/$f.expected"
+            cat "$rd/$f.expected"
+        elif [ "x$1" = "xtest" ]; then
+            set -e
+            echo "testing $f"
+            $MDV -x $f > $res
+            # why not:
+            cat $res
+            diff $res "$rd/$f.expected" || { \
+                echo "failing: $f columns $col"; exit 1; }
+        fi
+    done
+done
+
+test ! "x$1" = "x"   || { $MDV README.md; exit 0; }
+test ! "x$1" = "x-h" || { $MDV README.md; exit 0; }
+
+
+test ! "x$1" = "xbuild" || { echo "all test files built, pls commit."; exit 0; }
+test ! "x$1" = "xtest"  || { echo 'tests done'; exit 0; }
+echo "No action. I understand $0 <build | test>"
