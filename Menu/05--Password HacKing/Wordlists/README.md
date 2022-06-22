@@ -10,6 +10,7 @@ clear
 git clone https://github.com/danielmiessler/SecLists
 git clone https://github.com/scipag/password-list
 git clone https://github.com/jeanphorn/wordlist
+git clone https://github.com/duyet/bruteforce-database
 ```
 
 ---
