@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Ettercap
+Comment=Multipurpose Network sniffer/analyser/interceptor/logger
+Exec=ettercap-pkexec -G
+Icon=ettercap
+Terminal=false
+Type=Application
+Categories=Network;
+Keywords=ettercap,ettercap-pkexec
