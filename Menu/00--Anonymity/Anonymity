@@ -137,8 +137,25 @@ ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       0 )
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd kali-whoami \n\t\t ${BGreen}"
+      pwd
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls kali-whoami \n\t\t ${BGreen}"
+      ls
       cd WhoAmI-Project
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Installing kali-whoami \n\t\t ${BGreen}"
+      ls
+      sleep 1
+      sudo make install
+      read -p "    press ENTER    " Som3T1ng
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Checking Status \n\t\t ${BGreen}"
+      sleep 1
+      sudo bash kali-whoami --status
+      read -p "    press ENTER    " Som3T1ng
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting kali-whoami \n\t\t ${BGreen}"
+      sleep 1
       sudo bash kali-whoami --start
+      read -p "    press ENTER    " Som3T1ng
+
       ;;
       x )
       clear
