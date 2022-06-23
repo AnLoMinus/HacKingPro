@@ -1,4 +1,4 @@
-# 🔸 m - Monitoring
+# 🔸 M - Monitoring
 ## [Grafana](https://github.com/grafana/grafana): The open-source platform for monitoring and observability <br>
   > ![image](https://user-images.githubusercontent.com/51442719/173180126-9f2f0fdb-7fcc-4c89-9ac7-bf8dc285eaf3.png) <br>
   > ### The open and composable observability and data visualization platform. <br> Visualize metrics, logs, and traces from multiple sources like Prometheus, Loki, Elasticsearch, InfluxDB, Postgres and many more. <br> Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards with your team and foster a data-driven culture:
@@ -25,20 +25,11 @@
   > ![image](https://user-images.githubusercontent.com/51442719/174500762-300453e0-a7b6-4b8f-851f-c240d61ec9b6.png) <br>
   > ![image](https://user-images.githubusercontent.com/51442719/174500764-b70382a3-5537-4637-bcec-d282aa0c3bf4.png) <br>
 
+## [Maltrail](https://github.com/stamparm/maltrail) Malicious traffic detection system
+  > ![image](https://user-images.githubusercontent.com/51442719/175340482-94359fa7-d666-4ad9-8fe8-b8ed267d44e4.png)
+  > #### Maltrail is a malicious traffic detection system, utilizing publicly available (black)lists containing malicious and/or generally suspicious trails, along with static trails compiled from various AV reports and custom user defined lists, where trail can be anything from domain name (e.g. zvpprsensinaix.com for Banjori malware), URL (e.g. hXXp://109.162.38.120/harsh02.exe for known malicious executable), IP address (e.g. 185.130.5.231 for known attacker) or HTTP User-Agent header value (e.g. sqlmap for automatic SQL injection and database takeover tool). Also, it uses (optional) advanced heuristic mechanisms that can help in discovery of unknown threats (e.g. new malware).
+  > ![image](https://user-images.githubusercontent.com/51442719/175340577-85ec3b1d-018b-4b1e-9565-24ee0a8fa2de.png)
 
 
 
-
-
-
-
-
-
-
- 
-
-
-
-
- 
-
+----
