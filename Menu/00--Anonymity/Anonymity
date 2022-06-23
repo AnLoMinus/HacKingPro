@@ -127,7 +127,7 @@ MainMenu(){
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
-          ${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
+          ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -136,7 +136,7 @@ ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro 
 ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
-      0 )
+      1|01 )
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd kali-whoami \n\t\t ${BGreen}"
       pwd
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls kali-whoami \n\t\t ${BGreen}"
