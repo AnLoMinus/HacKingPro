@@ -128,6 +128,7 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
           ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
+          ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Nullog
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -155,7 +156,19 @@ ${BCyan}            └──╼ ")
       sleep 1
       sudo bash kali-whoami --start
       read -p "    press ENTER    " Som3T1ng
-
+      cd ..
+      ;;
+      2|02 )
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd Nullog \n\t\t ${BGreen}"
+      sleep 1
+      cd Nullog
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls Nullog \n\t\t ${BGreen}"
+      sleep 1
+      ls
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting Nullog \n\t\t ${BGreen}"
+      sleep 1
+      bash nullog.sh
+      cd ..
       ;;
       x )
       clear
