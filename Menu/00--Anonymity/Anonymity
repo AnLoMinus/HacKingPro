@@ -142,7 +142,8 @@ ${BCyan}            └──╼ ")
       ;;
       x )
       clear
-      exit
+      cd ..
+      break
       ;;
 
     esac
