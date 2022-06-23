@@ -363,7 +363,6 @@ ${BCyan}            └──╼ ")
       ;;
       x )
       clear
-      cd ..
       exit
       ;;
     esac
