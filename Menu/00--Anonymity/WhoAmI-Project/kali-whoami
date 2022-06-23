@@ -1,19 +1,19 @@
 #!/bin/bash
-# Whoami | Coded by Ömer Doğan 
+# Whoami | Coded by Ömer Doğan
 
 #check source files
 source /usr/share/kali-whoami/assets/sources/config 2> /dev/null || { clear;echo -e "\e[31m [-] FATAL ERROR: MAIN CONFIG COULD NOT BE SOURCED!\e[0m";exit 1;}
 
 banner
 # run with a root privilege
-[ $UID != 0 ]  && err "Whoami must be run as root. ${GREEN}'sudo $(basename ${0})'${RESET}" 
+[ $UID != 0 ]  && err "Whoami must be run as root. ${GREEN}'sudo $(basename ${0})'${RESET}"
 
 src_check() {
 
         check_status="1"
         for i in $(seq 1 ${#}) ; do
                 if [ -f $SRCDIR/scripts/${@:i:1} ];then
-			source $SRCDIR/scripts/${@:i:1} 
+			source $SRCDIR/scripts/${@:i:1}
 		else
 			warn "The source file could not be found. Please re-install the tool. (Module: ${@:i:1})"
 			check_status="0"
@@ -41,7 +41,7 @@ start(){
 #check dependences
 dep_check tar tor curl python3 scapy
 
-#get a backup to fix it in case of a possible error 
+#get a backup to fix it in case of a possible error
 if [ ! -f $BACKUPDIR/whoami_fix_backups.tar.gz ]; then
 	get_backups
 fi
@@ -55,7 +55,7 @@ menu() {
     done
     [[ "$stat" ]] && msg "$stat"; :
 }
- 
+
 while banner && menu && input && read -r num && [[ "$num" ]]; do
     [[ "$num" != *[![:digit:]]* ]] &&
     (( num > 0 && num <= ${#options[@]} )) ||
@@ -93,7 +93,7 @@ if $(cat $SRCDIR/sources/config | grep Enable &>/dev/null);then
 
 	stop_anti_mitm(){
 
-	       kill $anti_mitm_pid 
+	       kill $anti_mitm_pid
 	       sed -i 's/anti_mitm_pid="'$anti_mitm_pid'"/anti_mitm_pid="0"/g;s/anti_mitm_status="Enable"/anti_mitm_status="Disable"/g' $SRCDIR/sources/config
 	       info "Anti mitm successfully disabled"
 	}
@@ -126,7 +126,7 @@ msg "Kali Whoami status:
 
 fix(){
 
-#repair system with backups received for a possible bug 
+#repair system with backups received for a possible bug
 if [ -f $BACKUPDIR/whoami_fix_backups.tar.gz ]; then
 	restore_system
 	msg "System successfully repaired"
@@ -156,16 +156,16 @@ fi
 
     case "$1" in
     --[sS][tT][aA][rR][tT]|-[sS][tT])
-        start   
+        start
         ;;
     --[sS][tT][oO][pP]|-[sS][pP])
-        stop    
+        stop
         ;;
     --[sS][tT][aA][tT][uU][sS]|-[sS][sS])
-        status  
+        status
         ;;
     --[fF][iI][xX]|-[fF])
-        fix  
+        fix
         ;;
     --[hH][eE][lL][pP]|-[hH])
         help
