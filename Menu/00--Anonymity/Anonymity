@@ -189,6 +189,7 @@ ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       1|01 )
+      clear
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd kali-whoami \n\t\t ${BGreen}"
       pwd
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls kali-whoami \n\t\t ${BGreen}"
@@ -210,19 +211,18 @@ ${BCyan}            └──╼ ")
       cd ..
       ;;
       2|02 )
+      clear
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd Nullog \n\t\t ${BGreen}"
-      sleep 1
       pwd
       cd Nullog
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls Nullog \n\t\t ${BGreen}"
-      sleep 1
       ls
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting Nullog \n\t\t ${BGreen}"
-      sleep 1
-      bash nullog.sh
+      sh nullog.sh
       cd ..
       ;;
       3|03 )
+      clear
       MacChanger
       ;;
       x|X|exit|EXIT )
