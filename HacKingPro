@@ -201,14 +201,20 @@ ${BCyan}            └──╼ ")
       ;;
       0|00 )
       clear
-      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Location \n\t\t $(pwd)"
+      cd "Menu/00--Anonymity"
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Current Location \n\t\t ${BGreen}"
       echo "  "
-      sleep 1
-      cd Menu
-      cd "00--Anonymity"
-      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Location \n\t\t $(pwd)"
-      sleep 1
-      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting Anonymity \n\t\t $(ls)"
+      pwd
+      sleep 0.3
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls ${BYellow} 00--Anonymity \n\t\t ${BGreen}"
+      echo "  "
+      ls
+      echo " "
+      sleep 0.3
+      echo "${BYellow}"
+      echo "  "
+      read -p "            🔶    Press Enter To START    🔶"
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting ${BYellow} Anonymity \n\t\t ${BGreen}"
       sleep 1
       sh Anonymity
       ;;
