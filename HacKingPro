@@ -199,20 +199,17 @@ ${BCyan}            └──╼ ")
       fi
 
       ;;
-      0 )
-      t0="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - User Name Target: ${BRed}")"
-      read -p "$t0" UserName
-      echo "\n\t\t${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity"
-      git clone https://github.com/sherlock-project/sherlock
-      pip3 install -r sherlock/requirements.txt
-      read cmd
-      #
-      echo "\n\t\t${BGreen}### Sherlock Scan Log"
-      echo "### Sherlock Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " `python3 sherlock/sherlock/sherlock.py ${UserName}` " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-
+      0|00 )
+      clear
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Location \n\t\t"
+      echo "  $(pwd)"
+      sleep 2
+      cd Menu
+      cd "00--Anonymity"
+      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Location \n\t\t"
+      echo "\n\t\t This is your Location\n\t\t $(pwd)"
+      sleep 2
+      sh Anonymity
       ;;
       1 )
       echo "\n\t\t${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering"
@@ -305,13 +302,22 @@ ${BCyan}            └──╼ ")
       clear
       echo "\n\t\t${BRed}[${LGrey}LI${BRed}]${BBlue} - ${DGrey}Local Info"
       echo "\n\t\t 🔸 ~ [ System info ] ~ 🔸\n"
-      echo "\n\t\t 🔸 ~ ${LBlue} Hostname: : ${BYellow} $(hostname)\n"
-      echo "\n\t\t 🔸 ~ ${LBlue} Distro: ${BYellow} $(uname)\n"
-      echo "\n\t\t 🔸 ~ ${LBlue} Kernel / Architecture: ${BYellow} $(uname -m)\n"
-      echo "\n\t\t 🔸 ~ ${LBlue} Machine Hardware Processor Architecture Name: ${BYellow} $(uname -p)\n"
-      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Release: ${BYellow} $(uname -r)\n"
-      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Name: ${BYellow} $(uname -s)\n"
-      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Version: ${BYellow} $(uname -v)\n"
+      sleep 1
+      echo "\n\t\t 🔸 ~ ${LBlue} Hostname: : ${BYellow} $(hostname)"
+      sleep 1
+      echo "\n\t\t 🔸 ~ ${LBlue} Distro: ${BYellow} $(uname)"
+      sleep 1
+      echo "\n\t\t 🔸 ~ ${LBlue} Kernel / Architecture: ${BYellow} $(uname -m)"
+      sleep 1
+      echo "\n\t\t 🔸 ~ ${LBlue} Machine Hardware Processor Architecture Name: ${BYellow} $(uname -p)"
+      sleep 1
+      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Release: ${BYellow} $(uname -r)"
+      sleep 1
+      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Name: ${BYellow} $(uname -s)"
+      sleep 1
+      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Version: ${BYellow} $(uname -v)"
+      sleep 1
+      read -p "    press ENTER    " Som3T1ng
        ;;
       i|I )
       # checking for system root access
@@ -357,6 +363,7 @@ ${BCyan}            └──╼ ")
       ;;
       x )
       clear
+      cd ..
       exit
       ;;
     esac

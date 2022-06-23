@@ -121,12 +121,12 @@ MainMenu(){
   #statements
   clear
   HacKingProLogo1
+#  ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
+#  ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
+#  ${BBlue}[${BRed}#${BBlue}] 📜 Target Phone: ${BRed}${targetPhone}
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
-          ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
-          ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
-          ${BBlue}[${BRed}#${BBlue}] 📜 Target Phone: ${BRed}${targetPhone}
 
           ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
           ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping
@@ -144,6 +144,11 @@ ${BCyan}            └──╼ ")
       cd WhoAmI-Project
       sudo bash kali-whoami --start
       ;;
+      x )
+      clear
+      exit
+      ;;
+
     esac
   done
 }
