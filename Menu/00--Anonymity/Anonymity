@@ -127,10 +127,6 @@ MainMenu(){
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
-
-          ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
-          ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping
-
           ${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
