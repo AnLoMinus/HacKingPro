@@ -2,7 +2,7 @@
 
 ---
 
-- [x] [00]()--Anonymity
+- [x] [00](#00--anonymity)--Anonymity
 - [x] [01]()--Information Gathering
 - [x] [02]()--Scanning & Vulnerability Assessment
 - [x] [03]()--Web Application HacKing
@@ -31,7 +31,7 @@
 - [x] [WFA]()--FireWall Applications
 
 ---
-
+# [00]()--Anonymity 
 > - ## [Block](https://github.com/EnergizedProtection/block) 
 >   - ### Energized Protection - Block ⚡
 >   - [x] [Local](#)
