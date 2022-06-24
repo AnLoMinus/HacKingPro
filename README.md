@@ -44,7 +44,7 @@ HacKingPro - Hack Like A Pro !
     - [x] Asking for Target IP:
     - [x] Asking for Target Name:
     - [x] Asking for Target Phone:
-    - [ ] Asking for Target Email:
+    - [x] Asking for Target Email:
   - [ ] A - [Anonymity](./Menu/00--Anonymity)
     - [ ] 00 - Firewall Rules
     - [ ] 01 - Clear Logs
