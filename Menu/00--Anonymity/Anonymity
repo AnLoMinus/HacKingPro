@@ -60,8 +60,8 @@ MacChanger(){
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-
-${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan}$~${BBlue}]
+${BCyan}            ┌──${BBlue}[${BBlue} Current Dir: ${BRed} $(pwd) ${BCyan}$~${BBlue}]
+${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Anonymity ${BCyan}$~${BBlue}]
 ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
@@ -176,6 +176,7 @@ MainMenu(){
 #  ${BBlue}[${BRed}#${BBlue}] 📜 Target Phone: ${BRed}${targetPhone}
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
+          ${BBlue}[${BRed}#${BBlue}] 🗓 Date $(date)
 
           ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
           ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Nullog
@@ -183,8 +184,8 @@ MainMenu(){
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-
-${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan}$~${BBlue}]
+${BCyan}            ┌──${BBlue}[${BBlue} Current Dir: ${BRed} $(pwd) ${BCyan}$~${BBlue}]
+${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Anonymity ${BCyan}$~${BBlue}]
 ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in

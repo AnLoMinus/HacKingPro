@@ -21,7 +21,7 @@ Anlominus="Anlominus"
 ###############################################
 clear
 
-# CODE Functions
+Press_ENTER=$(echo "${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}")
 
 # Define Colors
 HacKingProColors(){
@@ -128,6 +128,37 @@ Check_System_Pack_Manager() {
 }
 Check_System_Pack_Manager
 
+Arsenal(){
+  clear
+  # Getting Arsenal Cheatsheets
+  if [[ -d $HOME/opt/anaconda3/bin/arsenal ]]; then
+    #statements
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installed  \n"
+    break
+  else
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Creating Folder Arsenal \n"
+    mkdir Arsenal
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${LYellow}Cloning Into [./Arsenal] \n"
+    git clone https://github.com/Orange-Cyberdefense/Arsenal ./Arsenal
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}cd Into Arsenal\n"
+    cd Arsenal
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}List Arsenal Directories \n"
+    ls -lahs
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Installing Arsenal Requirements \n"
+    python3 -m pip install -r requirements.txt
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Run Installation  \n"
+    ./run
+    if [[ $? == 1 ]]; then
+      #statements
+      echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installation ${BRed} ERROR  \n"
+    fi
+    echo "\n\n"
+    read -p "$Press_ENTER" ReaDone
+  fi
+  cd ..
+
+}
+
 MainMenu(){
   while true; do
   #statements
@@ -136,10 +167,11 @@ MainMenu(){
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
-          ${BBlue}[${BRed}#${BBlue}] 📜 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
-          ${BBlue}[${BRed}#${BBlue}] 📜 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
-          ${BBlue}[${BRed}#${BBlue}] 📜 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
-          ${BBlue}[${BRed}#${BBlue}] 📜 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date) 
 
           ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
           ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping
@@ -161,10 +193,12 @@ MainMenu(){
           ${BRed}[${LGrey}14${BRed}]${BBlue} - ${DGrey}Privilege Enumeration & Escalation
           ${BRed}[${LGrey}15${BRed}]${BBlue} - ${DGrey}Malware Analysis Labs/Tools
           ${BRed}[${LGrey}16${BRed}]${BBlue} - ${DGrey}Covering Tracks
+          ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${DGrey}Cheat Sheets
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
 
+${BCyan}            ┌──${BBlue}[${BBlue} Current Dir: ${BRed} $(pwd) ${BCyan}$~${BBlue}]
 ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan}$~${BBlue}]
 ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
@@ -240,7 +274,7 @@ ${BCyan}            └──╼ ")
       sleep 0.3
       echo "${BYellow}"
       echo "  "
-      read -p "            🔶    Press Enter To START    🔶"
+      read -p "$Press_ENTER"
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting ${BYellow} Anonymity \n\t\t ${BGreen}"
       sleep 1
       sh Anonymity
@@ -356,7 +390,7 @@ ${BCyan}            └──╼ ")
       sleep 1
       echo "\n\t\t 🔸 ~ ${LBlue} Operating System Version: ${BYellow} $(uname -v)"
       sleep 1
-      read -p "    press ENTER    " Som3T1ng
+      read -p "$Press_ENTER" Som3T1ng
        ;;
       i|I )
       # checking for system root access
@@ -399,6 +433,9 @@ ${BCyan}            └──╼ ")
       echo " "
       read -p " Press Enter To Close: " finished
       exit
+      ;;
+      cs|CS )
+      Arsenal
       ;;
       x )
       clear
