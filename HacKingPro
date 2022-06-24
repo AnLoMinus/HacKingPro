@@ -19,32 +19,6 @@ Anlominus="Anlominus"
 clear
 # CODE Functions
 
-
-Check_System_Pack_Manager() {
-# checking for system package manager
-if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
-  pac="pkg"
-  system="termux"
-elif [ `command -v brew` ]; then
-  pac="brew"
-  system="mac"
-  sudo=""
-elif [ `command -v apt` ]; then
-  pac="apt"
-  system="linux"
-elif [ `command -v apt-get` ]; then
-  pac="apt-get"
-  system="linux"
-elif [ `command -v apk` ]; then
-  pac="apk"
-  system="linux"
-elif [ `command -v yum` ]; then
-  pac="yum"
-  system="fedora"
-fi
-}
-Check_System_Pack_Manager
-
 HacKingProColors(){
 ##############################################################################
 # COLORS AND BACKGROUNDS
@@ -103,6 +77,7 @@ On_Cyan='\033[46m'   # Cyan
 On_White='\033[47m'  # White
 }
 HacKingProColors
+
 HacKingProLogo1(){
 HacKingProLogo_1="$(echo "${BBlue}
 ${DGrey}          █████   █████                    ${LGrey}█████   ████  ███                      ${BBlue}███████████
@@ -120,6 +95,30 @@ ${DGrey}                                                                        
 echo "$HacKingProLogo_1"
 }
 
+Check_System_Pack_Manager() {
+# checking for system package manager
+if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
+  pac="pkg"
+  system="termux"
+elif [ `command -v brew` ]; then
+  pac="brew"
+  system="mac"
+  sudo=""
+elif [ `command -v apt` ]; then
+  pac="apt"
+  system="linux"
+elif [ `command -v apt-get` ]; then
+  pac="apt-get"
+  system="linux"
+elif [ `command -v apk` ]; then
+  pac="apk"
+  system="linux"
+elif [ `command -v yum` ]; then
+  pac="yum"
+  system="fedora"
+fi
+}
+Check_System_Pack_Manager
 
 MainMenu(){
   while true; do
@@ -380,5 +379,6 @@ ${BCyan}            └──╼ ")
     esac
   done
 }
-# RUN Functions
 MainMenu
+
+# RUN Functions
