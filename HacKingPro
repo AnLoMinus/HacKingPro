@@ -138,6 +138,7 @@ MainMenu(){
 
           ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 📜 Target Email: ${BRed}${targetEmail}
           ${BBlue}[${BRed}#${BBlue}] 📜 Target Phone: ${BRed}${targetPhone}
 
           ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
@@ -169,6 +170,7 @@ ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       p|P )
+
       #
       t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
       read -p "$t1" targetIP
@@ -176,6 +178,7 @@ ${BCyan}            └──╼ ")
         #statements
         targetIP="127.0.0.1"
       fi
+
       #
       t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
       read -p "$t2" targetNAME
@@ -184,14 +187,25 @@ ${BCyan}            └──╼ ")
         targetNAME="ChangeMe"
         echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
       fi
+
       #
-      t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
-      read -p "$t3" targetPhone
+      t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
+      read -p "$t3" targetEmail
+      if [ -z $targetEmail ]; then
+        #statements
+        targetNAME="ChangeMe"
+        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
+      fi
+
+      #
+      t4="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
+      read -p "$t4" targetPhone
       if [ -z $targetNAME ]; then
         #statements
         targetNAME="ChangeMe"
         echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
       fi
+
       #
       file="${targetNAME}-HacKingPro-Log.md"
       if [ -e ${file} ]; then

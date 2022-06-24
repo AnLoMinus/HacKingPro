@@ -7,11 +7,11 @@
 
 ⫷ [**`HacKingPro`**](https://github.com/Anlominus/HacKingPro) ⫸
 <br>
-⫷ [**`TryHackMe`**](https://github.com/Anlominus/TryHackMe) | [**`KoTH`**](https://github.com/Anlominus/TryHackMe/tree/main/King%20of%20the%20Hill/KoTH) ⫸ 
+⫷ [**`TryHackMe`**](https://github.com/Anlominus/TryHackMe) | [**`KoTH`**](https://github.com/Anlominus/TryHackMe/tree/main/King%20of%20the%20Hill/KoTH) ⫸
 <br>
-⫷ [**`Privilege-Escalation`**](https://github.com/Anlominus/Privilege-Escalation)⫸ 
+⫷ [**`Privilege-Escalation`**](https://github.com/Anlominus/Privilege-Escalation)⫸
 <br>
-⫷ [**`ScanPro`**](https://github.com/Anlominus/ScanPro) | [**`Linfo`**](https://github.com/Anlominus/Linfo) | [**`Diablo`**](https://github.com/Anlominus/Diablo) ⫸ 
+⫷ [**`ScanPro`**](https://github.com/Anlominus/ScanPro) | [**`Linfo`**](https://github.com/Anlominus/Linfo) | [**`Diablo`**](https://github.com/Anlominus/Diablo) ⫸
 <br>
 ⫷ [**`Offensive-Security`**](https://github.com/Anlominus/Offensive-Security) | [**`PenTest`**](https://github.com/Anlominus/PenTest) ⫸
 <br>
@@ -19,7 +19,7 @@
 <br>
 
 </div>
-  
+
 ---
 
 
@@ -29,7 +29,7 @@
 HacKingPro - Hack Like A Pro !
 
 <img width="969" alt="image" src="https://user-images.githubusercontent.com/51442719/171372724-24c1987d-b9fb-41a5-8cda-c5e5b091746f.png">
-  
+
 </div>
 
 ---
@@ -44,7 +44,6 @@ HacKingPro - Hack Like A Pro !
     - [x] Asking for Target IP:
     - [x] Asking for Target Name:
     - [x] Asking for Target Phone:
-    - [ ] Asking for Target Nik Name:
     - [ ] Asking for Target Email:
   - [ ] A - [Anonymity](./Menu/00--Anonymity)
     - [ ] 00 - Firewall Rules
@@ -100,7 +99,7 @@ HacKingPro - Hack Like A Pro !
 ---
 
 <h2 align="center">
-  
+
   **[`^        Back to TOP        ^`](#)**
-  
+
 </h2>
