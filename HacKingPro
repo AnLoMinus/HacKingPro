@@ -176,7 +176,8 @@ ${BCyan}            └──╼ ")
       read -p "$t1" targetIP
       if [ -z $targetIP ]; then
         #statements
-        targetIP="127.0.0.1"
+        # targetIP="127.0.0.1"
+        targetIP=" "
       fi
 
       #
@@ -209,8 +210,8 @@ ${BCyan}            └──╼ ")
       #
       file="${targetNAME}-HacKingPro-Log.md"
       if [ -e ${file} ]; then
-        t4="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
-        read -p "$t4 " filexist
+        t5="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
+        read -p "$t5 " filexist
         case $filexist in
           y|Y)
           echo "  ${BBlue}[${BRed}!${BBlue}] Removing {${targetNAME}-HacKingPro-Log.md} file .."
@@ -263,6 +264,11 @@ ${BCyan}            └──╼ ")
       echo "---" >> ${targetNAME}-HacKingPro-Log.md
       ;;
       2 )
+      if [ -z $targetIP ]; then
+        #statements
+        echo "\n\t\t${BRed}[${LGrey}X${BRed}]${BBlue} - ${DGrey}Error; You need Enter IP Before Scanning; \n\t\t P On Keyboard and Come Back!!!"
+
+      fi
       clear
       echo "\n\t\t${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Vulnerability Assessment"
       #  [2] - Reconnaissance & Vulnerability Assessment
