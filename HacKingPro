@@ -136,10 +136,10 @@ MainMenu(){
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
 
-          ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
-          ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
-          ${BBlue}[${BRed}#${BBlue}] 📜 Target Email: ${BRed}${targetEmail}
-          ${BBlue}[${BRed}#${BBlue}] 📜 Target Phone: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 📜 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 📜 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 📜 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 📜 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
 
           ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
           ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping
@@ -382,7 +382,7 @@ ${BCyan}            └──╼ ")
       git clone https://github.com/Anlominus/HacKingPro.git ~/HacKingPro
       echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Copying Into [~${bin}/HacKingPro] \n"
       sleep 1
-      sudo cp ~/HacKingPro/HacKingPro $bin/HacKingPro
+      sudo cp -vR ~/HacKingPro $bin/HacKingPro
       echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Giving all Permission To [~${bin}/HacKingPro] \n"
       sleep 1
       sudo chmod 777 $bin/HacKingPro
