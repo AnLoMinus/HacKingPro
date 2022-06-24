@@ -18,6 +18,9 @@ Anlominus="Anlominus"
 ###############################################
 clear
 # CODE Functions
+
+
+Check_System_Pack_Manager() {
 # checking for system package manager
 if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
   pac="pkg"
@@ -39,6 +42,8 @@ elif [ `command -v yum` ]; then
   pac="yum"
   system="fedora"
 fi
+}
+Check_System_Pack_Manager
 
 HacKingProColors(){
 ##############################################################################
