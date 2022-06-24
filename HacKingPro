@@ -1,14 +1,17 @@
 #!/bin/sh
 #!/bin/bash
+#!/usr/bin/sh
 #!/usr/bin/bash
+#!/usr/bin/env sh
 #!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
 #!/data/data/com.termux/files/usr/bin/bash
 ###############################################
 Anlominus="Anlominus"
 # Name : Anlominus ~ HacKingPro
-# Description : HacKingPro ~ enter your target and Hack Him and get Markdown Report.
-# Date : 2022 May
-# Last UPDATE : 2022 May 27
+# Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
+# Created Date : 2022 May
+# Last UPDATE : 2022 June 24
 # Aouther: Anlominus ~> RhytMix ~> HacKingPro
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
@@ -17,8 +20,10 @@ Anlominus="Anlominus"
 # Source: https://github.com/Anlominus/HacKingPro
 ###############################################
 clear
+
 # CODE Functions
 
+# Define Colors
 HacKingProColors(){
 ##############################################################################
 # COLORS AND BACKGROUNDS
@@ -78,6 +83,7 @@ On_White='\033[47m'  # White
 }
 HacKingProColors
 
+# Logo Variable
 HacKingProLogo1(){
 HacKingProLogo_1="$(echo "${BBlue}
 ${DGrey}          █████   █████                    ${LGrey}█████   ████  ███                      ${BBlue}███████████
@@ -95,28 +101,30 @@ ${DGrey}                                                                        
 echo "$HacKingProLogo_1"
 }
 
+
+# Checking For System Package Manager
 Check_System_Pack_Manager() {
-# checking for system package manager
-if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
+  # checking for system package manager
+  if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
   pac="pkg"
   system="termux"
-elif [ `command -v brew` ]; then
-  pac="brew"
-  system="mac"
-  sudo=""
-elif [ `command -v apt` ]; then
-  pac="apt"
-  system="linux"
-elif [ `command -v apt-get` ]; then
-  pac="apt-get"
-  system="linux"
-elif [ `command -v apk` ]; then
-  pac="apk"
-  system="linux"
-elif [ `command -v yum` ]; then
-  pac="yum"
-  system="fedora"
-fi
+  elif [ `command -v brew` ]; then
+    pac="brew"
+    system="mac"
+    sudo=""
+  elif [ `command -v apt` ]; then
+    pac="apt"
+    system="linux"
+  elif [ `command -v apt-get` ]; then
+    pac="apt-get"
+    system="linux"
+  elif [ `command -v apk` ]; then
+    pac="apk"
+    system="linux"
+  elif [ `command -v yum` ]; then
+    pac="yum"
+    system="fedora"
+  fi
 }
 Check_System_Pack_Manager
 
