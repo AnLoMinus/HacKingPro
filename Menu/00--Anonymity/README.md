@@ -1,4 +1,9 @@
 # [00 - Anonymity]()
+
+<img width="857" alt="image" src="https://user-images.githubusercontent.com/51442719/175783238-a07522aa-dec8-4ef2-9c1a-8f64fc430bb1.png">
+
+<img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/175783278-8d2c0e9f-9ab4-4e63-adda-810f4cb5a513.png">
+
 ---
 
 - [ ] A - [Anonymity]()
