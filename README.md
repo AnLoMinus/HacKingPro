@@ -25,7 +25,7 @@
 
 <div align="center">
 
-# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.1
+# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.5
 ## HacKingPro - Hack Like A Pro !
 
 <img width="999" alt="image" src="https://user-images.githubusercontent.com/51442719/175485513-732595c6-444b-4ae0-a9fc-7bfd178e33d5.png">
