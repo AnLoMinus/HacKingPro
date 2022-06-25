@@ -440,6 +440,8 @@ ${BCyan}            └──╼ ")
       ;;
       x )
       clear
+      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
       exit
       ;;
     esac

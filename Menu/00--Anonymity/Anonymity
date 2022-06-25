@@ -230,9 +230,8 @@ ${BCyan}            └──╼ ")
       MacChanger
       ;;
       x|X|exit|EXIT )
-      cd ../../
       clear
-      sh HacKingPro
+      exit
       ;;
   esac
 done
