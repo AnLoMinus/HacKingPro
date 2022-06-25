@@ -175,8 +175,8 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
 
-          ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
-          ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey}Planning and Scoping
 
           ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
           ${BRed}[${BBlack}01${BRed}]${BBlue} - ${BBlack}Information Gathering
@@ -205,7 +205,8 @@ ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       p|P )
-
+      clear
+      echo "\n\t\t ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n"
       #
       t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
       read -p "$t1" targetIP
@@ -299,8 +300,9 @@ ${BCyan}            └──╼ ")
       2 )
       if [ -z $targetIP ]; then
         #statements
-        echo "\n\t\t${BRed}[${LGrey}X${BRed}]${BBlue} - ${DGrey}Error; You need Enter IP Before Scanning; \n\t\t P On Keyboard and Come Back!!!"
-
+        echo "\n\t\t${BRed}[${BRed}X${BRed}]${BBlue} - ${BRed}Error; You need Enter IP Before Scanning; \n\t\t P On Keyboard and Come Back!!!"
+        sleep 1
+        MainMenu
       fi
       clear
       echo "\n\t\t${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Vulnerability Assessment"
