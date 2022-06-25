@@ -7,7 +7,7 @@
 #!/data/data/com.termux/files/usr/bin/sh
 #!/data/data/com.termux/files/usr/bin/bash
 ###############################################
-Anlominus="AnLoMinus"
+Anlominus="Anlominus"
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
@@ -82,24 +82,25 @@ On_Cyan='\033[46m'   # Cyan
 On_White='\033[47m'  # White
 }
 HacKingProColors
-vErsion="${BWhite}v${BBlue}0.0.0.5"
+
 # Logo Variable
 HacKingProLogo1(){
-HacKingProLogo_1="$(echo "
-${BBlue}                                          ${BGreen} ${Anlominus}
-${DGrey}          █████   █████                    ${LGrey}█████   ████  ███                      ${BBlue}███████████
-${DGrey}         ░░███   ░░███                    ${LGrey}░░███   ███░  ░░░                      ${BBlue}░░███░░░░░███ ${vErsion}
-${DGrey}          ░███    ░███   ██████    ██████  ${LGrey}░███  ███    ████  ████████    ███████ ${BBlue}░███    ░███ ████████   ██████
-${DGrey}          ░███████████  ░░░░░███  ███░░███ ${LGrey}░███████    ░░███ ░░███░░███  ███░░███ ${BBlue}░██████████ ░░███░░███ ███░░███
-${DGrey}          ░███░░░░░███   ███████ ░███ ░░░  ${LGrey}░███░░███    ░███  ░███ ░███ ░███ ░███ ${BBlue}░███░░░░░░   ░███ ░░░ ░███ ░███
-${DGrey}          ░███    ░███  ███░░███ ░███  ███ ${LGrey}░███ ░░███   ░███  ░███ ░███ ░███ ░███ ${BBlue}░███         ░███     ░███ ░███
-${DGrey}          █████   █████░░████████░░██████  ${LGrey}█████ ░░████ █████ ████ █████░░███████ ${BBlue}█████        █████    ░░██████
-${DGrey}         ░░░░░   ░░░░░  ░░░░░░░░  ░░░░░░  ${LGrey}░░░░░   ░░░░ ░░░░░ ░░░░ ░░░░░  ░░░░░███${BBlue}░░░░░        ░░░░░      ░░░░░░
-${DGrey}                                                                         ███ ░███
-${DGrey}                                                                        ░░██████
-${DGrey}                                                                         ░░░░░░                              ")"
-
-echo "$HacKingProLogo_1"
+  Anlominus="AnLoMinus"
+  MyVersion="${BGreen}v1.3.0.4"
+  HacKingProLogo_1="$(echo "
+  ${BBlue}
+  ${BRed}          █████   █████                    ${BYellow}█████   ████  ███                      ${BBlue}███████████
+  ${BRed}         ░░███   ░░███                    ${BYellow}░░███   ███░  ░░░   ${MyVersion}                   ${BBlue}░░███░░░░░███ ${Anlominus}
+  ${BRed}          ░███    ░███   ██████    ██████  ${BYellow}░███  ███    ████  ████████    ███████ ${BBlue}░███    ░███ ████████   ██████
+  ${BRed}          ░███████████  ░░░░░███  ███░░███ ${BYellow}░███████    ░░███ ░░███░░███  ███░░███ ${BBlue}░██████████ ░░███░░███ ███░░███
+  ${BRed}          ░███░░░░░███   ███████ ░███ ░░░  ${BYellow}░███░░███    ░███  ░███ ░███ ░███ ░███ ${BBlue}░███░░░░░░   ░███ ░░░ ░███ ░███
+  ${BRed}          ░███    ░███  ███░░███ ░███  ███ ${BYellow}░███ ░░███   ░███  ░███ ░███ ░███ ░███ ${BBlue}░███         ░███     ░███ ░███
+  ${BRed}          █████   █████░░████████░░██████  ${BYellow}█████ ░░████ █████ ████ █████░░███████ ${BBlue}█████        █████    ░░██████
+  ${BRed}         ░░░░░   ░░░░░  ░░░░░░░░  ░░░░░░  ${BYellow}░░░░░   ░░░░ ░░░░░ ░░░░ ░░░░░  ░░░░░███${BBlue}░░░░░        ░░░░░      ░░░░░░
+  ${BYellow}                                                                         ███ ░███
+  ${BYellow}                                                                        ░░██████
+  ${BYellow}                                                                         ░░░░░░                              ")"
+  echo "$HacKingProLogo_1"
 }
 
 # Checking For System Package Manager
@@ -176,24 +177,24 @@ MainMenu(){
           ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGrey}Install HacKingPro On the System
           ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping
 
-          ${BRed}[${LGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
-          ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering
-          ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Reconnaissance & Vulnerability Assessment
-          ${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}Web Application HacKing
-          ${BRed}[${LGrey}04${BRed}]${BBlue} - ${DGrey}Database Assessment
-          ${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing
-          ${BRed}[${LGrey}06${BRed}]${BBlue} - ${DGrey}Wireless HacKing
-          ${BRed}[${LGrey}07${BRed}]${BBlue} - ${DGrey}Reverse Engineering
-          ${BRed}[${LGrey}08${BRed}]${BBlue} - ${DGrey}Exploit Frameworks & DataBases
-          ${BRed}[${LGrey}09${BRed}]${BBlue} - ${DGrey}Sniffing - Spoofing
-          ${BRed}[${LGrey}10${BRed}]${BBlue} - ${DGrey}Gaining & Maintaining Access
-          ${BRed}[${LGrey}11${BRed}]${BBlue} - ${DGrey}Digital Forensic
-          ${BRed}[${LGrey}12${BRed}]${BBlue} - ${DGrey}Analysis & Reporting
-          ${BRed}[${LGrey}13${BRed}]${BBlue} - ${DGrey}Social Engineering
-          ${BRed}[${LGrey}14${BRed}]${BBlue} - ${DGrey}Privilege Enumeration & Escalation
-          ${BRed}[${LGrey}15${BRed}]${BBlue} - ${DGrey}Malware Analysis Labs/Tools
-          ${BRed}[${LGrey}16${BRed}]${BBlue} - ${DGrey}Covering Tracks
-          ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${DGrey}Cheat Sheets
+          ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
+          ${BRed}[${BBlack}01${BRed}]${BBlue} - ${BBlack}Information Gathering
+          ${BRed}[${BBlack}02${BRed}]${BBlue} - ${BBlack}Reconnaissance & Vulnerability Assessment
+          ${BRed}[${BBlack}03${BRed}]${BBlue} - ${BBlack}Web Application HacKing
+          ${BRed}[${BBlack}04${BRed}]${BBlue} - ${BBlack}Database Assessment
+          ${BRed}[${BBlack}05${BRed}]${BBlue} - ${BBlack}Password HacKing
+          ${BRed}[${BBlack}06${BRed}]${BBlue} - ${BBlack}Wireless HacKing
+          ${BRed}[${BBlack}07${BRed}]${BBlue} - ${BBlack}Reverse Engineering
+          ${BRed}[${BBlack}08${BRed}]${BBlue} - ${BBlack}Exploit Frameworks & DataBases
+          ${BRed}[${BBlack}09${BRed}]${BBlue} - ${BBlack}Sniffing - Spoofing
+          ${BRed}[${BBlack}10${BRed}]${BBlue} - ${BBlack}Gaining & Maintaining Access
+          ${BRed}[${BBlack}11${BRed}]${BBlue} - ${BBlack}Digital Forensic
+          ${BRed}[${BBlack}12${BRed}]${BBlue} - ${BBlack}Analysis & Reporting
+          ${BRed}[${BBlack}13${BRed}]${BBlue} - ${BBlack}Social Engineering
+          ${BRed}[${BBlack}14${BRed}]${BBlue} - ${BBlack}Privilege Enumeration & Escalation
+          ${BRed}[${BBlack}15${BRed}]${BBlue} - ${BBlack}Malware Analysis Labs/Tools
+          ${BRed}[${BBlack}16${BRed}]${BBlue} - ${BBlack}Covering Tracks
+          ${BRed}[${BBlack}CS${BRed}]${BBlue} - ${BBlack}Cheat Sheets
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
