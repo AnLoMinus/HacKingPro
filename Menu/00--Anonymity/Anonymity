@@ -203,15 +203,15 @@ ${BCyan}            └──╼ ")
       ls
       sleep 1
       sudo make install
-      read -p "    press ENTER    " Som3T1ng
+      read -p "${Press_ENTER}" Som3T1ng
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Checking Status \n\t\t ${BGreen}"
       sleep 1
       sudo bash kali-whoami --status
-      read -p "    press ENTER    " Som3T1ng
+      read -p "${Press_ENTER}" Som3T1ng
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting kali-whoami \n\t\t ${BGreen}"
       sleep 1
       sudo bash kali-whoami --start
-      read -p "    press ENTER    " Som3T1ng
+      read -p "${Press_ENTER}" Som3T1ng
       cd ..
       ;;
       2|02 )
