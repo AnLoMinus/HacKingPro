@@ -1,0 +1,45 @@
+# EventCleaner
+
+[!] A tool mainly to erase specified records from Windows event logs, with additional functionalities.
+
+	--------------------------------------------------------
+
+[!] $ EventCleaner.exe suspend
+
+	suspends logging threads of the windows event log service, after which no logs will be recorded
+
+	--------------------------------------------------------
+
+[!] $ EventCleaner.exe normal
+
+	resumes logging threads of the windows event log service
+
+	--------------------------------------------------------
+
+[!] $ EventCleaner.exe closehandle
+	
+	frees handle acquired exclusively by the windows event log service to security.evtx,
+	so that we can manipulate the file
+
+	--------------------------------------------------------
+
+[!] EventCleaner 100
+
+	remove the log with id 100
+
+	--------------------------------------------------------
+
+
+[!] How to use:
+
+	$ EventCleaner closehandle
+	$ EventCleaner 100
+	$ EventCleaner suspend
+	[!] Do anything without worrying about logs!
+
+	$ EventCleaner normal
+	$ delete EventCleaner
+	[!] End Exploitational work
+
+
+by pr0mise @ 360 A-TEAM

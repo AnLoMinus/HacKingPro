@@ -1,0 +1,18 @@
+Utilities
+**********
+
+> .\TruffleSnout.exe help util  
+
+  -t, --ticks2date    Convert time ticks to DateTime.
+                      Example: -t 132280170552471892. Output: 3/7/2020 1:10:55 AM
+
+  -e, --expires       Check if a value of record expires
+                      Example: -e 9223372036854775807. Output: Expires? Yes
+
+  -s, --bytes2SID     Convert Bytes to SID. Used in `objectsid` attribute
+                      Example: -s 1 5 0 0 0 0 0 5 21 0 0 0 1 94 67 225 228 177 51 26 1 202 233 128 80 4 0 0
+                      Output: SID: S-1-5-21-3779288577-439595492-2162805249-1104
+
+  -g, --bytes2GUID    Convert Bytes to GUID. Used in `objectguid` attribute
+                      Example: -g 24 184 226 216 110 108 41 79 149 222 213 140 6 116 200 172
+                      Output: GUID: d8e2b818-6c6e-4f29-95de-d58c0674c8ac

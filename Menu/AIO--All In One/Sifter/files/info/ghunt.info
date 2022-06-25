@@ -1,0 +1,17 @@
+# GHunt
+**********
+
+To configure upon first runtime you will need 4 cookies from an existing gmail address!!
+
+[!] Where I find these 4 cookies ?
+
+    1. Log in to accounts.google.com
+    
+    2. After that, open the Dev Tools window and navigate to the Storage tab (Shift + F9 on Firefox) (It's called "Application" on Chrome)
+    
+    3. If you don't know how to open it, just right-click anywhere and click "Inspect Element".
+    
+    4. Then you'll find every cookie you need, including the 4 ones.
+
+An additional image is provided in order to show you where to look.
+Just match the cookies to the ones asked for.

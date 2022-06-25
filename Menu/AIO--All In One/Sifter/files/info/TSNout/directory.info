@@ -1,0 +1,34 @@
+Directory
+**********
+
+ .\TruffleSnout.exe help directory  
+
+  -l, --ldap         Required. LDAP Connection Path. Can include starting DN
+                     Example:  LDAP://other.int/DC=other,DC=int
+
+  -f, --filter       Required. Query Filter, in relation to the starting DN
+                     Syntax: https://docs.microsoft.com/en-us/windows/win32/adsi/search-filter-syntax
+                     Example: '(&(objectClass=user))'
+
+  -a, --attr         Limit query to specific attribute(s). Attributes separated by ','.
+                     `meta` - shows the attribute keys.
+                     Example: -a meta || -a  badpwdcount,cn,memberof
+
+  -c, --count        Required. Limit of entries returned in a query
+                     Example: -c 10
+
+  -n, --nonsecure    Do basic authentication. Do not use Kerberos/NTLM. This is a falback setting.
+                     Opsec: clear text connectivity.
+                     Example: -n
+
+  -s, --ssl          Connect as LDAP/S (SSL). This assumes certificates are properly configured.
+                     Note: to specify port use the format provided in `-l` option: LDAP://server.domain:PORT
+                     Example: -s
+
+  -U, --username     (Auth) User Name for connection to the service
+                     Example: -U username
+
+  -P, --password     (Auth) Password fot the user.
+                     Provide: `interactive` to ask for a password.
+                     OpSec: Clear text passwords on the command line if used without `interactive`
+                     Example: -P <password> || -P interactive

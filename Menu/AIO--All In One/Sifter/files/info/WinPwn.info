@@ -1,0 +1,125 @@
+WinPwn
+********
+
+In many past internal penetration tests I often had problems with the existing Powershell Recon / Exploitation scripts due to missing proxy support. I also often ran the same scripts one after the other to get information about the current system and/or the domain. To automate as many internal penetrationtest processes (reconnaissance as well as exploitation) and for the proxy reason I wrote my own script with automatic proxy recognition and integration. The script is mostly based on well-known large other offensive security Powershell projects. They are loaded into RAM via IEX Downloadstring.
+
+- Inveigh -> Executes Inveigh in a new Console window , SMB-Relay attacks with Session management (Invoke-TheHash) integrated
+
+- sessionGopher -> Executes Sessiongopher Asking you for parameters
+
+- kittielocal ->
+    Obfuscated Invoke-Mimikatz version
+    Safetykatz in memory
+    Dump lsass using rundll32 technique
+    Download and run obfuscated Lazagne
+    Dump Browser credentials
+    Customized Mimikittenz Version
+    Exfiltrate Wifi-Credentials
+    Dump SAM-File NTLM Hashes
+
+- localreconmodules ->
+    Collect installed software, vulnerable software, Shares, network information, groups, privileges and many more
+    Check typical vulns like SMB-Signing, LLMNR Poisoning, MITM6 , WSUS over HTTP
+    Checks the Powershell event logs for credentials or other sensitive informations
+    Collect Browser Credentials and history
+    Search for passwords in the registry and on the file system
+    Find sensitive files (config files, RDP files, keepass Databases)
+    Search for .NET Binaries on the local system
+    Optional: Get-Computerdetails (Powersploit) and PSRecon
+
+- domainreconmodules ->
+    Collect various domain informations for manual review
+    Find AD-Passwords in description fields
+    Search for potential sensitive domain share files
+    ACLAnalysis
+    Unconstrained delegation systems/users are enumerated
+    MS17-10 Scanner for domain systems
+    Bluekeep Scanner for domain systems
+    SQL Server discovery and Auditing functions (default credentials, passwords in the database and more)
+    MS-RPRN Check for Domaincontrollers or all systems
+    Group Policy Audit with Grouper2
+    An AD-Report is generated in CSV Files (or XLS if excel is installed) with ADRecon.
+
+- Privescmodules -> Executes different privesc scripts in memory (PowerUp Allchecks, Sherlock, GPPPasswords, dll Hijacking, File Permissions, IKEExt Check, Rotten/Juicy Potato Check)
+
+- kernelexploits ->
+    MS15-077 - (XP/Vista/Win7/Win8/2000/2003/2008/2012) x86 only!
+    MS16-032 - (2008/7/8/10/2012)!
+    MS16-135 - (WS2k16 only)!
+    CVE-2018-8120 - May 2018, Windows 7 SP1/2008 SP2,2008 R2 SP1!
+    CVE-2019-0841 - April 2019!
+    CVE-2019-1069 - Polarbear Hardlink, Credentials needed - June 2019!
+    CVE-2019-1129/1130 - Race Condition, multiples cores needed - July 2019!
+    CVE-2019-1215 - September 2019 - x64 only!
+    CVE-2020-0638 - February 2020 - x64 only!
+    Juicy-Potato Exploit
+
+- UACBypass ->
+    UAC Magic, Based on James Forshaw's three part post on UAC
+    UAC Bypass cmstp technique, by Oddvar Moe
+    DiskCleanup UAC Bypass, by James Forshaw
+    DccwBypassUAC technique, by Ernesto Fernandez and Thomas Vanhoutte
+
+- SYSTEMShell ->
+    Pop System Shell using CreateProcess
+    Pop System Shell using NamedPipe Impersonation
+    Pop System Shell using Token Manipulation
+    Bind System Shell using UsoClient DLL load or CreateProcess
+    shareenumeration -> Invoke-Filefinder and Invoke-Sharefinder (Powerview / Powersploit)
+
+- groupsearch -> Get-DomainGPOUserLocalGroupMapping - find Systems where you have Admin-access or RDP access to via Group Policy Mapping (Powerview / Powersploit)
+
+- Kerberoasting -> Executes Invoke-Kerberoast in a new window and stores the hashes for later cracking
+
+- powerSQL -> SQL Server discovery, Check access with current user, Audit for default credentials + UNCPath Injection Attacks
+
+- Sharphound -> Bloodhound 3.0 Report
+
+- adidnswildcard -> Create a Active Directory-Integrated DNS Wildcard Record
+
+- MS17-10 -> Scan active windows Servers in the domain or all systems for MS17-10 (Eternalblue) vulnerability
+
+- Sharpcradle -> Load C# Files from a remote Webserver to RAM
+
+- DomainPassSpray -> DomainPasswordSpray Attacks, one password for all domain users
+
+- bluekeep -> Bluekeep Scanner for domain systems
+
+- TO-DO
+     Some obfuskation
+     More obfuscation
+     Proxy via PAC-File support
+     Get the scripts from my own creds repository (https://github.com/S3cur3Th1sSh1t/Creds) to be independent from changes in the original repositories
+     More Recon/Exploitation functions
+     Add MS17-10 Scanner
+     Add menu for better handling of functions
+     Amsi Bypass
+     Mailsniper integration
+
+- CREDITS
+     Kevin-Robertson - Inveigh, Powermad, Invoke-TheHash
+     Arvanaghi - SessionGopher
+     PowerShellMafia - Powersploit
+     Dionach - PassHunt
+     A-mIn3 - WINSpect
+     411Hall - JAWS
+     sense-of-security - ADrecon
+     dafthack - DomainPasswordSpray
+     rasta-mouse - Sherlock, Amsi Bypass, PPID Spoof & BlockDLLs
+     AlessandroZ - LaZagne
+     samratashok - nishang
+     leechristensen - Random Repo
+     HarmJ0y - Many good Blogposts, Gists and Scripts
+     NETSPI - PowerUpSQL
+     Cn33liz - p0wnedShell
+     rasta-mouse - AmsiScanBufferBypass
+     l0ss - Grouper2
+     dafthack - DomainPasswordSpray
+     enjoiz - PrivEsc
+     itm4n - Invoke-PrivescCheck
+     James Forshaw - UACBypasses
+     Oddvar Moe - UACBypass
+     Carlos Polop - winPEAS
+
+- Legal disclaimer:
+    Usage of WinPwn for attacking targets without prior mutual consent is illegal. It's the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program. Only use for educational purposes.

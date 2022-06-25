@@ -1,0 +1,95 @@
+# Snaffler
+
+[!] What is it for?
+[*] Snaffler is a tool for pentesters to help find delicious 
+	candy needles (creds mostly, but it's flexible) in a bunch 
+	of horrible boring haystacks (a massive Windows/AD environment).
+
+	It might also be useful for other people doing other stuff, 
+	but it is explicitly NOT meant to be an "audit" tool.
+
+[!] # Example Usage:
+
+	> snaffler.exe -s -o snaffler.log
+
+
+[!] What does it do?
+[*] It gets a list of Windows computers from Active Directory, 
+	then spreads out its snaffly appendages to them all to figure 
+	out which ones have file shares, and whether you can read them.
+
+	Then YET MORE snaffly appendages enumerate all the files in those 
+	shares and use LEARNED ARTIFACTUAL INTELLIGENCE for MACHINES to 
+	figure out which ones a grubby little hacker like you might want.
+
+
+[!][!] Actually it doesn't do any ML stuff (yet)! 
+[*]	because doing that right would require training data, and that 
+	would require an enormous amount of time that we don't have.
+
+
+# How do I use it?
+
+[!] If you "literally just run the EXE on a domain joined machine in the context 
+	of a domain user" (as people were instructed to do with Grouper2, immediately 
+	before they ran it with all the verbose/debug switches on so it screamed several 
+	hundred megabytes of stack traces at them) it will basically do nothing. 
+	This is our idea of a prankTM on people who don't read README files, because we're monsters.
+
+[!*!] HOWEVER... 
+[***] if you add the correct incantations, it will enable the aforementioned 
+	  L.A.I.M. and the file paths where candy may be found will fall out.
+
+
+
+# Snaffler Usage
+@The key incantations are:
+
+-o	Enables outputting results to a file. 
+	You probably want this if you're not using -s. 
+	
+	e.g. -o C:\users\thing\snaffler.log
+
+
+-s	Enables outputting results to stdout as soon as they're found. 
+	You probably want this if you're not using -o.
+
+
+-v	Controls verbosity level, options are:
+	- Trace (most verbose), 
+	- Debug (less verbose), 
+	- Info (less verbose still, default), and 
+	- Data (results only). e.g -v debug
+
+
+-m	Enables and assigns an output dir for snaffler to automatically take a copy of 
+	(or Snaffle... if you will) any found files that it likes.
+
+
+-l	Maximum size of files (in bytes) to Snaffle. 
+	Defaults to 10000000, which is about 10MB.
+
+
+-i	Disables computer and share discovery, 
+	! requires a path to a directory in which to perform file discovery.
+
+
+-d	Domain to search for computers to search for shares on to search for files in. 
+	Easy.
+
+
+-c	Domain controller to query for the list of domain computers.
+
+
+-r	The maximum size file (in bytes) to search inside for interesting strings. 
+	Defaults to 500k.
+
+
+-j	How many bytes of context either side of found strings in files to show, 
+	e.g. -j 200
+
+
+-z Path to a config file that defines all of the above, and much much more! 
+	See below for more details. 
+	
+	Give it -z generate to generate a sample config file called .\default.toml.

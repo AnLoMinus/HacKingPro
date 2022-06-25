@@ -1,0 +1,40 @@
+XSS-Freak
+^^^^^^^^^^^^^^^
+! XSS-Freak is an XSS scanner fully written in python3 from scratch. It is one of its kind since it crawls 
+  the website for all possible links and directories to expand its attack scope. Then it searches them for 
+  input tags and then launches a bunch of XSS payloads. if an input is not sanitized and vulnerable to XSS 
+  attacks, the tool will discover it in seconds. 
+
+
+# Requirements:
+
+! High Internet Connection Speed.
+  A New PC that is capable of handling a high amount of threads concurrently.
+  Luck Of course.
+
+# How Does it Work:
+
+! First You Supply A Target Website To Scan And A List Which Contains Different XSS Payloads 
+  (better low amount and more effective and Least Detected Payloads) Then It Crawls The Main Website 
+  (Index Page) For Possible Links and Directories then it Crawls the Found Directories (if exist any) 
+  for additional links they weren't found in the initial crawl and add them to its attack scope. Then 
+  the tool will crawl all the links that were found in both in the initial scan and links from the directory. 
+  For HTML INPUTS. Then the tool adds all the found HTML INPUTS to its attack scope. then the tool launches an 
+  ATTACK on all HTML INPUTS with the XSS payloads the user-provided from the list. if the HTML INPUT IS NOT
+  SANITIZED PROPERLY and Filtered The Script Will Instantly Detect It and Will Print Out The Vulnerable Parameter.
+
+# Note: The Script Is Too Powerful For Old Computers.
+
+# Advantages:
+
+! Supports Multithreading For Efficiency and Faster Processing.
+  One Of It Kind.
+  Ability To Crawl All the sites not only a specific webpage.
+  Versatile.
+
+# Disadvantages:
+
+! Isn't Supported On Phones Due to the high demand for hardware.
+! Requires a High-Speed internet connection for it to work well or you will get errors or take too much time.
+! Requires Medium to best hardware since it deals and manages with high amounts of threads and any old hardware 
+  the script will cause the computer to lag or crash so take care.

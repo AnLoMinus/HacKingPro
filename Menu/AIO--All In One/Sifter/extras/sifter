@@ -1,0 +1,26 @@
+#!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m'
+ORNG='\033[0;33m'
+W='\033[1;37m'
+INV='\e[7m'
+URED='\033[4;31m'
+UBLUE='\033[4;34m'
+
+echo -e "${RED}"
+figlet SifteR
+echo -e "${NC}"
+sudo docker start sifter
+echo -e "${YLW}To detach from docker container hold ${RED}Ctrl${W} and press ${RED}P ${W}+${RED} Q\n${ORNG}To exit hit ${RED}Ctrl ${W}+ ${RED}C ${W}or enter '${RED}exit${W}' in terminal${NC}"
+sudo docker attach sifter
+echo -e "${W}Would you like to export results to your Desktop?(y/n)${NC}"
+read OPT
+if [[ ${OPT} == "y" ]]; then
+	sudo docker cp sifter:/opt/sifter/results /home/$USER/Desktop
+fi
+echo -e "${ORNG}"
+figlet -f mini "Stopping Sifter Container"
+echo -e "${NC}"
+sudo docker stop sifter
+
+##########################______________ VGhlIERlYWQgQnVubnkgQ2x1Yg== ______________##########################

@@ -1,0 +1,12 @@
+[submodule "plugins/mPlug"]
+	path = plugins/mPlug
+	url = https://github.com/Sifter-ex/mPlug
+[submodule "plugins/fPlug"]
+	path = plugins/fPlug
+	url = https://github.com/Sifter-Ex/fPlug
+[submodule "plugins/cPlug"]
+	path = plugins/cPlug
+	url = https://github.com/Sifter-Ex/cPlug
+[submodule "plugins/gPlug"]
+	path = plugins/gPlug
+	url = https://github.com/Sifter-Ex/gPlug

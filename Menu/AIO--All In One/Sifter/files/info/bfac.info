@@ -1,0 +1,19 @@
+BFAC
+
+	Advanced Backup-File Artifacts Testing for Web-Applications
+
+BFAC (Backup File Artifacts Checker) is an automated tool that checks for backup artifacts that may disclose the web-application's source code. The artifacts can also lead to leakage of sensitive information, such as passwords, directory structure, etc.
+
+The goal of BFAC is to be an all-in-one tool for backup-file artifacts black-box testing.
+
+Features
+	Multithreaded scanning.
+	Includes request rate throttling.
+	HTTP proxy support.
+	Uses multiple algorithms for automatically detecting valid and invalid pages.
+	HTTP proxy support
+	User agent randomization.
+	Batch processing.
+	Works both as a command-line tool and Python module.
+	Support for Windows, MacOS, and Linux operating systems.
+	Reporting: simple, verbose, CSV, JSON.

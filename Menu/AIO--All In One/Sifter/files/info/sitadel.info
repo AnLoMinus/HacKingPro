@@ -1,0 +1,75 @@
+Sitadel - Web Application Security Scanner
+   _   _   _         _____ _                 _       _
+  | |_| |_| |      / _____|_)  _            | |     | |
+  |         |     ( (____  _ _| |_ _____  __| |_____| |
+  |    _    |      \____ \| (_   _|____ |/ _  | ___ | |
+  |   |_|   |      _____) ) | | |_/ ___ ( (_| | ____| |
+  |         |     (______/|_|  \__)_____|\____|_____)\_) 
+python3 Build Status license
+
+Sitadel is basically an update for WAScan making it compatible for python >= 3.4 It allows more flexibility for you to write new modules and implement new features :
+
+    Frontend framework detection
+    Content Delivery Network detection
+    Define Risk Level to allow for scans
+    Plugin system
+    Docker image available to build and run
+    Table of Contents
+    Sitadel - Web Application Security Scanner
+    Table of Contents
+    Requirement Warning
+    Installation
+    Features
+    Usage
+    Modules list
+    Examples
+
+Features
+
+Fingerprints:
+
+    Server
+    Web Frameworks (CakePHP,CherryPy,...)
+    Frontend Frameworks (AngularJS,MeteorJS,VueJS,...)
+    Web Application Firewall (Waf)
+    Content Management System (CMS)
+    Operating System (Linux,Unix,..)
+    Language (PHP,Ruby,...)
+    Cookie Security
+    Content Delivery Networks (CDN)
+
+Attacks:
+Bruteforce:
+
+    Admin Interface
+    Common Backdoors
+    Common Backup Directory
+    Common Backup File
+    Common Directory
+    Common File
+    Log File
+    Injection
+
+    HTML Injection
+    SQL Injection
+    LDAP Injection
+    XPath Injection
+    Cross Site Scripting (XSS)
+    Remote File Inclusion (RFI)
+    PHP Code Injection
+    Other
+
+    HTTP Allow Methods
+    HTML Object
+    Multiple Index
+    Robots Paths
+    Web Dav
+    Cross Site Tracing (XST)
+    PHPINFO
+    .Listing
+    Vulnerabilities
+
+    ShellShock
+    Anonymous Cipher (CVE-2007-1858)
+    Crime (SPDY) (CVE-2012-4929)
+    Struts-Shock

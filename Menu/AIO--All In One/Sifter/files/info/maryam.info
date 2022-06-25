@@ -1,0 +1,123 @@
+OWASP Maryam
+**************
+
+OWASP Maryam is an Open-source intelligence(OSINT) and Web-based Footprinting modular/tool framework based on the Recon-ng and written in Python. If you have skill in Metasploit or Recon-ng, you can easily use it without prerequisites. And if not, please read the Quick Guide.
+
+Tools
+	OSINT
+	******
+
+dns_search
+	Search in the search engines and other sources for find DNS.
+
+email_search
+	Search in search engines for find emails.
+
+docs_search
+	Search in engines for find related documents.
+
+onion_search
+	onion_search is to create the premier search engine for services residing on the Tor anonymity network.
+
+godork
+	Search your dork in the google and get result
+
+social_nets
+	Search for find usernames in social networks.
+
+crawler
+	Crawl web pages for find links, JS Files, CSS files, Comments And everything else interesting with thread supporting
+	
+
+	FOOTPRINT
+	**********
+
+crawl_pages
+	Search to find keywords, emails, usernames, errors, meta tags and regex on the page/pages
+
+dbrute
+	DNS brute force attack with thread supporting
+
+fbrute
+	File/Directory brute force attack with thread supporting
+
+tldbrute
+	TLD brute force attack with thread supporting
+
+waf
+	Identify web application firewalls. It can detect over 200 firewall
+
+wapps
+	Web fingerprinting to identify the applications used with over 1000 pyload.
+
+interest_files
+	Search hosts for interesting files in predictable locations and brute force it.
+
+entry_points
+	Crawl web pages for find entry points(inputs, urls with param)
+
+
+Quick Guide
+************
+
+For help options
+	write help or ?
+	or write help <command-name> for help your command
+
+
+For show modules
+	write show modules
+	For use modules
+	write use <module-name> or load <module-name>
+
+
+For show set options
+	write show options
+
+For set an option
+	write set <option-name> <value>
+	for example set VERBOSITY 2
+	For run selected module
+	write run
+
+For add a variable
+	write var <$name> <value>
+	for example var $hunter_key XXXXXXXXXXXXXXXX
+	for use it write set HUNTER_KEY $hunter_key
+	for show all of variables write var list command
+	for delete a variable write var delete <var-name>
+	For get report from modules output
+	set 'output' option with True: set output True
+	Or use '--output switch': wapps -d domain.com --output
+	And next, use report command: report <format> <file-name-for-output> <module-name>
+	For example report <format> pdf_docs osint/docs_search localhost
+
+For show history commands
+	write history all
+
+For modules search
+	write search <string>
+
+For record commands
+	write record start <file-name>
+	for stop it record stop
+
+For store all outputs
+	write spool start <file-name>
+	for stop it spool stop
+
+For run commands from file
+	write resource <commands-file-name>
+
+For run shell command
+	write shell <command> or ! <command> or <command>
+
+For reload all modules
+	write reload
+
+For config the connections
+	see the options: show options
+	and set the options: set TIMEOUT 2.5
+	
+For use random user-agent
+	write set RAND_AGENT true

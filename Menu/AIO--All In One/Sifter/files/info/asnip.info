@@ -1,0 +1,9 @@
+Asnip
+
+	Asnip retrieves all IPs of a target organization—used for attack surface mapping in reconnaissance phases.
+
+	It uses the IP or domain name and looks up the Autonomous System Number (ASN), retrieves the Classless Inter-Domain Routing (CIDR) subnet masks and converts them to IPs.
+
+			IP / Domain -> ASN -> CIDRs -> IPs
+
+	Please note that this technique only makes sense if the target has its own ASN. It is also advised to not perform tests on IP ranges that belong to multiple entities.

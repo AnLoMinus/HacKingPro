@@ -1,0 +1,50 @@
+# The key incantations are:
+
+-o	Enables outputting results to a file. 
+	You probably want this if you're not using -s. 
+	
+	e.g. -o C:\users\thing\snaffler.log
+
+
+-s	Enables outputting results to stdout as soon as they're found. 
+	You probably want this if you're not using -o.
+
+
+-v	Controls verbosity level, options are:
+	- Trace (most verbose), 
+	- Debug (less verbose), 
+	- Info (less verbose still, default), and 
+	- Data (results only). e.g -v debug
+
+
+-m	Enables and assigns an output dir for snaffler to automatically take a copy of 
+	(or Snaffle... if you will) any found files that it likes.
+
+
+-l	Maximum size of files (in bytes) to Snaffle. 
+	Defaults to 10000000, which is about 10MB.
+
+
+-i	Disables computer and share discovery, 
+	! requires a path to a directory in which to perform file discovery.
+
+
+-d	Domain to search for computers to search for shares on to search for files in. 
+	Easy.
+
+
+-c	Domain controller to query for the list of domain computers.
+
+
+-r	The maximum size file (in bytes) to search inside for interesting strings. 
+	Defaults to 500k.
+
+
+-j	How many bytes of context either side of found strings in files to show, 
+	e.g. -j 200
+
+
+-z Path to a config file that defines all of the above, and much much more! 
+	See below for more details. 
+	
+	Give it -z generate to generate a sample config file called .\default.toml.

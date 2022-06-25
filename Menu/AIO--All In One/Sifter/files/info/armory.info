@@ -1,0 +1,9 @@
+Armory
+******
+
+Description
+
+	Armory is a tool meant to take in a lot of external and discovery data from a lot of tools, add it to a database and correlate all of related information. It isn't meant to replace any specific tool. It is meant to take the output from various tools, and use it to feed other tools.
+
+	Additionally, it is meant to be easily extendable. Don't see a module for your favorite tool? Write one up! Want to export data in just the right format for your reporting? Create a new report!
+

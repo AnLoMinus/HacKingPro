@@ -1,0 +1,41 @@
+# Snaffler
+
+[!] What is it for?
+[*] Snaffler is a tool for pentesters to help find delicious 
+	candy needles (creds mostly, but it's flexible) in a bunch 
+	of horrible boring haystacks (a massive Windows/AD environment).
+
+	It might also be useful for other people doing other stuff, 
+	but it is explicitly NOT meant to be an "audit" tool.
+
+[!] # Example Usage:
+
+	> snaffler.exe -s -o snaffler.log
+
+
+[!] What does it do?
+[*] It gets a list of Windows computers from Active Directory, 
+	then spreads out its snaffly appendages to them all to figure 
+	out which ones have file shares, and whether you can read them.
+
+	Then YET MORE snaffly appendages enumerate all the files in those 
+	shares and use LEARNED ARTIFACTUAL INTELLIGENCE for MACHINES to 
+	figure out which ones a grubby little hacker like you might want.
+
+
+[!][!] Actually it doesn't do any ML stuff (yet)! 
+[*]	because doing that right would require training data, and that 
+	would require an enormous amount of time that we don't have.
+
+
+# How do I use it?
+
+[!] If you "literally just run the EXE on a domain joined machine in the context 
+	of a domain user" (as people were instructed to do with Grouper2, immediately 
+	before they ran it with all the verbose/debug switches on so it screamed several 
+	hundred megabytes of stack traces at them) it will basically do nothing. 
+	This is our idea of a prankTM on people who don't read README files, because we're monsters.
+
+[!*!] HOWEVER... 
+[***] if you add the correct incantations, it will enable the aforementioned 
+	  L.A.I.M. and the file paths where candy may be found will fall out.

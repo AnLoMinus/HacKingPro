@@ -1,0 +1,20 @@
+dnstwist
+*********
+See what sort of trouble users can get in trying to type your domain name. Find similar-looking domains that adversaries can use to attack you. Can detect typosquatters, phishing attacks, fraud and corporate espionage. Useful as an additional source of targeted threat intelligence.
+
+The idea is quite straightforward: dnstwist takes in your domain name as a seed, generates a list of potential phishing domains and then checks to see if they are registered. Additionally it can test if the mail server from MX record can be used to intercept misdirected corporate e-mails and it can generate fuzzy hashes of the web pages to see if they are live phishing sites.
+
+Key features
+
+	A wide range of efficient domain fuzzing algorithms
+	Unicode domain names (IDN)
+	Multithreaded job distribution
+	Queries A, AAAA, NS and MX records
+	Evaluates web page similarity with fuzzy hashes to find live phishing sites
+	Tests if MX host (mail server) can be used to intercept misdirected e-mails
+	Additional domain variants using dictionary files
+	GeoIP location information
+	Grabs HTTP and SMTP service banners
+	WHOIS lookups for creation and modification date
+	Output in CSV and JSON format
+

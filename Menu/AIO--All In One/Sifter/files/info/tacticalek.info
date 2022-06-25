@@ -1,0 +1,63 @@
+# Tactical Exploitation Toolkit
+
+:: EasyWin
+    
+    Easywin is a Python script that provides a toolkit for exploit-less 
+    attacks aimed at Windows and Active Directory environments, by leveraging 
+    information gathering and brute force capabilities against the SMB protocol.
+
+-----------------------------------------------------------------------------------
+
+:: LetMeIn
+
+    Letmein is a pure PowerShell implementation of the staging protocols used by 
+    the Metasploit Framework. Start an exploit/multi/handler (Generic Payload Handler) 
+    instance on your attack box configured to handle one of the supported Meterpreter 
+    payloads, run letmein.ps1 (ideally as Administrator) on a compromised Windows box, 
+    and wait for your session. This technique is quite effective in order to bypass 
+    the antivirus and obtain a Meterpreter shell on Windows. An alternative Python 
+    implementation is also provided for educational purposes, however its use is not 
+    recommended in the field.
+
+-----------------------------------------------------------------------------------
+
+:: Poriluk
+
+    Poriluk is a helper script that provides a comfortable interface to exploit common 
+    information leakage vulnerabilities. At the moment, the following attacks are supported: 
+    - dictionary-based user enumeration via SMTP VRFY/EXPN/RCPT and HTTP 
+      Apache mod_userdir.
+
+-----------------------------------------------------------------------------------
+
+:: BotShot
+
+    Botshot is a Python script that captures screenshots of websites from the command line. 
+    It is useful to automate mapping of the web attack surface of large networks.
+
+-----------------------------------------------------------------------------------
+
+:: Verbal
+
+    Verbal is a HTTP request method security scanner. It tries a series of interesting HTTP 
+    methods against a list of website paths, in order to determine which methods are available 
+    and accessible. The following HTTP methods are currently supported: GET, OPTIONS, TRACE, DEBUG, PUT.
+
+-----------------------------------------------------------------------------------
+
+:: Netdork
+
+    Netdork is a Python script that uses the Google Custom Search Engine API to collect interesting 
+    information on public networks and stealthily map the available attack surface. The following 
+    attacks are supported: network search sweep based on target CIDRs and subdomain discovery via 
+    search engine.
+
+-----------------------------------------------------------------------------------
+
+:: Seitan
+
+    Seitan is a Python script that uses the Shodan.io API search to collect open source intelligence 
+    on targets. The following attacks are currently supported: ipaddr (view all available information 
+    for an IP address) and domain (search services related to a domain or host name).
+
+-----------------------------------------------------------------------------------

@@ -1,0 +1,21 @@
+Domain
+********
+
+> .\TruffleSnout.exe help domain
+
+  -n, --name          Required. The name of a domain or `current`
+
+  -c, --controller    Get domain controllers
+
+  -t, --trusts        Get domain trusts
+
+  -a, --all           Get all domain info. This is a shortcut to -c -t
+                      Example: -a
+
+  -U, --username      (Auth) User Name for connection to the service
+                      Example: -U username
+
+  -P, --password      (Auth) Password fot the user.
+                      Provide: `interactive` to ask for a password.
+                      OpSec: Clear text passwords on the command line if used without `interactive`
+                      Example: -P <password> || -P interactive

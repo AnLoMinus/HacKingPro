@@ -1,0 +1,29 @@
+What is Osmedeus?
+
+Osmedeus allows you automated run the collection of awesome tools to reconnaissance and vulnerability scanning against the target.
+
+
+How to use
+If you have no idea what are you doing just type the command below or check out the Advanced Usage
+
+./osmedeus.py -t example.com
+Features
+ Subdomain Scan.
+ Subdomain TakeOver Scan.
+ Screenshot the target.
+ Basic recon like Whois, Dig info.
+ Web Technology detection.
+ IP Discovery.
+ CORS Scan.
+ SSL Scan.
+ Wayback Machine Discovery.
+ URL Discovery.
+ Headers Scan.
+ Port Scan.
+ Vulnerable Scan.
+ Seperate workspaces to store all scan output and details logging.
+ REST API.
+ React Web UI.
+ Support Continuous Scan.
+ Slack notifications.
+ Easily view report from commnad line.

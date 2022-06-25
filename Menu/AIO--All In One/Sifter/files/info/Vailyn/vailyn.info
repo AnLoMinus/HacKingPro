@@ -1,0 +1,93 @@
+Vailyn
+^^^^^^
+
+Vailyn currently supports 5 attack vectors, and provides a crawler to automate all of them.
+The attack performed is identified by the -a INT argument.
+
+INT        attack
+----       -------
+1          query-based attack  (https://site.com?file=../../../)
+2          path-based attack   (https://site.com/../../../)
+3          cookie-based attack (will grab the cookies for you)
+4          plain post data     (ELEM1=VAL1&ELEM2=../../../)
+5          json post data      ({"file": "../../../"})
+A          spider automation   fetch + analyze all URLs from site with all vectors
+
+You also must specify a target to attack. This is done via -v VIC and -Pi VIC2,
+where -v is the part before the injection point, and -Pi the rest.
+
+Example: if the final URL should look like: https://site.com/download.php?file=<ATTACK>&param2=necessaryvalue,
+you can specify -v https://site.com/download.php and -Pi &param2=necessaryvalue (and -p file, since this is a query attack).
+
+If you want to include PHP wrappers in the scan (like php://filter), use the --lfi argument.
+At the end of Phase 1, you'll be presented with an additional selection menu containing the wrappers that worked. (if any)
+
+If the attacked site is behind a login page, you can supply an authentication cookie via -c COOKIE.
+If you want to attack over Tor, use --tor.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+[ ! ] Phase 1
+
+This is the analysis phase, where working payloads are separated from the others.
+
+By default, /etc/passwd is looked up. If the server is not running Linux, you can specify a custom file by -i FILENAME.
+Note that you must include subdirectories in FILENAME. You can modify the lookup depth with the first value of -d (default=8).
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+[ ! ] Phase 2
+
+This is the exploitation phase, where Vailyn will try to leak as much files as possible, or gain a reverse shell using various techniques.
+
+The depth of lookup in phase 2 (the maximal number of layers traversed back) is specified by the second value of the -d argument.
+The level of subdirectory permutation is set by the third value of -d.
+
+By specifying -l, Vailyn will not only display files on the terminal, but also download and save the files into the loot folder.
+
+If you want a verbose output (display every output, not only found files), you can use --debug. Note that output gets really messy,
+this is basically just a debug help.
+
+To perform the bruteforce attack, you need to specify -p2 leak FIL PATH, where
+
+FIL is a dictionary file containing filenames only (e.g. index.php)
+PATH, is a dictionary file containing directory names only.
+
+Vailyn will handle directory permutation for you, so you'll need only one directory per line.
+
+To gain a reverse shell, you can use -p2 rce IP PORT, where
+
+IP is your listening IP
+PORT is the port you want to listen on.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+[ ! ] WARNING
+
+Vailyn employs Log Poisoning techniques. Therefore, YOUR IP WILL BE VISIBLE IN THE SERVER LOGS.
+
+The techniques (only work for LFI inclusions):
+
+/proc/self/environ inclusion only works on outdated servers
+Apache + Nginx Log Poisoning & inclusion
+SSH Log Poisoning
+poisoned mail inclusion
+wrappers
+expect://
+data:// (plain & b64)
+php://input
+False Positive prevention
+To distinguish real results from false positives, Vailyn does the following checks:
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+check the status code of the response
+check if the response is identical to one taken before attack start: this is useful e.g, when the server returns 200,
+but ignores the payload input or returns a default page if the file is not found.
+similar to #2, perform an additional check for query GET parameter handling (useful when server returns error that a needed parameter is missing)
+check for empty responses
+check if common error signatures are in the response content
+check if the payload is contained in the response: this is an additional check for the case the server responds 200 for non-existing files,
+and reflects the payload in a message (like ../../secret not found)
+check if the entire response is contained in the init check response: useful when the server has a default include which disappears in case of 404
+for -a 2, perform an additional check if the response content matches the content from the server root URL

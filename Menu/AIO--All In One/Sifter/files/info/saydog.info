@@ -1,0 +1,54 @@
+#SAYDOG FRAMEWORK
+*****************
+
+Just a tool for exploiting social media, website vuln scanner, also has a wordlist generator, malware generator and others 
+
+Features
+*********
+
+Name 	             	    |Information
+------------------------------------------------------------------------------
+Port scanner 	 	        |Scanning open port
+==============================================================================
+Banner grabber 	 	        |Grabbing banner
+==============================================================================
+File grabber 	 	        |Grabbing file or target data
+==============================================================================
+Mini crypto locker 	 	    |Auto encrypt path file target with pass
+==============================================================================
+Terabyte attack 	    	|Just auto copying file 10MB to 1TB
+==============================================================================
+Admin finder 	        	|Finding admin login page
+==============================================================================
+Route tracking 	        	|Tracking route
+==============================================================================
+Reverse DNS 	        	|Determinate the domain name with ip address
+==============================================================================
+Find host DNS 	        	|Finding host DNS
+==============================================================================
+Find shared DNS     	 	|Finding shared DNS
+==============================================================================
+DNS lookup 	 	            |Checking DNS all records
+==============================================================================
+Whois lookup 	        	|Checking information DNS from whois
+==============================================================================
+Ip location lookup 	     	|Checking IP location all records
+==============================================================================
+Reverse ip lookup 	    	|Determinate IP with domain name
+==============================================================================
+Subnet lookup 	         	|Checking subnet information
+==============================================================================
+Tcp scanner 	 	        |Scanning tcp open port
+==============================================================================
+Header checker 	        	|Checking http headers
+==============================================================================
+Bruteforce instagram 	 	|Brute force attack instagram account
+==============================================================================
+Bruteforce facebook 	 	|Brute force attack facebook account
+==============================================================================
+Bruteforce gmail 	 	    |Brute force attack gmail account
+==============================================================================
+Wordlist generator 	 	    |Generate wordlist for brute force
+==============================================================================
+Malware generator 	 	    |Generate malwares android, windows, mac, linux
+==============================================================================

@@ -1,0 +1,52 @@
+Yuki Chan The Auto Pentest
+***************************
+
+The Yuki Chan is an Automated Penetration Testing tool this tool will auditing all standard security test method for you.
+
+I highly recommend using this tool by using Kali Linux OS By using this tool it means you agree with terms, conditions, and risks
+
+By using this tool you agree that
+
+	use for legitimate security testing
+	not for crime
+	the use of this tool solely for educational reasons only
+	By using this tool you agree that
+
+	You are willing to be charged with criminal or state law applicable by law enforcement officers and government when abused
+	the risk is borne by yourself
+	Thank you and happy pentest
+
+Features:
+
+	Automated
+	Intel-Gathering
+	Vulnerability Analysis
+	Security Auditing
+	OSINT
+	Tracking
+	System Enumeration
+	Fuzzing
+	CMS Auditing
+	SSL Security Auditing
+	And Off Course This Tool Designed For Targetted Pentesting Too
+	Modules In Yuki Chan
+	Whois domain analyzer
+	Nslookup
+	Nmap
+	TheHarvester
+	Metagoofil
+	DNSRecon
+	Sublist3r
+	Wafw00f
+	WAFNinja
+	XSS Scanner
+	WhatWeb
+	Spaghetti
+	WPscan
+	WPscanner
+	WPSeku
+	Droopescan ( CMS Vulnerability Scanner Wordpress, Joomla, Silverstripe, Drupal, And Moodle)
+	SSLScan
+	SSLyze
+	A2SV
+	Dirsearch

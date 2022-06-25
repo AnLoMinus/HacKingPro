@@ -1,0 +1,10 @@
+BruteDum 1.0
+*************
+BruteDum is a SSH, FTP, Telnet, PostgreSQL, RDP, VNC brute forcing tool with Hydra, Medusa and Ncrack. BruteDum can work with any Linux distros if they support Python 3.
+
+Features of BruteDum
+	SSH, FTP, Telnet, PostgreSQL, RDP, VNC with Hydra (recommended)
+	SSH, FTP, Telnet, PostgreSQL, RDP, VNC with Medusa
+	SSH, FTP, Telnet, PostgreSQL, RDP, VNC with Ncrack
+	Scan victim's ports with Nmap
+

@@ -1,0 +1,30 @@
+Forest
+**********
+
+> .\TruffleSnout.exe help forest 
+
+  -n, --name        Required. The name of a forest or `current`
+                    Example: -n top.int
+
+  -d, --domains     Get forest domains
+                    Example: -d
+
+  -t, --trusts      Get forest trusts
+                    Example: -t
+
+  -s, --sites       Get forest sites
+                    Example: -s
+
+  -g, --gcs         Get Global Catalogs
+                    Example -g
+
+  -a, --all         Get all forest info. This is a shortcut to -g -s -d -t
+                    Example: -a
+
+  -U, --username    (Auth) User Name for connection to the service
+                    Example: -U username
+
+  -P, --password    (Auth) Password fot the user.
+                    Provide: `interactive` to ask for a password.
+                    OpSec: Clear text passwords on the command line if used without `interactive`
+                    Example: -P <password> || -P interactive

@@ -1,0 +1,30 @@
+Omega Framework
+`*************************************************
+
+Omega Framework is a PHP post-exploitation framework,
+aiming to provide a stealth interactive shell-like connection
+over HTTP between client and web server using only a simple PHP
+payload. It is a powerful framework capable to maintain access
+to a compromised web server for privilege escalation purposes.
+
+# Why Omega Framework
+
+    -Simple PHP payload.
+
+    All you need to remotely access web server via
+    Omega Framework is only a simple PHP payload.
+    A lot of different plugins.
+
+    There are a lot of different useful plugins in
+    Omega Framework such as suidroot and exec.
+
+    -Secure HTTP headers.
+
+    Omega Framework uses secure HTTP headers
+    to send remote commands to the web server.
+
+# Omega Framework disclaimer
+
+Usage of the Omega Framework for attacking targets without prior mutual consent is illegal.
+It is the end user's responsibility to obey all applicable local, state, federal, and international laws.
+Developers assume no liability and are not responsible for any misuse or damage caused by this program

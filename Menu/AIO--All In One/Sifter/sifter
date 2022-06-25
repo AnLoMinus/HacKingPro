@@ -1,0 +1,2242 @@
+#!/bin/bash
+LPATH='/opt/sifter/'
+ORNG='\033[0;33m'
+NC='\033[0m'
+W='\033[1;37m'
+LP='\033[1;35m'
+YLW='\033[1;33m'
+LBBLUE='\e[104m'
+RED='\033[0;31m'
+LGRY='\033[0;37m'
+INV='\e[7m'
+BRED='\033[1;31m'
+UPURPLE='\033[4;35m'
+BIGreen='\033[1;92m'
+BIYellow='\033[1;93m'
+UBLUE='\033[4;34m'
+URED='\033[4;31m'
+STATUS='NO'
+ARG=$2
+STLTH=$1
+
+cd /opt/sifter
+##############################
+# ! # First Time Deb Install #
+##############################
+FIRSTTIME=1
+###
+#first_inst(){
+#        echo -e "${INV}${LGRY}"
+#        python3 extras/ban.py
+#        python3 extras/ban2.py
+#        echo -e "${NC}"
+#        echo -e "\n${LGRY}####################################"
+#        echo -e "# ${NC}[${RED}!${NC}]${ORNG}NOTE:${YLW} Running Initial Install ${LGRY}#${NC}"
+#        echo -e "${LGRY}####################################${NC}\n"
+#        bash /opt/sifter/install.sh
+        ##
+        # Initial Install
+        ##
+#        sudo sed -i "s/FIRSTTIME=1/FIRST=DONE/g" /opt/sifter/sifter
+#        sudo sed -i "s/FIRSTTIME=1/FIRST=DONE/g" /usr/sbin/sifter
+#}
+
+#if [[ ${FIRSTTIME} == 1 ]]; then
+#        first_inst
+#fi
+
+##############################
+# Help Menu #
+#############
+usage() {
+	echo -e  "${YLW}Sifter Help Menu${NC}"
+	echo "*****************"
+	echo "+"
+	echo "+"
+	echo -e "${RED}# ${UBLUE}sifter${NC}    runs the programs bringing up the menu in a cli environment"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-c${NC} will check the exsiting hosts in the hostlist"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-a${NC} 'target' must be added with '' then is automatically appended to host file"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-e${NC} Opens the Exploitation Module Menu"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-i${NC} Opens the Info-based Module Menu"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-d${NC} Opens the Domain Focused Module Menu"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-n${NC} Opens the Network Mapping Module Menu"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-w${NC} Opens the Website Focused Module Menu"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-o${NC} Opens the OpSec & Threat Analysis Module Menu"
+    echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-r${NC} Opens the Router Focused Module Menu"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-W${NC} Opens the Web-App Focused Module Menu"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-v${NC} Opens the Vulnerability Scanning Module Menu"
+    echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-m${NC} Opens the Module Menu directly"
+    echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-p${NC} Opens the password tools for quick passlist generation or hash decryption"
+    echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-x${NC} Opens the Cross-Site Scripting & SQLinjection Module Menu"
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-R${NC} Opens the results folder for viewing of files or photos"
+    echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-u${NC} Checks for any updates on Github"
+    echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-qu${NC} Checks silently for updates and saves a log file under ${BIGreen}/opt/sifter/logs${NC}"
+    echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-quv${NC} Checks for updates in a seperate terminal with verbose output and saves a log file."
+    echo -e "${RED}# ${UBLUE}sifter${NC} ${LP}--stealth${NC} Starts sifter in ${LP}Anonymous${NC} mode"
+    echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-I${NC} Opens the Module Information Menu"
+    if [[ -f '/usr/sbin/gSifter' ]]; then
+        echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-g${NC} Starts the GUI Extention"
+        echo -e "${RED}# ${UBLUE}gsif${NC} is a shortcut to launch the G Extention from any terminal"
+    fi
+	echo -e "${RED}# ${UBLUE}sifter${NC} ${YLW}-h${NC} This Help Menu" 1>&2
+}
+#######################
+# Information Modules #
+#######################
+##########################
+# Enterprise Target Info #
+##########################
+cred_mods(){
+    echo -e "${RED}"
+    figlet -f mini "Organizational Info"
+    echo -e "${LP}This module focuses on Enterprises and their online presence"
+    echo -e "${YLW}eg. web-directories, enterprise email addresses, etc."
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} theHarvester          ${ORNG}5.${W} CredNinja ${NC}"
+	echo -e " ${ORNG}2.${W} Osmedeus		  ${ORNG}6.${W} OSINT-Framework ${NC}"
+	echo -e " ${ORNG}3.${W} ReconSpider           ${ORNG}7.${W} Back ${NC}"
+  echo -e " ${ORNG}4.${W} Emagnet ${RED}*Depreciated	${NC}"
+    	echo -n " =============================#?: "
+	read CMM
+	if [[ ${CMM} == "1" ]]; then
+		bash /opt/sifter/modules/credmods/harvester.sh
+	elif [[ ${CMM} == "2" ]]; then
+		bash /opt/sifter/modules/credmods/osmedeus.sh
+	elif [[ ${CMM} == "3" ]]; then
+		bash /opt/sifter/modules/credmods/rspider.sh
+	elif [[ ${CMM} == "4" ]]; then
+		echo -e "${RED} This tool has unfortunately been depreciated${NC}"
+		echo -e "${RED} and is no longer functional.${NC}"
+		cred_mods
+		#bash /opt/sifter/modules/credmods/emagnet.sh
+	elif [[ ${CMM} == "5" ]]; then
+		bash /opt/sifter/modules/credmods/credninja.sh
+	elif [[ ${CMM} == "6" ]]; then
+		bash /opt/sifter/modules/credmods/osintf.sh
+	elif [[ ${CMM} == "7" ]]; then
+		info_mods
+	elif [[ ${CMM} == "cd "* ]]; then
+        	DCK=$(pwd)
+        	echo ${CMM} > dtemp
+		sed -i "s/cd '//g" dtemp
+        	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+		rm dtemp
+        	cd ${DCK}/${DCC}
+    elif [[ ${CMM} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${CMM} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		cred_mods
+	fi
+    echo -e "${NC}"
+}
+##########################
+# Individual Target Info #
+##########################
+phone_mods(){
+  echo -e "${RED}"
+  figlet -f mini "Individual's Info"
+  echo -e "${LP}This module focuses on individual targets."
+  echo -e "${YLW}eg. Social media information, phone number information, etc."
+  ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} Seeker          ${ORNG}6.${W} DeadTrap ${NC}"
+	echo -e " ${ORNG}2.${W} Sherlock	    ${ORNG}7.${W} iKy ${NC}"
+	echo -e " ${ORNG}3.${W} OSINTGram       ${ORNG}8.${W} GHunt ${NC}"
+	echo -e " ${ORNG}4.${W} Email2Phone     ${ORNG}9.${W} Mosint ${NC}"
+	echo -e " ${ORNG}5.${W} CardPwn    	   ${ORNG}10.${W} Back${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+	read PMM
+	if [[ ${PMM} == "1" ]]; then
+		bash /opt/sifter/modules/credmods/seeker.sh
+	elif [[ ${PMM} == "2" ]]; then
+		bash /opt/sifter/modules/credmods/sherlock.sh
+	elif [[ ${PMM} == "3" ]]; then
+		bash /opt/sifter/modules/credmods/osintgram.sh
+	elif [[ ${PMM} == "4" ]]; then
+		bash /opt/sifter/modules/credmods/e2p.sh
+	elif [[ ${PMM} == "5" ]]; then
+		bash /opt/sifter/modules/credmods/cardpwn.sh
+	elif [[ ${PMM} == "6" ]]; then
+		deadtrap
+	elif [[ ${PMM} == "7" ]]; then
+		bash /opt/sifter/modules/credmods/iky.sh
+	elif [[ ${PMM} == "8" ]]; then
+		bash /opt/sifter/modules/credmods/ghunt.sh
+	elif [[ ${PMM} == "9" ]]; then
+		bash /opt/sifter/modules/credmods/mosint.sh
+	elif [[ ${PMM} == "10" ]]; then
+		info_mods
+	elif [[ ${PMM} == "cd "* ]]; then
+		DCK=$(pwd)
+        	echo ${PMM} > dtemp
+		sed -i "s/cd '//g" dtemp
+        	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+        	rm dtemp
+		cd ${DCK}/${DCC}
+    elif [[ ${PMM} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${PMM} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		phone_mods
+	fi
+    echo -e "${NC}"
+}
+##########################
+# Info Gathering Modules #
+##########################
+info_mods(){
+    echo -e "${RED}"
+    figlet -f mini "Information Gatherers"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} Enterprise Focus           ${ORNG}3.${W} Back ${NC}"
+	echo -e " ${ORNG}2.${W} Individual Focus ${NC}"
+    	echo -e " ${W}"
+    	echo -n " =============================#?: "
+	read IFM
+	if [[ ${IFM} == "1" ]]; then
+		cred_mods
+	elif [[ ${IFM} == "2" ]]; then
+		phone_mods
+	elif [[ ${IFM} == "3" ]]; then
+		modules
+	elif [[ ${IFM} == "cd "* ]]; then
+		DCK=$(pwd)
+        	echo ${IFM} > dtemp
+		sed -i "s/cd '//g" dtemp
+        	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+        	rm dtemp
+		cd ${DCK}/${DCC}
+    elif [[ ${IFM} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${IFM} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		info_mods
+	fi
+    echo -e "${NC}"
+
+}
+#####################
+# HoneyPot Scanners #
+#####################
+honey_mods(){
+    echo -e "${RED}"
+    figlet -f mini "HoneyPot Detection Systems"
+    echo -e "${LP}This module focuses on Enterprises and their online presence"
+    echo -e "${YLW}eg. web-directories, enterprise email addresses, etc."
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} HoneyCaught           ${ORNG}4.${W} HFish ${NC}"
+	echo -e " ${ORNG}2.${W} SniffingBear          ${ORNG}5.${W} Back ${NC}"
+	echo -e " ${ORNG}3.${W} HoneyTel	 ${NC}"
+	echo -e " ${W}"
+	echo -n " =============================#?: "
+	read HPM
+	if [[ ${HPM} == "1" ]]; then
+		bash /opt/sifter/modules/honeymods/honeyc.sh
+	elif [[ ${HPM} == "2" ]]; then
+		bash /opt/sifter/modules/honeymods/s_bear.sh
+	elif [[ ${HPM} == "3" ]]; then
+		bash /opt/sifter/modules/honeymods/honeytel.sh
+	elif [[ ${HPM} == "4" ]]; then
+		bash /opt/sifter/modules/honeymods/hfish.sh
+	elif [[ ${HPM} == "5" ]]; then
+		modules
+	elif [[ ${HPM} == "cd "* ]]; then
+		DCK=$(pwd)
+        	echo ${HPM} > dtemp
+		sed -i "s/cd '//g" dtemp
+        	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+		rm dtemp
+		cd ${DCK}/${DCC}
+    elif [[ ${HPM} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${HPM} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		honey_mods
+	fi
+    echo -e "${NC}"
+
+}
+##################
+# Domain Modules #
+##################
+dom_mods(){
+    echo -e "${RED}"
+    figlet -f mini "Domain Recon Gathering"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} DnsTwist        ${ORNG}4.${W} SubFinder ${NC}"
+	echo -e " ${ORNG}2.${W} Armory          ${ORNG}5.${W} Pulsar ${NC}"
+	echo -e " ${ORNG}3.${W} Spiderfoo7      ${ORNG}6.${W} Back ${NC}"
+    	echo -e " ${W}"
+    	echo -n " =============================#?: "
+	read DMM
+	if [[ ${DMM} == "1" ]]; then
+		bash /opt/sifter/modules/dommods/dnstwist.sh
+	elif [[ ${DMM} == "2" ]]; then
+		bash /opt/sifter/modules/dommods/armory.sh
+	elif [[ ${DMM} == "3" ]]; then
+		bash /opt/sifter/modules/dommods/spiderfoot.sh
+	elif [[ ${DMM} == "4" ]]; then
+		bash /opt/sifter/modules/dommods/subfinder.sh
+	elif [[ ${DMM} == "5" ]]; then
+		bash /opt/sifter/modules/dommods/pulsar.sh
+	elif [[ ${DMM} == "6" ]]; then
+		modules
+	elif [[ ${DMM} == "cd "* ]]; then
+		DCK=$(pwd)
+        	echo ${DMM} > dtemp
+		sed -i "s/cd '//g" dtemp
+        	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+        	rm dtemp
+		cd ${DCK}/${DCC}
+    elif [[ ${DMM} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${DMM} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		dom_mods
+	fi
+    echo -e "${NC}"
+}
+###################
+# Network Modules #
+###################
+net_mods(){
+    echo -e "${RED}"
+    figlet -f mini "Network Scanners"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} nMap                    ${ORNG}5.${W} aSnip ${NC}"
+	echo -e " ${ORNG}2.${W} Arp-Scan 		    ${ORNG}6.${W} Espionage ${NC}"
+	echo -e " ${ORNG}3.${W} AttackSurfaceMapper     ${ORNG}7.${W} Responder ${NC}"
+	echo -e " ${ORNG}4.${W} wafw00f  		    ${ORNG}8.${W} Back${NC}"
+    	echo -e " ${W}"
+    	echo -n " =============================#?: "
+	read NTM
+	if [[ ${NTM} == "1" ]]; then
+        echo -e "${RED}Would you like to run ${W}nMap ${RED}through terminal or use ${W}WebMap${RED}? (${W}n${RED}/${W}w${RED})${NC}"
+        read WORN
+        if [[ ${WORN} == "n" ]]; then
+	    bash /opt/sifter/modules/netmods/nmap.sh
+        elif [[ ${WORN} == "w" ]]; then
+            bash /opt/sifter/modules/netmods/webmap.sh
+        else
+            echo -e "${YLW}Invalid option chosen${NC}"
+            net_mods
+        fi
+	elif [[ ${NTM} == "2" ]]; then
+		echo -e "${YLW}Would you like to scan your ${RED}l${YLW}ocal network, or use ${RED}c${YLW}ustom arp-scan args?(${RED}l${YLW}/${RED}c${YLW})${NC}"
+        read ASO
+        if [[ ${ASO} == "l" ]]; then
+            sudo arp-scan -l
+        else
+            echo -e "${YLW}Please enter your arp-scan arguments now\n${RED}eg. ${ORNG}-N -q -v${NC}"
+            echo -e "${LP}An xTerm window will be shown for 3mins, showing the ${YLW}arp-scan argument list${NC}"
+            xterm -e echo -e ${ORNG}arp-scan --help && echo -e "${NC}" && sleep 180
+            read ARPARG
+            sudo arp-scan ${ARPARG}
+        fi
+	elif [[ ${NTM} == "3" ]]; then
+		bash /opt/sifter/modules/netmods/asm.sh
+	elif [[ ${NTM} == "4" ]]; then
+		bash /opt/sifter/modules/netmods/wafw00f.sh
+	elif [[ ${NTM} == "5" ]]; then
+		bash /opt/sifter/modules/netmods/asnip.sh
+	elif [[ ${NTM} == "6" ]]; then
+		bash /opt/sifter/modules/netmods/espionage.sh
+	elif [[ ${NTM} == "7" ]]; then
+		bash /opt/sifter/modules/netmods/responder.#!/bin/sh
+	elif [[ ${NTM} == "8" ]]; then
+		modules
+	elif [[ ${NTM} == "cd "* ]]; then
+		DCK=$(pwd)
+        	echo ${NTM} > dtemp
+		sed -i "s/cd '//g" dtemp
+        	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+        	rm dtemp
+		cd ${DCK}/${DCC}
+    elif [[ ${NTM} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${NTM} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		net_mods
+	fi
+    echo -e "${NC}"
+}
+##########################
+# Vulnerability Scanners #
+##########################
+vuln_mods(){
+    echo -e "${RED}"
+    figlet -f mini "Vulnerability Scanners"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} Flan               ${ORNG}6.${W} F5 Big IP RCE ${NC}"
+	echo -e " ${ORNG}2.${W} RapidScan 	       ${ORNG}7.${W} WeblogicScanner ${NC}"
+	echo -e " ${ORNG}3.${W} Yuki-Chan          ${ORNG}8.${W} XAttacker-3.0 ${NC}"
+	echo -e " ${ORNG}4.${W} Katana-VFramework  ${ORNG}9.${W} Vailyn${NC}"
+    echo -e " ${ORNG}5.${W} Nettacker${NC}	       ${ORNG}10.${W} Back${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+	read VNM
+	if [[ ${VNM} == "1" ]]; then
+		bash /opt/sifter/modules/vulnscanners/flan.sh
+	elif [[ ${VNM} == "2" ]]; then
+		bash /opt/sifter/modules/vulnscanners/rapidscan.sh
+	elif [[ ${VNM} == "3" ]]; then
+		bash /opt/sifter/modules/vulnscanners/yuki.sh
+	elif [[ ${VNM} == "4" ]]; then
+		bash /opt/sifter/modules/vulnscanners/ktf.sh
+	elif [[ ${VNM} == "5" ]]; then
+		bash /opt/sifter/modules/vulnscanners/nettacker.sh
+	elif [[ ${VNM} == "6" ]]; then
+		bash /opt/sifter/modules/vulnscanners/bip.sh
+	elif [[ ${VNM} == "7" ]]; then
+        bash /opt/sifter/modules/vulnscanners/weblogic.sh
+  elif [[ ${VNM} == "8" ]]; then
+        bash /opt/sifter/modules/vulnscanner/xattacker.sh
+  elif [[ ${VNM} == "9" ]]; then
+		xterm -e bash /opt/sifter/files/info/Vailyn/vailyninf.sh &
+		cd /opt/Vailyn; python3 Vailyn --app	&
+	elif [[ ${VNM} == "10" ]]; then
+		modules
+	elif [[ ${VNM} == "cd "* ]]; then
+		DCK=$(pwd)
+        	echo ${VNM} > dtemp
+		sed -i "s/cd '//g" dtemp
+       	 	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+        	rm dtemp
+		cd ${DCK}/${DCC}
+    elif [[ ${VNM} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${VNM} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		vuln_mods
+	fi
+    echo -e "${NC}"
+}
+#######################
+# Web-Focused Modules #
+#######################
+web_mods(){
+    echo -e "${RED}"
+    figlet -f mini "Website Scanners & Enumerators"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} Dirb                 ${ORNG}6.${W} Katana-DS ${NC}"
+	echo -e " ${ORNG}2.${W} Nikto 		 ${ORNG}7.${W} Zeus ${NC}"
+	echo -e " ${ORNG}3.${W} BlackWidow           ${ORNG}8.${W} Blacknet ${NC}"
+	echo -e " ${ORNG}4.${W} WordPress Tools      ${ORNG}9.${W} Back ${NC}"
+    echo -e " ${ORNG}5.${W} DorksEye ${W}"
+    echo -n " =============================#?: "
+	read WEM
+	if [[ ${WEM} == "1" ]]; then
+		bash /opt/sifter/modules/webmods/dirb.sh
+	elif [[ ${WEM} == "2" ]]; then
+		bash /opt/sifter/modules/webmods/nikto.sh
+	elif [[ ${WEM} == "3" ]]; then
+		bash /opt/sifter/modules/webmods/widow.sh
+	elif [[ ${WEM} == "4" ]]; then
+		echo -e "${YLW}WPScan & WPForce"
+        echo -e "${W}Tools for use against wordpress${NC}"
+        sleep 3
+        bash /opt/sifter/modules/webmods/wordpress.sh
+	elif [[ ${WEM} == "5" ]]; then
+		bash /opt/sifter/modules/webmods/dorkseye.sh
+	elif [[ ${WEM} == "6" ]]; then
+		bash /opt/sifter/modules/webmods/kds.sh
+	elif [[ ${WEM} == "7" ]]; then
+		bash /opt/sifter/modules/webmods/zeus.sh
+	elif [[ ${WEM} == "8" ]]; then
+		bach /opt/sifter/modules/webmods/blacknet.sh
+	elif [[ ${WEM} == "9" ]]; then
+		modules
+	elif [[ ${WEM} == "cd "* ]]; then
+		DCK=$(pwd)
+        	echo ${WEM} > dtemp
+		sed -i "s/cd '//g" dtemp
+        	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+        	rm dtemp
+		cd ${DCK}/${DCC}
+    elif [[ ${WEM} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${WEM} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		web_mods
+	fi
+    echo -e "${NC}"
+}
+######################
+# Elevate Privileges #
+######################
+elevatePrivs(){
+    echo -e "${RED}"
+    figlet -f mini "Privilege Elevation"
+    echo -e "${NC}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} EoP Exploit           ${ORNG}3.${W} Back ${NC}"
+	echo -e " ${ORNG}2.${W} CVE-2018-8120 	  ${NC}"
+    echo -e "${W}"
+	echo -n " =============================#?: "
+	read EOP
+	if [[ ${EOP} == "1" ]]; then
+		bash /opt/sifter/modules/postex/EoP/EoP.sh
+	elif [[ ${EOP} == "2" ]]; then
+		bash /opt/sifter/modules/postex/EoP/cve8120.sh
+	elif [[ ${EOP} == "3" ]]; then
+        post_ex
+	elif [[ ${EOP} == "cd "* ]]; then
+		DCK=$(pwd)
+        	echo ${EOP} > dtemp
+		sed -i "s/cd '//g" dtemp
+        	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+        	rm dtemp
+		cd ${DCK}/${DCC}
+    elif [[ ${EOP} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${EOP} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		elevatePrivs
+	fi
+    echo -e "${NC}"
+}
+#####################
+# Post Exploitation #
+#####################
+post_ex(){
+    echo -e "${RED}"
+    figlet -f mini "Post-Exploitation"
+    echo -e "${NC}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} Elevate Privileges    ${ORNG}6.${W} CredHarvester ${NC}"
+	echo -e " ${ORNG}2.${W} Potatoes 'n PEAS 	  ${ORNG}7.${W} ACLight2 ${NC}"
+	echo -e " ${ORNG}3.${W} Omega                 ${ORNG}8.${W} PowerHUB ${NC}"
+	echo -e " ${ORNG}4.${W} WinPwn 		  ${ORNG}9.${W} BetterSafetyKatz ${NC}"
+	echo -e " ${ORNG}5.${W} PowerSharp ${NC}           ${ORNG}10.${W} Back ${NC}"
+    	echo -e " ${W}"
+    echo -n " =============================#?: "
+	read PEX
+	if [[ ${PEX} == "1" ]]; then
+		echo -e "${W}The EoP modules helps elevate user privileges on an exploited systems${NC}"
+        elevatePrivs
+	elif [[ ${PEX} == "2" ]]; then
+		echo -e "${YLW}This will copy a file to your Desktop to be used on an exploited target session\nWould you like to continue?(y/n)${NC}"
+		read BP
+		if [[ ${BP} == "y" ]]; then
+			bash /opt/sifter/modules/postex/potnpea.sh
+		else
+			post_ex
+		fi
+	elif [[ ${PEX} == "3" ]]; then
+		echo -e "${W}This tool acts as a Command n Control Server for call-back of exploited systems${NC}"
+        	bash /opt/sifter/modules/postex/omega.sh
+	elif [[ ${PEX} == "4" ]]; then
+		echo -e "${W}This module checks for internal system privilege escalation methods that could be used to elevate user privs${NC}"
+        	bash /opt/sifter/modules/postex/winpwn.sh
+	elif [[ ${PEX} == "5" ]]; then
+		echo -e "${W}This is a ${YLW}PowerShell${W} tool that is to be used on an exploited system${NC}"
+        	xterm -e bash /opt/sifter/modules/postex/powersharp.sh
+	elif [[ ${PEX} == "6" ]]; then
+		echo -e "${W}Python3 tool to gather credentials on a successfully infultrated machine${NC}"
+        bash /opt/sifter/modules/postex/credharvester.sh
+	elif [[ ${PEX} == "7" ]]; then
+		echo -e "${W}This tool is used on an exploited target\n in order to search for Shadow Admins${NC}"
+        bash /opt/sifter/modules/postex/aclight.sh
+	elif [[ ${PEX} == "8" ]]; then
+		echo -e "${W}This tool is used in order to help bypass end-point protection${NC}"
+        bash /opt/sifter/modules/postex/powerhub.sh
+	elif [[ ${PEX} == "9" ]]; then
+	    bash /opt/sifter/modules/postex/BSK/bsk.sh
+    elif [[ ${PEX} == "10" ]]; then
+        ex_mods
+	elif [[ ${PEX} == "cd "* ]]; then
+		DCK=$(pwd)
+        	echo ${PEX} > dtemp
+		sed -i "s/cd '//g" dtemp
+        	sed -i "s/'//g" dtemp
+        	DCC=$(cat dtemp)
+        	rm dtemp
+		cd ${DCK}/${DCC}
+    elif [[ ${PEX} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${PEX} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		post_ex
+	fi
+    echo -e "${NC}"
+}
+##################
+# Password Tools #
+##################
+pass_tools(){
+    echo -e "${RED}"
+    figlet -f mini "Password Tools"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} Mentalist     ${ORNG}3.${W} Ciphey ${NC}"
+	echo -e " ${ORNG}2.${W} dCipher       ${ORNG}4.${W} Back ${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+	read PST
+	if [[ ${PST} == "1" ]]; then
+		echo -e "${YLW}Mentalist is a Graphical password creation tool"
+        bash /opt/sifter/modules/passtools/Mentalist
+	elif [[ ${PST} == "2" ]]; then
+		echo -e "${YLW}Decipher hashes using online rainbow & lookup table attack services.${NC}"
+        bash /opt/sifter/modules/passtools/dcipher.sh
+	elif [[ ${PST} == "3" ]]; then
+		bash /opt/sifter/modules/passtools/ciphey.sh
+	elif [[ ${PST} == "4" ]]; then
+		modules
+	elif [[ ${PST} == "cd "* ]]; then
+		DCK=$(pwd)
+        echo ${PST} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+        rm dtemp
+	cd ${DCK}/${DCC}
+    elif [[ ${PST} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${PST} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		pass_tools
+	fi
+    echo -e "${NC}"
+}
+###########################
+# Exploitation Frameworks #
+###########################
+exframes(){
+    echo -e "${RED}"
+    figlet -f mini "Exploitation Frameworks"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} Metasploit           ${ORNG}4.${W} CobaltStrike ${NC}"
+	echo -e " ${ORNG}2.${W} Thoron 		 ${ORNG}5.${W} PHPSploit ${NC}"
+    echo -e " ${ORNG}3.${W} FuzzyDander          ${ORNG}6.${W} TacticalEK ${NC}"
+    echo -e " ${ORNG}7.${W} Back ${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+	read EXF
+	if [[ ${EXF} == "1" ]]; then
+		echo -e "${YLW}This will launch Metasploit in xterm, to allow continuous usage of Sifter\nif you are unable to use xterm enter ${RED}n${YLW} else hit ${UBLUE}enter${NC}"
+        read XOPT
+        if [[ ${XOPT} == "n" ]]; then
+            msfconsole
+        else
+            xterm -e msfconsole
+        fi
+	elif [[ ${EXF} == "2" ]]; then
+		echo -e "${YLW}This is an exploitation framework aimed towards Linux Exploitation\n${LP}Would you like to continue?(y/n)${NC}"
+        	read XOPT
+        	if [[ ${XOPT} == "y" ]]; then
+            		bash /opt/sifter/modules/exmods/thoron.sh
+        	else
+            		exframes
+        	fi
+	elif [[ ${EXF} == "3" ]]; then
+		echo -e "${LP}FuzzBunch & DanderSpritz Framework,"
+        	echo -e "codename:${RED}DanderFuzz${NC}"
+        	echo -e "${YLW}If you do not know what these tools are or how they work,\nyou should not be using them. As such no instructions will be added.${NC}"
+        	if [[ ! -f '/opt/sifter/modules/exmods/fuzzyd.sh' ]]; then
+            		echo -e "${URED}You do not have this module.\n${ORNG}You will need to install the ${W}f ${ORNG}plugin to use this.${NC}"
+			echo -e "${YLW}Would you like to install this plugin?${RED}(y/n)${NC}"
+			read PLUGf
+			if [[ ${PLUGf} == "y" ]]; then
+				cd /home/$USER
+				git clone https://github.com/Sifter-Ex/fPlug
+				cd fPlug && bash plug-F.sh
+				cd /opt/sifter
+				exframes
+			else
+				exframes
+			fi
+        	else
+            		echo -e "${W}Would you like to continue?(y/n)${NC}"
+            		read M_ANS
+            		if [[ ${M_ANS} == 'y' ]]; then
+               	 		bash /opt/sifter/modules/exmods/fuzzyd.sh
+            		else
+                		exframes
+            		fi
+        	fi
+	elif [[ ${EXF} == "4" ]]; then
+		if [[ -f '/opt/sifter/modules/exmods/cstrike.sh' ]]; then
+            bash /opt/sifter/modules/exmods/cstrike.sh
+        else
+            echo -e "${RED}This script is provided by the cPlug extention\n${YLW}Would you like to install this plugin? (requires your own copy of CobaltStrike)${NC}"
+            read GCS
+            if [[ ${GCS} == 'y' ]]; then
+                cd ~
+                git clone https://github.com/Sifter-Ex/cPlug
+                cd cPlug
+                bash plug-C.sh
+            fi
+        fi
+    elif [[ ${EXF} == "5" ]]; then
+        bash /opt/sifter/modules/exmods/phpsploit.sh
+    elif [[ ${EXF} == "6" ]]; then
+        bash /opt/sifter/modules/exmods/tacticalek.sh
+    elif [[ ${EXF} == "7" ]]; then
+        ex_mods
+	elif [[ ${EXF} == "cd "* ]]; then
+		DCK=$(pwd)
+        echo ${EXF} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+	rm dtemp
+	cd ${DCK}/${DCC}
+    elif [[ ${EXF} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${EXF} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		ex_mods
+	fi
+    echo -e "${NC}"
+}
+########################
+# Exploitation Modules #
+########################
+ex_mods(){
+  echo -e "${RED}"
+  figlet -f mini "Exploitation Tools"
+  echo -e "${ORNG}"
+  ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} Microsoft Explicit           ${ORNG}5.${W} Search for Exploits ${NC}"
+	echo -e " ${ORNG}2.${W} BruteForcing 		 ${ORNG}6.${W} Exploitation Frameworks ${NC}"
+	echo -e " ${ORNG}3.${W} TigerShark                   ${ORNG}7.${W} Post-Exploitation ${NC}"
+	echo -e " ${ORNG}4.${W} Web Exploiters		 ${ORNG}8.${W} Back ${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+	read EXTP
+	if [[ ${EXTP} == "1" ]]; then
+		echo -e "${YLW}These tools are used to exploit MicroSoft systems${NC}"
+        sleep 3
+        ms_tools
+	elif [[ ${EXTP} == "2" ]]; then
+		bruters
+	elif [[ ${EXTP} == "3" ]]; then
+		echo -e "${YLW}TigerShark is a multi-tooled phishing framework${NC}"
+        sleep 3
+        bash /opt/sifter/modules/exmods/tiger.sh
+	elif [[ ${EXTP} == "4" ]]; then
+		echo -e "${YLW}These tools are aimed at exploiting websites${NC}"
+        sleep 3
+        webex
+	elif [[ ${EXTP} == "5" ]]; then
+		echo -e "${YLW}These tools allow you to search to certain exploits or vulnerabilities${NC}"
+        sleep 3
+        search_tools
+	elif [[ ${EXTP} == "6" ]]; then
+		exframes
+	elif [[ ${EXTP} == "7" ]]; then
+		post_ex
+	elif [[ ${EXTP} == "8" ]]; then
+		modules
+	elif [[ ${EXTP} == "cd "* ]]; then
+		DCK=$(pwd)
+        echo ${EXTP} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+        rm dtemp
+	cd ${DCK}/${DCC}
+    elif [[ ${EXTP} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${EXTP} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		ex_mods
+	fi
+    echo -e "${NC}"
+}
+######################
+# BruteForce Modules #
+######################
+bruters(){
+    echo -e "${RED}"
+    figlet -f mini "BruteDUM"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} BruteDUM           ${ORNG}3.${W} Back ${NC}"
+	echo -e " ${ORNG}2.${W} WBruter ${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+	read BTS
+	if [[ ${BTS} == "1" ]]; then
+		echo -e "${YLW}BruteDUM is a bruteforcing tool that consists of Medusa, nCrack, Hydra${NC}"
+        sleep 3
+        bash /opt/sifter/modules/exmods/brutedum.sh
+	elif [[ ${BTS} == "2" ]]; then
+		bash /opt/sifter/modules/exmods/wbruter.sh
+	elif [[ ${BTS} == "3" ]]; then
+		modules
+	elif [[ ${BTS} == "cd "* ]]; then
+		DCK=$(pwd)
+        echo ${BTS} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+        cd ${DCK}/${DCC}
+        rm dtemp
+    elif [[ ${BTS} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${BTS} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		bruters
+	fi
+    echo -e "${NC}"
+}
+#####################
+# Exploit Searchers #
+#####################
+search_tools(){
+    echo -e "${RED}"
+    figlet -f mini "Exploit Finders"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+	echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+	echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+	echo -e "\n ${ORNG}1.${W} ShodanSploit           ${ORNG}3.${W} GitSearch ${NC}"
+	echo -e " ${ORNG}2.${W} FindSploit           ${ORNG}4.${W} Back ${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+	read SST
+	if [[ ${SST} == "1" ]]; then
+		echo -e "${YLW}ShodanSploit allows for shodan searches to be done quickly from the terminal${NC}"
+        sleep 3
+        bash /opt/sifter/modules/exmods/ssploit.sh
+	elif [[ ${SST} == "2" ]]; then
+		echo -e "${YLW}This tool allows you to search, copy or compile exploits${NC}"
+        sleep 3
+        bash /opt/sifter/modules/exmods/fsploit.sh
+	elif [[ ${SST} == "3" ]]; then
+		bash /opt/sifter/modules/exmods/gitsearch.sh
+	elif [[ ${SST} == "4" ]]; then
+		modules
+	elif [[ ${SST} == "cd "* ]]; then
+		DCK=$(pwd)
+        echo ${SST} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+        rm dtemp
+	cd ${DCK}/${DCC}
+    elif [[ ${SST} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${SST} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+	else
+		echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+		search_tools
+	fi
+    echo -e "${NC}"
+}
+##########################
+# MicroSoft Exploitation #
+##########################
+ms_tools(){
+    echo -e "${RED}"
+    figlet -f mini "MicroSoft Exploitation Tools"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+    echo -e "\n ${ORNG}1.${W} ActiveReign    ${ORNG}3.${W} SMBGhost ${NC}"
+    echo -e " ${ORNG}2.${W} iSpy           ${ORNG}4.${W} Back ${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+    read MST
+    if [[ ${MST} == "1" ]]; then
+	    echo -e "${YLW}ActiveReign is a LDAP Network-Attack toolkit${NC}"
+        sleep 3
+        bash /opt/sifter/modules/exmods/ar3.sh
+    elif [[ ${MST} == "2" ]]; then
+	    echo -e "${YLW}iSpy is a ${UBLUE}BlueKeep${NC}${YLW} & ${UBLUE}EternalBlue${NC}${YLW} Vulnerability Scanner${NC}"
+	    sleep 3
+	    bash /opt/sifter/modules/exmods/ispy.sh
+    elif [[ ${MST} == "3" ]]; then
+	    echo -e "${LP}SMBGhost scans for the CVE-2020-0796 vulnerability in Windows SMB3 protocol${NC}"
+        sleep 3
+        bash /opt/sifter/modules/exmods/smbghost.sh
+    elif [[ ${MST} == "4" ]]; then
+	    modules
+    elif [[ ${MST} == "cd "* ]]; then
+	    DCK=$(pwd)
+        echo ${MST} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+        rm dtemp
+	cd ${DCK}/${DCC}
+    elif [[ ${MST} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${MST} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+	    echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+        ms_tools
+    fi
+    echo -e "${NC}"
+}
+##############
+# DDoS Tools #
+##############
+ddos(){
+    echo -e "${RED}"
+    figlet -f mini "DDoS Tools"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+    echo -e "\n ${ORNG}1.${W} Dark-Star           ${ORNG}3.${W} UFONet ${NC}"
+    echo -e " ${ORNG}2.${W} Impulse           ${ORNG}4.${W} Back ${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+    read DDS
+    if [[ ${DDS} == "1" ]]; then
+	    bash /opt/sifter/modules/exmods/dark_star.sh
+    elif [[ ${DDS} == "2" ]]; then
+	    bash /opt/sifter/modules/exmods/impulse.sh
+    elif [[ ${DDS} == "3" ]]; then
+	    bash /opt/sifter/modules/exmods/ufonet.sh
+    elif [[ ${DDS} == "4" ]]; then
+	    webex
+    elif [[ ${DDS} == "cd "* ]]; then
+	    DCK=$(pwd)
+        echo ${DDS} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+        rm dtemp
+	    cd ${DCK}/${DCC}
+    elif [[ ${DDS} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${DDS} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+	    echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+        ddos
+    fi
+    echo -e "${NC}"
+}
+
+################
+# Router Tools #
+################
+routertools(){
+    echo -e "${RED}"
+    figlet -f mini "Router Tools"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+    echo -e "\n ${ORNG}1.${W} MkCheck           ${ORNG}4.${W} DroneSploit ${NC}"
+    echo -e " ${ORNG}2.${W} Routersploit      ${ORNG}5.${W} Back ${NC}"
+    echo -e " ${ORNG}3.${W} Airgeddon      ${NC}" #${ORNG}6.${W} Back
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+    read RTT
+    if [[ ${RTT} == "1" ]]; then
+	    cd /opt/MkCheck
+        sudo ./mthread
+    elif [[ ${RTT} == "2" ]]; then
+	    cd /root/routersploit
+        sudo python3.8 rsf.py
+    elif [[ ${RTT} == "3" ]]; then
+	    sudo airgeddon
+    elif [[ ${RTT} == "4" ]]; then
+			if [[ -d '/opt/dronesploit' ]]; then
+					cd /opt/dronesploit; sudo python3 main.py
+			else
+					echo -e "${W}DroneSploit is not installed\n${ORNG}Please rerun install script and opt to install it${NC}"
+			fi
+    elif [[ ${RTT} == "5" ]]; then
+	    modules
+    elif [[ ${RTT} == "cd "* ]]; then
+	    DCK=$(pwd)
+        echo ${RTT} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+        rm dtemp
+	    cd ${DCK}/${DCC}
+    elif [[ ${RTT} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${RTT} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+	    echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+        routertools
+    fi
+    echo -e "${NC}"
+}
+
+####################
+# Web Exploitation #
+####################
+webex(){
+  echo -e "${RED}"
+  figlet -f mini "Website Exploitation Tools"
+  echo -e "${ORNG}"
+  ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+    echo -e "\n ${ORNG}1.${W} NekoBot       ${ORNG}4.${W} VulnX ${NC}"
+    echo -e " ${ORNG}2.${W} DDoS          ${ORNG}5.${W} Back ${NC}"
+    echo -e " ${ORNG}3.${W} xShock${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+    read WBX
+    if [[ ${WBX} == "1" ]]; then
+	    echo -e "${YLW}NekoBot is a Web-Shell exploitation framework${NC}"
+        bash /opt/sifter/modules/exmods/nekobot.sh
+    elif [[ ${WBX} == "2" ]]; then
+	    ddos
+    elif [[ ${WBX} == "3" ]]; then
+	    echo -e "${YLW}xShock is a shellshock exploitation tool${NC}"
+        sleep 3
+        bash /opt/sifter/modules/exmods/xshock.sh
+    elif [[ ${WBX} == "4" ]]; then
+	    bash /opt/sifter/modules/exmods/vulnx.sh
+    elif [[ ${WBX} == "5" ]]; then
+	    modules
+    elif [[ ${WBX} == "cd "* ]]; then
+	    DCK=$(pwd)
+        echo ${WBX} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+        rm dtemp
+	cd ${DCK}/${DCC}
+    elif [[ ${WBX} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${WBX} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+	    echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+        webex
+    fi
+    echo -e "${NC}"
+}
+
+###################
+# Web-App Modules #
+###################
+webapps(){
+  echo -e "${RED}"
+  figlet -f mini "WebAppplication Scanners"
+  echo -e "${ORNG}"
+  ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+    echo -e "\n ${ORNG}1.${W} Sitadel       ${ORNG}5.${W} Phoenix ${NC}"
+    echo -e " ${ORNG}2.${W} AapFinder     ${ORNG}6.${W} TorBot ${NC}"
+    echo -e " ${ORNG}3.${W} OneFind       ${ORNG}7.${W} ScriptHunter ${NC}"
+		echo -e " ${ORNG}4. ${W}reNgine				${ORNG}8.${W} Back ${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+    read WAS
+    if [[ ${WAS} == "1" ]]; then
+	    bash /opt/sifter/modules/webapps/sitadel.sh
+    elif [[ ${WAS} == "2" ]]; then
+	    bash /opt/sifter/modules/webapps/aapfinder.sh
+    elif [[ ${WAS} == "3" ]]; then
+	    bash /opt/sifter/modules/webapps/onefind.sh
+    elif [[ ${WAS} == "4" ]]; then
+	    bash /opt/sifter/modules/webapps/rengine.sh
+    elif [[ ${WAS} == "5" ]]; then
+			bash /opt/sifter/modules/webapps/phoenix.sh
+		elif [[ ${WAS} == "6" ]]; then
+			bash /opt/sifter/modules/webapps/torbot.sh
+		elif [[ ${WAS} == "7" ]]; then
+			sudo chown $USER:$USER /opt/scripthunter --recursive
+			bash /opt/scripthunter/scripthunter.sh
+		elif [[ ${WAS} == "8" ]]; then
+	    modules
+    elif [[ ${WAS} == "cd "* ]]; then
+	    DCK=$(pwd)
+        echo ${WAS} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+	rm dtemp
+        cd ${DCK}/${DCC}
+    elif [[ ${WAS} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${WAS} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+	    echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+        webapps
+    fi
+    echo -e "${NC}"
+}
+
+################
+# XSS Checkers #
+################
+xssmods(){
+    echo -e "${RED}"
+    figlet -f mini "Cross-Site Scripting"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+    echo -e "\n${ORNG}1.${W} XSS-Strike        ${ORNG}3.${W} finDOM-XSS${NC}"
+    echo -e "${ORNG}2.${W} XSS-Freak         ${ORNG}4.${W} XSS-Loader ${NC}"
+    echo -e "${ORNG}5.${W} Back ${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+    read XSS
+    if [[ ${XSS} == "1" ]]; then
+	    bash /opt/sifter/modules/xss_sql/xsstrike.sh
+    elif [[ ${XSS} == "2" ]]; then
+	    bash /opt/sifter/modules/xss_sql/v3n0m.sh
+    elif [[ ${XSS} == "3" ]]; then
+	    bash /opt/sifter/modules/xss_sql/findom.sh
+    elif [[ ${XSS} == "4" ]]; then
+        bash /opt/sifter/modules/xss_sql/xssloader.sh
+    elif [[ ${XSS} == "5" ]]; then
+	    modules
+    elif [[ ${XSS} == "cd "* ]]; then
+	    DCK=$(pwd)
+        echo ${XSS} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+	rm dtemp
+        cd ${DCK}/${DCC}
+    elif [[ ${XSS} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${XSS} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+	    echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+        xssmods
+    fi
+    echo -e "${NC}"
+}
+
+################
+# SQLinjection #
+################
+sqlmods(){
+    echo -e "${RED}"
+    figlet -f mini "SQLinjection"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+    echo -e "\n ${ORNG}1.${W} WhiteWidow        ${ORNG}2.${W} V3n0M-Scanner${NC}"
+    echo -e " ${ORNG}3.${W} Back${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+    read SQLi
+    if [[ ${SQLi} == "1" ]]; then
+	    bash /opt/sifter/modules/xss_sql/whitewidow.sh
+    elif [[ ${SQLi} == "2" ]]; then
+	    bash /opt/sifter/modules/xss_sql/v3n0m.sh
+    elif [[ ${SQLi} == "3" ]]; then
+	    modules
+    elif [[ ${SQLi} == "cd "* ]]; then
+	    DCK=$(pwd)
+        echo ${SQLi} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+	rm dtemp
+        cd ${DCK}/${DCC}
+    elif [[ ${SQLi} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${SQLi} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+	    echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+        sqlmods
+    fi
+    echo -e "${NC}"
+}
+
+#############
+# XSS & SQL #
+#############
+xss_sql_mods(){
+    echo -e "${RED}"
+    figlet -f mini "Cross-Site Scripting & SQLinjection"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+    echo -e "\n ${ORNG}1.${W} Cross-Site Scripting      ${ORNG}2.${W} SQLinjection${NC}"
+    echo -e " ${ORNG}3.${W} Back${NC}"
+    echo -e " ${W}"
+    echo -n " =============================#?: "
+    read XSQL
+    if [[ ${XSQL} == "1" ]]; then
+	    xssmods
+    elif [[ ${XSQL} == "2" ]]; then
+	    sqlmods
+    elif [[ ${XSQL} == "3" ]]; then
+	    modules
+    elif [[ ${XSQL} == "cd "* ]]; then
+	    DCK=$(pwd)
+        echo ${XSQL} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+	rm dtemp
+        cd ${DCK}/${DCC}
+    elif [[ ${XSQL} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${XSQL} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+	    echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+        xss_sql_mods
+    fi
+    echo -e "${NC}"
+
+}
+
+############################################
+# Operational Security  & Threat Modelling #
+############################################
+opsec(){
+    echo -e "${RED}"
+    figlet -f mini "Operational Security &"
+    echo -e "${YLW}"
+    figlet -f mini "Threat Modelling"
+    echo -e "${ORNG}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e " ${W}==================================================\n ${ORNG}Which tool would you like to use?\n ${W}==================================================${NC}"
+    echo -e "\n ${ORNG}1.${W} EventCleaner           ${ORNG}5.${W} Malware Analysis${NC}"
+    echo -e " ${ORNG}2.${W} Threat Dragon          ${ORNG}6.${W} Mitre-Attack Website ${NC}"
+    echo -e " ${ORNG}3.${W} TruffleSnout	   ${ORNG}7.${W} Back ${NC}"
+    echo -e " ${ORNG}4.${W} Snaffler           ${NC}"	#${ORNG}
+    echo -n " =============================#?: "
+    read OSTM
+    if [[ ${OSTM} == "1" ]]; then
+	    bash /opt/sifter/modules/opsec/evclean.sh
+    elif [[ ${OSTM} == "2" ]]; then
+	    bash /opt/sifter/modules/opsec/tDragon.sh
+    elif [[ ${OSTM} == "3" ]]; then
+	    bash /opt/sifter/modules/opsec/trufflesnout.sh
+    elif [[ ${OSTM} == "4" ]]; then
+        bash /opt/sifter/modules/opsec/snaffle/snaffler.sh
+    elif [[ ${OSTM} == "5" ]]; then
+			if [[ -d '/opt/sifter/modules/mPlug' ]]; then
+					bash /opt/sifter/modules/mPlug/mPlug.sh
+			else
+					echo -e "${ORNG}[ ${RED}! ${ORNG}] ${W}You do not seem to have the M Extention installed!\n ${LGRY}Would you like to install it now? ${YLW}(y/n)${NC}"
+					read MINS
+					if [[ ${MINS} == "y" ]]; then
+							cd
+							git clone https://github.com/Sifter-Ex/mPlug
+							cd mPlug
+							bash plug-M.sh
+					fi
+			fi
+		elif [[ ${OSTM} == "6" ]]; then
+			bash /opt/sifter/modules/opsec/mitre-attack.sh
+		elif [[ ${OSTM} == "7" ]]; then
+      modules
+    elif [[ ${OSTM} == "cd "* ]]; then
+	    DCK=$(pwd)
+        echo ${OSTM} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+	    rm dtemp
+        cd ${DCK}/${DCC}
+    elif [[ ${OSTM} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${OSTM} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+	    echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+				opsec
+    fi
+    echo -e "${NC}"
+}
+
+############################
+#  Additions to Host List  #
+############################
+ip_Q(){
+    addT=$(zenity --title  "Add Target to Host.list" \
+	            --entry --text "Enter the IP or URL of your target")
+    echo ${Tar}
+    echo ${Tar} >> /opt/sifter/files/host_list.txt
+    TQ=$(zenity --question --width 300 --text "Would you like to add another?"); echo $TQ
+    if [[ ${TQ} == "0" ]]; then
+        addT
+    fi
+}
+
+############################
+#  Sorting Live from Dead  #
+############################
+hostcheck(){
+    for name in `cat /opt/sifter/files/host_list.txt`
+
+    	    do
+    	        xterm -e ping -c 1 $name
+    	            if [[ $? == 0 ]]; then
+    	                echo -e "${LP}======================================================"
+    	                echo -e "${LP} ${name} Alive ${NC}" && echo ${name} >> /opt/sifter/files/pingtest.pass
+    	                echo -e "${LP}======================================================${NC}"
+    	            else
+    	                echo -e "${RED}====================================================="
+    	                echo -e "${RED} ${name} Dead ${NC}" && echo ${name} >> /opt/sifter/files/pingtest.fail
+    	                echo -e "${RED}=====================================================${NC}"
+    	            fi
+    	    done
+}
+
+
+#############################
+#  Live or Dead Host Check  #	Example Data
+#############################
+check_hosts(){
+    TARLIST=$(cat /opt/sifter/files/host_list.txt | grep "eg. target.com")
+    if [[ ${TARLIST} == "eg. target.com" ]]; then
+        rm /opt/sifter/files/host_list.txt
+        kdialog --textinputbox "Please add an appropriate target first!" > /opt/sifter/files/host_list.txt
+    fi
+    if [[ -f 'files/pingtest.pass' ]]; then
+        rm /opt/sifter/files/pingtest.pass
+    fi
+
+    hostcheck | tee >(zenity --width=200 --height=100 \
+  				    --title="whois" --progress \
+			        --pulsate --text="Searching domain info..." \
+                    --auto-kill --auto-close \
+                    --percentage=10)
+
+    zenity --width=300 --height=350  \
+	     --title "Live Targets" \
+	     --text-info --filename="/opt/sifter/files/pingtest.pass" &
+
+    zenity --width=300 --height=350  \
+	     --title "Dead Targets" \
+	     --text-info --filename="/opt/sifter/files/pingtest.fail" &
+
+}
+
+#################
+#  GUI Results  #
+#################
+results(){
+	resopt=$(zenity --title  "Choose Results to View" \
+                        --height=600 --width=800 \
+                        --file-selection --multiple);
+    echo ${resopt} > file.tmp
+
+    cat file.tmp | awk -F"[ | | ]" '{print $2}' >> log.tmp
+    cat file.tmp | awk -F"[ | | ]" '{print $1}' >> log.tmp
+    cat file.tmp | awk -F"[ | | ]" '{print $3}' >> log.tmp
+    cat file.tmp | awk -F"[ | | ]" '{print $4}' >> log.tmp
+    cat file.tmp | awk -F"[ | | ]" '{print $5}' >> log.tmp
+    cat file.tmp | awk -F"[ | | ]" '{print $6}' >> log.tmp
+    cat file.tmp | awk -F"[ | | ]" '{print $7}' >> log.tmp
+    cat file.tmp | awk -F"[ | | ]" '{print $8}' >> log.tmp
+    cat file.tmp | awk -F"[ | | ]" '{print $9}' >> log.tmp
+
+    ####
+    # Sort Files & Images from Selection
+    ####
+    for fileC in `cat log.tmp`
+    do
+        if file "${fileC}" | grep -qE 'image|bitmap'; then
+		    ROPT="image"
+            echo ${fileC} >> img.tmp
+        else
+            echo ${fileC} >> word.tmp
+	    fi
+    done
+    rm log.tmp file.tmp
+    sleep 3
+    ####
+    # Open Selected Files
+    ####
+    for FILE in `cat word.tmp`
+    do
+        zenity --notification --text="Opening Selected Files...."
+        sleep 2
+        zenity --title "${FILE}" \
+           --height=750 --width=800 \
+           --text-info --filename=${FILE} &
+    done
+    sleep 3
+    ####
+    # Open Selected Images
+    ####
+    for IMG in `cat img.tmp`
+    do
+        zenity --notification --text="Opening Selected Images...."
+        eom ${IMG} &
+    done
+    rm img.tmp word.tmp
+}
+
+if [[ ! -f "/home/$USER/.config/.anon_status" ]]; then
+	echo "NO" > /home/$USER/.config/.anon_status
+fi
+#############################
+# Initial Proxy Check (img) #
+#############################
+ASTAT=$(cat /home/$USER/.config/.anon_status)
+if [[ ${ASTAT} == "NO" ]]; then
+    EXC="${BIGreen}[${RED}*${BIGreen}]${NC}"
+else
+    EXC="${BIGreen}[${ORNG}!${BIGreen}]${NC}"
+fi
+
+################
+# Proxy Options
+################
+proxysystem(){
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    if [[ ${ASTAT} == "YES" ]]; then
+        ENA="Anonsurf is currently: On"
+        STOP="TRUE Stop"
+        START="FALSE Start"
+    else
+        ENA="Anonsurf is currently: Off"
+        STOP="FALSE Stop"
+        START="TRUE Start"
+    fi
+    proxyO=$(zenity --list --title  "${ENA}" \
+		--text "What would you like to do?" --radiolist  \
+		--column "Pick" --column "Catagory" ${START} ${STOP} FALSE "Back") &>/dev/null;
+    echo ${proxyO}
+    touch out.log
+    if [[ ${proxyO} == "Start" ]]; then
+        sudo anonsurf start | tee >(zenity --title="Starting AnonSurf" --progress \
+  			 --pulsate --text="AnonSurf is starting to tunnel traffic through tor..." \
+			 	 --auto-kill --auto-close \
+                        --percentage=10) >out.log &>/dev/null
+
+        echo "YES" > /home/$USER/.config/.anon_status
+	    rm out.log
+
+
+    elif [[ ${proxyO} == "Stop" ]]; then
+        sudo anonsurf stop | tee >(zenity --title="Stopping AnonSurf" --progress \
+  		   --pulsate --text="AnonSurf is sending traffic through the ClearWeb..." \
+                   --auto-kill --auto-close \
+                   --percentage=10) >out.log &>/dev/null
+
+        echo "NO" > /home/$USER/.config/.anon_status
+	    rm out.log
+    else
+    	rm out.log
+        menu
+    fi
+}
+
+###############
+# Module Menu #
+###############
+modules(){
+    echo -e "${RED}"
+    python3 /opt/sifter/extras/.mod.py
+    echo -e "${NC}"
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e "${W}=============================================================${NC}"
+    echo -e " ${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e "${W}=============================================================\n ${ORNG}What would you like to do?\n${W}=============================================================${NC}"
+    echo -e "\n ${ORNG} 1.${W} Information Gatherers          ${ORNG}11.${W} Cross-Site Scripting & SQLinjection${NC}"
+    echo -e " ${ORNG} 2.${W} Domain Reconnaissance          ${ORNG}12.${W} Password Tools${NC}"
+    echo -e " ${ORNG} 3.${W} Network Analysis               ${BIGreen}13.${W} View Results${NC}"
+    echo -e " ${ORNG} 4.${W} WebScanning & Enumeration      ${RED}14.${W} Anonymization${NC}"
+    echo -e " ${ORNG} 5.${W} Vulnerability Scanning         ${RED}15.${W} When Time Moves Slowly*${NC}"
+    echo -e " ${ORNG} 6.${W} HoneyPot Detection Systems     ${LP}16.${W} Check For Missing Tools${NC}"
+    echo -e " ${ORNG} 7.${W} Router Tools                   ${YLW}17.${NC}${W} Main Menu${NC}"
+    echo -e " ${ORNG} 8.${W} Exploitation Tools             ${UBLUE}18.${NC}${W} Quit${NC}"
+    echo -e " ${ORNG} 9.${W} WebApp Scanning${NC}                  ${NC}"
+    echo -e " ${ORNG}10.${W} Operational Security ${NC}"
+    echo -e "     ${W}& Threat Analysis"
+    echo -n "=============================#?: "
+    read MMOP
+    if [[ ${MMOP} == "1" ]]; then
+	    info_mods
+    elif [[ ${MMOP} == "2" ]]; then
+	    dom_mods
+    elif [[ ${MMOP} == "3" ]]; then
+	    net_mods
+    elif [[ ${MMOP} == "4" ]]; then
+	    web_mods
+    elif [[ ${MMOP} == "5" ]]; then
+	    vuln_mods
+    elif [[ ${MMOP} == "6" ]]; then
+	    honey_mods
+    elif [[ ${MMOP} == "7" ]]; then
+	    routertools
+    elif [[ ${MMOP} == "8" ]]; then
+	    ex_mods
+    elif [[ ${MMOP} == "9" ]]; then
+	    webapps
+    elif [[ ${MMOP} == "10" ]]; then
+	    opsec
+    elif [[ ${MMOP} == "11" ]]; then
+	    xss_sql_mods
+    elif [[ ${MMOP} == "12" ]]; then
+	    pass_tools
+    elif [[ ${MMOP} == "13" ]]; then
+			results
+    elif [[ ${MMOP} == "14" ]]; then
+	    proxysystem
+    elif [[ ${MMOP} == "15" ]]; then
+			echo -e "${RED}This module is to pass some time during long scans \nsuch as nMap (Full Port Scan) or RapidScan${NC}"
+        echo -e "${W}Would you like to continue? (${YLW}y${W}/${YLW}n${W})"
+        read PTOPT
+        if [[ ${PTOPT} == 'y' ]]; then
+            firefox https://github.blog/2020-08-06-gmtk-game-jam-2020-staff-picks-open-source-games/ &
+        else
+            modules
+        fi
+    elif [[ ${MMOP} == "16" ]]; then
+	    bash /opt/sifter/files/info/tool_check.sh
+    elif [[ ${MMOP} == "17" ]]; then
+	    menu
+    elif [[ ${MMOP} == "18" ]]; then
+	    (for i in $(seq 0 10 50); do echo $i; sleep 1; done) | zenity --progress --title "Exiting Sifter" --auto-close
+        ASTAT=$(cat /home/$USER/.config/.anon_status)
+        if [[ ${ASTAT} == "YES" ]]; then
+            echo -e "\n ${W}================================================${NC}"
+            echo -e "${ORNG}[${RED}!${ORNG}] ${LGRY}System Proxy is still active..."
+            echo -e "${LP}Attempting to stop it now..."
+            sudo anonsurf stop
+            echo -e "${LP}Proxy Stopped${RED}!${NC}"
+            echo "NO" > /home/$USER/.config/.anon_status
+            echo -e "\n ${W}================================================${NC}"
+        fi
+        RENCHK=$(sudo docker container ls | grep rengine)
+        if [[ ${RENCHK} == "rengine_web_1" ]]; then
+            sudo docker stop rengine_proxy_1 rengine_web_1 rengine_db_1
+        fi
+        exit 0
+    elif ${MMOP} == "cd "* ]]; then
+        DCK=$(pwd)
+        echo ${MMOP} > dtemp
+		sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+	    rm dtemp
+        cd ${DCK}/${DCC}
+    elif [[ ${MMOP} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${MMOP} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+        echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected, please choose\nthe corresponding module number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+        modules
+    fi
+    echo -e "${NC}"
+}
+
+############
+#   Menu   #
+############
+menu(){
+    cd /opt/sifter
+    echo -e "${INV}${LGRY}"
+    python3 /opt/sifter/extras/ban.py
+    echo -e "${NC}"
+    python3 /opt/sifter/extras/ban2.py
+    arg=$1
+    ASTAT=$(cat /home/$USER/.config/.anon_status)
+    echo -e " ${EXC} ${BIGreen}Anonymous: ${BIYellow}${ASTAT}${NC}"
+    echo -e "${W}==================================================\n ${ORNG}What would you like to do?\n${W}==================================================${NC}"
+    echo -e "\n ${ORNG}1.${W} Check Hosts               ${ORNG}5.${W} View Results${NC}"
+    echo -e " ${ORNG}2.${W} Edit Host List            ${ORNG}6.${W} Export Results${NC}"
+    echo -e " ${ORNG}3.${W} Module Menu               ${ORNG}7.${W} Update${NC}"
+    echo -e " ${ORNG}4.${W} Anonymization             ${ORNG}8.${W} Quit${NC}"
+    echo -e " ${W}"
+    echo -n "=============================#?: "
+    read -r MNOP
+    if [[ ${MNOP} == "1" ]]; then                   # Check Hosts
+	    TARLIST=$(cat /opt/sifter/files/host_list.txt | grep "eg. target.com")
+        if [[ ${TARLIST} == "eg. target.com" ]]; then
+            rm /opt/sifter/files/host_list.txt
+            touch /opt/sifter/files/host_list.txt
+            echo -e "${W}Please add targets to the list${NC}"
+            sleep 2
+            nano /opt/sifter/files/host_list.txt
+        else
+            sleep 1
+        fi
+        check_hosts
+    elif [[ ${MNOP} == "2" ]]; then                 # Edit Host List
+        nano /opt/sifter/files/host_list.txt
+    elif [[ ${MNOP} == "3" ]]; then                 # Module Menu
+        modules
+    elif [[ ${MNOP} == "4" ]]; then                 # Anonymization
+        proxysystem
+    elif [[ ${MNOP} == "5" ]]; then                 # View Results
+        results
+    elif [[ ${MNOP} == "6" ]]; then                 # Export Results
+        TIME=$(date +%T)
+	if [[ ! -d '/opt/sifter/backups' ]]; then
+		mkdir /opt/sifter/backups
+	fi
+        cp -r /opt/sifter/results $HOME/Desktop/Sifter\ Results
+	mkdir /opt/sifter/backups/Results_${TIME}
+	mv /opt/sifter/results/* -t /opt/sifter/backups/Results_${TIME}
+        zip -r /opt/sifter/backups/Results_${TIME}/results.zip /opt/sifter/backups/Results_${TIME}
+    elif [[ ${MNOP} == "7" ]]; then                 # Update
+        update
+    elif [[ ${MNOP} == "8" ]]; then                 # Quit
+        (for i in $(seq 0 10 50); do echo $i; sleep 1; done) | zenity --progress --title "Exiting Sifter" --auto-close
+        ASTAT=$(cat /home/$USER/.config/.anon_status)
+        if [[ ${ASTAT} == "YES" ]]; then
+            echo -e "\n ${W}================================================${NC}"
+            echo -e "${ORNG}[${RED}!${ORNG}] ${LGRY}System Proxy is still active..."
+	    			sleep 2
+            echo -e "${LP}Attempting to stop it now..."
+            sudo anonsurf stop
+            echo -e "${LP}Proxy Stopped${RED}!${NC}"
+            echo "NO" > /home/$USER/.config/.anon_status
+            echo -e "\n ${W}================================================${NC}"
+        fi
+        RENCHK=$(sudo docker container ls | grep rengine)
+        if [[ ${RENCHK} == "rengine_web_1" ]]; then
+            sudo docker stop rengine_proxy_1 rengine_web_1 rengine_db_1 webmap
+        fi
+        exit 0
+    elif [[ ${MNOP} == "cd "* ]]; then
+        DCK=$(pwd)
+        echo ${MNOP} > dtemp
+				sed -i "s/cd '//g" dtemp
+        sed -i "s/'//g" dtemp
+        DCC=$(cat dtemp)
+	    	rm dtemp
+        cd ${DCK}/${DCC}
+    elif [[ ${MNOP} == "info" ]]; then
+        xterm -e bash /opt/sifter/files/info/info.sh &
+		elif [[ ${MNOP} == "session" ]]; then
+				ASTAT=$(cat /home/$USER/.config/.anon_status)
+				if [[ ${ASTAT} == "YES" ]]; then
+					terminator -x sifter --stealth &
+				else
+					terminator -e sifter &
+				fi
+    else
+        echo -e "${ORNG}[${RED}!${ORNG}] ${YLW}Invalid option selected.\nPlease enter the corresponding number${NC}"
+        echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Type info into any menu to open the Info Screen${NC}"
+				echo -e "[${LP}*${NC}] ${RED}Hint: ${ORNG}Enter ${LCYN}session${ORNG} to open another sifter session${NC}"
+				sleep 5
+    fi
+    echo -e "${NC}"
+    menu
+}
+
+##############
+# Update Arg #
+##############
+up_arg(){
+    echo $1 >> /opt/sifter/temp.log
+    echo $2 >> /opt/sifter/temp.log
+    echo $3 >> /opt/sifter/temp.log
+    echo $4 >> /opt/sifter/temp.log
+    echo $5 >> /opt/sifter/temp.log
+    echo $6 >> /opt/sifter/temp.log
+    echo $7 >> /opt/sifter/temp.log
+    echo $8 >> /opt/sifter/temp.log
+    echo $9 >> /opt/sifter/temp.log
+    echo ${10} >> /opt/sifter/temp.log
+    echo ${11} >> /opt/sifter/temp.log
+    echo ${12} >> /opt/sifter/temp.log
+    echo ${13} >> /opt/sifter/temp.log
+    echo ${14} >> /opt/sifter/temp.log
+    echo ${15} >> /opt/sifter/temp.log
+    echo ${16} >> /opt/sifter/temp.log
+    echo ${17} >> /opt/sifter/temp.log
+    echo ${18} >> /opt/sifter/temp.log
+    echo ${19} >> /opt/sifter/temp.log
+    echo ${20} >> /opt/sifter/temp.log
+
+    for UFILES in `cat /opt/sifter/temp.log`
+       	        do
+    	            rm ${LPATH}${UFILES} &>/dev/null
+                done
+    rm /opt/sifter/temp.log
+}
+
+##
+# G Extention Check/Update
+##
+gxUpd(){
+	if [[ -f "/usr/sbin/gSifter" ]]; then
+		wget https://raw.githubusercontent.com/Sifter-Ext/g/g-ex/.vs/yes.txt &>/dev/null
+		if [[ ! -f "yes.txt" ]]; then
+			echo -e "${YLW}The ${RED}G ${YLW}extention is up-to-date${NC}"
+		else
+            		echo -e "${YLW}Updating the ${RED}G ${YLW}extention ${NC}"
+			wget https://raw.githubusercontent.com/Sifter-Ext/g/g-ex/gSifter
+			wget https://raw.githubusercontent.com/Sifter-Ext/g/g-ex/gSifter_eDEX-UI.AppImage
+			sudo mv gSifter -t /usr/sbin
+			chmod +x gSifter_eDEX-UI.AppImage /usr/sbin/gSifter
+			echo -e "${YLW}Your ${RED}G ${YLW}extention has been updated${NC}"
+		fi
+  fi
+}
+
+##
+# M Extention Check/Update
+##
+mxUpd(){
+    if [[ -d '/opt/sifter/modules/mPlug' ]]; then
+        cd /opt/sifter/modules/mPlug
+        git fetch && git pull
+        echo -e "${ORNG}M ${YLW}Extention has been updated${NC}"
+    fi
+}
+
+##
+# C Extention Check/Update
+##
+cxUpd(){
+	if [[ -f '/opt/sifter/modules/exmods/CS/cstrike.sh' ]]; then
+		if [[ -d '/opt/CSAgScripts' ]]; then
+			cd /opt/CSAgScripts
+			sudo git fetch; sudo git pull &>/dev/null
+		else
+			cd /opt
+			sudo git clone https://github.com/Sifter-Ex/cPlug
+			cd cPlug
+			sudo bash plug-C.sh
+		fi
+		echo -e "${ORNG}C ${YLW}Extention has been updated${NC}"
+	fi
+}
+
+##
+# F Extention Update
+##
+fxUpd(){
+    if [[ -f '/opt/sifter/modules/exmods/fuzzyd.sh' ]]; then
+        cd /opt/sifter/modules/exmods/
+        wget https://raw.githubusercontent.com/Sifter-Ex/fPlug/master/plug-F.sh
+        mv plug-F.sh fuzzyd.sh
+        echo -e "${ORNG}F ${YLW}Extention has been updated.${NC}"
+    fi
+}
+
+##
+# Update Function
+##
+update(){
+    sudo chown $USER:$USER /opt/sifter --recursive
+		chmod 744 /opt/sifter --recursive
+    cd /opt/sifter
+    if [[ -d '/opt/sifter/info' ]]; then
+        rm -rf /opt/sifter/info
+    fi
+    echo -e "${YLW} __ .        .           ._        .  .     .    , "
+    echo -e "/  \`|_  _  _.;_/*._  _   |, _ ._.  |  |._  _| _.-+- _  __   "
+    echo -e "\__.[ )(/,(_.| \|[ )(_]  | (_)[    |__|[_)(_](_] | (/,_)  *  * "
+    echo -e "                    ._|                |                       ${NC}"
+    echo -e "${YLW}############################"                                             ########################
+    echo -e "${YLW}# ${ORNG}Current Version  :${LP} 12.3  ${YLW}#${NC}"                          ##    VERSION INFO    ##
+  #echo -e "${YLW}# ${ORNG}Incoming Revision : ${LP}r3  ${YLW}#"                                       ##    UPDATE CHECK    ##
+    echo -e "${YLW}############################${NC}"                                         ########################
+
+    if [[ -f '/opt/sifter/modules/exmods/fuzzydander.sh' ]]; then
+    	    sudo mv /opt/sifter/modules/exmods/fuzzydander.sh /opt/sifter/modules/exmods/fuzzyd.sh
+    fi
+    git fetch
+    VER=$(git pull --ff-only)
+    if [[ ${VER} == "Already up to date." ]]; then
+        echo -e "${ORNG}"
+        figlet -f mini "Up to date."
+        echo -e "${NC}"
+    else
+        echo -e "${W}Are there pull conflicts with files?(${YLW}y/n${W})${NC}"
+      	sleep 3
+	    read UANS
+	    if [[ ${UANS} == "y" ]]; then
+         	export LPATH
+          echo -e "${W}Please enter the conflicting files (seperated by a space)${NC}"
+		    	read FILES
+          sleep 2
+		    	up_arg ${FILES}
+		    	git pull --ff-only
+	    fi
+	    zenity --title "Sifter Changelog" \
+           --height=750 --width=800 \
+           --text-info --filename="/opt/sifter/.github/changelog" &>/dev/null
+        ##########################
+        # Check For Full Upgrade #
+        ##########################
+        echo -e "${URED}Would you like to check for new tools or tool updates? ${YLW}(${W}y${YLW}/${W}n${YLW})${NC}"
+        read -r FUP
+        if [[ ${FUP} == "y" ]]; then
+            sudo chmod +x install.sh
+            bash install.sh
+        fi
+	    	gxUpd
+        mxUpd
+        fxUpd
+        cxUpd
+        sudo cp /opt/sifter/sifter -t /usr/sbin
+        sudo chown $USER:$USER /opt/sifter --recursive
+        sudo chown $USER:$USER /usr/sbin/sifter
+        chmod +x /opt/sifter --recursive
+        chmod +x /usr/sbin/sifter
+    fi
+}
+
+##
+# Check for Anonymous Start Option
+##
+if [[ ${STLTH} == "--stealth" ]]; then
+    echo -e " ${W}===========================================${NC}"
+    echo -e "${LP}Starting Sifter in ${URED}Anonymous${NC} ${LP}mode${NC}"
+    sudo anonsurf start
+    echo "YES" > /home/$USER/.config/.anon_status
+    echo -e " ${W}===========================================${NC}"
+    menu
+fi
+
+##
+# Check for Tailed Update with Log
+##
+if [[ ${STLTH} == "-quv" ]]; then
+    TIME=$(date +%T)
+    update > /opt/sifter/logs/${TIME}_install.log &
+    xterm -e tail -f /opt/sifter/logs/${TIME}_install.log &
+    menu
+fi
+
+##
+# Check for Silent Update with Log
+##
+if [[ ${STLTH} == "-qu" ]]; then
+    TIME=$(date +%T)
+    update > /opt/sifter/logs/${TIME}_install.log &
+    menu
+fi
+
+##
+# Start-Up Runtime Arguments
+##
+while getopts "a:WndwirmeopcvRguhI" options
+    do            	                                        # Loop: Get the next option;
+    case "${options}" in                                	# use silent error checking;
+                                                            # option a takes 1 arguments.
+        c)
+            echo -e "${YLW}"
+            figlet -f mini "Checking for live targets..."
+            echo -e "${NC}"
+            check_hosts
+            menu
+            ;;
+
+        a)
+            echo -e "${ORNG}Adding ${RED}${ARG} ${ORNG}to host_list.txt${NC}"
+                TARLIST=$(cat /opt/sifter/files/host_list.txt)
+                if [[ ${TARLIST} == "eg. target.com" ]]; then
+                    rm /opt/sifter/files/host_list.txt
+                    touch /opt/sifter/files/host_list.txt
+                fi
+            echo "$ARG" >> /opt/sifter/files/host_list.txt
+            sleep 2
+            menu
+            ;;
+
+        i)
+            echo -e "${LP}"
+            figlet -f mini "Info Gatherers"
+            echo -e "${NC}"
+            cred_mods
+            ;;
+
+        d)
+            echo -e "${LP}"
+            figlet -f mini "Domain-Fuzzers"
+            echo -e "${NC}"
+            dom_mods
+            ;;
+
+        e)
+            echo -e "${LP}"
+            figlet -f mini "Exploitative Modules"
+            echo -e "${NC}"
+            ex_mods
+            ;;
+
+        n)
+            echo -e "${LP}"
+            figlet -f mini "Network Mappers"
+            echo -e "${NC}"
+            net_mods
+            ;;
+
+        v)
+            echo -e "${LP}"
+            figlet -f mini "Vulnerability Scanners"
+            echo -e "${NC}"
+            vuln_mods
+            ;;
+
+        W)
+            echo -e "${LP}"
+            figlet -f mini "Web-Application Testers"
+            echo -e "${NC}"
+            webapps
+            ;;
+
+        p)
+            echo -e "${LP}"
+            figlet -f mini "Password Tools"
+            echo -e "${NC}"
+            passtools
+            ;;
+
+        r)
+            echo -e "${LP}"
+            figlet -f mini "Router Tools"
+            echo -e "${NC}"
+            routertools
+            ;;
+
+	o)
+	    echo -e "${LP}"
+	    figlet -f mini "OpSec & Threat Analysis"
+	    echo -e "${NC}"
+	    opsec
+	    ;;
+
+        w)
+            echo -e "${LP}"
+            figlet -f mini "Web Recon"
+            echo -e "${NC}"
+            web_mods
+            ;;
+
+        R)
+            echo -e "${LP}"
+            figlet -f mini "Sifter Results"
+            echo -e "${NC}"
+            results
+            ;;
+
+        u)
+            update
+            ;;
+
+        h)
+            echo -e "${RED}"
+            python3 extras/ban.py
+            echo -e "${NC}"
+            usage
+            ;;
+
+        I)
+            echo -e "${RED}"
+            figlet -f mini "Module Info"
+            echo -e "${NC}"
+            xterm -e bash /opt/sifter/files/info/info.sh &
+            ;;
+
+        g)
+            if [[ -f '/usr/sbin/gSifter' ]]; then
+                gSifter
+            else
+                menu
+            fi
+            ;;
+
+        m)
+            echo -e "${INV}${LGRY}"
+            python3 /opt/sifter/extras/ban.py
+            echo -e "${RED}"
+            figlet -f mini "Modules"
+            echo -e "${NC}"
+            modules
+            ;;
+
+        *)
+            echo -e "${RED}No Valid Option Parsed\nRedirecting to Default StartUp${NC}"
+            menu
+            ;;
+    esac
+done
+if [[ ${OPTIND} == 1 ]]; then				# if no option is passed
+	menu		  	                        # default command is run
+fi
+exit
+
+##########################______________ VGhlIERlYWQgQnVubnkgQ2x1Yg== ______________##########################

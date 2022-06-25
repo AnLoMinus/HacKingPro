@@ -1,0 +1,40 @@
+XRAY
+*****
+XRay is a tool for network OSINT gathering, its goal is to make some of the initial tasks of information gathering and network mapping automatic.
+
+How Does it Work?
+******************
+
+XRay is a very simple tool, it works this way:
+
+	It'll bruteforce subdomains using a wordlist and DNS requests.
+	For every subdomain/ip found, it'll use Shodan to gather open ports and other intel.
+	If a ViewDNS API key is provided, for every subdomain historical data will be collected.
+	For every unique ip address, and for every open port, it'll launch specific banner grabbers and info collectors.
+	Eventually the data is presented to the user on the web ui.
+
+Grabbers and Collectors
+
+	HTTP Server, X-Powered-By and Location headers.
+	HTTP and HTTPS robots.txt disallowed entries.
+	HTTPS certificates chain ( with recursive subdomain grabbing from CN and Alt Names ).
+	HTML title tag.
+	DNS version.bind. and hostname.bind. records.
+	MySQL, SMTP, FTP, SSH, POP and IRC banners.
+
+Notes
+******
+
+Shodan API Key
+
+	The shodan.io API key parameter ( -shodan-key KEY ) is optional, however if not specified, no service fingerprinting will be performed and a lot less information will be shown (basically it just gonna be DNS subdomain enumeration).
+
+ViewDNS API Key
+
+	If a ViewDNS API key parameter ( -viewdns-key KEY ) is passed, domain historical data will also be retrieved.
+
+Anonymity and Legal Issues
+
+The software will rely on your main DNS resolver in order to enumerate subdomains, also, several connections might be directly established from your host to the computers of the network you're scanning in order to grab banners from open ports. Technically, you're just connecting to public addresses with open ports (and there's no port scanning involved, as such information is grabbed indirectly using Shodan API), but you know, someone might not like such behaviour.
+
+If I were you, I'd find a way to proxify the whole process ... #justsaying

@@ -1,0 +1,14 @@
+Blackwidow
+***********
+
+BlackWidow is a python based web application spider to gather subdomains, URL's, dynamic parameters, email addresses and phone numbers from a target website. This project also includes Inject-X fuzzer to scan dynamic URL's for common OWASP vulnerabilities.
+
+FEATURES:
+ Automatically collect all URL's from a target website
+ Automatically collect all dynamic URL's and parameters from a target website
+ Automatically collect all subdomains from a target website
+ Automatically collect all phone numbers from a target website
+ Automatically collect all email addresses from a target website
+ Automatically collect all form URL's from a target website
+ Automatically scan/fuzz for common OWASP TOP vulnerabilities
+ Automatically saves all data into sorted text files
