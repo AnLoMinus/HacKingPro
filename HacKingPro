@@ -7,7 +7,7 @@
 #!/data/data/com.termux/files/usr/bin/sh
 #!/data/data/com.termux/files/usr/bin/bash
 ###############################################
-Anlominus="Anlominus"
+Anlominus="AnLoMinus"
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
@@ -82,13 +82,13 @@ On_Cyan='\033[46m'   # Cyan
 On_White='\033[47m'  # White
 }
 HacKingProColors
-
+vErsion="${BWhite}v${BBlue}0.0.0.5"
 # Logo Variable
 HacKingProLogo1(){
 HacKingProLogo_1="$(echo "
-${BBlue}                                          ${BGreen}@Anlominus
+${BBlue}                                          ${BGreen} ${Anlominus}
 ${DGrey}          █████   █████                    ${LGrey}█████   ████  ███                      ${BBlue}███████████
-${DGrey}         ░░███   ░░███                    ${LGrey}░░███   ███░  ░░░                      ${BBlue}░░███░░░░░███ ${BWhite}v${BBlue}0.0.0.1
+${DGrey}         ░░███   ░░███                    ${LGrey}░░███   ███░  ░░░                      ${BBlue}░░███░░░░░███ ${vErsion}
 ${DGrey}          ░███    ░███   ██████    ██████  ${LGrey}░███  ███    ████  ████████    ███████ ${BBlue}░███    ░███ ████████   ██████
 ${DGrey}          ░███████████  ░░░░░███  ███░░███ ${LGrey}░███████    ░░███ ░░███░░███  ███░░███ ${BBlue}░██████████ ░░███░░███ ███░░███
 ${DGrey}          ░███░░░░░███   ███████ ░███ ░░░  ${LGrey}░███░░███    ░███  ░███ ░███ ░███ ░███ ${BBlue}░███░░░░░░   ░███ ░░░ ░███ ░███
