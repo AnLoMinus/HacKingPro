@@ -170,14 +170,11 @@ ${BYellow}                                                                      
 }
 
 
-MainMenu(){
+Anonymity(){
   while true; do
   #statements
   clear
   HacKingProLogo1
-#  ${BBlue}[${BRed}#${BBlue}] 📜 Target IP: ${BRed}${targetIP}
-#  ${BBlue}[${BRed}#${BBlue}] 📜 Target Name: ${BRed}${targetNAME}
-#  ${BBlue}[${BRed}#${BBlue}] 📜 Target Phone: ${BRed}${targetPhone}
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
           ${BBlue}[${BRed}#${BBlue}] 🗓 Date $(date)

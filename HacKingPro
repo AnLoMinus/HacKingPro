@@ -105,7 +105,7 @@ ${BYellow}                                                                      
 }
 
 # Checking For System Package Manager
-Check_System_Pack_Manager() {
+Check_System() {
   # checking for system package manager
   if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
   pac="pkg"
@@ -127,8 +127,34 @@ Check_System_Pack_Manager() {
     pac="yum"
     system="fedora"
   fi
+
+  # checking for system root access
+  if [ `command -v sudo` ]; then
+    sudo="sudo"
+  else
+    sudo=""
+  fi
+
+  # checking for system home dir
+  if [ -d $HOME ]; then
+    home=$HOME
+  else
+    home="~/"
+  fi
+
+  # checking for system bin dir
+  if [ -d /data/data/com.termux/files/usr/bin ]; then
+    bin="/data/data/com.termux/files/usr/bin"
+  elif [ -d /usr/local/bin ]; then
+    bin="/usr/local/bin"
+  elif [ -d /bin ]; then
+    bin="/bin"
+  elif [ -d /sbin ]; then
+    bin="/sbin"
+  fi
+
 }
-Check_System_Pack_Manager
+Check_System
 
 Arsenal(){
   clear
@@ -168,6 +194,7 @@ MainMenu(){
   HacKingProLogo1
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
+          ${BBlue}[${BRed}#${BBlue}] 📜 $bin
 
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
@@ -264,20 +291,83 @@ ${BCyan}            └──╼ ")
       ;;
       0|00 )
       clear
-      echo "\n\t\t ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity"
+      Anonymity(){
+        while true; do
+        #statements
+        clear
+        HacKingProLogo1
+        HacKingProMenuMain=$(
+        echo "\n\t\t ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity"
+        cd "Menu/00--Anonymity"
+        echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Current Location \n\t\t ${BGreen}"
+        pwd
+        sleep 0.3
+        echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls ${BYellow} 00--Anonymity \n\t\t ${BGreen}"
+        ls
+        sleep 0.3
+        echo "${BYellow}"
+        echo "${BRed}
+                ${BBlue}[${BRed}#${BBlue}] 📜 Menu
+                ${BBlue}[${BRed}#${BBlue}] 🗓 Date $(date)
 
-      cd "Menu/00--Anonymity"
-      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Current Location \n\t\t ${BGreen}"
-      pwd
-      sleep 0.3
-      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls ${BYellow} 00--Anonymity \n\t\t ${BGreen}"
-      ls
-      sleep 0.3
-      echo "${BYellow}"
+                ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
+                ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Nullog
+                ${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}MacChanger
+
+                ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+      ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Anonymity ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+      ${BCyan}            └──╼ ")
+          read -p "$HacKingProMenuMain" cmd
+          case $cmd in
+            1|01 )
+            clear
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd kali-whoami \n\t\t ${BGreen}"
+            pwd
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls kali-whoami \n\t\t ${BGreen}"
+            ls
+            cd WhoAmI-Project
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Installing kali-whoami \n\t\t ${BGreen}"
+            ls
+            sleep 1
+            sudo make install
+            read -p "${Press_ENTER}" Som3T1ng
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Checking Status \n\t\t ${BGreen}"
+            sleep 1
+            sudo bash kali-whoami --status
+            read -p "${Press_ENTER}" Som3T1ng
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting kali-whoami \n\t\t ${BGreen}"
+            sleep 1
+            sudo bash kali-whoami --start
+            read -p "${Press_ENTER}" Som3T1ng
+            cd ..
+            ;;
+            2|02 )
+            clear
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd Nullog \n\t\t ${BGreen}"
+            pwd
+            cd Nullog
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls Nullog \n\t\t ${BGreen}"
+            ls
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting Nullog \n\t\t ${BGreen}"
+            sh nullog.sh
+            cd ..
+            ;;
+            3|03 )
+            clear
+            MacChanger
+            ;;
+            x|X|exit|EXIT )
+            clear
+            break
+            ;;
+        esac
+      done
+      }
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting ${BYellow} Anonymity \n\t\t ${BGreen}"
       read -p "$Press_Enter_To_START"
-      sleep 1
-      sh Anonymity
+      Anonymity
+
       ;;
       1 )
       echo "\n\t\t${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering"
@@ -394,28 +484,6 @@ ${BCyan}            └──╼ ")
       read -p "$Press_ENTER" Som3T1ng
        ;;
       i|I )
-      # checking for system root access
-      if [ `command -v sudo` ]; then
-        sudo="sudo"
-      else
-        sudo=""
-      fi
-      # checking for system home dir
-      if [ -d $HOME ]; then
-        home=$HOME
-      else
-        home="~/"
-      fi
-      # checking for system bin dir
-      if [ -d /data/data/com.termux/files/usr/bin ]; then
-        bin="/data/data/com.termux/files/usr/bin"
-      elif [ -d /usr/local/bin ]; then
-        bin="/usr/local/bin"
-      elif [ -d /bin ]; then
-        bin="/bin"
-      elif [ -d /sbin ]; then
-        bin="/sbin"
-      fi
       echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${BYellow}Installing HacKingPro On the System \n"
       sleep 1
       echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Cloning Into [~/HacKingPro] \n"
