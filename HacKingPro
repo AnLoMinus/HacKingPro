@@ -21,7 +21,8 @@ Anlominus="Anlominus"
 ###############################################
 clear
 
-Press_ENTER=$(echo "${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}")
+Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
+Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
 
 # Define Colors
 HacKingProColors(){
