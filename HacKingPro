@@ -21,6 +21,41 @@ Anlominus="Anlominus"
 ###############################################
 clear
 
+# Directories
+
+xDirectories(){
+xMenu00="Menu/00--Anonymity"
+xMenu01="Menu/01--Information Gathering"
+xMenu02="Menu/02--Scanning & Vulnerability Assessment"
+xMenu03="Menu/03--Web Application HacKing"
+xMenu04="Menu/04--Database Assessment"
+xMenu05="Menu/05--Password HacKing"
+xMenu06="Menu/06--Wireless HacKing"
+xMenu07="Menu/07--Exploit Frameworks & DataBases"
+xMenu08="Menu/08--Post-Exploitation Frameworks"
+xMenu09="Menu/09--Sniffing - Spoofing"
+xMenu11="Menu/11--Digital Forensic"
+xMenu12="Menu/12--Analysis & Reporting"
+xMenu=14"Menu/14--Privilege Enumeration & Escalation"
+xMenu15="Menu/15--Malware Tools"
+xMenuAIO="Menu/AIO--All In One"
+xMenuCC="Menu/CC--Card Checker"
+xMenuCHT="Menu/CHT--Car Hacking Tools"
+xMenuCL="Menu/CL--Check Lists"
+xMenuCS="Menu/CS--Cheat Sheets"
+xMenuM="Menu/M--Monitoring"
+xMenuMH="Menu/MH--Mobile HacKing"
+xMenuMV="Menu/MV--Markdown Viewers"
+xMenuPT="Menu/PT--Penetration Testing"
+xMenuRAT="Menu/RAT--Remote Access Trojan"
+xMenuRE="Menu/RE--Reverse Engineering"
+xMenuRS="Menu/RS--Reverse Shell"
+xMenuSE="Menu/SE--Social Engineering"
+xMenuSIP="Menu/SIP--Session Initiation Protocol"
+xMenuWFA="Menu/WFA--FireWall Applications"
+}
+xDirectories
+
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
 Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
 
@@ -91,7 +126,7 @@ HacKingProLogo1(){
   HacKingProLogo_1="$(
   echo "${BBlue}
 ${BRed}          █████   █████                    ${BYellow}█████   ████  ███                      ${BBlue}███████████
-${BRed}         ░░███   ░░███                    ${BYellow}░░███   ███░  ░░░   ${MyVersion}                   ${BBlue}░░███░░░░░███ ${Anlominus}
+${BRed}         ░░███   ░░███                    ${BYellow}░░███   ███░  ░░░   ${MyVersion}           ${BBlue}░░███░░░░░███ ${Anlominus}
 ${BRed}          ░███    ░███   ██████    ██████  ${BYellow}░███  ███    ████  ████████    ███████ ${BBlue}░███    ░███ ████████   ██████
 ${BRed}          ░███████████  ░░░░░███  ███░░███ ${BYellow}░███████    ░░███ ░░███░░███  ███░░███ ${BBlue}░██████████ ░░███░░███ ███░░███
 ${BRed}          ░███░░░░░███   ███████ ░███ ░░░  ${BYellow}░███░░███    ░███  ░███ ░███ ░███ ░███ ${BBlue}░███░░░░░░   ░███ ░░░ ░███ ░███
@@ -292,23 +327,15 @@ ${BCyan}            └──╼ ")
       0|00 )
       clear
       Anonymity(){
+        cd "$xMenu00"
         while true; do
         #statements
         clear
         HacKingProLogo1
         HacKingProMenuMain=$(
-        echo "\n\t\t ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity"
-        cd "Menu/00--Anonymity"
-        echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Current Location \n\t\t ${BGreen}"
-        pwd
-        sleep 0.3
-        echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls ${BYellow} 00--Anonymity \n\t\t ${BGreen}"
-        ls
-        sleep 0.3
-        echo "${BYellow}"
         echo "${BRed}
                 ${BBlue}[${BRed}#${BBlue}] 📜 Menu
-                ${BBlue}[${BRed}#${BBlue}] 🗓 Date $(date)
+                ${BBlue}[${BRed}#${BBlue}] 🗓  Date $(date)
 
                 ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
                 ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Nullog
@@ -320,13 +347,22 @@ ${BCyan}            └──╼ ")
       ${BCyan}            └──╼ ")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
+            # l )
+            # echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Current Location \n\t\t ${BGreen}"
+            # pwd
+            # sleep 0.3
+            # echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls ${BYellow} 00--Anonymity \n\t\t ${BGreen}"
+            # ls
+            # sleep 0.3
+            # echo "${BYellow}"
+            # ;;
             1|01 )
             clear
             echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd kali-whoami \n\t\t ${BGreen}"
             pwd
             echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls kali-whoami \n\t\t ${BGreen}"
             ls
-            cd WhoAmI-Project
+            cd $xMenu00/WhoAmI-Project
             echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Installing kali-whoami \n\t\t ${BGreen}"
             ls
             sleep 1
@@ -344,26 +380,23 @@ ${BCyan}            └──╼ ")
             ;;
             2|02 )
             clear
-            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd Nullog \n\t\t ${BGreen}"
-            pwd
-            cd Nullog
-            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls Nullog \n\t\t ${BGreen}"
-            ls
             echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting Nullog \n\t\t ${BGreen}"
-            sh nullog.sh
-            cd ..
+            sh $xMenu00/Nullog/nullog.sh
             ;;
             3|03 )
             clear
-            MacChanger
+            cd $xMenu00/MacChanger
+            sh macchanger.sh
             ;;
             x|X|exit|EXIT )
+            cd ../../
             clear
             break
             ;;
         esac
       done
       }
+      echo "\n\t\t ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity"
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting ${BYellow} Anonymity \n\t\t ${BGreen}"
       read -p "$Press_Enter_To_START"
       Anonymity
