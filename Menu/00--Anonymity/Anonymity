@@ -184,8 +184,7 @@ MainMenu(){
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-${BCyan}            ┌──${BBlue}[${BBlue} Current Dir: ${BRed} $(pwd) ${BCyan}$~${BBlue}]
-${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Anonymity ${BCyan}$~${BBlue}]
+${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Anonymity ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
 ${BCyan}            └──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in

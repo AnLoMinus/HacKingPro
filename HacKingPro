@@ -88,19 +88,19 @@ HacKingProColors
 HacKingProLogo1(){
   Anlominus="AnLoMinus"
   MyVersion="${BGreen}v1.3.0.4"
-  HacKingProLogo_1="$(echo "
-  ${BBlue}
-  ${BRed}          █████   █████                    ${BYellow}█████   ████  ███                      ${BBlue}███████████
-  ${BRed}         ░░███   ░░███                    ${BYellow}░░███   ███░  ░░░   ${MyVersion}                   ${BBlue}░░███░░░░░███ ${Anlominus}
-  ${BRed}          ░███    ░███   ██████    ██████  ${BYellow}░███  ███    ████  ████████    ███████ ${BBlue}░███    ░███ ████████   ██████
-  ${BRed}          ░███████████  ░░░░░███  ███░░███ ${BYellow}░███████    ░░███ ░░███░░███  ███░░███ ${BBlue}░██████████ ░░███░░███ ███░░███
-  ${BRed}          ░███░░░░░███   ███████ ░███ ░░░  ${BYellow}░███░░███    ░███  ░███ ░███ ░███ ░███ ${BBlue}░███░░░░░░   ░███ ░░░ ░███ ░███
-  ${BRed}          ░███    ░███  ███░░███ ░███  ███ ${BYellow}░███ ░░███   ░███  ░███ ░███ ░███ ░███ ${BBlue}░███         ░███     ░███ ░███
-  ${BRed}          █████   █████░░████████░░██████  ${BYellow}█████ ░░████ █████ ████ █████░░███████ ${BBlue}█████        █████    ░░██████
-  ${BRed}         ░░░░░   ░░░░░  ░░░░░░░░  ░░░░░░  ${BYellow}░░░░░   ░░░░ ░░░░░ ░░░░ ░░░░░  ░░░░░███${BBlue}░░░░░        ░░░░░      ░░░░░░
-  ${BYellow}                                                                         ███ ░███
-  ${BYellow}                                                                        ░░██████
-  ${BYellow}                                                                         ░░░░░░                              ")"
+  HacKingProLogo_1="$(
+  echo "${BBlue}
+${BRed}          █████   █████                    ${BYellow}█████   ████  ███                      ${BBlue}███████████
+${BRed}         ░░███   ░░███                    ${BYellow}░░███   ███░  ░░░   ${MyVersion}                   ${BBlue}░░███░░░░░███ ${Anlominus}
+${BRed}          ░███    ░███   ██████    ██████  ${BYellow}░███  ███    ████  ████████    ███████ ${BBlue}░███    ░███ ████████   ██████
+${BRed}          ░███████████  ░░░░░███  ███░░███ ${BYellow}░███████    ░░███ ░░███░░███  ███░░███ ${BBlue}░██████████ ░░███░░███ ███░░███
+${BRed}          ░███░░░░░███   ███████ ░███ ░░░  ${BYellow}░███░░███    ░███  ░███ ░███ ░███ ░███ ${BBlue}░███░░░░░░   ░███ ░░░ ░███ ░███
+${BRed}          ░███    ░███  ███░░███ ░███  ███ ${BYellow}░███ ░░███   ░███  ░███ ░███ ░███ ░███ ${BBlue}░███         ░███     ░███ ░███
+${BRed}          █████   █████░░████████░░██████  ${BYellow}█████ ░░████ █████ ████ █████░░███████ ${BBlue}█████        █████    ░░██████
+${BRed}         ░░░░░   ░░░░░  ░░░░░░░░  ░░░░░░  ${BYellow}░░░░░   ░░░░ ░░░░░ ░░░░ ░░░░░  ░░░░░███${BBlue}░░░░░        ░░░░░      ░░░░░░
+${BYellow}                                                                         ███ ░███
+${BYellow}                                                                        ░░██████
+${BYellow}                                                                         ░░░░░░                              ")"
   echo "$HacKingProLogo_1"
 }
 
@@ -263,20 +263,18 @@ ${BCyan}            └──╼ ")
       ;;
       0|00 )
       clear
+      echo "\n\t\t ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity"
+
       cd "Menu/00--Anonymity"
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Current Location \n\t\t ${BGreen}"
-      echo "  "
       pwd
       sleep 0.3
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls ${BYellow} 00--Anonymity \n\t\t ${BGreen}"
-      echo "  "
       ls
-      echo " "
       sleep 0.3
       echo "${BYellow}"
-      echo "  "
-      read -p "$Press_ENTER"
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting ${BYellow} Anonymity \n\t\t ${BGreen}"
+      read -p "$Press_Enter_To_START"
       sleep 1
       sh Anonymity
       ;;
