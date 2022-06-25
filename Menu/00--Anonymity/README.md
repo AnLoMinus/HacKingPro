@@ -1,18 +1,16 @@
 # [00 - Anonymity]()
-### DownRun
-```bash
-wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/05--Password%20HacKing/Wordlists/HacKingPro-Wordlists; sh HacKingPro-Wordlists
-```
+---
 
-```bash
-!#/bin/sh
-clear
-git clone https://github.com/danielmiessler/SecLists
-git clone https://github.com/scipag/password-list
-git clone https://github.com/jeanphorn/wordlist
-```
+- [ ] A - [Anonymity]()
+  - [ ] 00 - Firewall Rules
+  - [ ] 01 - Clear Logs
+  - [ ] 02 - Clear History
+  - [ ] 03 - Change MAC Address
+  - [ ] 04 - Change IP Address
+  - [ ] 05 - Change Routing   
 
 ---
+
 
 ## 🔸 00 - Anonymity
 - ## [4nonimizer](https://github.com/Hackplayers/4nonimizer) 
