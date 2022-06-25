@@ -45,13 +45,7 @@
     - [x] Asking for Target Name:
     - [x] Asking for Target Phone:
     - [x] Asking for Target Email:
-  - [ ] A - [Anonymity](./Menu/00--Anonymity)
-    - [ ] 00 - Firewall Rules
-    - [ ] 01 - Clear Logs
-    - [ ] 02 - Clear History
-    - [ ] 03 - Change MAC Address
-    - [ ] 04 - Change IP Address
-    - [ ] 05 - Change Routing    
+  - [x] A - [Anonymity](./Menu/00--Anonymity)
   - [ ] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
     - [ ] 01 - [Systems Information]()
     - [ ] 02 - [Networks Information]()
