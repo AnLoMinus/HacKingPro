@@ -146,6 +146,7 @@ A SMART goal is likely realistic if
     > - ## 🔹 🤔 If I do not take care of myself - who will do it in my place? 🤔
     >   - 🔹 🤔 But when I care only for myself and not for the benefit of others - what is my value? 🤔 ! [DATOS](https://github.com/Anlominus/Anlominus/blob/main/DATOS.md)
   - Is it applicable in the current socio-economic environment?
+    > - ## 🔹 It Easy To Use !!
 
 ---
 
