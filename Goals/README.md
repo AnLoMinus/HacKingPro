@@ -2,17 +2,16 @@
   
 # Time Management Assessment
 
+</div>
+
 # Key Points
 **SMART** is a well-established tool that you can use to plan and achieve your goals.  
 While there are a number of interpretations of the acronym's meaning, the most common one is that goals should be Specific, Measurable, Achievable, Relevant, and Time-bound.  
 
 When you use SMART, you can create clear, attainable and meaningful goals, and develop the motivation, action plan, and support needed to achieve them.
 
-</div>
-
-
-  
 ---
+
 - **Specific**: 
   - Your goals should be specific to you and clear to understand.
 - **Measurable**: 
@@ -38,17 +37,56 @@ Your goal should be clear and specific, otherwise you won't be able to focus you
 
 - In order for a goal to be effective, it needs to be specific. A specific goal answers questions like:
   - What needs to be accomplished?
+    > - ## 🔹 WorKing HacKing Tool ! 
   - Who’s responsible for it?
+    > - ## 🔹 [Anlominus](https://github.com/Anlominus) ! 
   - What steps need to be taken to achieve it?
+    > - ## 🔹 Finish Anonymity Steps
+    >   ## [📜 Menu / To Do](https://github.com/Anlominus/HacKingPro#-menu--to-do)
+    >   - [x] [I] - Install HacKingPro On the System
+    >   - [x] [p] - Planning and Scoping
+    >     - [x] Asking for Target IP:
+    >     - [x] Asking for Target Name:
+    >     - [x] Asking for Target Phone:
+    >     - [x] Asking for Target Email:
+    >   - [x] A - [Anonymity](./Menu/00--Anonymity)
+    >   - [ ] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
+    >     - [ ] 01 - [Systems Information]()
+    >     - [ ] 02 - [Networks Information]()
+    >     - [ ] 03 - [Social Information]()
+    >     - [ ] 04 - [SubDomain Information]()
+    >   - [x] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
+    > - [ ] 03 - [Web Application HacKing](./Menu/03--Web%20Application%20HacKing)
+    > - [ ] 04 - [Database Assessment](./Menu/04--Database%20Assessment)
+    > - [ ] 05 - [Password HacKing](./Menu/05--Password%20HacKing)
+    > - [ ] 06 - [Wireless HacKing](./Menu/06--Wireless%20HacKing)
+    > - [ ] 07 - [Reverse Engineering](./Menu/07--Exploit%20Frameworks%20%26%20DataBases)
+    > - [ ] 08 - [Exploit Frameworks & DataBases](./Menu/08--Post-Exploitation%20Frameworks)
+    > - [ ] 09 - [Sniffing - Spoofing](./Menu/09--Sniffing%20-%20Spoofing)
+    > - [ ] 10 - [Gaining & Maintaining Access](./Menu/)
+    > - [ ] 11 - [Digital Forensic](./Menu/)
+    > - [ ] 12 - [Analysis & Reporting](./Menu/12--Analysis%20%26%20Reporting)
+    > - [ ] 13 - [Social Engineering](./Menu/13--Social%20Engineering)
+    > - [ ] 14 - [Privilege Enumeration & Escalation](./Menu/14--Privilege%20Enumeration%20%26%20Escalation)
+    > - [ ] 15 - [Malware Analysis Labs/Tools](./Menu/15--Malware%20Tools)
+    > - [ ] 16 - [Covering Tracks](./Menu/)
+    > - [ ] 17 - [Network Security Solutions](./Menu/)
+
 
 - When drafting your goal, try to answer the five "W" questions:
   - **What** do I want to accomplish?
+    > - ## 🔹 WorKing HacKing Tool ! 
   - **Why** is this goal important?
+    > - ## 🔹 Yes, Very Much  ! 
   - **Who** is involved?
+    > - ## 🔹 [Anlominus](https://github.com/Anlominus) ! 
+    > - ## 🔹 All Open Source GitHub Tools! 
   - **Where** is it located?
+    > - ## 🔹 In The Top Of Mountain !
   - **Which** resources or limits are involved?
+    > - ## 🔹 Need Enternet + Free Time + Focus + Need to be Alone, Without Noises, With Peoples Asossiated to that Project !
 
-- Short term (4-6 weeks).
+- ## Short term (4-6 weeks).
   - • Increase daily steps to 6000-7000.
   - • Complete 1x ExHALE cardiovascular and strength and balance video per week.
 - Medium (6 months):
