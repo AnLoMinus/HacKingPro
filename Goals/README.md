@@ -136,9 +136,14 @@ A SMART goal is likely realistic if
 
 - A relevant goal can answer "yes" to these questions:
   - Does this seem worthwhile?
+    > - ## 🔹 💯 % Yes !
   - Is this the right time?
+    > - ## 🔹 When if not now?
   - Does this match our other efforts/needs?
+    > - ## That Yes For Sure !
   - Am I the right person to reach this goal?
+    > - ## 🔹 💯 % Yes, Couse
+    > - ## 🔹 🤔 If I do not take care of myself - who will do it in my place? 🤔 <br>🤔 But when I care only for myself and not for the benefit of others - what is my value? 🤔 ! [DATOS](https://github.com/Anlominus/Anlominus/blob/main/DATOS.md)
   - Is it applicable in the current socio-economic environment?
 
 ---
