@@ -161,3 +161,7 @@ This part of the SMART goal criteria helps to prevent everyday tasks from taking
   - Should be delegated
   - Could be delegated
   - Can’t be delegated
+
+---
+
+- ## Source: [Time Management Assessment](https://github.com/Anlominus/Studies/blob/main/Time%20Management.md#s-specific)
