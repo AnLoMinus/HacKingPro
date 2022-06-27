@@ -97,6 +97,8 @@
 
 - [ ] 17 - [Network Security Solutions](./Menu/)
 
+- [ ] `KoTH` - [King of The Hill](/Menu/KoTH--King%20of%20The%20Hill#anlominus--king-of-the-hill-beta)
+
 
 ┌──[ Anlominus 👽 HacKingPro $~]  
 └──╼  
