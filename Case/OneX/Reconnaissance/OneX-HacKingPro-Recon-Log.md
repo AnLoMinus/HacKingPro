@@ -1,51 +1,44 @@
-# Recommended Open With [Atom]() Editor For Normal View.
-### Case Date: Tue Jun 28 00:53:54 IDT 2022
-> - ### Target Name OneX
-> - ### Target IP 1.1.1.1
-> - ### Target Email OneX@onex.x
-> - ### Target Phone 9720506933037
-
-# [2] - Reconnaissance & Vulnerability Assessment
-
-### Arp Scan Log 1.1.1.1:
-
-? (10.100.102.1) at 12:34:56:78:12:34 on en0 ifscope [ethernet]
-? (10.100.102.14) at 12:34:56:78:12:34 on en0 ifscope [ethernet]
-? (224.0.0.251) at 12:34:56:78:12:34 on en0 ifscope permanent [ethernet]
-? (239.255.255.250) at 12:34:56:78:12:34 on en0 ifscope permanent [ethernet]
-
-### TraceRoute Scan Log 1.1.1.1:
-
-  1  netbox (x.x.x.x)  17.309 ms  1.394 ms  1.284 ms
- 2  lns5.nta.nv.net.il (x.x.x.x)  4.405 ms  4.469 ms  5.150 ms
- 3  core2-3-0-2-lns5-nta.nv.net.il (x.x.x.x)  4.762 ms  4.551 ms  4.408 ms
- 4  core2-0-1.hfa.nv.net.il (x.x.x.x)  6.942 ms  5.615 ms  4.947 ms
- 5  peering2-hfa-30-1-core1-hfa.hfa.nv.net.il (x.x.x.x)  5.522 ms
-    cdn1-21-core2.ory.nv.net.il (x.x.x.x)  4.826 ms
-    peering2-hfa-30-1-core1-hfa.hfa.nv.net.il (212.143.7.255)  4.973 ms
- 6  212.143.232.3 (212.143.232.3)  5.937 ms  7.386 ms
-    212.150.71.151 (212.150.71.151)  5.703 ms
- 7  one.one.one.one (1.1.1.1)  5.270 ms  6.513 ms  6.063 ms
-
-### Ping Scan Log 1.1.1.1:
-
+ 
+# [2] - Reconnaissance & Vulnerability Assessment 
+ 
+# Arp Scan Log 1.1.1.1: 
+ 
+ ? (10.100.102.1) at 50:6f:c:6:56:d7 on en0 ifscope [ethernet]
+? (10.100.102.7) at 6:4a:9a:60:b:21 on en0 ifscope [ethernet]
+? (10.100.102.14) at 64:95:6c:93:58:ba on en0 ifscope [ethernet]
+? (224.0.0.251) at 1:0:5e:0:0:fb on en0 ifscope permanent [ethernet]
+? (239.255.255.250) at 1:0:5e:7f:ff:fa on en0 ifscope permanent [ethernet] 
+ 
+# TraceRoute Scan Log 1.1.1.1: 
+ 
+  1  netbox (10.100.102.1)  16.515 ms  1.537 ms  1.424 ms
+ 2  lns5.nta.nv.net.il (212.143.10.138)  3.941 ms  5.026 ms  4.718 ms
+ 3  core2-3-0-2-lns5-nta.nv.net.il (207.232.4.212)  4.439 ms  4.989 ms  3.759 ms
+ 4  core2-be1392.ory.nv.net.il (212.143.12.91)  5.506 ms  5.728 ms  6.602 ms
+ 5  cdn1-21-core2.ory.nv.net.il (207.232.57.96)  5.224 ms  4.319 ms
+    cdn1-22-core2.ory.nv.net.il (207.232.57.98)  4.960 ms
+ 6  212.143.232.3 (212.143.232.3)  6.740 ms  7.502 ms  7.141 ms
+ 7  one.one.one.one (1.1.1.1)  5.603 ms  7.092 ms  6.759 ms 
+ 
+# Ping Scan Log 1.1.1.1: 
+ 
  PING 1.1.1.1 (1.1.1.1): 56 data bytes
-64 bytes from 1.1.1.1: icmp_seq=0 ttl=58 time=13.380 ms
-64 bytes from 1.1.1.1: icmp_seq=1 ttl=58 time=5.560 ms
-64 bytes from 1.1.1.1: icmp_seq=2 ttl=58 time=11.873 ms
-64 bytes from 1.1.1.1: icmp_seq=3 ttl=58 time=12.223 ms
+64 bytes from 1.1.1.1: icmp_seq=0 ttl=58 time=17.589 ms
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=58 time=11.864 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=58 time=12.142 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=58 time=11.269 ms
 
 --- 1.1.1.1 ping statistics ---
 4 packets transmitted, 4 packets received, 0.0% packet loss
-round-trip min/avg/max/stddev = 5.560/10.759/13.380/3.053 ms
-
-### Dig Scan Log 1.1.1.1:
-
-
+round-trip min/avg/max/stddev = 11.269/13.216/17.589/2.544 ms 
+ 
+# Dig Scan Log 1.1.1.1: 
+ 
+ 
 ; <<>> DiG 9.10.6 <<>> 1.1.1.1 all
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 561
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 53363
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
@@ -56,13 +49,13 @@ round-trip min/avg/max/stddev = 5.560/10.759/13.380/3.053 ms
 ;; ANSWER SECTION:
 1.1.1.1.		0	IN	A	1.1.1.1
 
-;; Query time: 57 msec
+;; Query time: 62 msec
 ;; SERVER: 10.100.102.1#53(10.100.102.1)
-;; WHEN: Tue Jun 28 00:55:51 IDT 2022
+;; WHEN: Tue Jun 28 01:52:12 IDT 2022
 ;; MSG SIZE  rcvd: 52
 
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 59514
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 26747
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
@@ -71,15 +64,15 @@ round-trip min/avg/max/stddev = 5.560/10.759/13.380/3.053 ms
 ;all.				IN	A
 
 ;; AUTHORITY SECTION:
-.			84851	IN	SOA	a.root-servers.net. nstld.verisign-grs.com. 2022062702 1800 900 604800 86400
+.			81469	IN	SOA	a.root-servers.net. nstld.verisign-grs.com. 2022062702 1800 900 604800 86400
 
-;; Query time: 7 msec
+;; Query time: 10 msec
 ;; SERVER: 10.100.102.1#53(10.100.102.1)
-;; WHEN: Tue Jun 28 00:55:51 IDT 2022
-;; MSG SIZE  rcvd: 107
-
-### Nslookup Scan Log 1.1.1.1:
-
+;; WHEN: Tue Jun 28 01:52:12 IDT 2022
+;; MSG SIZE  rcvd: 107 
+ 
+# Nslookup Scan Log 1.1.1.1: 
+ 
  Server:		10.100.102.1
 Address:	10.100.102.1#53
 
@@ -87,19 +80,19 @@ Non-authoritative answer:
 1.1.1.1.in-addr.arpa	name = one.one.one.one.
 
 Authoritative answers can be found from:
-1.1.1.in-addr.arpa	nameserver = ns3.cloudflare.com.
 1.1.1.in-addr.arpa	nameserver = ns7.cloudflare.com.
+1.1.1.in-addr.arpa	nameserver = ns3.cloudflare.com.
 ns3.cloudflare.com	internet address = 162.159.7.226
 ns3.cloudflare.com	internet address = 162.159.0.33
 ns7.cloudflare.com	internet address = 162.159.6.6
 ns7.cloudflare.com	internet address = 162.159.4.8
-ns3.cloudflare.com	has AAAA address 2400:cb00:2049:1::a29f:7e2
 ns3.cloudflare.com	has AAAA address 2400:cb00:2049:1::a29f:21
-ns7.cloudflare.com	has AAAA address 2400:cb00:2049:1::a29f:606
+ns3.cloudflare.com	has AAAA address 2400:cb00:2049:1::a29f:7e2
 ns7.cloudflare.com	has AAAA address 2400:cb00:2049:1::a29f:408
-
-### WhoIs Scan Log 1.1.1.1:
-
+ns7.cloudflare.com	has AAAA address 2400:cb00:2049:1::a29f:606 
+ 
+# WhoIs Scan Log 1.1.1.1: 
+ 
  % IANA WHOIS server
 % for more information on IANA, visit http://www.iana.org
 % This query returned 1 object
@@ -212,14 +205,8 @@ mnt-by:         MAINT-AU-APNIC-GM85-AP
 last-modified:  2018-03-16T16:58:06Z
 source:         APNIC
 
-% This query was served by the APNIC Whois Service version 1.88.16 (WHOIS-UK4)
-
-### Dirb Scan Log 1.1.1.1:
-
-
-
-### Nmap Scan Log 1.1.1.1:
-
-
-
+% This query was served by the APNIC Whois Service version 1.88.16 (WHOIS-UK3) 
+ 
 ---
+ 
+ 

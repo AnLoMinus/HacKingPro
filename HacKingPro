@@ -282,9 +282,7 @@ ${BCyan}            └──╼ ")
       clear
       HacKingProLogo1
       cd $XHacKingPro
-      echo "\n\t\t${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n
-      ${BCyan}            ${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-      "
+      echo "\n\t\t${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n"
       #
       t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
       read -p "$t2" targetNAME
@@ -298,35 +296,43 @@ ${BCyan}            └──╼ ")
         #statements
         echo "\n\t\t${BRed}[${BYellow}Found!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
         cd Case
-        echo "${BCyan}            ${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]"
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
         mkdir $targetNAME
         cd $targetNAME
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
+        mkdir Planning
+        cd Planning
       else
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
         mkdir Case
         cd Case
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
         mkdir $targetNAME
         cd $targetNAME
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
+        mkdir Planning
+        cd Planning
       fi
 
       #
-      file="${targetNAME}-HacKingPro-Log.md"
+      file="${targetNAME}-HacKingPro-Planning-Log.md"
       if [ -e ${file} ]; then
         t5="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] ${BRed}File Exist! ${LRed}Remove it? [yY/nN]: ")"
         read -p "$t5 " filexist
         case $filexist in
           y|Y)
-          echo "  ${BBlue}[${BGreen}!${BBlue}] ${BGreen}Removing {${targetNAME}-HacKingPro-Log.md} file .."
-          rm ${targetNAME}-HacKingPro-Log.md
+          echo "  ${BBlue}[${BGreen}!${BBlue}] ${BGreen}Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+          rm ${targetNAME}-HacKingPro-Planning-Log.md
           ;;
           n|N)
-          echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-HacKingPro-Log.md} file and Add to it .."
+          echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file and Add to it .."
           ;;
         esac
       fi
       # Recommended Open With `Atom` Editor For Normal View.
-      echo "# Recommended Open With [Atom]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Log.md
-      echo "### Case Date: `date`" >> ${targetNAME}-HacKingPro-Log.md
-      echo "> - ### Target Name ${targetNAME}" >> ${targetNAME}-HacKingPro-Log.md
+      echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
+      echo "### Case Date: `date`" >> ${targetNAME}-HacKingPro-Planning-Log.md
+      echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
 
       #
@@ -334,30 +340,30 @@ ${BCyan}            └──╼ ")
       read -p "$t1" targetIP
       if [ -z $targetIP ]; then
         #statements
-        # targetIP="127.0.0.1"
-        targetIP=" "
+        targetIP="127.0.0.1"
+        # targetIP=" "
       fi
-      echo "> - ### Target IP ${targetIP}" >> ${targetNAME}-HacKingPro-Log.md
+      echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
       #
       t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
       read -p "$t3" targetEmail
       if [ -z $targetEmail ]; then
         #statements
-        targetNAME="ChangeMe"
-        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
+        targetEmail="ChangeMe"
+        echo "\n\t\t${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
       fi
-      echo "> - ### Target Email ${targetEmail}" >> ${targetNAME}-HacKingPro-Log.md
+      echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
       #
       t4="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
       read -p "$t4" targetPhone
-      if [ -z $targetNAME ]; then
+      if [ -z $targetPhone ]; then
         #statements
-        targetNAME="ChangeMe"
-        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
+        targetPhone="ChangeMe"
+        echo "\n\t\t${BRed}Target Name: ${BRed} $targetPhone"
       fi
-      echo "> - ### Target Phone ${targetPhone}" >> ${targetNAME}-HacKingPro-Log.md
+      echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
       #
       ls
@@ -475,63 +481,87 @@ ${BCyan}            └──╼ ")
         MainMenu
       fi
       clear
+      HacKingProLogo1
+      cd $XHacKingPro
+      #
+      if [ -d Case ]; then
+        #statements
+        echo "\n\t\t${BRed}[${BYellow}Found!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
+        cd Case
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+        mkdir $targetNAME
+        cd $targetNAME
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
+        mkdir Reconnaissance
+        cd Reconnaissance
+      else
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+        mkdir Case
+        cd Case
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+        mkdir $targetNAME
+        cd $targetNAME
+        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
+        mkdir Reconnaissance
+        cd Reconnaissance
+      fi
       echo "\n\t\t${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Vulnerability Assessment"
       #  [2] - Reconnaissance & Vulnerability Assessment
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
       echo "\n\t\t${BGreen}### Arp Scan Log"
-      echo "### Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " `arp -an` " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " `arp -an` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
       echo "\n\t\t${BGreen}### TraceRoute Scan Log"
-      echo "### TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " `traceroute $targetIP` " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " `traceroute $targetIP` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
       echo "\n\t\t${BGreen}### Ping Scan Log"
-      echo "### Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " `ping $targetIP -c4` " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      echo "# Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " `ping $targetIP -c4` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
       echo "\n\t\t${BGreen}### Dig Scan Log"
-      echo "### Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " `dig $targetIP all` " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      echo "# Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " `dig $targetIP all` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
       echo "\n\t\t${BGreen}### Nslookup Scan Log"
-      echo "### Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " `nslookup $targetIP` " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      echo "# Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " `nslookup $targetIP` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
       echo "\n\t\t${BGreen}### WhoIs Scan Log"
-      echo "### WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " `whois $targetIP` " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      echo "# WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " `whois $targetIP` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
-      echo "\n\t\t${BGreen}### Dirb Scan Log "
-      echo "### Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " `dirb http://$targetIP` " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      # echo "\n\t\t${BGreen}### Dirb Scan Log "
+      # echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      # echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      # echo " `dirb http://$targetIP` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      # echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
-      echo "\n\t\t${BGreen}### Nmap Scan Log "
-      echo "### Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " `nmap -sV -sC -O $targetIP ` " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      # echo "\n\t\t${BGreen}### Nmap Scan Log "
+      # echo "# Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      # echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      # echo " `nmap -sV -sC -O $targetIP ` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      # echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
-      echo "---" >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
+      echo "---" >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       ;;
       3 )
       echo "\n\t\t${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}Web Application HacKing"
