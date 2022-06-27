@@ -59,6 +59,7 @@
   - [ ] 04 - [SubDomain Information]()
 
 - [ ] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
+  - [x] arp
   - [x] ping
   - [x] nslookup
   - [x] dig
