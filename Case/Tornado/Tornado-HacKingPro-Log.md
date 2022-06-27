@@ -1,3 +1,5 @@
+# Recommended Open With `Atom` Editor For Normal View.
+
 ### Case Date: Tue Jun 28 00:29:05 IDT 2022
 > - ### Target Name Tornado
 > - ### Target IP 8.8.8.8
