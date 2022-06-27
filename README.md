@@ -29,7 +29,7 @@
 ## HacKingPro - Hack Like A Pro !
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
-<img width="955" alt="image" src="https://user-images.githubusercontent.com/51442719/176044394-9a6c6196-59a4-4598-ada5-5b617b24eedf.png">
+<img width="955" alt="image" src="https://user-images.githubusercontent.com/51442719/176050186-01139a45-0cc8-4078-a288-3fcea5da6ef9.png">
 
 </div>
 
