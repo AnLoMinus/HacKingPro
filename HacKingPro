@@ -11,7 +11,7 @@ Anlominus="Anlominus"
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
-# Last UPDATE : 2022 June 27
+# Last UPDATE : 2022 June 28
 # Aouther: Anlominus ~> RhytMix ~> HacKingPro
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
@@ -237,11 +237,11 @@ MainMenu(){
 
   while true; do
   #statements
+  # ${BBlue}[${BRed}#${BBlue}] 📜 $bin
   clear
   HacKingProLogo1
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BRed}#${BBlue}] 📜 Menu
-          ${BBlue}[${BRed}#${BBlue}] 📜 $bin
 
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
@@ -280,8 +280,9 @@ ${BCyan}            └──╼ ")
     case $cmd in
       p|P )
       clear
+      HacKingProLogo1
       cd $XHacKingPro
-      echo "\n\t\t ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n
+      echo "\n\t\t${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n
       ${BCyan}            ${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
       "
       #
@@ -290,12 +291,12 @@ ${BCyan}            └──╼ ")
       if [ -z $targetNAME ]; then
         #statements
         targetNAME="ChangeMe"
-        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
+        echo "\n\t\t${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
       fi
       #
       if [ -d Case ]; then
         #statements
-        echo "\n\t\t ${BRed}[${BYellow}!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
+        echo "\n\t\t${BRed}[${BYellow}Found!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
         cd Case
         echo "${BCyan}            ${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]"
         mkdir $targetNAME
@@ -310,20 +311,20 @@ ${BCyan}            └──╼ ")
       #
       file="${targetNAME}-HacKingPro-Log.md"
       if [ -e ${file} ]; then
-        t5="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] File Exist! Remove it? [yY/nN]: ")"
+        t5="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] ${BRed}File Exist! ${LRed}Remove it? [yY/nN]: ")"
         read -p "$t5 " filexist
         case $filexist in
           y|Y)
-          echo "  ${BBlue}[${BRed}!${BBlue}] Removing {${targetNAME}-HacKingPro-Log.md} file .."
+          echo "  ${BBlue}[${BGreen}!${BBlue}] ${BGreen}Removing {${targetNAME}-HacKingPro-Log.md} file .."
           rm ${targetNAME}-HacKingPro-Log.md
-          clear
-          MainMenu
           ;;
           n|N)
           echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-HacKingPro-Log.md} file and Add to it .."
           ;;
         esac
       fi
+      # Recommended Open With `Atom` Editor For Normal View.
+      echo "# Recommended Open With [Atom]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Log.md
       echo "### Case Date: `date`" >> ${targetNAME}-HacKingPro-Log.md
       echo "> - ### Target Name ${targetNAME}" >> ${targetNAME}-HacKingPro-Log.md
 
