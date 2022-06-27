@@ -11,7 +11,7 @@ Anlominus="Anlominus"
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
-# Last UPDATE : 2022 June 24
+# Last UPDATE : 2022 June 27
 # Aouther: Anlominus ~> RhytMix ~> HacKingPro
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
@@ -24,35 +24,36 @@ clear
 # Directories
 
 xDirectories(){
-xMenu00="Menu/00--Anonymity"
-xMenu01="Menu/01--Information Gathering"
-xMenu02="Menu/02--Scanning & Vulnerability Assessment"
-xMenu03="Menu/03--Web Application HacKing"
-xMenu04="Menu/04--Database Assessment"
-xMenu05="Menu/05--Password HacKing"
-xMenu06="Menu/06--Wireless HacKing"
-xMenu07="Menu/07--Exploit Frameworks & DataBases"
-xMenu08="Menu/08--Post-Exploitation Frameworks"
-xMenu09="Menu/09--Sniffing - Spoofing"
-xMenu11="Menu/11--Digital Forensic"
-xMenu12="Menu/12--Analysis & Reporting"
-xMenu=14"Menu/14--Privilege Enumeration & Escalation"
-xMenu15="Menu/15--Malware Tools"
-xMenuAIO="Menu/AIO--All In One"
-xMenuCC="Menu/CC--Card Checker"
-xMenuCHT="Menu/CHT--Car Hacking Tools"
-xMenuCL="Menu/CL--Check Lists"
-xMenuCS="Menu/CS--Cheat Sheets"
-xMenuM="Menu/M--Monitoring"
-xMenuMH="Menu/MH--Mobile HacKing"
-xMenuMV="Menu/MV--Markdown Viewers"
-xMenuPT="Menu/PT--Penetration Testing"
-xMenuRAT="Menu/RAT--Remote Access Trojan"
-xMenuRE="Menu/RE--Reverse Engineering"
-xMenuRS="Menu/RS--Reverse Shell"
-xMenuSE="Menu/SE--Social Engineering"
-xMenuSIP="Menu/SIP--Session Initiation Protocol"
-xMenuWFA="Menu/WFA--FireWall Applications"
+XHacKingPro="$HOME/Documents/GitHub/HacKingPro/"
+xMenu00="${XHacKingPro}Menu/00--Anonymity"
+xMenu01="${XHacKingPro}Menu/01--Information Gathering"
+xMenu02="${XHacKingPro}Menu/02--Scanning & Vulnerability Assessment"
+xMenu03="${XHacKingPro}Menu/03--Web Application HacKing"
+xMenu04="${XHacKingPro}Menu/04--Database Assessment"
+xMenu05="${XHacKingPro}Menu/05--Password HacKing"
+xMenu06="${XHacKingPro}Menu/06--Wireless HacKing"
+xMenu07="${XHacKingPro}Menu/07--Exploit Frameworks & DataBases"
+xMenu08="${XHacKingPro}Menu/08--Post-Exploitation Frameworks"
+xMenu09="${XHacKingPro}Menu/09--Sniffing - Spoofing"
+xMenu11="${XHacKingPro}Menu/11--Digital Forensic"
+xMenu12="${XHacKingPro}Menu/12--Analysis & Reporting"
+xMenu14="${XHacKingPro}Menu/14--Privilege Enumeration & Escalation"
+xMenu15="${XHacKingPro}Menu/15--Malware Tools"
+xMenuM="${XHacKingPro}Menu/M--Monitoring"
+xMenuCC="${XHacKingPro}Menu/CC--Card Checker"
+xMenuCL="${XHacKingPro}Menu/CL--Check Lists"
+xMenuCS="${XHacKingPro}Menu/CS--Cheat Sheets"
+xMenuMH="${XHacKingPro}Menu/MH--Mobile HacKing"
+xMenuMV="${XHacKingPro}Menu/MV--Markdown Viewers"
+xMenuPT="${XHacKingPro}Menu/PT--Penetration Testing"
+xMenuRE="${XHacKingPro}Menu/RE--Reverse Engineering"
+xMenuRS="${XHacKingPro}Menu/RS--Reverse Shell"
+xMenuSE="${XHacKingPro}Menu/SE--Social Engineering"
+xMenuAIO="${XHacKingPro}Menu/AIO--All In One"
+xMenuCHT="${XHacKingPro}Menu/CHT--Car Hacking Tools"
+xMenuRAT="${XHacKingPro}Menu/RAT--Remote Access Trojan"
+xMenuSIP="${XHacKingPro}Menu/SIP--Session Initiation Protocol"
+xMenuWFA="${XHacKingPro}Menu/WFA--FireWall Applications"
 }
 xDirectories
 
