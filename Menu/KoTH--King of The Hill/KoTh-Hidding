@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# A simple script to hide a process
+# Created by @MatheuzSecurity
+# https://twitter.com/inferigang
+# src: https://github.com/MatheuZSecurity/hide-a-process/blob/main/hide.sh
+
+function mkFolder() {
+        rm -rf /tmp/hidden
+        mkdir /tmp/hidden
+        if [[ $? -ne 0 ]]; then
+                echo "[err] An error has ocurred" >&2
+                exit 1
+        fi
+}
+
+function hideProcess() {
+        mount --bind /tmp/hidden /proc/$pid
+}
+
+
+if [[ $(id -u) -ne "0" ]]; then
+        echo "[error] You must run this script as root" >&2
+        exit 1
+fi
+
+arr=('|' '/' '-' '\')
+
+for c in $(seq 1 5); do
+        for elt in ${arr[*]}; do
+                echo -ne "\r\033[<1>AInitializing $elt" && sleep 0.1;
+        done
+done
+
+echo -ne "\r"
+read -p "Process ID: " pid
+
+mesg="Your PID was successfully hidden!"
+
+mkFolder && hideProcess && \
+
+for i in $(seq 1 ${#mesg}); do
+        echo -ne "${mesg:i-1:1}"
+        sleep 0.07
+done
+echo -ne "\n"
