@@ -40,34 +40,55 @@
 ---
 - [ ] Create Vector Logo From: [Drawings](https://github.com/Anlominus/Drawings)
 # 📜 Menu / To Do
-  - [x] [I] - Install HacKingPro On the System
-  - [x] [p] - Planning and Scoping
+  - [x] I - Install HacKingPro On the System
+  - [ ] L - Local Information
+
+- [x] P - Planning and Scoping
     - [x] Asking for Target IP:
     - [x] Asking for Target Name:
     - [x] Asking for Target Phone:
     - [x] Asking for Target Email:
-  - [x] A - [Anonymity](./Menu/00--Anonymity)
-  - [ ] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
+
+- [x] A - [Anonymity](./Menu/00--Anonymity)
+  
+- [ ] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
     - [ ] 01 - [Systems Information]()
     - [ ] 02 - [Networks Information]()
     - [ ] 03 - [Social Information]()
     - [ ] 04 - [SubDomain Information]()
-  - [ ] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
-  - [ ] 03 - [Web Application HacKing](./Menu/03--Web%20Application%20HacKing)
-  - [ ] 04 - [Database Assessment](./Menu/04--Database%20Assessment)
-  - [ ] 05 - [Password HacKing](./Menu/05--Password%20HacKing)
-  - [ ] 06 - [Wireless HacKing](./Menu/06--Wireless%20HacKing)
-  - [ ] 07 - [Reverse Engineering](./Menu/07--Exploit%20Frameworks%20%26%20DataBases)
-  - [ ] 08 - [Exploit Frameworks & DataBases](./Menu/08--Post-Exploitation%20Frameworks)
-  - [ ] 09 - [Sniffing - Spoofing](./Menu/09--Sniffing%20-%20Spoofing)
-  - [ ] 10 - [Gaining & Maintaining Access](./Menu/)
-  - [ ] 11 - [Digital Forensic](./Menu/)
-  - [ ] 12 - [Analysis & Reporting](./Menu/12--Analysis%20%26%20Reporting)
-  - [ ] 13 - [Social Engineering](./Menu/13--Social%20Engineering)
-  - [ ] 14 - [Privilege Enumeration & Escalation](./Menu/14--Privilege%20Enumeration%20%26%20Escalation)
-  - [ ] 15 - [Malware Analysis Labs/Tools](./Menu/15--Malware%20Tools)
-  - [ ] 16 - [Covering Tracks](./Menu/)
-  - [ ] 17 - [Network Security Solutions](./Menu/)
+
+- [ ] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
+
+- [ ] 03 - [Web Application HacKing](./Menu/03--Web%20Application%20HacKing)
+
+- [ ] 04 - [Database Assessment](./Menu/04--Database%20Assessment)
+
+- [ ] 05 - [Password HacKing](./Menu/05--Password%20HacKing)
+
+- [ ] 06 - [Wireless HacKing](./Menu/06--Wireless%20HacKing)
+
+- [ ] 07 - [Reverse Engineering](./Menu/07--Exploit%20Frameworks%20%26%20DataBases)
+
+- [ ] 08 - [Exploit Frameworks & DataBases](./Menu/08--Post-Exploitation%20Frameworks)
+
+- [ ] 09 - [Sniffing - Spoofing](./Menu/09--Sniffing%20-%20Spoofing)
+
+- [ ] 10 - [Gaining & Maintaining Access](./Menu/)
+
+- [ ] 11 - [Digital Forensic](./Menu/)
+
+- [ ] 12 - [Analysis & Reporting](./Menu/12--Analysis%20%26%20Reporting)
+
+- [ ] 13 - [Social Engineering](./Menu/13--Social%20Engineering)
+
+- [ ] 14 - [Privilege Enumeration & Escalation](./Menu/14--Privilege%20Enumeration%20%26%20Escalation)
+
+- [ ] 15 - [Malware Analysis Labs/Tools](./Menu/15--Malware%20Tools)
+
+- [ ] 16 - [Covering Tracks](./Menu/)
+
+- [ ] 17 - [Network Security Solutions](./Menu/)
+
 
 ┌──[ Anlominus 👽 HacKingPro $~]  
 └──╼  
