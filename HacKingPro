@@ -448,6 +448,16 @@ ${BCyan}            └──╼ ")
       echo " " >> ${targetNAME}-HacKingPro-Log.md
       echo "---" >> ${targetNAME}-HacKingPro-Log.md
       ;;
+      LI )
+      ping 1.1.1.1 -c 1
+      if [ $? == 0]; then
+        #statements
+      else
+        echo "\n\t\t "
+        echo "\n\t\t${BRed}[${BRed}X${BRed}]${BBlue} - ${BRed}Error; No InterNet Connection; \n\t\t Check Your Connection and Come Back!!!"
+      fi
+
+      ;;
       2 )
       if [ -z $targetIP ]; then
         #statements
