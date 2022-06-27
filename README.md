@@ -41,7 +41,6 @@
 - [ ] Create Vector Logo From: [Drawings](https://github.com/Anlominus/Drawings)
 # 📜 Menu / To Do
   - [x] I - Install HacKingPro On the System
-  - [ ] L - Local Information
 
 - [x] P - Planning and Scoping
     - [x] Asking for Target IP:
@@ -52,10 +51,11 @@
 - [x] A - [Anonymity](./Menu/00--Anonymity)
   
 - [ ] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
-    - [ ] 01 - [Systems Information]()
-    - [ ] 02 - [Networks Information]()
-    - [ ] 03 - [Social Information]()
-    - [ ] 04 - [SubDomain Information]()
+  - [ ] LI - [Local Information]()
+  - [ ] 01 - [Systems Information]()
+  - [ ] 02 - [Networks Information]()
+  - [ ] 03 - [Social Information]()
+  - [ ] 04 - [SubDomain Information]()
 
 - [ ] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
 
