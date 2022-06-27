@@ -58,6 +58,12 @@
   - [ ] 04 - [SubDomain Information]()
 
 - [ ] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
+  - [x] ping
+  - [x] nslookup
+  - [x] dig
+  - [x] whois
+  - [x] host
+  - [x] traceroute
 
 - [ ] 03 - [Web Application HacKing](./Menu/03--Web%20Application%20HacKing)
 
