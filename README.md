@@ -29,7 +29,7 @@
 ## HacKingPro - Hack Like A Pro !
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
-<img width="955" alt="image" src="https://user-images.githubusercontent.com/51442719/175782482-1d683136-7a13-48ff-86ef-c8edc4d5408d.png">
+<img width="955" alt="image" src="https://user-images.githubusercontent.com/51442719/176044394-9a6c6196-59a4-4598-ada5-5b617b24eedf.png">
 
 </div>
 
@@ -43,6 +43,7 @@
   - [x] I - Install HacKingPro On the System
 
 - [x] P - Planning and Scoping
+    > <img width="955" alt="image" src="https://user-images.githubusercontent.com/51442719/176044368-b45efdaa-b06d-46bc-afda-92f49ca09a95.png">
     - [x] Asking for Target IP:
     - [x] Asking for Target Name:
     - [x] Asking for Target Phone:
