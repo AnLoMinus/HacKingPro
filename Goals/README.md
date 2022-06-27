@@ -14,6 +14,12 @@ When you use SMART, you can create clear, attainable and meaningful goals, and d
 
 - **Specific**: 
   - Your goals should be specific to you and clear to understand.
+  > - 1 Planning And Scooping 
+  >   - Email
+  >   - IP
+  >   - Name
+  >   - Phone
+  > - 2 HacKhim by click With Menu Options
 - **Measurable**: 
   - Think about how you will measure your goals and which measurements you will use.
 - **Achievable**: 
