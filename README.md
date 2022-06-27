@@ -43,7 +43,7 @@
   - [x] I - Install HacKingPro On the System
 
 - [x] P - Planning and Scoping
-    > <img width="955" alt="image" src="https://user-images.githubusercontent.com/51442719/176044368-b45efdaa-b06d-46bc-afda-92f49ca09a95.png">
+    > <img width="955" alt="image" src="https://user-images.githubusercontent.com/51442719/176049977-fafbbe85-faa7-4da9-b881-e76a7af612ab.png">
     - [x] Asking for Target IP:
     - [x] Asking for Target Name:
     - [x] Asking for Target Phone:
