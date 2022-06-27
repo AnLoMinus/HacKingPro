@@ -24,7 +24,7 @@ clear
 # Directories
 
 xDirectories(){
-XHacKingPro="$HOME/Documents/GitHub/HacKingPro/"
+XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
 xMenu00="${XHacKingPro}Menu/00--Anonymity"
 xMenu01="${XHacKingPro}Menu/01--Information Gathering"
 xMenu02="${XHacKingPro}Menu/02--Scanning & Vulnerability Assessment"
@@ -224,9 +224,19 @@ Arsenal(){
 }
 
 MainMenu(){
+  if [ $XHacKingPro == $HOME/Documents/GitHub/HacKingPro ]; then
+    #statements
+    echo "\n\t  ${BBlue}[${BRed}!${BBlue}] You In $HOME/Documents/GitHub/HacKingPro"
+    echo "\n\t  ${BBlue}[${BYellow}!${BBlue}] ${BYellow}You In `pwd`"
+  else
+    cd $XHacKingPro
+    echo "\n\t\t  ${BBlue}[${BRed}!!${BBlue}] You In `pwd`"
+    HacKingProLogo1
+    sleep 5
+  fi
+
   while true; do
   #statements
-  cd $XHacKingPro
   clear
   HacKingProLogo1
   HacKingProMenuMain=$(echo "${BRed}
@@ -244,7 +254,7 @@ MainMenu(){
 
           ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
           ${BRed}[${BBlack}01${BRed}]${BBlue} - ${BBlack}Information Gathering
-          ${BRed}[${BBlack}02${BRed}]${BBlue} - ${BBlack}Reconnaissance & Vulnerability Assessment
+          ${BRed}[${DGrey}02${BRed}]${BBlue} - ${DGrey}Reconnaissance & Vulnerability Assessment
           ${BRed}[${BBlack}03${BRed}]${BBlue} - ${BBlack}Web Application HacKing
           ${BRed}[${BBlack}04${BRed}]${BBlue} - ${BBlack}Database Assessment
           ${BRed}[${BBlack}05${BRed}]${BBlue} - ${BBlack}Password HacKing
@@ -352,8 +362,31 @@ ${BCyan}            └──╼ ")
       ls
 
       ;;
+      li|LI )
+      clear
+      echo "\n\t${BRed}[${LGrey}LI${BRed}]${BBlue} - ${DGrey}Local Information"
+      echo "\n\t${BRed}[${LGrey}🔸 ~ [ System info ] ~ 🔸${BRed}]"
+      pingtest="\n\t $(ping 1.1.1.1 -c 1)"
+      echo "\n\t${BRed}[${BYellow}@${BRed}]${BBlue} - ${Yellow}Checking@  InterNet Connection Ping !!!\n\t\t $pingtest"
+      if [ $? == 0 ]; then
+        #statements
+        echo "\n\t${BRed}[${BGreen}!${BRed}]${BBlue} - ${BGreen}Found!  InterNet Connection Working !!!"
+      else
+        echo "\n\t${BRed}[${BRed}X${BRed}]${BBlue} - ${BRed}Error; No InterNet Connection; \n\t\t Check Your Connection and Come Back!!!"
+      fi
+      sleep 1
+      echo "\n\t 🔸 ~ ${BBlue} Hostname: : ${BYellow} $(hostname)"
+      echo "\n\t 🔸 ~ ${BBlue} Distro: ${BYellow} $(uname)"
+      echo "\n\t 🔸 ~ ${BBlue} Kernel / Architecture: ${BYellow} $(uname -m)"
+      echo "\n\t 🔸 ~ ${BBlue} Machine Hardware Processor Architecture Name: ${BYellow} $(uname -p)"
+      echo "\n\t 🔸 ~ ${BBlue} Operating System Release: ${BYellow} $(uname -r)"
+      echo "\n\t 🔸 ~ ${BBlue} Operating System Name: ${BYellow} $(uname -s)"
+      echo "\n\t 🔸 ~ ${BBlue} Operating System Version: ${BYellow} $(uname -v)"
+      read -p "$Press_ENTER" Som3T1ng
+      ;;
       0|00 )
       clear
+      HacKingProLogo1
       Anonymity(){
         cd "$xMenu00"
         while true; do
@@ -417,7 +450,7 @@ ${BCyan}            └──╼ ")
             sh macchanger.sh
             ;;
             x|X|exit|EXIT )
-            cd ../../
+            cd $XHacKingPro
             clear
             break
             ;;
@@ -428,35 +461,10 @@ ${BCyan}            └──╼ ")
       echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting ${BYellow} Anonymity \n\t\t ${BGreen}"
       read -p "$Press_Enter_To_START"
       Anonymity
-
       ;;
       1 )
       echo "\n\t\t${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering"
       # Page Header
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo "---" >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo "# Anlominus HacKingPro Report for $targetNAME " >> ${targetNAME}-HacKingPro-Log.md
-      echo "#### Date: `date`" >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo "---" >> ${targetNAME}-HacKingPro-Log.md
-      #  [1] - Planning and Scoping
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo "\n\t\t\t# [1] - Planning and Scoping "
-      echo "# [1] - Planning and Scoping " >> ${targetNAME}-HacKingPro-Log.md
-      echo "### Planning Log $targetIP: " >> ${targetNAME}-HacKingPro-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Log.md
-      echo "---" >> ${targetNAME}-HacKingPro-Log.md
-      ;;
-      LI )
-      ping 1.1.1.1 -c 1
-      if [ $? == 0]; then
-        #statements
-      else
-        echo "\n\t\t "
-        echo "\n\t\t${BRed}[${BRed}X${BRed}]${BBlue} - ${BRed}Error; No InterNet Connection; \n\t\t Check Your Connection and Come Back!!!"
-      fi
-
       ;;
       2 )
       if [ -z $targetIP ]; then
@@ -533,27 +541,6 @@ ${BCyan}            └──╼ ")
       5 )
       echo "\n\t\t${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing"
       ;;
-      li|LI )
-      clear
-      echo "\n\t\t${BRed}[${LGrey}LI${BRed}]${BBlue} - ${DGrey}Local Info"
-      echo "\n\t\t 🔸 ~ [ System info ] ~ 🔸\n"
-      sleep 1
-      echo "\n\t\t 🔸 ~ ${LBlue} Hostname: : ${BYellow} $(hostname)"
-      sleep 1
-      echo "\n\t\t 🔸 ~ ${LBlue} Distro: ${BYellow} $(uname)"
-      sleep 1
-      echo "\n\t\t 🔸 ~ ${LBlue} Kernel / Architecture: ${BYellow} $(uname -m)"
-      sleep 1
-      echo "\n\t\t 🔸 ~ ${LBlue} Machine Hardware Processor Architecture Name: ${BYellow} $(uname -p)"
-      sleep 1
-      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Release: ${BYellow} $(uname -r)"
-      sleep 1
-      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Name: ${BYellow} $(uname -s)"
-      sleep 1
-      echo "\n\t\t 🔸 ~ ${LBlue} Operating System Version: ${BYellow} $(uname -v)"
-      sleep 1
-      read -p "$Press_ENTER" Som3T1ng
-       ;;
       i|I )
       echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${BYellow}Installing HacKingPro On the System \n"
       sleep 1
@@ -577,7 +564,7 @@ ${BCyan}            └──╼ ")
       cs|CS )
       Arsenal
       ;;
-      x )
+      x|X|exit|quit|Exit )
       clear
       HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
       echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
