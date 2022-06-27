@@ -226,6 +226,7 @@ Arsenal(){
 MainMenu(){
   while true; do
   #statements
+  cd $XHacKingPro
   clear
   HacKingProLogo1
   HacKingProMenuMain=$(echo "${BRed}
@@ -269,16 +270,10 @@ ${BCyan}            └──╼ ")
     case $cmd in
       p|P )
       clear
-      echo "\n\t\t ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n"
-      #
-      t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
-      read -p "$t1" targetIP
-      if [ -z $targetIP ]; then
-        #statements
-        # targetIP="127.0.0.1"
-        targetIP=" "
-      fi
-
+      cd $XHacKingPro
+      echo "\n\t\t ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n
+      ${BCyan}            ${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+      "
       #
       t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
       read -p "$t2" targetNAME
@@ -287,23 +282,19 @@ ${BCyan}            └──╼ ")
         targetNAME="ChangeMe"
         echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
       fi
-
       #
-      t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
-      read -p "$t3" targetEmail
-      if [ -z $targetEmail ]; then
+      if [ -d Case ]; then
         #statements
-        targetNAME="ChangeMe"
-        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
-      fi
-
-      #
-      t4="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
-      read -p "$t4" targetPhone
-      if [ -z $targetNAME ]; then
-        #statements
-        targetNAME="ChangeMe"
-        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
+        echo "\n\t\t ${BRed}[${BYellow}!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
+        cd Case
+        echo "${BCyan}            ${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]"
+        mkdir $targetNAME
+        cd $targetNAME
+      else
+        mkdir Case
+        cd Case
+        mkdir $targetNAME
+        cd $targetNAME
       fi
 
       #
@@ -323,6 +314,42 @@ ${BCyan}            └──╼ ")
           ;;
         esac
       fi
+      echo "### Case Date: `date`" >> ${targetNAME}-HacKingPro-Log.md
+      echo "> - ### Target Name ${targetNAME}" >> ${targetNAME}-HacKingPro-Log.md
+
+
+      #
+      t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
+      read -p "$t1" targetIP
+      if [ -z $targetIP ]; then
+        #statements
+        # targetIP="127.0.0.1"
+        targetIP=" "
+      fi
+      echo "> - ### Target IP ${targetIP}" >> ${targetNAME}-HacKingPro-Log.md
+
+      #
+      t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
+      read -p "$t3" targetEmail
+      if [ -z $targetEmail ]; then
+        #statements
+        targetNAME="ChangeMe"
+        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
+      fi
+      echo "> - ### Target Email ${targetEmail}" >> ${targetNAME}-HacKingPro-Log.md
+
+      #
+      t4="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
+      read -p "$t4" targetPhone
+      if [ -z $targetNAME ]; then
+        #statements
+        targetNAME="ChangeMe"
+        echo "\n\t\t${BRed}Target Name: ${BBlue} $targetNAME"
+      fi
+      echo "> - ### Target Phone ${targetPhone}" >> ${targetNAME}-HacKingPro-Log.md
+
+      #
+      ls
 
       ;;
       0|00 )
