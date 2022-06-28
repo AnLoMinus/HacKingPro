@@ -35,9 +35,9 @@
 ---
 
 >   - ## 4 - [`Domain Names`](): These are registered by organizations, governments, public and private agencies, and people. 
+>       - ### [`DNS`]() ~ Domain Name Server
 >       - Therefore, they’re a great starting point when you want to investigate someone. 
 >       - Personal information, associated domains, projects, services and technologies can be found by inspecting domain name information.
-
 
 - All these techniques are really useful when combined with enterprise security tools. 
 - Keep reading to discover how to maximize your information gathering results by using some really cool infosec utilities.
