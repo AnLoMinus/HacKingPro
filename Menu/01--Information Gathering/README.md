@@ -20,27 +20,27 @@
 
 ---
 
->   - ## [`Social Engineering`](): This includes in-person chat, phone conversations and email spoofing attacks. 
+>   - ## 1 - [`Social Engineering`](): This includes in-person chat, phone conversations and email spoofing attacks. 
 >        - What all these methods have in common is the psychology of human weakness, needed to get maximum data about the target.
 
 ---
 
->   - ## [`Search Engines`](): Web crawlers can be used to fetch information about anything, and this includes companies, persons, services, and even real hacks, as seen in our previous article about Google Hacking.
+>   - ## 2 - [`Search Engines`](): Web crawlers can be used to fetch information about anything, and this includes companies, persons, services, and even real hacks, as seen in our previous article about Google Hacking.
 
 ---
 
->   - ## [`Social Networks`](): Facebook, Twitter, LinkedIn and other social networks are great sources of information to build a profile, especially when targeting individuals.
->       - ### [`OSINT`]() ~ Open Source Intelligence
+>   - ## 3 - [`Social Networks`](): Open Source Intelligence
+>       - ### [`OSINT`]() ~ Facebook, Twitter, LinkedIn and other social networks are great sources of information to build a profile, especially when targeting individuals.
 
 ---
 
->   - ## [`Domain Names`](): These are registered by organizations, governments, public and private agencies, and people. 
+>   - ## 4 - [`Domain Names`](): These are registered by organizations, governments, public and private agencies, and people. 
 >       - Therefore, they’re a great starting point when you want to investigate someone. 
 >       - Personal information, associated domains, projects, services and technologies can be found by inspecting domain name information.
 
 ---
 
->   - ## [`Internet Servers`](): authoritative DNS servers are a great source of information, as they often include every single surface point exposed to the Internet—which means a direct link to related services such as HTTP, email, etc. 
+>   - ## 5 - [`Internet Servers`](): authoritative DNS servers are a great source of information, as they often include every single surface point exposed to the Internet—which means a direct link to related services such as HTTP, email, etc. 
 >       - ### [`DNS`]() ~ Domain Name Server
 
 - All these techniques are really useful when combined with enterprise security tools. 
