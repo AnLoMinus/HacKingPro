@@ -87,6 +87,10 @@ On_White='\033[47m'  # White
 }
 HacKingProColors
 
+HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+HacKingProExit=$(echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")
+
+
 # Paths Directories to Tools
 xDirectories(){
   XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
@@ -262,7 +266,6 @@ MainMenu(){
           ${BRed}=======================================================================================
           ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System
 
-
           ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
           ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering
           ${BRed}[${DGrey}02${BRed}]${BBlue} - ${DGrey}Reconnaissance & Vulnerability Assessment
@@ -283,14 +286,20 @@ MainMenu(){
           ${BRed}[${BBlack}CS${BRed}]${BBlue} - ${BBlack}Cheat Sheets
           ${BRed}[${DGrey}KoTH${BRed}]${BBlue} - ${DGrey}🤴🏼 King of The Hill ⛰
 
-
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-
-${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-${BCyan}            └──╼ ${BGreen}")
+          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}└──╼ ${BGreen}")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
+      ls )
+      ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
+      echo "$ls_lahs"
+      sleep 2
+      ls -lahs
+      sleep 2
+      read -p "$ls_lahs" cmd
+      ;;
       p|P )
       clear
       HacKingProLogo1
@@ -432,8 +441,8 @@ ${BCyan}            └──╼ ${BGreen}")
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-      ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Anonymity ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-      ${BCyan}            └──╼ ${BGreen}")
+          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}└──╼ ${BGreen}")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
             # l )
@@ -445,6 +454,14 @@ ${BCyan}            └──╼ ${BGreen}")
             # sleep 0.3
             # echo "${BYellow}"
             # ;;
+            ls )
+            ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
+            echo "$ls_lahs"
+            sleep 2
+            ls -lahs
+            sleep 2
+            read -p "$ls_lahs" cmd
+            ;;
             1|01 )
             clear
             echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd kali-whoami \n\t\t ${BGreen}"
@@ -508,26 +525,23 @@ ${BCyan}            └──╼ ${BGreen}")
           ${BRed}=======================================================================================
 
           ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting All in One${BRed}]
-
           ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Machine Information${BRed}]
-
           ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]
-
           ${BRed}[${DGrey}CSI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Social Information${BRed}]
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-
-      ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-      ${BCyan}            └──╼ ${BGreen}")
+          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}└──╼ ${BGreen}")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
-            x|X|exit|quit|Exit )
-            clear
-            cd ${XHacKingPro}
-            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
-            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
-            break
+            ls )
+            ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
+            echo "$ls_lahs"
+            sleep 2
+            ls -lahs
+            sleep 2
+            read -p "$ls_lahs" cmd
             ;;
             p|P )
             clear
@@ -616,8 +630,14 @@ ${BCyan}            └──╼ ${BGreen}")
             fi
             echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
-            #
             ls
+            ;;
+            x|X|exit|quit|Exit )
+            clear
+            cd ${XHacKingPro}
+            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+            break
             ;;
             cao|CAO )
             while true; do
@@ -642,9 +662,8 @@ ${BCyan}            └──╼ ${BGreen}")
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-
-            ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-            ${BCyan}            └──╼ ${BGreen}")
+          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}└──╼ ${BGreen}")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   x|X|exit|quit|Exit )
@@ -674,7 +693,6 @@ ${BCyan}            └──╼ ${BGreen}")
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
 
-
           ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]:
                   ${BWhite} -${DGrey} Public / Private and Associated,
                   ${BWhite} -${DGrey} Domain Names,
@@ -686,9 +704,8 @@ ${BCyan}            └──╼ ${BGreen}")
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-
-            ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-            ${BCyan}            └──╼ ${BGreen}")
+          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}└──╼ ${BGreen}")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   x|X|exit|quit|Exit )
@@ -729,9 +746,8 @@ ${BCyan}            └──╼ ${BGreen}")
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-
-            ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-            ${BCyan}            └──╼ ${BGreen}")
+          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}└──╼ ${BGreen}")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   x|X|exit|quit|Exit )
@@ -766,9 +782,8 @@ ${BCyan}            └──╼ ${BGreen}")
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-
-            ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-            ${BCyan}            └──╼ ${BGreen}")
+          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}└──╼ ${BGreen}")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   x|X|exit|quit|Exit )
@@ -935,8 +950,7 @@ ${BCyan}            └──╼ ${BGreen}")
       ;;
       x|X|exit|quit|Exit )
       clear
-      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
-      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+      echo "$HacKingProExit"
       exit
       ;;
     esac
