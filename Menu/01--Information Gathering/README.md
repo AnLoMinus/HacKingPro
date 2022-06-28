@@ -7,8 +7,8 @@
 
 > - ## **What are the objectives of information gathering in cybersecurity?**
 > - ### Any basic cybersecurity information gathering process often includes these two types of data collection goals:
->   - ### [`Collecting network data`](): Such as public, private and associated domain names, network hosts, public and private IP blocks, routing tables, TCP and UDP running services, SSL certificates, open ports and more.
->   - ### [`Collecting system-related information`]():  This includes user enumeration, system groups, OS hostnames, OS system type (probably by fingerprinting), system banners (as seen in the banner grabbing blog post), etc.
+>   - ### [`Collecting Network Data`](): Such as public, private and associated domain names, network hosts, public and private IP blocks, routing tables, TCP and UDP running services, SSL certificates, open ports and more.
+>   - ### [`Collecting System-Related Information`]():  This includes user enumeration, system groups, OS hostnames, OS system type (probably by fingerprinting), system banners (as seen in the banner grabbing blog post), etc.
 
 ---
 
