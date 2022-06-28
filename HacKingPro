@@ -23,10 +23,6 @@ clear
 
 # Directories
 
-
-Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
-Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
-
 # Define Colors Variables
 HacKingProColors(){
 ##############################################################################
@@ -89,14 +85,37 @@ HacKingProColors
 
 Anlominus="AnLoMinus"
 MyVersion="${BGreen}v4.0.0.4"
+
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+HacKingProPWD=$(pwd)
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n\t\t ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 
+Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
+Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
+
+# HacKingPro Logo Variable
+HacKingProLogo1(){
+  HacKingProLogo_1="$(
+  echo "${BBlue}
+${BRed}          █████   █████                    ${BYellow}█████   ████  ███                      ${BBlue}███████████
+${BRed}         ░░███   ░░███                    ${BYellow}░░███   ███░  ░░░   ${MyVersion}           ${BBlue}░░███░░░░░███ ${Anlominus}
+${BRed}          ░███    ░███   ██████    ██████  ${BYellow}░███  ███    ████  ████████    ███████ ${BBlue}░███    ░███ ████████   ██████
+${BRed}          ░███████████  ░░░░░███  ███░░███ ${BYellow}░███████    ░░███ ░░███░░███  ███░░███ ${BBlue}░██████████ ░░███░░███ ███░░███
+${BRed}          ░███░░░░░███   ███████ ░███ ░░░  ${BYellow}░███░░███    ░███  ░███ ░███ ░███ ░███ ${BBlue}░███░░░░░░   ░███ ░░░ ░███ ░███
+${BRed}          ░███    ░███  ███░░███ ░███  ███ ${BYellow}░███ ░░███   ░███  ░███ ░███ ░███ ░███ ${BBlue}░███         ░███     ░███ ░███
+${BRed}          █████   █████░░████████░░██████  ${BYellow}█████ ░░████ █████ ████ █████░░███████ ${BBlue}█████        █████    ░░██████
+${BRed}         ░░░░░   ░░░░░  ░░░░░░░░  ░░░░░░  ${BYellow}░░░░░   ░░░░ ░░░░░ ░░░░ ░░░░░  ░░░░░███${BBlue}░░░░░        ░░░░░      ░░░░░░
+${BYellow}                                                                         ███ ░███
+${BYellow}                                                                        ░░██████
+${BYellow}                                                                         ░░░░░░                              ")"
+echo "$HacKingProLogo_1"
+# echo "$HacKingProDavid"
+}
 
 # Paths Directories to Tools
 xDirectories(){
-  XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
+  XHacKingPro="$HOME/HacKingPro"
   xMenu00="${XHacKingPro}/Menu/00--Anonymity"
   xMenu01="${XHacKingPro}/Menu/01--Information Gathering"
   xMenu01_CAO="${XHacKingPro}/Menu/01--Information Gathering/CAO - Collecting All in One/"
@@ -132,28 +151,29 @@ xDirectories(){
   xMenuSIP="${XHacKingPro}/Menu/SIP--Session Initiation Protocol"
   xMenuWFA="${XHacKingPro}/Menu/WFA--FireWall Applications"
   xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill"
+  if [ $XHacKingPro == $HacKingProPWD ]; then
+    #statements
+    XHacKingPro="$HOME/HacKingPro"
+    HacKingProLogo1
+    cd $XHacKingPro
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Running Direction: ${BCyan} $HOME/HacKingPro\n"
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan}ls Menu\n\n"
+    ls Menu
+    read -p "${Press_Enter_To_START}"
+  else
+    XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
+    HacKingProLogo1
+    # cd $XHacKingPro
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Running Direction: ${BCyan} $HacKingProPWD\n"
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan}ls Menu\n\n"
+    ls Menu
+    read -p "${Press_Enter_To_START}"
+  fi
 
 }
 xDirectories
-
-# HacKingPro Logo Variable
-HacKingProLogo1(){
-  HacKingProLogo_1="$(
-  echo "${BBlue}
-${BRed}          █████   █████                    ${BYellow}█████   ████  ███                      ${BBlue}███████████
-${BRed}         ░░███   ░░███                    ${BYellow}░░███   ███░  ░░░   ${MyVersion}           ${BBlue}░░███░░░░░███ ${Anlominus}
-${BRed}          ░███    ░███   ██████    ██████  ${BYellow}░███  ███    ████  ████████    ███████ ${BBlue}░███    ░███ ████████   ██████
-${BRed}          ░███████████  ░░░░░███  ███░░███ ${BYellow}░███████    ░░███ ░░███░░███  ███░░███ ${BBlue}░██████████ ░░███░░███ ███░░███
-${BRed}          ░███░░░░░███   ███████ ░███ ░░░  ${BYellow}░███░░███    ░███  ░███ ░███ ░███ ░███ ${BBlue}░███░░░░░░   ░███ ░░░ ░███ ░███
-${BRed}          ░███    ░███  ███░░███ ░███  ███ ${BYellow}░███ ░░███   ░███  ░███ ░███ ░███ ░███ ${BBlue}░███         ░███     ░███ ░███
-${BRed}          █████   █████░░████████░░██████  ${BYellow}█████ ░░████ █████ ████ █████░░███████ ${BBlue}█████        █████    ░░██████
-${BRed}         ░░░░░   ░░░░░  ░░░░░░░░  ░░░░░░  ${BYellow}░░░░░   ░░░░ ░░░░░ ░░░░ ░░░░░  ░░░░░███${BBlue}░░░░░        ░░░░░      ░░░░░░
-${BYellow}                                                                         ███ ░███
-${BYellow}                                                                        ░░██████
-${BYellow}                                                                         ░░░░░░                              ")"
-echo "$HacKingProLogo_1"
-echo "$HacKingProDavid"
-}
 
 # Checking For System Package Manager
 Check_System() {
@@ -207,6 +227,7 @@ Check_System() {
 }
 Check_System
 
+# Arsenal Cheatsheets
 Arsenal(){
   clear
   # Getting Arsenal Cheatsheets
@@ -238,26 +259,14 @@ Arsenal(){
 
 }
 
+# HacKingPro Main Menu
 MainMenu(){
-  if [ $XHacKingPro == $HOME/Documents/GitHub/HacKingPro ]; then
-    #statements
-    echo "\n\t  ${BBlue}[${BRed}!${BBlue}] You In $HOME/Documents/GitHub/HacKingPro"
-    echo "\n\t  ${BBlue}[${BYellow}!${BBlue}] ${BYellow}You In `pwd`"
-  else
-    cd $XHacKingPro
-    echo "\n\t\t  ${BBlue}[${BRed}!!${BBlue}] You In `pwd`"
-    HacKingProLogo1
-    sleep 5
-  fi
-
   while true; do
   #statements
-  # ${BBlue}[${BRed}#${BBlue}] 📜 $bin
   clear
   HacKingProLogo1
-  HacKingProMenuMain=$(echo "${BRed}
-          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Main Menu ⌖
 
+  HacKingProTargetStatus=$(echo "\n
           ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
@@ -266,7 +275,12 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
-          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
+
+  HacKingProMenuMain=$(echo "${BRed}
+          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Main Menu ⌖"
+
+          echo "$HacKingProTargetStatus""
 
           ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
           ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering
@@ -934,14 +948,16 @@ MainMenu(){
       sudo cp -vR ~/HacKingPro $bin/HacKingPro
       echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Giving all Permission To [~${bin}/HacKingPro] \n"
       sleep 1
-      sudo chmod 777 $bin/HacKingPro
+      sudo chmod 777 -R $bin/HacKingPro
       echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGreen}Successfully Installed \n"
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGreen}Installed Direction: $XHacKingPro \n"
       sleep 1
       echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${BGreen}Open New Terminal And type [:~> HacKingPro ]  \n"
-      sleep 1
-      echo " "
-      read -p " Press Enter To Close: " finished
-      exit
+      sleep 3
+      echo "$XHacKingPro"
+      read -p "$Press_ENTER" finished
+      clear
+      break
       ;;
       cs|CS )
       Arsenal
