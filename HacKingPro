@@ -92,6 +92,11 @@ xDirectories(){
   XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
   xMenu00="${XHacKingPro}Menu/00--Anonymity"
   xMenu01="${XHacKingPro}Menu/01--Information Gathering"
+  xMenu01_CAO="${XHacKingPro}Menu/01--Information Gathering/CAO - Collecting All in One/"
+  xMenu01_CNI="${XHacKingPro}Menu/01--Information Gathering/CNI - Collecting Network Information/"
+  xMenu01_CMI="${XHacKingPro}Menu/01--Information Gathering/CMI - Collecting Machine Information/"
+  xMenu01_CMI_LI="${XHacKingPro}Menu/01--Information Gathering/CMI - Collecting Machine Information/LI - Local Information/"
+  xMenu01_CSI="${XHacKingPro}Menu/01--Information Gathering/CSI - Collecting Social Information/"
   xMenu02="${XHacKingPro}Menu/02--Scanning & Vulnerability Assessment"
   xMenu03="${XHacKingPro}Menu/03--Web Application HacKing"
   xMenu04="${XHacKingPro}Menu/04--Database Assessment"
@@ -504,21 +509,8 @@ ${BCyan}            └──╼ ${BGreen}")
           ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting All in One${BRed}]:
 
           ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Machine Information${BRed}]:
-                  ${BWhite} -${DGrey} This includes user enumeration,
-                  ${BWhite} -${DGrey} system groups,
-                  ${BWhite} -${DGrey} OS hostnames,
-                  ${BWhite} -${DGrey} OS system type (probably by fingerprinting),
-                  ${BWhite} -${DGrey} system banners (as seen in the banner grabbing blog post),
-                  ${BWhite} -${DGrey} etc.
 
           ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]:
-                  ${BWhite} -${DGrey} Such as
-                  ${BWhite} -${DGrey} Public / Private and Associated Domain Names,
-                  ${BWhite} -${DGrey} Network Hosts,
-                  ${BWhite} -${DGrey} Public and Private IP Blocks,
-                  ${BWhite} -${DGrey} Routing Tables, TCP and UDP Running Services,
-                  ${BWhite} -${DGrey} SSL Certificates,
-                  ${BWhite} -${DGrey} open ports and more.
 
           ${BRed}[${DGrey}CSI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Social Information${BRed}]:
 
@@ -626,9 +618,47 @@ ${BCyan}            └──╼ ${BGreen}")
             #
             ls
             ;;
+            cao|CAO )
+            while true; do
+              #statements
+              cd $xMenu01_CMI
+              clear
+              HacKingProLogo1
+              HacKingProMenuMain=$(echo "${BRed}
+          ${BBlue}[${BYellow}CAO${BBlue}] ${BYellow} 📜 Collecting All In One Menu
+
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
+
+          ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting All in One${BRed}]:
+                  ${BWhite} -${DGrey} This is All in One Tools,
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+
+            ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+            ${BCyan}            └──╼ ${BGreen}")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                esac
+              done
+            ;;
             cni|CNI )
             while true; do
               #statements
+              cd $xMenu01_CNI
               clear
               HacKingProLogo1
               HacKingProMenuMain=$(echo "${BRed}
@@ -645,8 +675,8 @@ ${BCyan}            └──╼ ${BGreen}")
 
 
           ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]:
-                  ${BWhite} -${DGrey} Such as
-                  ${BWhite} -${DGrey} Public / Private and Associated Domain Names,
+                  ${BWhite} -${DGrey} Public / Private and Associated,
+                  ${BWhite} -${DGrey} Domain Names,
                   ${BWhite} -${DGrey} Network Hosts,
                   ${BWhite} -${DGrey} Public and Private IP Blocks,
                   ${BWhite} -${DGrey} Routing Tables, TCP and UDP Running Services,
@@ -671,10 +701,10 @@ ${BCyan}            └──╼ ${BGreen}")
 
 
             ;;
-
             cmi|CMI )
             while true; do
               #statements
+              cd $xMenu01_CMI
               clear
               HacKingProLogo1
               HacKingProMenuMain=$(echo "${BRed}
@@ -690,12 +720,11 @@ ${BCyan}            └──╼ ${BGreen}")
           ${BRed}=======================================================================================
 
           ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Machine Information${BRed}]:
-                  ${BWhite} -${DGrey} This includes user enumeration,
-                  ${BWhite} -${DGrey} system groups,
-                  ${BWhite} -${DGrey} OS hostnames,
-                  ${BWhite} -${DGrey} OS system type (probably by fingerprinting),
-                  ${BWhite} -${DGrey} system banners (as seen in the banner grabbing blog post),
-                  ${BWhite} -${DGrey} etc.
+                  ${BWhite} -${DGrey} User Enumeration,
+                  ${BWhite} -${DGrey} System Groups,
+                  ${BWhite} -${DGrey} OS Hostnames,
+                  ${BWhite} -${DGrey} OS System Type,
+                  ${BWhite} -${DGrey} System Banners,
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -712,10 +741,44 @@ ${BCyan}            └──╼ ${BGreen}")
                   ;;
                 esac
               done
-
-
             ;;
+            csi|CSI )
+            while true; do
+              #statements
+              cd $xMenu01_CMI
+              clear
+              HacKingProLogo1
+              HacKingProMenuMain=$(echo "${BRed}
+          ${BBlue}[${BYellow}CSI${BBlue}] ${BYellow} 📜 Collecting Social Information Menu
 
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
+
+          ${BRed}[${DGrey}CSI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Social Information${BRed}]:
+                  ${BWhite} -${DGrey} This is OSINT Tools
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+
+            ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+            ${BCyan}            └──╼ ${BGreen}")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                esac
+              done
+            ;;
           esac
         done
       ;;
