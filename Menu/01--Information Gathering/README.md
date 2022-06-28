@@ -44,7 +44,7 @@
 
 ---
 
->       - ### [`DNS`]() Domain Name Server
+>     - ### [`DNS`]() Domain Name Server
 - All these techniques are really useful when combined with enterprise security tools. 
 - Keep reading to discover how to maximize your information gathering results by using some really cool infosec utilities.
 
