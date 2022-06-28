@@ -1,1 +1,0 @@
-# CSI - Collecting System Information
