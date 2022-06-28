@@ -90,7 +90,8 @@ HacKingProColors
 Anlominus="AnLoMinus"
 MyVersion="${BGreen}v4.0.0.4"
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
-HacKingProExit=$(echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")
+HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
+HacKingProExit=$(echo "\n\t\t ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 
 
 # Paths Directories to Tools
@@ -150,7 +151,8 @@ ${BRed}         ░░░░░   ░░░░░  ░░░░░░░░  ░
 ${BYellow}                                                                         ███ ░███
 ${BYellow}                                                                        ░░██████
 ${BYellow}                                                                         ░░░░░░                              ")"
-  echo "$HacKingProLogo_1"
+echo "$HacKingProLogo_1"
+echo "$HacKingProDavid"
 }
 
 # Checking For System Package Manager
@@ -254,9 +256,9 @@ MainMenu(){
   clear
   HacKingProLogo1
   HacKingProMenuMain=$(echo "${BRed}
-          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Main Menu
+          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Main Menu ⌖
 
-          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
