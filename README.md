@@ -59,7 +59,6 @@
   - [x] CMI - [`Collecting Machine Information`]():  
   - [x] CSI - [`Collecting Social Information`]():  
   - [x] CNI - [`Collecting Network Information`]()
-  - [x] CSI - [`Collecting System Information`]()
 
 - [x] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
   - [x] arp
