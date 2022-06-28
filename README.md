@@ -52,14 +52,14 @@
 
 - [x] A - [Anonymity](./Menu/00--Anonymity)
   
-- [ ] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
-  - [ ] LI - [Local Information]()
-  - [ ] CNI - [Collecting Network Information]()
-  - [ ] CSI - [Collecting System Information]()
-  - [ ] 01 - [Systems Information]()
-  - [ ] 02 - [Networks Information]()
-  - [ ] 03 - [Social Information]()
-  - [ ] 04 - [SubDomain Information]()
+- [x] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
+  - [x] LI - [Local Information]()
+  - [x] CAO - [`Collecting All in One`]():
+  - [x] CNI - [`Collecting Network Information`](): 
+  - [x] CMI - [`Collecting Machine Information`]():  
+  - [x] CSI - [`Collecting Social Information`]():  
+  - [x] CNI - [Collecting Network Information]()
+  - [x] CSI - [Collecting System Information]()
 
 - [x] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
   - [x] arp
