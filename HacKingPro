@@ -90,41 +90,41 @@ HacKingProColors
 # Paths Directories to Tools
 xDirectories(){
   XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
-  xMenu00="${XHacKingPro}Menu/00--Anonymity"
-  xMenu01="${XHacKingPro}Menu/01--Information Gathering"
-  xMenu01_CAO="${XHacKingPro}Menu/01--Information Gathering/CAO - Collecting All in One/"
-  xMenu01_CNI="${XHacKingPro}Menu/01--Information Gathering/CNI - Collecting Network Information/"
-  xMenu01_CMI="${XHacKingPro}Menu/01--Information Gathering/CMI - Collecting Machine Information/"
-  xMenu01_CMI_LI="${XHacKingPro}Menu/01--Information Gathering/CMI - Collecting Machine Information/LI - Local Information/"
-  xMenu01_CSI="${XHacKingPro}Menu/01--Information Gathering/CSI - Collecting Social Information/"
-  xMenu02="${XHacKingPro}Menu/02--Scanning & Vulnerability Assessment"
-  xMenu03="${XHacKingPro}Menu/03--Web Application HacKing"
-  xMenu04="${XHacKingPro}Menu/04--Database Assessment"
-  xMenu05="${XHacKingPro}Menu/05--Password HacKing"
-  xMenu06="${XHacKingPro}Menu/06--Wireless HacKing"
-  xMenu07="${XHacKingPro}Menu/07--Exploit Frameworks & DataBases"
-  xMenu08="${XHacKingPro}Menu/08--Post-Exploitation Frameworks"
-  xMenu09="${XHacKingPro}Menu/09--Sniffing - Spoofing"
-  xMenu11="${XHacKingPro}Menu/11--Digital Forensic"
-  xMenu12="${XHacKingPro}Menu/12--Analysis & Reporting"
-  xMenu14="${XHacKingPro}Menu/14--Privilege Enumeration & Escalation"
-  xMenu15="${XHacKingPro}Menu/15--Malware Tools"
-  xMenuM="${XHacKingPro}Menu/M--Monitoring"
-  xMenuCC="${XHacKingPro}Menu/CC--Card Checker"
-  xMenuCL="${XHacKingPro}Menu/CL--Check Lists"
-  xMenuCS="${XHacKingPro}Menu/CS--Cheat Sheets"
-  xMenuMH="${XHacKingPro}Menu/MH--Mobile HacKing"
-  xMenuMV="${XHacKingPro}Menu/MV--Markdown Viewers"
-  xMenuPT="${XHacKingPro}Menu/PT--Penetration Testing"
-  xMenuRE="${XHacKingPro}Menu/RE--Reverse Engineering"
-  xMenuRS="${XHacKingPro}Menu/RS--Reverse Shell"
-  xMenuSE="${XHacKingPro}Menu/SE--Social Engineering"
-  xMenuAIO="${XHacKingPro}Menu/AIO--All In One"
-  xMenuCHT="${XHacKingPro}Menu/CHT--Car Hacking Tools"
-  xMenuRAT="${XHacKingPro}Menu/RAT--Remote Access Trojan"
-  xMenuSIP="${XHacKingPro}Menu/SIP--Session Initiation Protocol"
-  xMenuWFA="${XHacKingPro}Menu/WFA--FireWall Applications"
-  xMenuKoTH="${XHacKingPro}Menu/KoTH--King of The Hill"
+  xMenu00="${XHacKingPro}/Menu/00--Anonymity"
+  xMenu01="${XHacKingPro}/Menu/01--Information Gathering"
+  xMenu01_CAO="${XHacKingPro}/Menu/01--Information Gathering/CAO - Collecting All in One/"
+  xMenu01_CNI="${XHacKingPro}/Menu/01--Information Gathering/CNI - Collecting Network Information/"
+  xMenu01_CMI="${XHacKingPro}/Menu/01--Information Gathering/CMI - Collecting Machine Information/"
+  xMenu01_CMI_LI="${XHacKingPro}/Menu/01--Information Gathering/CMI - Collecting Machine Information/LI - Local Information/"
+  xMenu01_CSI="${XHacKingPro}/Menu/01--Information Gathering/CSI - Collecting Social Information/"
+  xMenu02="${XHacKingPro}/Menu/02--Scanning & Vulnerability Assessment"
+  xMenu03="${XHacKingPro}/Menu/03--Web Application HacKing"
+  xMenu04="${XHacKingPro}/Menu/04--Database Assessment"
+  xMenu05="${XHacKingPro}/Menu/05--Password HacKing"
+  xMenu06="${XHacKingPro}/Menu/06--Wireless HacKing"
+  xMenu07="${XHacKingPro}/Menu/07--Exploit Frameworks & DataBases"
+  xMenu08="${XHacKingPro}/Menu/08--Post-Exploitation Frameworks"
+  xMenu09="${XHacKingPro}/Menu/09--Sniffing - Spoofing"
+  xMenu11="${XHacKingPro}/Menu/11--Digital Forensic"
+  xMenu12="${XHacKingPro}/Menu/12--Analysis & Reporting"
+  xMenu14="${XHacKingPro}/Menu/14--Privilege Enumeration & Escalation"
+  xMenu15="${XHacKingPro}/Menu/15--Malware Tools"
+  xMenuM="${XHacKingPro}/Menu/M--Monitoring"
+  xMenuCC="${XHacKingPro}/Menu/CC--Card Checker"
+  xMenuCL="${XHacKingPro}/Menu/CL--Check Lists"
+  xMenuCS="${XHacKingPro}/Menu/CS--Cheat Sheets"
+  xMenuMH="${XHacKingPro}/Menu/MH--Mobile HacKing"
+  xMenuMV="${XHacKingPro}/Menu/MV--Markdown Viewers"
+  xMenuPT="${XHacKingPro}/Menu/PT--Penetration Testing"
+  xMenuRE="${XHacKingPro}/Menu/RE--Reverse Engineering"
+  xMenuRS="${XHacKingPro}/Menu/RS--Reverse Shell"
+  xMenuSE="${XHacKingPro}/Menu/SE--Social Engineering"
+  xMenuAIO="${XHacKingPro}/Menu/AIO--All In One"
+  xMenuCHT="${XHacKingPro}/Menu/CHT--Car Hacking Tools"
+  xMenuRAT="${XHacKingPro}/Menu/RAT--Remote Access Trojan"
+  xMenuSIP="${XHacKingPro}/Menu/SIP--Session Initiation Protocol"
+  xMenuWFA="${XHacKingPro}/Menu/WFA--FireWall Applications"
+  xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill"
 
 }
 xDirectories
@@ -408,9 +408,9 @@ ${BCyan}            └──╼ ${BGreen}")
       clear
       HacKingProLogo1
       Anonymity(){
-        cd "$xMenu00"
         while true; do
         #statements
+        cd "$xMenu00"
         clear
         HacKingProLogo1
         HacKingProMenuMain=$(
@@ -492,6 +492,7 @@ ${BCyan}            └──╼ ${BGreen}")
       # Page Header
       while true; do
         #statements
+        cd "$xMenu01"
         clear
         HacKingProLogo1
         HacKingProMenuMain=$(echo "${BRed}
@@ -524,6 +525,7 @@ ${BCyan}            └──╼ ${BGreen}")
           case $cmd in
             x|X|exit|quit|Exit )
             clear
+            cd ${XHacKingPro}
             HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
             echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
             break
@@ -785,6 +787,7 @@ ${BCyan}            └──╼ ${BGreen}")
       02|2 )
       if [ -z $targetIP ]; then
         #statements
+        cd "$xMenu02"
         clear
         HacKingProLogo1
         echo "
@@ -797,12 +800,18 @@ ${BCyan}            └──╼ ${BGreen}")
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
-          ${BRed}=======================================================================================
+          ${BRed}======================================================================================="
 
-          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!!"
-
-
-        sleep 5
+          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+          sleep 1
+          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+          sleep 1
+          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+          sleep 1
+          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+          sleep 1
+          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+          sleep 1
 
         MainMenu
       fi
