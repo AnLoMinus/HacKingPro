@@ -53,10 +53,11 @@
 - [x] A - [Anonymity](./Menu/00--Anonymity)
   
 - [x] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
-  - [x] LI - [`Local Information`]()
+  > <img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/176260343-d322cc1c-2783-4b2b-bea1-afc58403d8fa.png">
   - [x] CAO - [`Collecting All in One`]():
   - [x] CNI - [`Collecting Network Information`](): 
   - [x] CMI - [`Collecting Machine Information`]():  
+    - [x] LI - [`Local Information`]()
   - [x] CSI - [`Collecting Social Information`]():  
 
 - [x] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
