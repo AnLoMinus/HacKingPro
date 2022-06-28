@@ -31,11 +31,15 @@
 
 <img width="934" alt="image" src="https://user-images.githubusercontent.com/51442719/176283081-eccd07c0-54c7-44af-b3a3-56b6b714bdba.png">
   
+```bash
+git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKingPro; ./HacKingPro
+```
+
 </div>
 
 ---
 
-<h1> Feel free to sponsor me for the maintenance of the tool: <a href="https://github.com/Anlominus/HacKingPro">HacKingPro</a> </h1>
+<h4> Feel free to sponsor me for the maintenance of the tool: <a href="https://github.com/Anlominus/HacKingPro">HacKingPro</a> </h4>
 
 ---
 - [ ] Create Vector Logo From: [Drawings](https://github.com/Anlominus/Drawings)
