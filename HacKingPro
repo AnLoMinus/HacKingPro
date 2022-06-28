@@ -87,6 +87,8 @@ On_White='\033[47m'  # White
 }
 HacKingProColors
 
+Anlominus="AnLoMinus"
+MyVersion="${BGreen}v4.0.0.4"
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 HacKingProExit=$(echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")
 
@@ -135,8 +137,6 @@ xDirectories
 
 # HacKingPro Logo Variable
 HacKingProLogo1(){
-  Anlominus="AnLoMinus"
-  MyVersion="${BGreen}v1.4.0.4"
   HacKingProLogo_1="$(
   echo "${BBlue}
 ${BRed}          █████   █████                    ${BYellow}█████   ████  ███                      ${BBlue}███████████
