@@ -52,6 +52,12 @@
   - ## [EAPHammer](https://github.com/s0lst1c3/eaphammer)
   - ## [RougeWifi](https://github.com/s0meguy1/RougeWifi)
   - ## [c41n](https://github.com/MS-WEB-BN/c41n/)
+
+- ## [Wifi-Password](https://github.com/sdushantha/wifi-password)
+    > Quickly fetch your WiFi password and if needed, generate a QR code of your WiFi to allow phones to easily connect.
+    > - Works on macOS and Linux, Windows
+    > - ![](https://github.com/sdushantha/wifi-password/raw/master/images/demo.gif)
+
   - ## [Wifi-Dumper](https://github.com/Viralmaniar/Wifi-Dumper) 
     > This is an open source tool to dump the wifi profiles and cleartext passwords of the connected access points on the Windows machine. <br>
     > This tool will help you in a Wifi penetration testing. <br>
