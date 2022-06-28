@@ -114,9 +114,15 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 ---
 
+![Alt](https://repobeats.axiom.co/api/embed/fc0848f26074f3b91e5236ae960338faa3d9fb1e.svg "Repobeats analytics image")
+
 ---
 
-![Alt](https://repobeats.axiom.co/api/embed/fc0848f26074f3b91e5236ae960338faa3d9fb1e.svg "Repobeats analytics image")
+# Tested on:
+- [x] MacOS
+- [ ] Parrot
+- [ ] Kali Linux
+- [ ] Windows
 
 ---
 
