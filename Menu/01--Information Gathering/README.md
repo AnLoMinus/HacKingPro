@@ -40,7 +40,10 @@
 
 ---
 
->    - ## [`Internet Servers`](): authoritative DNS servers are a great source of information, as they often include every single surface point exposed to the Internet—which means a direct link to related services such as HTTP, email, etc. In our previous article about passive DNS, we analyzed the importance of DNS servers, and especially passive DNS-recon services, such as the ones we offer here at SecurityTrails.
+>    - ## [`Internet Servers`](): authoritative DNS servers are a great source of information, as they often include every single surface point exposed to the Internet—which means a direct link to related services such as HTTP, email, etc. 
+
+---
+
 >       - ### [`DNS`]() Domain Name Server
 - All these techniques are really useful when combined with enterprise security tools. 
 - Keep reading to discover how to maximize your information gathering results by using some really cool infosec utilities.
