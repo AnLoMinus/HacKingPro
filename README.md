@@ -39,6 +39,7 @@
 
 ---
 - [ ] Create Vector Logo From: [Drawings](https://github.com/Anlominus/Drawings)
+
 # 📜 Menu / To Do
   - [x] I - Install HacKingPro On the System
 
@@ -53,12 +54,14 @@
   
 - [ ] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
   - [ ] LI - [Local Information]()
+  - [ ] CNI - [Collecting Network Information]()
+  - [ ] CSI - [Collecting System Information]()
   - [ ] 01 - [Systems Information]()
   - [ ] 02 - [Networks Information]()
   - [ ] 03 - [Social Information]()
   - [ ] 04 - [SubDomain Information]()
 
-- [ ] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
+- [x] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
   - [x] arp
   - [x] ping
   - [x] nslookup
