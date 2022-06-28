@@ -39,9 +39,6 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 ---
 
-<h4> Feel free to sponsor me for the maintenance of the tool: <a href="https://github.com/Anlominus/HacKingPro">HacKingPro</a> </h4>
-
----
 - [ ] Create Vector Logo From: [Drawings](https://github.com/Anlominus/Drawings)
 
 # 📜 Menu / To Do
@@ -111,11 +108,6 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 ┌──[ Anlominus 👽 HacKingPro $~]  
 └──╼  
 
-
----
-
-![Alt](https://repobeats.axiom.co/api/embed/fc0848f26074f3b91e5236ae960338faa3d9fb1e.svg "Repobeats analytics image")
-
 ---
 
 # Tested on:
@@ -137,6 +129,16 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 ### [Awesome Hacking Resources](https://github.com/vitalysim/Awesome-Hacking-Resources#malware-analysis)
 
 ---
+
+---
+> בס״ד
+<div align="center">
+
+![Alt](https://repobeats.axiom.co/api/embed/fc0848f26074f3b91e5236ae960338faa3d9fb1e.svg "Repobeats analytics image")
+
+<h4> Feel free to sponsor me for the maintenance of the tool: <a href="https://github.com/Anlominus/HacKingPro">HacKingPro</a> </h4>
+
+</div>
 
 <h2 align="center">
 
