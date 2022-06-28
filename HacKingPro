@@ -23,46 +23,11 @@ clear
 
 # Directories
 
-xDirectories(){
-XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
-xMenu00="${XHacKingPro}Menu/00--Anonymity"
-xMenu01="${XHacKingPro}Menu/01--Information Gathering"
-xMenu02="${XHacKingPro}Menu/02--Scanning & Vulnerability Assessment"
-xMenu03="${XHacKingPro}Menu/03--Web Application HacKing"
-xMenu04="${XHacKingPro}Menu/04--Database Assessment"
-xMenu05="${XHacKingPro}Menu/05--Password HacKing"
-xMenu06="${XHacKingPro}Menu/06--Wireless HacKing"
-xMenu07="${XHacKingPro}Menu/07--Exploit Frameworks & DataBases"
-xMenu08="${XHacKingPro}Menu/08--Post-Exploitation Frameworks"
-xMenu09="${XHacKingPro}Menu/09--Sniffing - Spoofing"
-xMenu11="${XHacKingPro}Menu/11--Digital Forensic"
-xMenu12="${XHacKingPro}Menu/12--Analysis & Reporting"
-xMenu14="${XHacKingPro}Menu/14--Privilege Enumeration & Escalation"
-xMenu15="${XHacKingPro}Menu/15--Malware Tools"
-xMenuM="${XHacKingPro}Menu/M--Monitoring"
-xMenuCC="${XHacKingPro}Menu/CC--Card Checker"
-xMenuCL="${XHacKingPro}Menu/CL--Check Lists"
-xMenuCS="${XHacKingPro}Menu/CS--Cheat Sheets"
-xMenuMH="${XHacKingPro}Menu/MH--Mobile HacKing"
-xMenuMV="${XHacKingPro}Menu/MV--Markdown Viewers"
-xMenuPT="${XHacKingPro}Menu/PT--Penetration Testing"
-xMenuRE="${XHacKingPro}Menu/RE--Reverse Engineering"
-xMenuRS="${XHacKingPro}Menu/RS--Reverse Shell"
-xMenuSE="${XHacKingPro}Menu/SE--Social Engineering"
-xMenuAIO="${XHacKingPro}Menu/AIO--All In One"
-xMenuCHT="${XHacKingPro}Menu/CHT--Car Hacking Tools"
-xMenuRAT="${XHacKingPro}Menu/RAT--Remote Access Trojan"
-xMenuSIP="${XHacKingPro}Menu/SIP--Session Initiation Protocol"
-xMenuWFA="${XHacKingPro}Menu/WFA--FireWall Applications"
-xMenuKoTH="${XHacKingPro}Menu/KoTH--King of The Hill"
-
-}
-xDirectories
 
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
 Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
 
-# Define Colors
+# Define Colors Variables
 HacKingProColors(){
 ##############################################################################
 # COLORS AND BACKGROUNDS
@@ -122,10 +87,47 @@ On_White='\033[47m'  # White
 }
 HacKingProColors
 
-# Logo Variable
+# Paths Directories to Tools
+xDirectories(){
+  XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
+  xMenu00="${XHacKingPro}Menu/00--Anonymity"
+  xMenu01="${XHacKingPro}Menu/01--Information Gathering"
+  xMenu02="${XHacKingPro}Menu/02--Scanning & Vulnerability Assessment"
+  xMenu03="${XHacKingPro}Menu/03--Web Application HacKing"
+  xMenu04="${XHacKingPro}Menu/04--Database Assessment"
+  xMenu05="${XHacKingPro}Menu/05--Password HacKing"
+  xMenu06="${XHacKingPro}Menu/06--Wireless HacKing"
+  xMenu07="${XHacKingPro}Menu/07--Exploit Frameworks & DataBases"
+  xMenu08="${XHacKingPro}Menu/08--Post-Exploitation Frameworks"
+  xMenu09="${XHacKingPro}Menu/09--Sniffing - Spoofing"
+  xMenu11="${XHacKingPro}Menu/11--Digital Forensic"
+  xMenu12="${XHacKingPro}Menu/12--Analysis & Reporting"
+  xMenu14="${XHacKingPro}Menu/14--Privilege Enumeration & Escalation"
+  xMenu15="${XHacKingPro}Menu/15--Malware Tools"
+  xMenuM="${XHacKingPro}Menu/M--Monitoring"
+  xMenuCC="${XHacKingPro}Menu/CC--Card Checker"
+  xMenuCL="${XHacKingPro}Menu/CL--Check Lists"
+  xMenuCS="${XHacKingPro}Menu/CS--Cheat Sheets"
+  xMenuMH="${XHacKingPro}Menu/MH--Mobile HacKing"
+  xMenuMV="${XHacKingPro}Menu/MV--Markdown Viewers"
+  xMenuPT="${XHacKingPro}Menu/PT--Penetration Testing"
+  xMenuRE="${XHacKingPro}Menu/RE--Reverse Engineering"
+  xMenuRS="${XHacKingPro}Menu/RS--Reverse Shell"
+  xMenuSE="${XHacKingPro}Menu/SE--Social Engineering"
+  xMenuAIO="${XHacKingPro}Menu/AIO--All In One"
+  xMenuCHT="${XHacKingPro}Menu/CHT--Car Hacking Tools"
+  xMenuRAT="${XHacKingPro}Menu/RAT--Remote Access Trojan"
+  xMenuSIP="${XHacKingPro}Menu/SIP--Session Initiation Protocol"
+  xMenuWFA="${XHacKingPro}Menu/WFA--FireWall Applications"
+  xMenuKoTH="${XHacKingPro}Menu/KoTH--King of The Hill"
+
+}
+xDirectories
+
+# HacKingPro Logo Variable
 HacKingProLogo1(){
   Anlominus="AnLoMinus"
-  MyVersion="${BGreen}v1.3.0.4"
+  MyVersion="${BGreen}v1.4.0.4"
   HacKingProLogo_1="$(
   echo "${BBlue}
 ${BRed}          █████   █████                    ${BYellow}█████   ████  ███                      ${BBlue}███████████
@@ -243,36 +245,39 @@ MainMenu(){
   clear
   HacKingProLogo1
   HacKingProMenuMain=$(echo "${BRed}
-          ${BBlue}[${BRed}#${BBlue}] 📜 Menu
+          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Main Menu
 
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
-
+          ${BRed}=======================================================================================
           ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System
-          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey}Planning and Scoping
+
 
           ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
-          ${BRed}[${BBlack}01${BRed}]${BBlue} - ${BBlack}Information Gathering
+          ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering
           ${BRed}[${DGrey}02${BRed}]${BBlue} - ${DGrey}Reconnaissance & Vulnerability Assessment
-          ${BRed}[${BBlack}03${BRed}]${BBlue} - ${BBlack}Web Application HacKing
+          ${BRed}[${BBlack}03${BRed}]${BBlue} - ${BBlack}Web Application HacKing 🕸
           ${BRed}[${BBlack}04${BRed}]${BBlue} - ${BBlack}Database Assessment
           ${BRed}[${BBlack}05${BRed}]${BBlue} - ${BBlack}Password HacKing
           ${BRed}[${BBlack}06${BRed}]${BBlue} - ${BBlack}Wireless HacKing
           ${BRed}[${BBlack}07${BRed}]${BBlue} - ${BBlack}Reverse Engineering
           ${BRed}[${BBlack}08${BRed}]${BBlue} - ${BBlack}Exploit Frameworks & DataBases
-          ${BRed}[${BBlack}09${BRed}]${BBlue} - ${BBlack}Sniffing - Spoofing
+          ${BRed}[${BBlack}09${BRed}]${BBlue} - ${BBlack}Sniffing - Spoofing 👃🏼
           ${BRed}[${BBlack}10${BRed}]${BBlue} - ${BBlack}Gaining & Maintaining Access
           ${BRed}[${BBlack}11${BRed}]${BBlue} - ${BBlack}Digital Forensic
           ${BRed}[${BBlack}12${BRed}]${BBlue} - ${BBlack}Analysis & Reporting
           ${BRed}[${BBlack}13${BRed}]${BBlue} - ${BBlack}Social Engineering
           ${BRed}[${BBlack}14${BRed}]${BBlue} - ${BBlack}Privilege Enumeration & Escalation
           ${BRed}[${BBlack}15${BRed}]${BBlue} - ${BBlack}Malware Analysis Labs/Tools
-          ${BRed}[${BBlack}16${BRed}]${BBlue} - ${BBlack}Covering Tracks
+          ${BRed}[${BBlack}16${BRed}]${BBlue} - ${BBlack}Covering Tracks 🫣
           ${BRed}[${BBlack}CS${BRed}]${BBlue} - ${BBlack}Cheat Sheets
           ${BRed}[${DGrey}KoTH${BRed}]${BBlue} - ${DGrey}🤴🏼 King of The Hill ⛰
+
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -405,14 +410,22 @@ ${BCyan}            └──╼ ")
         HacKingProLogo1
         HacKingProMenuMain=$(
         echo "${BRed}
-                ${BBlue}[${BRed}#${BBlue}] 📜 Menu
-                ${BBlue}[${BRed}#${BBlue}] 🗓  Date $(date)
+          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Anonymity Menu
 
-                ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
-                ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Nullog
-                ${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}MacChanger
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
 
-                ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+          ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
+          ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Nullog
+          ${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}MacChanger
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
       ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Anonymity ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
       ${BCyan}            └──╼ ")
@@ -467,14 +480,136 @@ ${BCyan}            └──╼ ")
         esac
       done
       }
-      echo "\n\t\t ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity"
-      echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting ${BYellow} Anonymity \n\t\t ${BGreen}"
-      read -p "$Press_Enter_To_START"
       Anonymity
       ;;
       1 )
+      clear
       echo "\n\t\t${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering"
       # Page Header
+      while true; do
+        #statements
+        clear
+        HacKingProLogo1
+        HacKingProMenuMain=$(echo "${BRed}
+          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Planning Menu
+
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
+
+
+                ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+
+      ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+      ${BCyan}            └──╼ ")
+          read -p "$HacKingProMenuMain" cmd
+          case $cmd in
+            p|P )
+            clear
+            HacKingProLogo1
+            cd $XHacKingPro
+            echo "\n\t\t${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n"
+            #
+            t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
+            read -p "$t2" targetNAME
+            if [ -z $targetNAME ]; then
+              #statements
+              targetNAME="ChangeMe"
+              echo "\n\t\t${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
+            fi
+            #
+            if [ -d Case ]; then
+              #statements
+              echo "\n\t\t${BRed}[${BYellow}Found!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
+              cd Case
+              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+              mkdir $targetNAME
+              cd $targetNAME
+              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
+              mkdir Planning
+              cd Planning
+            else
+              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+              mkdir Case
+              cd Case
+              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+              mkdir $targetNAME
+              cd $targetNAME
+              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
+              mkdir Planning
+              cd Planning
+            fi
+
+            #
+            file="${targetNAME}-HacKingPro-Planning-Log.md"
+            if [ -e ${file} ]; then
+              t5="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] ${BRed}File Exist! ${LRed}Remove it? [yY/nN]: ")"
+              read -p "$t5 " filexist
+              case $filexist in
+                y|Y)
+                echo "  ${BBlue}[${BGreen}!${BBlue}] ${BGreen}Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+                rm ${targetNAME}-HacKingPro-Planning-Log.md
+                ;;
+                n|N)
+                echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file and Add to it .."
+                ;;
+              esac
+            fi
+            # Recommended Open With `Atom` Editor For Normal View.
+            echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
+            echo "### Case Date: `date`" >> ${targetNAME}-HacKingPro-Planning-Log.md
+            echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+
+            #
+            t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
+            read -p "$t1" targetIP
+            if [ -z $targetIP ]; then
+              #statements
+              targetIP="127.0.0.1"
+              # targetIP=" "
+            fi
+            echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+            #
+            t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
+            read -p "$t3" targetEmail
+            if [ -z $targetEmail ]; then
+              #statements
+              targetEmail="ChangeMe"
+              echo "\n\t\t${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
+            fi
+            echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+            #
+            t4="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
+            read -p "$t4" targetPhone
+            if [ -z $targetPhone ]; then
+              #statements
+              targetPhone="ChangeMe"
+              echo "\n\t\t${BRed}Target Name: ${BRed} $targetPhone"
+            fi
+            echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+            #
+            ls
+            ;;
+
+            x|X|exit|quit|Exit )
+            clear
+            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+            break
+            ;;
+
+          esac
+        done
       ;;
       2 )
       if [ -z $targetIP ]; then
@@ -612,5 +747,3 @@ ${BCyan}            └──╼ ")
   done
 }
 MainMenu
-
-# RUN Functions
