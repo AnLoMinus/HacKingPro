@@ -507,14 +507,13 @@ ${BCyan}            └──╼ ${BGreen}")
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
 
-          ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting All in One${BRed}]:
+          ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting All in One${BRed}]
 
-          ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Machine Information${BRed}]:
+          ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Machine Information${BRed}]
 
-          ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]:
+          ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]
 
-          ${BRed}[${DGrey}CSI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Social Information${BRed}]:
-
+          ${BRed}[${DGrey}CSI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Social Information${BRed}]
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
