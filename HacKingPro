@@ -501,10 +501,27 @@ ${BCyan}            └──╼ ${BGreen}")
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
 
+          ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting All in One${BRed}]:
 
-          ${BRed}[${DGrey}1${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Data${BRed}]:\n${BWhite} -${DGrey} Such as \n${BWhite} -${DGrey} Public / Private and Associated Domain Names, \n${BWhite} -${DGrey} Network Hosts, \n${BWhite} -${DGrey} Public and Private IP Blocks, \n${BWhite} -${DGrey} Routing Tables, TCP and UDP Running Services, \n${BWhite} -${DGrey} SSL Certificates, \n${BWhite} -${DGrey} open ports and more.
+          ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Machine Information${BRed}]:
+                  ${BWhite} -${DGrey} This includes user enumeration,
+                  ${BWhite} -${DGrey} system groups,
+                  ${BWhite} -${DGrey} OS hostnames,
+                  ${BWhite} -${DGrey} OS system type (probably by fingerprinting),
+                  ${BWhite} -${DGrey} system banners (as seen in the banner grabbing blog post),
+                  ${BWhite} -${DGrey} etc.
 
-          ${BRed}[${DGrey}2${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting System-Related Information${BRed}]:\n${BWhite} -${DGrey} This includes user enumeration, system groups, OS hostnames, OS system type (probably by fingerprinting), system banners (as seen in the banner grabbing blog post), etc.
+          ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]:
+                  ${BWhite} -${DGrey} Such as
+                  ${BWhite} -${DGrey} Public / Private and Associated Domain Names,
+                  ${BWhite} -${DGrey} Network Hosts,
+                  ${BWhite} -${DGrey} Public and Private IP Blocks,
+                  ${BWhite} -${DGrey} Routing Tables, TCP and UDP Running Services,
+                  ${BWhite} -${DGrey} SSL Certificates,
+                  ${BWhite} -${DGrey} open ports and more.
+
+          ${BRed}[${DGrey}CSI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Social Information${BRed}]:
+
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -513,6 +530,12 @@ ${BCyan}            └──╼ ${BGreen}")
       ${BCyan}            └──╼ ${BGreen}")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
+            x|X|exit|quit|Exit )
+            clear
+            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+            break
+            ;;
             p|P )
             clear
             HacKingProLogo1
@@ -603,13 +626,93 @@ ${BCyan}            └──╼ ${BGreen}")
             #
             ls
             ;;
-            x|X|exit|quit|Exit )
-            clear
-            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
-            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
-            break
+            cni|CNI )
+            while true; do
+              #statements
+              clear
+              HacKingProLogo1
+              HacKingProMenuMain=$(echo "${BRed}
+          ${BBlue}[${BYellow}CNI${BBlue}] ${BYellow} 📜 Collecting Network Information Menu
+
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
+
+
+          ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]:
+                  ${BWhite} -${DGrey} Such as
+                  ${BWhite} -${DGrey} Public / Private and Associated Domain Names,
+                  ${BWhite} -${DGrey} Network Hosts,
+                  ${BWhite} -${DGrey} Public and Private IP Blocks,
+                  ${BWhite} -${DGrey} Routing Tables, TCP and UDP Running Services,
+                  ${BWhite} -${DGrey} SSL Certificates,
+                  ${BWhite} -${DGrey} open ports and more.
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+
+            ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+            ${BCyan}            └──╼ ${BGreen}")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                esac
+              done
+
+
             ;;
-            01|1 )
+
+            cmi|CMI )
+            while true; do
+              #statements
+              clear
+              HacKingProLogo1
+              HacKingProMenuMain=$(echo "${BRed}
+          ${BBlue}[${BYellow}CMI${BBlue}] ${BYellow} 📜 Collecting Machine Information Menu
+
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
+
+          ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Machine Information${BRed}]:
+                  ${BWhite} -${DGrey} This includes user enumeration,
+                  ${BWhite} -${DGrey} system groups,
+                  ${BWhite} -${DGrey} OS hostnames,
+                  ${BWhite} -${DGrey} OS system type (probably by fingerprinting),
+                  ${BWhite} -${DGrey} system banners (as seen in the banner grabbing blog post),
+                  ${BWhite} -${DGrey} etc.
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+
+            ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+            ${BCyan}            └──╼ ${BGreen}")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                esac
+              done
+
 
             ;;
 
@@ -619,8 +722,25 @@ ${BCyan}            └──╼ ${BGreen}")
       02|2 )
       if [ -z $targetIP ]; then
         #statements
-        echo "\n\t\t${BRed}[${BRed}X${BRed}]${BBlue} - ${BRed}Error; You need Enter IP Before Scanning; \n\t\t P On Keyboard and Come Back!!!"
-        sleep 1
+        clear
+        HacKingProLogo1
+        echo "
+          ${BBlue}[${BRed}ERROR${BBlue}] ${BYellow} ❌ ${BRed}Error; ${LRed}You need Enter IP Before Scanning;
+
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
+
+          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!!"
+
+
+        sleep 5
+
         MainMenu
       fi
       clear
