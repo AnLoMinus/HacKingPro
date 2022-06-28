@@ -283,7 +283,7 @@ MainMenu(){
 
 
 ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-${BCyan}            └──╼ ")
+${BCyan}            └──╼ ${BGreen}")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       p|P )
@@ -428,7 +428,7 @@ ${BCyan}            └──╼ ")
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
       ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} Anonymity ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-      ${BCyan}            └──╼ ")
+      ${BCyan}            └──╼ ${BGreen}")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
             # l )
@@ -510,7 +510,7 @@ ${BCyan}            └──╼ ")
 
 
       ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-      ${BCyan}            └──╼ ")
+      ${BCyan}            └──╼ ${BGreen}")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
             p|P )
@@ -603,12 +603,14 @@ ${BCyan}            └──╼ ")
             #
             ls
             ;;
-
             x|X|exit|quit|Exit )
             clear
             HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
             echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
             break
+            ;;
+            01|1 )
+
             ;;
 
           esac
