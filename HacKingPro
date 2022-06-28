@@ -54,6 +54,8 @@ xMenuCHT="${XHacKingPro}Menu/CHT--Car Hacking Tools"
 xMenuRAT="${XHacKingPro}Menu/RAT--Remote Access Trojan"
 xMenuSIP="${XHacKingPro}Menu/SIP--Session Initiation Protocol"
 xMenuWFA="${XHacKingPro}Menu/WFA--FireWall Applications"
+xMenuKoTH="${XHacKingPro}Menu/KoTH--King of The Hill"
+
 }
 xDirectories
 
@@ -270,6 +272,7 @@ MainMenu(){
           ${BRed}[${BBlack}15${BRed}]${BBlue} - ${BBlack}Malware Analysis Labs/Tools
           ${BRed}[${BBlack}16${BRed}]${BBlue} - ${BBlack}Covering Tracks
           ${BRed}[${BBlack}CS${BRed}]${BBlue} - ${BBlack}Cheat Sheets
+          ${BRed}[${DGrey}KoTH${BRed}]${BBlue} - ${DGrey}🤴🏼 King of The Hill ⛰
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -594,6 +597,10 @@ ${BCyan}            └──╼ ")
       ;;
       cs|CS )
       Arsenal
+      ;;
+      koth|Koth|KoTH|KOTH )
+      cd $xMenuKoTH
+      sh KoTH
       ;;
       x|X|exit|quit|Exit )
       clear
