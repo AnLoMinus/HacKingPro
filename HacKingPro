@@ -375,7 +375,7 @@ ${BCyan}            └──╼ ")
 
       #
       ls
-
+      cd $XHacKingPro
       ;;
       li|LI )
       clear
@@ -410,7 +410,7 @@ ${BCyan}            └──╼ ")
         HacKingProLogo1
         HacKingProMenuMain=$(
         echo "${BRed}
-          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Anonymity Menu
+          ${BBlue}[${BYellow}00${BBlue}] ${BYellow} 📜 Anonymity Menu
 
           ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
@@ -482,16 +482,15 @@ ${BCyan}            └──╼ ")
       }
       Anonymity
       ;;
-      1 )
+      01|1 )
       clear
-      echo "\n\t\t${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering"
       # Page Header
       while true; do
         #statements
         clear
         HacKingProLogo1
         HacKingProMenuMain=$(echo "${BRed}
-          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Planning Menu
+          ${BBlue}[${BYellow}01${BBlue}] ${BYellow} 📜 Information Gathering Menu
 
           ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
@@ -503,7 +502,11 @@ ${BCyan}            └──╼ ")
           ${BRed}=======================================================================================
 
 
-                ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+          ${BRed}[${DGrey}1${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Data${BRed}]:\n${BWhite} -${DGrey} Such as \n${BWhite} -${DGrey} Public / Private and Associated Domain Names, \n${BWhite} -${DGrey} Network Hosts, \n${BWhite} -${DGrey} Public and Private IP Blocks, \n${BWhite} -${DGrey} Routing Tables, TCP and UDP Running Services, \n${BWhite} -${DGrey} SSL Certificates, \n${BWhite} -${DGrey} open ports and more.
+
+          ${BRed}[${DGrey}2${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting System-Related Information${BRed}]:\n${BWhite} -${DGrey} This includes user enumeration, system groups, OS hostnames, OS system type (probably by fingerprinting), system banners (as seen in the banner grabbing blog post), etc.
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
 
       ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} HacKingPro ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
@@ -611,7 +614,7 @@ ${BCyan}            └──╼ ")
           esac
         done
       ;;
-      2 )
+      02|2 )
       if [ -z $targetIP ]; then
         #statements
         echo "\n\t\t${BRed}[${BRed}X${BRed}]${BBlue} - ${BRed}Error; You need Enter IP Before Scanning; \n\t\t P On Keyboard and Come Back!!!"
@@ -701,13 +704,13 @@ ${BCyan}            └──╼ ")
       echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       ;;
-      3 )
+      03|3 )
       echo "\n\t\t${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}Web Application HacKing"
       ;;
-      4 )
+      04|4 )
       echo "\n\t\t${BRed}[${LGrey}04${BRed}]${BBlue} - ${DGrey}Database Assessment"
       ;;
-      5 )
+      05|5 )
       echo "\n\t\t${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing"
       ;;
       i|I )
