@@ -44,19 +44,21 @@
   - [x] I - Install HacKingPro On the System
 
 - [x] P - Planning and Scoping
-    > <img width="955" alt="image" src="https://user-images.githubusercontent.com/51442719/176049977-fafbbe85-faa7-4da9-b881-e76a7af612ab.png">
+  > <img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/176260747-9eae8ce3-44d7-43a0-9656-1b67df86a8af.png">
     - [x] Asking for Target IP:
     - [x] Asking for Target Name:
     - [x] Asking for Target Phone:
     - [x] Asking for Target Email:
 
 - [x] A - [Anonymity](./Menu/00--Anonymity)
+  > <img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/176260939-4eb78d05-5372-4767-ab84-22603ee047a5.png">
   
 - [x] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
-  - [x] LI - [`Local Information`]()
+  > <img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/176260817-859e2c78-35cc-45c4-ac59-808760d929ae.png">
   - [x] CAO - [`Collecting All in One`]():
   - [x] CNI - [`Collecting Network Information`](): 
   - [x] CMI - [`Collecting Machine Information`]():  
+    - [x] LI - [`Local Information`]()
   - [x] CSI - [`Collecting Social Information`]():  
 
 - [x] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
