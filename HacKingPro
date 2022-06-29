@@ -308,6 +308,13 @@ MainMenu(){
           ${BCyan}└──╼ ${BGreen}")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
+      test )
+      clear
+      DoSomething=$(arp -a)
+      PrintSomeThing=$(echo "\n\n`date`\n\n$DoSomething" )
+      echo "$PrintSomeThing"
+      read -p "$Press_ENTER"
+      ;;
       ls )
       ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
       echo "$ls_lahs"
@@ -454,6 +461,7 @@ MainMenu(){
           ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
           ${BRed}[${LGrey}02${BRed}]${BBlue} - ${DGrey}Nullog
           ${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}MacChanger
+          ${BRed}[${LGrey}04${BRed}]${BBlue} - ${DGrey}CoverMyAss
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -508,7 +516,14 @@ MainMenu(){
             3|03 )
             clear
             cd $xMenu00/MacChanger
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting MacChanger \n\t\t ${BGreen}"
             sh macchanger.sh
+            ;;
+            4|04 )
+            clear
+            cd $xMenu00/CoverMyAss
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting CoverMyAss \n\t\t ${BGreen}"
+            sh CoverMyAss
             ;;
             x|X|exit|EXIT )
             cd $XHacKingPro
@@ -876,11 +891,16 @@ MainMenu(){
       echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetNAME}-HacKingPro-Recon-Log.md
       echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
       #
+      xMenu02_arp=$(arp -an)
+      xMenu02_arp_x=$(
       echo "\n\t\t${BGreen}### Arp Scan Log"
       echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
       echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo " `arp -an` " >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " $xMenu02_arp " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.)
+      echo "$xMenu02_arp_x"
+
+
       #
       echo "\n\t\t${BGreen}### TraceRoute Scan Log"
       echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
