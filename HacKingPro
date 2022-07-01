@@ -115,13 +115,13 @@ echo "$HacKingProLogo_1"
 
 # Paths Directories to Tools
 xDirectories(){
-  XHacKingPro="$HOME/HacKingPro"
+  XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
   xMenu00="${XHacKingPro}/Menu/00--Anonymity"
   xMenu01="${XHacKingPro}/Menu/01--Information Gathering"
   xMenu01_CAO="${XHacKingPro}/Menu/01--Information Gathering/CAO - Collecting All in One/"
   xMenu01_CNI="${XHacKingPro}/Menu/01--Information Gathering/CNI - Collecting Network Information/"
+  xMenu01_CNI_reconFTW="${XHacKingPro}/Menu/01--Information Gathering/CNI - Collecting Network Information/reconFTW/"
   xMenu01_CMI="${XHacKingPro}/Menu/01--Information Gathering/CMI - Collecting Machine Information/"
-  xMenu01_CMI_LI="${XHacKingPro}/Menu/01--Information Gathering/CMI - Collecting Machine Information/LI - Local Information/"
   xMenu01_CSI="${XHacKingPro}/Menu/01--Information Gathering/CSI - Collecting Social Information/"
   xMenu02="${XHacKingPro}/Menu/02--Scanning & Vulnerability Assessment"
   xMenu03="${XHacKingPro}/Menu/03--Web Application HacKing"
@@ -153,24 +153,26 @@ xDirectories(){
   xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill"
   if [ $XHacKingPro == $HacKingProPWD ]; then
     #statements
-    XHacKingPro="$HOME/HacKingPro"
-    HacKingProLogo1
-    cd $XHacKingPro
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
-    ls -lahs
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan} $HOME/HacKingPro/Menu\n"
-    ls  Menu
-    read -p "${Press_Enter_To_START}"
-  else
     XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
     HacKingProLogo1
     # cd $XHacKingPro
     echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
     ls -lahs
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan} $HOME/HacKingPro/Menu\n"
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingPro/Menu\n"
+    ls  Menu
+    echo "\n\n\t\t XHacKingPro=$XHacKingPro"
+    read -p "${Press_Enter_To_START}"
+  else
+    XHacKingPro="$HOME/HacKingPro"
+    HacKingProLogo1
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
+    ls -lahs
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingPro/Menu\n"
     ls  Menu
     read -p "${Press_Enter_To_START}"
+    echo "\n\n\t\t XHacKingPro=$HOME/HacKingPro"
   fi
+  echo "\n\n\t\t XHacKingPro=$HOME/HacKingPro"
 
 }
 xDirectories
@@ -712,8 +714,7 @@ MainMenu(){
             cni|CNI )
             while true; do
               #statements
-              cd $xMenu01_CNI
-              cd "SubDomain Information"
+              cd "$xMenu01_CNI"
               clear
               HacKingProLogo1
               HacKingProMenuMain=$(echo "${BRed}
@@ -728,6 +729,7 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
 
+          ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}ReconFTW
           ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}Bolt
           ${BRed}[${DGrey}02${BRed}]${BBlue} - ${DGrey}DNSExplorer
           ${BRed}[${DGrey}03${BRed}]${BBlue} - ${DGrey}Knock
@@ -749,7 +751,7 @@ MainMenu(){
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
           ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-          ${BCyan}└──╼ ${BGreen}")
+          ${BCyan}└──╼ ${BGreen}  ")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   x|X|exit|quit|Exit )
@@ -759,6 +761,18 @@ MainMenu(){
                   break
                   ;;
                   0|00 )
+                  cd "$xMenu01_CNI_reconFTW"
+                  #statements
+                  read -p "$Press_Enter_To_START"
+                  ./reconftw.sh -d $targetIP.com -r
+                  if [ $? == 1 ]; then
+                    #statements
+                    ./install.sh
+                    read -p "$Press_ENTER"
+                  fi
+                  read -p "$Press_ENTER"
+                  ;;
+                  1|01 )
                   read -p "$Press_Enter_To_START"
                   cd Bolt
                   python3 bolt.py -u https://github.com -l 2 -t 10
@@ -772,6 +786,7 @@ MainMenu(){
                   read -p "$Press_ENTER"
                   ;;
                   6|06 )
+                  cd "SubDomain Information"
                   read -p "$Press_Enter_To_START"
                   cd Sublist3r
                   python sublist3r.py -d www.$targetIP.com
