@@ -19,11 +19,11 @@ echo -e "$COLOR1 + -- --=[ BruteX by @xer0dayz$RESET"
 echo -e "$COLOR1 + -- --=[ https://sn1persecurity.com$RESET"
 echo -e "$RESET"
 
-BRUTEX_INSTALL_DIR=/usr/share/brutex
+BRUTEX_INSTALL_DIR=$HOME/brutex
 
 echo -e "$OKBLUE[*]$RESET Installing brutex under $BRUTEX_INSTALL_DIR..."
 mkdir -p $BRUTEX_INSTALL_DIR 2> /dev/null
-cp -Rf $PWD/* $BRUTEX_INSTALL_DIR 
+cp -Rf $PWD/* $BRUTEX_INSTALL_DIR
 cd $BRUTEX_INSTALL_DIR
 apt-get update
 apt-get install -y nmap hydra dnsenum
@@ -35,5 +35,3 @@ cp -f $BRUTEX_INSTALL_DIR/brutex.desktop /usr/share/applications/ 2> /dev/null
 cp -f $BRUTEX_INSTALL_DIR/brutex.desktop /usr/share/applications/brutex.desktop 2> /dev/null
 cp -f $BRUTEX_INSTALL_DIR/brutex.desktop /usr/share/kali-menu/applications/brutex.desktop2> /dev/null
 echo -e "$OKBLUE[*]$RESET Done! $RESET"
-
-

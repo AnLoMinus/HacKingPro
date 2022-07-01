@@ -20,7 +20,7 @@ Anlominus="Anlominus"
 # Source: https://github.com/Anlominus/HacKingPro
 ###############################################
 clear
-
+chmod +x HacKingPro
 # Directories
 
 # Define Colors Variables
@@ -259,6 +259,99 @@ Arsenal(){
 
 }
 
+# Planning and Scoping
+HacKingProPlanning(){
+  clear
+  HacKingProLogo1
+  cd $XHacKingPro
+  echo "\n\t\t${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n"
+  #
+  t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
+  read -p "$t2" targetNAME
+  if [ -z $targetNAME ]; then
+    #statements
+    targetNAME="ChangeMe"
+    echo "\n\t\t${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
+  fi
+  #
+  if [ -d Case ]; then
+    #statements
+    echo "\n\t\t${BRed}[${BYellow}Found!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
+    cd Case
+    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+    mkdir $targetNAME
+    cd $targetNAME
+    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
+    mkdir Planning
+    cd Planning
+  else
+    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+    mkdir Case
+    cd Case
+    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+    mkdir $targetNAME
+    cd $targetNAME
+    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
+    mkdir Planning
+    cd Planning
+  fi
+
+  #
+  file="${targetNAME}-HacKingPro-Planning-Log.md"
+  if [ -e ${file} ]; then
+    t5="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] ${BRed}File Exist! ${LRed}Remove it? [yY/nN]: ")"
+    read -p "$t5 " filexist
+    case $filexist in
+      y|Y)
+      echo "  ${BBlue}[${BGreen}!${BBlue}] ${BGreen}Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+      rm ${targetNAME}-HacKingPro-Planning-Log.md
+      ;;
+      n|N)
+      echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file and Add to it .."
+      ;;
+    esac
+  fi
+  # Recommended Open With `Atom` Editor For Normal View.
+  echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
+  echo "### Case Date: `date`" >> ${targetNAME}-HacKingPro-Planning-Log.md
+  echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+
+  #
+  t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
+  read -p "$t1" targetIP
+  if [ -z $targetIP ]; then
+    #statements
+    targetIP="127.0.0.1"
+    # targetIP=" "
+  fi
+  echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+  #
+  t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
+  read -p "$t3" targetEmail
+  if [ -z $targetEmail ]; then
+    #statements
+    targetEmail="ChangeMe"
+    echo "\n\t\t${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
+  fi
+  echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+  #
+  t4="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
+  read -p "$t4" targetPhone
+  if [ -z $targetPhone ]; then
+    #statements
+    targetPhone="ChangeMe"
+    echo "\n\t\t${BRed}Target Name: ${BRed} $targetPhone"
+  fi
+  echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+  #
+  ls
+  cd $XHacKingPro
+}
+
 # HacKingPro Main Menu
 MainMenu(){
   while true; do
@@ -324,95 +417,7 @@ MainMenu(){
       read -p "$ls_lahs" cmd
       ;;
       p|P )
-      clear
-      HacKingProLogo1
-      cd $XHacKingPro
-      echo "\n\t\t${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n"
-      #
-      t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
-      read -p "$t2" targetNAME
-      if [ -z $targetNAME ]; then
-        #statements
-        targetNAME="ChangeMe"
-        echo "\n\t\t${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
-      fi
-      #
-      if [ -d Case ]; then
-        #statements
-        echo "\n\t\t${BRed}[${BYellow}Found!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
-        cd Case
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
-        mkdir $targetNAME
-        cd $targetNAME
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
-        mkdir Planning
-        cd Planning
-      else
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
-        mkdir Case
-        cd Case
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
-        mkdir $targetNAME
-        cd $targetNAME
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
-        mkdir Planning
-        cd Planning
-      fi
-
-      #
-      file="${targetNAME}-HacKingPro-Planning-Log.md"
-      if [ -e ${file} ]; then
-        t5="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] ${BRed}File Exist! ${LRed}Remove it? [yY/nN]: ")"
-        read -p "$t5 " filexist
-        case $filexist in
-          y|Y)
-          echo "  ${BBlue}[${BGreen}!${BBlue}] ${BGreen}Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-          rm ${targetNAME}-HacKingPro-Planning-Log.md
-          ;;
-          n|N)
-          echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file and Add to it .."
-          ;;
-        esac
-      fi
-      # Recommended Open With `Atom` Editor For Normal View.
-      echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
-      echo "### Case Date: `date`" >> ${targetNAME}-HacKingPro-Planning-Log.md
-      echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-
-
-      #
-      t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
-      read -p "$t1" targetIP
-      if [ -z $targetIP ]; then
-        #statements
-        targetIP="127.0.0.1"
-        # targetIP=" "
-      fi
-      echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-
-      #
-      t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
-      read -p "$t3" targetEmail
-      if [ -z $targetEmail ]; then
-        #statements
-        targetEmail="ChangeMe"
-        echo "\n\t\t${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
-      fi
-      echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-
-      #
-      t4="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
-      read -p "$t4" targetPhone
-      if [ -z $targetPhone ]; then
-        #statements
-        targetPhone="ChangeMe"
-        echo "\n\t\t${BRed}Target Name: ${BRed} $targetPhone"
-      fi
-      echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-
-      #
-      ls
-      cd $XHacKingPro
+      HacKingProPlanning
       ;;
       li|LI )
       clear
@@ -555,10 +560,10 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
 
-          ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting All in One${BRed}]
-          ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Machine Information${BRed}]
-          ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]
-          ${BRed}[${DGrey}CSI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Social Information${BRed}]
+          ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${DGrey}All in One
+          ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${DGrey}Machine Information
+          ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${DGrey}Network Information
+          ${BRed}[${DGrey}CSI${BRed}]${BBlue} - ${DGrey}Social Information
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -710,6 +715,7 @@ MainMenu(){
             while true; do
               #statements
               cd $xMenu01_CNI
+              cd "SubDomain Information"
               clear
               HacKingProLogo1
               HacKingProMenuMain=$(echo "${BRed}
@@ -724,7 +730,16 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
 
-          ${BRed}[${DGrey}CNI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Network Information${BRed}]:
+          ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}Bolt
+          ${BRed}[${DGrey}02${BRed}]${BBlue} - ${DGrey}DNSExplorer
+          ${BRed}[${DGrey}03${BRed}]${BBlue} - ${DGrey}Knock
+          ${BRed}[${DGrey}04${BRed}]${BBlue} - ${DGrey}README.md
+          ${BRed}[${DGrey}05${BRed}]${BBlue} - ${DGrey}ReconDog
+          ${BRed}[${DGrey}06${BRed}]${BBlue} - ${DGrey}Sublist3r
+          ${BRed}[${DGrey}07${BRed}]${BBlue} - ${DGrey}Subrake
+          ${BRed}[${DGrey}08${BRed}]${BBlue} - ${DGrey}XRCross
+
+
                   ${BWhite} -${DGrey} Public / Private and Associated,
                   ${BWhite} -${DGrey} Domain Names,
                   ${BWhite} -${DGrey} Network Hosts,
@@ -745,10 +760,34 @@ MainMenu(){
                   echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
                   break
                   ;;
+                  0|00 )
+                  read -p "$Press_Enter_To_START"
+                  cd Bolt
+                  python3 bolt.py -u https://github.com -l 2 -t 10
+                  if [ $? == 1 ]; then
+                    #statements
+                    pip3 install -r requirements.txt
+                    python3 bolt.py
+                    # python3 bolt.py -u https://github.com -l 2 -t 10
+                  fi
+                  clear
+                  read -p "$Press_ENTER"
+                  ;;
+                  6|06 )
+                  read -p "$Press_Enter_To_START"
+                  cd Sublist3r
+                  python sublist3r.py -d www.$targetIP.com
+                  if [ $? == 1 ]; then
+                    #statements
+                    pip install -r requirements.txt
+                    pip install requests
+                    pip install dnspython
+                    pip install argparse
+                  fi
+                  read -p "$Press_ENTER"
+                  ;;
                 esac
               done
-
-
             ;;
             cmi|CMI )
             while true; do
@@ -768,7 +807,6 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
 
-          ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Machine Information${BRed}]:
                   ${BWhite} -${DGrey} User Enumeration,
                   ${BWhite} -${DGrey} System Groups,
                   ${BWhite} -${DGrey} OS Hostnames,
@@ -793,7 +831,7 @@ MainMenu(){
             csi|CSI )
             while true; do
               #statements
-              cd $xMenu01_CMI
+              cd $xMenu01_CSI
               clear
               HacKingProLogo1
               HacKingProMenuMain=$(echo "${BRed}
@@ -808,8 +846,7 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
 
-          ${BRed}[${DGrey}CSI${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting Social Information${BRed}]:
-                  ${BWhite} -${DGrey} This is OSINT Tools
+          ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey} E4GL30S1NT
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -822,6 +859,16 @@ MainMenu(){
                   HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
                   echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
                   break
+                  ;;
+                  1|01 )
+                  read -p "$Press_Enter_To_START" readstart
+                  cd E4GL30S1NT
+                  python3 E4GL30S1NT.py
+                  if [ $? == 1 ]; then
+                    #statements
+                    bash linuxinstall.sh
+
+                  fi
                   ;;
                 esac
               done
