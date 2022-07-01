@@ -84,7 +84,7 @@ On_White='\033[47m'  # White
 HacKingProColors
 
 Anlominus="AnLoMinus"
-MyVersion="${BGreen}v4.0.0.4"
+MyVersion="${BGreen}v4.6.0.4"
 
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 HacKingProPWD=$(pwd)
@@ -256,6 +256,41 @@ Arsenal(){
     read -p "$Press_ENTER" ReaDone
   fi
   cd ..
+
+}
+
+# Checking Cheatsheets
+Checking_IP_Target(){
+  if [ -z $targetIP ]; then
+    #statements
+    clear
+    HacKingProLogo1
+    echo "
+      ${BBlue}[${BRed}ERROR${BBlue}] ${BYellow} ❌ ${BRed}Error; ${LRed}You need Enter IP Before Scanning;
+
+      ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+      ${BRed}=======================================================================================
+      ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+      ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+      ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+      ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+      ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+      ${BRed}======================================================================================="
+
+      echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+      sleep 1
+      echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+      sleep 1
+      echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+      sleep 1
+      echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+      sleep 1
+      echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
+      sleep 1
+      read -p "$Press_ENTER" readthat
+      cd "$XHacKingPro"
+
+  fi
 
 }
 
@@ -822,36 +857,7 @@ MainMenu(){
         done
       ;;
       02|2 )
-      if [ -z $targetIP ]; then
-        #statements
-        cd "$xMenu02"
-        clear
-        HacKingProLogo1
-        echo "
-          ${BBlue}[${BRed}ERROR${BBlue}] ${BYellow} ❌ ${BRed}Error; ${LRed}You need Enter IP Before Scanning;
-
-          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
-          ${BRed}=======================================================================================
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
-          ${BRed}======================================================================================="
-
-          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
-          sleep 1
-          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
-          sleep 1
-          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
-          sleep 1
-          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
-          sleep 1
-          echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
-          sleep 1
-
-        MainMenu
-      fi
+      Checking_IP_Target
       clear
       HacKingProLogo1
       cd $XHacKingPro
@@ -947,8 +953,8 @@ MainMenu(){
       echo "\n\t\t${BRed}[${LGrey}04${BRed}]${BBlue} - ${DGrey}Database Assessment"
       ;;
       05|5 )
+      cd "$xMenu05"
       Brutex(){
-        cd "$xMenu05"
         cd Brutex
         # TARGET="$1"
         # PORT="$2"
@@ -990,18 +996,8 @@ MainMenu(){
         #export HYDRA_PROXY=socks4://127.0.0.1:9050
 
         if [ -z $targetIP ]; then
-          echo "$COLOR1 __________                __         ____  ___$Color_Off"
-          echo "$COLOR1 \______   \_______ __ ___/  |_  ____ \   \/  /$Color_Off"
-          echo "$COLOR1  |    |  _/\_  __ \  |  \   __\/ __ \ \     / $Color_Off"
-          echo "$COLOR1  |    |   \ |  | \/  |  /|  | \  ___/ /     \ $Color_Off"
-          echo "$COLOR1  |______  / |__|  |____/ |__|  \___  >___/\  \ $Color_Off"
-          echo "$COLOR1         \/                         \/      \_/$Color_Off"
-          echo ""
-          echo "$COLOR1 + -- --=[ BruteX v$VER by @xer0dayz$Color_Off"
-          echo "$COLOR1 + -- --=[ https://sn1persecurity.com$Color_Off"
-          echo "$COLOR1 + -- --=[ Usage: brutex <target> <port>"
-          echo "$Color_Off"
-          exit
+          Checking_IP_Target
+          break
         fi
 
         DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
@@ -1014,8 +1010,6 @@ MainMenu(){
         echo "$COLOR1         \/                         \/      \_/$Color_Off"
         echo ""
         echo "$COLOR1 + -- --=[ BruteX v$VER by @xer0dayz$Color_Off"
-        echo "$COLOR1 + -- --=[ http://sn1persecurity.com$Color_Off"
-        echo ""
         echo ""
 
         echo "$COLOR3################################### Running Port Scan ##############################$Color_Off"
@@ -1279,7 +1273,9 @@ MainMenu(){
 
         echo ""
         echo "$COLOR3################################### Done! ###########################################$Color_Off"
+        cd "$xMenu05 "
         read -p "$Press_ENTER" readthat
+        break
       }
       MainMenu(){
         while true; do
@@ -1313,10 +1309,11 @@ MainMenu(){
             1|01 )
             Brutex
             # read -p "$Press_ENTER" readthat
+            cd "$xMenu05"
             ;;
             x|X|exit|quit|Exit )
             clear
-            echo "$HacKingProExit"
+            cd "$XHacKingPro"
             break
             ;;
 
