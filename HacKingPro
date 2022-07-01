@@ -276,22 +276,22 @@ HacKingProPlanning(){
   #
   if [ -d Case ]; then
     #statements
-    echo "\n\t\t${BRed}[${BYellow}Found!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
+    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
     cd Case
-    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
     mkdir $targetNAME
     cd $targetNAME
-    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
+    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
     mkdir Planning
     cd Planning
   else
-    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
     mkdir Case
     cd Case
-    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
     mkdir $targetNAME
     cd $targetNAME
-    echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
+    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
     mkdir Planning
     cd Planning
   fi
@@ -392,8 +392,8 @@ MainMenu(){
           ${BRed}[${BBlack}14${BRed}]${BBlue} - ${BBlack}Privilege Enumeration & Escalation
           ${BRed}[${BBlack}15${BRed}]${BBlue} - ${BBlack}Malware Analysis Labs/Tools
           ${BRed}[${BBlack}16${BRed}]${BBlue} - ${BBlack}Covering Tracks 🫣
-          ${BRed}[${BBlack}CS${BRed}]${BBlue} - ${BBlack}Cheat Sheets
-          ${BRed}[${DGrey}KoTH${BRed}]${BBlue} - ${DGrey}🤴🏼 King of The Hill ⛰
+          ${BRed}[${DGrey}CS${BRed}]${BBlue} - ${DGrey}Cheat Sheets [${BCyan}Arsenal${DGrey}]
+          ${BRed}[${BYellow}KoTH${BRed}]${BBlue} - ${BYellow}🤴🏼 King of The Hill ⛰
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -483,6 +483,9 @@ MainMenu(){
             # sleep 0.3
             # echo "${BYellow}"
             # ;;
+            p|P )
+            HacKingProPlanning
+            ;;
             ls )
             ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
             echo "$ls_lahs"
@@ -580,93 +583,7 @@ MainMenu(){
             read -p "$ls_lahs" cmd
             ;;
             p|P )
-            clear
-            HacKingProLogo1
-            cd $XHacKingPro
-            echo "\n\t\t${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n"
-            #
-            t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
-            read -p "$t2" targetNAME
-            if [ -z $targetNAME ]; then
-              #statements
-              targetNAME="ChangeMe"
-              echo "\n\t\t${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
-            fi
-            #
-            if [ -d Case ]; then
-              #statements
-              echo "\n\t\t${BRed}[${BYellow}Found!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
-              cd Case
-              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
-              mkdir $targetNAME
-              cd $targetNAME
-              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
-              mkdir Planning
-              cd Planning
-            else
-              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
-              mkdir Case
-              cd Case
-              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
-              mkdir $targetNAME
-              cd $targetNAME
-              echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
-              mkdir Planning
-              cd Planning
-            fi
-
-            #
-            file="${targetNAME}-HacKingPro-Planning-Log.md"
-            if [ -e ${file} ]; then
-              t5="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] ${BRed}File Exist! ${LRed}Remove it? [yY/nN]: ")"
-              read -p "$t5 " filexist
-              case $filexist in
-                y|Y)
-                echo "  ${BBlue}[${BGreen}!${BBlue}] ${BGreen}Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-                rm ${targetNAME}-HacKingPro-Planning-Log.md
-                ;;
-                n|N)
-                echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file and Add to it .."
-                ;;
-              esac
-            fi
-            # Recommended Open With `Atom` Editor For Normal View.
-            echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
-            echo "### Case Date: `date`" >> ${targetNAME}-HacKingPro-Planning-Log.md
-            echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-
-
-            #
-            t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
-            read -p "$t1" targetIP
-            if [ -z $targetIP ]; then
-              #statements
-              targetIP="127.0.0.1"
-              # targetIP=" "
-            fi
-            echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-
-            #
-            t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
-            read -p "$t3" targetEmail
-            if [ -z $targetEmail ]; then
-              #statements
-              targetEmail="ChangeMe"
-              echo "\n\t\t${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
-            fi
-            echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-
-            #
-            t4="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
-            read -p "$t4" targetPhone
-            if [ -z $targetPhone ]; then
-              #statements
-              targetPhone="ChangeMe"
-              echo "\n\t\t${BRed}Target Name: ${BRed} $targetPhone"
-            fi
-            echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-
-            ls
+            HacKingProPlanning
             ;;
             x|X|exit|quit|Exit )
             clear
