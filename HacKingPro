@@ -380,7 +380,7 @@ MainMenu(){
           ${BRed}[${DGrey}02${BRed}]${BBlue} - ${DGrey}Reconnaissance & Vulnerability Assessment
           ${BRed}[${BBlack}03${BRed}]${BBlue} - ${BBlack}Web Application HacKing 🕸
           ${BRed}[${BBlack}04${BRed}]${BBlue} - ${BBlack}Database Assessment
-          ${BRed}[${BBlack}05${BRed}]${BBlue} - ${BBlack}Password HacKing
+          ${BRed}[${DGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing
           ${BRed}[${BBlack}06${BRed}]${BBlue} - ${BBlack}Wireless HacKing
           ${BRed}[${BBlack}07${BRed}]${BBlue} - ${BBlack}Reverse Engineering
           ${BRed}[${BBlack}08${BRed}]${BBlue} - ${BBlack}Exploit Frameworks & DataBases
@@ -553,6 +553,7 @@ MainMenu(){
         HacKingProLogo1
         HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BYellow}01${BBlue}] ${BYellow} 📜 Information Gathering Menu
+          
 
           ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
@@ -920,7 +921,49 @@ MainMenu(){
       ;;
       05|5 )
       echo "\n\t\t${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing"
-      ;;
+      MainMenu(){
+        while true; do
+        #statements
+        clear
+        HacKingProLogo1
+        HacKingProTargetStatus=$(echo "\n
+          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
+
+        HacKingProMenuMain=$(echo "${BRed}
+          ${BBlue}[${BYellow}05${BBlue}] ${BYellow} 📜 Password HacKing Menu"
+
+          echo "$HacKingProTargetStatus""
+
+          ${BRed}[${BYellow}KoTH${BRed}]${BBlue} - ${BYellow}🤴🏼 King of The Hill ⛰
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}└──╼ ${BGreen}")
+          read -p "$HacKingProMenuMain" cmd
+          case $cmd in
+            1|01 )
+            read -p "$Press_ENTER" readthat
+            ;;
+            x|X|exit|quit|Exit )
+            clear
+            echo "$HacKingProExit"
+            break
+            ;;
+
+          esac
+        done
+      }
+      MainMenu
+            ;;
       i|I )
       echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${BYellow}Installing HacKingPro On the System \n"
       sleep 1
@@ -1108,16 +1151,12 @@ MainMenu(){
           ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
 
         KoTHMenuMain=$(echo "${BRed}
-          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Main Menu ⌖"
+          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 KoTH Main Menu ⌖"
 
           echo "$HacKingProTargetStatus""
 
           ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
-          ${BRed}[${LGrey}1${BRed}]${BBlue} -${DGrey} Planning and Scoping
-          ${BRed}[${LGrey}2${BRed}]${BBlue} -${DGrey} Reconnaissance & Vulnerability Assessment
-          ${BRed}[${LGrey}3${BRed}]${BBlue} -${DGrey} Gaining Access & Maintaining Access
-          ${BRed}[${LGrey}4${BRed}]${BBlue} -${DGrey} Covering tracks
-          ${BRed}[${LGrey}5${BRed}]${BBlue} -${DGrey} Analysis & Reporting
+          ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
 
           ${BRed}[${BBlue}i${BRed}]${BBlue} -${BBlue} Installing KoTH on The System
 
