@@ -157,18 +157,18 @@ xDirectories(){
     HacKingProLogo1
     cd $XHacKingPro
     echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Running Direction: ${BCyan} $HOME/HacKingPro\n"
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan}ls Menu\n\n"
-    ls Menu
+    ls -lahs
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan} $HOME/HacKingPro/Menu\n"
+    ls  Menu
     read -p "${Press_Enter_To_START}"
   else
     XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
     HacKingProLogo1
     # cd $XHacKingPro
     echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Running Direction: ${BCyan} $HacKingProPWD\n"
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan}ls Menu\n\n"
-    ls Menu
+    ls -lahs
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan} $HOME/HacKingPro/Menu\n"
+    ls  Menu
     read -p "${Press_Enter_To_START}"
   fi
 
@@ -231,11 +231,22 @@ Check_System
 Arsenal(){
   clear
   # Getting Arsenal Cheatsheets
+  if [ -d == ./Arsenal ]; then
+    #statements
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installed  \n"
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}cd Into Arsenal\n"
+    cd Arsenal
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}List Arsenal Directories \n"
+    ls -lahs
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Runnin  \n"
+    ./run
+  fi
   if [[ -d $HOME/opt/anaconda3/bin/arsenal ]]; then
     #statements
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installed  \n"
     break
   else
+    #statements
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Creating Folder Arsenal \n"
     mkdir Arsenal
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${LYellow}Cloning Into [./Arsenal] \n"
@@ -253,7 +264,9 @@ Arsenal(){
       echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installation ${BRed} ERROR  \n"
     fi
     echo "\n\n"
-    read -p "$Press_ENTER" ReaDone
+    echo "\n\t\t ${BRed}[${BCyan}Readed Command${BRed}]${BBlue} - ${BYellow} $ReaDone  \n"
+    read -p "$Press_ENTER" ArsenalCommand
+
   fi
   cd ..
 
@@ -310,6 +323,8 @@ HacKingProPlanning(){
           ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
           ${BRed}=======================================================================================
           ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
+
+
   echo "$HacKingProTargetStatus"
 
   #
@@ -432,6 +447,7 @@ MainMenu(){
           ${BRed}=======================================================================================
           ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
 
+
   HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Main Menu ⌖"
 
@@ -454,13 +470,15 @@ MainMenu(){
           ${BRed}[${BBlack}14${BRed}]${BBlue} - ${BBlack}Privilege Enumeration & Escalation
           ${BRed}[${BBlack}15${BRed}]${BBlue} - ${BBlack}Malware Analysis Labs/Tools
           ${BRed}[${BBlack}16${BRed}]${BBlue} - ${BBlack}Covering Tracks 🫣
-          ${BRed}[${DGrey}CS${BRed}]${BBlue} - ${DGrey}Cheat Sheets [${BCyan}Arsenal${DGrey}]
           ${BRed}[${BYellow}KoTH${BRed}]${BBlue} - ${BYellow}🤴🏼 King of The Hill ⛰
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BRed} ${HacKingPro} ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-          ${BCyan}└──╼ ${BGreen}")
+          ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
+          ${BBlue}|
+          ${DGrey}|──[ ~$(pwd) ]
+          ${DGrey}|
+          ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ]${BGreen}──╼ ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       test )
@@ -1344,7 +1362,7 @@ MainMenu(){
       clear
       break
       ;;
-      cs|CS )
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
       Arsenal
       ;;
       koth|Koth|KoTH|KOTH )
