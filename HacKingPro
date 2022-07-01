@@ -84,7 +84,7 @@ On_White='\033[47m'  # White
 HacKingProColors
 
 Anlominus="AnLoMinus"
-MyVersion="${BGreen}v4.6.0.4"
+MyVersion="${BGreen}v0.6.0.4"
 
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 HacKingProPWD=$(pwd)
@@ -459,7 +459,7 @@ MainMenu(){
           ${BRed}[${BBlack}03${BRed}]${BBlue} - ${BBlack}Web Application HacKing 🕸
           ${BRed}[${BBlack}04${BRed}]${BBlue} - ${BBlack}Database Assessment
           ${BRed}[${DGrey}05${BRed}]${BBlue} - ${DGrey}Password HacKing
-          ${BRed}[${BBlack}06${BRed}]${BBlue} - ${BBlack}Wireless HacKing
+          ${BRed}[${BBlack}06${BRed}]${BBlue} - ${BBlack}Wireless HacKing 📡
           ${BRed}[${BBlack}07${BRed}]${BBlue} - ${BBlack}Reverse Engineering
           ${BRed}[${BBlack}08${BRed}]${BBlue} - ${BBlack}Exploit Frameworks & DataBases
           ${BRed}[${BBlack}09${BRed}]${BBlue} - ${BBlack}Sniffing - Spoofing 👃🏼
@@ -478,7 +478,7 @@ MainMenu(){
           ${BBlue}|
           ${DGrey}|──[ ~$(pwd) ]
           ${DGrey}|
-          ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ]${BGreen}──╼ ")
+          ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow}]──╼${BGreen}  ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       test )
