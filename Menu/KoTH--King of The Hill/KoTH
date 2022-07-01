@@ -92,6 +92,68 @@ $LYellow \t\t░░░░░   ░░░░ ${BYellow} ░░░░░░     �
 }
 koth_banner
 
+xDirectories(){
+  XHacKingPro="$HOME/HacKingPro"
+  xMenu00="${XHacKingPro}/Menu/00--Anonymity"
+  xMenu01="${XHacKingPro}/Menu/01--Information Gathering"
+  xMenu01_CAO="${XHacKingPro}/Menu/01--Information Gathering/CAO - Collecting All in One/"
+  xMenu01_CNI="${XHacKingPro}/Menu/01--Information Gathering/CNI - Collecting Network Information/"
+  xMenu01_CMI="${XHacKingPro}/Menu/01--Information Gathering/CMI - Collecting Machine Information/"
+  xMenu01_CMI_LI="${XHacKingPro}/Menu/01--Information Gathering/CMI - Collecting Machine Information/LI - Local Information/"
+  xMenu01_CSI="${XHacKingPro}/Menu/01--Information Gathering/CSI - Collecting Social Information/"
+  xMenu02="${XHacKingPro}/Menu/02--Scanning & Vulnerability Assessment"
+  xMenu03="${XHacKingPro}/Menu/03--Web Application HacKing"
+  xMenu04="${XHacKingPro}/Menu/04--Database Assessment"
+  xMenu05="${XHacKingPro}/Menu/05--Password HacKing"
+  xMenu06="${XHacKingPro}/Menu/06--Wireless HacKing"
+  xMenu07="${XHacKingPro}/Menu/07--Exploit Frameworks & DataBases"
+  xMenu08="${XHacKingPro}/Menu/08--Post-Exploitation Frameworks"
+  xMenu09="${XHacKingPro}/Menu/09--Sniffing - Spoofing"
+  xMenu11="${XHacKingPro}/Menu/11--Digital Forensic"
+  xMenu12="${XHacKingPro}/Menu/12--Analysis & Reporting"
+  xMenu14="${XHacKingPro}/Menu/14--Privilege Enumeration & Escalation"
+  xMenu15="${XHacKingPro}/Menu/15--Malware Tools"
+  xMenuM="${XHacKingPro}/Menu/M--Monitoring"
+  xMenuCC="${XHacKingPro}/Menu/CC--Card Checker"
+  xMenuCL="${XHacKingPro}/Menu/CL--Check Lists"
+  xMenuCS="${XHacKingPro}/Menu/CS--Cheat Sheets"
+  xMenuMH="${XHacKingPro}/Menu/MH--Mobile HacKing"
+  xMenuMV="${XHacKingPro}/Menu/MV--Markdown Viewers"
+  xMenuPT="${XHacKingPro}/Menu/PT--Penetration Testing"
+  xMenuRE="${XHacKingPro}/Menu/RE--Reverse Engineering"
+  xMenuRS="${XHacKingPro}/Menu/RS--Reverse Shell"
+  xMenuSE="${XHacKingPro}/Menu/SE--Social Engineering"
+  xMenuAIO="${XHacKingPro}/Menu/AIO--All In One"
+  xMenuCHT="${XHacKingPro}/Menu/CHT--Car Hacking Tools"
+  xMenuRAT="${XHacKingPro}/Menu/RAT--Remote Access Trojan"
+  xMenuSIP="${XHacKingPro}/Menu/SIP--Session Initiation Protocol"
+  xMenuWFA="${XHacKingPro}/Menu/WFA--FireWall Applications"
+  xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill"
+  if [ $XHacKingPro == $HacKingProPWD ]; then
+    #statements
+    XHacKingPro="$HOME/HacKingPro"
+    HacKingProLogo1
+    cd $XHacKingPro
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Running Direction: ${BCyan} $HOME/HacKingPro\n"
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan}ls Menu\n\n"
+    ls Menu
+    read -p "${Press_Enter_To_START}"
+  else
+    XHacKingPro="$HOME/Documents/GitHub/HacKingPro"
+    HacKingProLogo1
+    # cd $XHacKingPro
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Running Direction: ${BCyan} $HacKingProPWD\n"
+    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan}ls Menu\n\n"
+    ls Menu
+    read -p "${Press_Enter_To_START}"
+  fi
+
+}
+xDirectories
+
+
 installingONSystem(){
 cp KoTH  /usr/local/bin/KoTH
 }
@@ -162,39 +224,35 @@ ${BCyan}            └──╼ ")
     read -p "$KoTHMenuMain" cmd
     case $cmd in
       lpe|LPE )
-      mkdir Privilege-Escalation
-      cd Privilege-Escalation
-      mkdir LPE
-      cd LPE
+      cd $xMenu14
+      cd Linux/Enumeration
       sleep 1
       if [ -e linpeas_base.sh ]; then
         #statements
         echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ Found ${BGreen}linpeas_base.sh\n${BBlue}"
       else
         echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} 🔶 Downloading ${BGreen}linpeas_base.sh\n${BBlue}"
-        wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/14--Privilege%20Enumeration%20%26%20Escalation/Enumeration/linpeas_base.sh
+        wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/14--Privilege%20Enumeration%20%26%20Escalation/Linux/Enumeration/linpeas_base.sh
       fi
       if [ -e linuxallenum.sh ]; then
         #statements
         echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ Found ${BGreen}linuxallenum.sh\n${BBlue}"
       else
         echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} 🔶 Downloading ${BGreen}linuxallenum.sh\n${BBlue}"
-        wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/14--Privilege%20Enumeration%20%26%20Escalation/Enumeration/linuxallenum.sh
+        wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/14--Privilege%20Enumeration%20%26%20Escalation/Linux/Enumeration/linuxallenum.sh
       fi
-      sleep 1
       if [ -e lse.sh ]; then
         #statements
         echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ Found ${BGreen}lse.sh\n${BBlue}"
       else
         echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} 🔶 Downloading ${BGreen}lse.sh\n${BBlue}"
-        wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/14--Privilege%20Enumeration%20%26%20Escalation/Enumeration/lse.sh
+        wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/14--Privilege%20Enumeration%20%26%20Escalation/Linux/Enumeration/lse.sh
       fi
       sleep 1
       echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ ${BGreen}All Downloaded Linux-PrivEsc GiTools\n"
       echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ ${BGreen}Current Directory: \n$(pwd)\n"
       sleep 1
       ls -l1
-      sleep 5
       echo " "
       read -p " Press Enter" some
       ;;
@@ -215,6 +273,7 @@ ${BCyan}            └──╼ ")
     esac
   done
 }
+
 MainMenu(){
   while true; do
   #statements
@@ -241,8 +300,8 @@ MainMenu(){
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
 
-${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} KoTH ${BCyan}$~${BBlue}]
-${BCyan}            └──╼ ")
+          ${BCyan}  ┌──${BBlue}[${BCyan} Anlominus 👽${BYellow} KoTH ${BCyan} ~$(pwd) ${BCyan}$~${BBlue}]
+          ${BCyan}  └──╼ ${BGreen}")
     read -p "$KoTHMenuMain" cmd
     case $cmd in
       i )
@@ -520,45 +579,3 @@ ${BCyan}            └──╼ ")
   done
 }
 MainMenu
-
-
-
-# if [ "$arg1" == "kill" ]; then
-#   if [ "$vpn_running" == "0" ]; then
-#     log "Found running openvpn process(es):"
-#     ps aux | grep "$vpn_file" | grep -v grep
-#
-#     if confirmYes "Kill all process(es)?"; then
-#       sudo pkill -f "$vpn_file"
-#       sudo pkill grep
-#
-#       if [ "$?" == "0" ]; then
-#         log "They're ... all ... dead 🤥"
-#         exit 0
-#       else
-#         error "EPIC FAIL"
-#       fi
-#     else
-#       warn "Aborting 'kill' command"
-#     fi
-#   fi
-# elif [ "$arg1" == "log" ]; then
-#   cat $session_log
-#   log "This sesion log file is located: $session_log"
-# elif [ $arg1 -e $valid_ip ]; then
-#   connectVpn
-#   if confirmYes "Update profile with VMIP=$arg1  "; then
-#     res=$(cat $profile_file | sed -e "s/VMIP=\(.*\)\( \#.*\)/VMIP=$arg1/g" | grep VMIP)
-#     log "Editing $profile_file: $res"
-#     sed -i'.bak' -e "s/VMIP=\(.*\)/VMIP=$arg1/g" $profile_file
-#     log "Run: 'source $profile_file' (to reload this session, new terminals will have \$VMIP set automatically)"
-#   else
-#     warn "Aborting new vm session"
-#   fi
-#
-#   if [ $arg2 =~ $valid_thm ]; then
-#     warn "ADD AS HOST [/etc/hosts]: $arg1    $arg2"
-#   fi
-# else
-#   connectVpn
-# fi
