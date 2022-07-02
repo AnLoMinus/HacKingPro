@@ -11,7 +11,7 @@ Anlominus="Anlominus"
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
-# Last UPDATE : 2022 Jul 1
+# Last UPDATE : 2022 Jul 2
 # Aouther: Anlominus ~> RhytMix ~> HacKingPro
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
@@ -447,6 +447,83 @@ if [ -z $targetNAME]; then
   targetNAME="AnLoMinus"
 fi
 
+
+# HacKingPro Alternative Menu
+AlternativeMenu(){
+  while true; do
+  #statements
+  clear
+  HacKingProLogo1
+  HacKingProTargetStatus=$(echo "\n
+          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}=======================================================================================
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
+          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BRed}=======================================================================================
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
+
+
+  HacKingProMenuMain=$(echo "${BRed}
+          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Alternative Menu ⌖"
+
+          echo "$HacKingProTargetStatus""
+
+          ${BBlue}[${BYellow}MUT${BBlue}]${BGreen} - ${BYellow}Most Used Tools
+          ${BBlue}[${BYellow}IG${BBlue}]${BGreen} - ${BYellow}Information Gathering
+          ${BBlue}[${BYellow}WAA${BBlue}]${BGreen} - ${BYellow}Web Application Analysis
+          ${BBlue}[${BYellow}VA${BBlue}]${BGreen} - ${BYellow}Vulnerability Analysis
+          ${BBlue}[${BYellow}ET${BBlue}]${BGreen} - ${BYellow}Exploitation Tools
+          ${BBlue}[${BYellow}MA${BBlue}]${BGreen} - ${BYellow}Maintaining Access
+          ${BBlue}[${BYellow}PE${BBlue}]${BGreen} - ${BYellow}Post Exploitation
+          ${BBlue}[${BYellow}PA${BBlue}]${BGreen} - ${BYellow}Password Attacks
+          ${BBlue}[${BYellow}WA${BBlue}]${BGreen} - ${BYellow}Wireless Attacks
+          ${BBlue}[${BYellow}SS${BBlue}]${BGreen} - ${BYellow}Sniffing & Spoofing
+          ${BBlue}[${BYellow}DF${BBlue}]${BGreen} - ${BYellow}Digital Forensics
+          ${BBlue}[${BYellow}RT${BBlue}]${BGreen} - ${BYellow}Reporting Tools
+          ${BBlue}[${BYellow}RE${BBlue}]${BGreen} - ${BYellow}Reverse Engineering
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+          ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
+          ${BBlue}|
+          ${DGrey}|──[ ~$(pwd) ]
+          ${DGrey}|
+          ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow}]──╼${BGreen}  ")
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      test )
+      clear
+      DoSomething=$(arp -a)
+      PrintSomeThing=$(echo "\n\n`date`\n\n$DoSomething" )
+      echo "$PrintSomeThing"
+      read -p "$Press_ENTER"
+      ;;
+      ls )
+      ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
+      echo "$ls_lahs"
+      sleep 2
+      ls -lahs
+      sleep 2
+      read -p "$ls_lahs" cmd
+      ;;
+      p|P )
+      HacKingProPlanning
+      ;;
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+      Arsenal
+      ;;
+      x|X|exit|quit|Exit )
+      clear
+      echo "$HacKingProExit"
+      break
+      ;;
+    esac
+  done
+}
+
 # HacKingPro Main Menu
 MainMenu(){
   while true; do
@@ -498,6 +575,9 @@ MainMenu(){
           ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow}]──╼${BGreen}  ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
+      alt|alternative|Alternative|Parrot|parrot )
+      AlternativeMenu
+      ;;
       test )
       clear
       DoSomething=$(arp -a)
@@ -804,7 +884,8 @@ MainMenu(){
                   cd "SubDomain Information"
                   read -p "$Press_Enter_To_START"
                   cd Sublist3r
-                  python sublist3r.py -d www.$targetIP.com
+                  echo "$(python sublist3r.py -d $targetIP )" >> $XHacKingProCaseTargetNameRecon${targetNAME}-HacKingPro-Recon-Log.md
+                  read -p "$Press_ENTER"
                   if [ $? == 1 ]; then
                     #statements
                     pip install -r requirements.txt
@@ -1162,7 +1243,7 @@ MainMenu(){
             esac
           done
         }
-        ReconStart        
+        ReconStart
       fi
       ;;
       03|3 )
@@ -1562,9 +1643,6 @@ MainMenu(){
       read -p "$Press_ENTER" finished
       clear
       break
-      ;;
-      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
-      Arsenal
       ;;
       koth|Koth|KoTH|KOTH )
       # cd "$xMenuKoTH"
@@ -1990,6 +2068,9 @@ MainMenu(){
         done
       }
       MainMenu
+      ;;
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+      Arsenal
       ;;
       x|X|exit|quit|Exit )
       clear
