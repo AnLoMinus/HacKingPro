@@ -29,8 +29,8 @@
 ## HacKingPro - Hack Like A Pro !
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
-<img width="934" alt="image" src="https://user-images.githubusercontent.com/51442719/176283081-eccd07c0-54c7-44af-b3a3-56b6b714bdba.png">
-  
+<img width="1021" alt="image" src="https://user-images.githubusercontent.com/51442719/176999390-21dc2f00-f633-4837-ae78-f2739b6e7b18.png">
+
 ```bash
 git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKingPro; ./HacKingPro
 ```
