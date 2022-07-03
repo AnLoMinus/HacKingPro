@@ -7,7 +7,6 @@
 #!/data/data/com.termux/files/usr/bin/sh
 #!/data/data/com.termux/files/usr/bin/bash
 ###############################################
-Anlominus="Anlominus"
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
@@ -19,8 +18,12 @@ Anlominus="Anlominus"
 # Location: Made With LOVE IN ISRAEL !
 # Source: https://github.com/Anlominus/HacKingPro
 ###############################################
+Anlominus="AnLoMinus"
+MyVersion="${BGreen}v0.0.0.4"
+###############################################
 clear
-chmod +x HacKingPro
+chmod +x $0
+
 # Directories
 
 # Define Colors Variables
@@ -83,15 +86,11 @@ On_White='\033[47m'  # White
 }
 HacKingProColors
 
-Anlominus="AnLoMinus"
-MyVersion="${BGreen}v0.6.0.4"
-
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 HacKingProPWD=$(pwd)
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 XHacKingProCaseTargetName="$XHacKingPro/Case/$targetNAME"
-
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
 Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
 
