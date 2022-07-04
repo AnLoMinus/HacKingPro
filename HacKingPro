@@ -10,7 +10,7 @@
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
-# Last UPDATE : 2022 Jul 2
+# Last UPDATE : 2022 Jul 4
 # Aouther: Anlominus ~> RhytMix ~> HacKingPro
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
@@ -19,12 +19,9 @@
 # Source: https://github.com/Anlominus/HacKingPro
 ###############################################
 Anlominus="AnLoMinus"
+LastUPDATE= "2022 July 4"
 MyVersion="${BGreen}v0.0.0.4"
 ###############################################
-clear
-chmod +x $0
-
-# Directories
 
 # Define Colors Variables
 HacKingProColors(){
@@ -86,6 +83,21 @@ On_White='\033[47m'  # White
 }
 HacKingProColors
 
+clear
+chmod +x $0
+
+# Parsing Date and Time
+year=$(date +%Y)
+month=$(date +%m)
+day=$(date +%d)
+hour=$(date +%H)
+minute=$(date +%M)
+second=$(date +%S)
+CurrentDate=$(echo "Current Date${BBlue}: ${DGrey}$day-$month-$year")
+StartingTime=$(echo "Starting Time${BBlue}: ${DGrey}$hour:$minute:$second")
+FullTime=$(echo "Full Time${BBlue}:${DGrey} ")
+
+# HacKingPro
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 HacKingProPWD=$(pwd)
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
@@ -229,6 +241,16 @@ Check_System() {
 }
 Check_System
 
+# Checking If User is Root
+CheckingIfRoot(){
+  ROOT_UID=0
+  if [ "$UID" -eq "$ROOT_UID" ]; then
+    echo "Yes, you are root."
+  else
+    echo "No, you are not root"
+  fi
+}
+
 # Arsenal Cheatsheets
 Arsenal(){
   clear
@@ -289,7 +311,9 @@ Checking_IP_Target(){
       ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
       ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
       ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
-      ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+      ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
+      ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
+      ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
       ${BRed}======================================================================================="
 
       echo "\n          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${BGreen} [p|P] ${DGrey} On Keyboard and Come Back!!! `date`"
@@ -418,7 +442,7 @@ HacKingProPlanning(){
   read -p "$t3" targetEmail
   if [ -z $targetEmail ]; then
     #statements
-    targetEmail="ChangeMe"
+    targetEmail="ChangeMe@Now.Do"
     echo "\n${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
   fi
   echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
@@ -428,7 +452,7 @@ HacKingProPlanning(){
   read -p "$t4" targetPhone
   if [ -z $targetPhone ]; then
     #statements
-    targetPhone="ChangeMe"
+    targetPhone="9720506933037"
     echo "\n${BRed}[${LGrey}TP${BRed}]${BBlue} - ${LGrey}Target Phone ${BBlue} $targetPhone\n"
   fi
   echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
@@ -446,6 +470,48 @@ if [ -z $targetNAME]; then
   targetNAME="AnLoMinus"
 fi
 
+PlanningStatus=" "
+FunTargetIP(){
+  #statements
+  if [ -z ${targetIP} ]; then
+    TargetIpStatusOFF=" ❌ "
+    echo "${TargetIpStatusOFF}"
+  else
+    TargetIpStatusON=" ✅ "
+    echo "${TargetIpStatusON}"
+  fi
+}
+FunTargetName(){
+  #statements
+  if [ -z ${targetNAME} ]; then
+    TargetNameStatusOFF=" ❌ "
+    echo "${TargetNameStatusOFF}"
+  else
+    TargetNameStatusON=" ✅ "
+    echo "${TargetNameStatusON}"
+  fi
+}
+FunTargetEmail(){
+  #statements
+  if [ -z ${targetEmail} ]; then
+    TargetEmailStatusOFF=" ❌ "
+    echo "${TargetEmailStatusOFF}"
+  else
+    TargetEmailStatusON=" ✅ "
+    echo "${TargetEmailStatusON}"
+  fi
+}
+FunTargetPhone(){
+      #statements
+      if [ -z ${targetPhone} ]; then
+        TargetPhoneStatusOFF=" ❌ "
+        echo "${TargetPhoneStatusOFF}"
+      else
+        TargetPhoneStatusON=" ✅ "
+        echo "${TargetPhoneStatusON}"
+      fi
+    }
+
 
 # HacKingPro Alternative Menu
 AlternativeMenu(){
@@ -460,7 +526,9 @@ AlternativeMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
           ${BRed}=======================================================================================
           ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
 
@@ -529,14 +597,17 @@ MainMenu(){
   #statements
   clear
   HacKingProLogo1
+
   HacKingProTargetStatus=$(echo "\n
           ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
+          ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
+          ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
+          ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
           ${BRed}=======================================================================================
           ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
 
@@ -636,7 +707,9 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
           ${BRed}=======================================================================================
 
           ${BRed}[${LGrey}01${BRed}]${BBlue} - ${DGrey}WhoAmI-Project
@@ -737,7 +810,9 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
           ${BRed}=======================================================================================
 
           ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${DGrey}All in One
@@ -820,7 +895,9 @@ MainMenu(){
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
           ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BBlue}[${BRed}#${BBlue}] 🗓  $(date)
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
+          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
           ${BRed}=======================================================================================
 
           ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}ReconFTW
