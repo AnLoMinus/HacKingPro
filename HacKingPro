@@ -10,7 +10,7 @@
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
-# Last UPDATE : 2022 Jul 4
+# Last UPDATE : Tue Jul  5 13:34:42 IDT 2022
 # Aouther: Anlominus ~> RhytMix ~> HacKingPro
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
@@ -19,8 +19,8 @@
 # Source: https://github.com/Anlominus/HacKingPro
 ###############################################
 Anlominus="AnLoMinus"
-LastUPDATE= "2022 July 4"
-MyVersion="v0.0.0.4"
+LastUPDATE= "2022 July 5"
+MyVersion="v0.0.0.5"
 ###############################################
 
 # Define Colors Variables
@@ -163,6 +163,8 @@ xDirectories(){
   xMenuSIP="${XHacKingPro}/Menu/SIP--Session Initiation Protocol/"
   xMenuWFA="${XHacKingPro}/Menu/WFA--FireWall Applications/"
   xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill/"
+
+  # Checking Directories of HacKingPro TooL
   if [ $XHacKingPro == $HacKingProPWD ]; then
     #statements
     XHacKingPro="$HOME/Documents/GitHub/HacKingPro/"
@@ -342,13 +344,15 @@ HacKingProPlanning(){
   HacKingProTargetStatus=$(echo "\n
   ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
   ${BRed}=======================================================================================
-  ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
-  ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
-  ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
-  ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
-  ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
-  ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
-  ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
+  ${BBlue}[🗓 ]  ${FullTime} $(date)
+  ${BBlue}[🗓 ]  ${CurrentDate}
+  ${BBlue}[🗓 ]  ${StartingTime}
+  ${DGrey}=======================================================================================
+  ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+  ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+  ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+  ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+  ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
   ${BRed}=======================================================================================
   ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
 
@@ -430,6 +434,15 @@ HacKingProPlanning(){
 
 
   #
+  t0="$(echo "\n\t  ${BBlue}[${BRed}?${BBlue}]${BGreen} - URL / Domain / Dns / Server: ${BRed}")"
+  read -p "$t0" targetDns
+  if [ -z $targetDns ]; then
+    #statements
+    targetDns="xXx.AnLoMinus.xXx"
+  fi
+  echo "> - ### Target Domain: ${targetDomain}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+  #
   t1="$(echo "\n\t  ${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
   read -p "$t1" targetIP
   if [ -z $targetIP ]; then
@@ -466,13 +479,24 @@ HacKingProPlanning(){
   read -p "$Press_ENTER" readthat
   cd $XHacKingPro
 }
+
 #
-if [ -z $targetNAME]; then
+# if [ -z $targetNAME]; then
   #statements
-  targetNAME="AnLoMinus"
-fi
+  # targetNAME="AnLoMinus"
+# fi
 
 PlanningStatus=" "
+FunTargetDns(){
+  #statements
+  if [ -z ${targetDns} ]; then
+    TargetDnsStatusOFF=" ❌ "
+    echo "${TargetDnsStatusOFF}"
+  else
+    targetDnsStatusON=" ✅ "
+    echo "${targetDnsStatusON}"
+  fi
+}
 FunTargetIP(){
   #statements
   if [ -z ${targetIP} ]; then
@@ -603,13 +627,15 @@ MainMenu(){
   HacKingProTargetStatus=$(echo "\n
           ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
-          ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
-          ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
-          ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
-          ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
+          ${BBlue}[🗓 ]  ${FullTime} $(date)
+          ${BBlue}[🗓 ]  ${CurrentDate}
+          ${BBlue}[🗓 ]  ${StartingTime}
+          ${DGrey}=======================================================================================
+          ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+          ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
           ${BRed}=======================================================================================
           ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
 
@@ -805,16 +831,19 @@ MainMenu(){
         HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BYellow}01${BBlue}] ${BYellow} 📜 Information Gathering Menu
 
-          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
-          ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
-          ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
-          ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
-          ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
+          ${BBlue}[🗓 ]  ${FullTime} $(date)
+          ${BBlue}[🗓 ]  ${CurrentDate}
+          ${BBlue}[🗓 ]  ${StartingTime}
+          ${DGrey}=======================================================================================
+          ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+          ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
           ${BRed}=======================================================================================
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System
 
           ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${DGrey}All in One
           ${BRed}[${DGrey}CMI${BRed}]${BBlue} - ${DGrey}Machine Information
@@ -854,14 +883,19 @@ MainMenu(){
               HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BYellow}CAO${BBlue}] ${BYellow} 📜 Collecting All In One Menu
 
-          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
-          ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
-          ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
-          ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
-          ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${LRed}Current Date${BBlue}: ${BRed} $(date)
+          ${BBlue}[🗓 ]  ${FullTime} $(date)
+          ${BBlue}[🗓 ]  ${CurrentDate}
+          ${BBlue}[🗓 ]  ${StartingTime}
+          ${DGrey}=======================================================================================
+          ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+          ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
           ${BRed}=======================================================================================
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System
 
           ${BRed}[${DGrey}CAO${BRed}]${BBlue} - ${BRed}[${DGrey}Collecting All in One${BRed}]:
                   ${BWhite} -${DGrey} This is All in One Tools,
@@ -890,16 +924,19 @@ MainMenu(){
               HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BYellow}CNI${BBlue}] ${BYellow} 📜 Collecting Network Information Menu
 
-          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
-          ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
-          ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
-          ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
-          ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  $(date)
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
+          ${BBlue}[🗓 ]  ${FullTime} $(date)
+          ${BBlue}[🗓 ]  ${CurrentDate}
+          ${BBlue}[🗓 ]  ${StartingTime}
+          ${DGrey}=======================================================================================
+          ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+          ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
           ${BRed}=======================================================================================
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System
 
           ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}ReconFTW
           ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}Bolt
@@ -984,16 +1021,19 @@ MainMenu(){
               HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BYellow}CMI${BBlue}] ${BYellow} 📜 Collecting Machine Information Menu
 
-          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
-          ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
-          ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
-          ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
-          ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  $(date)
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
+          ${BBlue}[🗓 ]  ${FullTime} $(date)
+          ${BBlue}[🗓 ]  ${CurrentDate}
+          ${BBlue}[🗓 ]  ${StartingTime}
+          ${DGrey}=======================================================================================
+          ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+          ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
           ${BRed}=======================================================================================
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System
 
                   ${BWhite} -${DGrey} User Enumeration,
                   ${BWhite} -${DGrey} System Groups,
@@ -1025,16 +1065,19 @@ MainMenu(){
               HacKingProMenuMain=$(echo "${BRed}
           ${BBlue}[${BYellow}CSI${BBlue}] ${BYellow} 📜 Collecting Social Information Menu
 
-          ${BRed}[${DGrey}P${BRed}]${BBlue} - ${DGrey} ⚡️ Planning and Scoping 🎯
+          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
           ${BRed}=======================================================================================
-          ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
-          ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
-          ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
-          ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  $(date)
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
+          ${BBlue}[🗓 ]  ${FullTime} $(date)
+          ${BBlue}[🗓 ]  ${CurrentDate}
+          ${BBlue}[🗓 ]  ${StartingTime}
+          ${DGrey}=======================================================================================
+          ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+          ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
           ${BRed}=======================================================================================
+          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System
 
           ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey} E4GL30S1NT
 
@@ -1185,13 +1228,15 @@ MainMenu(){
             HacKingProTargetStatus=$(echo "\n
             ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
             ${BRed}=======================================================================================
-            ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
-            ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
-            ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
-            ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
-            ${BBlue}[${BRed}#${BBlue}] 🗓  $(date)
-            ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
-            ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
+            ${BBlue}[🗓 ]  ${FullTime} $(date)
+            ${BBlue}[🗓 ]  ${CurrentDate}
+            ${BBlue}[🗓 ]  ${StartingTime}
+            ${DGrey}=======================================================================================
+            ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+            ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+            ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+            ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+            ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
             ${BRed}=======================================================================================
             ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
 
