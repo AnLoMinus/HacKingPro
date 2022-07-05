@@ -99,7 +99,6 @@ FullTime=$(echo "Full Time${BBlue}:${DGrey} ")
 
 # HacKingPro
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
-HacKingProPWD=$(pwd)
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 XHacKingProCaseTargetName="$XHacKingPro/Case/$targetNAME"
@@ -127,7 +126,8 @@ echo "$HacKingProLogo_1"
 
 # Paths Directories to Tools
 xDirectories(){
-  XHacKingPro="$HOME/Documents/GitHub/HacKingPro/"
+  XHacKingProPWD=$(pwd)
+  XHacKingPro="${XHacKingProPWD}"
   xMenu00="${XHacKingPro}/Menu/00--Anonymity/"
   xMenu01="${XHacKingPro}/Menu/01--Information Gathering"
   xMenu01_CAO="${XHacKingPro}/Menu/01--Information Gathering/CAO - Collecting All in One/"
@@ -165,28 +165,29 @@ xDirectories(){
   xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill/"
 
   # Checking Directories of HacKingPro TooL
-  if [ $XHacKingPro == $HacKingProPWD ]; then
+  if [ "$HOME/Documents/GitHub/HacKingPro/" == $HacKingProPWD ]; then
     #statements
     XHacKingPro="$HOME/Documents/GitHub/HacKingPro/"
     HacKingProLogo1
     # cd $XHacKingPro
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingProPWD\n"
     ls -lahs
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingPro/Menu\n"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingProPWD/Menu\n"
     ls  Menu
     echo "\n\n\t\t XHacKingPro=$XHacKingPro"
     read -p "${Press_Enter_To_START}"
   else
     XHacKingPro="$HOME/HacKingPro"
     HacKingProLogo1
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
+    echo "\n\t  ${BYellow}[${BGreen}HOME${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
     ls -lahs
-    echo "\n\t  ${BYellow}[${BGreen}!!${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingPro/Menu\n"
+    echo "\n\t  ${BYellow}[${BGreen}HOME${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingPro/Menu\n"
     ls  Menu
     read -p "${Press_Enter_To_START}"
     echo "\n\n\t\t XHacKingPro=$HOME/HacKingPro"
   fi
-  echo "\n\n\t\t XHacKingPro=$HOME/HacKingPro"
+  echo "\n\n\t\t XHacKingPro=${XHacKingPro}"
+  read -p "${Press_Enter_To_START}"
 
 }
 xDirectories
@@ -309,13 +310,15 @@ Checking_IP_Target(){
 
       ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
       ${BRed}=======================================================================================
-      ${BBlue}[${BRed}$(FunTargetIP)${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BGreen}${targetIP}
-      ${BBlue}[${BRed}$(FunTargetName)${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BGreen}${targetNAME}
-      ${BBlue}[${BRed}$(FunTargetEmail)${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BGreen}${targetEmail}
-      ${BBlue}[${BRed}$(FunTargetPhone)${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BGreen}${targetPhone}
-      ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
-      ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
-      ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
+      ${BBlue}[🗓 ]  ${FullTime} $(date)
+      ${BBlue}[🗓 ]  ${CurrentDate}
+      ${BBlue}[🗓 ]  ${StartingTime}
+      ${DGrey}=======================================================================================
+      ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+      ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+      ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+      ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+      ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
       ${BRed}=======================================================================================
       ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System"
 
@@ -393,14 +396,14 @@ HacKingProPlanning(){
   else
     echo "\n\t\t  ${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen}Case ${BYellow}Folder Not Exists, Create it\n"
     echo "\n\t\t  ${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating ${BGreen}Case ${BYellow}Folder and Continue to it\n"
-    read -p "$Press_ENTER"
     mkdir Case
     cd Case
+    read -p "$Press_ENTER"
 
     echo "\n\t\t  ${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating ${BGreen}$targetNAME ${BYellow}and Continue to it\n"
-    read -p "$Press_ENTER"
     mkdir $targetNAME
     cd $targetNAME
+    read -p "$Press_ENTER"
 
     echo "\n\t\t  ${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}Creating ${BGreen}Case Planning ${BYellow}and Continue to it\n"
     read -p "$Press_ENTER"
@@ -440,7 +443,7 @@ HacKingProPlanning(){
     #statements
     targetDns="xXx.AnLoMinus.xXx"
   fi
-  echo "> - ### Target Domain: ${targetDomain}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+  echo "> - ### Target Domain: ${targetDns}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
   #
   t1="$(echo "\n\t  ${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
