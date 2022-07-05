@@ -443,7 +443,7 @@ HacKingProPlanning(){
     #statements
     targetDns="xXx.AnLoMinus.xXx"
   fi
-  echo "> - ### Target Domain: ${targetDns}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+  echo "> - ### Target Dns: ${targetDns}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
   #
   t1="$(echo "\n\t  ${BBlue}[${BRed}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
