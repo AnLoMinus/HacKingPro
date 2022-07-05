@@ -30,7 +30,7 @@
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
 
-Before | After
+Before Planning | After Planning
 :---:|:---:
 <img width="836" alt="image" src="https://user-images.githubusercontent.com/51442719/177310943-7601cde3-a9c2-400c-819b-bdb2b4a4eb42.png"> | <img width="822" alt="image" src="https://user-images.githubusercontent.com/51442719/177311127-a812e247-c869-4827-b11a-9a36569c4f89.png">
 
