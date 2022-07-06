@@ -7,6 +7,24 @@
 # ATM Hacking: 
 ## Advanced methods for finding security vulnerabilities by Anastasis Vasileiadis
 
+---
+
+## Penetration Testing Procedure at ATMs
+- The approach to testing the security of ATMs remains the same. 
+- The ultimate goal is to access the operating system or deal with the application-related file to see how the application itself behaves.
+- An attacker, after gaining access to the operating system, can create malware that can command the system program using XFS components.
+
+- Some of the test cases that can be considered are:
+  - Tests related to access to the operating system and related system file
+  - Check if USB functionality is enabled, boot USB using ” Konboot ".
+  - Connect the USB and boot the system via USB.
+  - Since most of the test has to do with the operating system, keep pressing the "Shift" button at startup. This will break any sequence that is set to run at boot time in the ATM operating system. This will result in you going directly to Windows.
+  - If you know a valid username, enter it and press the "Enter" button. This will result in instant access to the operating system without a password.
+  - If you do not know a valid username, try logging in to "Administrator", as many ATMs do not deactivate the default administrator account.
+  - Another way is to bootable USB using Hiren boot . Boot from USB, where this will give access to the file system directly offline in Windows.
+
+
+
 
 ## Security practices to be followed by banks
 - Banks can implement some security practices to reduce the range of attack for the attacker. 
