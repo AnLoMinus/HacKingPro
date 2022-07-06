@@ -25,7 +25,7 @@
 
 <div align="center">
 
-# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.5
+# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.6
 ## HacKingPro - Hack Like A Pro !
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
@@ -50,7 +50,7 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   - [x] I - Install HacKingPro On the System
 
 - [x] P - Planning and Scoping
-  > <img width="837" alt="image" src="https://user-images.githubusercontent.com/51442719/176999745-844f89cc-4922-4bbd-8cf9-16849a6edd82.png">
+  > <img width="836" alt="image" src="https://user-images.githubusercontent.com/51442719/177653437-f30b314b-8b84-4f66-95b1-022274904210.png">
     - [x] Asking for Target IP:
     - [x] Asking for Target Name:
     - [x] Asking for Target Phone:
