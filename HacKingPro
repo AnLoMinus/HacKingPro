@@ -489,6 +489,7 @@ HacKingProPlanning(){
   # targetNAME="AnLoMinus"
 # fi
 
+# Planning Status
 PlanningStatus=" "
 FunTargetDns(){
   #statements
@@ -549,17 +550,19 @@ AlternativeMenu(){
   clear
   HacKingProLogo1
   HacKingProTargetStatus=$(echo "\n
-          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
-          ${BRed}=======================================================================================
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target IP${BBlue}: ${BRed}${targetIP}
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Name${BBlue}: ${BRed}${targetNAME}
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Email${BBlue}: ${BRed}${targetEmail}
-          ${BBlue}[${BRed}#${BBlue}] 🎯 ${LRed}Target Phone${BBlue}: ${BRed}${targetPhone}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${FullTime} $(date)
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${CurrentDate}
-          ${BBlue}[${BRed}#${BBlue}] 🗓  ${StartingTime}
-          ${BRed}=======================================================================================
-          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
+  ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
+  ${BRed}=======================================================================================
+  ${BBlue}[🗓 ]  ${FullTime} $(date)
+  ${BBlue}[🗓 ]  ${CurrentDate}
+  ${BBlue}[🗓 ]  ${StartingTime}
+  ${DGrey}=======================================================================================
+  ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+  ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+  ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+  ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+  ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+  ${BRed}=======================================================================================
+  ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
 
 
   HacKingProMenuMain=$(echo "${BRed}
