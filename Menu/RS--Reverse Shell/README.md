@@ -5,6 +5,29 @@
 
 - ## [pwncat](https://github.com/calebstewart/pwncat) Fancy reverse and bind shell handler
   > [![asciicast](https://asciinema.org/a/417930.svg)](https://asciinema.org/a/417930)
+``` shell
+pip install pwncat-cs
+```
+
+However, it is recommended to install pwncat from a virtual environment.
+
+```shell script
+python3 -m venv pwncat-env
+source pwncat-env/bin/activate
+pip install pwncat-cs
+```
+
+For a development environment, `pwncat` usage Python Poetry. You can clone the
+repository locally and use poetry to setup a development environment.
+
+``` shell
+# Setup pwncat inside a poetry-managed virtual environment
+git clone git@github.com:calebstewart/pwncat.git
+cd pwncat
+poetry install
+# Enter the virtual environment
+poetry shell
+```
 
 ---
 
