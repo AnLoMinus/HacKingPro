@@ -134,6 +134,7 @@ BruteForce() {
   	mkdir Scans Scans/${1} &> /dev/null
   	mkdir Output Output/${1} &> /dev/null
   }
+  Report
 
   Finished_Brute() {
     echo "[${green}*${default}] Bruteforce finished. Credentials found saved at: Output/${1}/."
@@ -168,8 +169,9 @@ BruteForce() {
   thread="16"
 
   Port_Scan() {
-  	echo "[${yellow}*${default}] Target: ${targetIP} Number of threads: ${thread}."
-  	echo "[${yellow}*${default}] Starting agressive scan of supported ports against: ${targetIP}...\n"
+    echo " "
+  	echo "       ${BBlue}┌──[ 🎯 ]──[${BRed} Target ${BBlue}]──╼ ${BGreen} ${targetIP} ${BBlue}|  Number of threads: ${BGreen} ${thread}."
+  	echo "       ${BBlue}└──[ 🎯 ]──[${BRed} Agressive ${BBlue}]──╼ ${DGrey} Starting agressive scan of supported ports against: ${BGreen} ${targetIP}...\n"
   	sleep 1
   	sudo nmap -T4 -Pn -v --open ${targetIP} -p 21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,6667,8000,8080 >> "nmap.log"
   	echo "[${yellow}*${default}] Scan finished."
@@ -182,62 +184,104 @@ BruteForce() {
   Port_Scan
 
   echo " "
-  # Port 21 (FTP)
-  if grep -q 21/tcp $XHacKingProCaseTargetNameAttacKing/nmap.log; then
-    echo "        ${BBlue}┌──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 21(FTP) is open. Starting bruteforce...\n"
-		sleep 1
-		hydra -C $ftp_up ${targetIP} ftp -e ns -o Output/${targetIP}/ftp_${targetIP}.txt -I -V -t $thread
-		hydra -L $ftp_u -P $ftp_p ${targetIP} ftp -e ns -o Output/${targetIP}/ftp1_${targetIP}.txt -I -V -t $thread
-		Finished_Brute ${targetIP}
-	else
-		echo "        ${BBlue}┌──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 21(FTP) is not open. Skipping to next port..."
-	fi
 
-  #  Port 22 (SSH)
-  if grep -q 22/tcp nmap.log; then
-    echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 22(SSH) is open. Starting bruteforce...\n"
-		sleep 1
-		hydra -C $ssh_up ${targetIP} ssh -e ns -o Output/${targetIP}/ssh_${targetIP}.txt -I -V -t $thread
-    hydra -L $ssh_u -P $ssh_p ${targetIP} ssh -e ns -o Output/${targetIP}/ssh1_${targetIP}.txt -I -V -t $thread
-		hydra -L $user -p $pass ssh -e ns -o Output/${targetIP}/ssh2_${targetIP}.txt -I -V -t $thread
-    Finished_Brute ${targetIP}
-  else
-    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 22(SSH) is not open. Skipping to next port..."
-  fi
+  BruteFTP(){
+    # Port 21 (FTP)
+    if grep -q 21/tcp $XHacKingProCaseTargetNameAttacKing/nmap.log; then
+      echo "        ${BBlue}┌──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 21(FTP) is open. Starting bruteforce...\n"
+      BruteFTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
+      AfterBruteFTP="${BruteFTP_Open}"
+      echo "${AfterBruteFTP}"
+      sleep 1
+      hydra -C $ftp_up ${targetIP} ftp -e ns -o Output/${targetIP}/ftp_${targetIP}.txt -I -V -t $thread
+      hydra -L $ftp_u -P $ftp_p ${targetIP} ftp -e ns -o Output/${targetIP}/ftp1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute ${targetIP}
+    else
+      echo "        ${BBlue}┌──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 21(FTP) is not open. Skipping to next port..."
+      BruteFTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
+      AfterBruteFTP="${BruteFTP_Close}"
+      echo "${AfterBruteFTP}"
+    fi
+  }
+  BruteFTP
 
-  #  Port 23 (Telnet)
-  if grep -q 23/tcp nmap.log; then
-    echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 23(Telnet) is open. Starting bruteforce...\n"
-    sleep 1
-    hydra -C $telnet_up ${targetIP} telnet -e ns -o Output/${targetIP}/telnet_${targetIP}.txt -I -V -t $thread
-    hydra -L $telnet_u -P $telnet_p ${targetIP} telnet -e ns -o Output/${targetIP}/telnet1_${targetIP}.txt -I -V -t $thread
-    hydra -L $user -P $pass ${targetIP} telnet -e ns -o Output/${targetIP}/telnet2_${targetIP}.txt -I -V -t $thread
-    Finished_Brute ${targetIP}
-  else
-    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 23(Telnet) is not open. Skipping to next port..."
-  fi
+  BruteSSH(){
+    #  Port 22 (SSH)
+    if grep -q 22/tcp nmap.log; then
+      BruteSSH_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 22(SSH) is open. Starting bruteforce...\n")"
+      AfterBruteSSH="${BruteSSH_Open}"
+      echo "${AfterBruteSSH}"
+		  sleep 1
+		  hydra -C $ssh_up ${targetIP} ssh -e ns -o Output/${targetIP}/ssh_${targetIP}.txt -I -V -t $thread
+      hydra -L $ssh_u -P $ssh_p ${targetIP} ssh -e ns -o Output/${targetIP}/ssh1_${targetIP}.txt -I -V -t $thread
+		  hydra -L $user -p $pass ssh -e ns -o Output/${targetIP}/ssh2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute ${targetIP}
+    else
+      BruteSSH_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 22(SSH) is not open. Skipping to next port...")"
+      AfterBruteSSH="${BruteSSH_Close}"
+      echo "${AfterBruteSSH}"
+    fi
+  }
+  BruteSSH
 
-  #  Port 25 (SMTP)
-  if grep -q 25/tcp nmap.log; then
-    echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 25(SMTP) is open. Starting bruteforce...\n"
-	   sleep 1
-     hydra -L $user -P $pass ${targetIP} smtp-enum -e ns -o Output/${targetIP}/smtp-enum_${targetIP}.txt -I -V -t $thread
-	   hydra -L $smtp_u -P $smtp_p ${targetIP} smtp -e ns -o Output/${targetIP}/smtp_${targetIP}.txt -I -V -t $thread
-     hydra -L $user -P $pass ${targetIP} smtp -e ns -o Output/${targetIP}/smtp1_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
-   else
-     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 25(SMTP) is not open. Skipping to next port..."
-   fi
+  BruteTelnet(){
+    #  Port 23 (Telnet)
+    if grep -q 23/tcp nmap.log; then
+      BruteTelnet_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 23(Telnet) is open. Starting bruteforce...\n")"
+      AfterBruteTelnet="${BruteTelnet_Close}"
+      echo "${AfterBruteTelnet}"
+      sleep 1
+      hydra -C $telnet_up ${targetIP} telnet -e ns -o Output/${targetIP}/telnet_${targetIP}.txt -I -V -t $thread
+      hydra -L $telnet_u -P $telnet_p ${targetIP} telnet -e ns -o Output/${targetIP}/telnet1_${targetIP}.txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} telnet -e ns -o Output/${targetIP}/telnet2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute ${targetIP}
+    else
+      BruteTelnet_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 23(Telnet) is not open. Skipping to next port...")"
+      AfterBruteTelnet="${BruteTelnet_Close}"
+      echo "${AfterBruteTelnet}"
+    fi
+  }
+  BruteTelnet
 
+  BruteSMTP(){
+    #  Port 25 (SMTP)
+    if grep -q 25/tcp nmap.log; then
+      BruteSMTP_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 25(SMTP) is open. Starting bruteforce...\n")"
+      AfterBruteSMTP="${BruteSMTP_Open}"
+      echo "${AfterBruteSMTP}"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} smtp-enum -e ns -o Output/${targetIP}/smtp-enum_${targetIP}.txt -I -V -t $thread
+	    hydra -L $smtp_u -P $smtp_p ${targetIP} smtp -e ns -o Output/${targetIP}/smtp_${targetIP}.txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} smtp -e ns -o Output/${targetIP}/smtp1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute ${targetIP}
+    else
+      BruteSMTP_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 25(SMTP) is not open. Skipping to next port...")"
+      AfterBruteSMTP="${BruteSMTP_Close}"
+      echo "${AfterBruteSMTP}"
+    fi
+ }
+ BruteSMTP
+
+
+ BruteHTTP(){
    #  Port 80 (HTTP)
    if grep -q 80/tcp nmap.log; then
      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 80(HTTP) is open. Starting bruteforce...\n"
+     BruteHTTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
+     AfterBruteHTTP="${BruteHTTP_Open}"
+     echo "${AfterBruteHTTP}"
 	   sleep 1
 	   hydra -L $user -P $pass ${targetIP} service http-get -o Output/${targetIP}/http-get_${targetIP}.txt -I -V / -t $thread
      Finished_Brute ${targetIP}
    else
+
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 80(HTTP) is not open. Skipping to next port..."
+     BruteHTTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
+     AfterBruteHTTP="${BruteHTTP_Close}"
+     echo "${AfterBruteHTTP}"
    fi
+ }
+ BruteHTTP
 
    #  Port 110 (POP3)
    if grep -q 110/tcp nmap.log; then
@@ -467,10 +511,10 @@ BruteForce() {
   	exit
   fi
 
-  sleep 1
-  report $1
-  port_scan $1
-  bruteforce $1 $2
+  # sleep 1
+  # report $1
+  # port_scan $1
+  # bruteforce $1 $2
 
   read -p "$Press_ENTER"
 
@@ -478,12 +522,15 @@ BruteForce() {
 }
 
 AttacKing(){
+  if [ -z $targetIP ]; then
+    Checking_IP_Target
+  else
   # Define /HacKingPro/Case/TargetName/AttacKing
   cd "$XHacKingProCaseTargetName"
   mkdir AttacKing
   cd AttacKing
   read -p "$Press_ENTER"
-  XHacKingProCaseTargetNameAttacKing="$XHacKingPro/Case/$targetNAME/AttacKing/"
+  XHacKingProCaseTargetNameAttacKing="${XHacKingPro}Case/$targetNAME/AttacKing/"
   # Statements
   while true; do
   #statements
@@ -522,32 +569,36 @@ AttacKing(){
 
           ${BBlue}┌──[${BRed} 00 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
           ${BBlue}|
-          ${BBlue}|──[${BRed} 01 ${BBlue}]──╼ ${BBlue}[${BRed} Brute Force ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
+          ${BBlue}|──[${BRed} 01 ${BBlue}]──╼ ${BBlue}[${BRed} Brute Force Ports ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ✅ ${BBlue}]$BGreen
           ${BBlue}|
           ${BBlue}└──[${BRed} 03 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
 
-          ${BBlue}┌──[${DGrey} Brute Force ${BBlue}]
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} FTP ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} SSH ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} Telnet ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} SMTP ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} HTTP ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} POP3 ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} SMB ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} SNMP ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} LDAP ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} HTTPS ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} rexec ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} rlogin ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} rsh |${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} MAP ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} mssql ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} mysql ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} postgres ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} oracle ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} RDP ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} VNC ${BBlue}]${BRed}──╼
-          ${BBlue}└──[${BRed} ❌ ${BBlue}]──╼ ${BBlue}[${BRed} IRC ${BBlue}]${BRed}──╼
+          ${BBlue}┌──[${LYellow} Well-Known Ports Status ${BBlue}]
+          ${BBlue}|─${AfterBruteFTP}─[${BYellow} 21 ${BBlue}]──╼ ${BBlue}[${LYellow} FTP ${BBlue}]──╼ ${BBlue}[${BYellow} File Transfer Protocol ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 22 ${BBlue}]──╼ ${BBlue}[${LYellow} SSH${BYellow}: Secure Shell ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 23 ${BBlue}]──╼ ${BBlue}[${LYellow} Telnet${BYellow}: Unencrypted Text Communications ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 25 ${BBlue}]──╼ ${BBlue}[${LYellow} SMTP${BYellow}: Simple Mail Transfer Protocol ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 53 ${BBlue}]──╼ ${BBlue}[${LYellow} DNS${BYellow}: Domain Name System ${BBlue}]${BRed}──╼
+          ${BBlue}|─${AfterBruteHTTP}─[${BYellow} 80 ${BBlue}]──╼ ${BBlue}[${LYellow} HTTP ${BBlue}]──╼ ${BBlue}[${BYellow} Hypertext Transfer Protocol ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 110 ${BBlue}]──╼ ${BBlue}[${LYellow} POP3${BYellow}: Post Office Protocol, version 3 ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 139 ${BBlue}]──╼ ${BBlue}[${LYellow} SMB${BYellow}: NetBIOS Session Service ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 162 ${BBlue}]──╼ ${BBlue}[${LYellow} SNMP${BYellow}: Simple Network Management Protocol ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 389 ${BBlue}]──╼ ${BBlue}[${LYellow} LDAP${BYellow}: Lightweight Directory Access Protocol ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 443 ${BBlue}]──╼ ${BBlue}[${LYellow} HTTPS${BYellow}: Hypertext Transfer Protocol Secure ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 512 ${BBlue}]──╼ ${BBlue}[${LYellow} Rexec${BYellow}: Remote Process Execution ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 513 ${BBlue}]──╼ ${BBlue}[${LYellow} Rlogin ${BBlue}]${BRed}──╼
+          ${BBlue}└──[${BYellow} 514 ${BBlue}]──╼ ${BBlue}[${LYellow} rsh${BYellow}: Remote Shell | Syslog: System Logging ${BBlue}]${BRed}──╼
+
+          ${BBlue}┌──[${LYellow} Registered ports ${BBlue}]
+          ${BBlue}|──[${BYellow} 1433 ${BBlue}]──╼ ${BBlue}[${LYellow} MSSQL${BYellow}: Microsoft SQL Server database management system ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 1521 ${BBlue}]──╼ ${BBlue}[${LYellow} Oracle database ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 3306 ${BBlue}]──╼ ${BBlue}[${LYellow} mysql ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 3389 ${BBlue}]──╼ ${BBlue}[${LYellow} RDP${BYellow}: Remote Desktop Protocol | WBT: Windows Based Terminal${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 5432 ${BBlue}]──╼ ${BBlue}[${LYellow} PostgreSQL${BYellow}: Database System ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 5900 ${BBlue}]──╼ ${BBlue}[${LYellow} VNC | RFB ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 6667 ${BBlue}]──╼ ${BBlue}[${LYellow} IRC ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 8000 ${BBlue}]──╼ ${BBlue}[${LYellow} Python3 | Djago | DynamoDB | SHOUTcast ${BBlue}]${BRed}──╼
+          ${BBlue}└──[${BYellow} 8080 ${BBlue}]──╼ ${BBlue}[${LYellow} Apache Tomca ${BBlue}]${BRed}──╼
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -565,6 +616,9 @@ AttacKing(){
       ls -lahs
       sleep 2
       read -p "$ls_lahs" cmd
+      ;;
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+      Arsenal
       ;;
       p|P )
       HacKingProPlanning
@@ -637,7 +691,7 @@ AttacKing(){
 
     esac
   done
-
+fi
 }
 
 ###############################################
@@ -755,6 +809,9 @@ HacKingProPlanning(){
 
   CheckingifCaseFolderExist
 
+  XHacKingProCaseTargetName="$XHacKingPro/Case/$targetNAME"
+
+
   # Recommended Open With `Atom` Editor For Normal View.
   echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
   echo "### $targetNAME Case Date: `date`" >> ${targetNAME}-HacKingPro-Planning-Log.md
@@ -866,6 +923,7 @@ Checking_IP_Target(){
       read -p "$Press_ENTER" readthat
       cd "$XHacKingPro"
   fi
+  exit
 
 }
 
@@ -944,7 +1002,6 @@ FullTime=$(echo "Full Time${BBlue}:${DGrey} ")
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
-XHacKingProCaseTargetName="$XHacKingPro/Case/$targetNAME"
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
 Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
 
