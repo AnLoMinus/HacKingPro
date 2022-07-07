@@ -574,31 +574,31 @@ AttacKing(){
           ${BBlue}└──[${BRed} 03 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
 
           ${BBlue}┌──[${LYellow} Well-Known Ports Status ${BBlue}]
-          ${BBlue}|─${AfterBruteFTP}─[${BYellow} 21 ${BBlue}]──╼ ${BBlue}[${LYellow} FTP ${BBlue}]──╼ ${BBlue}[${BYellow} File Transfer Protocol ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 22 ${BBlue}]──╼ ${BBlue}[${LYellow} SSH${BYellow}: Secure Shell ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 23 ${BBlue}]──╼ ${BBlue}[${LYellow} Telnet${BYellow}: Unencrypted Text Communications ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 25 ${BBlue}]──╼ ${BBlue}[${LYellow} SMTP${BYellow}: Simple Mail Transfer Protocol ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 53 ${BBlue}]──╼ ${BBlue}[${LYellow} DNS${BYellow}: Domain Name System ${BBlue}]${BRed}──╼
-          ${BBlue}|─${AfterBruteHTTP}─[${BYellow} 80 ${BBlue}]──╼ ${BBlue}[${LYellow} HTTP ${BBlue}]──╼ ${BBlue}[${BYellow} Hypertext Transfer Protocol ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 110 ${BBlue}]──╼ ${BBlue}[${LYellow} POP3${BYellow}: Post Office Protocol, version 3 ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 139 ${BBlue}]──╼ ${BBlue}[${LYellow} SMB${BYellow}: NetBIOS Session Service ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 162 ${BBlue}]──╼ ${BBlue}[${LYellow} SNMP${BYellow}: Simple Network Management Protocol ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 389 ${BBlue}]──╼ ${BBlue}[${LYellow} LDAP${BYellow}: Lightweight Directory Access Protocol ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 443 ${BBlue}]──╼ ${BBlue}[${LYellow} HTTPS${BYellow}: Hypertext Transfer Protocol Secure ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 512 ${BBlue}]──╼ ${BBlue}[${LYellow} Rexec${BYellow}: Remote Process Execution ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 513 ${BBlue}]──╼ ${BBlue}[${LYellow} Rlogin ${BBlue}]${BRed}──╼
-          ${BBlue}└──[${BYellow} 514 ${BBlue}]──╼ ${BBlue}[${LYellow} rsh${BYellow}: Remote Shell | Syslog: System Logging ${BBlue}]${BRed}──╼
+          ${BBlue}|─${AfterBruteFTP}─[${BYellow} 21 ${BBlue}]──[${LYellow} FTP ${BBlue}]──[${LYellow} File Transfer Protocol ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 22 ${BBlue}]──[${LYellow} SSH ${BBlue}]──[${LYellow} Secure Shell ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 23 ${BBlue}]──[${LYellow} Telnet ${BBlue}]──[${LYellow} Unencrypted Text Communications ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 25 ${BBlue}]──[${LYellow} SMTP ${BBlue}]──[${LYellow} Simple Mail Transfer Protocol ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 53 ${BBlue}]──[${LYellow} DNS ${BBlue}]──[${LYellow} Domain Name System ${BBlue}]${BRed}
+          ${BBlue}|─${AfterBruteHTTP}─[${BYellow} 80 ${BBlue}]──[${LYellow} HTTP ${BBlue}]──[${LYellow} Hypertext Transfer Protocol ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 110 ${BBlue}]──[${LYellow} POP3 ${BBlue}]──[${LYellow} Post Office Protocol, version 3 ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 139 ${BBlue}]──[${LYellow} SMB ${BBlue}]──[${LYellow} NetBIOS Session Service ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 162 ${BBlue}]──[${LYellow} SNMP ${BBlue}]──[${LYellow} Simple Network Management Protocol ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 389 ${BBlue}]──[${LYellow} LDAP ${BBlue}]──[${LYellow} Lightweight Directory Access Protocol ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 443 ${BBlue}]──[${LYellow} HTTPS ${BBlue}]──[${LYellow} Hypertext Transfer Protocol Secure ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 512 ${BBlue}]──[${LYellow} Rexec ${BBlue}]──[${LYellow} Remote Process Execution ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 513 ${BBlue}]──[${LYellow} Rlogin ${BBlue}]${BRed}
+          ${BBlue}└──[${BYellow} 514 ${BBlue}]──[${LYellow} rsh ${BBlue}]──[${LYellow} Remote Shell | Syslog: System Logging ${BBlue}]${BRed}
 
           ${BBlue}┌──[${LYellow} Registered ports ${BBlue}]
-          ${BBlue}|──[${BYellow} 1433 ${BBlue}]──╼ ${BBlue}[${LYellow} MSSQL${BYellow}: Microsoft SQL Server database management system ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 1521 ${BBlue}]──╼ ${BBlue}[${LYellow} Oracle database ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 3306 ${BBlue}]──╼ ${BBlue}[${LYellow} mysql ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 3389 ${BBlue}]──╼ ${BBlue}[${LYellow} RDP${BYellow}: Remote Desktop Protocol | WBT: Windows Based Terminal${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 5432 ${BBlue}]──╼ ${BBlue}[${LYellow} PostgreSQL${BYellow}: Database System ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 5900 ${BBlue}]──╼ ${BBlue}[${LYellow} VNC | RFB ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 6667 ${BBlue}]──╼ ${BBlue}[${LYellow} IRC ${BBlue}]${BRed}──╼
-          ${BBlue}|──[${BYellow} 8000 ${BBlue}]──╼ ${BBlue}[${LYellow} Python3 | Djago | DynamoDB | SHOUTcast ${BBlue}]${BRed}──╼
-          ${BBlue}└──[${BYellow} 8080 ${BBlue}]──╼ ${BBlue}[${LYellow} Apache Tomca ${BBlue}]${BRed}──╼
+          ${BBlue}|──[${BYellow} 1433 ${BBlue}]──[${LYellow} MSSQL ${BBlue}]──[${LYellow} Microsoft SQL Server database management system ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 1521 ${BBlue}]──[${LYellow} Oracle database ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 3306 ${BBlue}]──[${LYellow} mysql ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 3389 ${BBlue}]──[${LYellow} RDP ${BBlue}]──[${LYellow} Remote Desktop Protocol | WBT: Windows Based Terminal${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 5432 ${BBlue}]──[${LYellow} PostgreSQL ${BBlue}]──[${LYellow} Database System ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 5900 ${BBlue}]──[${LYellow} VNC | RFB ${BBlue}]──[${LYellow} Virtual Network Computing | Remote Frame Buffer ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 6667 ${BBlue}]──[${LYellow} IRC ${BBlue}]──[${LYellow}	Internet Relay Chat ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 8000 ${BBlue}]──[${LYellow} Python3 | Djago | DynamoDB | SHOUTcast ${BBlue}]${BRed}
+          ${BBlue}└──[${BYellow} 8080 ${BBlue}]──[${LYellow} Apache Tomca ${BBlue}]${BRed}
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
