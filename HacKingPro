@@ -135,6 +135,12 @@ AttacKing(){
 
           echo "$HacKingProTargetStatus""
 
+          ${BBlue}┌──[${BRed} 00 ${BBlue}]──╼ ${DGrey}[${BBlue} Orusula ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]$BGreen
+          ${BBlue}|
+          ${BBlue}|──[${BRed} 01 ${BBlue}]──╼ ${DGrey}[${BBlue} Orusula ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]$BGreen
+          ${BBlue}|
+          ${BBlue}└──[${BRed} 03 ${BBlue}]──╼ ${DGrey}[${BBlue} Orusula ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]$BGreen
+
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
           ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
@@ -146,6 +152,61 @@ AttacKing(){
     case $cmd in
       alt|alternative|Alternative|Parrot|parrot )
       AlternativeMenu
+      ;;
+      0|00|Orusula )
+      cd "$xMenu03"
+      if [ -d Orusula ]; then
+        # statements
+        cd Orusula
+        if [ -e "Orusula.py" ]; then
+          python3 Orusula.py -u https://$targetDns
+          read -p "$Press_ENTER"
+          cd $xMenu03
+
+        fi
+      else
+        echo "\n  [ X ] Error [ X ]  "
+        # cd "$xMenu03"
+        # statements
+        # git clone https://github.com/BrahimJarrar/Orusula.git
+        # cd Orusula
+        # chmod +x install.sh
+        # ./install.sh
+        # python3 Orusula.py -u https://$targetDns
+        read -p "$Press_ENTER"
+      fi
+      cd $xMenu03
+
+      ;;
+      1|01 )
+      cd "$xAttacKing"
+      if [ -d t14m4t ]; then
+        #statements
+        cd t14m4t
+        if [ -e t14m4t ]; then
+          ./t14m4t $targetIP
+          read -p "$Press_ENTER"
+        fi
+      else
+        if [ -e "t14m4t.zip" ]; then
+          #statements
+          sudo unzip t14m4t.zip
+          sudo cp -R t14m4t-master t14m4t
+          sudo rm -R t14m4t-master
+          cd t14m4t
+          sudo bash install.sh
+          sudo chmod +x t14m4t
+          ./t14m4t $targetIP
+          read -p "$Press_ENTER"
+        else
+          git clone https://github.com/MS-WEB-BN/t14m4t/
+          cd t14m4t
+          sudo bash install.sh
+          sudo chmod +x t14m4t
+          ./t14m4t $targetIP
+          read -p "$Press_ENTER"
+        fi
+      fi
       ;;
       x|X|exit|EXIT )
       cd $XHacKingPro
@@ -488,6 +549,7 @@ echo "$HacKingProLogo_1"
 xDirectories(){
   XHacKingProPWD=$(pwd)
   XHacKingPro="${XHacKingProPWD}"
+  xAttacKing="${XHacKingPro}/Menu/A--AttacKing/"
   xMenu00="${XHacKingPro}/Menu/00--Anonymity/"
   xMenu01="${XHacKingPro}/Menu/01--Information Gathering"
   xMenu01_CAO="${XHacKingPro}/Menu/01--Information Gathering/CAO - Collecting All in One/"
@@ -835,7 +897,7 @@ MainMenu(){
           ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow}]──╼${BGreen}  ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
-      AttacKing )
+      a|A|AttacKing )
       AttacKing
       ;;
       alt|alternative|Alternative|Parrot|parrot )

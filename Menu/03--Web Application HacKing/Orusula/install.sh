@@ -9,6 +9,7 @@ off="\e[0m"
 function banner(){
     echo -e "===== ORUSULA INSTALL ====="
 }
+
 function termuxOS() {
     echo -e "$red [$green+$red]$off Installing Python ...";
     pkg install python
@@ -41,6 +42,7 @@ function termuxOS() {
     fi
     exit
 }
+
 # Orusula install function for debian operating system. linux.
 function debianOS(){
     echo -e "$red [$green+$red]$off Installing python3... ";
@@ -59,8 +61,9 @@ function debianOS(){
     else
         echo -e "$red [$green✘$red]$off Tool Cannot Be Installed On Your System! Use It As Portable !";
         exit
-    fi 
+    fi
 }
+
 #main
 if [ -d "/data/data/com.termux/files/usr/" ]; then
     banner
