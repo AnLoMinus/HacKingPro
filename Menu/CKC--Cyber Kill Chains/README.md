@@ -41,7 +41,7 @@
 
 ---
 
-there are 18 phases:
+## 18 Phases:
 
 - [x] 1. `Reconnaissance`: Researching, identifying, and selecting targets through active or passive surveillance.
 - [x] 2. `Weaponization`: Methods of preparation aimed at setting up the required infrastructure for the attack.
