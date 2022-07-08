@@ -570,38 +570,33 @@ AttacKing(){
 
           echo "$HacKingProTargetStatus""
 
-          ${BBlue}┌──[${BRed} 00 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
-          ${BBlue}|
-          ${BBlue}|──[${BRed} 01 ${BBlue}]──╼ ${BBlue}[${BRed} Brute Force Ports ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ✅ ${BBlue}]$BGreen
-          ${BBlue}|
-          ${BBlue}└──[${BRed} 03 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
+          ${DGrey}┌──${BRed}[${BGreen} 1 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Reconnaissance ${BRed}]
+          ${DGrey}|──${BRed}[${DGrey} Intruder picks a target, researches it, and looks for vulnerabilities ${BRed}]
+          ${DGrey}└──${BRed}[${DGrey} Intruder selects target, researches it, and attempts to identify vulnerabilities in the target network. ${BRed}]
 
-          ${BBlue}┌──[${LYellow} Well-Known Ports Status ${BBlue}]
-          ${BBlue}|──[${BYellow} 21 ${BBlue}]──[${LYellow} FTP ${BBlue}]──[${BYellow} File Transfer Protocol ${BBlue}]${BRed} ${AfterBruteFTP}
-          ${BBlue}|──[${BYellow} 22 ${BBlue}]──[${LYellow} SSH ${BBlue}]──[${BYellow} Secure Shell ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 23 ${BBlue}]──[${LYellow} Telnet ${BBlue}]──[${BYellow} Unencrypted Text Communications ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 25 ${BBlue}]──[${LYellow} SMTP ${BBlue}]──[${BYellow} Simple Mail Transfer Protocol ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 53 ${BBlue}]──[${LYellow} DNS ${BBlue}]──[${BYellow} Domain Name System ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 80 ${BBlue}]──[${LYellow} HTTP ${BBlue}]──[${BYellow} Hypertext Transfer Protocol ${BBlue}]${BRed} ${AfterBruteHTTP}
-          ${BBlue}|──[${BYellow} 110 ${BBlue}]──[${LYellow} POP3 ${BBlue}]──[${BYellow} Post Office Protocol, version 3 ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 139 ${BBlue}]──[${LYellow} SMB ${BBlue}]──[${BYellow} NetBIOS Session Service ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 162 ${BBlue}]──[${LYellow} SNMP ${BBlue}]──[${BYellow} Simple Network Management Protocol ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 389 ${BBlue}]──[${LYellow} LDAP ${BBlue}]──[${BYellow} Lightweight Directory Access Protocol ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 443 ${BBlue}]──[${LYellow} HTTPS ${BBlue}]──[${BYellow} Hypertext Transfer Protocol Secure ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 512 ${BBlue}]──[${LYellow} Rexec ${BBlue}]──[${BYellow} Remote Process Execution ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 513 ${BBlue}]──[${LYellow} Rlogin ${BBlue}]${BRed}
-          ${BBlue}└──[${BYellow} 514 ${BBlue}]──[${LYellow} rsh ${BBlue}]──[${BYellow} Remote Shell | Syslog: System Logging ${BBlue}]${BRed}
+          ${DGrey}┌──${BRed}[${BGreen} 2 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Weaponization ${BRed}]
+          ${DGrey}|──${BRed}[${DGrey} Intruder develops malware designed to exploit the vulnerability ${BRed}]
+          ${DGrey}└──${BRed}[${DGrey} Intruder creates remote access malware weapon, such as a virus or worm, tailored to one or more vulnerabilities. ${BRed}]
 
-          ${BBlue}┌──[${LYellow} Registered ports ${BBlue}]
-          ${BBlue}|──[${BYellow} 1433 ${BBlue}]──[${LYellow} MSSQL ${BBlue}]──[${LYellow} Microsoft SQL Server database management system ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 1521 ${BBlue}]──[${LYellow} Oracle database ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 3306 ${BBlue}]──[${LYellow} mysql ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 3389 ${BBlue}]──[${LYellow} RDP ${BBlue}]──[${LYellow} Remote Desktop Protocol | WBT: Windows Based Terminal${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 5432 ${BBlue}]──[${LYellow} PostgreSQL ${BBlue}]──[${LYellow} Database System ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 5900 ${BBlue}]──[${LYellow} VNC | RFB ${BBlue}]──[${LYellow} Virtual Network Computing | Remote Frame Buffer ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 6667 ${BBlue}]──[${LYellow} IRC ${BBlue}]──[${LYellow}	Internet Relay Chat ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 8000 ${BBlue}]──[${LYellow} Python3 | Djago | DynamoDB | SHOUTcast ${BBlue}]${BRed}
-          ${BBlue}└──[${BYellow} 8080 ${BBlue}]──[${LYellow} Apache Tomca ${BBlue}]${BRed}
+          ${DGrey}┌──${BRed}[${BGreen} 3 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Delivery ${BRed}]
+          ${DGrey}|──${BRed}[${DGrey} Intruder transmits the malware via a phishing email or another medium ${BRed}]
+          ${DGrey}└──${BRed}[${DGrey} Intruder transmits weapon to target (e.g., via e-mail attachments, websites or USB drives) ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 4 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Exploitation ${BRed}]
+          ${DGrey}|──${BRed}[${DGrey} The malware begins executing on the target system ${BRed}]
+          ${DGrey}└──${BRed}[${DGrey} Malware weapon's program code triggers, which takes action on target network to exploit vulnerability. ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 5 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Installation ${BRed}]
+          ${DGrey}|──${BRed}[${DGrey} The malware installs a backdoor or other ingress accessible to the attacker ${BRed}]
+          ${DGrey}└──${BRed}[${DGrey} Malware weapon installs access point (e.g., "backdoor") usable by intruder. ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 6 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Command and Control ${BRed}]
+          ${DGrey}|──${BRed}[${DGrey} The intruder gains persistent access to the victim’s systems/network ${BRed}]
+          ${DGrey}└──${BRed}[${DGrey} Malware enables intruder to have "hands on the keyboard" persistent access to target network. ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 7 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Actions on Objective ${BRed}]
+          ${DGrey}|──${BRed}[${DGrey} Intruder initiates end goal actions, such as data theft, data corruption, or data destruction ${BRed}]
+          ${DGrey}└──${BRed}[${DGrey} Intruder takes action to achieve their goals, such as data exfiltration, data destruction, or encryption for ransom. ${BRed}]
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
@@ -610,6 +605,13 @@ AttacKing(){
           ${DGrey}|──[ ~$(pwd) ]
           ${DGrey}|
           ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow}]──╼${BGreen}  ")
+
+          # ${BBlue}┌──[${BRed} 00 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
+          # ${BBlue}|
+          # ${BBlue}|──[${BRed} 01 ${BBlue}]──╼ ${BBlue}[${BRed} Brute Force Ports ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ✅ ${BBlue}]$BGreen
+          # ${BBlue}|
+          # ${BBlue}└──[${BRed} 03 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
+
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       ls )
@@ -644,6 +646,34 @@ AttacKing(){
 
       ;;
       1|01 )
+      echo "
+      ${BBlue}┌──[${LYellow} Well-Known Ports Status ${BBlue}]
+      ${BBlue}|──[${BYellow} 21 ${BBlue}]──[${LYellow} FTP ${BBlue}]──[${BYellow} File Transfer Protocol ${BBlue}]${BRed} ${AfterBruteFTP}
+      ${BBlue}|──[${BYellow} 22 ${BBlue}]──[${LYellow} SSH ${BBlue}]──[${BYellow} Secure Shell ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 23 ${BBlue}]──[${LYellow} Telnet ${BBlue}]──[${BYellow} Unencrypted Text Communications ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 25 ${BBlue}]──[${LYellow} SMTP ${BBlue}]──[${BYellow} Simple Mail Transfer Protocol ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 53 ${BBlue}]──[${LYellow} DNS ${BBlue}]──[${BYellow} Domain Name System ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 80 ${BBlue}]──[${LYellow} HTTP ${BBlue}]──[${BYellow} Hypertext Transfer Protocol ${BBlue}]${BRed} ${AfterBruteHTTP}
+      ${BBlue}|──[${BYellow} 110 ${BBlue}]──[${LYellow} POP3 ${BBlue}]──[${BYellow} Post Office Protocol, version 3 ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 139 ${BBlue}]──[${LYellow} SMB ${BBlue}]──[${BYellow} NetBIOS Session Service ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 162 ${BBlue}]──[${LYellow} SNMP ${BBlue}]──[${BYellow} Simple Network Management Protocol ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 389 ${BBlue}]──[${LYellow} LDAP ${BBlue}]──[${BYellow} Lightweight Directory Access Protocol ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 443 ${BBlue}]──[${LYellow} HTTPS ${BBlue}]──[${BYellow} Hypertext Transfer Protocol Secure ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 512 ${BBlue}]──[${LYellow} Rexec ${BBlue}]──[${BYellow} Remote Process Execution ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 513 ${BBlue}]──[${LYellow} Rlogin ${BBlue}]${BRed}
+      ${BBlue}└──[${BYellow} 514 ${BBlue}]──[${LYellow} rsh ${BBlue}]──[${BYellow} Remote Shell | Syslog: System Logging ${BBlue}]${BRed}
+
+      ${BBlue}┌──[${LYellow} Registered ports ${BBlue}]
+      ${BBlue}|──[${BYellow} 1433 ${BBlue}]──[${LYellow} MSSQL ${BBlue}]──[${LYellow} Microsoft SQL Server database management system ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 1521 ${BBlue}]──[${LYellow} Oracle database ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 3306 ${BBlue}]──[${LYellow} mysql ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 3389 ${BBlue}]──[${LYellow} RDP ${BBlue}]──[${LYellow} Remote Desktop Protocol | WBT: Windows Based Terminal${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 5432 ${BBlue}]──[${LYellow} PostgreSQL ${BBlue}]──[${LYellow} Database System ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 5900 ${BBlue}]──[${LYellow} VNC | RFB ${BBlue}]──[${LYellow} Virtual Network Computing | Remote Frame Buffer ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 6667 ${BBlue}]──[${LYellow} IRC ${BBlue}]──[${LYellow}	Internet Relay Chat ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 8000 ${BBlue}]──[${LYellow} Python3 | Djago | DynamoDB | SHOUTcast ${BBlue}]${BRed}
+      ${BBlue}└──[${BYellow} 8080 ${BBlue}]──[${LYellow} Apache Tomca ${BBlue}]${BRed}
+      "
       BruteForce
       # echo "\n        ${BBlue}[${BRed} t14m4t ${BBlue}]──╼ [${BRed}FTP | SSH | Telnet | SMTP | HTTP | POP3 | SMB | SNMP | LDAP | HTTPS | rexec | rlogin | rsh | IMAP | mssql | mysql | postgres | oracle | RDP | VNC | IRC ${BBlue}]"
       # read -p "$Press_ENTER"
@@ -1270,19 +1300,33 @@ AlternativeMenu(){
 
           echo "$HacKingProTargetStatus""
 
-          ${BBlue}[${BYellow}MUT${BBlue}]${BGreen} - ${BYellow}Most Used Tools
-          ${BBlue}[${BYellow}IG${BBlue}]${BGreen} - ${BYellow}Information Gathering
-          ${BBlue}[${BYellow}WAA${BBlue}]${BGreen} - ${BYellow}Web Application Analysis
-          ${BBlue}[${BYellow}VA${BBlue}]${BGreen} - ${BYellow}Vulnerability Analysis
-          ${BBlue}[${BYellow}ET${BBlue}]${BGreen} - ${BYellow}Exploitation Tools
-          ${BBlue}[${BYellow}MA${BBlue}]${BGreen} - ${BYellow}Maintaining Access
-          ${BBlue}[${BYellow}PE${BBlue}]${BGreen} - ${BYellow}Post Exploitation
-          ${BBlue}[${BYellow}PA${BBlue}]${BGreen} - ${BYellow}Password Attacks
-          ${BBlue}[${BYellow}WA${BBlue}]${BGreen} - ${BYellow}Wireless Attacks
-          ${BBlue}[${BYellow}SS${BBlue}]${BGreen} - ${BYellow}Sniffing & Spoofing
-          ${BBlue}[${BYellow}DF${BBlue}]${BGreen} - ${BYellow}Digital Forensics
-          ${BBlue}[${BYellow}RT${BBlue}]${BGreen} - ${BYellow}Reporting Tools
-          ${BBlue}[${BYellow}RE${BBlue}]${BGreen} - ${BYellow}Reverse Engineering
+          ${DGrey}┌──${BRed}[${BGreen} 1 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Reconnaissance ${BRed}]
+          ${BBlue}|──${BRed}[${DGrey} Intruder picks a target, researches it, and looks for vulnerabilities ${BRed}]
+          ${BBlue}└──${BRed}[${DGrey} Intruder selects target, researches it, and attempts to identify vulnerabilities in the target network. ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 2 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Weaponization ${BRed}]
+          ${BBlue}|──${BRed}[${DGrey} Intruder develops malware designed to exploit the vulnerability ${BRed}]
+          ${BBlue}└──${BRed}[${DGrey} Intruder creates remote access malware weapon, such as a virus or worm, tailored to one or more vulnerabilities. ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 3 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Delivery ${BRed}]
+          ${BBlue}|──${BRed}[${DGrey} Intruder transmits the malware via a phishing email or another medium ${BRed}]
+          ${BBlue}└──${BRed}[${DGrey} Intruder transmits weapon to target (e.g., via e-mail attachments, websites or USB drives) ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 4 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Exploitation ${BRed}]
+          ${BBlue}|──${BRed}[${DGrey} The malware begins executing on the target system ${BRed}]
+          ${BBlue}└──${BRed}[${DGrey} Malware weapon's program code triggers, which takes action on target network to exploit vulnerability. ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 5 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Installation ${BRed}]
+          ${BBlue}|──${BRed}[${DGrey} The malware installs a backdoor or other ingress accessible to the attacker ${BRed}]
+          ${BBlue}└──${BRed}[${DGrey} Malware weapon installs access point (e.g., "backdoor") usable by intruder. ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 6 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Command and Control ${BRed}]
+          ${BBlue}|──${BRed}[${DGrey} The intruder gains persistent access to the victim’s systems/network ${BRed}]
+          ${BBlue}└──${BRed}[${DGrey} Malware enables intruder to have "hands on the keyboard" persistent access to target network. ${BRed}]
+
+          ${DGrey}┌──${BRed}[${BGreen} 7 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Actions on Objective ${BRed}]
+          ${BBlue}|──${BRed}[${DGrey} Intruder initiates end goal actions, such as data theft, data corruption, or data destruction ${BRed}]
+          ${BBlue}└──${BRed}[${DGrey} Intruder takes action to achieve their goals, such as data exfiltration, data destruction, or encryption for ransom. ${BRed}]
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
