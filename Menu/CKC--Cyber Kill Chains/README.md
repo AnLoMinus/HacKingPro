@@ -75,8 +75,13 @@
   - [x] Adware
   - [x] Spyware
   - [x] Bots
-
 - [x] 3. `Delivery`: Techniques that aid in the transmission of a weaponized object to the target environment.
+  - [x] Delivery mechanisms include:
+    - [x] Email attachments
+    - [x] Phishing
+    - [x] Drive-by Downloads
+    - [x] USB/Removal Media
+    - [x] DNS Poisoning
 - [x] 4. `Social Engineering`: Methods aimed at manipulating people to perform unsafe actions.
 - [x] 5. `Exploitation`: Tactics to exploit system vulnerabilities that may result in code execution.
 - [x] 6. `Persistence`: Any action, access or change to a system that grants an attacker persistent presence on the system.
