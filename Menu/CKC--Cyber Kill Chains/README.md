@@ -13,7 +13,9 @@
 - [x] 3. Decision and order to attack the target
 - [x] 4. Destruction of the target
 
-## The Phases of Lockheed Martin’s Kill Chain Model:
+---
+
+# The Phases of Lockheed Martin’s Kill Chain Model:
 
 - [x] 1. [Reconnaissance]()
 - [x] 2. [Weaponization]()
@@ -22,6 +24,24 @@
 - [x] 5. [Installation]()
 - [x] 6. [Command and Control (C2)]()
 - [x] 7. [Actions on Objectives]()
+
+
+## Lockheed Martin’s cyber kill chain breaks down an external-originating cyberattack into 7 distinct steps:
+
+- [x] Reconnaissance
+  - Intruder picks a target, researches it, and looks for vulnerabilities
+- [x] Weaponization
+  - Intruder develops malware designed to exploit the vulnerability
+- [x] Delivery
+  - Intruder transmits the malware via a phishing email or another medium
+- [x] Exploitation
+  - The malware begins executing on the target system
+- [x] Installation
+  - The malware installs a backdoor or other ingress accessible to the attacker
+- [x] Command and Control
+  - The intruder gains persistent access to the victim’s systems/network
+- [x] Actions on Objective
+  - Intruder initiates end goal actions, such as data theft, data corruption, or data destruction
 
 ---
 
