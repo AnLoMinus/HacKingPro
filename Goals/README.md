@@ -138,7 +138,7 @@ A SMART goal is likely realistic if
 - you believe that it can be accomplished. Ask yourself:
   - Is the goal realistic and within reach? `Very Realistic, And With A`
   - Is the goal reachable, given the time and resources? `I Create it for Showing my Skills, Vision, Future !`
-  - Are you able to commit to achieving the goal? `In This Crazy Generation, We Need Just To Do !`
+  - Are you able to commit to achieving the goal? `In This Crazy Generation, We Need Just To Do It !`
 
 - A relevant goal can answer "yes" to these questions:
   - Does this seem worthwhile?
