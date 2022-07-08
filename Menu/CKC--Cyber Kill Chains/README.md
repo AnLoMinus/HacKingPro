@@ -4,8 +4,6 @@
 
 ---
 
-# The Stages
-
 ## The History of the “Cyber Kill Chain”
 ### The term “Kill Chain” originates from a military concept and phased-based attack structure. The structure is as follows:
 - [x] 1. Target identification
@@ -13,35 +11,51 @@
 - [x] 3. Decision and order to attack the target
 - [x] 4. Destruction of the target
 
+## `Four Fs` Military Term used in the United States Military, especially during World War II.
+### Designed to be easy to remember, the "Four Fs" are as follows:
+- [x] 1. `Find the enemy` – Locate the enemy.
+- [x] 2. `Fix the enemy` – Pin them down with suppressing fire.
+- [x] 3. `Fight the enemy` – Engage the enemy in combat or flank the enemy – Send soldiers to the enemy's sides or rear.
+- [x] 4. `Finish the enemy` – Eliminate all enemy combatants.
+
 ---
 
+## Alternatives
+### This model stresses that a threat does not end after one cycle.
+- [x] 1. Reconnaissance
+- [x] 2. Initial intrusion into the network
+- [x] 3. Establish a backdoor into the network.
+- [x] 4. Obtain user credentials.
+- [x] 5. Install various utilities.
+- [x] 6. Privilege escalation/ lateral movement/ data exfiltration
+- [x] 7. Maintain persistence.
+
+---
+
+![image](https://user-images.githubusercontent.com/51442719/178073880-32f5f2ce-1181-4fb8-92c4-213eb5a8ab4a.png)
+
 # The Phases of Lockheed Martin’s Kill Chain Model:
-
-- [x] 1. [Reconnaissance]()
-- [x] 2. [Weaponization]()
-- [x] 3. [Delivery]()
-- [x] 4. [Exploitation]()
-- [x] 5. [Installation]()
-- [x] 6. [Command and Control (C2)]()
-- [x] 7. [Actions on Objectives]()
-
-
-## Lockheed Martin’s cyber kill chain breaks down an external-originating cyberattack into 7 distinct steps:
-
-- [x] Reconnaissance
+- [x] 1. `Reconnaissance`
   - Intruder picks a target, researches it, and looks for vulnerabilities
-- [x] Weaponization
+  - Intruder selects target, researches it, and attempts to identify vulnerabilities in the target network.
+- [x] 2. `Weaponization`
   - Intruder develops malware designed to exploit the vulnerability
-- [x] Delivery
+  - Intruder creates remote access malware weapon, such as a virus or worm, tailored to one or more vulnerabilities.
+- [x] 3. `Delivery`
   - Intruder transmits the malware via a phishing email or another medium
-- [x] Exploitation
+  - Intruder transmits weapon to target (e.g., via e-mail attachments, websites or USB drives)
+- [x] 4. `Exploitation`
   - The malware begins executing on the target system
-- [x] Installation
+  - Malware weapon's program code triggers, which takes action on target network to exploit vulnerability.
+- [x] 5. `Installation`
   - The malware installs a backdoor or other ingress accessible to the attacker
-- [x] Command and Control
+  - Malware weapon installs access point (e.g., "backdoor") usable by intruder.
+- [x] 6. `Command and Control`
   - The intruder gains persistent access to the victim’s systems/network
-- [x] Actions on Objective
+  -  Malware enables intruder to have "hands on the keyboard" persistent access to target network.
+- [x] 7. `Actions on Objective`
   - Intruder initiates end goal actions, such as data theft, data corruption, or data destruction
+  - Intruder takes action to achieve their goals, such as data exfiltration, data destruction, or encryption for ransom.
 
 ---
 
