@@ -19,8 +19,8 @@
 # Source: https://github.com/Anlominus/HacKingPro
 ###############################################
 Anlominus="AnLoMinus"
-LastUPDATE="2022 July 7"
-MyVersion="v0.0.0.7"
+LastUPDATE="2022 July 8"
+MyVersion="v0.0.0.8"
 ToolSource="https://github.com/Anlominus/HacKingPro"
 ###############################################
 
@@ -130,12 +130,15 @@ CheckPWD
 ###############################################
 
 BruteForce() {
+
+  # Creating Scans and Output Folders
   Report() {
   	mkdir Scans Scans/${1} &> /dev/null
   	mkdir Output Output/${1} &> /dev/null
   }
   Report
 
+  # Represent that Bruteforce finished
   Finished_Brute() {
     echo "[${green}*${default}] Bruteforce finished. Credentials found saved at: Output/${1}/."
     sleep 1
@@ -574,20 +577,20 @@ AttacKing(){
           ${BBlue}└──[${BRed} 03 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
 
           ${BBlue}┌──[${LYellow} Well-Known Ports Status ${BBlue}]
-          ${BBlue}|─${AfterBruteFTP}─[${BYellow} 21 ${BBlue}]──[${LYellow} FTP ${BBlue}]──[${LYellow} File Transfer Protocol ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 22 ${BBlue}]──[${LYellow} SSH ${BBlue}]──[${LYellow} Secure Shell ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 23 ${BBlue}]──[${LYellow} Telnet ${BBlue}]──[${LYellow} Unencrypted Text Communications ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 25 ${BBlue}]──[${LYellow} SMTP ${BBlue}]──[${LYellow} Simple Mail Transfer Protocol ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 53 ${BBlue}]──[${LYellow} DNS ${BBlue}]──[${LYellow} Domain Name System ${BBlue}]${BRed}
-          ${BBlue}|─${AfterBruteHTTP}─[${BYellow} 80 ${BBlue}]──[${LYellow} HTTP ${BBlue}]──[${LYellow} Hypertext Transfer Protocol ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 110 ${BBlue}]──[${LYellow} POP3 ${BBlue}]──[${LYellow} Post Office Protocol, version 3 ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 139 ${BBlue}]──[${LYellow} SMB ${BBlue}]──[${LYellow} NetBIOS Session Service ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 162 ${BBlue}]──[${LYellow} SNMP ${BBlue}]──[${LYellow} Simple Network Management Protocol ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 389 ${BBlue}]──[${LYellow} LDAP ${BBlue}]──[${LYellow} Lightweight Directory Access Protocol ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 443 ${BBlue}]──[${LYellow} HTTPS ${BBlue}]──[${LYellow} Hypertext Transfer Protocol Secure ${BBlue}]${BRed}
-          ${BBlue}|──[${BYellow} 512 ${BBlue}]──[${LYellow} Rexec ${BBlue}]──[${LYellow} Remote Process Execution ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 21 ${BBlue}]──[${LYellow} FTP ${BBlue}]──[${BYellow} File Transfer Protocol ${BBlue}]${BRed} ${AfterBruteFTP}
+          ${BBlue}|──[${BYellow} 22 ${BBlue}]──[${LYellow} SSH ${BBlue}]──[${BYellow} Secure Shell ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 23 ${BBlue}]──[${LYellow} Telnet ${BBlue}]──[${BYellow} Unencrypted Text Communications ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 25 ${BBlue}]──[${LYellow} SMTP ${BBlue}]──[${BYellow} Simple Mail Transfer Protocol ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 53 ${BBlue}]──[${LYellow} DNS ${BBlue}]──[${BYellow} Domain Name System ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 80 ${BBlue}]──[${LYellow} HTTP ${BBlue}]──[${BYellow} Hypertext Transfer Protocol ${BBlue}]${BRed} ${AfterBruteHTTP}
+          ${BBlue}|──[${BYellow} 110 ${BBlue}]──[${LYellow} POP3 ${BBlue}]──[${BYellow} Post Office Protocol, version 3 ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 139 ${BBlue}]──[${LYellow} SMB ${BBlue}]──[${BYellow} NetBIOS Session Service ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 162 ${BBlue}]──[${LYellow} SNMP ${BBlue}]──[${BYellow} Simple Network Management Protocol ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 389 ${BBlue}]──[${LYellow} LDAP ${BBlue}]──[${BYellow} Lightweight Directory Access Protocol ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 443 ${BBlue}]──[${LYellow} HTTPS ${BBlue}]──[${BYellow} Hypertext Transfer Protocol Secure ${BBlue}]${BRed}
+          ${BBlue}|──[${BYellow} 512 ${BBlue}]──[${LYellow} Rexec ${BBlue}]──[${BYellow} Remote Process Execution ${BBlue}]${BRed}
           ${BBlue}|──[${BYellow} 513 ${BBlue}]──[${LYellow} Rlogin ${BBlue}]${BRed}
-          ${BBlue}└──[${BYellow} 514 ${BBlue}]──[${LYellow} rsh ${BBlue}]──[${LYellow} Remote Shell | Syslog: System Logging ${BBlue}]${BRed}
+          ${BBlue}└──[${BYellow} 514 ${BBlue}]──[${LYellow} rsh ${BBlue}]──[${BYellow} Remote Shell | Syslog: System Logging ${BBlue}]${BRed}
 
           ${BBlue}┌──[${LYellow} Registered ports ${BBlue}]
           ${BBlue}|──[${BYellow} 1433 ${BBlue}]──[${LYellow} MSSQL ${BBlue}]──[${LYellow} Microsoft SQL Server database management system ${BBlue}]${BRed}
@@ -1327,26 +1330,29 @@ MainMenu(){
   clear
   HacKingProLogo1
 
-  HacKingProTargetStatus=$(echo "\n
-          ${BRed}[${DGrey}P${BRed}]${BBlue} -${DGrey} ⚡️ Planning and Scoping 🎯
-          ${BRed}=======================================================================================
-          ${BBlue}[🗓 ]  ${FullTime} $(date)
-          ${BBlue}[🗓 ]  ${CurrentDate}
-          ${BBlue}[🗓 ]  ${StartingTime}
-          ${DGrey}=======================================================================================
-          ${BBlue}┌──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+  HacKingProTargetStatus=$(echo "
+          ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${DGrey}[ ⚡️ Planning and Scoping 🎯 ]
+          ${DGrey}|
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
           ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
           ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
           ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
-          ${BBlue}└──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
-          ${BRed}=======================================================================================
-          ${BRed}[${DGrey}I${BRed}]${BBlue} - ${DGrey}Install HacKingPro On the System")
+          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+          ${DGrey}|
+          ${DGrey}└──${BRed}[${DGrey} I ${BRed}]──[${DGrey} Install HacKingPro On the System ${BRed}]
+
+          ${DGrey}=======================================================================================
+          ${BBlue}[🗓 ]  ${FullTime} $(date)
+          ${BBlue}[🗓 ]  ${CurrentDate}
+          ${BBlue}[🗓 ]  ${StartingTime}
+          ${DGrey}=======================================================================================")
 
 
   HacKingProMenuMain=$(echo "${BRed}
-          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 Main Menu ⌖"
-
+          "
           echo "$HacKingProTargetStatus""
+
+          ${BBlue}[${BYellow}📜${BBlue}]${BYellow} ⌖ Main Menu
 
           ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey}Anonymity
           ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}Information Gathering
