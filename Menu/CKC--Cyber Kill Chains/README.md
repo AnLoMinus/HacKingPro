@@ -1,14 +1,19 @@
 # CKC - Cyber Kill Chains
 
----
-
 # The Future of the Cyber Kill Chain
 
-## What Is the Cyber Kill Chain and How to Use It Effectively
+---
 
 # The Stages
 
-## What are the Seven Phases of the Cyber Kill Chain?
+## The History of the “Cyber Kill Chain”
+### The term “Kill Chain” originates from a military concept and phased-based attack structure. The structure is as follows:
+- [x] 1. Target identification
+- [x] 2. Force dispatch to target
+- [x] 3. Decision and order to attack the target
+- [x] 4. Destruction of the target
+
+## The Phases of Lockheed Martin’s Kill Chain Model:
 
 - [x] 1. [Reconnaissance]()
 - [x] 2. [Weaponization]()
