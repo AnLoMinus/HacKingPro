@@ -1,5 +1,5 @@
 <div align="center">
-  
+
 # Time Management Assessment
 
 </div>
@@ -12,23 +12,23 @@ When you use SMART, you can create clear, attainable and meaningful goals, and d
 
 ---
 
-- **Specific**: 
+- **Specific**:
   - Your goals should be specific to you and clear to understand.
-  > - 1 Planning And Scooping 
+  > - 1 Planning And Scooping
   >   - Email
   >   - IP
   >   - Name
   >   - Phone
   > - 2 HacKhim by click With Menu Options
-- **Measurable**: 
+- **Measurable**:
   - Think about how you will measure your goals and which measurements you will use.
-- **Achievable**: 
+- **Achievable**:
   - It important to make sure your goals are attainable so make sure that you set achievable goals.
-- **Realistic**: 
+- **Realistic**:
   - Are your goals realistic for you?
-- **Time**: 
+- **Time**:
   - Setting timeframes for goals will help to keep you motivated. Using short, medium, and long-term goals
-can be beneficial to keep you on track. 
+can be beneficial to keep you on track.
 
 # How to write SMART goals
 - **S**: [Specific](https://github.com/Anlominus/Studies/blob/main/Time%20Management.md#s-specific) Well defined, clear, and unambiguous
@@ -43,9 +43,9 @@ Your goal should be clear and specific, otherwise you won't be able to focus you
 
 - In order for a goal to be effective, it needs to be specific. A specific goal answers questions like:
   - What needs to be accomplished?
-    > - ## 🔹 WorKing HacKing Tool ! 
+    > - ## 🔹 WorKing HacKing Tool !
   - Who’s responsible for it?
-    > - ## 🔹 [Anlominus](https://github.com/Anlominus) ! 
+    > - ## 🔹 [Anlominus](https://github.com/Anlominus) !
   - What steps need to be taken to achieve it?
     > - ## 🔹 Finish Anonymity Steps
     >   ## [📜 Menu / To Do](https://github.com/Anlominus/HacKingPro#-menu--to-do)
@@ -81,12 +81,12 @@ Your goal should be clear and specific, otherwise you won't be able to focus you
 
 - When drafting your goal, try to answer the five "W" questions:
   - **What** do I want to accomplish?
-    > - ## 🔹 WorKing HacKing Tool ! 
+    > - ## 🔹 WorKing HacKing Tool !
   - **Why** is this goal important?
-    > - ## 🔹 Yes, Very Much  ! 
+    > - ## 🔹 Yes, Very Much  !
   - **Who** is involved?
-    > - ## 🔹 [Anlominus](https://github.com/Anlominus) ! 
-    > - ## 🔹 All Open Source GitHub Tools! 
+    > - ## 🔹 [Anlominus](https://github.com/Anlominus) !
+    > - ## 🔹 All Open Source GitHub Tools!
   - **Where** is it located?
     > - ## 🔹 In The Top Of Mountain !
   - **Which** resources or limits are involved?
@@ -100,7 +100,7 @@ Your goal should be clear and specific, otherwise you won't be able to focus you
   - • Increase flexibility by attending 1x yoga class per week.
 - Long term (1 year):
   - • Complete a walking event with friends.
-  - • Continue with increased step, online and in person classes. 
+  - • Continue with increased step, online and in person classes.
 
 ---
 
@@ -126,19 +126,19 @@ When you set an achievable goal, you may be able to identify previously overlook
 
 ---
 
-## [R]: Relevant 
+## [R]: Relevant
 #### Relevant (reasonable, realistic and resourced, results-based).
 This step is about ensuring that your goal matters to you, and that it also aligns with other relevant goals. We all need support and assistance in achieving our goals, but it's important to retain control over them.  
-So, make sure that your plans drive everyone forward, but that you're still responsible for achieving your own goal. 
+So, make sure that your plans drive everyone forward, but that you're still responsible for achieving your own goal.
 
 Realistic SMART Goals
-A SMART goal must be realistic in that the goal can be realistically achieved given the available resources and time. 
-A SMART goal is likely realistic if 
+A SMART goal must be realistic in that the goal can be realistically achieved given the available resources and time.
+A SMART goal is likely realistic if
 
 - you believe that it can be accomplished. Ask yourself:
-  - Is the goal realistic and within reach?
-  - Is the goal reachable, given the time and resources?
-  - Are you able to commit to achieving the goal?
+  - Is the goal realistic and within reach? `Very Realistic, And With A`
+  - Is the goal reachable, given the time and resources? `I Create it for Showing my Skills, Vision, Future !`
+  - Are you able to commit to achieving the goal? `In This Crazy Generation, We Need Just To Do !`
 
 - A relevant goal can answer "yes" to these questions:
   - Does this seem worthwhile?
@@ -162,10 +162,10 @@ Every goal needs a target date, so that you have a deadline to focus on and some
 This part of the SMART goal criteria helps to prevent everyday tasks from taking priority over your longer-term goals.
 
 - A time-bound goal will usually answer these questions:
-  - When?
-  - What can I do six months from now?
-  - What can I do six weeks from now?
-  - What can I do today?
+  - When? `Just Do It`
+  - What can I do six months from now? `Convert Many Open Tools ~> to Shell Functions`
+  - What can I do six weeks from now? `Complete Version v1.0.0.0`
+  - What can I do today? `Setting Menu Structure by Steps Phases`
 
 ---
 
