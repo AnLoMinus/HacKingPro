@@ -1027,9 +1027,9 @@ day=$(date +%d)
 hour=$(date +%H)
 minute=$(date +%M)
 second=$(date +%S)
-CurrentDate=$(echo "Current Date${BBlue}: ${DGrey}$day-$month-$year")
-StartingTime=$(echo "Starting Time${BBlue}: ${DGrey}$hour:$minute:$second")
-FullTime=$(echo "Full Time${BBlue}:${DGrey} ")
+CurrentDate=$(echo "${DGrey}$day-$month-$year")
+StartingTime=$(echo "${DGrey}$hour:$minute:$second")
+FullTime=$(date)
 
 # HacKingPro
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
@@ -1375,21 +1375,20 @@ MainMenu(){
   HacKingProLogo1
 
   HacKingProTargetStatus=$(echo "
-          ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${DGrey}[ ⚡️ Planning and Scoping 🎯 ]
+          ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
           ${DGrey}|
-          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetIP)${BBlue}]──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
-          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetDns)${BBlue}]──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
-          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetName)${BBlue}]──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
-          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetEmail)${BBlue}]──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
-          ${BBlue}|──[ 🎯 ]──[${BRed}$(FunTargetPhone)${BBlue}]──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+          ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+          ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+          ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+          ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+          ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
           ${DGrey}|
-          ${DGrey}└──${BRed}[${DGrey} I ${BRed}]──[${DGrey} Install HacKingPro On the System ${BRed}]
+          ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
 
-          ${DGrey}=======================================================================================
-          ${BBlue}[🗓 ]  ${FullTime} $(date)
-          ${BBlue}[🗓 ]  ${CurrentDate}
-          ${BBlue}[🗓 ]  ${StartingTime}
-          ${DGrey}=======================================================================================")
+          ${DGrey}┌──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+          ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+          ${DGrey}└──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+          ")
 
 
   HacKingProMenuMain=$(echo "${BRed}
@@ -1419,7 +1418,7 @@ MainMenu(){
 
           ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-          ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
+          ${BBlue}┌──${BRed}[${BCyan} Arsenal ${BRed}]${DGrey}──${BRed}[${LCyan} Cheat Sheets ${BRed}]${DGrey}──${BRed}[${LGreen} Command ${BRed}]${LGreen}──╼ $BGreen $ArsenalCommand
           ${BBlue}|
           ${DGrey}|──[ ~$(pwd) ]
           ${DGrey}|
