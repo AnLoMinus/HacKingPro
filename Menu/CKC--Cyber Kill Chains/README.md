@@ -45,6 +45,17 @@ there are 18 phases:
 
 - [x] 1. `Reconnaissance`: Researching, identifying, and selecting targets through active or passive surveillance.
 - [x] 2. `Weaponization`: Methods of preparation aimed at setting up the required infrastructure for the attack.
+  - [x] Viruses
+  - [x] Ransomware
+  - [x] Worms
+  - [x] Trojans
+  - [x] Rootkits
+  - [x] Keyloggers
+  - [x] Logic bombs
+  - [x] Adware
+  - [x] Spyware
+  - [x] Bots
+
 - [x] 3. `Delivery`: Techniques that aid in the transmission of a weaponized object to the target environment.
 - [x] 4. `Social Engineering`: Methods aimed at manipulating people to perform unsafe actions.
 - [x] 5. `Exploitation`: Tactics to exploit system vulnerabilities that may result in code execution.
