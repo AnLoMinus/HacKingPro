@@ -1,5 +1,5 @@
-[submodule "tools/patator"]
-	path = tools/patator
+[submodule "Menu/patator"]
+	path = Menu/patator
 	url = https://github.com/lanjelot/patator
 [submodule "tools/sipvicious"]
 	path = tools/sipvicious
