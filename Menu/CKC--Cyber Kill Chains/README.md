@@ -1,5 +1,5 @@
 # CKC - Cyber Kill Chains
-
+  
 # The Future of the Cyber Kill Chain
 
 ---
@@ -76,6 +76,8 @@
 ---
 
 ## 18 Phases:
+
+<img width="913" alt="image" src="https://user-images.githubusercontent.com/51442719/178087566-71dde261-2d85-48e0-840d-5a1b02523b2a.png">
 
 - [x] 1. `Reconnaissance`: Researching, identifying, and selecting targets through active or passive surveillance.
 - [x] 2. `Weaponization`: Methods of preparation aimed at setting up the required infrastructure for the attack.
