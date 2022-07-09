@@ -50,7 +50,19 @@
 
 ---
 
-# [Privacy](./Privacy)
+
+
+
+# [Privacy](./Privacy)\
+
+  - ## [GoProxy](https://github.com/snail007/goproxy)
+    > ![](https://camo.githubusercontent.com/e4e1bef79a3e4fc92f1cd6f1bbfe1a9798ca15c96a7e1d3e97f8875368be380b/68747470733a2f2f6d6972726f72732e686f73743930302e636f6d2f68747470733a2f2f6769746875622e636f6d2f736e61696c3030372f70726f78795f61646d696e5f667265652f626c6f622f6d61737465722f7265732f696d616765732f736f636b73355f656e2e676966)
+    > - The GoProxy is a high-performance http proxy, https proxy, socks5 proxy, ss proxy, websocket proxies, tcp proxies, udp proxies, game shield, game proxies. 
+    > - Support forward proxies, reverse proxy, transparent proxy, internet nat proxies, https proxy load balancing, http proxy load balancing , socks5 proxies load balancing, socket proxy load balancing, ss proxy load balancing, TCP / UDP port mapping, SSH transit, TLS encrypted transmission, protocol conversion, anti-pollution DNS proxy, API authentication, speed limit, limit connection. 
+    > - Reverse proxies to help you expose a local server behind a NAT or firewall to the internet so that you or your visitors can access it directly and easily.
+
+
+  
   - ## [privacy.sexy](https://github.com/undergroundwires/privacy.sexy): 
     > Enforce privacy & security best-practices on Windows and macOS, because privacy is sexy 🍑🍆
       - ![image](https://user-images.githubusercontent.com/51442719/173209053-0826e8cc-2c15-4a03-8176-301781cf1744.png)
