@@ -25,8 +25,11 @@
 
 <div align="center">
 
-# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.9
+# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.10
 ## HacKingPro - Hack Like A Pro !
+
+<img width="652" alt="image" src="https://user-images.githubusercontent.com/51442719/178091140-8b162430-95c2-4bb2-a791-f15b38e7c01d.png">
+
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
 
