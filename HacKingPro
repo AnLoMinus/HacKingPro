@@ -908,6 +908,7 @@ HacKingProPlanning(){
     ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}] ")
   echo "$HacKingProTargetStatus"
 
+  echo "\n          ${BRed}======================================================================================="
   CheckingifCaseFolderExist
 
   XHacKingProCaseTargetName="$XHacKingPro/Case/$targetNAME"
@@ -975,7 +976,7 @@ FunTargetEmail(){
     echo "${TargetEmailStatusON}"
   fi
 }
-FunTargetPhone(){
+  FunTargetPhone(){
       #statements
       if [ -z ${targetPhone} ]; then
         TargetPhoneStatusOFF=" ❌ "
@@ -1955,7 +1956,6 @@ MainMenu(){
             #statements
             targetIP="1.1.1.1"
           fi
-          pwd
           # mkdir "$XHacKingProCaseTargetNameRecon"
           # cd "$XHacKingProCaseTargetNameRecon"
           # pwd
@@ -2056,57 +2056,51 @@ MainMenu(){
             clear
             # HacKingProLogo1
             HacKingProTargetStatus=$(echo "
-            ${ToolHeader}
+    ${ToolHeader}
 
-            ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
-            ${DGrey}|
-            ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
-            ${DGrey}|
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
-            ${DGrey}|
-            ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
 
-            ${DGrey}┌──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
-            ${DGrey}└──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}┌──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}└──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
           ")
 
 
-            HacKingProMenuMain=$(echo "${BRed}
-            ${BBlue}[${BYellow}02${BBlue}] ${BYellow} 📜 Vulnerability Assessment Main Menu ⌖"
+    HacKingProMenuMain=$(echo "${BRed}
+    ${BBlue}[${BYellow}02${BBlue}] ${BYellow} 📜 Vulnerability Assessment Main Menu ⌖"
 
-            echo "$HacKingProTargetStatus""
+    echo "$HacKingProTargetStatus""
 
-            ${BRed}[${DGrey}00${BRed}]${BBlue} - ${DGrey} Arp Scan Log
+    ${DGrey}┌──╼ ${BRed}[${DGrey} 02 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Vulnerability Assessment Main Menu ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 00 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Ping Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 03 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nslookup Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 04 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dig Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} WhoIs Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 06 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dirb Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 07 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nmap Scan ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
-            ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey} TraceRoute Scan Log
-
-            ${BRed}[${DGrey}02${BRed}]${BBlue} - ${DGrey} Ping Scan Log
-
-            ${BRed}[${DGrey}03${BRed}]${BBlue} - ${DGrey} Nslookup Scan Log
-
-            ${BRed}[${DGrey}04${BRed}]${BBlue} - ${DGrey} Dig Scan Log
-
-            ${BRed}[${DGrey}05${BRed}]${BBlue} - ${DGrey} WhoIs Scan Log
-
-            ${BRed}[${DGrey}06${BRed}]${BBlue} - ${DGrey} Dirb Scan Log
-
-            ${BRed}[${DGrey}07${BRed}]${BBlue} - ${DGrey} Nmap Scan Log
-
-
-            ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
-
-            ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
-            ${BBlue}|
-            ${DGrey}|──[ ~$(pwd) ]
-            ${DGrey}|
-            ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow}]──╼${BGreen}  ")
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Weaponization ${BRed}]${BGreen}──╼ ${BGreen}   ")
             read -p "$HacKingProMenuMain" cmd
             case $cmd in
               0|00 )
@@ -2552,41 +2546,41 @@ MainMenu(){
         clear
         # HacKingProLogo1
         HacKingProTargetStatus=$(echo "
-        ${ToolHeader}
+    ${ToolHeader}
 
-        ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
-        ${DGrey}|
-        ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
-        ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
-        ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
-        ${DGrey}|
-        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
-        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
-        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
-        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
-        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
-        ${DGrey}|
-        ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
       ")
 
         HacKingProMenuMain=$(echo "${BRed}
-          ${BBlue}[${BYellow}05${BBlue}] ${BYellow} 📜 Password HacKing Menu"
+    ${BBlue}[${BYellow}05${BBlue}] ${BYellow} 📜 Password HacKing Menu"
 
-          echo "$HacKingProTargetStatus""
+    echo "$HacKingProTargetStatus""
 
-          ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}🤴 Brutex
+    ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}🤴 Brutex
 
-          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+    ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
 
-          ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
-          ${BBlue}|
-          ${DGrey}|──[ ~$(pwd) ]
-          ${DGrey}|
-          ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow}]──╼${BGreen}  ")
+    ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
+    ${BBlue}|
+    ${DGrey}|──[ ~$(pwd) ]
+    ${DGrey}|
+    ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow}]──╼${BGreen}  ")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
             1|01 )
-            Brutex
+            BruteForce
             # read -p "$Press_ENTER" readthat
             cd "$xMenu05"
             ;;
