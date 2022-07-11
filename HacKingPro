@@ -600,6 +600,70 @@ Lockheed() {
 done
 }
 
+HackTricks(){
+while true; do
+  #statements
+  cd $xMenu01_CSI
+  clear
+  # HacKingProLogo1
+  HacKingProMenuMain=$(echo "${BRed}
+    ${ToolHeader}
+
+    ${DGrey}⤝${BRed}[${DGrey} https://book.hacktricks.xyz/generic-methodologies-and-resources/pentesting-methodology ${BRed}]${DGrey}⤞
+    
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌────╼ ${BRed}[${DGrey} HackTricks ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Pentesting Methodology ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 00 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Physical Attacks ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Discovering hosts inside the network / Discovering Assets of the company ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Having Fun with the network (Internal) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 03 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Port Scan - Service discovery ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 04 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Searching service version exploits ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Pentesting Services ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 06 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Phishing ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 07 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Getting Shell ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 08 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Inside ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 09 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Exfiltration ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 10 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Privilege Escalation ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 11 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Post ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 11 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Pivoting ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} MM ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} More ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Pentesting Methodology ${BRed}]${BGreen}──╼  ")
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      x|X|exit|quit|Exit )
+      clear
+      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+      break
+      ;;
+      1|01 )
+      read -p "$Press_ENTER"
+      ;;
+    esac
+  done
+}
+
 BruteForce() {
 
   # Creating Scans and Output Folders
@@ -1578,7 +1642,7 @@ HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
 Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
-
+InvalidOption=$(echo "\n\t\t ${BGreen}»»» ${HacKingPro} ${LRed}Invalid Option ${BRed}¯\_(ツ)_/¯ \n")
 ###############################################
 
 ToolHeader=$(echo "
@@ -1869,7 +1933,10 @@ MainMenu(){
     ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
-      lockheed|Lockheed )
+      ht|hacktricks|HackTricks )
+      HackTricks
+      ;;
+      lh|lockheed|Lockheed )
       Lockheed
       ;;
       about|About )
@@ -1898,29 +1965,6 @@ MainMenu(){
       ;;
       p|P )
       HacKingProPlanning
-
-      ;;
-      li|LI )
-      clear
-      echo "\n\t${BRed}[${LGrey}LI${BRed}]${BBlue} - ${DGrey}Local Information"
-      echo "\n\t${BRed}[${LGrey}🔸 ~ [ System info ] ~ 🔸${BRed}]"
-      pingtest="\n\t $(ping 1.1.1.1 -c 1)"
-      echo "\n\t${BRed}[${BYellow}@${BRed}]${BBlue} - ${Yellow}Checking@  InterNet Connection Ping !!!\n\t\t $pingtest"
-      if [ $? == 0 ]; then
-        #statements
-        echo "\n\t${BRed}[${BGreen}!${BRed}]${BBlue} - ${BGreen}Found!  InterNet Connection Working !!!"
-      else
-        echo "\n\t${BRed}[${BRed}X${BRed}]${BBlue} - ${BRed}Error; No InterNet Connection; \n\t\t Check Your Connection and Come Back!!!"
-      fi
-      sleep 1
-      echo "\n\t 🔸 ~ ${BBlue} Hostname: : ${BYellow} $(hostname)"
-      echo "\n\t 🔸 ~ ${BBlue} Distro: ${BYellow} $(uname)"
-      echo "\n\t 🔸 ~ ${BBlue} Kernel / Architecture: ${BYellow} $(uname -m)"
-      echo "\n\t 🔸 ~ ${BBlue} Machine Hardware Processor Architecture Name: ${BYellow} $(uname -p)"
-      echo "\n\t 🔸 ~ ${BBlue} Operating System Release: ${BYellow} $(uname -r)"
-      echo "\n\t 🔸 ~ ${BBlue} Operating System Name: ${BYellow} $(uname -s)"
-      echo "\n\t 🔸 ~ ${BBlue} Operating System Version: ${BYellow} $(uname -v)"
-      read -p "$Press_ENTER" Som3T1ng
       ;;
       0|00 )
       clear
@@ -2066,6 +2110,7 @@ MainMenu(){
     ${DGrey}|──${BRed}[${DGrey} CMI ${BRed}]${BGreen}── ${BRed}[${DGrey} Machine Information ${BRed}]
     ${DGrey}|──${BRed}[${DGrey} CNI ${BRed}]${BGreen}── ${BRed}[${DGrey} Network Information ${BRed}]
     ${DGrey}|──${BRed}[${DGrey} CSI ${BRed}]${BGreen}── ${BRed}[${DGrey} Social Information ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} CLI ${BRed}]${BGreen}── ${BRed}[${DGrey} Local Information ${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
@@ -2349,6 +2394,60 @@ MainMenu(){
                 esac
               done
             ;;
+            cli|CLI )
+            while true; do
+              #statements
+              cd $xMenu01_CSI
+              clear
+              # HacKingProLogo1
+              HacKingProMenuMain=$(echo "${BRed}
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌──${BRed}[${BYellow} Collecting Local Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Hostname: : ${BYellow} $(hostname)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Distro: ${BYellow} $(uname)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Kernel / Architecture: ${BYellow} $(uname -m)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Machine Hardware Processor Architecture Name: ${BYellow} $(uname -p)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Operating System Release: ${BYellow} $(uname -r)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Operating System Name: ${BYellow} $(uname -s)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Operating System Version: ${BYellow} $(uname -v)
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CLI ${BRed}]${BGreen}──╼ ${BGreen}  ")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                  1|01 )
+                  read -p "$Press_ENTER"
+                  ;;
+                esac
+              done
+            ;;
           esac
         done
       ;;
@@ -2488,12 +2587,10 @@ MainMenu(){
           ")
 
 
-    HacKingProMenuMain=$(echo "${BRed}
-    ${BBlue}[${BYellow}02${BBlue}] ${BYellow} 📜 Vulnerability Assessment Main Menu ⌖"
-
+    HacKingProMenuMain=$(echo "${BRed}"
     echo "$HacKingProTargetStatus""
 
-    ${DGrey}┌──╼ ${BRed}[${DGrey} 02 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Vulnerability Assessment Main Menu ${BRed}]
+    ${DGrey}┌──╼ ${BRed}[${DGrey} Vulnerability Assessment Main Menu ${BRed}]
     ${DGrey}|
     ${DGrey}|──${BRed}[${DGrey} 00 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
     ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
@@ -3471,6 +3568,9 @@ MainMenu(){
       clear
       echo "$HacKingProExit"
       exit
+      ;;
+      * )
+      echo "$InvalidOption"
       ;;
     esac
   done
