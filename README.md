@@ -124,19 +124,6 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 ---
 
-# [Cheat Sheets](https://github.com/Anlominus/HacKingPro/tree/main/Cheatsheets)
-### [HacKingPro / Cheatsheets / Attacks.md](https://github.com/Anlominus/HacKingPro/blob/main/Cheatsheets/Attacks.md)
-### [HacKingPro / Cheatsheets / Web-Attacks.md](https://github.com/Anlominus/HacKingPro/blob/main/Cheatsheets/Web-Attacks.md)
-
----
-
-# Awesome
-### [Awesome Hacking](https://github.com/jekil/awesome-hacking)
-### [Awesome Hacking Resources](https://github.com/vitalysim/Awesome-Hacking-Resources#malware-analysis)
-
----
-
----
 > בס״ד
 <div align="center">
 
