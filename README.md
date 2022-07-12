@@ -61,7 +61,7 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   > <img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/176260939-4eb78d05-5372-4767-ab84-22603ee047a5.png">
   
 - [x] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
-  > <img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/176260817-859e2c78-35cc-45c4-ac59-808760d929ae.png">
+  > <img width="627" alt="image" src="https://user-images.githubusercontent.com/51442719/178554246-58e9d5f8-8859-4661-ad02-8f5afb22c80c.png">
   - [x] CAO - [`Collecting All in One`]():
   - [x] CNI - [`Collecting Network Information`](): 
   - [x] CMI - [`Collecting Machine Information`]():  
