@@ -877,10 +877,10 @@ BruteForce(){
  BruteHTTP(){
    #  Port 80 (HTTP)
    if grep -q 80/tcp nmap.log; then
-     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 80(HTTP) is open. Starting bruteforce...\n"
+     echo "        ${AfterBruteHTTP} ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 80(HTTP) is open. Starting bruteforce...\n"
      BruteHTTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
      AfterBruteHTTP="${BruteHTTP_Open}"
-     echo "${AfterBruteHTTP}"
+     echo ""
 	   sleep 1
 	   hydra -L $user -P $pass ${targetIP} service http-get -o Output/${targetIP}/http-get_${targetIP}.txt -I -V / -t $thread
      Finished_Brute ${targetIP}
@@ -1197,11 +1197,11 @@ AttacKing(){
 
     ${BGreen}┌─╼ ${BRed}[${BGreen} 5 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Installation ${BRed}]
     ${BGreen}|──────────╼ ${BRed}[${BYellow} The malware installs a backdoor or other ingress accessible to the attacker ${BRed}]
-    ${BGreen}└──────────╼ ${BRed}[${BYellow} Malware weapon installs access point (e.g., "backdoor") usable by intruder. ${BRed}]
+    ${BGreen}└──────────╼ ${BRed}[${BYellow} Malware weapon installs access point (e.g., backdoor) usable by intruder. ${BRed}]
 
     ${BGreen}┌─╼ ${BRed}[${BGreen} 6 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Command and Control ${BRed}]
     ${BGreen}|──────────╼ ${BRed}[${BYellow} The intruder gains persistent access to the victim’s systems/network ${BRed}]
-    ${BGreen}└──────────╼ ${BRed}[${BYellow} Malware enables intruder to have "hands on the keyboard" persistent access to target network. ${BRed}]
+    ${BGreen}└──────────╼ ${BRed}[${BYellow} Malware enables intruder to have hands on the keyboard persistent access to target network. ${BRed}]
 
     ${BGreen}┌─╼ ${BRed}[${BGreen} 7 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Actions on Objective ${BRed}]
     ${BGreen}|──────────╼ ${BRed}[${BYellow} Intruder initiates end goal actions, such as data theft, data corruption, or data destruction ${BRed}]
@@ -1822,7 +1822,7 @@ xDirectories
 Arsenal(){
   clear
   # Getting Arsenal Cheatsheets
-  if [ -d == ./Arsenal ]; then
+  if [ -d Arsenal ]; then
     #statements
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installed  \n"
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}cd Into Arsenal\n"
