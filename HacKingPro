@@ -18,9 +18,7 @@
 # Location: Made With LOVE IN ISRAEL !
 # Source: https://github.com/Anlominus/HacKingPro
 ###############################################
-Anlominus="AnLoMinus"
-LastUPDATE="2022 July 10"
-MyVersion="v0.0.0.12"
+LastUPDATE="2022 July 12"
 ToolSource="https://github.com/Anlominus/HacKingPro"
 ###############################################
 
@@ -28,27 +26,17 @@ about() {
   clear
   # HacKingProLogo1
   echo "
-${BRed}####################################################
+    ${ToolHeader}
 
-${HacKingPro} ${Color_Off}is a Penetration Testing Tool !!!
+    ${DGrey}┏──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}is a Penetration Testing Tool ❕❕❕ ${BRed}]
+    ${DGrey}┣──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}Written by ${BCyan}Leon Yaakobov ${BRed}]
+    ${DGrey}┗──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}For Showing my Skills ${BRed}]
 
-${BRed}####################################################
-
-Aouther: $Anlominus
-Tool Name: $HacKingPro ${BRed}
-Last Update: $LastUPDATE
-Version: $MyVersion
-Tool Source: $ToolSource
-
-${BRed}####################################################
-
-${BRed}Warning: ${Color_Off}
-
-I’m not responsible for any misuse
-or damage caused by this program.
-Use this tool at your own ${BRed}Risk!
-
-${BRed}####################################################"
+    ${DGrey}┌==⥤ ${Color_Off}[${LRed} ❌ ❗ Warning ❗ ❌ ${Color_Off}]
+    ${DGrey}|
+    ${DGrey}╠==⥤ ${Color_Off}[${LRed} I’m not responsible for any misuse or damage caused by this program.❗ ${Color_Off}]
+    ${DGrey}|
+    ${DGrey}╚==⥤ ${Color_Off}[${LRed} Use this tool at your own ${BRed}Risk! ❗❗${Color_Off}] "
 
    read -p "$Press_ENTER"
 }
@@ -556,17 +544,23 @@ Lockheed() {
     ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
 
 
-    ${BGreen}┌─────────${BRed}[${BYellow} Lockheed ${BRed}]
-    ${BGreen}|
-    ${BGreen}|──${BRed}[${BGreen} 1 ${BRed}]${BGreen} ╼ ${BRed}[${BGreen} Reconnaissance ${BRed}]
-    ${BGreen}|──${BRed}[${BGreen} 2 ${BRed}]${BGreen} ╼ ${BRed}[${BGreen} Weaponization ${BRed}]
-    ${BGreen}|──${BRed}[${BGreen} 3 ${BRed}]${BGreen} ╼ ${BRed}[${BGreen} Delivery ${BRed}]
-    ${BGreen}|──${BRed}[${BGreen} 4 ${BRed}]${BGreen} ╼ ${BRed}[${BGreen} Exploitation ${BRed}]
-    ${BGreen}|──${BRed}[${BGreen} 5 ${BRed}]${BGreen} ╼ ${BRed}[${BGreen} Installation ${BRed}]
-    ${BGreen}|──${BRed}[${BGreen} 6 ${BRed}]${BGreen} ╼ ${BRed}[${BGreen} Command and Control ${BRed}]
-    ${BGreen}|──${BRed}[${BGreen} 7 ${BRed}]${BGreen} ╼ ${BRed}[${BGreen} Actions on Objective ${BRed}]
-    ${BGreen}|
-    ${BGreen}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+    ${DGrey}┌─────────${BRed}[${BYellow} Lockheed ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 1 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Reconnaissance ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 2 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Weaponization ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 3 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Delivery ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 4 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Exploitation ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 5 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Installation ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 6 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command and Control ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 7 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Actions on Objective ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
 
     ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
@@ -596,6 +590,85 @@ Lockheed() {
     clear
     break
     ;;
+    2 )
+    while true; do
+      #statements
+      clear
+      # HacKingProLogo1
+    HacKingProMenuMain=$(echo "
+
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+
+    ${DGrey}┌─────────${BRed}[${BYellow} Lockheed ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Weaponization ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 1 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Viruses ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 2 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Ransomware ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 3 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Worms ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 4 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Trojans ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 5 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Rootkits ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 6 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Keyloggers ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 7 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Logic bombs ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 8 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Adware ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 9 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Spyware ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 10 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Bots ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+
+
+    ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BBlue}|
+    ${DGrey}|──[ ~$(pwd) ]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} LockHeed ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ")
+
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      ls )
+      ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
+      echo "$ls_lahs"
+      sleep 2
+      ls -lahs
+      sleep 2
+      read -p "$ls_lahs" cmd
+      ;;
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+      Arsenal
+      ;;
+      p|P )
+      HacKingProPlanning
+      ;;
+      x|X|exit|EXIT )
+      cd $XHacKingPro
+      clear
+      break
+      ;;
+    esac
+  done
+    ;;
   esac
 done
 }
@@ -610,7 +683,7 @@ while true; do
     ${ToolHeader}
 
     ${DGrey}⤝${BRed}[${DGrey} https://book.hacktricks.xyz/generic-methodologies-and-resources/pentesting-methodology ${BRed}]${DGrey}⤞
-    
+
     ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
     ${DGrey}|
     ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
@@ -1637,7 +1710,7 @@ FullTime=$(date)
 # HacKingPro Design
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}12")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}13")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
@@ -1902,6 +1975,7 @@ MainMenu(){
     ")
 
     HacKingProMenuMain=$(echo "${BRed}"
+    # ${DGrey}|──${BRed}[${BYellow} KoTH ${BRed}]${BGreen}── ${BBlack}[${BBlack} 🤴🏼 King of The Hill ⛰ ${BRed}]
     echo "$HacKingProTargetStatus""
     ${DGrey}┌──${BRed}[${BYellow} ${HacKingPro} ${BRed}]
     ${DGrey}|
@@ -1922,7 +1996,8 @@ MainMenu(){
     ${DGrey}|──${BRed}[${BBlack} 14 ${BRed}]${BGreen}── ${BRed}[${BBlack} Privilege Enumeration & Escalation ${BRed}]
     ${DGrey}|──${BRed}[${BBlack} 15 ${BRed}]${BGreen}── ${BRed}[${BBlack} Malware Analysis Labs/Tools ${BRed}]
     ${DGrey}|──${BRed}[${BBlack} 16 ${BRed}]${BGreen}── ${BRed}[${BBlack} Covering Tracks 🫣 ${BRed}]
-    ${DGrey}|──${BRed}[${BYellow} KoTH ${BRed}]${BGreen}── ${BBlack}[${BBlack} 🤴🏼 King of The Hill ⛰ ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} About ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Information About The ${HacKingPro} ${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
