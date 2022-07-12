@@ -1710,7 +1710,7 @@ FullTime=$(date)
 # HacKingPro Design
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}13")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}14")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
@@ -1976,6 +1976,17 @@ MainMenu(){
 
     HacKingProMenuMain=$(echo "${BRed}"
     # ${DGrey}|──${BRed}[${BYellow} KoTH ${BRed}]${BGreen}── ${BBlack}[${BBlack} 🤴🏼 King of The Hill ⛰ ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 06 ${BRed}]${BGreen}── ${BRed}[${BBlack} Wireless HacKing 📡 ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 07 ${BRed}]${BGreen}── ${BRed}[${BBlack} Reverse Engineering ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 08 ${BRed}]${BGreen}── ${BRed}[${BBlack} Exploit Frameworks & DataBases ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 09 ${BRed}]${BGreen}── ${BRed}[${BBlack} Sniffing - Spoofing 👃🏼 ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 10 ${BRed}]${BGreen}── ${BRed}[${BBlack} Gaining & Maintaining Access ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 11 ${BRed}]${BGreen}── ${BRed}[${BBlack} Digital Forensic ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 12 ${BRed}]${BGreen}── ${BRed}[${BBlack} Analysis & Reporting ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 13 ${BRed}]${BGreen}── ${BRed}[${BBlack} Social Engineering ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 14 ${BRed}]${BGreen}── ${BRed}[${BBlack} Privilege Enumeration & Escalation ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 15 ${BRed}]${BGreen}── ${BRed}[${BBlack} Malware Analysis Labs/Tools ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 16 ${BRed}]${BGreen}── ${BRed}[${BBlack} Covering Tracks 🫣 ${BRed}]
     echo "$HacKingProTargetStatus""
     ${DGrey}┌──${BRed}[${BYellow} ${HacKingPro} ${BRed}]
     ${DGrey}|
@@ -1985,17 +1996,8 @@ MainMenu(){
     ${DGrey}|──${BRed}[${BBlack} 03 ${BRed}]${BGreen}── ${BRed}[${BBlack} Web Application HacKing 🕸 ${BRed}]
     ${DGrey}|──${BRed}[${BBlack} 04 ${BRed}]${BGreen}── ${BRed}[${BBlack} Database Assessment ${BRed}]
     ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}── ${BRed}[${DGrey} Password HacKing ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 06 ${BRed}]${BGreen}── ${BRed}[${BBlack} Wireless HacKing 📡 ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 07 ${BRed}]${BGreen}── ${BRed}[${BBlack} Reverse Engineering ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 08 ${BRed}]${BGreen}── ${BRed}[${BBlack} Exploit Frameworks & DataBases ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 09 ${BRed}]${BGreen}── ${BRed}[${BBlack} Sniffing - Spoofing 👃🏼 ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 10 ${BRed}]${BGreen}── ${BRed}[${BBlack} Gaining & Maintaining Access ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 11 ${BRed}]${BGreen}── ${BRed}[${BBlack} Digital Forensic ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 12 ${BRed}]${BGreen}── ${BRed}[${BBlack} Analysis & Reporting ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 13 ${BRed}]${BGreen}── ${BRed}[${BBlack} Social Engineering ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 14 ${BRed}]${BGreen}── ${BRed}[${BBlack} Privilege Enumeration & Escalation ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 15 ${BRed}]${BGreen}── ${BRed}[${BBlack} Malware Analysis Labs/Tools ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 16 ${BRed}]${BGreen}── ${BRed}[${BBlack} Covering Tracks 🫣 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} AnyTool ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Many Systems HacKing Tools ${HacKingPro} ${BRed}]
     ${DGrey}|
     ${DGrey}|──${BRed}[${DGrey} About ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Information About The ${HacKingPro} ${BRed}]
     ${DGrey}|
