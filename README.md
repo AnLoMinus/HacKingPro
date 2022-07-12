@@ -50,8 +50,9 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   - [x] I - Install HacKingPro On the System
 
 - [x] P - Planning and Scoping
-  > <img width="836" alt="image" src="https://user-images.githubusercontent.com/51442719/177653437-f30b314b-8b84-4f66-95b1-022274904210.png">
+  > <img width="1122" alt="image" src="https://user-images.githubusercontent.com/51442719/178494117-76faea6d-b7c9-41bd-b071-d3ae8a984655.png">
     - [x] Asking for Target IP:
+    - [x] Asking for Target Dns:
     - [x] Asking for Target Name:
     - [x] Asking for Target Phone:
     - [x] Asking for Target Email:
