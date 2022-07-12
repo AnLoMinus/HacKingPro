@@ -92,41 +92,10 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   - [x] host
   - [x] traceroute
 
-- [ ] 03 - [Web Application HacKing](./Menu/03--Web%20Application%20HacKing)
-
-- [ ] 04 - [Database Assessment](./Menu/04--Database%20Assessment)
-
 - [ ] 05 - [Password HacKing](./Menu/05--Password%20HacKing)
 
-- [ ] 06 - [Wireless HacKing](./Menu/06--Wireless%20HacKing)
 
-- [ ] 07 - [Reverse Engineering](./Menu/07--Exploit%20Frameworks%20%26%20DataBases)
-
-- [ ] 08 - [Exploit Frameworks & DataBases](./Menu/08--Post-Exploitation%20Frameworks)
-
-- [ ] 09 - [Sniffing - Spoofing](./Menu/09--Sniffing%20-%20Spoofing)
-
-- [ ] 10 - [Gaining & Maintaining Access](./Menu/)
-
-- [ ] 11 - [Digital Forensic](./Menu/)
-
-- [ ] 12 - [Analysis & Reporting](./Menu/12--Analysis%20%26%20Reporting)
-
-- [ ] 13 - [Social Engineering](./Menu/13--Social%20Engineering)
-
-- [ ] 14 - [Privilege Enumeration & Escalation](./Menu/14--Privilege%20Enumeration%20%26%20Escalation)
-
-- [ ] 15 - [Malware Analysis Labs/Tools](./Menu/15--Malware%20Tools)
-
-- [ ] 16 - [Covering Tracks](./Menu/)
-
-- [ ] 17 - [Network Security Solutions](./Menu/)
-
-- [x] `KoTH` - [King of The Hill](/Menu/KoTH--King%20of%20The%20Hill#anlominus--king-of-the-hill-beta)
-  > - <img width="675" alt="image" src="https://user-images.githubusercontent.com/51442719/176060436-cb422f4e-5ce3-4d50-9c9f-977b7ed5d9ff.png">
-
-
-┌──[ Anlominus 👽 HacKingPro $~]  
+┌──[ AnLoMinus 🔮 HacKingPro $~]  
 └──╼  
 
 ---
