@@ -81,6 +81,9 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   - [x] CSI - [`Collecting Social Information`]():  
 
 - [x] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
+  >
+  > ## Type `2` in the Main Menu, and ENTER 
+  >
   - [x] arp
   - [x] ping
   - [x] nslookup
