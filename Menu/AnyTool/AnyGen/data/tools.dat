@@ -1,0 +1,29 @@
+GoblinWordGenerator 2.0|GoblinWordGenerator|Password_Generators|https://github.com/UndeadSec/GoblinWordGenerator|git|python,git
+Generator Tricks|Generators|Generators_Mix|https://github.com/dabeaz/generators|git|python,git
+Reverse Shell generator|R Reverse Shell generator|Reverse_Shells_Generators|https://github.com/0dayCTF/reverse-shell-generator|git|javascript,git
+Hershell|Hershell|Reverse_Shells_Generators|https://github.com/lesnuages/hershell|git|go,git
+reverse-shell-generator|reverse-shell-generator|Reverse_Shells_Generators|https://github.com/weibell/reverse-shell-generator|git|go,git
+revshellgen|revshellgen|Reverse_Shells_Generators|https://github.com/t0thkr1s/revshellgen|git|python,git
+shellback|shellback|Reverse_Shells_Generators|https://github.com/chrispetrou/shellback|git|python,git
+Shell_Gen|Shell_Gen|Reverse_Shells_Generators|https://github.com/CyDefUnicorn/Shell_Gen|git|python,git
+rs|rs|Reverse_Shells_Generators|https://github.com/ihebski/rs|git|python,git
+EzpzShell|EzpzShell|Reverse_Shells_Generators|https://github.com/H0j3n/EzpzShell|git|python,git
+Shelly|Shelly|Reverse_Shells_Generators|https://github.com/d4t4s3c/Shelly|git|git
+shp|shp|Reverse_Shells_Generators|https://github.com/etc5had0w/shp|git|git
+sheller|sheller|Reverse_Shells_Generators|https://github.com/Ak-wa/sheller|git|git
+ShellStorm|ShellStorm|Reverse_Shells_Generators|https://github.com/0bfxgh0st/ShellStorm|git|git
+rcX|rcX|Reverse_Shells_Generators|https://github.com/FlyfishSec/rcX|git|git
+Kusanagi|Kusanagi|Reverse_Shells_Generators|https://github.com/cytopia/kusanagi|git|git
+Genshell|Genshell|Reverse_Shells_Generators|https://github.com/djjoa/genshell|git|git
+revshells|revshells|Reverse_Shells_Generators|https://github.com/evildevill/revshells|git|git
+BackHAck|BackHAck|BackDoors_Generators|https://github.com/AngelSecurityTeam/BackHAck|git|python,git
+HIROO|HIROO|BackDoors_Generators|https://github.com/cinaaaa/HIROO|git|python,git
+0p3n-d00r|0p3n-d00r|BackDoors_Generators|https://github.com/Ba-hub/0p3n-d00r|git|git
+password-generator|password-generator|Password_Generators|https://github.com/devloop01/password-generator|git|git
+WordlistPasswordGenerator|WordlistPasswordGenerator|Password_Generators|https://github.com/OnlineHacKing/WordlistPasswordGenerator|git|git,python
+BEWGor|BEWGor|Password_Generators|https://github.com/berzerk0/BEWGor|git|git,python
+sf-pwgen|sf-pwgen|Password_Generators|https://github.com/anders/pwgen|git|git,c
+Elpscrk|Elpscrk|Password_Generators|https://github.com/RussianOtter/elpscrk|git|git,python
+X-Prey|X-Prey|Password_Generators|https://github.com/navisecdelta/X-Prey|git|git,ruby
+VenomGen|VenomGen|Multi_Purpose_Generators|https://github.com/xHak9x/VenomGen|git|git,ruby
+Narthex|Narthex|Password_Generators|https://github.com/MichaelDim02/Narthex|git|git,c,make

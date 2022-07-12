@@ -1,0 +1,222 @@
+#!/bin/sh
+# Name : HacKing
+# Date : 1 November 2021
+# Description : HacKing is a hacking tools installer and package manager for hacker's.
+
+# |
+nc="\033[00m"
+white="\033[1;37m"
+grey="\033[0;37m"
+purple="\033[0;35m"
+red="\033[1;31m"
+green="\033[32m"
+yellow="\033[33m"
+purple="\033[0;35m"
+cyan="\033[1;36m"
+cafe="\033[1;33m"
+fiuscha="\033[0;35m"
+blue="\033[34m"
+orange="\033[38;5;122m"
+# |
+RED="$(printf '\033[31m')"
+GREEN="$(printf '\033[32m')"
+ORANGE="$(printf '\033[33m')"
+BLUE="$(printf '\033[34m')"
+MAGENTA="$(printf '\033[35m')"
+CYAN="$(printf '\033[36m')"
+WHITE="$(printf '\033[37m')"
+BLACK="$(printf '\033[30m')"
+REDBG="$(printf '\033[41m')"
+GREENBG="$(printf '\033[42m')"
+ORANGEBG="$(printf '\033[43m')"
+BLUEBG="$(printf '\033[44m')"
+MAGENTABG="$(printf '\033[45m')"
+CYANBG="$(printf '\033[46m')"
+WHITEBG="$(printf '\033[47m')"
+BLACKBG="$(printf '\033[40m')"
+RESETBG="$(printf '\e[0m')"
+BLINK="$(printf '\033[5;31m')"
+# |
+Banner(){
+  echo "$BLUE
+   ██████   █████                  ████
+  ░░██████ ░░███                  ░░███
+   ░███░███ ░███   ██████   █████  ░███   ██████
+   ░███░░███░███  ███░░███ ███░░   ░███  ███░░███
+   ░███ ░░██████ ░███████ ░░█████  ░███ ░███████
+   ░███  ░░█████ ░███░░░   ░░░░███ ░███ ░███░░░
+   █████  ░░█████░░██████  ██████  █████░░██████$RED
+  ░░░░░░    ░░░░░  ░░░░░░  ░░░░░░  ░░░░░  ░░░░░░░
+  ░     _   _            _  ___                 ░
+  ░    | | | | __ _  ___| |/ (_)_ __   __ _     ░
+  ░    | |_| |/ _' |/ __| ' /| | '_ \ / _' |    ░
+  ░    |  _  | (_| | (__| . \| | | | | (_| |    ░
+  ░    |_| |_|\__,_|\___|_|\_\_|_| |_|\__, |    ░
+  ░                                   |___/     ░
+  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒         ▀▀█▀▀ █▀▀█ █▀▀█ █   █▀▀             ▒
+  ▒           █   █  █ █  █ █   ▀▀█             ▒
+  ▒           ▀   ▀▀▀▀ ▀▀▀▀ ▀▀▀ ▀▀▀$ORANGE v0.0.0.1    ▒
+  ▒ https://www.github.com/Anlominus/HacKing    ▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+  "
+}
+logo="$(Banner)"
+
+
+
+# checking for system home dir
+if [ -d $HOME ]; then
+  home=$HOME
+else
+  home="~/"
+fi
+
+# checking for system bin dir
+if [ -d /data/data/com.termux/files/usr/bin ]; then
+  bin="/data/data/com.termux/files/usr/bin"
+elif [ -d /usr/local/bin ]; then
+  bin="/usr/local/bin"
+elif [ -d /bin ]; then
+  bin="/bin"
+elif [ -d /sbin ]; then
+  bin="/sbin"
+fi
+
+# checking for configuration dir
+if [ -d /data/data/com.termux/files/usr/etc ]; then
+  conf_dir="/data/data/com.termux/files/usr/etc"
+elif [ -d /etc ]; then
+  conf_dir="/etc"
+fi
+
+# configuration files
+if [ -d $conf_dir/HacKing ]; then
+  if [ -e $conf_dir/HacKing/data/tools.dat ]; then
+    tools_data="$conf_dir/HacKing/data/tools.dat"
+  fi
+  if [ -e $conf_dir/HacKing/data/category.dat ]; then
+    category_data="$conf_dir/HacKing/data/category.dat"
+  fi
+else
+  if [ -e data/tools.dat ]; then
+    tools_data="data/tools.dat"
+  fi
+  if [ -e data/category.dat ]; then
+    category_data="data/category.dat"
+  fi
+fi
+
+# checking for system root access
+if [ `command -v sudo` ]; then
+  sudo="sudo"
+else
+  sudo=""
+fi
+
+# checking for system package manager
+if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
+  pac="pkg"
+  system="termux"
+elif [ `command -v apt` ]; then
+  pac="apt"
+  system="linux"
+elif [ `command -v apt-get` ]; then
+  pac="apt-get"
+  system="linux"
+elif [ `command -v apk` ]; then
+  pac="apk"
+  system="linux"
+elif [ `command -v yum` ]; then
+  pac="yum"
+  system="fedora"
+elif [ `command -v brew` ]; then
+  pac="brew"
+  system="mac"
+  sudo=""
+fi
+
+# setup process
+clear
+echo "$logo"
+echo "${green} Installing .... ${nc}"
+sleep 1
+echo "${yellow} Running setup .... ${nc}"
+sleep 1
+
+# installing dependency
+for each_pac in "wget" "curl" "git"; do
+  if [ ! `command -v $each_pac` ]; then
+    if [ $sudo ]; then
+      $sudo $pac install $each_pac -y
+    else
+      $pac install $each_pac -y
+    fi
+  fi
+done
+
+# removing old one
+if [ -e $bin/HacKing ]; then
+  if [ -d $conf_dir/HacKing ]; then
+    if [ $sudo ]; then
+      $sudo rm -rf $bin/HacKing
+      $sudo rm -rf $conf_dir/HacKing
+    else
+      rm -rf $bin/HacKing
+      rm -rf $conf_dir/HacKing
+    fi
+  fi
+fi
+
+# install HacKing
+if [ $0 = "install" -o $0 = "./install" ]; then
+  if [ -e HacKing ]; then
+    if [ $sudo ]; then
+      $sudo mv -v HacKing $bin
+      $sudo chmod +x $bin/HacKing
+    else
+      mv -v HacKing $bin
+      chmod +x $bin/HacKing
+    fi
+  fi
+  cd ..
+  if [ -d HacKing ]; then
+    if [ $sudo ]; then
+    $sudo mv -v HacKing $conf_dir
+    else
+      mv -v HacKing $conf_dir
+    fi
+  fi
+else
+  if [ -e HacKing/HacKing ]; then
+    if [ $sudo ]; then
+      $sudo mv -v HacKing/HacKing $bin
+      $sudo chmod +x $bin/HacKing
+    else
+      mv -v HacKing/HacKing $bin
+      chmod +x $bin/HacKing
+    fi
+  fi
+  if [ -d HacKing ]; then
+    if [ $sudo ]; then
+    $sudo mv -v HacKing $conf_dir
+    else
+      mv -v HacKing $conf_dir
+    fi
+  fi
+fi
+
+# check HacKing is installed or not
+if [ -e $bin/HacKing ]; then
+  if [ -d $conf_dir/HacKing ]; then
+    clear
+    echo "$logo"
+    echo " ${purple}HacKing ${green}installed successfully !!"
+    echo " ${green}type ${nc}'HacKing -h'${green} for more.${nc}"
+  else
+    clear
+    echo "$logo"
+    echo " ${red}Sorry ${cyan}: HacKing ${red}is not installed !!"
+    echo " ${green}Please try again${nc}"
+  fi
+fi
