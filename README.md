@@ -24,9 +24,10 @@
 
 
 <div align="center">
-
+ 
+  
 # [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.15
-## HacKingPro - Hack Like A Pro !
+## `The Concept` <br> HacKingPro - Hack Like A Pro !
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
 
@@ -49,19 +50,33 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 # 📜 Menu / To Do
   - [x] I - Install HacKingPro On the System
 
+- [x] Arsenal - Commads Cheatsheets
+  >
+  > ## Type `arsenal` in Main Menu for Open Arsenal Cheatsheets Tool, Choose Command and `esc` for exit. it will showing in the Bottom `Arsenal Line` 
+  >
+  > <img width="842" alt="image" src="https://user-images.githubusercontent.com/51442719/178555762-82061cab-fdaf-4973-8021-bbd9e1a8123e.png"> 
+  >
+  > <img width="927" alt="image" src="https://user-images.githubusercontent.com/51442719/178579189-304ea400-be2f-4571-ad48-e984eba9cdc5.png">
+
+
 - [x] P - Planning and Scoping
+  > ## If You Try enter option 2 in the Menu without Planning & Scooping, You wil get this Screen:
+  >   <img width="498" alt="image" src="https://user-images.githubusercontent.com/51442719/178555057-e31f5c99-266b-4a5e-b7d2-e488e45bc439.png">
+  >
+  > ## Press `P` On the keyboard for Planning and Scooping 
+  >
+  > - [x] Asking for Target IP:
+  > - [x] Asking for Target Dns:
+  > - [x] Asking for Target Name:
+  > - [x] Asking for Target Phone:
+  > - [x] Asking for Target Email:
   > <img width="1122" alt="image" src="https://user-images.githubusercontent.com/51442719/178494117-76faea6d-b7c9-41bd-b071-d3ae8a984655.png">
-    - [x] Asking for Target IP:
-    - [x] Asking for Target Dns:
-    - [x] Asking for Target Name:
-    - [x] Asking for Target Phone:
-    - [x] Asking for Target Email:
 
 - [x] A - [Anonymity](./Menu/00--Anonymity)
-  > <img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/176260939-4eb78d05-5372-4767-ab84-22603ee047a5.png">
+  > <img width="527" alt="image" src="https://user-images.githubusercontent.com/51442719/178554487-91aafaf0-8ffb-43c8-968f-895ff047d866.png">
   
 - [x] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
-  > <img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/176260817-859e2c78-35cc-45c4-ac59-808760d929ae.png">
+  > <img width="627" alt="image" src="https://user-images.githubusercontent.com/51442719/178554246-58e9d5f8-8859-4661-ad02-8f5afb22c80c.png">
   - [x] CAO - [`Collecting All in One`]():
   - [x] CNI - [`Collecting Network Information`](): 
   - [x] CMI - [`Collecting Machine Information`]():  
@@ -69,6 +84,9 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   - [x] CSI - [`Collecting Social Information`]():  
 
 - [x] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
+  >
+  > ## Type `2` in the Main Menu, and ENTER 
+  >
   - [x] arp
   - [x] ping
   - [x] nslookup
@@ -77,41 +95,10 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   - [x] host
   - [x] traceroute
 
-- [ ] 03 - [Web Application HacKing](./Menu/03--Web%20Application%20HacKing)
-
-- [ ] 04 - [Database Assessment](./Menu/04--Database%20Assessment)
-
 - [ ] 05 - [Password HacKing](./Menu/05--Password%20HacKing)
 
-- [ ] 06 - [Wireless HacKing](./Menu/06--Wireless%20HacKing)
 
-- [ ] 07 - [Reverse Engineering](./Menu/07--Exploit%20Frameworks%20%26%20DataBases)
-
-- [ ] 08 - [Exploit Frameworks & DataBases](./Menu/08--Post-Exploitation%20Frameworks)
-
-- [ ] 09 - [Sniffing - Spoofing](./Menu/09--Sniffing%20-%20Spoofing)
-
-- [ ] 10 - [Gaining & Maintaining Access](./Menu/)
-
-- [ ] 11 - [Digital Forensic](./Menu/)
-
-- [ ] 12 - [Analysis & Reporting](./Menu/12--Analysis%20%26%20Reporting)
-
-- [ ] 13 - [Social Engineering](./Menu/13--Social%20Engineering)
-
-- [ ] 14 - [Privilege Enumeration & Escalation](./Menu/14--Privilege%20Enumeration%20%26%20Escalation)
-
-- [ ] 15 - [Malware Analysis Labs/Tools](./Menu/15--Malware%20Tools)
-
-- [ ] 16 - [Covering Tracks](./Menu/)
-
-- [ ] 17 - [Network Security Solutions](./Menu/)
-
-- [x] `KoTH` - [King of The Hill](/Menu/KoTH--King%20of%20The%20Hill#anlominus--king-of-the-hill-beta)
-  > - <img width="675" alt="image" src="https://user-images.githubusercontent.com/51442719/176060436-cb422f4e-5ce3-4d50-9c9f-977b7ed5d9ff.png">
-
-
-┌──[ Anlominus 👽 HacKingPro $~]  
+┌──[ AnLoMinus 🔮 HacKingPro $~]  
 └──╼  
 
 ---
