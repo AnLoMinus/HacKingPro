@@ -52,7 +52,7 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 - [x] Arsenal - Commads Cheatsheets
   >
-  > ## Type `arsenal` in Main Menu for Open Arsenal Cheatsheets Tool, and choose Command and `esc` for exit. it will showing in the Bottom `Arsenal Line` 
+  > ## Type `arsenal` in Main Menu for Open Arsenal Cheatsheets Tool, Choose Command and `esc` for exit. it will showing in the Bottom `Arsenal Line` 
   >
   > <img width="842" alt="image" src="https://user-images.githubusercontent.com/51442719/178555762-82061cab-fdaf-4973-8021-bbd9e1a8123e.png"> 
 
