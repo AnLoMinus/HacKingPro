@@ -55,6 +55,9 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   > ## Type `arsenal` in Main Menu for Open Arsenal Cheatsheets Tool, Choose Command and `esc` for exit. it will showing in the Bottom `Arsenal Line` 
   >
   > <img width="842" alt="image" src="https://user-images.githubusercontent.com/51442719/178555762-82061cab-fdaf-4973-8021-bbd9e1a8123e.png"> 
+  >
+  > <img width="927" alt="image" src="https://user-images.githubusercontent.com/51442719/178579189-304ea400-be2f-4571-ad48-e984eba9cdc5.png">
+
 
 - [x] P - Planning and Scoping
   > ## If You Try enter option 2 in the Menu without Planning & Scooping, You wil get this Screen:
