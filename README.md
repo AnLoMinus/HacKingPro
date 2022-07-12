@@ -58,7 +58,7 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
     - [x] Asking for Target Email:
 
 - [x] A - [Anonymity](./Menu/00--Anonymity)
-  > <img width="948" alt="image" src="https://user-images.githubusercontent.com/51442719/176260939-4eb78d05-5372-4767-ab84-22603ee047a5.png">
+  > <img width="527" alt="image" src="https://user-images.githubusercontent.com/51442719/178554487-91aafaf0-8ffb-43c8-968f-895ff047d866.png">
   
 - [x] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
   > <img width="627" alt="image" src="https://user-images.githubusercontent.com/51442719/178554246-58e9d5f8-8859-4661-ad02-8f5afb22c80c.png">
