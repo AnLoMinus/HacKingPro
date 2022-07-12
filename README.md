@@ -54,15 +54,17 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   > <img width="842" alt="image" src="https://user-images.githubusercontent.com/51442719/178555762-82061cab-fdaf-4973-8021-bbd9e1a8123e.png"> 
 
 - [x] P - Planning and Scoping
-  - [ ] If You Try enter option 2 in the Menu without Planning & Scooping, You wil get this Screen:
-  > <img width="498" alt="image" src="https://user-images.githubusercontent.com/51442719/178555057-e31f5c99-266b-4a5e-b7d2-e488e45bc439.png">
- 
+  > ## If You Try enter option 2 in the Menu without Planning & Scooping, You wil get this Screen:
+  >   <img width="498" alt="image" src="https://user-images.githubusercontent.com/51442719/178555057-e31f5c99-266b-4a5e-b7d2-e488e45bc439.png">
+  >
+  > ## Press `P` On the keyboard for Planning and Scooping 
+  >
+  > - [x] Asking for Target IP:
+  > - [x] Asking for Target Dns:
+  > - [x] Asking for Target Name:
+  > - [x] Asking for Target Phone:
+  > - [x] Asking for Target Email:
   > <img width="1122" alt="image" src="https://user-images.githubusercontent.com/51442719/178494117-76faea6d-b7c9-41bd-b071-d3ae8a984655.png">
-    - [x] Asking for Target IP:
-    - [x] Asking for Target Dns:
-    - [x] Asking for Target Name:
-    - [x] Asking for Target Phone:
-    - [x] Asking for Target Email:
 
 - [x] A - [Anonymity](./Menu/00--Anonymity)
   > <img width="527" alt="image" src="https://user-images.githubusercontent.com/51442719/178554487-91aafaf0-8ffb-43c8-968f-895ff047d866.png">
