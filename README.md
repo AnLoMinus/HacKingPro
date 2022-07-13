@@ -24,9 +24,9 @@
 
 
 <div align="center">
- 
-  
-# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.15
+
+
+# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.16
 ## `The Concept` <br> HacKingPro - Hack Like A Pro !
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
@@ -52,9 +52,9 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 - [x] Arsenal - Commads Cheatsheets
   >
-  > ## Type `arsenal` in Main Menu for Open Arsenal Cheatsheets Tool, Choose Command and `esc` for exit. it will showing in the Bottom `Arsenal Line` 
+  > ## Type `arsenal` in Main Menu for Open Arsenal Cheatsheets Tool, Choose Command and `esc` for exit. it will showing in the Bottom `Arsenal Line`
   >
-  > <img width="842" alt="image" src="https://user-images.githubusercontent.com/51442719/178555762-82061cab-fdaf-4973-8021-bbd9e1a8123e.png"> 
+  > <img width="842" alt="image" src="https://user-images.githubusercontent.com/51442719/178555762-82061cab-fdaf-4973-8021-bbd9e1a8123e.png">
   >
   > <img width="927" alt="image" src="https://user-images.githubusercontent.com/51442719/178579189-304ea400-be2f-4571-ad48-e984eba9cdc5.png">
 
@@ -63,7 +63,7 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   > ## If You Try enter option 2 in the Menu without Planning & Scooping, You wil get this Screen:
   >   <img width="498" alt="image" src="https://user-images.githubusercontent.com/51442719/178555057-e31f5c99-266b-4a5e-b7d2-e488e45bc439.png">
   >
-  > ## Press `P` On the keyboard for Planning and Scooping 
+  > ## Press `P` On the keyboard for Planning and Scooping
   >
   > - [x] Asking for Target IP:
   > - [x] Asking for Target Dns:
@@ -74,18 +74,18 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 - [x] A - [Anonymity](./Menu/00--Anonymity)
   > <img width="527" alt="image" src="https://user-images.githubusercontent.com/51442719/178554487-91aafaf0-8ffb-43c8-968f-895ff047d866.png">
-  
+
 - [x] 01 - [Information Gathering](./Menu/01--Information%20Gathering)
   > <img width="627" alt="image" src="https://user-images.githubusercontent.com/51442719/178554246-58e9d5f8-8859-4661-ad02-8f5afb22c80c.png">
   - [x] CAO - [`Collecting All in One`]():
-  - [x] CNI - [`Collecting Network Information`](): 
+  - [x] CNI - [`Collecting Network Information`]():
   - [x] CMI - [`Collecting Machine Information`]():  
     - [x] LI - [`Local Information`]()
   - [x] CSI - [`Collecting Social Information`]():  
 
 - [x] 02 - [Vulnerability Assessment](./Menu/02--Scanning%20%26%20Vulnerability%20Assessment)
   >
-  > ## Type `2` in the Main Menu, and ENTER 
+  > ## Type `2` in the Main Menu, and ENTER
   >
   - [x] arp
   - [x] ping
