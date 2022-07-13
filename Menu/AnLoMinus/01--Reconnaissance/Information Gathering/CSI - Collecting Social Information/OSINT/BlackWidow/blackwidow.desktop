@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=blackwidow
+Encoding=UTF-8
+Exec=/usr/share/kali-menu/exec-in-shell "sudo blackwidow"
+Icon=kali-www
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=03-webapp-analysis;
+X-Kali-Package=blackwidow
+Comment=
+Path=

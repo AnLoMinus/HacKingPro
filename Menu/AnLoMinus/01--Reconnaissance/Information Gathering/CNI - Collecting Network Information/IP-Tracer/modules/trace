@@ -1,0 +1,11 @@
+# Tool Name :- IP-Tracer
+# Author :- Rajkumar Dusad
+# Date :- 10/10/2018
+# Powered By :- Aex Software's
+if [ -d /data/data/com.termux/files/usr/share ];then
+  cd /data/data/com.termux/files/usr/share/IP-Tracer
+  exec bash trace $@
+elif [ -d /usr/share ];then
+  cd /usr/share/IP-Tracer
+  exec bash trace $@
+fi

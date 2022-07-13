@@ -1,2 +1,0 @@
-- dont forget to convert your image to png
-- 48x48 pixels

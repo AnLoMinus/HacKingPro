@@ -1,3 +1,0 @@
-# Check support page
-0.0.0.0 watchdog-ext.energized.pro
-#

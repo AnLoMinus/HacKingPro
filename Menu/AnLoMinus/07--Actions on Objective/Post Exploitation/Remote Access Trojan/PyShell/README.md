@@ -1,0 +1,45 @@
+# PyShell Tool 
+   <h4>Remote Access Trojan - RAT</h4>
+
+# Screen Shot
+
+https://user-images.githubusercontent.com/45688522/154745539-c2e646bd-c547-4f21-9faf-d00f6b01137e.mp4
+
+# Tool Features 
+<ul>
+   <li>Upload And Download Files</li>
+   <li>Execute os Command</li>
+   <li>Get Victim Address</li>
+   <li>openfile in victim device</li>
+   <li>open url in Victim Browser</li>
+   <li>print message in Victim terminal</li>
+   <li>see who is up on the victim network</li>
+   <li>Take screenshot from victim device</li>
+</ul>
+
+
+# install Pyshell (Linux)
+````bash
+$ git clone https://github.com/khalednassar702/Pyshell
+$ cd Pyshell
+$ ./Pyshell
+````
+
+### Payload Requirements
+<ul>
+   <li>Pyscreenshot</li>
+   <li>Requests</li>
+   <li>Nmap</li>
+</ul>
+
+# install Payload Requirements
+````bash
+$ sudo pip2 install pyscreenshot
+$ sudo pip2 install python-nmap
+$ sudo pip2 install requests
+````
+
+
+
+
+
