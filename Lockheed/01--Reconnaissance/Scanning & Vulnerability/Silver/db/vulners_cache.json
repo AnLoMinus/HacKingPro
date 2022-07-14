@@ -1,0 +1,12 @@
+{
+    "by_cpe": {
+        "cpe:/a:isc:bind:9.8.2rc1": true,
+        "cpe:/a:openbsd:openssh:7.4p1": false
+    },
+    "by_version": {
+        "OpenSSH": {
+            "7.4p1 Ubuntu 10": false
+        }
+    },
+    "time": 1645049342
+}

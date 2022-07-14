@@ -1,0 +1,9 @@
+#Ignoring output directories
+Recon/
+output/
+.obsidian/
+
+#Ignoring compressed files
+*.tar
+*.tar.*
+*.zip

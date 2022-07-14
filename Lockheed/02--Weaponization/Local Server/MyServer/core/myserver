@@ -1,0 +1,11 @@
+# Tool Name :- MyServer
+# Author :- Rajkumar Dusad
+# Date :- 13/11/2018
+# Powered By :- Aex Software's
+if [ -d /data/data/com.termux/files/usr/share/MyServer ];then
+  cd /data/data/com.termux/files/usr/share/MyServer
+  exec python3 MyServer.py $@
+else
+  cd /usr/share/MyServer
+  exec python3 MyServer.py $@
+fi

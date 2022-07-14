@@ -1,0 +1,61 @@
+# Tool Name :- MyServer
+# Author :- Rajkumar Dusad
+# Date :- 29/7/2018
+
+import sys
+import os
+from time import sleep
+from core.system import *
+from modules.logo import *
+
+class setu(object):
+  def rem(self):
+    if os.path.exists(bpath+"myserver") or os.path.exists(spath+"MyServer"):
+      if system=="ubuntu":
+        os.system("sudo rm -rf "+spath+"MyServer && rm -rf "+bpath+"myserver")
+        os.system("cd "+spath+" && sudo rm -rf .path.aex .port.aex .host.aex .serv.lock .h.lock")
+      else:
+        os.system("rm -rf "+spath+"MyServer && rm -rf "+bpath+"myserver")
+        os.system("cd "+spath+" && rm -rf .path.aex .port.aex .host.aex .serv.lock .h.lock")
+
+  def setup(self):
+    self.rem()
+    if system=="ubuntu":
+      Mylogo()
+      print("\n\033[01;33m\007Installing MyServer .....\n")
+      os.system("sudo mkdir "+spath+"MyServer")
+      os.system("sudo mv -v core/myserver "+bpath)
+      os.system("sudo mv -v core modules MyServer.py .MyServer.py LICENSE "+spath+"MyServer")
+      os.system("sudo chmod +x "+bpath+"myserver")
+      os.system("sudo chmod +x "+spath+"MyServer/MyServer.py .MyServer.py")
+      os.system("sudo chmod +x "+spath+"MyServer/modules/* *.* .* .*.*")
+      os.system("sudo chmod +x "+spath+"MyServer/core/* *.* .* .*.*")
+      os.system("cd .. && sudo rm -rf MyServer")
+      sleep(1)
+      Mylogo()
+      print("\n\033[01;33m\007   [\033[01;31m+\033[01;33m] \033[01;32mInstalled MyServer.")
+      print("\033[01;33m   [\033[01;31m+\033[01;33m] \033[01;32mType :- \033[01;33mmyserver help \033[01;32mfor more information.\033[00m\n")
+
+    else:
+      Mylogo()
+      print("\n\033[01;33m\007Installing MyServer .....\n")
+      os.system("mkdir "+spath+"MyServer")
+      os.system("mv -v core/myserver "+bpath)
+      os.system("mv -v core modules MyServer.py .MyServer.py LICENSE "+spath+"MyServer")
+      os.system("chmod +x "+bpath+"myserver")
+      os.system("chmod +x "+spath+"MyServer/MyServer.py .MyServer.py")
+      os.system("chmod +x "+spath+"MyServer/modules/* .* .*.* *.*")
+      os.system("chmod +x "+spath+"MyServer/core/* .* .*.* *.*")
+      os.system("cd .. && rm -rf MyServer")
+      sleep(1)
+      Mylogo()
+      print("\n\033[01;33m\007   [\033[01;31m+\033[01;33m] \033[01;32mInstalled MyServer.")
+      print("\033[01;33m   [\033[01;31m+\033[01;33m] \033[01;32mType :- \033[01;33mmyserver help \033[01;32mfor more information.\033[00m\n")
+
+
+def MyServer():
+  try:
+    setu().setup()
+  except KeyboardInterrupt:
+    exit()
+MyServer()
