@@ -1,2 +1,0 @@
-  - ## 🔸 09 - Sniffing - Spoofing
-    - [ ] [ettercap](https://github.com/Ettercap/ettercap):  A suite for man in the middle attacks
