@@ -22,11 +22,9 @@
 
 ---
 
-
 <div align="center">
 
-
-# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.16
+# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.17
 ## `The Concept` <br> HacKingPro - Hack Like A Pro !
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
@@ -42,6 +40,33 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 ```
 
 </div>
+
+---
+
+# Features
+- [x] Planning and Scooping
+  - Set Target
+    - [x] IP
+    - [x] name
+    - [x] Domain
+    - [x] Phone
+    - [x] Mail
+
+- [x] Information Gathering
+  - Scanning Target
+      - [x] arp
+      - [x] ping
+      - [x] nslookup
+      - [x] dig
+      - [x] whois
+      - [x] host
+      - [x] traceroute   
+
+- [x] Vulnerability Assessment    
+  - [x] nmap
+
+- [x] Brute Force against Founded Open Ports
+
 
 ---
 
@@ -125,3 +150,8 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   **[`^        Back to TOP        ^`](#)**
 
 </h2>
+
+
+# Versions
+
+## v0.0.0.17
