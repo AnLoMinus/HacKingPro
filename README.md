@@ -159,5 +159,5 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 - [x] Brute Force against Founded Open Ports
   
-<details>
+</details>
   
