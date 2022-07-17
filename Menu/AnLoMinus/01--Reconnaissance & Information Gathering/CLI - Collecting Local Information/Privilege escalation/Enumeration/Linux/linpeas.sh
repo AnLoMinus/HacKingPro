@@ -1,7 +1,9 @@
 #!/bin/sh
 
 VERSION="ng"
-ADVISORY="This script should be used for authorized penetration testing and/or educational purposes only. Any misuse of this software will not be the responsibility of the author or of any other collaborator. Use it at your own computers and/or with the computer owner's permission."
+ADVISORY="This script should be used for authorized penetration testing and/or educational purposes only.\n
+Any misuse of this software will not be the responsibility of the author or of any other collaborator.\n
+Use it at your own computers and/or with the computer owner's permission.\n"
 
 ###########################################
 #-------) Checks pre-everything (---------#
@@ -51,7 +53,7 @@ ITALIC="${C}[3m"
 
 if uname 2>/dev/null | grep -q 'Darwin' || /usr/bin/uname 2>/dev/null | grep -q 'Darwin'; then MACPEAS="1"; else MACPEAS=""; fi
 FAST="1" #By default stealth/fast mode
-SUPERFAST=""
+SUPERFAST="1"
 NOTEXPORT=""
 DISCOVERY=""
 PORTS=""
