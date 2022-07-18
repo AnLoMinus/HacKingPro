@@ -124,7 +124,6 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 </h2>
 
-
 <details>
   <summary>
 
