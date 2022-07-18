@@ -25,13 +25,13 @@
 <div align="center">
 
 ## `The Concept` | Hack Like A Pro !
-# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.17
+# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.18
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
 
 Before Planning | After Planning
 :---:|:---:
-<img width="923" alt="image" src="https://user-images.githubusercontent.com/51442719/178493706-7ae6308e-eff1-4d2d-95f8-c671752839a4.png"> | <img width="923" alt="image" src="https://user-images.githubusercontent.com/51442719/178493768-7d7869f7-f190-4f4c-8618-c29590a1a551.png">
+<img width="685" alt="image" src="https://user-images.githubusercontent.com/51442719/179530175-b25b9a46-56e2-4047-a259-8631e80f38fc.png"> | <img width="681" alt="image" src="https://user-images.githubusercontent.com/51442719/179530243-94498262-e43a-4468-a422-758bb8f622df.png">
 
 
 
