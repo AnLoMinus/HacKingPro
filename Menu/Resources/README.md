@@ -18,6 +18,10 @@
 
 # Privilege Escalation
 - [Awesome Privilege Escalation](https://github.com/m0nad/awesome-privilege-escalation)
+- [`Privilege-Escalation`](https://github.com/Anlominus/Privilege-Escalation)
+  - [**`Linux-PrivEsc`**](https://github.com/Anlominus/Linux-PrivEsc) | [**`Windows-PrivEsc`**](https://github.com/Anlominus/Windows-PrivEsc)
+
+Tools | Cheat Sheets | Notes | Checklists
 
 # Incident Response
 - [Awesome Incident Response](https://github.com/meirwah/awesome-incident-response)
