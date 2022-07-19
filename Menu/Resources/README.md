@@ -1,10 +1,20 @@
+<details>
+  <summary>
+
 # Adndroid
+
+  </summary>
+  
+---
+  
 - [Android Security](https://github.com/anantshri/Android_Security)
   - This repository has supplementary material for Android Training's done by Anant Shrivastava. 
   - These trainings are performed under following names:
     - Deep Dive Android
     - Xtreme Android Hacking
     - Android Pentesting
+
+</details>
 
 # Privilege Escalation
 - [Awesome Privilege Escalation](https://github.com/m0nad/awesome-privilege-escalation)
