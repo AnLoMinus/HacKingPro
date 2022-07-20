@@ -10,7 +10,7 @@
 # Name : Anlominus ~ HacKingPro
 # Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
 # Created Date : 2022 May
-# [ Last UPDATE ] ──╼ [ 16-07-2022 ]
+# [ Last UPDATE ] ──╼ [ 20-07-2022 ]
 # Aouther: Anlominus ~> RhytMix ~> HacKingPro
 # Skils: Best Copywriter IN the COSMOS!
 # BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
@@ -18,7 +18,7 @@
 # Location: Made With LOVE IN ISRAEL !
 # Source: https://github.com/Anlominus/HacKingPro
 ###############################################
-LastUPDATE="2022 July 16"
+LastUPDATE="2022 July 20"
 ToolSource="https://github.com/AnLoMinus/HacKingPro"
 ###############################################
 clear
@@ -62,6 +62,7 @@ HacKingProColors(){
 # COLORS AND BACKGROUNDS
 ##############################################################################
 Color_Off='\033[0m' # Text Reset
+ORANGE='\033[1;38;5;202m'
 
 # Regular Colors
 Black='\033[0;30m'  # Black
@@ -1596,7 +1597,7 @@ FullTime=$(date)
 
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro$resetT")
 Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}18")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}19")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
@@ -1750,7 +1751,7 @@ Arsenal(){
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}List Arsenal Directories \n"
     ls -lahs
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Runnin  \n"
-    ./run
+    (./run)
   fi
   if [ -d $HOME/opt/anaconda3/bin/arsenal ]; then
     #statements
@@ -1769,8 +1770,8 @@ Arsenal(){
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Installing Arsenal Requirements \n"
     python3 -m pip install -r requirements.txt
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Run Installation  \n"
-    ./run
-    if [ $? == 1 ]; then
+    (./run)
+    if [ "$?" == "1" ]; then
       #statements
       echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installation ${BRed} ERROR  \n"
     fi

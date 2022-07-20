@@ -1,0 +1,843 @@
+#!/bin/bash
+# src: https://github.com/0xlittleboy/bounty.sh/blob/master/bounty.sh
+sleep 1
+echo ""
+echo ""
+sleep 1
+
+mkdir -p ~/AnLoMinus/Recon/
+cd ~/AnLoMinus/Recon/
+##############################################################################################################################
+function Install_Tools() {
+  mkdir -p ~/AnLoMinus/Tools
+  cd  ~/AnLoMinus/Tools
+  #statements
+  sleep 1
+  echo ""
+  echo ""
+  echo "----------------------"
+  echo "...Installing Tools..."
+  echo "----------------------"
+  sleep 1
+
+  echo ""
+  echo "--------------------------"
+  echo "...Installing Sublist3r..."
+  echo "--------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/aboul3la/Sublist3r.git
+  cd Sublist3r/
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "----------------------------"
+  echo "...Installing Turbolist3r..."
+  echo "----------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/fleetcaptain/Turbolist3r
+  cd Turbolist3r
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Sudomy..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/screetsec/Sudomy.git
+  cd Sudomy
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "--------------------------"
+  echo "...Installing SubFinder..."
+  echo "--------------------------"
+  go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+  sudo cp ~/go/bin/subfinder /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------------"
+  echo "...Installing AssetFinder..."
+  echo "----------------------------"
+  go get -u github.com/tomnomnom/assetfinder
+  sudo cp ~/go/bin/assetfinder /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Scilla..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/edoardottt/scilla.git
+  cd scilla
+  go get
+  make linux
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "----------------------"
+  echo "...Installing Amass..."
+  echo "----------------------"
+  go install -v github.com/OWASP/Amass/v3/...@master
+  sudo cp ~/go/bin/amass /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-------------------------------------"
+  echo "...Installing Censys_subdom_finder..."
+  echo "-------------------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/christophetd/censys-subdomain-finder.git
+  cd censys-subdomain-finder/
+  python3 -m venv
+  source venv/bin/activate
+  pip3 install -r requirements.txt
+  echo ""
+  sleep 1
+
+  echo "--------------------------"
+  echo "...Installing Findomain..."
+  echo "--------------------------"
+  cd ~/AnLoMinus/Tools/
+  wget https://github.com/findomain/findomain/releases/latest/download/findomain-linux
+  chmod +x findomain-linux
+  sudo cp findomain-linux /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Dnscan..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/rbsec/dnscan.git
+  pip3 install -r requirements.txt
+  echo ""
+  sleep 1
+
+  echo "---------------------------"
+  echo "...Installing ShuffleDns..."
+  echo "---------------------------"
+  go install -v github.com/projectdiscovery/shuffledns/cmd/shuffledns@latest
+  sudo cp ~/go/bin/shuffledns /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------"
+  echo "...Installing Naabu..."
+  echo "----------------------"
+  go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+  sudo cp ~/go/bin/naabu /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing Aquatone..."
+  echo "-------------------------"
+  cd ~/AnLoMinus/Tools/
+  wget "https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip"
+  unzip aquatone_linux_amd64_1.7.0.zip
+  sudo mv aquatone_linux_amd64_1.7.0 /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "--------------------------"
+  echo "...Installing Hakrawler..."
+  echo "--------------------------"
+  go install github.com/hakluke/hakrawler@latest
+  sudo cp ~/go/bin/hakrawler /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------------"
+  echo "...Installing Waybackurls..."
+  echo "----------------------------"
+  go install github.com/tomnomnom/waybackurls@latest
+  sudo cp ~/go/bin/waybackurls /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "--------------------"
+  echo "...Installing Gau..."
+  echo "--------------------"
+  go install github.com/lc/gau/v2/cmd/gau@latest
+  sudo cp ~/go/bin/gau /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------"
+  echo "...Installing getJS..."
+  echo "----------------------"
+  go install github.com/003random/getJS@latest
+  sudo cp ~/go/bin/getJS /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "------------------------"
+  echo "...Installing GauPlus..."
+  echo "------------------------"
+  go install github.com/bp0lr/gauplus@latest
+  sudo cp ~/go/bin/gauplus /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------------"
+  echo "...Installing ParamSpider..."
+  echo "----------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/devanshbatham/ParamSpider.git
+  cd ParamSpider
+  pip3 install -r requirements.txt
+  echo ""
+  sleep 1
+
+  echo "---------------------"
+  echo "...Installing FFUF..."
+  echo "---------------------"
+  go install github.com/ffuf/ffuf@latest
+  sudo cp ~/go/bin/ffuf /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------"
+  echo "...Installing Corsy..."
+  echo "----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/s0md3v/Corsy.git
+  cd Corsy
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-----------------------------"
+  echo "...Installing CRLF Scanner..."
+  echo "-----------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/MichaelStott/CRLF-Injection-Scanner.git
+  cd CRLF-Injection-Scanner
+  sudo python3 setup.py install
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing Smuggler..."
+echo "-------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/defparam/smuggler.git
+  cd smuggler/
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "Installing QSReplace..."
+  echo "-----------------------"
+  go install github.com/tomnomnom/qsreplace@latest
+  sudo cp ~/go/bin/qsreplace /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing SQLmap..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Dalfox..."
+  echo "-----------------------"
+  go install github.com/hahwul/dalfox/v2@latest
+  sudo cp ~/go/bin/dalfox /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------"
+  echo "...findom-xss..."
+  echo "----------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/dwisiswant0/findom-xss.git --recurse-submodules
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing GitTools..."
+  echo "-------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/internetwache/GitTools.git
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing S3viewer..."
+  echo "-------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/SharonBrizinov/s3viewer.git
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "------------------------"
+  echo "...Installing SUbjack..."
+  echo "------------------------"
+  go get github.com/haccer/subjack
+  sudo cp ~/go/bin/subjack /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "------------------------"
+  echo "...Installing SUbOver..."
+  echo "------------------------"
+  go get github.com/Ice3man543/SubOver
+  sudo cp ~/go/bin/SubOver /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing sub404..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/r3curs1v3-pr0xy/sub404.git
+  cd sub404
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Nuclei..."
+  echo "-----------------------"
+  go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+  sudo cp ~/go/bin/nuclei /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "------------------------"
+  echo "...Installing Cariddi..."
+  echo "------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/edoardottt/cariddi.git
+  cd cariddi
+  go get
+  make linux
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing HTTProbe..."
+  echo "-------------------------"
+  go install github.com/tomnomnom/httprobe@latest
+  sudo cp ~/go/bin/httprobe /usr/local/bin
+  echo ""
+  sleep 1
+
+}
+Install_Tools
+#SubDomain Enumeration Started...
+echo "-----------------------------------"
+echo "...Subdomain enumeration started..."
+echo "-----------------------------------"
+
+#Assetfinder started...
+assetfinder --subs-only $1 | tee -a ~/AnLoMinus/Recon/$1/assetfinder.txt
+
+#Amass started...
+amass enum -passive -d $1 -config ~/.config/amass/config.ini -o ~/AnLoMinus/Recon/$1/amass.txt
+
+#SubFinder started...
+subfinder -silent -d $1 -pc ~/.config/subfinder/provider-config.yaml -o ~/AnLoMinus/Recon/$1/subfinder.txt
+
+#Findomain started...
+findomain-linux -t $1 --quiet | tee -a ~/AnLoMinus/Recon/$1/findomain.txt
+echo ""
+echo ""
+#Removing Duplicates && Sorting
+sleep 1
+echo "----------------------------"
+echo "...Sorting the subdomains..."
+echo "----------------------------"
+
+cat ~/AnLoMinus/Recon/$1/assetfinder.txt amass.txt subfinder.txt findomain.txt | sort -u | tee -a ~/AnLoMinus/Recon/$1/all.txt
+rm ~/AnLoMinus/Recon/$1/assetfinder.txt amass.txt subfinder.txt findomain.txt
+echo ""
+echo ""
+sleep 1
+#Checking for live domains
+echo "-------------------------------"
+echo "...Checking for Live Domains..."
+echo "-------------------------------"
+
+httpx -l ~/AnLoMinus/Recon/$1/all.txt -p 80,8080,443,8443,9000,8000 -o ~/AnLoMinus/Recon/$1/alive.txt
+echo ""
+#############################################################################################################################
+
+echo ""
+sleep 1
+#Subdomain Takeover...
+echo "------------------------"
+echo "...SubDomain Takeover..."
+echo "------------------------"
+python3 ~/AnLoMinus/tools/sub404/sub404.py -f ~/AnLoMinus/Recon/$1/alive.txt -o ~/AnLoMinus/Recon/$1/sub404.txt
+echo ""
+cd ~/AnLoMinus/Recon/$1/
+SubOver -l alive.txt -v | tee -a subover.txt
+echo ""
+subjack -w alive.txt -ssl -o subjack.txt
+echo ""
+
+################################################################################################################################
+
+echo ""
+sleep 1
+#Vulnerability Scanning - Nuclei...
+echo "----------------------------"
+echo "...Vulnerability Scanning..."
+echo "----------------------------"
+nuclei -l ~/AnLoMinus/Recon/$1/alive.txt -severity info -o ~/AnLoMinus/Recon/$1/nuclei-info.txt &&
+nuclei -l ~/AnLoMinus/Recon/$1/alive.txt -severity low,medium,high,critical -o ~/AnLoMinus/Recon/$1/nuclei.txt
+echo ""
+
+################################################################################################################################
+
+echo ""
+sleep 1
+#Smuggler started...
+echo "----------------------"
+echo "...Smuggler started..."
+echo "----------------------"
+cd ~/AnLoMinus/Recon/$1/
+cat alive.txt | python3 ~/AnLoMinus/tools/smuggler/smuggler.py -m POST -q
+cat alive.txt | python3 ~/AnLoMinus/tools/smuggler/smuggler.py -m GET -q
+echo ""
+
+#################################################################################################################################
+
+echo ""
+sleep 1
+#Fuzzing started - ffuf...
+echo "---------------------"
+echo "...Fuzzing started..."
+echo "---------------------"
+cd ~/AnLoMinus/Recon/$1/
+for URL in $(<alive.txt); do ( ffuf -u "${URL}/FUZZ" -w ~/AnLoMinus/wordlists/fuzz.txt -v -mc 200 -ac ); done | tee -a ffuf.txt
+echo ""
+
+############################################################################################################################
+
+echo ""
+sleep 1
+#PortScanning started...
+echo "----------------------"
+echo "...Portscan - Naabu..."
+echo "----------------------"
+cd ~/AnLoMinus/Recon/$1/
+naabu -l all.txt -p 1-65535 -o portscan.txt
+echo ""
+
+#################################################################################################################################
+
+echo ""
+sleep 1
+#Gathering URLs....
+echo "----------------------------------------------"
+echo "...Gathering URLs - Waybackurls,Gau,Gauplus..."
+echo "----------------------------------------------"
+cd ~/AnLoMinus/Recon/$1/
+cat alive.txt | waybackurls | uro | tee -a way.txt
+cat alive.txt | gauplus | uro | tee -a gaupl.txt
+cat alive.txt | gau | uro | tee -a gau.txt
+cat way.txt gaupl.txt gau.txt | sort -u | tee -a waybackurls.txt
+rm way.txt gaupl.txt gau.txt
+echo ""
+
+#################################################################################################################################
+
+echo ""
+sleep 1
+#CRLF scanning
+echo "----------------------------"
+echo "...CRLF injection scanner..."
+echo "----------------------------"
+cd ~/AnLoMinus/tools/CRLF-Injection-Scanner
+python3 crlf.py scan -i ~/AnLoMinus/Recon/$1/all.txt | egrep -v "No" | tee -a ~/AnLoMinus/Recon/$1/crlf.txt
+echo ""
+
+##################################################################################################################################
+
+echo ""
+sleep 1
+#Gathering JS Files...
+echo "------------------------"
+echo "...Gathering JS Files..."
+echo "------------------------"
+cd ~/AnLoMinus/Recon/$1/
+cat alive.txt | waybackurls | grep -iE '\.js'|grep -iEv '(\.jsp|\.json)' >> js1.txt &&
+        cat alive.txt | gauplus | grep -iE '\.js'|grep -iEv '(\.jsp|\.json)' >> js2.txt &&
+        cat alive.txt | gau | grep -iE '\.js'|grep -iEv '(\.jsp|\.json)' >> js3.txt &&
+subjs -i alive.txt | tee -a subjs.txt &&
+cat js1.txt js2.txt js3.txt subjs.txt | sort -u | tee -a js-files.txt
+echo ""
+
+#################################################################################################################################
+
+echo ""
+sleep 1
+#Parameter fuzzing
+echo "-------------------------"
+echo "...ParamSpider started..."
+echo "-------------------------"
+python3 ~/AnLoMinus/tools/ParamSpider/paramspider.py -d $1
+echo ""
+
+##################################################################################################################################
+
+
+echo ""
+echo ""
+echo "This tool is under developement :)"
+
+
+function Install_Tools() {
+  #statements
+  sleep 1
+  echo ""
+  echo ""
+  echo "----------------------"
+  echo "...Installing Tools..."
+  echo "----------------------"
+  sleep 1
+
+  echo ""
+  echo "--------------------------"
+  echo "...Installing Sublist3r..."
+  echo "--------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/aboul3la/Sublist3r.git
+  cd Sublist3r/
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "----------------------------"
+  echo "...Installing Turbolist3r..."
+  echo "----------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/fleetcaptain/Turbolist3r
+  cd Turbolist3r
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Sudomy..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/screetsec/Sudomy.git
+  cd Sudomy
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "--------------------------"
+  echo "...Installing SubFinder..."
+  echo "--------------------------"
+  go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+  sudo cp ~/go/bin/subfinder /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------------"
+  echo "...Installing AssetFinder..."
+  echo "----------------------------"
+  go get -u github.com/tomnomnom/assetfinder
+  sudo cp ~/go/bin/assetfinder /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Scilla..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/edoardottt/scilla.git
+  cd scilla
+  go get
+  make linux
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "----------------------"
+  echo "...Installing Amass..."
+  echo "----------------------"
+  go install -v github.com/OWASP/Amass/v3/...@master
+  sudo cp ~/go/bin/amass /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-------------------------------------"
+  echo "...Installing Censys_subdom_finder..."
+  echo "-------------------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/christophetd/censys-subdomain-finder.git
+  cd censys-subdomain-finder/
+  python3 -m venv
+  source venv/bin/activate
+  pip3 install -r requirements.txt
+  echo ""
+  sleep 1
+
+  echo "--------------------------"
+  echo "...Installing Findomain..."
+  echo "--------------------------"
+  cd ~/AnLoMinus/Tools/
+  wget https://github.com/findomain/findomain/releases/latest/download/findomain-linux
+  chmod +x findomain-linux
+  sudo cp findomain-linux /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Dnscan..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/rbsec/dnscan.git
+  pip3 install -r requirements.txt
+  echo ""
+  sleep 1
+
+  echo "---------------------------"
+  echo "...Installing ShuffleDns..."
+  echo "---------------------------"
+  go install -v github.com/projectdiscovery/shuffledns/cmd/shuffledns@latest
+  sudo cp ~/go/bin/shuffledns /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------"
+  echo "...Installing Naabu..."
+  echo "----------------------"
+  go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+  sudo cp ~/go/bin/naabu /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing Aquatone..."
+  echo "-------------------------"
+  cd ~/AnLoMinus/Tools/
+  wget "https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip"
+  unzip aquatone_linux_amd64_1.7.0.zip
+  sudo mv aquatone_linux_amd64_1.7.0 /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "--------------------------"
+  echo "...Installing Hakrawler..."
+  echo "--------------------------"
+  go install github.com/hakluke/hakrawler@latest
+  sudo cp ~/go/bin/hakrawler /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------------"
+  echo "...Installing Waybackurls..."
+  echo "----------------------------"
+  go install github.com/tomnomnom/waybackurls@latest
+  sudo cp ~/go/bin/waybackurls /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "--------------------"
+  echo "...Installing Gau..."
+  echo "--------------------"
+  go install github.com/lc/gau/v2/cmd/gau@latest
+  sudo cp ~/go/bin/gau /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------"
+  echo "...Installing getJS..."
+  echo "----------------------"
+  go install github.com/003random/getJS@latest
+  sudo cp ~/go/bin/getJS /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "------------------------"
+  echo "...Installing GauPlus..."
+  echo "------------------------"
+  go install github.com/bp0lr/gauplus@latest
+  sudo cp ~/go/bin/gauplus /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------------"
+  echo "...Installing ParamSpider..."
+  echo "----------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/devanshbatham/ParamSpider.git
+  cd ParamSpider
+  pip3 install -r requirements.txt
+  echo ""
+  sleep 1
+
+  echo "---------------------"
+  echo "...Installing FFUF..."
+  echo "---------------------"
+  go install github.com/ffuf/ffuf@latest
+  sudo cp ~/go/bin/ffuf /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------------"
+  echo "...Installing Corsy..."
+  echo "----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/s0md3v/Corsy.git
+  cd Corsy
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-----------------------------"
+  echo "...Installing CRLF Scanner..."
+  echo "-----------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/MichaelStott/CRLF-Injection-Scanner.git
+  cd CRLF-Injection-Scanner
+  sudo python3 setup.py install
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing Smuggler..."
+echo "-------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/defparam/smuggler.git
+  cd smuggler/
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "Installing QSReplace..."
+  echo "-----------------------"
+  go install github.com/tomnomnom/qsreplace@latest
+  sudo cp ~/go/bin/qsreplace /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing SQLmap..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Dalfox..."
+  echo "-----------------------"
+  go install github.com/hahwul/dalfox/v2@latest
+  sudo cp ~/go/bin/dalfox /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "----------------"
+  echo "...findom-xss..."
+  echo "----------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/dwisiswant0/findom-xss.git --recurse-submodules
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing GitTools..."
+  echo "-------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/internetwache/GitTools.git
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing S3viewer..."
+  echo "-------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/SharonBrizinov/s3viewer.git
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "------------------------"
+  echo "...Installing SUbjack..."
+  echo "------------------------"
+  go get github.com/haccer/subjack
+  sudo cp ~/go/bin/subjack /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "------------------------"
+  echo "...Installing SUbOver..."
+  echo "------------------------"
+  go get github.com/Ice3man543/SubOver
+  sudo cp ~/go/bin/SubOver /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing sub404..."
+  echo "-----------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/r3curs1v3-pr0xy/sub404.git
+  cd sub404
+  pip3 install -r requirements.txt
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-----------------------"
+  echo "...Installing Nuclei..."
+  echo "-----------------------"
+  go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+  sudo cp ~/go/bin/nuclei /usr/local/bin
+  echo ""
+  sleep 1
+
+  echo "------------------------"
+  echo "...Installing Cariddi..."
+  echo "------------------------"
+  cd ~/AnLoMinus/Tools/
+  git clone https://github.com/edoardottt/cariddi.git
+  cd cariddi
+  go get
+  make linux
+  cd ../
+  echo ""
+  sleep 1
+
+  echo "-------------------------"
+  echo "...Installing HTTProbe..."
+  echo "-------------------------"
+  go install github.com/tomnomnom/httprobe@latest
+  sudo cp ~/go/bin/httprobe /usr/local/bin
+  echo ""
+  sleep 1
+
+}
