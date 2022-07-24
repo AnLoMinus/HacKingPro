@@ -10,3 +10,8 @@
 | `Documentation` 	|   `man ` 	|  	
 | `Software development` 	|   `ar`   `ctags`   `lex`   `make`   `nm`   `strip`   `yacc`  	|  	
 | `Miscellaneous` 	|   `bc`   `cal`   `expr`   `lp`   `od`   `sleep`  `true` and `false`  	|  	
+
+---
+
+## [Knowledge Base (kb)](https://kb.offsec.nl/tools/) Just some silly notes digitalized, have fun and feel free to open PR.
+
