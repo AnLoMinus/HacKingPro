@@ -15,3 +15,4 @@
 # Other
 - [GitTools](https://github.com/internetwache/GitTools) A repository with 3 tools for pwn'ing websites with .git repositories available
 
+- [Scanners-Box](https://github.com/We5ter/Scanners-Box) A powerful and open-source toolkit for hackers and security automation 
