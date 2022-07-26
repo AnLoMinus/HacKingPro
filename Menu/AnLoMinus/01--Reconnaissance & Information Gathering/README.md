@@ -25,23 +25,25 @@
 
 ### [Squirt](https://github.com/CybernetiX-S3C/Squirt)
 #### Squirt is an offensive information and vulnerability scanner.
-- [x] Check and Bypass Cloudflare
-- [x] Retrieve Server and Powered by Headers
-- [x] Fingerprint the operating system of Web Server
-- [x] Detect CMS (197+ CMSs are supported)
-- [x] Launch WPScan if target is using Wordpress
-- [x] Retrieve robots.txt
-- [x] Whois lookup
-- [x] Check if the target is a honeypot
-- [x] Port Scan with banner grabbing
-- [x] Dumps all kind of DNS records
-- [x] Generate a map for visualizing the attack surface
-- [x] Gather Emails related to the target
-- [x] Find websites hosted on the same web server
-- [x] Find hosts using google
-- [x] Crawl the website for URLs having parameters
-- [x] SQLi scan using online implemention of SQLMap (takes < 3 min.)
-- [x] Basic XSS scanning
+#### Just supply a domain name to **Squirt** and it will automatically do the following for you:
+
+* Check and Bypass Cloudflare
+* Retrieve Server and Powered by Headers
+* Fingerprint the operating system of Web Server
+* Detect CMS (197+ CMSs are supported)
+* Launch WPScan if target is using Wordpress
+* Retrieve robots.txt
+* Whois lookup
+* Check if the target is a honeypot
+* Port Scan with banner grabbing
+* Dumps all kind of DNS records
+* Generate a map for visualizing the attack surface
+* Gather Emails related to the target
+* Find websites hosted on the same web server
+* Find hosts using google
+* Crawl the website for URLs having parameters
+* SQLi scan using online implemention of SQLMap (takes < 3 min.)
+* Basic XSS scanning
 
 #### Install and Run in Linux 
 ```bash
