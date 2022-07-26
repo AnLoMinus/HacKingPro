@@ -43,6 +43,7 @@
 - [x] SQLi scan using online implemention of SQLMap (takes < 3 min.)
 - [x] Basic XSS scanning
 
+#### Install and Run in Linux 
 ```bash
     git clone https://github.com/CybernetiX-S3C/Squirt
     cd Squirt
@@ -50,6 +51,45 @@
     python Squirt.py
   ```
 
+---
+### [Truth 4.2](https://github.com/CybernetiX-S3C/Truth)
+#### Information Gathering tool for a Website or IP address. 
+- I have used pieces from my Infosploit and my latest E-ntel. 
+- Truth can work in any operating system if they have and support Python 2, Python 3, and Ruby.
+
+#### Features
+ * DNS Lookup 
+ * Whois Lookup
+ * GeoIP Lookup
+ * Subnet Lookup
+ * Port Scanner
+ * Page Links
+ * Zone Transfer
+ * HTTP Header
+ * Host Finder
+ * IP-Locator
+ * Find Shared DNS Servers
+ * Get Robots.txt
+ * Host DNS Finder
+ * Reserve IP Lookup
+ * Email Gathering (use E-ntel) New!
+ * Subdomain listing (use Sublist3r)
+ * Find Admin login site (use Breacher)
+ * Check and Bypass CloudFlare (use HatCloud)
+ * Website Copier (use httrack) NEW!
+ * Host Info Scanner (use WhatWeb) NEW!
+ 
+#### Install and Run in Linux 
+```cmd
+sudo apt update && sudo apt install ruby python python-pip python3 python3-pip
+sudo apt install httrack whatweb
+git clone https://github.com/CybernetiX-S3C/Truth
+cd Truth
+pip install -r requirements.txt
+pip3 install -r requirements.txt
+python3 truth.py
+```
+ 
 ---
 
 
