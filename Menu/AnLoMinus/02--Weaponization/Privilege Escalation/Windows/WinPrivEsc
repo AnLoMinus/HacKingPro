@@ -21,7 +21,16 @@
 LastUPDATE="2022 July 25"
 ToolSource="https://github.com/AnLoMinus/WinKingPro"
 ###############################################
-
+####### Windows Privilege Escalation 
+# ▪ System Information
+# ▪ Users Information
+# ▪ Services Information
+# ▪ Applications Information
+# ▪ Network Information
+# ▪ Windows Credentials
+# ▪ Browser Information
+# ▪ Events Information
+# ▪ Additional Checks
 ###############################################
 # Text Attributes
 ###############################################
