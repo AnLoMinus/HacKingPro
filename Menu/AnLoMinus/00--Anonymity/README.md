@@ -1,4 +1,5 @@
 # [00 - Anonymity]()
+## Anonyminity has never existed.
 
 <img width="857" alt="image" src="https://user-images.githubusercontent.com/51442719/175783238-a07522aa-dec8-4ef2-9c1a-8f64fc430bb1.png">
 
