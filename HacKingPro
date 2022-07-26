@@ -27,12 +27,39 @@ chmod +x *
 ###############################################
 
 ###############################################
-# About HavKingpro Tool
+#        About HacKingPro Tool
 ###############################################
 
 about() {
   clear
   # HacKingProLogo1
+  echo "$purple”
+                              .
+                          ..',,'..
+                        .',,,,,,,,,.
+                       .',,,'..',,,,'.
+                      .',,'.     .,,,'
+                     .',,.        .,,,.
+                    .',..           .,,.
+                    .'.              ..,.
+                    .                  .'
+                   ..   $green  Aภl๏miภuຮ $purple   .
+                   ..                   .
+                   ..                  ...
+            ....''''.   $blue HacKingPro$purple    .','''....
+          .',,,,,,,,'..               ..',,,,,,,,'.
+         ...'',,,,,,,'...          ....',,,,,,,,'...
+        ....'',;;;;;;;,,'''......'''',,;;;;;;;,'''...
+       ......'',,;;;:::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/:'.
+       .....'.'',,;;::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/'....
+       .......',,;;::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/,......
+       .'''''',,;;::/xxxxxxxxxx${cyan}DAT0S${purple}xxxxxxxxxxxx/,.......
+      ..'''',',;;::/xxxxxxxxx${blue}4NL0M1NU2${purple}xxxxxxxxx/,'''''...
+     ........';;::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/:'.........
+    ......  .':::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/::'..  ......
+    ......:.;:::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/::;'c,':......
+     .''..cc.''''''',,,,,,,;;;;;,,,,,,,,''''....:.cc..''.
+"
   echo "
     ${ToolHeader}
 
@@ -54,7 +81,7 @@ about() {
 }
 
 ###############################################
-# Define Colors Variables & Run/Start It
+#   Define Colors Variables & Run/Start It
 ###############################################
 
 HacKingProColors(){
@@ -116,6 +143,33 @@ On_Cyan='\033[46m'   # Cyan
 On_White='\033[47m'  # White
 }
 HacKingProColors
+
+###############################################
+#              Symbol Variables
+###############################################
+# 💪  🏴 ‍ ☠️ 👁‍ 👌 💀 📌 👍
+# ♥️ ✯ 🔞 🗨 👩‍ 💻 😜 😡
+# 💥 ☣ ✍ █ ▓ ░ ▒ 💿 🎧 📸
+# 👤
+cEye="$green 👁 $cyan"
+cWall="$purple[$purple░$purple]$cyan"
+cDock="$purple[$green📌$purple]$cyan"
+cPassKey="$purple[$green🔐$purple]$cyan"
+cAnlominus="$purple[$green👽$purple]$cyan"
+cAlien="$purple[$green🙏$purple]$cyan"
+cGlasses="$purple[$green👓$purple]$yellow"
+cLock="$red[$yellow🔒$red]$grey"
+cInvalid="$red[$yellow🚫$red]$red"
+cKey="$red[$yellow🔑$red]$yellow"
+cLink="$red[$orange🔗$red]$orange"
+cSharp="$red[$yellow#$red]$blue"
+cWhat="$red[$yellow?$red]$cyan"
+cInfo="$red[$yellow!$red]$blue"
+cPlus="$red[$green+$red]$white"
+cDone="$red[$green✔$red]$green"
+cFalse="$yellow[$red✘$yellow]$red"
+cDanger="$yellow ⚠️ $red"
+# |
 
 ###############################################
 # Text Attributes
@@ -1412,6 +1466,90 @@ FunTargetPhone(){
 ###############################################
 
 
+BasicInformation() {
+  clear
+  # Checking Basic Information
+  user=$(whoami)      2> /dev/null # Current user
+  host=$(uname -n)    2> /dev/null # Network node hostname
+  home=$(echo $HOME)  2> /dev/null # User home directory
+  usid=$(id -u)       2> /dev/null # User ID
+  gpid=$(id -g)       2> /dev/null # Group ID
+  grps=$(for i in $(groups | tr "," " "); do echo "\t\t${BRed}[${LYellow} $i ${BRed}]"; done)      2> /dev/null # List all groups
+  knam=$(uname -s)    2> /dev/null # Kernel name
+  krel=$(uname -r)    2> /dev/null # Kernel release
+  kver=$(uname -v)    2> /dev/null # Kernel version
+  arch=$(uname -m)    2> /dev/null # Architecture
+
+    # Checking Versions Of Packages
+  vbash=`  	bash --version |  	head -1        |  	awk -F ' ' '{printf $4}'  	` 2> /dev/null
+  vsudo=`  	sudo --version |  	head -1        |  	awk -F ' ' '{printf $3}'  	` 2> /dev/null
+  vrgcc=`  	gcc --version |  	head -1       |  	awk -F ' ' '{printf $NF}'  	` 2> /dev/null
+  vpyt2=`  	python2 --version 2>&1 |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vpyt3=`  	python3 --version |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vjava=`  	java --version |  	head -1        |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vcurl=`  	curl --version |  	head -1        |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vwget=`  	wget --version |  	head -1        |  	awk -F ' ' '{print $3}'  	` 2> /dev/null
+  vruby=`  	ruby --version |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  KERNEL=$(uname -r)
+
+  echo "
+      ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Basic Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+      ${DGrey}┌───────╼ ${BRed}[${BYellow} System Information ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} Script ID:      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $$ ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} Kernel Name     ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${knam} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} Kernel Release  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${krel} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} kernel Version  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${kver} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} Architecture    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${arch} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} Term            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${TERM} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} Shell           ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $SHELL ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} Date            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $(date) ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} UpTime          ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $(uptime) ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} OS Name         ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${osys} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} Path            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$PATH ${BRed}]
+      ${DGrey}┖──╼ ${BRed}[${BYellow} who is currently logged in:${LYellow} \n$(who)
+
+      ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+      ${DGrey}┌───────╼ ${BRed}[${BYellow} User Information ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} Username  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${user} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} Hostname  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${host} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} Home Path ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${home} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} EUID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${usid} ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} User ID   ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$(for i in $(id | tr "," " "); do echo "\t\t${BRed}[${LYellow} $i   ${BRed}]"; done) ${BRed}]
+      ${DGrey}|──╼ ${BRed}[${BYellow} EGID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${gpid} ${BRed}]
+      ${DGrey}┖──╼ ${BRed}[${BYellow} Groups    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${grps} ${BRed}]
+
+      ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+
+      ${DGrey}┌───────╼ ${BRed}[${BYellow} Versions Information ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} Bash      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vbash ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} sudo      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vsudo ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} GCC       ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vrgcc ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} Python 2  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vpyt2 ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} Python 3  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vpyt3 ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} Java      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vjava ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} cURL      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vcurl ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}|──╼ ${BRed}[${BYellow} wget      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vwget ${BRed}]
+      ${BCyan}${faintT}|
+      ${DGrey}┖──╼ ${BRed}[${BYellow} Ruby      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vruby ${BRed}]
+
+      ${LCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+        "
+}
+
 
 # Checking if Case Folder Exist
 CheckingifCaseFolderExist(){
@@ -1664,6 +1802,43 @@ echo "$HacKingProLogo_1"
 }
 
 ###############################################
+#         HacKingPro Build Report
+###############################################
+
+BuildingProfiles(){
+  A_All=""
+  echo "${cWhat} What is the target? ${orange}"
+  read A_1
+  echo "${cWhat} How do they operate? ${orange}"
+  read A_2
+  echo "${cWhat} What IP ranges do they have allocated? ${orange}"
+  read A_3
+  echo "${cWhat} What do they do for mail? ${orange}"
+  read A_4
+  echo "${cWhat} What do their DNS records show? ${orange}"
+  read A_5
+  echo "${cWhat} What subdomains do they have? ${orange}"
+  read A_6
+  echo "${cWhat} What's going on in their company? ${orange}"
+  read A_7
+  echo "${cWhat} Who works there? ${orange}"
+  read A_8
+  echo "${cWhat} How do they assign login names? ${orange}"
+  read A_9
+  echo "${cWhat} What's their password policy? ${orange}"
+  read A_10
+  echo "${cWhat} What do their networks look like? ${orange}"
+  read A_11
+  echo "${cWhat} Are any of the people who work there vulnerable to social engineering? ${orange}"
+  read A_12
+  echo "${cWhat} What are there valuable assets? ${orange}"
+  read A_13
+  echo "${cWhat} Where do they store valuable assets? ${orange}"
+  read A_14
+  $0 >> ${A_All}
+}
+
+###############################################
 #         Paths Directories to Tools
 ###############################################
 
@@ -1735,7 +1910,8 @@ xDirectories(){
 
 }
 xDirectories
-
+CheckOS
+read -p "${Press_Enter_To_START}"
 ###############################################
 #         Arsenal Cheatsheets
 ###############################################
@@ -5676,6 +5852,11 @@ MainMenu(){
     ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
+      bi )
+      CheckVersions
+      BasicInformation
+      read -p "$Press_ENTER"
+      ;;
       any|Any )
       cd Menu
       cd AnyTool

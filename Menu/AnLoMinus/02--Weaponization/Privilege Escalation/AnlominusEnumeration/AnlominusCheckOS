@@ -1,0 +1,263 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/bash
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################
+#     _   _            _  ___                 #
+#    | | | | __ _  ___| |/ (_)_ __   __ _     #
+#    | |_| |/ _' |/ __| ' /| | '_ \ / _' |    #
+#    |  _  | (_| | (__| . \| | | | | (_| |    #
+#    |_| |_|\__,_|\___|_|\_\_|_| |_|\__, |    #
+#                                   |___/     #
+###############################################
+# Name : Anlominus
+# Description : HacKingPro is a hacking tools installer and package manager for hacker's.
+# New Date : 2022 January
+# Aouther: Anlominus RhytMix 2022
+# Skils: Best Copyrigter IN the COSMOS!
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
+# CREDIT: ToAllWorldCreatorsHackingTools
+# Location: Made With Love IN ISRAEL !
+# Source: https://github.com/Anlominus/Anlominus
+###############################################
+##################################
+#-----------) Colors (-----------#
+##################################
+# |
+nc="\033[00m"
+white="\033[1;37m"
+grey="\033[0;37m"
+purple="\033[0;35m"
+red="\033[1;31m"
+green="\033[1;32m"
+yellow="\033[1;33m"
+purple="\033[0;35m"
+cyan="\033[0;36m"
+cafe="\033[0;33m"
+fiuscha="\033[0;35m"
+blue="\033[1;34m"
+orange="\033[38;5;202m"
+# |
+###################################
+#-----------) Letters (-----------#
+###################################
+# |
+nr="R"
+ni="I"
+nt="T"
+nx="X"
+nq="Q"
+na="A"
+nb="ab"
+n00="00"
+n1="1"
+n2="2"
+n3="3"
+n4="4"
+n5="5"
+n6="6"
+n8="8"
+n7="7"
+n9="9"
+n10="10"
+n11="11"
+n12="12"
+n13="13"
+n14="14"
+n15="15"
+n16="16"
+n17="17"
+n18="18"
+# |
+##########################
+#    SymbolVariables     #
+##########################
+# |
+cBack="$red[$cyan Back $red]$grey"
+uSage="$red[$cyan USAGE $red]$grey("
+installingDir="$red[$grey Installing Dir $red]$cyan"
+# |
+##########################
+#    SymbolVariables     #
+##########################
+# 💪  🏴 ‍ ☠️ 👁‍ 👌 💀 📌 👍
+# ♥️ ✯ 🔞 🗨 👩‍ 💻 😜 😡
+# 💥 ☣ ✍ █ ▓ ░ ▒ 💿 🎧 📸
+# 👤
+cEye="$green 👁 $cyan"
+cWall="$purple[$purple░$purple]$cyan"
+cDock="$purple[$green📌$purple]$cyan"
+cPassKey="$purple[$green🔐$purple]$cyan"
+cAnlominus="$purple[$green👽$purple]$cyan"
+cAlien="$purple[$green🙏$purple]$cyan"
+cGlasses="$purple[$green👓$purple]$yellow"
+cLock="$red[$yellow🔒$red]$grey"
+cInvalid="$red[$yellow🚫$red]$red"
+cKey="$red[$yellow🔑$red]$yellow"
+cLink="$red[$orange🔗$red]$orange"
+cSharp="$red[$yellow#$red]$blue"
+cInfo="$red[$yellow!$red]$blue"
+cPlus="$red[$green+$red]$white"
+cDone="$red[$green✔$red]$green"
+cFalse="$yellow[$red✘$yellow]$red"
+cDanger="$yellow ⚠️ $red"
+# |
+currentDir="${blue}Dir$cyan $(pwd)"
+##########################
+#    NumberVariables     #
+##########################
+# |
+cr="$orange[$green$nr$orange]$grey"
+ci="$orange[$green$ni$orange]$grey"
+ct="$orange[$green$nt$orange]$grey"
+cx="$orange[$green$nx$orange]$grey"
+cq="$orange[$green$nq$orange]$grey"
+ca="$orange[$green$na$orange]$grey"
+cb="$orange[$green$nb$orange]$grey"
+c1="$orange[$green$n1$orange]$cafe"
+c2="$orange[$green$n2$orange]$cafe"
+c3="$orange[$green$n3$orange]$cafe"
+c4="$orange[$green$n4$orange]$cafe"
+c5="$orange[$green$n5$orange]$cafe"
+c6="$orange[$green$n6$orange]$cafe"
+c7="$orange[$green$n7$orange]$cafe"
+c8="$orange[$green$n8$orange]$cafe"
+c9="$orange[$green$n9$orange]$cafe"
+c10="$orange[$green$n10$orange]$cafe"
+c11="$orange[$green$n11$orange]$cafe"
+c12="$orange[$green$n12$orange]$cafe"
+c13="$orange[$green$n13$orange]$cafe"
+c14="$orange[$green$n14$orange]$cafe"
+c15="$orange[$green$n15$orange]$cafe"
+c16="$orange[$green$n16$orange]$cafe"
+c17="$orange[$green$n17$orange]$cafe"
+c18="$orange[$green$n18$orange]$cafe"
+##################################
+#-----------) Banner (-----------#
+##################################
+# |
+BannerMan(){
+  echo "$purple
+                          .
+                      ..',,'..
+                    .',,,,,,,,,.
+                   .',,,'..',,,,'.
+                  .',,'.     .,,,'
+                 .',,.        .,,,.
+                .',..           .,,.
+                .'.              ..,.
+                .                  .'
+               ..   $green  Aภl๏miภuຮ $purple   .
+               ..                   .
+               ..                  ...
+        ....''''.   $blue HacKingPro$purple    .','''....
+      .',,,,,,,,'..               ..',,,,,,,,'.
+     ...'',,,,,,,'...          ....',,,,,,,,'...
+    ....'',;;;;;;;,,'''......'''',,;;;;;;;,'''...
+   ......'',,;;;:::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/:'.
+   .....'.'',,;;::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/'....
+   .......',,;;::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/,......
+   .'''''',,;;::/xxxxxxxxxx${cyan}DAT0S${purple}xxxxxxxxxxxx/,.......
+  ..'''',',;;::/xxxxxxxxx${blue}ANL0M1NUS${purple}xxxxxxxxx/,'''''...
+ ........';;::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/:'.........
+......  .':::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/::'..  ......
+......:.;:::/xxxxxxxxxxxxxxxxxxxxxxxxxxx/::;'c,':......
+ .''..cc.''''''',,,,,,,;;;;;,,,,,,,,''''....:.cc..''.
+  \t ${orange}  ┌──[${blue}Anlominus${purple}@${red}HacKingPro${cyan}$~${orange}]
+  \t ${orange}  └──╼ ${cyan} sh HacKingPro
+  "
+}
+# |
+# Banner(){
+#   echo "  $cSharp https://www.github.com/Anlominus $cSharp\n"
+# }
+# |
+Banner(){
+  echo "
+  $cWall░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$cWall
+  $cWall░     _   _            _  ___                 ░$cWall
+  $cWall░    | | | | __ _  ___| |/ (_)_ __   __ _     ░$cWall
+  $cWall░    | |_| |/ _' |/ __| ' /| | '_ \ / _' |    ░$cWall
+  $cWall░    |  _  | (_| | (__| . \| | | | | (_| |    ░$cWall
+  $cWall░    |_| |_|\__,_|\___|_|\_\_|_| |_|\__, |    ░$cWall
+  $cWall░                                   |___/     ░$cWall
+  $cWall▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒$cWall
+  $cWall▒         ▀▀█▀▀ █▀▀█ █▀▀█ █   █▀▀             ▒$cWall
+  $cWall▒           █   █  █ █  █ █   ▀▀█             ▒$cWall
+  $cWall▒           ▀   ▀▀▀▀ ▀▀▀▀ ▀▀▀ ▀▀▀$orange v1.4        ${cyan}▒$cWall
+  $cWall▒ https://www.github.com/Anlominus/HacKingPro ▒$cWall
+  $cWall▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒$cWall\n"
+}
+Exiting(){
+  echo "
+  $cWall░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$cWall
+  $cWall░                                             ░$cWall
+  $cWall░  ╔═══════════════════════════════════════╗  ░$cWall
+  $cWall░  ╠═>$cDanger Exiting Anlominus Tools...$cDanger${cyan} <==║  ░$cWall
+  $cWall░  ╚═══════════════════════════════════════╝  ░$cWall
+  $cWall░                                             ░$cWall
+  $cWall░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$cWall"
+}
+SourceCodeURL(){
+  echo "\t  $cLink https://www.github.com/Anlominus/HacKingPro $cLink\n"
+}
+
+CheckUsersGroups(){
+  echo "\n  $cWall▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓$cWall"
+  echo "  $cWall▓                                             ▓$cWall"
+  echo "  $cWall▓  ╔═══════════════════════════════════════╗  ▓$cWall"
+  echo "  $cWall▓  ╠═>         Users Information        <==║  ▓$cWall"
+  echo "  $cWall▓  ╠═══════════════════════════════════════╝  ▓$cWall"
+  echo "  $cWall▓  ╠═▶${orange} Uname:${nc} $(uname)"
+  echo "  $cWall▓  ╠═▶${orange} who is currently logged in:${nc} $(who)"
+  echo "  $cWall▓  ╠═▶${orange} User:${nc} $USER"
+  echo "  $cWall▓  ╠═▶${orange} Host:${nc} $(hostname)"
+  echo "  $cWall▓  ╠═▶${orange} Host IP Address:${nc} $(hostname -i)"
+  echo "  $cWall▓  ╠═▶${orange} Home:${nc} $HOME"
+  echo "  $cWall▓  ╠═▶${orange} Term:${nc} ${TERM}"
+  echo "  $cWall▓  ╠═▶${orange} System Language:${nc} ${LANG}"
+  echo "  $cWall▓  ╠═▶${orange} Shell:${nc} $SHELL"
+  echo "  $cWall▓  ╠═▶${orange} UpTime: ${nc} $(uptime)"
+  echo "  $cWall▓  ╠═▶${orange} Date: ${nc} $(date)"
+  echo "  $cWall▓  ╠═▶${orange} Path:${nc} $PATH"
+  echo "  $cWall▓  ╠═▶${orange} User ID:${nc} $(id)"
+  echo "  $cWall▓  ╚═══════════════════════════════════════╝  ▓$cWall"
+  echo "  $cWall▓                                             ▓$cWall"
+  echo "  $cWall▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓$cWall\n"
+}
+CheckOS(){
+    KERNEL=$(uname -r)
+    RES=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/')
+    MEMORY=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+    CPU=$(lscpu | grep 'Model name' | cut -f 2 -d ":" | awk '{$1=$1}1')
+    echo "\n  $cWall▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓$cWall"
+    echo "  $cWall▓                                             ▓$cWall"
+    echo "  $cWall▓  ╔═══════════════════════════════════════╗  ▓$cWall"
+    echo "  $cWall▓  ╠═>         System Information       <==║  ▓$cWall"
+    echo "  $cWall▓  ╠═══════════════════════════════════════╝  ▓$cWall"
+    echo "  $cWall▓  ╠═▶${orange} Uname:${nc} $(uname)"
+    echo "  $cWall▓  ╠═▶${orange} who is currently logged in:${nc} $(who)"
+    echo "  $cWall▓  ╠═▶${orange} User:${nc} $USER"
+    echo "  $cWall▓  ╠═▶${orange} Host:${nc} $(hostname)"
+    echo "  $cWall▓  ╠═▶${orange} Host IP Address:${nc} $(hostname -i)"
+    echo "  $cWall▓  ╠═▶${orange} Home:${nc} $HOME"
+    echo "  $cWall▓  ╠═▶${orange} Term:${nc} ${TERM}"
+    echo "  $cWall▓  ╠═▶${orange} CPU:${nc} $CPU"
+    echo "  $cWall▓  ╠═▶${orange} Desktop Session:${nc} $DESKTOP_SESSION"
+    echo "  $cWall▓  ╠═▶${orange} Kernel:${nc} $KERNEL"
+    echo "  $cWall▓  ╠═▶${orange} Resolution:${nc} $RES"
+    echo "  $cWall▓  ╠═▶${orange} Memory:${nc} $(( ${MEMORY%% *} / 1024)) MiB"
+    echo "  $cWall▓  ╠═▶${orange} Script ID:${nc} $$"
+    echo "  $cWall▓  ╠═▶${orange} System Language:${nc} ${LANG}"
+    echo "  $cWall▓  ╠═▶${orange} Shell:${nc} $SHELL"
+    echo "  $cWall▓  ╠═▶${orange} UpTime: ${nc} $(uptime)"
+    echo "  $cWall▓  ╠═▶${orange} Date: ${nc} $(date)"
+    echo "  $cWall▓  ╠═▶${orange} Path:${nc} $PATH"
+    echo "  $cWall▓  ╠═▶${orange} User ID:${nc} $(id)"
+    echo "  $cWall▓  ╚═══════════════════════════════════════╝  ▓$cWall"
+    echo "  $cWall▓                                             ▓$cWall"
+    echo "  $cWall▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓$cWall\n"
+  }
+CheckOS
+CheckUsersGroups
