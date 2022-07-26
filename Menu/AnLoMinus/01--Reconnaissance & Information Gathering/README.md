@@ -94,6 +94,20 @@ python3 truth.py
  
 ---
 
+### [R3C0Nizer](https://github.com/Anon-Artist/R3C0Nizer)
+- R3C0Nizer is the first ever CLI based menu-driven automated web application B-Tier recon framework which install every tools and dependencies while running each modules so that the user need not to install any tools manually and R3C0Nizer is used to gather some assets/informations which should help you to the next step with latest updated, fastest and efficient tools. 
+
+#### Usage 🥂
+```cmd
+git clone https://github.com/Anon-Artist/R3C0Nizer
+cd R3C0Nizer
+chmod +x reconizer.sh 
+echo "export PATH=$PATH:~/go/bin" | sudo tee -a ~/.bashrc
+source ~/.bashrc
+./reconizer.sh
+```
+
+---
 
 # Information gathering techniques and methods
 - Ethical hackers use a big variety of techniques and tools to get this precious information about their targets, as well as locations and data collection software they’ll be using towards the information gathering goal.
