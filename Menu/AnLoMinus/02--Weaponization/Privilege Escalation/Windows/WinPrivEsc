@@ -21,16 +21,6 @@
 LastUPDATE="2022 July 25"
 ToolSource="https://github.com/AnLoMinus/WinKingPro"
 ###############################################
-# ▪ System Information
-# ▪ Users Information
-# ▪ Services Information
-# ▪ Applications Information
-# ▪ Network Information
-# ▪ Windows Credentials
-# ▪ Browser Information
-# ▪ Events Information
-# ▪ Additional Checks
-# ▪
 
 ###############################################
 # Text Attributes
@@ -383,19 +373,19 @@ WinKingProMenuMain=$(echo "
     ${BCyan}${faintT}┌─┲╼ ${resetT}${BRed}[${LCyan} Windows Privilege Escalation Vectors ${BRed}]
     ${BCyan}${faintT}| ┖─╼ ${resetT}${BRed}[${BCyan} Following information are considered as critical Information of Windows System:${BRed}]
     ${BCyan}${faintT}|
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 01 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} The version of the operating system ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 02 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Any Vulnerable package installed or running ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 03 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Files and Folders with Full Control or Modify Access ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 04 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Mapped Drives ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 05 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Potentially Interesting Files ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 06 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Unquoted Service Paths ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 07 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Network Information (interfaces, arp, netstat) ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 08 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Firewall Status and Rules ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 09 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Running Processes ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 10 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} AlwaysInstallElevated Registry Key Check ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 11 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Stored Credentials ${BRed}]${BCyan}
-    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 12 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} DLL Hijacking ${BRed}]${BCyan}
-    ${BCyan}${faintT}└───╼ ${resetT}${BRed}[${ORANGE} 13 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Scheduled Tasks ${BRed}]${BCyan}
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 01 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} The version of the operating system ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 02 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Any Vulnerable package installed or running ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 03 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Files and Folders with Full Control or Modify Access ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 04 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Mapped Drives ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 05 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Potentially Interesting Files ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 06 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Unquoted Service Paths ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 07 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Network Information (interfaces, arp, netstat) ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 08 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Firewall Status and Rules ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 09 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Running Processes ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 10 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} AlwaysInstallElevated Registry Key Check ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 11 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Stored Credentials ${BRed}]
+    ${BCyan}${faintT}|───╼ ${resetT}${BRed}[${ORANGE} 12 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} DLL Hijacking ${BRed}]
+    ${BCyan}${faintT}└───╼ ${resetT}${BRed}[${ORANGE} 13 ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} Scheduled Tasks ${BRed}]
 
     ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
