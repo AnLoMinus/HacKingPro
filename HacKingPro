@@ -6821,28 +6821,29 @@ MainMenu(){
       cp KoTH  /usr/local/bin/KoTH
       }
 
-      AnonMainMenu(){
+        AnonMainMenu(){
         while true; do
         #statements
         clear
-        koth_banner
-        KoTHMenuMain=$(echo "${BRed}
-                ${BBlue}[${BRed}#${BBlue}] 📜 ${BYellow} Anonimity Surfing Menu
-
-                ${BRed}[${LGrey}1${BRed}]${BBlue} -${DGrey} Anonimity Surfing status
-                ${BRed}[${LGrey}2${BRed}]${BBlue} -${DGrey} Anonimity Surfing start
-                ${BRed}[${LGrey}3${BRed}]${BBlue} -${DGrey} Anonimity Surfing stop
-
-                ${BBlue}[${BRed}#${BBlue}] 📜 ${BYellow} Network Manager Menu
-
-                ${BRed}[${LGrey}4${BRed}]${BBlue} -${DGrey} ifconfig -a
-                ${BRed}[${LGrey}5${BRed}]${BBlue} -${DGrey} ip a
-
-                ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+        ToolHeaderRun
+        TargetStatusRun
+        KoTHMenuMain=$(echo "
+    ${BYellow}${faintT}┌──${resetT}${BRed}[${BYellow} King of The Hill ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}|──${resetT}${BRed}[${BYellow} 01 ${BRed}]${BYellow}${faintT}── ${resetT}${BRed}[${BYellow} Anonimity Surfing status ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}|──${resetT}${BRed}[${BYellow} 02 ${BRed}]${BYellow}${faintT}── ${resetT}${BRed}[${BYellow} Anonimity Surfing start ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}|──${resetT}${BRed}[${BYellow} 03 ${BRed}]${BYellow}${faintT}── ${resetT}${BRed}[${BYellow} Anonimity Surfing stop ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}└──${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
 
-      ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} KoTH ${BCyan}$~${BBlue}]
-      ${BCyan}            └──╼ ")
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
           read -p "$KoTHMenuMain" cmd
           case $cmd in
             1 )
@@ -6903,50 +6904,38 @@ MainMenu(){
       MainMenu(){
         while true; do
         #statements
-        # cd "$xMenuKoTH"
-        tryhackmeVpnIP=$(ifconfig tun0 | grep inet)
         clear
-        koth_banner
-        # ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}VPN IP${BBlue}: ${BGreen}${tryhackmeVpnIP}
-        HacKingProTargetStatus=$(echo "
-                ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
-                ${DGrey}|
-                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
-                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
-                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
-                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
-                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
-                ${DGrey}|
-                ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
-
-                ${DGrey}┌──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
-                ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
-                ${DGrey}└──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
-      ")
-
-        KoTHMenuMain=$(echo "${BRed}
-          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 KoTH Main Menu ⌖"
-
-          echo "$HacKingProTargetStatus""
-
-          ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
-
-          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+        ToolHeaderRun
+        TargetStatusRun
+        KoTHMenuMain=$(echo "
+    ${BYellow}${faintT}┌──${resetT}${BRed}[${BYellow} King of The Hill ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}|──${resetT}${BRed}[${BYellow} 00 ${BRed}]${BYellow}${faintT}── ${resetT}${BRed}[${BYellow} Anonimity Surfing ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}└──${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
 
-          ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
-          ${BBlue}|
-          ${DGrey}|──[ ~$(pwd) ]
-          ${DGrey}|
-          ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow} KoTH ]──╼${BGreen}  ")
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
           read -p "$KoTHMenuMain" cmd
           case $cmd in
             i )
             installingONSystem
             ;;
-            a )
+            0|00 )
             AnonMainMenu
             ;;
+            x|X|exit|quit|Exit )
+            clear
+            cd ${XHacKingPro}
+            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+            break
+            ;;
+
 
           esac
         done
@@ -6959,8 +6948,10 @@ MainMenu(){
       ;;
       x|X|exit|quit|Exit )
       clear
-      echo "$HacKingProExit"
-      exit
+      cd ${XHacKingPro}
+      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+      break
       ;;
       * )
       echo "$InvalidOption"
