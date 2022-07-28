@@ -24,7 +24,7 @@
 
 <div align="center">
 
-## `The Concept` | Hack Like A Pro !
+## `The Concept` | Hack Like A Pro ! 👋🏼
 # [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.18
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
