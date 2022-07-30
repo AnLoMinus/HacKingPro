@@ -1,4 +1,5 @@
-# 🔸 05 - Password HacKing
+# Password HacKing
+
 - ## [`Wordlists`](./Wordlists)
 
 - ## [XBruteForcer](https://github.com/Moham3dRiahi/XBruteForcer) 
