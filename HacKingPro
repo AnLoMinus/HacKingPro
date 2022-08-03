@@ -1214,17 +1214,19 @@ BuildingProfiles(){
 
 
 xDirectories(){
-  x_Menu_1="${XHacKingPro}/Menu/AnLoMinus/01--Reconnaissance & Information Gathering/"
-  x_Menu_2="${XHacKingPro}/Menu/AnLoMinus/02--Weaponization/"
-  x_Menu_3="${XHacKingPro}/Menu/AnLoMinus/03--Delivery/"
-  x_Menu_4="${XHacKingPro}/Menu/AnLoMinus/04--Exploitation/"
-  x_Menu_5="${XHacKingPro}/Menu/AnLoMinus/05--Installation/"
-  x_Menu_6="${XHacKingPro}/Menu/AnLoMinus/06--Command and Control/"
-  x_Menu_7="${XHacKingPro}/Menu/AnLoMinus/07--Actions on Objective/"
-  x_Menu_8="${XHacKingPro}/Menu/AnLoMinus/AK--AttacKing/"
 
   # Define Variables For Case Directory
   MainDirectoriy="$(pwd)"
+
+  x_Menu_1="${MainDirectoriy}/Menu/AnLoMinus/01--Reconnaissance & Information Gathering/"
+  x_Menu_2="${MainDirectoriy}/Menu/AnLoMinus/02--Weaponization/"
+  x_Menu_3="${MainDirectoriy}/Menu/AnLoMinus/03--Delivery/"
+  x_Menu_4="${MainDirectoriy}/Menu/AnLoMinus/04--Exploitation/"
+  x_Menu_5="${MainDirectoriy}/Menu/AnLoMinus/05--Installation/"
+  x_Menu_6="${MainDirectoriy}/Menu/AnLoMinus/06--Command and Control/"
+  x_Menu_7="${MainDirectoriy}/Menu/AnLoMinus/07--Actions on Objective/"
+  x_Menu_8="${MainDirectoriy}/Menu/AnLoMinus/AK--AttacKing/"
+
 
   Recon_File="${MainDirectoriyCaseNameRecon}/${targetNAME}-HacKingPro-Recon-Log.md"  # Define Recon File
 
