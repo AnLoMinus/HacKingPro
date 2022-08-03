@@ -5340,7 +5340,7 @@ AllInfo(){
 MainMenu(){
   while true; do
     clear
-    cd "$XHacKingPro"
+    cd "${MainDirectoriy}"
     ToolHeaderRun
     TargetStatusRun
     HacKingProMenuMain=$(echo "${BRed}
