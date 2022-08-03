@@ -248,11 +248,8 @@ cDanger="$yellow ⚠️ $red"
 
 CheckPWD(){
   # Define Current Direction Variable
-  CheckingDirectory="$(pwd)"
-  # Assign $CheckingDirectory to $MainDirectoriy
-  MainDirectoriy="$CheckingDirectory"
-  # echo "$MainDirectoriy"
-  # echo "$CheckingDirectory"
+  MainDirectoriy="$(pwd)"
+  echo "$MainDirectoriy"
 }
 CheckPWD
 
@@ -600,25 +597,6 @@ ReadTargetNameFromtheUser(){
     targetNAME="AnLoMinus"
     # echo "\n\t  ${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
   fi
-
-  # Checking if Case Folder Exist
-
-}
-
-# Define Variables For Case Directory
-MainDirectoriyCase="${MainDirectoriy}/Case/"
-
-# Read Target Name From the User
-ReadTargetNameFromtheUser(){
-  # Read Target Name From the User
-  # This Variable is for Case Name.
-  t0="$(echo "\n          ${BBlue}┌──[ 🎯 ]──[${BRed} Name ${BBlue}]──╼  ")"
-  read -p "$t0" targetNAME
-  if [ -z "$targetNAME" ]; then
-    #statements
-    targetNAME="AnLoMinus"
-    # echo "\n\t  ${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
-  fi
 }
 
 # Read Target IP From the User
@@ -631,7 +609,6 @@ if [ -z "$targetIP" ]; then
   #statements
   targetIP="127.0.0.1"
   # targetIP=" "
-  echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 fi
 }
 
@@ -644,7 +621,6 @@ read -p "$t2" targetDns
 if [ -z "$targetDns" ]; then
   #statements
   targetDns="xXx.AnLoMinus.xXx"
-  echo "> - ### Target Dns: ${targetDns}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 fi
 }
 
@@ -658,7 +634,6 @@ if [ -z $targetEmail ]; then
   #statements
   targetEmail="Change.Me@Do.Now"
   # echo "\n${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
-  echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 fi
 }
 
@@ -673,34 +648,49 @@ if [ -z "$targetPhone" ]; then
   targetPhone="9720506933037"
   # echo "\n${BRed}[${LGrey}TP${BRed}]${BBlue} - ${LGrey}Target Phone ${BBlue} $targetPhone\n"
 fi
-echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 }
+
 
 # Planning and Scoping
 HacKingProPlanning(){
+
+
   clear
 
-  echo " "
-  # HacKingProLogo1
-  cd "$MainDirectoriy"
   # Menu
   ToolHeaderRun
   TargetStatusRun
+
   echo "\n          ${BRed}======================================================================================="
-  CheckingifCaseFolderExist
 
-  XHacKingProCaseTargetName="$XHacKingPro/Case/$targetNAME"
+  MainDirectoriyCase="${MainDirectoriy}/Case"
+  mkdir "${MainDirectoriyCase}"
+  cd "${MainDirectoriyCase}"
 
+  ReadTargetNameFromtheUser
+  MainDirectoriyCaseName="${MainDirectoriyCase}/${targetNAME}"
+  mkdir "${MainDirectoriyCaseName}"
+  cd "${MainDirectoriyCaseName}"
+
+  MainDirectoriyCaseNamePlanning="${MainDirectoriyCaseName}/Planning"
+  mkdir "${MainDirectoriyCaseNamePlanning}"
+  cd "${MainDirectoriyCaseNamePlanning}"
+
+  Planning_File="${MainDirectoriyCaseNamePlanning}${targetNAME}-HacKingPro-Planning-Log.md" # Define Planning File
+  # touch ${Planning_File}
 
   # Recommended Open With `Atom` Editor For Normal View.
   echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
   echo "### $targetNAME Case Date: $(date)" >> ${targetNAME}-HacKingPro-Planning-Log.md
   echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-
   ReadTargetIPFromtheUser
+  echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
   ReadTargetURLFromtheUser
+  echo "> - ### Target Domain: ${targetDns}" >> ${targetNAME}-HacKingPro-Planning-Log.md
   ReadTargetEmailFromtheUser
+  echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
   ReadTargetPhoneFromtheUser
+  echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
 
   #
   echo "\n          ${BRed}======================================================================================="
@@ -708,8 +698,6 @@ HacKingProPlanning(){
   echo "          ${BYellow} Log Directory ${BRed}[${BGreen} $(pwd) ${BRed}]\n${BGreen}"
   echo "          ${BYellow} Log File ${BRed}[${BGreen} $(ls) ${BRed}]\n${BGreen}"
   read -p "$Press_ENTER"
-  cd "$MainDirectoriyCase"
-  cd "$targetNAME"
 
 }
 
@@ -765,6 +753,59 @@ FunTargetPhone(){
       fi
     }
 
+###############################################
+#------------Reconnaissance Start-------------#
+###############################################
+
+startRecon(){
+  # Reconnaissance & Vulnerability Assessment
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "# Reconnaissance & Vulnerability Assessment | Date: $(date) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target Dns: ${targetDns}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  #
+  echo "---" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+}
+
+Recon_Start(){
+  MainDirectoriyCaseNameRecon="${MainDirectoriyCaseName}/Recon"
+  cd ${MainDirectoriyCaseName}
+  if [ -z $targetIP ]; then
+    #statements
+    Checking_IP_Target
+  else
+    ReconStart(){
+      #
+      if [ -d $MainDirectoriyCaseNameRecon ]; then
+        #statements
+        echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}$targetNAME ${BBlue}Case $targetNAME Folder Exists, Continue to it\n"
+        cd ${MainDirectoriyCaseNameRecon}
+        startRecon
+      else
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+        mkdir "${MainDirectoriyCase}"
+        cd "${MainDirectoriyCase}"
+
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating ${targetNAME} Folder and Continue to it\n"
+        mkdir "${MainDirectoriyCaseName}"
+        cd "${MainDirectoriyCaseName}"
+
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Recon and Continue to it\n"
+        mkdir "${MainDirectoriyCaseNameRecon}"
+        cd "${MainDirectoriyCaseNameRecon}"
+      fi
+      startRecon
+      read -p "$Press_ENTER"
+    }
+    ReconStart
+  fi
+}
 
 ###############################################
 #         Checking
@@ -772,7 +813,6 @@ FunTargetPhone(){
 
 # Checking if Case Folder Exist
 CheckingifCaseFolderExist(){
-  ReadTargetNameFromtheUser
   #statements
   if [ -d Case ]; then
     echo "\n          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BGreen}Case ${BYellow}Folder Exists, Continue to it\n"
@@ -780,21 +820,24 @@ CheckingifCaseFolderExist(){
     if [ -d $targetNAME ]; then
       #statements
       echo "          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BGreen}$targetNAME ${BYellow}Folder Exists, Continue to it\n"
-      cd $targetNAME
+      cd ${targetNAME}
     else
-      mkdir $targetNAME
-      cd $targetNAME
+      echo "\n          ${BBlue}|────${BRed}[ ❌ ${BRed}]${BBlue}──╼ ${BGreen}${targetNAME} ${BYellow}Folder Not Exists, Creating it\n"
+      mkdir ${targetNAME}
+      cd ${targetNAME}
     fi
+
     if [ -d Planning ]; then
       #statements
       echo "          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BGreen}$targetNAME/Planning ${BYellow}Folder Exists, Continue to it\n"
       cd Planning
     else
+      echo "\n          ${BBlue}|────${BRed}[ ❌ ${BRed}]${BBlue}──╼ ${BGreen}Planning ${BYellow}Folder Not Exists, Creating it\n"
       mkdir Planning
       cd Planning
     fi
   else
-    echo "\n          ${BBlue}|────${BRed}[ ❌ ${BRed}]${BBlue}──╼ ${BGreen}Case ${BYellow}Folder Not Exists, Create it\n"
+    echo "\n          ${BBlue}|────${BRed}[ ❌ ${BRed}]${BBlue}──╼ ${BGreen}Case ${BYellow}Folder Not Exists, Creating it\n"
     echo "          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BYellow}Creating ${BGreen}Case ${BYellow}Folder and Continue to it\n"
     mkdir Case
     cd Case
@@ -806,19 +849,17 @@ CheckingifCaseFolderExist(){
     cd Planning
   fi
 
-  # This Variable for Naming File Report
-  Planning_File="${targetNAME}-HacKingPro-Planning-Log.md"
   if [ -e ${Planning_File} ]; then
     t5="$(echo "          ${BBlue}|────${BRed}[ ❌ ${BRed}]${BBlue}──╼${BGreen} $Planning_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
     read -p "$t5 " filexist
     case $filexist in
       y|Y)
-      cd "$XHacKingProCaseTargetName/Planning"
+      cd "$MainDirectoriyCaseName/Planning"
       echo "          ${BBlue}|────${BRed}[ 🔶 ${BRed}]${BBlue}──╼${BGreen}  Removing {${Planning_File}} file .."
       read -p "$Press_ENTER"
       rm ${Planning_File}
       echo "          ${BBlue}|────${BRed}[ ❌ ${BRed}]${BBlue}──╼${BGreen} ✅ Removed {${Planning_File}} file .."
-      cd "$XHacKingProCaseTargetName"
+      cd "$MainDirectoriyCaseName"
       ;;
       n|N)
       echo "          ${BBlue}|────${BRed}[ 🔶 ${BRed}]${BBlue}──╼${BGreen} Leaving {${Planning_File}} file .."
@@ -1064,7 +1105,7 @@ lahs(){
 
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro$resetT")
 Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}22")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}23")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
@@ -1072,7 +1113,7 @@ Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter T
 InvalidOption=$(echo "\n\t\t ${BGreen}»»» ${HacKingPro} ${LRed}Invalid Option ${BRed}¯\_(ツ)_/¯ \n")
 
 ###############################################
-#         Header
+#         Header Status
 ###############################################
 
 ToolHeaderRun(){
@@ -1171,11 +1212,8 @@ BuildingProfiles(){
 #         Paths Directories to Tools
 ###############################################
 
-x_Case="${XHacKingPro}Case/${targetNAME}"
 
 xDirectories(){
-  XHacKingProPWD=$(pwd)
-  XHacKingPro="${XHacKingProPWD}"
   x_Menu_1="${XHacKingPro}/Menu/AnLoMinus/01--Reconnaissance & Information Gathering/"
   x_Menu_2="${XHacKingPro}/Menu/AnLoMinus/02--Weaponization/"
   x_Menu_3="${XHacKingPro}/Menu/AnLoMinus/03--Delivery/"
@@ -1185,34 +1223,31 @@ xDirectories(){
   x_Menu_7="${XHacKingPro}/Menu/AnLoMinus/07--Actions on Objective/"
   x_Menu_8="${XHacKingPro}/Menu/AnLoMinus/AK--AttacKing/"
 
-  # Checking Directories of HacKingPro TooL
+  # Define Variables For Case Directory
+  MainDirectoriy="$(pwd)"
 
+  Recon_File="${MainDirectoriyCaseNameRecon}/${targetNAME}-HacKingPro-Recon-Log.md"  # Define Recon File
+
+  # Checking Directories of HacKingPro TooL
   if [ -d Menu ]; then
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Working${ORANGE} $XHacKingProPWD\n${faintT}"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Working${ORANGE} $MainDirectoriy\n${faintT}"
     ls -lhs
     echo "${resetT}"
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $XHacKingProPWD/Menu\n${faintT}"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $MainDirectoriy/Menu\n${faintT}"
     ls -lhs Menu
     echo "${resetT}"
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $XHacKingProPWD/Menu/AnLoMinus\n${faintT}"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $MainDirectoriy/Menu/AnLoMinus\n${faintT}"
     ls -lhs Menu/AnLoMinus
     echo "${resetT}"
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $XHacKingProPWD/Menu/AnyTool\n${faintT}"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $MainDirectoriy/Menu/AnyTool\n${faintT}"
     ls -lhs Menu/AnyTool
     echo "${resetT}"
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $XHacKingProPWD/Menu/Resources\n${faintT}"
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $MainDirectoriy/Menu/Resources\n${faintT}"
     ls -lhs Menu/Resources
     echo "${resetT}"
     read -p "${Press_Enter_To_START}"
-  else
-    XHacKingPro="$(pwd)"
-    # HacKingProLogo1
-    echo "\n\t  ${BYellow}[${BGreen}HOME${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
-    lahs
-    read -p "${Press_Enter_To_START}"
-    echo "\n\n\t\t XHacKingPro=$HOME/HacKingPro"
   fi
-  echo "\n\n\t\t XHacKingPro=${faintT}${XHacKingPro}"
+  echo "\n\n\t\t MainDirectoriy=${faintT}${MainDirectoriy}"
   read -p "${Press_Enter_To_START}"
 
 }
@@ -5204,6 +5239,101 @@ WinPrivEsc(){
 }
 
 ###############################################
+#         Information Gathering
+###############################################
+
+# TraceRoute Scan Log
+infoTraceRoute(){
+  echo "\n\t\t${BGreen}### TraceRoute Scan Log | Time: $(date)"
+  echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(traceroute $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  read -p "$Press_ENTER"
+}
+
+# Ping Scan Log
+infoPing(){
+  echo "\n\t\t${BGreen}### Ping Scan Log | Time: $(date)"
+  echo "# Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(ping $targetIP -c4) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  read -p "$Press_ENTER"
+}
+
+# Nslookup Scan Log
+infoNsLookUp(){
+  echo "\n\t\t${BGreen}### Nslookup Scan Log | Time: $(date)"
+  echo "# Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(nslookup $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  read -p "$Press_ENTER"
+}
+
+# Dig Scan Log
+infoDig(){
+  echo "\n\t\t${BGreen}### Dig Scan Log | Time: $(date)"
+  echo "# Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(dig $targetIP all) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  read -p "$Press_ENTER"
+}
+
+# WhoIs Scan Log
+infoWhois(){
+  echo "\n\t\t${BGreen}### WhoIs Scan Log | Time: $(date)"
+  echo "# WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(whois $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  read -p "$Press_ENTER"
+}
+
+# Dirb Scan Log
+infoDirb(){
+  echo "\n\t\t${BGreen}### Dirb Scan Log | Time: $(date)"
+  echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  read -p "$Press_ENTER"
+}
+
+# Nmap Scan Log
+infoNmap(){
+  echo "\n\t\t${BGreen}### Nmap Scan Log | Time: $(date)"
+  echo "# Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(nmap -sV -sC -O $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  read -p "$Press_ENTER"
+}
+
+# Arp Scan Log
+infoArp(){
+  echo "\n\t\t${BGreen}### Arp Scan Log | Time: $(date)"
+  echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(arp -a) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  read -p "$Press_ENTER"
+}
+
+AllInfo(){
+  infoTraceRoute
+  infoPing
+  infoNsLookUp
+  infoDig
+  infoWhois
+  infoDirb
+  infoNmap
+  infoArp
+}
+
+###############################################
 #         HacKingPro Main Menu
 ###############################################
 
@@ -5437,90 +5567,7 @@ MainMenu(){
             ;;
             cpi|CPI )
             Checking_IP_Target
-            ###############################################
-            #         Information Gathering
-            ###############################################
-
-            # TraceRoute Scan Log
-            infoTraceRoute(){
-              echo "\n\t\t${BGreen}### TraceRoute Scan Log | Time: $(date)"
-              echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " $(traceroute $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              read -p "$Press_ENTER"
-            }
-
-            # Ping Scan Log
-            infoPing(){
-              echo "\n\t\t${BGreen}### Ping Scan Log | Time: $(date)"
-              echo "# Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " $(ping $targetIP -c4) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              read -p "$Press_ENTER"
-            }
-
-            # Nslookup Scan Log
-            infoNsLookUp(){
-              echo "\n\t\t${BGreen}### Nslookup Scan Log | Time: $(date)"
-              echo "# Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " $(nslookup $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              read -p "$Press_ENTER"
-            }
-
-            # Dig Scan Log
-            infoDig(){
-              echo "\n\t\t${BGreen}### Dig Scan Log | Time: $(date)"
-              echo "# Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " $(dig $targetIP all) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              read -p "$Press_ENTER"
-            }
-
-            # WhoIs Scan Log
-            infoWhois(){
-              echo "\n\t\t${BGreen}### WhoIs Scan Log | Time: $(date)"
-              echo "# WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " $(whois $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              read -p "$Press_ENTER"
-            }
-
-            # Dirb Scan Log
-            infoDirb(){
-              echo "\n\t\t${BGreen}### Dirb Scan Log | Time: $(date)"
-              echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              read -p "$Press_ENTER"
-            }
-
-            # Nmap Scan Log
-            infoNmap(){
-              echo "\n\t\t${BGreen}### Nmap Scan Log | Time: $(date)"
-              echo "# Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " $(nmap -sV -sC -O $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              read -p "$Press_ENTER"
-            }
-
-            # Arp Scan Log
-            infoArp(){
-              echo "\n\t\t${BGreen}### Arp Scan Log | Time: $(date)"
-              echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " $(arp -a) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-              read -p "$Press_ENTER"
-            }
-
+            cd "${MainDirectoriyCaseNameRecon}"
             while true; do
               clear
               ToolHeaderRun
@@ -5537,6 +5584,7 @@ MainMenu(){
     ${DGrey}|    |──${BRed}[${DGrey} p5 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dirb Scan ${BRed}]
     ${DGrey}|    |──${BRed}[${DGrey} p6 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
     ${DGrey}|    |──${BRed}[${DGrey} p7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nmap Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} show ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} show Scan ${BRed}]
     ${DGrey}|    ┖──${BRed}[${DGrey} px ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} xxx Scan ${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
@@ -5548,16 +5596,20 @@ MainMenu(){
     ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${slowBlink}CPI${resetT} ${BRed}]${BGreen}──╼ ${BGreen}  ")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
+                  show )
+                  less ${targetNAME}-HacKingPro-Recon-Log.md
+                  ;;
                   x|X|exit|quit|Exit )
                   clear
                   HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
                   echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
                   break
                   ;;
+                  ls )
+                  lahs
+                  ;;
                   p0 )
                   # Ping Scan Log
-                  cd "${x_Case}"
-                  cd  "Recon"
                   infoPing
                   ;;
                   p1 )
@@ -5998,121 +6050,6 @@ MainMenu(){
       ;;
     esac
   done
-}
-
-###############################################
-#         Reconnaissance Start
-###############################################
-
-Recon_Start(){
-  if [ -z $targetIP ]; then
-    #statements
-    Checking_IP_Target
-  else
-    ReconStart(){
-      if [ -z $targetNAME ]; then
-        #statements
-        targetNAME="AnLoMinus"
-      fi
-      if [ -z $targetIP ]; then
-        #statements
-        targetIP="1.1.1.1"
-      fi
-      read -p "$Press_ENTER"
-
-      # Define Planning File
-      Planning_File="${targetNAME}-HacKingPro-Planning-Log.md"
-      # Checking Planning File
-      if [ -e ${Planning_File} ]; then
-        t5="$(echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen} $Planning_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
-        read -p "$t5 " filexist
-        case $filexist in
-          y|Y)
-          cd "$XHacKingProCaseTargetName/Planning"
-          echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}🔶 Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-          read -p "$Press_ENTER"
-          rm ${targetNAME}-HacKingPro-Planning-Log.md
-          echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}✅ Removed {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-          cd "$XHacKingProCaseTargetName"
-          ;;
-          n|N)
-          echo "\n\t${BBlue}[${BGreen}🔶${BBlue}] ${BGreen}Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-          ;;
-        esac
-      fi
-
-      #
-      Recon_File="${targetNAME}-HacKingPro-Recon-Log.md"
-      if [ -e ${Recon_File} ]; then
-        t5="$(echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen} $Recon_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
-        read -p "$t5 " filexist
-        case $filexist in
-          y|Y)
-          cd "$XHacKingProCaseTargetName/Recon"
-          echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}🔶 Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-          read -p "$Press_ENTER"
-          rm ${targetNAME}-HacKingPro-Recon-Log.md
-          echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}✅ Removed {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-          cd "$XHacKingProCaseTargetName"
-          ;;
-          n|N)
-          echo "\n\t${BBlue}[${BGreen}🔶${BBlue}] ${BGreen}Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file .."
-          ;;
-        esac
-      fi
-
-      #
-      if [ -d $XHacKingProCaseTargetName ]; then
-        #statements
-        echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}$targetNAME ${BBlue}Case Folder Exists, Continue to it\n"
-        read -p "$Press_ENTER"
-        cd $XHacKingProCaseTargetName
-        # echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
-        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Recon and Continue to it\n"
-        mkdir Recon
-        read -p "$Press_ENTER"
-        cd Recon
-        read -p "$Press_ENTER"
-      else
-        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
-        read -p "$Press_ENTER"
-        mkdir Case
-        read -p "$Press_ENTER"
-        cd Case
-        read -p "$Press_ENTER"
-        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
-        read -p "$Press_ENTER"
-        mkdir $targetNAME
-        read -p "$Press_ENTER"
-        cd $targetNAME
-        read -p "$Press_ENTER"
-        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Recon and Continue to it\n"
-        read -p "$Press_ENTER"
-        # Define /HacKingPro/Case/TargetName/Reconnaissance
-        mkdir "$XHacKingProCaseTargetName"
-        mkdir Recon
-        read -p "$Press_ENTER"
-        XHacKingProCaseTargetNameRecon="${XHacKingPro}/Case/${targetNAME}/Recon"
-        cd Recon
-        read -p "$Press_ENTER"
-      fi
-
-      # Reconnaissance & Vulnerability Assessment
-      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo "# Reconnaissance & Vulnerability Assessment | Date: $(date) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-      #
-      echo "---" >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-      echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-      #
-    }
-    ReconStart
-  fi
 }
 
 #################################################################
@@ -6760,8 +6697,7 @@ BrutePort(){
 #########################################################
 
 UserFinder(){
-  cd "$XHacKingPro"
-  cd "./Case/${targetNAME}/"
+  cd "${MainDirectoriyCaseNamePlanning}"
   echo "\n"
   trap 'printf "\n";partial;exit 1' 2
 
@@ -6836,7 +6772,7 @@ UserFinder(){
     check=$(curl -s "https://plus.google.com/+$targetNAME/posts" -L -H "Accept-Language: en" -i | grep -o 'HTTP/2 404' ; echo $?)
     if [[ $check == *'1'* ]]; then
       printf "${BGreen} Found!${resetT} https://plus.google.com/+%s/posts\n" $targetNAME
-      printf "https://plus.google.com/+%s/posts\n" $targetNAME >> $targetNAME
+      printf "https://plus.google.com/+%s/posts\n" $targetNAME >> ${targetNAME}-UserFinder.txt
     elif [[ $check == *'0'* ]]; then
       printf "${BYellow}Not Found!${resetT}\n"
     fi

@@ -25,7 +25,7 @@
 <div align="center">
 
 ## `The Concept` | Hack Like A Pro ! 👋🏼
-# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.21
+# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.23
 ### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
 
 
@@ -55,7 +55,28 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 ---
 
-> בס״ד
+# Menu # ` xXx `
+- "?"|help|about|About ) # ` xXx `
+- bi ) # ` xXx `
+- 00|0 ) # ` xXx `
+- 01|1 ) # ` xXx `
+- 02|2 ) # ` xXx `
+- 03|3 ) # ` xXx `
+- 04|4 ) # ` xXx `
+- 05|5 ) # ` xXx `
+- 06|6 ) # ` xXx `
+- 07|7 ) # ` xXx `
+- a|A|AttacKing ) # ` xXx `
+- any|Any|AnyTool|anytool ) # ` xXx `
+- arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz ) # ` xXx `
+- x|X|exit|quit|Exit ) # ` xXx `
+- p|P ) # ` xXx `
+- cl ) # ` xXx `
+- ls ) # ` xXx `
+- * )
+
+---
+
 <div align="center">
 
 ![Alt](https://repobeats.axiom.co/api/embed/fc0848f26074f3b91e5236ae960338faa3d9fb1e.svg "Repobeats analytics image")
@@ -69,5 +90,3 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
   **[`^        Back to TOP        ^`](#)**
 
 </h2>
-
-  
