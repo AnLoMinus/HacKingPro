@@ -1,0 +1,663 @@
+#!/bin/bash
+trap "echo \"--\" && pkill -f scan_script && echo \"\" && echo -e \"\e[1m\e[91mEXITED MANUALLY BEFORE FINISH!\e[0m\" && pkill -f scan_script" EXIT
+#this script launches alot of parallel proccesses
+#that are not all exited if we don't pkill them
+
+#####################
+#TESTING PARAMETERS
+#####################
+
+# if [ $# -ne 1 ]
+# then
+#         echo "Wrong number of arguments.. exiting"
+#         exit -1
+# elif [ $(id -u) -ne 0 ]
+# then
+#         echo "You must run this script as root.. exiting"
+#         exit -1
+# fi
+#
+script_start=`date +%s`;
+
+#####################
+#FUNCTIONS
+#####################
+
+open_web_tcp_ports() {
+        host=$1
+        echo "- TCP SYN (80,443)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+        nmap -sS -p80,443 -T4 $host --reason -Pn -n -oN $PWD/$host/nmap/TCP_web &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "TCP SYN (80,443)"; sed -i '/TCP SYN (80,443)/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+}
+
+open_tcp_ports() {
+        host=$1
+        echo "- TCP SYN (all ports)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+        #testing
+        #nmap -sS -p80,443 -T4 $host --reason -Pn -n -oN $PWD/$host/nmap/TCP &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "TCP SYN (all ports)"; sed -i '/TCP SYN (all ports)/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+        #real
+        nmap -sS -p- -T4 $host --reason -Pn -n -oN $PWD/$host/nmap/TCP &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "TCP SYN (all ports)"; sed -i '/TCP SYN (all ports)/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+}
+
+open_udp_ports() {
+        host=$1
+        echo "- UDP (top 20 ports)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+        #testing
+        #nmap -sU -T5 $host --reason --top-ports=1 -Pn -n -oN $PWD/$host/nmap/UDP &> /dev/null
+
+        #1000 most well-known ports
+        #we were missing ports on 10.11.1.226 without -A
+        nmap -sU -A -T4 $host --reason --top-ports=20 -Pn -n -oN $PWD/$host/nmap/UDP &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "UDP (top 20 ports)"; sed -i '/UDP (top 20 ports)/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+}
+
+tcp_versions_scripts() {
+        host=$1
+        list_open_tcp_ports $host
+
+        if [ $open_TCP_ports -ge 1 ]; then
+                echo "- TCP versions & scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                #we try the nmap command two times to avoid segmentation fault
+                (nmap -sTCV --version-all -p $open_TCP_ports_list $host -Pn -n -oN $PWD/$host/nmap/TCP_versions_scripts &> /dev/null || nmap -sTCV --version-all -p $open_TCP_ports_list $host -Pn -n -oN $PWD/$host/nmap/TCP_versions_scripts &> /dev/null || echo -e "\e[91m\e[1m\e[5mFAIL\e[0m\e[1m TCP VERSIONS SCRIPTS ON $host: nmap -sTCV --version-all -T4 -p $open_TCP_ports_list $host -Pn -n -oN $PWD/$host/nmap/TCP_versions_scripts &> /dev/null\e[0m") && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "TCP versions & scripts"; sed -i '/TCP versions & scripts/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+        fi
+}
+
+udp_versions_scripts () {
+        host=$1
+        list_open_udp_ports $host
+
+        if [ $open_UDP_ports -ge 1 ]; then
+                echo "- UDP versions & scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                #we try the nmap command two times to avoid segmentation fault
+                (nmap -sUCV --version-all -p $open_UDP_ports_list $host -Pn -n -oN $PWD/$host/nmap/UDP_versions_scripts &> /dev/null || nmap -sUCV --version-all -p $open_UDP_ports_list $host -Pn -n -oN $PWD/$host/nmap/UDP_versions_scripts &> /dev/null || echo -e "\e[91m\e[1m\e[5mFAIL\e[0m\e[1m UDP VERSIONS SCRIPTS ON $host: nmap -sUCV --version-all -p $open_UDP_ports_list $host -Pn -n -oN $PWD/$host/nmap/UDP_versions_scripts &> /dev/null\e[0m") && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "UDP versions & scripts"; sed -i '/UDP versions & scripts/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+        fi
+}
+
+os_agressive_detection() {
+        host=$1
+        list_open_tcp_ports $host
+        list_open_udp_ports $host
+
+        if [ $open_TCP_ports -ge 1 ] && [ $open_UDP_ports -ge 1 ]; then
+                echo "- OS agressive detection" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+                #we try the nmap command two times to avoid segmentation fault
+                #port 666 is to have at least one closed port. This is needed for OS detection.
+                (nmap -sT -sU -A --osscan-guess $host -p T:$open_TCP_ports_list,666,U:$open_UDP_ports_list -Pn -n -oN $PWD/$host/nmap/OS_agressive_detection &> /dev/null || nmap -sT -sU -A --osscan-guess $host -p T:$open_TCP_ports_list,666,U:$open_UDP_ports_list -Pn -n -oN $PWD/$host/nmap/OS_agressive_detection &> /dev/null || echo -e "\e[91m\e[1m\e[5mFAIL \e[0m\e[1mOS AGRESSIVE DETECTION ON $host: nmap -sT -sU -A --osscan-guess $host -p T:$open_TCP_ports_list,666,U:$open_UDP_ports_list -Pn -n -oN $PWD/$host/nmap/OS_agressive_detection &> /dev/null\e[0m") && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "OS agressive detection"; sed -i '/OS agressive detection/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+        elif [ $open_TCP_ports -ge 1 ]; then
+                echo "- OS agressive detection" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+                #we try the nmap command two times to avoid segmentation fault
+                #port 666 is to have at least one closed port. This is needed for OS detection.
+                nmap -sT -A --osscan-guess $host -p $open_TCP_ports_list,666 -Pn -n -oN $PWD/$host/nmap/OS_agressive_detection &> /dev/null || nmap -sT -A --osscan-guess $host -p $open_TCP_ports_list,666 -Pn -n -oN $PWD/$host/nmap/OS_agressive_detection &> /dev/null || echo -e "\e[91m\e[1m\e[5mFAIL \e[0m\e[1mOS AGRESSIVE DETECTION ON $host: nmap -sT -A --osscan-guess $host -p $open_TCP_ports_list,666 -Pn -n -oN $PWD/$host/nmap/OS_agressive_detection &> /dev/null\e[0m" && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "OS agressive detection"; sed -i '/OS agressive detection/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+        fi
+}
+
+tcp_vuln_scan() {
+        host=$1
+        list_open_tcp_ports $host
+
+        if [ $open_TCP_ports -ge 1 ]; then
+                echo "- TCP vulnerability scan" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+                #we try the nmap command two times to avoid segmentation fault
+                nmap -sT --script vuln -p $open_TCP_ports_list $host -Pn -n -oN $PWD/$host/02_TCP_vuln_scan &> /dev/null || nmap -sT --script vuln -p $open_TCP_ports_list $host -Pn -n -oN $PWD/$host/02_TCP_vuln_scan &> /dev/null || echo -e "\e[91m\e[1m\e[5mFAIL\e[0m\e[1m TCP VULNERABILITY SCAN ON $host: nmap -sT --script vuln -p $open_TCP_ports_list $host -Pn -n -oN $PWD/$host/02_TCP_vuln_scan &> /dev/null\e[0m" && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "TCP vulnerability scan"; sed -i '/TCP vulnerability scan/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+        fi
+}
+
+generate_report() {
+        host=$1
+        list_open_tcp_ports $host
+        list_open_udp_ports $host
+
+        echo "Report for $host" > $PWD/$host/01_nmap_report
+
+        #Althought open ports are also present in versions and scripts, we display TCP scan results to show eventual filtered ports
+        echo "--------------------------------------------" >> $PWD/$host/01_nmap_report
+        echo -e "\e[91m\e[1mTCP PORTS\e[0m\e[92m" >> $PWD/$host/01_nmap_report
+        echo "" >> $PWD/$host/01_nmap_report
+        cat $PWD/$host/nmap/TCP >> $PWD/$host/01_nmap_report
+
+        if [ $open_TCP_ports -ge 1 ]; then
+                echo "--------------------------------------------" >> $PWD/$host/01_nmap_report
+                echo -e "\e[91m\e[1mTCP VERSIONS AND SCRIPTS\e[0m\e[92m" >> $PWD/$host/01_nmap_report
+                echo "" >> $PWD/$host/01_nmap_report
+                cat $PWD/$host/nmap/TCP_versions_scripts >> $PWD/$host/01_nmap_report
+        fi
+
+        if [ $open_UDP_ports -ge 1 ]; then
+                echo "--------------------------------------------" >> $PWD/$host/01_nmap_report
+                echo -e "\e[91m\e[1mUDP VERSIONS AND SCRIPTS\e[0m\e[92m" >> $PWD/$host/01_nmap_report
+                echo "" >> $PWD/$host/01_nmap_report
+                cat $PWD/$host/nmap/UDP_versions_scripts >> $PWD/$host/01_nmap_report
+        fi
+
+        if [ $open_TCP_ports -ge 1 ] && [ $open_UDP_ports -ge 1 ]; then
+                echo "--------------------------------------------" >> $PWD/$host/01_nmap_report
+                echo -e "\e[91m\e[1mOS AGRESSIVE DETECTION\e[0m\e[92m" >> $PWD/$host/01_nmap_report
+                echo "" >> $PWD/$host/01_nmap_report
+                cat $PWD/$host/nmap/OS_agressive_detection >> $PWD/$host/01_nmap_report
+        fi
+
+        NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "nmap report"
+}
+
+netcat_connect() {
+        host=$1
+        port=$2
+        nc -nvvC $host $port -w 60 2>&1 << NCCOMMANDS
+a
+b
+c
+
+
+aaa
+bbbbbbbbb
+cccccccccccccccc
+
+
+NCCOMMANDS
+}
+
+netcat_connect_all() {
+        host=$1
+        ports=`grep "/tcp" $PWD/$host/nmap/TCP |cut -d / -f 1` #we try to connect to filtered/closed ports too
+        ports_number=`grep "/tcp" $PWD/$host/nmap/TCP |cut -d" " -f 1 |wc -l`
+        if [ $ports_number -ne 0 ]; then
+                echo "- netcat TCP ports" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                echo -e "\e[91m\e[1mTCP PORTS\e[0m" > $PWD/$host/03_netcat_TCP_ports
+                for port in $ports; do #we try to connect to filtered/closed ports too
+                        (netcat_connect $host $port >> $PWD/$host/tmp/netcat_TCP_$port) &
+                done
+
+                wait
+                for port in $ports; do #we write all netcat TCP outputs to a file
+                        printf "TCP PORT $port\n" >> $PWD/$host/03_netcat_TCP_ports; cat $PWD/$host/tmp/netcat_TCP_$port >> $PWD/$host/03_netcat_TCP_ports; printf "\n-----\n" >> $PWD/$host/03_netcat_TCP_ports
+                done
+                sed -i '/netcat TCP ports/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+                NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "netcat TCP ports"
+        fi
+}
+
+netcat_connect_udp() {
+        host=$1
+        port=$2
+        nc -nvvC -u $host $port -w 60 2>&1 << NCCOMMANDS
+a
+b
+c
+
+
+aaa
+bbbbbbbbb
+cccccccccccccccc
+
+
+NCCOMMANDS
+}
+
+netcat_connect_udp_all() {
+        host=$1
+        ports=`grep "/udp" $PWD/$host/nmap/UDP |cut -d / -f 1` #we try to connect to filtered/closed ports too
+        ports_number=`grep "/udp" $PWD/$host/nmap/UDP |cut -d / -f 1 |wc -l`
+        if [ $ports_number -ne 0 ]; then
+                echo "- netcat UDP ports" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                echo -e "\e[91m\e[1mUDP PORTS\e[0m" > $PWD/$host/04_netcat_UDP_ports
+                for port in $ports; do
+                        (netcat_connect_udp $host $port > $PWD/$host/tmp/netcat_UDP_$port) &
+                done
+
+                wait
+                for port in $ports; do #we write all UDP netcat outputs to a file
+                        printf "UDP PORT $port\n" >> $PWD/$host/04_netcat_UDP_ports; cat $PWD/$host/tmp/netcat_UDP_$port >> $PWD/$host/04_netcat_UDP_ports; printf "\n-----\n" >> $PWD/$host/04_netcat_UDP_ports
+                done
+                sed -i '/netcat UDP ports/d' $PWD/$host/0000-----RUNNING-TASKS-----0000
+                NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "netcat UDP ports"
+        fi
+}
+
+smb_enum() {
+        host=$1
+        list_open_tcp_ports $host
+
+        if [[ $open_TCP_ports_list == *"445"* ]] || [[ $open_TCP_ports_list == *"139"* ]]; then
+                echo "- enum4linux" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (enum4linux -v $host > $PWD/$host/139_445_enum4linux 2>&1 && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "enum4linux"; sed -i '/enum4linux/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+                echo "- smbclient listing" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (smbclient -L\\ -N -I $host 2>&1 > $PWD/$host/139_445_listing && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "smbclient listing"; sed -i '/smbclient listing/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+        fi
+
+        if [[ $open_TCP_ports_list == *"445"* ]]; then
+                echo "- :445 smbmap" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (smbmap -u null -p "" -H $host -P 445 2>&1 > $PWD/$host/445_smbmap && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":445 smbmap"; sed -i '/:445 smbmap/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+                echo "- :445 smbclient NULL sessions" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (connect_shares $host "445" > $PWD/$host/445_null_sessions && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":445 smbclient NULL sessions"; sed -i '/:445 smbclient NULL sessions/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+        fi
+
+        if [[ $open_TCP_ports_list == *"139"* ]]; then
+                echo "- :139 smbmap" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (smbmap -u null -p "" -H $host -P 139 2>&1 > $PWD/$host/139_smbmap && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":139 smbmap"; sed -i '/:139 smbmap/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+                echo "- :139 smbclient NULL sessions" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (connect_shares $host "139" > $PWD/$host/139_null_sessions && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":139 smbclient NULL sessions"; sed -i '/:139 smbclient NULL sessions/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+        fi
+
+        wait
+}
+
+web_early_enum() { #ports 80 & 443
+        host=$1
+
+        if [[ `grep "80/tcp" $PWD/$host/nmap/TCP_web |grep "open" |wc -l` == "1" ]]; then
+                echo "- :80 dirsearch (common list, recursion 2)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (python3 /home/kali/Desktop/dirsearch/dirsearch.py -u http://$host:80/ -e "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 10 -r -F -R 2 -f --plain-text-report=$PWD/$host/80_dirsearch_common.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 dirsearch (common list, recursion 2)"; sed -i "/:80 dirsearch (common list, recursion 2)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                echo "- :80 dirsearch (medium list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (python3 /home/kali/Desktop/dirsearch/dirsearch.py -u http://$host:80/ -e "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -t 15 -F -f --plain-text-report=$PWD/$host/80_dirsearch_medium.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 dirsearch (medium list, no recursion)"; sed -i "/:80 dirsearch (medium list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                echo "- :80 nikto" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (nikto -ask=no -h http://$host:80/ -output $PWD/$host/80_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 nikto"; sed -i "/:80 nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                echo "- :80 nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                ( ((nmap --reason -Pn -n -sV -p 80 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/80_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p 80 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/80_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 nmap scripts"; sed -i "/:80 nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                echo "- :80 /robots.txt" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (curl $host:80/robots.txt > $PWD/$host/80_robots.txt 2>/dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 /robots.txt"; sed -i "/:80 \/robots.txt/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+        fi
+
+        if [[ `grep "443/tcp" $PWD/$host/nmap/TCP_web | grep "open" |wc -l` == "1" ]]; then
+                echo "- :443 gobuster (common list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+                #With gobuster we make sure that it tried all the wordlist because sometimes it's erroring at some point, stops bruteforcing and we have no other way to know than
+                #counting the number of directories it tried to bruteforce
+                #11 extensions + 1 (=no extension)
+                wordlist_size=`cat /usr/share/seclists/Discovery/Web-Content/common.txt |wc -l`
+                (gobuster dir -x "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -r -k -u https://$host:443/ -z -q -t 10 -v -w /usr/share/seclists/Discovery/Web-Content/common.txt -o $PWD/$host/443_gobuster_common.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 gobuster (common list, no recursion)" && (output_size=`cat $PWD/$host/443_gobuster_common.txt |wc -l`; if [[ $((output_size)) != $((wordlist_size*(11+1))) ]]; then echo -e "\e[91m\e[1m\e[5mWARNING\e[0m gobuster output_size = \e[91m\e[1m$output_size < $((wordlist_size*(11+1)))\e[0m = wordlist_size*extensions_number\\e[0m"; fi); sed -i "/:443 gobuster (common list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                #With gobuster we make sure that it tried all the wordlist because sometimes it's erroring at some point, stops bruteforcing and we have no other way to know than
+                #counting the number of directories it tried to bruteforce
+                #11 extensions + 1 (=no extension)
+                wordlist_size=`cat /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt |wc -l`
+                echo "- :443 gobuster (medium list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (gobuster dir -x "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -r -k -u https://$host:443/ -z -q -t 15 -v -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -o $PWD/$host/443_gobuster_medium.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 gobuster (medium list, no recursion)" && (output_size=`cat $PWD/$host/443_gobuster_medium.txt |wc -l`; if [[ $((output_size)) != $((wordlist_size*(11+1))) ]]; then echo -e "\e[91m\e[1m\e[5mWARNING\e[0m gobuster output_size = \e[91m\e[1m$output_size < $((wordlist_size*(11+1)))\e[0m = wordlist_size*extensions_number\\e[0m"; fi); sed -i "/:443 gobuster (medium list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                echo "- :443 nikto" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (nikto -ask=no -h https://$host:443/ -output $PWD/$host/443_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 nikto"; sed -i "/:443 nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                echo "- :443 nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                ( ((nmap --reason -Pn -n -sV -p 443 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/443_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p 443 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/443_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 nmap scripts"; sed -i "/:443 nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                echo "- :443 /robots.txt" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                (curl $host:443/robots.txt > $PWD/$host/443_robots.txt 2>/dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 /robots.txt"; sed -i "/:443 \/robots.txt/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+        fi
+
+        wait
+}
+
+http_enum() {
+        host=$1
+
+        for port in `grep "open" $PWD/$host/nmap/TCP_versions_scripts |grep /tcp |grep -i http |grep -i -v https |cut -d / -f 1`; do
+                if [[ $port != "80" ]]; then
+                        echo "- :$port dirsearch (common list, recursion 2)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                        (python3 /home/kali/Desktop/dirsearch/dirsearch.py -u http://$host:$port/ -e "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 10 -r -F -R 2 -f --plain-text-report=$PWD/$host/${port}_dirsearch_common.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port dirsearch (common list, recursion 2)"; sed -i "/:$port dirsearch (common list, recursion 2)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                        echo "- :$port dirsearch (medium list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                        (python3 /home/kali/Desktop/dirsearch/dirsearch.py -u http://$host:$port/ -e "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -t 15 -F -f --plain-text-report=$PWD/$host/${port}_dirsearch_medium.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port dirsearch (medium list, no recursion)"; sed -i "/:$port dirsearch (medium list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                        echo "- :$port nikto" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                        (nikto -ask=no -h http://$host:$port/ -output $PWD/$host/${port}_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port nikto"; sed -i "/:$port nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                        echo "- :$port nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                        ( ((nmap --reason -Pn -n -sV -p $port $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/${port}_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p $port $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/${port}_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port nmap scripts"; sed -i "/:$port nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                        echo "- :$port /robots.txt" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                        (curl $host:$port/robots.txt > $PWD/$host/${port}_robots.txt 2>/dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port /robots.txt"; sed -i "/:$port \/robots.txt/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+                fi
+        done
+
+        wait
+}
+
+https_enum() {
+        host=$1
+
+        for port in `grep "open" $PWD/$host/nmap/TCP_versions_scripts |grep /tcp |grep -i https |cut -d / -f 1`; do
+                if [[ $port != "443" ]]; then
+                        echo "- :$port gobuster (common list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+
+                        #With gobuster we make sure that it tried all the wordlist because sometimes it's erroring at some point, stops bruteforcing and we have no other way to know than
+                        #counting the number of directories it tried to bruteforce
+                        #11 extensions + 1 (=no extension)
+                        wordlist_size=`cat /usr/share/seclists/Discovery/Web-Content/common.txt |wc -l`
+                        (gobuster dir -x "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -r -k -u https://$host:$port/ -z -q -t 10 -v -w /usr/share/seclists/Discovery/Web-Content/common.txt -o $PWD/$host/${port}_gobuster_common.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port gobuster (common list, no recursion)" && (output_size=`cat $PWD/$host/${port}_gobuster_common.txt |wc -l`; if [[ $((output_size)) != $((wordlist_size*(11+1))) ]]; then echo -e "\e[91m\e[1m\e[5mWARNING\e[0m gobuster output_size = \e[91m\e[1m$output_size < $((wordlist_size*(11+1)))\e[0m = wordlist_size*extensions_number\\e[0m"; fi); sed -i "/:$port gobuster (common list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                        #With gobuster we make sure that it tried all the wordlist because sometimes it's erroring at some point, stops bruteforcing and we have no other way to know than
+                        #counting the number of directories it tried to bruteforce
+                        #11 extensions + 1 (=no extension)
+                        wordlist_size=`cat /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt |wc -l`
+                        echo "- :$port gobuster (medium list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                        (gobuster dir -x "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -r -k -u https://$host:$port/ -z -q -t 15 -v -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -o $PWD/$host/${port}_gobuster_medium.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port gobuster (medium list, no recursion)" && (output_size=`cat $PWD/$host/${port}_gobuster_medium.txt |wc -l`; if [[ $((output_size)) != $((wordlist_size*(11+1))) ]]; then echo -e "\e[91m\e[1m\e[5mWARNING\e[0m gobuster output_size = \e[91m\e[1m$output_size < $((wordlist_size*(11+1)))\e[0m = wordlist_size*extensions_number\e[0m"; fi); sed -i "/:$port gobuster (medium list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                        echo "- :$port nikto" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                        (nikto -ask=no -h https://$host:$port/ -output $PWD/$host/${port}_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port nikto"; sed -i "/:$port nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                        echo "- :$port nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                        ( ((nmap --reason -Pn -n -sV -p $port $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/${port}_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p $port $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/${port}_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port nmap scripts"; sed -i "/:$port nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+
+                        echo "- :$port /robots.txt" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+                        (curl $host:$port/robots.txt > $PWD/$host/${port}_robots.txt 2>/dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port /robots.txt"; sed -i "/:$port \/robots.txt/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+                fi
+        done
+
+        wait
+}
+
+
+connect_shares() {
+        host=$1
+        port=$2
+
+        echo ""
+        echo "Port $port: connecting to IPC$ share..."
+        smbclient //$host/IPC$ -N -p$port -q15 -c 'dir' 2>&1
+
+        echo ""
+        echo "Port $port: connecting to C$ share..."
+        smbclient //$host/C$ -N -p$port -q15 -c 'dir' 2>&1
+
+        echo ""
+        echo "port $port: connecting to Admin$ share..."
+        smbclient //$host/Admin$ -N -p$port -q15 -c 'dir' 2>&1
+
+        wait #not sure about this one
+}
+
+list_open_tcp_ports () {
+        host=$1
+
+        #number of open TCP ports
+        open_TCP_ports=`grep "open" $PWD/$host/nmap/TCP |grep tcp |wc -l`
+
+        #list of open TCP ports
+        open_TCP_ports_list=""
+        for port in `grep "open" $PWD/$host/nmap/TCP |grep tcp |cut -d / -f 1`; do open_TCP_ports_list="$open_TCP_ports_list$port,"; done
+        open_TCP_ports_list=`echo $open_TCP_ports_list |sed 's/.$//'` #removing last ","
+
+        #debug
+        #echo "number of open TCP ports for $host: $open_TCP_ports"
+        #echo "open TCP ports for $host: $open_TCP_ports_list"
+}
+
+list_open_udp_ports () {
+        host=$1
+
+        #number of open UDP ports
+        open_UDP_ports=`grep "open" $PWD/$host/nmap/UDP |grep udp |wc -l`
+
+        #list of open UDP ports
+        open_UDP_ports_list=""
+        for port in `grep "open" $PWD/$host/nmap/UDP |grep udp |cut -d / -f 1`; do open_UDP_ports_list="$open_UDP_ports_list$port,"; done
+        open_UDP_ports_list=`echo $open_UDP_ports_list |sed 's/.$//'` #removing last ","
+}
+
+wait_process() {
+        process=$1
+
+        while [[ ! -f "$PWD/$host/tmp/$process" ]]; do
+                : #does nothing
+        done
+
+        pid=`cat $PWD/$host/tmp/$process`
+        not_finished=1
+        while [[ $not_finished == "1" ]]; do
+                process_check=`ps --pid $pid |wc -l`
+                if [[ "$process_check" == "1" ]]; then
+                        not_finished=0
+                fi
+                sleep 1 #get some rest!
+        done
+}
+
+tcp_scan() {
+        host=$1
+
+        #TCP 80 & 443 PORTS SCAN AND HTTP(S) ENUM ON PORTS 80 AND 443
+        open_web_tcp_ports $host &
+        pid_open_web_tcp_ports=$!
+        echo $pid_open_web_tcp_ports > $PWD/$host/tmp/open_web_tcp_ports
+
+        (wait_process "open_web_tcp_ports" && web_early_enum $host) &
+
+        #TCP OPEN PORTS SCAN
+        open_tcp_ports $host &
+        pid_open_tcp_ports=$!
+        echo $pid_open_tcp_ports > $PWD/$host/tmp/open_tcp_ports
+
+        ############################################
+
+        #we must wait for open ports
+        wait_process "open_tcp_ports"
+
+        #LISTS OF OPEN PORTS
+        list_open_tcp_ports $host
+
+        ############################################
+
+        #TCP VERSIONS AND SCRIPTS SCANS
+        tcp_versions_scripts $host &
+        pid_tcp_scripts_versions=$!
+        echo $pid_tcp_scripts_versions > $PWD/$host/tmp/tcp_scripts_versions
+
+        #TCP VULNERABILITY SCAN
+        tcp_vuln_scan $host &
+
+        #NETCAT TCP PORTS
+        netcat_connect_all $host &
+
+        #SMB ENUMERATION
+        smb_enum $host &
+
+        ############################################
+
+        #we must wait for versions/script scans to:
+        #- know open http(s) ports
+        wait_process "tcp_scripts_versions"
+
+        if [ $open_TCP_ports -ge 1 ]; then
+
+                #DIRSEARCH AND NIKTO ON HTTP PORTS
+                http_enum $host &
+
+                #GOBUSTER AND NIKTO ON HTTPS PORTS (dirsearch doesn't support ssl)
+                https_enum $host &
+
+        fi
+
+        wait
+}
+
+udp_scan() {
+        host=$1
+
+        #UDP OPEN PORTS SCANS
+        open_udp_ports $host &
+        pid_open_udp_ports=$!
+        echo $pid_open_udp_ports > $PWD/$host/tmp/open_udp_ports
+
+        ############################################
+
+        #we must wait for open ports
+        wait
+
+        #LISTS OF OPEN PORTS
+        list_open_udp_ports $host
+
+        ############################################
+
+        #UDP VERSIONS AND SCRIPTS SCANS
+        udp_versions_scripts $host &
+        pid_udp_scripts_versions=$!
+        echo $pid_udp_scripts_versions > $PWD/$host/tmp/udp_scripts_versions
+
+        #NETCAT UDP PORTS
+        netcat_connect_udp_all $host &
+
+        wait
+}
+
+statistics() {
+        host=$1
+        host_start=$2
+        host_end=`date +%s`
+
+        fmt="| \e[93m\e[1m%-10s\e[0m | \e[33m%-15s\e[0m | \e[1m\e[95m%-46s\e[0m | \e[1m\e[93m%s\e[0m\n"
+        NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "ALL DONE ($((host_end - host_start)) seconds)" "-> $PWD/$host/" &
+                                                                                              #backgrounding for protection
+                                                                                              #against race condition on output format
+                                                                                              #with other hosts
+        fmt="| \e[93m\e[1m%-10s\e[0m | \e[33m%-15s\e[0m | %-27s |\n"
+
+        wait
+}
+
+#####################
+#MAIN FUNCTION
+#####################
+
+scan() {
+
+        #INITIALIZATION
+
+        host=$1
+        host_start=`date +%s`
+        mkdir $PWD/$host/tmp/
+
+        tcp_scan $host &
+        udp_scan $host &
+
+        ############################################
+
+        #we must wait for open ports detection to:
+        #- make OS agressive detection
+        wait_process "open_tcp_ports"
+        wait_process "open_udp_ports"
+
+        #OS AGRESSIVE DETECTION
+        os_agressive_detection $host &
+        pid_os_agressive_detection=$!
+        echo $pid_os_agressive_detection > $PWD/$host/tmp/os_agressive_detection
+
+        ############################################
+
+        #we must wait for versions/script scans to:
+        #- generate nmap report
+        wait_process "tcp_scripts_versions"
+        wait_process "udp_scripts_versions"
+        wait_process "os_agressive_detection"
+
+        #WRITING NMAP_REPORT
+        generate_report $host $open_tcp_ports $open_udp_ports &
+
+        #############################################################################################################
+
+        wait
+
+        #TIME SPENT ENUMERATING HOST
+        host_end=`date +%s`
+        statistics $host $host_start
+
+        #DELETING TEMPORARY FOLDERS/FILES
+        rm $PWD/$host/0000-----RUNNING-TASKS-----0000
+        rm -rf $PWD/$host/tmp
+}
+
+display_tasks() {
+        hosts=$1
+        still_running=1
+
+        while [[ "$still_running" == "1" ]]; do
+                sleep 1 #get some rest!
+
+                echo "" > 0000-----RUNNING-TASKS-----0000
+                echo -e "\e[1m\e[93m(refreshed every 5 seconds)\e[0m" >> 0000-----RUNNING-TASKS-----0000
+                echo "" >> 0000-----RUNNING-TASKS-----0000
+                echo "" >> 0000-----RUNNING-TASKS-----0000
+
+                still_running=0
+                for host in `cat $hosts`; do
+                        if [[ -f "$PWD/$host/0000-----RUNNING-TASKS-----0000" ]]; then
+                                still_running=1
+                                cat $PWD/$host/0000-----RUNNING-TASKS-----0000 >> 0000-----RUNNING-TASKS-----0000
+                                echo "" >> 0000-----RUNNING-TASKS-----0000
+                        fi
+                done
+                sleep 4 #get some rest!
+        done
+}
+#####################
+#MAIN CODE
+#####################
+
+#INITIALIZATION
+
+clear;
+
+#echo "SCAN-SCRIPT IN TESTING MODE!!!!!";
+
+hosts=$1;
+
+printf "\e[95m\e[1m";
+figlet scan_script; #banner
+echo "";
+echo "";
+printf "\e[0m";
+
+NOW=`date '+%H:%M:%S'`;
+echo -e "<> \e[1mStarting at $NOW\e[0m";
+
+list_of_hosts="\e[93m<>\e[1m Hosts: ";
+for host in `cat $hosts`; do list_of_hosts="$list_of_hosts\e[0m\e[33m$host, "; done
+list_of_hosts=`echo $list_of_hosts |sed 's/.$//'`; #removing last ","
+list_of_hosts="$list_of_hosts\e[0m";
+echo -e "$list_of_hosts";
+echo "";
+echo -e "To monitor running scans:"
+echo -e "\e[1m\e[95mwatch -n1 -c -t \"cat $PWD/0000-----RUNNING-TASKS-----0000\"\e[0m";
+
+echo "";
+
+fmt="|\e[1m%-12s\e[0m|\e[1m%-17s\e[0m|\e[1m%-48s\e[0m|\n";
+
+printf "$fmt" " time " " IP address " " type of scan completed ";
+printf "$fmt" "------------" "-----------------" "------------------------------------------------";
+
+#SCANNING ALL HOSTS IN PARALLEL
+
+fmt="| \e[93m\e[1m%-10s\e[0m | \e[33m%-15s\e[0m | %-46s |\n"; #used in scan() function!!!
+
+for host in $(cat $1); do
+        mkdir -p $host/nmap
+        echo -e "\e[1mRunning in parallel on $host:\e[0m" > $PWD/$host/0000-----RUNNING-TASKS-----0000
+        echo "" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+        scan $host &
+done
+
+display_tasks $hosts;
+wait;
+
+#CLEAN RUNNING-TASKS
+
+echo "" > 0000-----RUNNING-TASKS-----0000
+echo -e "\e[1mALL DONE!\e[0m" > 0000-----RUNNING-TASKS-----0000
+
+#TIME SPENT
+
+sleep 1;
+echo "";
+script_end=`date +%s`;
+echo -e "<> \e[1mScript completed in $((script_end - script_start)) seconds\e[0m";
+echo "";

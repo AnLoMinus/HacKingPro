@@ -1,0 +1,810 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+# shellcheck shell=bash
+
+# Reset text formatting and colors.
+resetT="\033[m"
+BRed='\033[1;31m'    # Red
+BGreen='\033[1;32m'  # Green
+SpaCial='\e[1;33;5;45m'
+clear
+
+
+# ROOT
+# if [[ $EUID -ne 0 ]]; then
+#   echo "This script must be run as root"
+#   echo "Your not rooted, please root your Terminal."
+#   exit 1
+# fi
+
+
+
+
+# SAVING FUNCTIONS
+
+function save() {
+  echo  "[${BGreen}?${resetT}] Save output to a file?"
+  echo ""
+  read -p "y/N" temp
+  targetNAME="temp"
+  appendfilename="temp"
+  appendfile=false
+  savefile=false
+
+  if [ "$temp" = "y" ]; then
+    savefile=true
+
+    # SEARCH IN HOME DIR ONLY: if [ "$(find $(eval echo ~$USER) -maxdepth 1 -type f -name Grecon-data-\*)" = "" ];then
+
+    if [ "$(find $pathtogrecon/ -type f -name 'GR-report*')" = "" ]; then
+      read -p "No previous GhostRecon data file found in $pathtogrecon. Enter a new file name: GhostRecon-" targetNAME
+    else
+      echo  "\n\n[${BGreen}-${resetT}] Found those already existing reports in $pathtogrecon: \n"
+
+      counter=1
+      find $pathtogrecon -type f -name 'GR-report*'  | while read -r line ; do
+        echo  "[${BGreen}$counter${resetT}] $line"
+        counter=$((counter+1))
+      done
+
+      echo  "\n${BRed}Would you like to append the results to one of them?${resetT}"
+      read -p "y/N >" temp
+
+
+
+      if [ "$temp" = "y" ]; then
+        appendfile=true
+        echo  "Please enter the ${BGreen}number${resetT} of the file you want to append:\n"
+        read -p ">" temp
+        counter=1
+        find $pathtogrecon -type f -name 'GR-report*'  | while read -r line ; do
+          if [[ "$counter" = "$temp" ]]; then
+            appendfilename=$(basename $line) #  -- doesnt work alone, the variable somehow resets after the loop is finished so i have to write the variable into a file and later recover it from the file :(
+            echo $appendfilename > tempfile
+          fi
+          counter=$((counter+1))
+        done
+      else
+        read -p "Enter a file name: GhostRecon-" ${targetNAME}
+
+      fi
+    fi
+  fi
+  ${targetNAME}=GhostRecon-${targetNAME}.txt
+}
+
+function collapsefiles() {
+  if [[ "$appendfile" = "true" ]]; then
+
+    appendfilename=$(cat tempfile)
+    cat "${targetNAME}" >> "$appendfilename"
+    echo  "[${BGreen}*${resetT}] $appendfilename updated\n"
+    rm ${targetNAME} tempfile
+
+  elif [[ "$savefile" = "false" ]]; then
+    rm ${targetNAME}
+
+  else
+    echo  "\n[${BGreen}*${resetT}] ${targetNAME} created in $pathtogrecon\n"
+  fi
+
+}
+
+
+
+
+
+
+
+# QUIT FUNCTION
+function quit (){
+  echo  "${BRed} STOPPING ANONSURF... PLEASE WAIT ${resetT}"
+  echo ""
+  cd
+  cd /root/kali-anonsurf/
+  anonsurf stop
+  echo ""
+  echo  "${BRed}[*] ANONSURF DISABLED${resetT}"
+  echo ""
+
+  echo  "${BRed} THANKS FOR USING GHOST RECON! ${resetT}"
+
+  exit 2
+}
+
+# CATCH CTRL
+trap "quit" 2
+
+function help
+{
+  echo  "
+
+
+  [${BGreen}1${resetT}]  ${BRed} domain_scanner ${resetT}           Search all possible information for Domains.
+  [${BGreen}2${resetT}]  ${BRed} IP_scanner ${resetT}               Search all possible information from an IP Address.
+  [${BGreen}3${resetT}]  ${BRed} phone_scanner ${resetT}            Search all possible information from a phone number.
+  [${BGreen}4${resetT}]  ${BRed} email_scanner ${resetT}            Search all possible information from an email.
+  [${BGreen}5${resetT}]  ${BRed} email_socialscan ${resetT}         Detects Instagram, Twitter and Snapchat registration from an email.
+  [${BGreen}6${resetT}]  ${BRed} link_scanner ${resetT}             Sniff all links from a Domain.
+  [${BGreen}7${resetT}]  ${BRed} port_scanner ${resetT}             Sniff all links from a Domain.
+  [${BGreen}8${resetT}]  ${BRed} criminal_scanner ${resetT}         Search if someone is recoreded as a criminal on all the USA.
+  [${BGreen}9${resetT}]  ${BRed} person_finder (downed)${resetT}   [downed for technical reasons] Advanced search on internet for a person
+                                        by giving multiple personal inforations.
+
+
+  [${BGreen}hi${resetT}]   ${BRed} hide identity ${resetT}         enable ${BPurple}Tor${resetT} (will hide your identity)
+  [${BGreen}unhi${resetT}] ${BRed} unhide identity ${resetT}       disable ${BPurple}Tor${resetT}  (Will not hide your identity)
+  [${BGreen}st${resetT}]   ${BRed} check status ${resetT}          Check Tor status.
+  [${BGreen}c${resetT}]    ${BRed} clear ${resetT}                 Clear terminal.
+  [${BGreen}u${resetT}]    ${BRed} update ${resetT}                Update tool.
+  [${BGreen}b${resetT}]    ${BRed} banner ${resetT}                To spawn banner.
+  [${BGreen}e${resetT}]    ${BRed} exit ${resetT}                  Exit the tool
+  [${BGreen}h${resetT}]    ${BRed} help ${resetT}                  shows this help and exists.
+  [${BGreen}v${resetT}]    ${BRed} version ${resetT}               shows the version of the program and exists.
+  [${BGreen}uni${resetT}]  ${BRed} uninstall ${resetT}             Wipe out your hard drive from any trace of Ghostrecon and his dependencies.
+  [${BGreen}s${resetT}]    ${BRed} show_path ${resetT}             Show the path of your GhostRecon directory.
+  [${BGreen}r${resetT}]    ${BRed} reinstall ${resetT}             Install again Grecon and all his dependencies.
+
+
+
+
+  ${BRed}DON'T FORGET TO:
+  -ACTIVATE BUILD-IN TOR CONNECTION \"hide identity\"!
+  -TO CLEANLY EXIT (CTRL+C  or \"exit\" to exit)
+  -UPDATE THE TOOL MULTIPLE TIME A MONTH AND JOIN THE DISCORD FOR UPDATE ANOUNCEMENTS / TROUBLESHOOTING${resetT}"
+  echo ""
+  echo "This script is under the Mozilla Public License 2. https://www.mozilla.org/en-US/MPL/2.0/"
+  echo ""
+}
+
+
+a1='clear' ##
+a2='banner' ##
+a3='update' ##
+a4='hide identity'
+a5='unhide identity'
+a6='check status'
+a7='exit'
+a8='uninstall'
+a9='show_path'
+a10='reinstall'
+#####################
+b1='v' ##
+b2='h' ##
+b3='help' ##
+b4='version' ##
+b5='domain_scanner' #
+b6='IP_scanner' #
+b7='phone_scanner'
+b8='email_scanner'
+b9='email_socialscan'
+b10='link_scanner'
+b11='port_scanner'
+b12='criminal_scanner'
+b13='person_finder'
+
+temp=""
+
+echo  "${BRed} [*] INITIALISATION...${resetT}"
+
+pathtogrecon=$(find /home/ -type d -iname "GhostRecon-")
+cd $pathtogrecon
+lastupdate_date=$(git log -1 --format=%cd)
+lastcommitmessage=$(git log -1 --pretty=%B)
+
+tor=false
+#NEW COMMANDS
+while true
+do
+  if [[ $tor = true ]]; then
+    greconinput="${BRed}[${resetT}GRECON${BRed}]${resetT}(${SpaCial}Tor Enabled${resetT})\n└──>${resetT}"
+  elif [[ $tor = false ]]; then
+    greconinput="${BRed}[${resetT}GRECON${BRed}]${resetT}\n└──>"
+  fi
+
+  echo  $greconinput
+  read x
+  if [ "$x" = "$a1" ] || [ "$x" = "c" ]; then
+    clear
+  elif [ "$x" = "$a2" ] || [ "$x" = "b" ]; then
+    clear
+  elif [ "$x" = "$a3" ] || [ "$x" = "u" ]; then
+
+    echo "LAST UPDATE: $lastupdate_date"
+
+
+    echo  "\n${BRed}[*] SEARCHING ORIGINAL DIRECTORY...${resetT}"
+    cd $pathtogrecon
+    echo  "${BRed}[*] OK${resetT}"
+
+    echo  "${BRed}[*] UPDATE FROM GITHUB...${resetT}"
+    git pull origin master
+    echo  "${BRed}[*] MOVING FILE...${resetT}"
+
+    cp Grecon /usr/bin
+    echo  "${BRed}[*] OK\n UPDATE COMPLETED.${resetT}"
+    exit
+  elif [ "$x" = "$a4" ]||[ "$x" = "hi" ]; then
+    echo ""
+    anonsurf start
+    newip=$(curl ifconfig.me)
+    echo ""
+    echo  "${BRed}[*] ANONSURF ENABLED \n YOUR IP IS NOW [${resetT}\e[1;34m$newip${resetT}${BRed}]${resetT}"
+    echo ""
+    tor='true'
+  elif [ "$x" = "$a5" ]||[ "$x" = "unhi" ]; then
+    echo ""
+    anonsurf stop
+    echo ""
+    echo  "${BRed}[*] ANONSURF DISABLED${resetT}"
+    echo ""
+    tor='false'
+  elif [ "$x" = "$a6" ]||[ "$x" = "st" ]; then
+    echo ""
+    anonsurf status
+    echo ""
+  elif [ "$x" = "$a7" ]||[ "$x" = "e" ]; then
+    quit
+  elif [ "$x" = "$a8" ]||[ "$x" = "uni" ]; then
+    $pathtogrecon/uninstall.sh
+  elif [ "$x" = "$a9" ]||[ "$x" = "s" ]; then
+    echo $pathtogrecon
+    echo ""
+    echo ""
+  elif [ "$x" = "$a10" ]||[ "$x" = "r" ]; then
+    echo ""
+    echo ""
+    $pathtogrecon/install-requirements.sh
+
+    ############################################################################################################
+  elif [ "$x" = "$b1" ] ||[ "$x" = "$b4" ]; then
+    echo ""
+    echo  "${BRed}  VERSION: V.1.2 $lastupdate_date by DR34M-M4K3R${resetT}"
+    echo "----------------------------------------------------------------------------"
+    echo  "last modification: $lastcommitmessage"
+    echo "----------------------------------------------------------------------------"
+    echo ""
+
+  elif [ "$x" = "$b2" ]||[ "$x" = "$b3" ]; then
+    help
+
+  elif [ "$x" = "$b5" ]||[ "$x" = "1" ]; then
+    echo ""
+    echo  "${BRed}_____________________${resetT}"
+    echo  "${BRed}\   Domain Scanner  /${resetT}"
+    echo  "${BRed}  -----------------${resetT}"
+    echo ""
+    save
+    echo "Example: kali.org"
+    read -p "[DOMAIN]: " domain
+    echo ""
+    echo "Gathering Informations...."
+    echo ""
+    echo  "${BRed} [*] ADMIN INFO (WHOIS INFO)${resetT}"
+    echo "-------------------------------------------------------------------------------"
+    echo  "\n\n-----DOMAIN SCAN OF $domain-----\n\n[*] ADMIN INFO (WHOIS INFO)\n-------------------------------------------------------------------------------" >> ${targetNAME}
+    echo ""
+    whois $domain | tee -a ${targetNAME}
+    echo ""
+    read -p "Press enter to continue"
+    echo ""
+    echo  "${BRed} [*] DNS LOOKUP${resetT}"
+    echo "-------------------------------------------------------------------------------"
+    echo  "\n\n[*] DNS LOOKUP\n-------------------------------------------------------------------------------\n" >> ${targetNAME}
+    curl https://api.hackertarget.com/dnslookup/?q=$domain | tee -a ${targetNAME}
+    echo ""
+    host $domain | tee -a ${targetNAME}
+    echo "-------------------------------------------------------------------------------" | tee -a ${targetNAME}
+    echo ""
+    echo  "${BRed} [*] DONE${resetT}"
+    echo ""
+    collapsefiles
+
+  elif [ "$x" = "$b6" ]||[ "$x" = "2" ]; then
+    echo ""
+    echo  "${BRed}__________________${resetT}"
+    echo  "${BRed}\   IP  Scanner  /${resetT}"
+    echo  "${BRed}  --------------${resetT}"
+    echo ""
+    echo "Example: 48.345.21.782"
+    read -p "[IP ADDRESS]: " ipaddress
+    save
+    echo ""
+    echo "Gathering Informations...."
+    echo ""
+    echo  "-----IP SCAN OF $ipaddress-----\n" >> ${targetNAME}
+    echo  "${BRed} [*] LOCALISATION${resetT}"
+    echo "[*] LOCALISATION" >> ${targetNAME}
+    echo "-------------------------------------------------------------------------------" | tee -a ${targetNAME}
+    curl https://api.hackertarget.com/geoip/?q=$ipaddress  | tee -a ${targetNAME}
+    echo ""
+    read -p "Press enter to continue"
+    echo  "\n-------------------------------------------------------------------------------" | tee -a ${targetNAME}
+    echo ""
+    echo  "${BRed} [*] ADMIN INFO${resetT}"
+    echo  "[*] ADMIN INFO" >> ${targetNAME}
+    echo "-------------------------------------------------------------------------------" | tee -a ${targetNAME}
+    echo ""
+    whois $ipaddress  | tee -a ${targetNAME}
+    echo ""
+    read -p "Press enter to continue"
+    echo "-------------------------------------------------------------------------------" | tee -a ${targetNAME}
+    echo ""
+    echo  "${BRed} [*] SHODAN RESULTS${resetT}"
+    echo  "[*] SHODAN RESULTS" >> ${targetNAME}
+    echo "-------------------------------------------------------------------------------" | tee -a ${targetNAME}
+    echo ""
+    echo "[ * ] Gathering informations..."
+    shodan stats --facets vuln net:$ipaddress | tee -a ${targetNAME}
+    echo ""
+    shodan host $ipaddress | tee -a ${targetNAME}
+    echo ""
+    echo  "${BRed} [*] DONE${resetT}"
+    echo  "\n [*] DONE\n" >> ${targetNAME}
+    echo ""
+    collapsefiles
+
+  elif [ "$x" = "$b7" ]||[ "$x" = "3" ]; then
+    echo ""
+    echo  "${BRed}_____________________${resetT}"
+    echo  "${BRed}\   Phone Scanner   /${resetT}"
+    echo  "${BRed}  -----------------\n${resetT}"
+    echo "Please Enter The Number Followed By The Dialing Code"
+    echo "for example : +447410490080 / +44 Is My Dialing Code"
+    read -p "Phone Number: " phone_info
+    echo ""
+    save
+    echo  "Scan of $phone_info\n" >> ${targetNAME}
+    echo "Gathering Information..."
+    echo ""
+    echo  "${BRed} [*] PHONE $phone_info${resetT}"
+    echo "-------------------------------------------------------------------------------" >> ${targetNAME}
+    echo ""
+    #cd $pathtogrecon/tools
+    python3 $pathtogrecon/tools/phone_locator.py $phone_info | tee -a ${targetNAME}
+    echo ""
+    echo  "\n [*] DONE" | tee -a ${targetNAME}
+    collapsefiles
+
+  elif [ "$x" = "$b8" ]||[ "$x" = "4" ]; then
+
+    echo  "${BRed}_____________________${resetT}"
+    echo  "${BRed}\   Email Scanner   /${resetT}"
+    echo  "${BRed}  -----------------\n${resetT}"
+
+    echo  "\e[0;31mWarning: after a few tries, you will be blocked. In this case, change your ip with 'hide identity' command.${resetT}"
+    read -p "Enter target email:>" email
+    save
+    echo  " [${BRed}*${resetT}] Gathering informations..."
+    jsondata=$(curl --silent emailrep.io/$email)
+    #jsondata=$(cat brutjson.json)
+
+    echo  "\e[0;32m [OK]${resetT}"
+
+    echo  " [${BRed}*${resetT}] Parsing informations..."
+    email_reputation=$(echo $jsondata | jq .reputation)
+    email_suspicious=$(echo $jsondata | jq .suspicious)
+    email_reputation=$(echo $jsondata | jq .reputation)
+    email_reputationscore=$(echo $jsondata | jq .references)
+    email_blacklisted=$(echo $jsondata | jq .details.blacklisted)
+    email_maliciousactivity=$(echo $jsondata | jq .details.malicious_activity)
+    email_recentmalicious=$(echo $jsondata | jq .details.malicious_activity_recent)
+    email_credsleak=$(echo $jsondata | jq .details.credentials_leaked)
+    email_databreach=$(echo $jsondata | jq .details.data_breach)
+    email_firstseen=$(echo $jsondata | jq .details.first_seen)
+    email_lastseen=$(echo $jsondata | jq .details.last_seen)
+    email_domainexists=$(echo $jsondata | jq .details.domain_exists)
+    email_domainreputation=$(echo $jsondata | jq .details.domain_reputation)
+    email_newdomain=$(echo $jsondata | jq .details.new_domain)
+    email_dayssincedomaincreation=$(echo $jsondata | jq .details.days_since_domain_creation)
+    email_suspicioustld=$(echo $jsondata | jq .details.suspicious_tld)
+    email_spam=$(echo $jsondata | jq .details.spam)
+    email_freeprovider=$(echo $jsondata | jq .details.free_provider)
+    email_disposable=$(echo $jsondata | jq .details.disposable)
+    email_deliverable=$(echo $jsondata | jq .details.deliverable)
+    email_acceptall=$(echo $jsondata | jq .details.accept_all)
+    email_validmx=$(echo $jsondata | jq .details.valid_mx)
+    email_primarymx=$(echo $jsondata | jq .details.primary_mx)
+    email_spoofable=$(echo $jsondata | jq .details.spoofable)
+    email_spf_strict=$(echo $jsondata | jq .details.spf_strict)
+    email_DMARC=$(echo $jsondata | jq .details.dmarc_enforced)
+    email_profiles=$(echo $jsondata | jq .details.profiles)
+
+
+function booleancolor() {
+  if [[ $1 = false ]]; then
+    #green
+    echo  "\e[0;32m No${resetT}"
+  elif [[ $1 = true ]]; then
+    #red
+    echo  "${BRed} Yes${resetT}"
+  else
+    echo "$1"
+  fi
+}
+
+function reversedbooleancolor() {
+  if [[ $1 = true ]]; then
+    #green
+    echo  "\e[0;32m Yes${resetT}"
+  elif [[ $1 = false ]]; then
+    #red
+    echo  "${BRed} No${resetT}"
+  else
+    echo " $1"
+  fi
+}
+
+
+function booleanconvertor() {
+  if [[ $1 = true ]]; then
+    echo  " Yes"
+
+  elif [[ $1 = false ]]; then
+    echo  " No"
+
+  else
+    echo " $1"
+  fi
+
+
+}
+
+
+
+echo  "\e[0;32m [OK]${resetT}"
+
+
+     echo  "${BRed} \n_____FULL REPORT_____${BRed} ${resetT}\n"
+     echo  "-Email: |"
+     booleancolor $email
+     echo  "-Suspicious: |"
+     booleancolor $email_suspicious
+     echo  "-Has reputation: |"
+     booleancolor $email_reputation
+     echo  "-Reputation score: "
+     booleancolor $email_reputationscore
+     echo  "-Is blacklisted: |"
+     booleancolor $email_blacklisted
+     echo  "-Has a malicious activity: |"
+     booleancolor $email_maliciousactivity
+     echo  "-Has a recent malicious activity: |"
+     booleancolor $email_recentmalicious
+     echo  "-Creditentials leaked: |"
+     booleancolor $email_credsleak
+     echo  "-Is on a data breach: |"
+     booleancolor $email_databreach
+     echo  "-First seen: |"
+     booleancolor $email_firstseen
+     echo  "-Last seen: |"
+     booleancolor $email_lastseen
+     echo  "-Domain exists: |"
+     reversedbooleancolor $email_domainexists
+     echo  "-Domain reputation: |"
+     booleancolor $email_domainreputation
+     echo  "-Is a new domain: |"
+     booleancolor $email_newdomain
+     echo  "-Days since domain creation: |"
+     booleancolor $email_dayssincedomaincreation
+     echo  "-Suspicious extention: |"
+     booleancolor $email_suspicioustld
+     echo  "-Is spam: |"
+     booleancolor $email_spam
+     echo  "-Free provider: |"
+     booleancolor $email_freeprovider
+     echo  "-Temporary address: |"
+     booleancolor $email_disposable
+     echo  "-Deliverable: |"
+     reversedbooleancolor $email_deliverable
+     echo  "-Accept all: |"
+     booleancolor $email_acceptall
+     echo  "-Valid MX: |"
+     reversedbooleancolor $email_validmx
+     echo  "-Primary Mail Exchanger: |"
+     booleancolor $email_primarymx
+     echo  "-Spoofable: |"
+     booleancolor $email_spoofable
+     echo  "-Strict SPF: |"
+     reversedbooleancolor $email_spf_strict
+     echo  "-DMARC (Domain-based Message Authentication, Reporting & Conformance) enforced: |"
+     reversedbooleancolor $email_DMARC
+     echo  "-Profiles on social medias: |"
+     booleancolor $email_profiles
+
+
+
+
+     echo  "\n_____ Scan of $email _____\n"
+     #for the saved file: (cannot handle colours)
+     echo  "-Email: |" | tee -a ${targetNAME}
+     booleanconvertor $email >> ${targetNAME}
+     echo  "-Suspicious: |" >> ${targetNAME}
+     booleanconvertor $email_suspicious >> ${targetNAME}
+     echo  "-Has reputation: |" >> ${targetNAME}
+     booleanconvertor $email_reputation >> ${targetNAME}
+     echo  "-Reputation score: " >> ${targetNAME}
+     booleanconvertor $email_reputationscore >> ${targetNAME}
+     echo  "-Is blacklisted: |" >> ${targetNAME}
+     booleanconvertor $email_blacklisted >> ${targetNAME}
+     echo  "-Has a malicious activity: |" >> ${targetNAME}
+     booleanconvertor $email_maliciousactivity >> ${targetNAME}
+     echo  "-Has a recent malicious activity: |" >> ${targetNAME}
+     booleanconvertor $email_recentmalicious >> ${targetNAME}
+     echo  "-Creditentials leaked: |" >> ${targetNAME}
+     booleanconvertor $email_credsleak >> ${targetNAME}
+     echo  "-Is on a data breach: |" >> ${targetNAME}
+     booleanconvertor $email_databreach >> ${targetNAME}
+     echo  "-First seen: |" >> ${targetNAME}
+     booleanconvertor $email_firstseen >> ${targetNAME}
+     echo  "-Last seen: |" >> ${targetNAME}
+     booleanconvertor $email_lastseen >> ${targetNAME}
+     echo  "-Domain exists: |" >> ${targetNAME}
+     booleanconvertor $email_domainexists >> ${targetNAME}
+     echo  "-Domain reputation: |" >> ${targetNAME}
+     booleanconvertor $email_domainreputation >> ${targetNAME}
+     echo  "-Is a new domain: |" >> ${targetNAME}
+     booleanconvertor $email_newdomain >> ${targetNAME}
+     echo  "-Days since domain creation: |" >> ${targetNAME}
+     booleanconvertor $email_dayssincedomaincreation >> ${targetNAME}
+     echo  "-Suspicious extention: |" >> ${targetNAME}
+     booleanconvertor $email_suspicioustld >> ${targetNAME}
+     echo  "-Is spam: |" >> ${targetNAME}
+     booleanconvertor $email_spam >> ${targetNAME}
+     echo  "-Free provider: |" >> ${targetNAME}
+     booleanconvertor $email_freeprovider >> ${targetNAME}
+     echo  "-Temporary address: |" >> ${targetNAME}
+     booleanconvertor $email_disposable >> ${targetNAME}
+     echo  "-Deliverable: |" >> ${targetNAME}
+     booleanconvertor $email_deliverable >> ${targetNAME}
+     echo  "-Accept all: |" >> ${targetNAME}
+     booleanconvertor $email_acceptall >> ${targetNAME}
+     echo  "-Valid MX: |" >> ${targetNAME}
+     booleanconvertor $email_validmx >> ${targetNAME}
+     echo  "-Primary Mail Exchanger: |" >> ${targetNAME}
+     booleanconvertor $email_primarymx >> ${targetNAME}
+     echo  "-Spoofable: |" >> ${targetNAME}
+     booleanconvertor $email_spoofable >> ${targetNAME}
+     echo  "-Strict SPF: |" >> ${targetNAME}
+     booleanconvertor $email_spf_strict >> ${targetNAME}
+     echo  "-DMARC (Domain-based Message Authentication, Reporting & Conformance) enforced: |" >> ${targetNAME}
+     booleanconvertor $email_DMARC >> ${targetNAME}
+     echo  "-Profiles on social medias: |" >> ${targetNAME}
+     booleanconvertor $email_profiles >> ${targetNAME}
+
+
+
+
+
+     collapsefiles
+
+  elif [ "$x" = "$b9" ]||[ "$x" = "5" ]; then
+    echo  "${BRed}____________________________${resetT}"
+    echo  "${BRed}\   Social media Scanner   /${resetT}"
+    echo  "${BRed}  ------------------------\n${resetT}"
+    save
+    echo  "__________Social Media Check__________\n" >> ${targetNAME}
+    python3 $pathtogrecon/tools/email_scanner.py | tee -a ${targetNAME}
+    collapsefiles
+
+  elif [ "$x" = "$b10" ]||[ "$x" = "6" ]; then
+    echo  "${BRed}_____________________${resetT}"
+    echo  "${BRed}\   Link Sniffing   /${resetT}"
+    echo  "${BRed}  -----------------\n${resetT}"
+    save
+    echo  "__________Link Sniffing__________\n" >> ${targetNAME}
+    echo ""
+    echo "Example: kali.org"
+    read -p "Enter DOMAIN: " link
+    echo ""
+    echo "Gathering Information..."
+    echo ""
+    echo  "${BRed} [*] SNIFFING LINKS${resetT}"
+    echo "-------------------------------------------------------------------------------" | tee -a ${targetNAME}
+    curl https://api.hackertarget.com/pagelinks/?q=$link | tee -a ${targetNAME}
+    echo ""
+    collapsefiles
+
+  elif [ "$x" = "$b11" ]||[ "$x" = "7" ]; then
+    echo  "${BRed}_____________________${resetT}"
+    echo  "${BRed}\   Port Scanner   /${resetT}"
+    echo  "${BRed}  -----------------\n${resetT}"
+    save
+    echo  "__________Port Scanner__________\n" >> ${targetNAME}
+    echo ""
+    echo  "${BRed}###########################${resetT}"
+    echo  "${BRed}##   ENTER TARGET'S IP   ##${resetT}"
+    echo  "${BRed}###########################${resetT}"
+    echo ""
+    read -p "Ip: " IP
+    echo ""
+    echo  "${BRed}###########################${resetT}"
+    echo  "${BRed}##   ENTER PORTS RANGE   ##${resetT}"
+    echo  "${BRed}###########################${resetT}"
+    echo ""
+    echo "EXAMPLE : \"0-100\" WILL SCAN PORTS BETWEEN 0 AND 100"
+    read -p "Ports range: " ports
+    echo ""
+    echo "------------- Port Scan of $IP : ports $ports -------------\n" >> ${targetNAME}
+    firstport="$(echo $ports | cut -d'-' -f1)"
+    lastport="$(echo $ports | cut -d'-' -f2)"
+
+    for PORT in $(eval echo "{$firstport..$lastport}"); do
+
+      if timeout 0.5s bash -c "</dev/tcp/$IP/$PORT" 2>/dev/null ; then
+        echo  "[${BGreen}+${resetT}] $PORT open"
+        echo  "[+] $PORT open" >> ${targetNAME}
+      else
+        echo  "[${BRed}-${resetT}] $PORT closed/filtered/timed out"
+        echo  "[-] $PORT closed/filtered/timed out" >> ${targetNAME}
+      fi
+    done
+    eho ""
+    collapsefiles
+
+  elif [ "$x" = "$b12" ]||[ "$x" = "8" ]; then
+    echo ""
+    read -p "TARGET'S FIRST NAME > " target_firstname
+    read -p "TARGET'S LAST NAME >" target_lastname
+    read -p "TARGET'S STATE >" target_state
+    read -p "TARGET'S CITY >" target_city
+    echo  "${BRed} [*] GENERATING LINK... ${resetT}"
+    if [[ -n $target_state ]]; then
+      target_state="${target_state}."
+    fi
+    criminal_report_link="https://"$target_state"staterecords.org/search.php?firstname=$target_firstname&lastname=$target_lastname&city=$target_city"
+    echo  "\e[0;32m [OK]${resetT}"
+    echo  "\n\n ${BRed}CTRL + click on this link to get your report: [${resetT}\e[1;34m$criminal_report_link${resetT}${BRed}]${resetT}"
+  elif [ "$x" = "$b13" ]; then
+    echo  "
+    \e[0;31mOUT OF SERVICE, JOIN THE DISCORD \nTO KNOW WHEN IT WILL BE IN SERVICE AGAIN.${resetT}
+    "
+
+
+
+    #echo  "Choose database:
+    #[1]\e[0;32m www.thatsthem.com${resetT} (10 uses per day)
+    #[2]\e[0;32m  coming next...${resetT}"
+
+    #read -p $'[${BRed}*${resetT}] CHOOSE A DATABASE >' i
+
+    i='999'
+
+
+    if [ $i = 1 ]||[ "$x" = "9" ]; then
+      echo ""
+      echo  "\e[0;31m[*]: REQUIERED${resetT}"
+      read -p $'[${BRed}*${resetT}] TARGET\'S FIRST NAME >' target_firstname
+      read -p $'[${BRed}*${resetT}] TARGET\'S LAST NAME >' target_lastname
+      #read -p "TARGET'S MAIDEN LAST NAME >" target_maiden_name
+      #read -p "TARGET'S APROXIMATE AGE >" target_age
+      #read -p "TARGET'S STATE >" target_state
+      #read -p "TARGET'S STATE CODE (AL, UT, TX)>" target_state
+      #read -p "TARGET'S EMAIL >" target_email
+      #read -p "TARGET'S STREET >" target_street
+      #read -p "TARGET'S CITY >" target_city
+      #read -p "TARGET'S ZIP CODE >" target_zipcode
+      #read -p "TARGET'S  PHONE>" target_phone
+      #read -p "TARGET'S DAY OF BIRTH >" target_day_of_birth
+      #read -p "TARGET'S MONTH OF BIRTH >" target_month_of_birth
+      #read -p "TARGET'S YEAR OF BIRTH >" target_year_of_birth
+      #read -p "TARGET'S CITY >" target_city
+      #findpeoplesearch_link="https://www.findpeoplesearch.com/$target_firstname+$target_lastname/$target_age/$target_state/$target_email/$target_street/$target_city/$target_zipcode/$target_maiden_name/$target_phone/$target_month_of_birth/$target_day_of_birth/$target_year_of_birth/1/1454471185"
+
+      echo ""
+      echo  "${BRed} [*] GENERATING REQUEST FOR DATABASE... ${resetT}"
+      target_firstname=${target_firstname^}
+      target_lastname=${target_lastname^}
+      thatsthem_link="https://thatsthem.com/name/$target_firstname-$target_lastname"
+      echo  "\e[0;32m [OK]${resetT}"
+      echo  "\n${BRed}[*] SEARCHING ORIGINAL DIRECTORY...${resetT}"
+      cd $pathtogrecon
+      # tests path(useless for you):
+      #cd /media/v1ct0r/DIsque500GO/OSINT/GhostRecon
+      mkdir results$target_firstname
+      cd results$target_firstname
+      echo  "${BRed}[*] OK${resetT}"
+      echo  "${BRed} [*] REQUESTING DATABASE SERVER... ${resetT}"
+      curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4482.0 Safari/537.36 Edg/92.0.874.0" -l $thatsthem_link -o resultpage.html
+      echo  "\e[0;32m [OK]${resetT}"
+      echo  "${BRed} [*] SHAPING DATA... ${resetT}"
+      sed 's/<[^>]*>//g ; /^$/d' resultpage.html > resultpage.txt
+      sed -i '1,108d' resultpage.txt
+      sed -i '/window.addEventListener ("load", function () {/,/^\s*$/{d}' resultpage.txt
+      sed -i '/window.addEventListener ("load", function () {/,/^\s*$/{d}' resultpage.txt
+      sed -i '/<ins class="adsbygoogle"/,/^\s*$/{d}' resultpage.txt
+      sed -i '/About Us/,/^\s*$/{d}' resultpage.txt
+      sed -i '/18-24/,/^\s*$/{d}' resultpage.txt
+      sed -i '/ Run Background Search/,/^\s*$/{d}' resultpage.txt
+      sed -i '/ Is this you? Bulk Optout/,/^\s*$/{d}' resultpage.txt
+      sed -i '/Copyright/,$d' resultpage.txt
+      grep -v '^[[:space:]]*$' resultpage.txt > resultpage.txt.tmp
+      mv resultpage.txt.tmp resultpage.txt
+
+      extract_numberofresult=$(head -1 resultpage.txt)
+      extract_nameoftarget=$(head -2 resultpage.txt | tail -1)
+      #sed -i '1,2d' resultpage.txt
+      echo $target_firstname
+      awk "/$target_firstname/{if(NR!=1){for(i=0;i<j;i++)print a[i]>\"result\"k;j=0;k++;}a[j++]=\$0;next}{a[j++]=\$0;}END{for(i=0;i<j;i++)print a[i]>\"result\"k}" i=0 k=1 resultpage.txt
+
+      #echo  "\n$extract_numberofresult\n$extract_nameoftarget
+      #_____________
+      #"
+      numberofresultfiles=$(ls | wc -l)
+      numberofresultfiles=$numberofresultfiles-2
+      for (( c=1; c<=$numberofresultfiles; c++ ))
+      do
+        extract_phone=$(sed  -n '/Phone Number/{n;p}' result$c | grep -wv -e Alternate)
+        extract_alt_phone=$(sed  -n '/Alternate/{n;p}' result$c | grep -wv -e Email)
+        extract_email=$(sed  -n '/Email/{n;p}' result$c | grep -wv -e Residence)
+        extract_residencelength=$(sed  -n '/Redidence/{n;p}' result$c | grep -wv -e Size)
+        extract_household_size=$(sed  -n '/Household/{n;p}' result$c | grep -wv -e IP)
+        extract_ip=$(sed  -n '/IP/{n;p}' result$c | grep -wv -e Net)
+        extract_net_worth=$(sed  -n '/Net/{n;p}' result$c | grep -wv -e Income)
+        extract_income=$(sed  -n '/Income/{n;p}' result$c | grep -wv -e Education)
+        extract_occupation=$(sed  -n '/Occupation/{n;p}' result$c | grep -wv -e Other)
+        extract_language=$(sed  -n '/Language/{n;p}' result$c | grep -wv -e Wealth)
+        extract_scores=$(sed -n '/Score/,$p' result$c)
+        echo "
+        $(head -1 result$c)
+        ---------------------
+        _____________   Adress   _____________
+        $(sed -n '2p' result$c)
+        _________   Phone Number(s)   _________
+        Main:        $extract_phone
+        Alternate:   $extract_alt_phone
+        ___________   Email adress   ___________
+        $extract_email
+        ________   Length of Residence   ________
+        $extract_residencelength
+        __________   Household Size   __________
+        $extract_household_size
+        ___________   Ip adress   ___________
+        $extract_ip
+        ________   Estimated Net Worth   ________
+        $extract_net_worth
+        _________   Estimated Income   _________
+        $extract_income
+        ___________   Occupation   __________
+        $extract_occupation
+        ____________   Language   ____________
+        $extract_language
+        ____________   Scores   ____________
+        $extract_scores
+        "
+      done
+      echo  "
+       RAW RESULT FILES SAVED INTO \e[0;32m$pathtogrecon/results$target_firstname ${resetT} LIMITED TO 10 SEARCH A DAY :/  . I AM WORKING ON IT"
+    elif [ i = "2" ] ; then
+      echo  "${BRed} THERE WILL BE MORE DATABASE LATER ${resetT}"
+
+    fi
+  else
+    echo "WRONG COMMAND TRY AGAIN OR TYPE \"h\" TO SEE THEM"
+  fi
+  #statements
+done
+
+#    MODULES
+
+#    whois $whois
+#    curl http://api.hackertarget.com/geoip/?q=$geoip
+#    curl http://api.hackertarget.com/reverseiplookup/?q=$ip_lookup
+#    curl http://api.hackertarget.com/dnslookup/?q=$DNS_LOOKUP
+#    curl https://api.hackertarget.com/reversedns/?q=$reversedns
+#    curl https://api.telnyx.com/anonymous/v2/number_lookup/$phone_info
+#    curl https://api.hackertarget.com/bannerlookup/?q=$grab_banner
+#    curl http://api.hackertarget.com/nmap/?q=$nmap_scan
+#    sshscan.py -t $sshscan
+#    sqlmap -u $sqlhost2  searchgetby_id.$phphtml1?id=4 --dbs --columns -D scanme --tamper=space2comment --level 5
+#    msfconsole -q -x "nmap -v --script vuln $vuln_scan ;exit ;"
+#    osrf alias_generator
+#    mailfy -m $email_info -p all
+#    osrf alias_generator
+#    curl https://api.hackertarget.com/pagelinks/?q=$link_sniffer

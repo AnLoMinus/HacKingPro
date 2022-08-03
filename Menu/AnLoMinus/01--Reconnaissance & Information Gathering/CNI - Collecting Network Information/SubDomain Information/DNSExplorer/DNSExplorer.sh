@@ -4,13 +4,17 @@
 # @author-github: https://github.com/dabasanta
 
 # Changing between bash colors in outputs
+BBold="\e[1m"
+BRed='\033[1;31m'    # Red
+BCyan='\033[1;36m'   # Cyan
+BGreen='\033[1;32m'  # Green
+BYellow='\033[1;33m' # Yellow
 end="\e[0m"
-info="\e[1m\e[36m[+]"
-output="\e[1m\e[36m[++]"
-error="\e[1m\e[91m[!!]"
-question="\e[1m\e[93m[?]"
-green="\e[92m"
-ok="\e[1m\e[92m"
+info="${BBold}${BCyan}[+]"
+output="${BBold}${BCyan}[++]"
+error="${BBold}${BRed}[!!]"
+question="${BBold}${BYellow}[?]"
+ok="${BBold}${BGreen}"
 
 mkdir -p /tmp/dnsexplorer  # Creating temporally directory
 tput civis  # Making beep off
@@ -37,7 +41,7 @@ doZoneTransfer(){
   while IFS= read -r nameserver
   do
     if host -l "$1" "$nameserver" | grep -i "has address" > /dev/null;then
-    echo -e "$green NameServer $nameserver accept ZoneTransfer$end\n"
+    echo -e "${BGreen} NameServer $nameserver accept ZoneTransfer$end\n"
       host -l "$1" "$nameserver" | grep -i "has address"
       success=0
     else
@@ -50,7 +54,7 @@ doZoneTransfer(){
 
 dictionaryAttack(){
   tput civis
-  echo -e "\n$output Using the first 1.000 records of the dictionary:$green https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/bitquark-subdomains-top100000.txt\n\e[1m\e[36mCourtesy of seclists ;)$end\n"
+  echo -e "\n$output Using the first 1.000 records of the dictionary:${BGreen} https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/bitquark-subdomains-top100000.txt\n${BBold}${BCyan}Courtesy of seclists ;)$end\n"
   curl -s https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/bitquark-subdomains-top100000.txt -o /tmp/dnsexplorer/bit.txt
 
   if [ -f /tmp/dnsexplorer/bit.txt ];then
@@ -68,15 +72,15 @@ dictionaryAttack(){
         s=$((s+1))
       fi
 
-      echo -ne "$output Using entry: $green$c$end \e[1m\e[36mof \e[1m\e[36m$l.$end \r"
+      echo -ne "$output Using entry: ${BGreen}$c$end ${BBold}${BCyan}of ${BBold}${BCyan}$l.$end \r"
       c=$((c+1))
     done < <(grep -v '^ *#' < /tmp/dnsexplorer/bitquark.txt)
 
     # shellcheck disable=SC1087
     if [ $s -ge 1 ];then
-      echo -e "\n\e[1m$green[+] Found $s subdomains.$end"
+      echo -e "\n${BBold}${BGreen}[+] Found $s subdomains.$end"
     else
-      echo -e "\n\e[1m$error[!!] Found $s subdomains.$end"
+      echo -e "\n${BBold}$error[!!] Found $s subdomains.$end"
     fi
   else
     echo -e "$error Could not download dictionary from seclists url.$end"
@@ -104,15 +108,15 @@ dictionaryAttackCustom(){
             su=$((su+1))
           fi
 
-          echo -ne "$output Using entry: $green$co$end \e[1m\e[36mof \e[1m\e[36m$l.$end \r"
+          echo -ne "$output Using entry: ${BGreen}$co$end ${BBold}${BCyan}of ${BBold}${BCyan}$l.$end \r"
           co=$((co+1))
         done < <(grep -v '^ *#' < "$dfile")
 
         if [ $su -ge 1 ];then
           # shellcheck disable=SC1087
-          echo -e "\n\e[1m$green[+] Found $su subdomains.$end"
+          echo -e "\n${BBold}${BGreen}[+] Found $su subdomains.$end"
         else
-          echo -e "\n\e[1m$error Found $su subdomains.$end"
+          echo -e "\n${BBold}$error Found $su subdomains.$end"
         fi
         check=1
         clean
@@ -139,7 +143,7 @@ bruteForceDNS(){
     case $dc in
       [Dd]* ) dictionaryAttack "$1"; break;;
       [Cc]* ) dictionaryAttackCustom "$1"; break;;
-      * ) echo -e "$error Please answer$green D$end \e[1m\e[91mor$end$green\e[1m C$end\e[1m\e[91m.$end\n";;
+      * ) echo -e "$error Please answer${BGreen} D$end ${BBold}${BRed}or$end${BGreen}${BBold} C$end${BBold}${BRed}.$end\n";;
     esac
   done
 }
@@ -151,7 +155,7 @@ crtSH(){
   if [ $? ];then
     curl -s "https://crt.sh/?q=${domain_search}&output=json" | sed 's/,/\n/g' | grep 'common_name' | cut -d : -f 2 | sed 's/"//g' | sed 's/\\n/\n/g' > /tmp/dnsexplorer/crt.sh.reg
     echo -e $ok
-    sort /tmp/dnsexplorer/crt.sh.reg | uniq 
+    sort /tmp/dnsexplorer/crt.sh.reg | uniq
     echo -e $end
   else
     echo -e "$error Unable to connect to CTR.sh $end"
@@ -160,7 +164,7 @@ crtSH(){
 }
 
 basicRecon(){
-  echo -e "$info Finding IP address for A records \e[92m"
+  echo -e "$info Finding IP address for A records ${BGreen}"
 
   if [ -z "$2" ];then
     host "$1" | grep 'has address' | awk '{print $4}'
@@ -170,7 +174,7 @@ basicRecon(){
     echo -e ""
   fi
 
-  echo -e "$info Finding IPv6 address for AAA records \e[92m"
+  echo -e "$info Finding IPv6 address for AAA records ${BGreen}"
 
   if [ -z "$2" ];then
     if host "$1" | grep 'IPv6' >/dev/null 2>&1;then
@@ -188,7 +192,7 @@ basicRecon(){
     fi
   fi
 
-  echo -e "$info Finding mail server address for $1 domain \e[92m"
+  echo -e "$info Finding mail server address for $1 domain ${BGreen}"
 
   if [ -z "$2" ];then
     if host -t MX "$1" | grep 'mail' >/dev/null 2>&1;then
@@ -206,7 +210,7 @@ basicRecon(){
     fi
   fi
 
-  echo -e "$info Finding CNAME records for $1 domain \e[92m"
+  echo -e "$info Finding CNAME records for $1 domain ${BGreen}"
 
   if [ -z "$2" ];then
     if host -t CNAME "$1" | grep 'alias' >/dev/null 2>&1;then
@@ -224,7 +228,7 @@ basicRecon(){
     fi
   fi
 
-  echo -e "$info Finding text description for $1 domain \e[92m"
+  echo -e "$info Finding text description for $1 domain ${BGreen}"
 
   if [ -z "$2" ];then
     if host -t txt "$1" | grep 'descriptive' >/dev/null 2>&1;then
@@ -242,7 +246,7 @@ basicRecon(){
     fi
   fi
 
-  echo -e "$info Checking if $1 has a TLS site\e[92m"
+  echo -e "$info Checking if $1 has a TLS site${BGreen}"
 
   connected=$(echo -n | openssl s_client -connect  "$1:443" 2>/dev/null | head -1 | awk -F "(" '{print $1}')
 
@@ -250,7 +254,7 @@ basicRecon(){
       DNS=$(echo -n | openssl s_client -connect "$1:443" 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509 -text | sed 's/\                //'|grep -i "DNS:" | awk -F ":" '{print $1}')
 
       if [[ "$DNS" == "DNS" ]];then
-          echo -e "$output The domain $1 has a secure webserver and your certificate have these alternate domain names:\e[92m"
+          echo -e "$output The domain $1 has a secure webserver and your certificate have these alternate domain names:${BGreen}"
           echo -n | openssl s_client -connect "$1:443" 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509 -text | grep "DNS:"| tr ',' '\n' | sed 's/\               //' | sed 's/\s//g' | sed 's/DNS://g'
           subjects=$(echo -n | openssl s_client -connect "$1:443" 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509 -text | grep "DNS:" | tr ',' '\n' | sed 's/\               //' | wc -l)
           echo -e "$output $subjects alternate DNS domain found.\n"
@@ -263,7 +267,7 @@ basicRecon(){
       echo -e "$error No website found on $1:443\n"
   fi
 
-  echo -e "$info Finding nameserver address for $1 domain \e[92m"
+  echo -e "$info Finding nameserver address for $1 domain ${BGreen}"
 
   if [ -z "$2" ];then
     if host -t NS "$1" | grep 'name server' >/dev/null 2>&1;then
@@ -325,22 +329,22 @@ basicRecon(){
 }
 
 help(){
-    echo -e "                               
-        \e[92m@@@  @@@  @@@@@@@@  @@@       @@@@@@@   
-        @@@  @@@  @@@@@@@@  @@@       @@@@@@@@  
-        @@!  @@@  @@!       @@!       @@!  @@@  
-        !@!  @!@  !@!       !@!       !@!  @!@  
-        @!@!@!@!  @!!!:!    @!!       @!@@!@!   
-        !!!@!!!!  !!!!!:    !!!       !!@!!!    
-        !!:  !!!  !!:       !!:       !!:       
-        :!:  !:!  :!:        :!:      :!:       
-        ::   :::   :: ::::   :: ::::   ::       
-        :   : :  : :: ::   : :: : :   :        
+    echo -e "
+        ${BGreen}@@@  @@@  @@@@@@@@  @@@       @@@@@@@
+        @@@  @@@  @@@@@@@@  @@@       @@@@@@@@
+        @@!  @@@  @@!       @@!       @@!  @@@
+        !@!  @!@  !@!       !@!       !@!  @!@
+        @!@!@!@!  @!!!:!    @!!       @!@@!@!
+        !!!@!!!!  !!!!!:    !!!       !!@!!!
+        !!:  !!!  !!:       !!:       !!:
+        :!:  !:!  :!:        :!:      :!:
+        ::   :::   :: ::::   :: ::::   ::
+        :   : :  : :: ::   : :: : :   :
 
 
-\e[36mDNSExplorer$ok automates the enumeration of DNS servers and domains using the 'host' tool and the predefined DNS server in /etc/resolv.conf.
+${BCyan}DNSExplorer$ok automates the enumeration of DNS servers and domains using the 'host' tool and the predefined DNS server in /etc/resolv.conf.
 
-\e[36mTo use it run: $ok./DNSExplorer.sh domain.com$end\n"
+${BCyan}To use it run: $ok./DNSExplorer.sh domain.com$end\n"
 tput cnorm
 }
 
@@ -358,16 +362,16 @@ checkDependencies() {
 }
 
 banner(){
-    echo -e "\e[91m
-        ▓█████▄  ███▄    █   ██████ ▓█████ ▒██   ██▒ ██▓███   ██▓     ▒█████   ██▀███  ▓█████  ██▀███  
+    echo -e "${BRed}
+        ▓█████▄  ███▄    █   ██████ ▓█████ ▒██   ██▒ ██▓███   ██▓     ▒█████   ██▀███  ▓█████  ██▀███
         ▒██▀ ██▌ ██ ▀█   █ ▒██    ▒ ▓█   ▀ ▒▒ █ █ ▒░▓██░  ██▒▓██▒    ▒██▒  ██▒▓██ ▒ ██▒▓█   ▀ ▓██ ▒ ██▒
         ░██   █▌▓██  ▀█ ██▒░ ▓██▄   ▒███   ░░  █   ░▓██░ ██▓▒▒██░    ▒██░  ██▒▓██ ░▄█ ▒▒███   ▓██ ░▄█ ▒
-        ░▓█▄   ▌▓██▒  ▐▌██▒  ▒   ██▒▒▓█  ▄  ░ █ █ ▒ ▒██▄█▓▒ ▒▒██░    ▒██   ██░▒██▀▀█▄  ▒▓█  ▄ ▒██▀▀█▄  
+        ░▓█▄   ▌▓██▒  ▐▌██▒  ▒   ██▒▒▓█  ▄  ░ █ █ ▒ ▒██▄█▓▒ ▒▒██░    ▒██   ██░▒██▀▀█▄  ▒▓█  ▄ ▒██▀▀█▄
         ░▒████▓ ▒██░   ▓██░▒██████▒▒░▒████▒▒██▒ ▒██▒▒██▒ ░  ░░██████▒░ ████▓▒░░██▓ ▒██▒░▒████▒░██▓ ▒██▒
         ▒▒▓  ▒ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░░░ ▒░ ░▒▒ ░ ░▓ ░▒▓▒░ ░  ░░ ▒░▓  ░░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░░ ▒░ ░░ ▒▓ ░▒▓░
         ░ ▒  ▒ ░ ░░   ░ ▒░░ ░▒  ░ ░ ░ ░  ░░░   ░▒ ░░▒ ░     ░ ░ ▒  ░  ░ ▒ ▒░   ░▒ ░ ▒░ ░ ░  ░  ░▒ ░ ▒░
-        ░ ░  ░    ░   ░ ░ ░  ░  ░     ░    ░    ░  ░░         ░ ░   ░ ░ ░ ▒    ░░   ░    ░     ░░   ░ 
-        ░             ░       ░     ░  ░ ░    ░               ░  ░    ░ ░     ░        ░  ░   ░     
+        ░ ░  ░    ░   ░ ░ ░  ░  ░     ░    ░    ░  ░░         ░ ░   ░ ░ ░ ▒    ░░   ░    ░     ░░   ░
+        ░             ░       ░     ░  ░ ░    ░               ░  ░    ░ ░     ░        ░  ░   ░
         ░ v:1.0.1     ░$end By: Danilo Basanta (https://github.com/dabasanta/) | (https://www.linkedin.com/in/danilobasanta/)\n\n"
 
 }
@@ -433,4 +437,3 @@ else
     tput cnorm
     exit 1
 fi
-
