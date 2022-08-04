@@ -41,14 +41,11 @@
 #                             ---                             #
 #                                                             #
 ###############################################################
-LastUPDATE="2022 August 3"
-ToolSource="https://github.com/AnLoMinus/HacKingPro"
 ###############################################
 
 clear
-chmod +x $0
 chmod +x *
-
+chmod +rwx */*/*/*/*
 ###############################################
 
 ###############################################
@@ -249,7 +246,7 @@ cDanger="$yellow ⚠️ $red"
 CheckPWD(){
   # Define Current Direction Variable
   MainDirectoriy="$(pwd)"
-  echo "$MainDirectoriy"
+  echo ${MainDirectoriy}
 }
 CheckPWD
 
@@ -476,7 +473,7 @@ CoverMe(){
     ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
     ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
     ${DGrey}|
-    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+    ${DGrey}└──${BRed}[${DGrey} CL ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Cleaning Target Variables ${BRed}]
 
             ")
 
@@ -775,7 +772,8 @@ startRecon(){
 
 Recon_Start(){
   MainDirectoriyCaseNameRecon="${MainDirectoriyCaseName}/Recon"
-  cd ${MainDirectoriyCaseName}
+  mkdir ${MainDirectoriyCaseNameRecon}
+  cd ${MainDirectoriyCaseNameRecon}
   if [ -z $targetIP ]; then
     #statements
     Checking_IP_Target
@@ -785,7 +783,6 @@ Recon_Start(){
       if [ -d $MainDirectoriyCaseNameRecon ]; then
         #statements
         echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}$targetNAME ${BBlue}Case $targetNAME Folder Exists, Continue to it\n"
-        cd ${MainDirectoriyCaseNameRecon}
         startRecon
       else
         echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
@@ -917,94 +914,10 @@ elif [ $(command -v brew) ]; then
   elif [ -d /sbin ]; then
     bin="/sbin"
   fi
+  cp $0 ${bin}
 
 }
 Check_System
-
-# Check Bacsic Information About OS
-BasicInformation() {
-
-  # Checking Basic Information
-  user=$(whoami)      2> /dev/null # Current user
-  host=$(uname -n)    2> /dev/null # Network node hostname
-  home=$(echo $HOME)  2> /dev/null # User home directory
-  usid=$(id -u)       2> /dev/null # User ID
-  gpid=$(id -g)       2> /dev/null # Group ID
-  grps=$(for i in $(groups | tr "," " "); do echo "\t\t${BRed}[${LYellow} $i ${BRed}]"; done)      2> /dev/null # List all groups
-  knam=$(uname -s)    2> /dev/null # Kernel name
-  krel=$(uname -r)    2> /dev/null # Kernel release
-  kver=$(uname -v)    2> /dev/null # Kernel version
-  arch=$(uname -m)    2> /dev/null # Architecture
-
-  # Checking Versions Of Packages
-  vbash=`  	bash --version |  	head -1        |  	awk -F ' ' '{printf $4}'  	` 2> /dev/null
-  vsudo=`  	sudo --version |  	head -1        |  	awk -F ' ' '{printf $3}'  	` 2> /dev/null
-  vrgcc=`  	gcc --version |  	head -1       |  	awk -F ' ' '{printf $NF}'  	` 2> /dev/null
-  vpyt2=`  	python2 --version 2>&1 |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
-  vpyt3=`  	python3 --version |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
-  vjava=`  	java --version |  	head -1        |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
-  vcurl=`  	curl --version |  	head -1        |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
-  vwget=`  	wget --version |  	head -1        |  	awk -F ' ' '{print $3}'  	` 2> /dev/null
-  vruby=`  	ruby --version |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
-  KERNEL=$(uname -r)
-
-  echo "
-      ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Basic Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
-
-      ${DGrey}┌───────╼ ${BRed}[${BYellow} System Information ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} Script ID:      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $$ ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} Kernel Name     ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${knam} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} Kernel Release  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${krel} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} kernel Version  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${kver} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} Architecture    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${arch} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} Term            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${TERM} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} Shell           ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $SHELL ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} Date            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $(date) ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} UpTime          ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $(uptime) ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} OS Name         ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${osys} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} Path            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$PATH ${BRed}]
-      ${DGrey}┖──╼ ${BRed}[${BYellow} who is currently logged in:${LYellow} \n$(who)
-
-      ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
-
-      ${DGrey}┌───────╼ ${BRed}[${BYellow} User Information ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} Username  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${user} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} Hostname  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${host} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} Home Path ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${home} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} EUID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${usid} ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} User ID   ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$(for i in $(id | tr "," " "); do echo "\t\t${BRed}[${LYellow} $i   ${BRed}]"; done) ${BRed}]
-      ${DGrey}|──╼ ${BRed}[${BYellow} EGID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${gpid} ${BRed}]
-      ${DGrey}┖──╼ ${BRed}[${BYellow} Groups    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${grps} ${BRed}]
-
-      ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
-
-
-      ${DGrey}┌───────╼ ${BRed}[${BYellow} Versions Information ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} Bash      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vbash ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} sudo      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vsudo ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} GCC       ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vrgcc ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} Python 2  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vpyt2 ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} Python 3  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vpyt3 ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} Java      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vjava ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} cURL      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vcurl ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}|──╼ ${BRed}[${BYellow} wget      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vwget ${BRed}]
-      ${BCyan}${faintT}|
-      ${DGrey}┖──╼ ${BRed}[${BYellow} Ruby      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vruby ${BRed}]
-
-      ${LCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
-
-        "
-}
 
 # Checking If User is Root
 CheckingIfRoot(){
@@ -1037,7 +950,7 @@ Checking_IP_Target(){
     ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
     ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
     ${DGrey}|
-    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}] "
+    ${DGrey}└──${BRed}[${DGrey} CL ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Cleaning Target Variables ${BRed}] "
 
     echo "\n    ${BGreen}[${BRed} ERROR ${BGreen}]${BRed}──╼ ${BGreen}[ ❌ ]${BRed}──╼  ${BGreen}[${BRed} You need Enter IP Before Scanning ${BGreen}] \n"
     sleep 1
@@ -1054,7 +967,7 @@ Checking_IP_Target(){
     echo "    ${BGreen}└──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
     sleep 1
     read -p "$Press_ENTER" readthat
-    cd "$XHacKingPro"
+    cd "${MainDirectoriy}"
     break
   fi
 
@@ -1063,11 +976,11 @@ Checking_IP_Target(){
 CheckInternetConnection(){
   ping -c 1 google.com > /dev/null 2>&1
   if [[ "$?" == 0 ]]; then
-    InternetStatus="\n\n     ${DGrey}[${BGreen}+${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BGreen} True ${DGrey}]\n\n"
+    InternetStatus="\n     ${DGrey}[${BGreen}+${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BGreen} True ${DGrey}]\n"
     echo "${InternetStatus}"
     read -p "$Press_ENTER"
   else
-    InternetStatus="\n\n     ${DGrey}[${BRed}-${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow}  Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BRed} False ${DGrey}]\n\n"
+    InternetStatus="\n     ${DGrey}[${BRed}-${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow}  Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BRed} False ${DGrey}]\n"
     echo "${InternetStatus}"
     read -p "$Press_ENTER"
   fi
@@ -1084,6 +997,7 @@ day=$(date +%d)
 hour=$(date +%H)
 minute=$(date +%M)
 second=$(date +%S)
+DMY=$(date +%d-%m-%y)
 CurrentDate=$(echo "${DGrey}$day-$month-$year")
 StartingTime=$(echo "${DGrey}$hour:$minute:$second")
 FullTime=$(date)
@@ -1099,13 +1013,15 @@ lahs(){
   read -p "$ls_lahs" cmd
 }
 
-###############################################
-#         HacKingPro Design Variables
-###############################################
+#########################################
+#         HacKingPro Variables          #
+#########################################
 
+LastUPDATE="2022 August 4 | 13:27"
+ToolSource="https://github.com/AnLoMinus/HacKingPro"
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro$resetT")
 Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}23")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}24")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
@@ -1145,9 +1061,9 @@ TargetStatusRun(){
     ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Email${BBlue}: ${BGreen}${targetEmail}
     ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Phone${BBlue}: ${BGreen}${targetPhone}
     ${BCyan}${faintT}|
-    ${BCyan}${faintT}└──${resetT}${BRed}[${DGrey} I ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]")
+    ${BCyan}${faintT}└──${resetT}${BRed}[${DGrey} CL ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} Cleaning Target Variables ${BRed}]
+    ${InternetStatus}")
     echo "$ToolStatus"
-    echo "${InternetStatus}"
 }
 
 ###############################################
@@ -1219,6 +1135,11 @@ xDirectories(){
   MainDirectoriy="$(pwd)"
 
   x_Menu_1="${MainDirectoriy}/Menu/AnLoMinus/01--Reconnaissance & Information Gathering/"
+  x_Menu_1_CLI="${x_Menu_1}CLI - Collecting Local Information/"
+  x_Menu_1_CSI="${x_Menu_1}CSI - Collecting Social Information/"
+  x_Menu_1_CNI="${x_Menu_1}CNI - Collecting Network Information/"
+  x_Menu_1_CMI="${x_Menu_1}CMI - Collecting Machine Information/"
+  x_Menu_1_CPI="${x_Menu_1}CPI - Collecting Public Information/"
   x_Menu_2="${MainDirectoriy}/Menu/AnLoMinus/02--Weaponization/"
   x_Menu_3="${MainDirectoriy}/Menu/AnLoMinus/03--Delivery/"
   x_Menu_4="${MainDirectoriy}/Menu/AnLoMinus/04--Exploitation/"
@@ -5335,6 +5256,201 @@ AllInfo(){
   infoArp
 }
 
+#----------------------------------------------------------------------#
+# CLI | Network Inferface/Routing/MAC Address info (i.e. IP & NetStat) #
+#----------------------------------------------------------------------#
+Local_Net_Info(){
+  mkdir "${MainDirectoriyCaseNameLocal}"
+	devices=$(netstat -i | cut -d" " -f1 | egrep -v "^Kernel|Iface|lo")
+	write_header " Network information "
+	echo "Total network interfaces found : $(wc -w <<<${devices})"
+  echo "\n"
+	echo "        ${DGrey}-----------------------"
+	echo "        ${DGrey}--- ${ORANGE}IP Address Info${DGrey} ---"
+	echo "        ${DGrey}-----------------------"
+  echo "\n${Orange}"
+	echo "$(ip -4 address show)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+
+  echo "\n"
+	echo "        ${DGrey}-----------------------"
+	echo "        ${DGrey}--- ${ORANGE}Network Routing${DGrey} ---"
+	echo "        ${DGrey}-----------------------"
+  echo "\n${Orange}"
+	echo "$(netstat -nr)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+
+  echo "\n"
+	echo "        ${DGrey}--------------------------------------"
+	echo "        ${DGrey}--- ${ORANGE}Interface Traffic information${DGrey}  ---"
+	echo "        ${DGrey}--------------------------------------"
+  echo "\n${Orange}"
+	echo "$(netstat -i)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+
+  echo "\n"
+	echo "        ${DGrey}------------------------------"
+	echo "        ${DGrey}--- ${ORANGE}MAC/Hardware Addresses${DGrey} ---"
+	echo "        ${DGrey}------------------------------"
+  echo "\n${Orange}"
+	echo "$(cat /sys/class/net/*/address)"  >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+}
+
+#---------------------------------------#
+# CLI | Get information about localhost #
+#---------------------------------------#
+Host_Info(){
+   mkdir "${MainDirectoriyCaseNameLocal}"
+	 dnsips=$(sed -e '/^$/d' /etc/resolv.conf | awk '{if (tolower($1)=="nameserver") print $2}')
+   echo "
+    ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Hostname and DNS information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+    ${DGrey}┌───────╼ ${BRed}[${BYellow} Hostname and DNS information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Hostname : ${resetT}${ORANGE}${faintT}$(hostname)
+    ${DGrey}|──╼ ${BRed}[${ORANGE} DNS domain : ${resetT}${ORANGE}${faintT}$(hostname -d)
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Fully qualified domain name : ${resetT}${ORANGE}${faintT}$(hostname -f)
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Network address (IP) :  ${resetT}${ORANGE}${faintT}$(hostname -i)
+    ${DGrey}┖──╼ ${BRed}[${ORANGE} DNS name servers (DNS IP) ${resetT}${ORANGE}${faintT}: ${dnsips}
+
+    ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Hostname and DNS information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+    "
+}
+
+#---------------------------------------#
+# CLI | Get Bacsic Information About OS #
+#---------------------------------------#
+BasicInfo() {
+  # Checking Basic Information
+  knam=$(uname -s)    2> /dev/null # Kernel name
+  krel=$(uname -r)    2> /dev/null # Kernel release
+  kver=$(uname -v)    2> /dev/null # Kernel version
+  arch=$(uname -m)    2> /dev/null # Architecture
+  echo "
+    ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Basic Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+    ${DGrey}┌───────╼ ${BRed}[${BYellow} System Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Script ID:      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $$ ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Kernel Name     ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${knam} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Kernel Release  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${krel} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} kernel Version  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${kver} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Architecture    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${arch} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Term            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${TERM} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Shell           ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $SHELL ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Date            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $(date) ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} UpTime          ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $(uptime) ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} OS Name         ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${osys} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Path            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$PATH ${BRed}]
+    ${DGrey}┖──╼ ${BRed}[${BYellow} who is currently logged in:${LYellow} \n$(who)
+
+  ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Basic Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-"
+
+}
+
+#---------------------------------------#
+# CLI | Get information User localhost  #
+#---------------------------------------#
+UserInfo() {
+  user=$(whoami)      2> /dev/null # Current user
+  host=$(uname -n)    2> /dev/null # Network node hostname
+  home=$(echo $HOME)  2> /dev/null # User home directory
+  usid=$(id -u)       2> /dev/null # User ID
+  gpid=$(id -g)       2> /dev/null # Group ID
+  grps=$(for i in $(groups | tr "," " "); do echo "\t\t${BRed}[${LYellow} $i ${BRed}]"; done)      2> /dev/null # List all groups
+
+  echo "
+  ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ User Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+  ${DGrey}┌───────╼ ${BRed}[${BYellow} User Information ${BRed}]
+  ${DGrey}|
+  ${DGrey}|──╼ ${BRed}[${BYellow} Username  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${user} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} Hostname  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${host} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} Home Path ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${home} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} EUID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${usid} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} User ID   ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$(for i in $(id | tr "," " "); do echo "\t\t${BRed}[${LYellow} $i   ${BRed}]"; done) ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} EGID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${gpid} ${BRed}]
+  ${DGrey}┖──╼ ${BRed}[${BYellow} Groups    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${grps} ${BRed}]
+
+  ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ User Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-"
+
+}
+
+#---------------------------------------#
+# CLI | Get information about Packages  #
+#---------------------------------------#
+PackVersion() {
+  # Checking Versions Of Packages
+  vbash=`  	bash --version |  	head -1        |  	awk -F ' ' '{printf $4}'  	` 2> /dev/null
+  vsudo=`  	sudo --version |  	head -1        |  	awk -F ' ' '{printf $3}'  	` 2> /dev/null
+  vrgcc=`  	gcc --version |  	head -1       |  	awk -F ' ' '{printf $NF}'  	` 2> /dev/null
+  vpyt2=`  	python2 --version 2>&1 |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vpyt3=`  	python3 --version |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vjava=`  	java --version |  	head -1        |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vcurl=`  	curl --version |  	head -1        |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vwget=`  	wget --version |  	head -1        |  	awk -F ' ' '{print $3}'  	` 2> /dev/null
+  vruby=`  	ruby --version |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  KERNEL=$(uname -r)
+
+  echo "
+    ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Versions Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+    ${DGrey}┌───────╼ ${BRed}[${BYellow} Versions Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Bash      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vbash ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} sudo      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vsudo ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} GCC       ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vrgcc ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Python 2  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vpyt2 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Python 3  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vpyt3 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Java      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vjava ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} cURL      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vcurl ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} wget      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vwget ${BRed}]
+    ${DGrey}|
+    ${DGrey}┖──╼ ${BRed}[${BYellow} Ruby      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vruby ${BRed}]
+
+    ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Versions Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-"
+}
+
+###############################################
+#                 Awesome
+###############################################
+
+Awesomes(){
+  AwesomeAssetDiscovery
+}
+
+#-------------------------#
+# Awesome Asset Discovery #
+#-------------------------#
+AwesomeAssetDiscovery(){
+  clear
+  ToolHeaderRun
+  TargetStatusRun
+  echo "
+    ${BYellow}${faintT}┌──${resetT}${BRed}[${BYellow} Contents ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Content Discovery ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} IP Address Discovery ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Domain / Subdomain Discovery ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Email Discovery ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Network / Port Scanning ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Business Communication Infrastructure Discovery ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Source Code Aggregators / Search - Information Discovery ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Cloud Infrastructure Discovery ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Company Information and Associations ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Internet Survey Data ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Social Media / Employee Profiling ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Data Leaks ${BRed}]
+    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} Internet Scan / Archived Information ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}└──${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+"
+}
+
 ###############################################
 #         HacKingPro Main Menu
 ###############################################
@@ -5383,11 +5499,6 @@ MainMenu(){
     case $cmd in
       "?"|help|about|About )
       about
-      BasicInformation
-      read -p "$Press_ENTER"
-      ;;
-      bi )
-      BasicInformation
       read -p "$Press_ENTER"
       ;;
       00|0 )
@@ -5421,7 +5532,7 @@ MainMenu(){
             CoverMe
             ;;
             x|X|exit|EXIT )
-            cd $XHacKingPro
+            cd ${MainDirectoriy}
             clear
             break
             ;;
@@ -5433,11 +5544,9 @@ MainMenu(){
       01|1 )
       # Page Header
       while true; do
+        #statements
         clear
         cd "$x_Menu_1"
-        #statements
-        # cd "$xMenu01"
-        clear
         ToolHeaderRun
         TargetStatusRun
         HacKingProMenuMain=$(echo "${BRed}
@@ -5466,8 +5575,10 @@ MainMenu(){
     ${DGrey}|  ┖────${BRed}[${DGrey} uf ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} UserFinder Scan ${BRed}]
     ${DGrey}|
     ${DGrey}|──┲${BRed}[${BYellow} CLI ${BRed}]${BGreen}── ${BRed}[${BYellow} Local Information ${BRed}]
-    ${DGrey}|  ┖─┲──${BRed}[${DGrey} l0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
-    ${DGrey}|    ┖──${BRed}[${DGrey} l1 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Privilege Eumeration Scan ${BRed}]
+    ${DGrey}|  ┖─┲──${BRed}[${DGrey} l0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} MyIP Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} l1 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} LinPEAS {5 Min +-}${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} l2 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Local_Net_Info ${BRed}]
+    ${DGrey}|    ┖──${BRed}[${DGrey} l3 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Host_Info${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
@@ -5476,7 +5587,6 @@ MainMenu(){
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
     ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Reconnaissance & Information Gathering ${BRed}]${BGreen}──╼ ${BGreen}   ")
-
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
             ls )
@@ -5485,14 +5595,14 @@ MainMenu(){
             p|P )
             HacKingProPlanning
             ;;
-            cmi|CMI )
+            cni|CNI )
             while true; do
+              cd "${x_Menu_1_CNI}"
               clear
               ToolHeaderRun
               TargetStatusRun
-
               HacKingProMenuMain=$(echo "${BRed}
-    ${DGrey}┌──${BRed}[${BYellow}Collecting Machine Information ${BRed}]
+    ${DGrey}┌──${BRed}[${BYellow} Collecting Network Information ${BRed}]
     ${DGrey}|
     ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} User Enumeration  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
     ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} System Groups  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
@@ -5518,11 +5628,54 @@ MainMenu(){
                   echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
                   break
                   ;;
+                  ls )
+                  lahs
+                  ;;
+                esac
+              done
+            ;;
+            cmi|CMI )
+            while true; do
+              cd "${x_Menu_1_CMI}"
+              clear
+              ToolHeaderRun
+              TargetStatusRun
+              HacKingProMenuMain=$(echo "${BRed}
+    ${DGrey}┌──${BRed}[${BYellow} Collecting Machine Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} User Enumeration  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} System Groups  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Network Hosts  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} OS Hostnames  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} OS System Type  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} System Banners  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} SSL Certificates  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Open Ports and More  ${BRed}]${BGreen}── ${BRed}[${DGrey} $XXX ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CMI ${BRed}]${BGreen}──╼ ${BGreen}  ")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                  ls )
+                  lahs
+                  ;;
                 esac
               done
             ;;
             csi|CSI )
             while true; do
+              cd "${x_Menu_1_CSI}"
               clear
               ToolHeaderRun
               TargetStatusRun
@@ -5543,16 +5696,20 @@ MainMenu(){
     ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CSI ${BRed}]${BGreen}──╼ ${BGreen}  ")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
+                  ls )
+                  lahs
+                  ;;
                   x|X|exit|quit|Exit )
                   clear
                   HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
                   echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
                   break
                   ;;
-                  0|00|UserFinder|userfinder )
-                  UserFinder
-                  cd "$XHacKingPro"
-                  read -p "$Press_ENTER"
+                  0|00|uf|UF|UserFinder|userfinder )
+                  cd "${MainDirectoriyCaseNameRecon}"
+                  UserFinder >> "${MainDirectoriyCaseNameRecon}/${targetNAME}-UserFinder.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-UserFinder.log"
+                  read -p "${Press_ENTER}"
                   ;;
                   1|01 )
                   read -p "$Press_Enter_To_START" readstart
@@ -5569,8 +5726,9 @@ MainMenu(){
             ;;
             cpi|CPI )
             Checking_IP_Target
-            cd "${MainDirectoriyCaseNameRecon}"
+            Recon_Start
             while true; do
+              cd "${x_Menu_1_CPI}"
               clear
               ToolHeaderRun
               TargetStatusRun
@@ -5586,8 +5744,7 @@ MainMenu(){
     ${DGrey}|    |──${BRed}[${DGrey} p5 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dirb Scan ${BRed}]
     ${DGrey}|    |──${BRed}[${DGrey} p6 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
     ${DGrey}|    |──${BRed}[${DGrey} p7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nmap Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} show ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} show Scan ${BRed}]
-    ${DGrey}|    ┖──${BRed}[${DGrey} px ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} xxx Scan ${BRed}]
+    ${DGrey}|    ┖──${BRed}[${DGrey} show ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} show Scan ${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
@@ -5615,30 +5772,37 @@ MainMenu(){
                   infoPing
                   ;;
                   p1 )
+                  cd "${MainDirectoriyCaseNameRecon}"
                   # Arp Scan Log
                   infoArp
                   ;;
                   p2 )
+                  cd "${MainDirectoriyCaseNameRecon}"
                   # Nslookup Scan Log
                   infoNsLookUp
                   ;;
                   p3 )
+                  cd "${MainDirectoriyCaseNameRecon}"
                   # Dig Scan Log
                   infoDig
                   ;;
                   p4 )
+                  cd "${MainDirectoriyCaseNameRecon}"
                   # WhoIs Scan Log
                   infoWhois
                   ;;
                   p5 )
+                  cd "${MainDirectoriyCaseNameRecon}"
                   # Dirb Scan Log
                   infoDirb
                   ;;
                   p6 )
+                  cd "${MainDirectoriyCaseNameRecon}"
                   # TraceRoute Scan Log
                   infoTraceRoute
                   ;;
                   p7 )
+                  cd "${MainDirectoriyCaseNameRecon}"
                   # Nmap Scan Log
                   infoNmap
                   ;;
@@ -5647,21 +5811,32 @@ MainMenu(){
             ;;
             cli|CLI )
             while true; do
+              cd "${x_Menu_1_CLI}"
+              MainDirectoriyCaseNameLocal="${MainDirectoriyCaseName}/Local"
+              mkdir "${MainDirectoriyCaseNameLocal}"
               clear
               ToolHeaderRun
               TargetStatusRun
               HacKingProMenuMain=$(echo "${BRed}
-    ${BYellow}${faintT}┌─┲─$resetT${BRed}[${BYellow} Collecting Local Information ${BRed}]
-    ${BYellow}${faintT}| ┖─┲──$resetT${BRed}[${BYellow} Distro ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan}  $(uname) ${BRed}]
-    ${BYellow}${faintT}|   |──$resetT${BRed}[${BYellow} Hostname ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(hostname) ${BRed}]
-    ${BYellow}${faintT}|   |──$resetT${BRed}[${BYellow} System Name ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -s) ${BRed}]
-    ${BYellow}${faintT}|   |──$resetT${BRed}[${BYellow} System Release ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -r) ${BRed}]
-    ${BYellow}${faintT}|   |──$resetT${BRed}[${BYellow} Kernel / Architecture ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -m) ${BRed}]
-    ${BYellow}${faintT}|   |──$resetT${BRed}[${BYellow} Hardware Processor Architecture Name ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -p) ${BRed}]
-    ${BYellow}${faintT}|   ┖─┲$resetT${BRed}[${BYellow} System Version ${BRed}]
-    ${BYellow}${faintT}|     ┖──╼ $resetT${BRed}[${BCyan}  $(uname -v) ${BRed}]
-    ${BYellow}${faintT}|
-    ${BYellow}${faintT}|───$resetT${BRed}[${BYellow} l1|LinPEAS|linpeas|LinPrivEsc  ${BRed}]
+    ${BYellow}${faintT}┌──$resetT${BRed}[${BYellow} Distro ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan}  $(uname) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} Hostname ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(hostname) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} System Name ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -s) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} System Release ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -r) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} Kernel / Architecture ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -m) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} Hardware Processor Architecture Name ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -p) ${BRed}]
+    ${BYellow}${faintT}┖─┲$resetT${BRed}[${BYellow} System Version ${BRed}]
+    ${BYellow}${faintT}  ┖──╼ $resetT${BRed}[${BCyan}  $(uname -v) ${BRed}]
+
+    ${BYellow}${faintT}┌──┲${BRed}[${BYellow} CLI ${BRed}]${BGreen}── ${BRed}[${BYellow} Local Information ${BRed}]
+    ${BYellow}${faintT}|  ┖─┲──${BRed}[${DGrey} l0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} MyIP Scan ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l1 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} LinPEAS {5 Min +-} ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l2 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Local_Net_Info ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l3 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Host_Info ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l4 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} CheckMacSec ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l5 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} LinuxEnum ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l6 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} BasicInfo ${BRed}]
+    ${BYellow}${faintT}|    ┖──${BRed}[${DGrey} l7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} UserInfo ${BRed}]
+    ${BYellow}${faintT}|    ┖──${BRed}[${DGrey} l8 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} PackVersion ${BRed}]
     ${BYellow}${faintT}|
     ${BYellow}${faintT}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
@@ -5682,11 +5857,63 @@ MainMenu(){
                   privilegeEscalation
                   read -p "$Press_ENTER"
                   ;;
+                  l0|myip|MyIP )
+                  echo "${MainDirectoriyCaseNameLocal}"
+                  read -p "$Press_ENTER"
+                  echo "$(bash MyIP ip=${targetIP} all)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-MyIP.txt"
+                  less "${MainDirectoriyCaseNameLocal}/${targetNAME}-MyIP.txt"
+                  read -p "${Press_ENTER}"
+                  ;;
                   l1|LinPEAS|linpeas|LinPrivEsc )
                   clear
-                  LinPrivEsc > LinPrivEsc.log
-                  less -R LinPrivEsc.log
+                  LinPrivEsc >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-LinPrivEsc.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-LinPrivEsc.log"
+                  read -p "${Press_ENTER}"
+                  ;;
+                  l2 )
+                  cd "${MainDirectoriyCaseNameLocal}"
+                  Local_Net_Info >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+                  read -p "${Press_ENTER}"
+                  ;;
+                  l3 )
+                  cd "${MainDirectoriyCaseNameLocal}"
+                  Host_Info  >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Host_Info.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-Host_Info.log"
+                  read -p "${Press_ENTER}"
+                  ;;
+                  l4 )
+                  cd "${x_Menu_1_CLI}"
+                  echo "$(sh CheckMacSec)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-CheckMacSec.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-CheckMacSec.log"
+                  read -p "${Press_ENTER}"
+                  ;;
+                  l5 )
+                  cd "${x_Menu_1_CLI}"
+                  echo "$(sh LinuxEnum)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-LinuxEnum.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-LinuxEnum.log"
+                  read -p "${Press_ENTER}"
+                  ;;
+                  l6 )
+                  cd "${x_Menu_1_CLI}"
+                  echo "$(BasicInfo)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-BasicInfo.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-BasicInfo.log"
                   read -p "$Press_ENTER"
+                  ;;
+                  l7 )
+                  cd "${x_Menu_1_CLI}"
+                  echo "$(UserInfo)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-UserInfo.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-UserInfo.log"
+                  read -p "$Press_ENTER"
+                  ;;
+                  l8 )
+                  cd "${x_Menu_1_CLI}"
+                  echo "$(PackVersion)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-PackVersion.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-PackVersion.log"
+                  read -p "$Press_ENTER"
+                  ;;
+                  ls )
+                  lahs
                   ;;
                 esac
               done
@@ -5695,14 +5922,9 @@ MainMenu(){
             net_info
             break
             ;;
-            0|00|uf|UserFinder|userfinder )
-            UserFinder
-            cd "$XHacKingPro"
-            read -p "$Press_ENTER"
-            ;;
             x|X|exit|quit|Exit )
             clear
-            cd ${XHacKingPro}
+            cd ${MainDirectoriy}
             HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
             echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
             break
@@ -5789,7 +6011,7 @@ MainMenu(){
           HacKingProPlanning
           ;;
           x|X|exit|EXIT )
-          cd $XHacKingPro
+          cd ${MainDirectoriy}
           clear
           break
           ;;
@@ -5832,7 +6054,7 @@ MainMenu(){
           HacKingProPlanning
           ;;
           x|X|exit|EXIT )
-          cd $XHacKingPro
+          cd ${MainDirectoriy}
           clear
           break
           ;;
@@ -5877,7 +6099,7 @@ MainMenu(){
           HacKingProPlanning
           ;;
           x|X|exit|EXIT )
-          cd $XHacKingPro
+          cd ${MainDirectoriy}
           clear
           break
           ;;
@@ -5922,7 +6144,7 @@ MainMenu(){
           HacKingProPlanning
           ;;
           x|X|exit|EXIT )
-          cd $XHacKingPro
+          cd ${MainDirectoriy}
           clear
           break
           ;;
@@ -5967,7 +6189,7 @@ MainMenu(){
           HacKingProPlanning
           ;;
           x|X|exit|EXIT )
-          cd $XHacKingPro
+          cd ${MainDirectoriy}
           clear
           break
           ;;
@@ -6012,7 +6234,7 @@ MainMenu(){
           HacKingProPlanning
           ;;
           x|X|exit|EXIT )
-          cd $XHacKingPro
+          cd ${MainDirectoriy}
           clear
           break
           ;;
@@ -6026,14 +6248,14 @@ MainMenu(){
       cd Menu
       cd AnyTool
       sh AnyTool
-      cd "$MainDirectoriy"
+      cd ${MainDirectoriy}
       ;;
       arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
       Arsenal
       ;;
       x|X|exit|quit|Exit )
       clear
-      cd ${XHacKingPro}
+      cd ${MainDirectoriy}
       HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
       echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
       break
@@ -6052,51 +6274,6 @@ MainMenu(){
       ;;
     esac
   done
-}
-
-#################################################################
-# Network Inferface/Routing/MAC Address info (i.e. IP & NetStat)
-#################################################################
-
-# Display the header message
-# $1 - message
-write_header(){
-	local h="$@"
-	echo "---------------------------------------------------------------"
-	echo "     ${h}"
-	echo "---------------------------------------------------------------"
-}
-
-net_info(){
-	devices=$(netstat -i | cut -d" " -f1 | egrep -v "^Kernel|Iface|lo")
-	write_header " Network information "
-	echo "Total network interfaces found : $(wc -w <<<${devices})"
-  read -p "$Press_ENTER"
-
-	echo "-----------------------"
-	echo "--- IP Address Info ---"
-	echo "-----------------------"
-	ip -4 address show
-  read -p "$Press_ENTER"
-
-	echo "-----------------------"
-	echo "--- Network Routing ---"
-	echo "-----------------------"
-	netstat -nr
-  read -p "$Press_ENTER"
-
-	echo "--------------------------------------"
-	echo "--- Interface Traffic information  ---"
-	echo "--------------------------------------"
-	netstat -i
-  read -p "$Press_ENTER"
-
-	echo "------------------------------"
-	echo "--- MAC/Hardware Addresses ---"
-	echo "------------------------------"
-	cat /sys/class/net/*/address
-	pause
-  read -p "$Press_ENTER"
 }
 
 #########################################################
@@ -7434,8 +7611,8 @@ UserFinder(){
   scanner
   }
 
-###############################################
-#         Run/Start HacKingPro Main Menu
-###############################################
+############################
+#         Run/Start        #
+############################
 
 MainMenu

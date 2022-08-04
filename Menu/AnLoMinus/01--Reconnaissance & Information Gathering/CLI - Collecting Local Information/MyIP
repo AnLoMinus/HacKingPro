@@ -22,7 +22,7 @@ tabs -12
 process="myip"
 vno="0.6.3"
 
-_simple-ip () {
+simple_IP () {
 	if $offline ; then
 		publicip=""
 	else
@@ -46,7 +46,7 @@ _simple-ip () {
 
 _ip () {
 	if ! $ipopt ; then
-		_simple-ip
+		simple_IP
 	fi
 	if [[ $publicip ]] ; then
 		echo -e "Public IP:\t\t\t$publicip"
@@ -286,9 +286,11 @@ _local () {
 	netbios=$(smbutil status -e "$apaddr" 2>/dev/null | awk -F": " '/^Server:/{print $2}')
 	! [[ $netbios ]] && netbios="-"
 	echo -e "Gateway NetBIOS name:\t\t$netbios"
+
 	if ! [[ $wifi_full ]] ; then
 		wifi_full=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I 2>/dev/null)
 	fi
+
 	wifi_raw=$(echo "$wifi_full" | grep "SSID:")
 	if [[ $wifi_raw ]] ; then
 		ssid=$(echo "$wifi_raw" | grep -v "BSSID:" | awk -F": " '/SSID:/{print $NF}')
@@ -504,11 +506,11 @@ EOG
 
 _help () {
 	read -d '' helpdoc <<"EOH"
-myip [--ip=<IP address>] [ARG(s)]
+myip ip=<IP address> <ARGUMENTS>
 
 	OPTION
 
-	--ip=	:	input your public IP, if it is already known
+	ip=	:	input your public IP, if it is already known
 
 	OUTPUT ARGUMENTS
 
@@ -551,7 +553,7 @@ email=false
 ipopt=false
 dnslytics=false
 
-if [[ $1 == "--ip="* ]] ; then
+if [[ $1 == "ip="* ]] ; then
 	publicip=$(echo "$1" | awk -F"=" '{print $2}')
 	if ! [[ $publicip ]] ; then
 		echo -e "ERROR: IP address input missing!\n" >&2
@@ -817,7 +819,7 @@ fi
 
 if $simpleip ; then
 	if ! $ipopt ; then
-		_simple-ip
+		simple_IP
 	fi
 	! [[ $publicip ]] && publicip="-"
 	echo -e "Public IP:\t$publicip"
