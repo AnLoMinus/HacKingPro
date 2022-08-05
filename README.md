@@ -49,10 +49,16 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 ---
 
 # Tested on:
-- [x] MacOS
-- [ ] Parrot
-- [ ] Kali Linux
-- [ ] Windows
+- [x] [MacOS]()
+- [ ] [Parrot](https://parrotsec.org/download/)
+- [ ] [Ubuntu](https://www.ubuntu.com/download/)
+- [ ] [Debian](https://www.debian.org/distrib/ftplist)
+- [ ] [Fedora](https://admin.fedoraproject.org/mirrormanager/mirrors)
+- [ ] [Arch Linux](http://www.archlinux.org/download/)
+- [ ] [Kali Linux](https://www.kali.org/get-kali/)
+- [ ] [Linux Mint 21 "Vanessa"](https://linuxmint.com/download.php)
+- [ ] [Windows]()
+
 
 ---
 
