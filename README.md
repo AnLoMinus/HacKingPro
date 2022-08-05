@@ -31,7 +31,8 @@
 
 Before Planning | After Planning
 :---:|:---:
-<img width="868" alt="image" src="https://user-images.githubusercontent.com/51442719/182556211-76047a2f-29a1-4781-a9a8-794f04abcdad.png"> | <img width="849" alt="image" src="https://user-images.githubusercontent.com/51442719/182556307-6c96ab91-fa58-41b1-98a7-aa4332599500.png">
+<img width="824" alt="image" src="https://user-images.githubusercontent.com/51442719/182826815-0d8ed6dc-f9d4-4bf1-9894-8cf8a14d9c0e.png"> | <img width="843" alt="image" src="https://user-images.githubusercontent.com/51442719/182826892-5906e458-ef66-435b-ad0f-f5d68bc46c95.png">
+
 
 
 
@@ -48,10 +49,16 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 ---
 
 # Tested on:
-- [x] MacOS
-- [ ] Parrot
-- [ ] Kali Linux
-- [ ] Windows
+- [x] [MacOS]()
+- [ ] [Parrot](https://parrotsec.org/download/)
+- [ ] [Ubuntu](https://www.ubuntu.com/download/)
+- [ ] [Debian](https://www.debian.org/distrib/ftplist)
+- [ ] [Fedora](https://admin.fedoraproject.org/mirrormanager/mirrors)
+- [ ] [Arch Linux](http://www.archlinux.org/download/)
+- [ ] [Kali Linux](https://www.kali.org/get-kali/)
+- [ ] [Linux Mint 21 "Vanessa"](https://linuxmint.com/download.php)
+- [ ] [Windows]()
+
 
 ---
 
