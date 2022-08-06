@@ -1192,7 +1192,7 @@ Checking_IP_Target(){
 CheckInternetConnection(){
   ping -c 1 google.com > /dev/null 2>&1
   if [[ "$?" == 0 ]]; then
-    InternetStatus="\n     ${DGrey}[${BGreen}+${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BGreen}${slowBlink} True ${resetT}${DGrey}]\n"
+    InternetStatus="\n     ${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${DGrey}[${BGreen}${slowBlink} True ${resetT}${DGrey}]${BYellow}${faintT}───────╼${resetT}${BYellow}▰▰▰\n"
     echo "${InternetStatus}"
     read -p "${Press_ENTER}"
   else
@@ -1204,17 +1204,17 @@ CheckInternetConnection(){
 CheckInternetConnection
 
 ###############################################
-#         Header Status
+#         Tool Header Status
 ###############################################
 
 ToolHeaderRun(){
   ToolHeader=$(echo "
-    ${BGreen}${faintT}┌──╼ ${resetT}${BRed}[${BCyan}${faintT} Version${resetT} ${BRed}]${BGreen}${faintT}──────╼${resetT} ${BRed}[${BCyan} ${MyVersion} ${BRed}]
-    ${BGreen}${faintT}|──╼ ${resetT}${BRed}[${BCyan}${faintT} Aouther${resetT} ${BRed}]${BGreen}${faintT}──────╼${resetT} ${BRed}[${BCyan} ${Anlominus} ${BRed}]
-    ${BGreen}${faintT}|──╼ ${resetT}${BRed}[${BCyan}${faintT} Tool Name${resetT} ${BRed}]${BGreen}${faintT}────╼${resetT} ${BRed}[${BCyan} $boldT$slowBlink${HacKingPro}$resetT ${BRed}]
-    ${BGreen}${faintT}|──╼ ${resetT}${BRed}[${BCyan}${faintT} Last Update${resetT} ${BRed}]${BGreen}${faintT}──╼${resetT} ${BRed}[${BCyan} ${LastUPDATE} ${BRed}]
-    ${BGreen}${faintT}|──╼ ${resetT}${BRed}[${BCyan}${faintT} Current PID${resetT} ${BRed}]${BGreen}${faintT}──╼${resetT} ${BRed}[${BCyan} $currentPID ${BRed}]
-    ${BGreen}${faintT}└──╼ ${resetT}${BRed}[${BCyan}${faintT} Source${resetT} ${BRed}]${BGreen}${faintT}───────╼${resetT} ${BRed}[${DGrey} ${ToolSource} ${BRed}]")
+    ${BGreen}${faintT}┌──╼ ${resetT}${BRed}[${BCyan}${faintT} Version${resetT} ${BRed}]${BGreen}${faintT}──────${resetT}${BGreen}▰${resetT} ${BRed}[${BCyan} ${MyVersion} ${BRed}]
+    ${BGreen}${faintT}|──╼ ${resetT}${BRed}[${BCyan}${faintT} Aouther${resetT} ${BRed}]${BGreen}${faintT}──────${resetT}${BGreen}▰${resetT} ${BRed}[${BCyan} ${Anlominus} ${BRed}]
+    ${BGreen}${faintT}|──╼ ${resetT}${BRed}[${BCyan}${faintT} Tool Name${resetT} ${BRed}]${BGreen}${faintT}────${resetT}${BGreen}▰${resetT} ${BRed}[${BCyan} $boldT$slowBlink${HacKingPro}$resetT ${BRed}]
+    ${BGreen}${faintT}|──╼ ${resetT}${BRed}[${BCyan}${faintT} Last Update${resetT} ${BRed}]${BGreen}${faintT}──${resetT}${BGreen}▰${resetT} ${BRed}[${BCyan} ${LastUPDATE} ${BRed}]
+    ${BGreen}${faintT}|──╼ ${resetT}${BRed}[${BCyan}${faintT} Current PID${resetT} ${BRed}]${BGreen}${faintT}──${resetT}${BGreen}▰${resetT} ${BRed}[${BCyan} $currentPID ${BRed}]
+    ${BGreen}${faintT}└──╼ ${resetT}${BRed}[${BCyan}${faintT} Source${resetT} ${BRed}]${BGreen}${faintT}───────${resetT}${BGreen}▰${resetT} ${BRed}[${DGrey} ${ToolSource} ${BRed}]")
     echo "$ToolHeader"
 }
 
@@ -1222,10 +1222,23 @@ ToolHeaderRun(){
 #         Target Status
 ###############################################
 
+TargetStatus(){
+  echo "
+    ${ORANGE}${faintT}┌──╼${resetT}${BBlue}┤${ORANGE} Target Status ${BBlue}├${ORANGE}${faintT}───────╼${resetT}${BCyan}▰▰▰
+    ${ORANGE}${faintT}│
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetIP)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}IP${BBlue}: ${BGreen}${targetIP}
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetDns)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Dns${BBlue}: ${BGreen}${targetDns}
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetName)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Name${BBlue}: ${BGreen}${targetNAME}
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Email${BBlue}: ${BGreen}${targetEmail}
+    ${ORANGE}${faintT}|──╼${resetT}${ORANGE} ◈ ${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${ORANGE}${faintT}│
+    ${ORANGE}${faintT}└───────────────────────────────╼${resetT}${BCyan}▰▰▰
+"
+}
 TargetStatusRun(){
   ToolStatus=$(echo "
     ${InternetStatus}
-    ${BCyan}${faintT}┌──${resetT}${BRed}[${DGrey} ${slowBlink}P${resetT} ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${BCyan}${faintT}┌──${resetT}${BRed}[${BCyan} ${slowBlink}P${resetT} ${BRed}]${faintT}${BCyan}──${resetT}${BCyan}╼▰ ${BRed}[${faintT}${BCyan} ⚡️ Planning and Scoping 🎯 ${BRed}]${BCyan}${faintT}───────╼${resetT}${BCyan}▰▰▰
     ${BCyan}${faintT}|
     ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} Full Time ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} $(date) ${BRed}]
     ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} Current Date ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
@@ -1237,7 +1250,7 @@ TargetStatusRun(){
     ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Email${BBlue}: ${BGreen}${targetEmail}
     ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Phone${BBlue}: ${BGreen}${targetPhone}
     ${BCyan}${faintT}|
-    ${BCyan}${faintT}└──${resetT}${BRed}[${DGrey} CL ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} Cleaning Target Variables ${BRed}]
+    ${BCyan}${faintT}└──${resetT}${BRed}[${BCyan} CL ${BRed}]${faintT}${BCyan}──${resetT}${BCyan}╼▰ ${BRed}[${faintT}${BCyan} Cleaning Target Variables ${BRed}]${BCyan}${faintT}───────╼${resetT}${BCyan}▰▰▰
     ")
     echo "$ToolStatus"
 }
@@ -7938,42 +7951,43 @@ MainMenu(){
   while true; do
     clear
     cd "${MainDirectoriy}"
+    TargetStatus
     ToolHeaderRun
     TargetStatusRun
     HacKingProMenuMain=$(echo "${BRed}
-    ${BYellow}${faintT}┌──${resetT}${BRed}[${BYellow} ${HacKingPro} ${BRed}]
+    ${BYellow}${faintT}┌──${resetT}${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BYellow}${faintT}───────╼${resetT}${BYellow}▰▰▰
     ${BYellow}${faintT}|
-    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} 00 ${BRed}]${BYellow}${faintT}── ${resetT}${BRed}[${BYellow} Anonymity ${BRed}]
+    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 00 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Anonymity ${BRed}]
     ${BYellow}${faintT}|  ┖──────────╼ ${BRed}[${BYellow} Anonymity ${BRed}]
     ${BYellow}${faintT}|
-    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} 1 ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Reconnaissance & Information Gathering ${BRed}]
+    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 1 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Reconnaissance & Information Gathering ${BRed}]
     ${BYellow}${faintT}|  ┖──────────╼ ${BRed}[${BYellow} Get Information about the Target Organization ${BRed}]
     ${BYellow}${faintT}|
-    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} 2 ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Weaponization ${BRed}]
+    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 2 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Weaponization ${BRed}]
     ${BYellow}${faintT}|  ┖──────────╼ ${BRed}[${BYellow} Create Malicious Program or Exploits ${BRed}]
     ${BYellow}${faintT}|
-    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} 3 ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Delivery ${BRed}]
+    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 3 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Delivery ${BRed}]
     ${BYellow}${faintT}|  ┖──────────╼ ${BRed}[${BYellow} Send Weaponized Program to Target ${BRed}]
     ${BYellow}${faintT}|
-    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} 4 ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Exploitation ${BRed}]
+    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 4 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Exploitation ${BRed}]
     ${BYellow}${faintT}|  ┖──────────╼ ${BRed}[${BYellow} Start Weaponized Program Attacks the Target ${BRed}]
     ${BYellow}${faintT}|
-    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} 5 ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Installation ${BRed}]
+    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 5 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Installation ${BRed}]
     ${BYellow}${faintT}|  ┖──────────╼ ${BRed}[${BYellow} Install Malware on the Target System, Which Allows Control Remotely ${BRed}]
     ${BYellow}${faintT}|
-    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} 6 ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Command and Control ${BRed}]
+    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 6 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Command and Control ${BRed}]
     ${BYellow}${faintT}|  ┖──────────╼ ${BRed}[${BYellow} Use Malware to take control of Target System ${BRed}]
     ${BYellow}${faintT}|
-    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} 7 ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Actions on Objective ${BRed}]
+    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 7 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Actions on Objective ${BRed}]
     ${BYellow}${faintT}|  ┖──────────╼ ${BRed}[${BYellow} Destruction ${BRed}]
     ${BYellow}${faintT}|
     ${BYellow}${faintT}└──${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BGreen}   ")
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       "?"|help|about|About )
