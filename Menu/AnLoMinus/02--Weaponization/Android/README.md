@@ -41,3 +41,21 @@ bash shotdroid.sh
 ### Video Demo: 
 - Android Files: [Kali Tutorial](https://www.youtube.com/watch?v=9eGniotVgKg)
 - Android Keylogger: [Kali Tutorial](https://www.youtube.com/watch?v=l-9YhrKonDY)
+
+
+---
+
+## [OASAM](https://github.com/b66l/OASAM)
+#### OASAM is the acronym of Open Android Security Assessment Methodology and its purpose is to become a reference framework on Android application vulnerability assessments.
+
+### Security controls are structured in the following sections:
+1. **[OASAM-INFO](https://github.com/b66l/OASAM/tree/master/oasam-info-information-gathering)**:  Information Gathering:  Information gathering and attack surface definition.
+2. **[OASAM-CONF](https://github.com/b66l/OASAM/tree/master/oasam-conf-configuration-and-deploy-management)**: Configuration and Deploy Management: Configuration and deploy assessment.
+3. **[OASAM-AUTH](https://github.com/b66l/OASAM/tree/master/oasam-auth-authentication)**: Authentication: Authentication assessment.
+4. **[OASAM-CRYPT](https://github.com/b66l/OASAM/tree/master/oasam-crypt-cryptography)**:  Cryptography: Cryptography use assessment.
+5. **[OASAM-LEAK](https://github.com/b66l/OASAM/tree/master/oasam-leak-information-leak)**: Information Leak: Confidential information leak assessment.
+6. **[OASAM-DV](https://github.com/b66l/OASAM/tree/master/oasam-dv-data-validation)**: Data Validation:User entry management assessment.
+7. **[OASAM-IS](https://github.com/b66l/OASAM/tree/master/oasam-is-intent-spoofing)**: Intent Spoofing: Intent reception management assessment.
+8. **[OASAM-UIR](https://github.com/b66l/OASAM/tree/master/oasam-uir-unauthorized-intent-receipt)**: Unauthorized Intent Receipt:Intent resolution assessment.
+9. **[OASAM-BL Business Logic](https://github.com/b66l/OASAM/tree/master/oasam-bl-business-logic)**: Application business logic assessment.
+
