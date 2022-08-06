@@ -7951,7 +7951,6 @@ MainMenu(){
   while true; do
     clear
     cd "${MainDirectoriy}"
-    TargetStatus
     ToolHeaderRun
     TargetStatusRun
     HacKingProMenuMain=$(echo "${BRed}
