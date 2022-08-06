@@ -41,6 +41,31 @@
 #                             ---                             #
 #                                                             #
 ###############################################################
+if [ ${1} == "-d" ]; then
+  #statements
+  if [ -z ${2} ]; then
+    #statements
+    echo "    Need Domain/URL    "
+    exit
+  fi
+  targetDns=$2
+fi
+if [ ${1} == "-i" ]; then
+  #statements
+  if [ -z ${2} ]; then
+    #statements
+    echo "    Need IP Address    "
+    exit
+  fi
+  targetDns=$2
+fi
+
+if [ ! -z "$targetDns" ]; then
+  #statements
+  GetIP="$(ping -c 1 "${targetDns}" | grep ttl | cut -d " " -f4 |  tr  -d :)"
+  targetIP="${GetIP}"
+fi
+
 ###############################################
 
 clear
@@ -285,11 +310,20 @@ InvalidOption=$(echo "\n\t\t ${BGreen}»»» ${HacKingPro} ${LRed}Invalid Option
 #         Checking Running Direction
 ###############################################
 
+BeautyPrint(){
+  echo "\n"
+  echo "    ${ORANGE}${faintT}┌╼  $1 $2 $3 $4 "
+  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
+  echo "    ${resetT}${ORANGE}|──╼ $5 "
+  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
+  echo "    ${ORANGE}${faintT}└╼  $1 $2 $3 $4 "
+  echo "\n"
+}
 
 CheckPWD(){
   # Define Current Direction Variable
   MainDirectoriy="$(pwd)"
-  dcdv="$(echo "Define Current Direction Variable")"
+  dcdv=$(echo "Define Current Direction Variable")
   BeautyPrint ${dcdv} ${MainDirectoriy}
 }
 CheckPWD
@@ -304,14 +338,6 @@ currentPID=$(echo "$thisPID")
 #########################################
 #         HacKingPro Variables          #
 #########################################
-
-BeautyPrint(){
-  echo "    ${ORANGE}${faintT}┌╼  $1 $2 $3 $4 "
-  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
-  echo "    ${resetT}${ORANGE}|──╼ $5 "
-  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
-  echo "    ${ORANGE}${faintT}└╼  $1 $2 $3 $4 "
-}
 
 XplorerPro(){
   cd "${MainDirectoriyCaseName}"
@@ -686,7 +712,6 @@ ReadTargetIPFromtheUser(){
 # This Variable is for AttacKing ~> IP Addresses .
 t1="$(echo "\n          ${BBlue}|──[ 🎯 ]──[${BRed} IP ${BBlue}]──╼  ")"
 read -p "$t1" targetIP
-
 if [ -z ${targetIP} ]; then
   if [ ! -z ${targetDns} ]; then
     #statements
@@ -709,8 +734,11 @@ ReadTargetURLFromtheUser(){
 # This Variable is for OSINT and AttacKing ~> URL / Domain / Dns / Server/ Websites .
 t2="$(echo "\n          ${BBlue}|──[ 🎯 ]──[${BRed} URL ${BBlue}]──╼  ")"
 read -p "$t2" targetDns
-if [ -z "$targetDns" ]; then
+if [ ! -z "$targetDns" ]; then
   #statements
+  GetIP="$(ping -c 1 "${targetDns}" | grep ttl | cut -d " " -f4 |  tr  -d :)"
+  targetIP="${GetIP}"
+else
   targetDns="xXx.AnLoMinus.xXx"
 fi
 }
@@ -1037,6 +1065,50 @@ Recon_Start(){
 }
 
 ###############################################
+#         HacKingPro Android Planning
+###############################################
+
+AndroidPlan(){
+while  true; do
+  #statements
+  # cd "${MainDirectoriyCaseNameRecon}"
+  # mkdir "${MainDirectoriyCaseNameRecon}/Android"
+  clear
+  cd "${x_Menu_2_Android}"
+  AndroidPlanningMainMenu="$(echo "
+    ${BGreen}${faintT}┌──${resetT}${BGreen}╼▰${BGreen}${faintT}┤${resetT}${BGreen}${slowBlink} Android Planning ${resetT}${BGreen}${faintT}├${resetT}${BGreen}${faintT}───────${resetT}${BGreen}╼▰▰▰
+    ${BGreen}${faintT}│
+    ${BGreen}${faintT}|──${resetT}${BGreen}╼▰ ${resetT}${BRed}[${DGrey}$(FunTargetIP)${BRed}]${BGreen}${faintT}──${resetT}${BGreen}╼▰ ${resetT}${ORANGE}◈ ${LRed}${faintT}IP${BBlue}: ${BGreen}${targetIP}
+    ${BGreen}${faintT}|──${resetT}${BGreen}╼▰ ${resetT}${BRed}[${DGrey}$(FunTargetName)${BRed}]${BGreen}${faintT}──${resetT}${BGreen}╼▰ ${resetT}${ORANGE}◈ ${LRed}${faintT}Name${BBlue}: ${BGreen}${targetNAME}
+    ${BGreen}${faintT}|──${resetT}${BGreen}╼▰ ${resetT}${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BGreen}${faintT}──${resetT}${BGreen}╼▰ ${resetT}${ORANGE}◈ ${LRed}${faintT}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${BGreen}${faintT}│
+    ${BGreen}${faintT}└───────────────────────────────${resetT}${BGreen}╼▰▰▰  ")"
+  read -p "${AndroidPlanningMainMenu}" cmd
+  case $cmd in
+    x|X|exit|quit|Exit )
+    clear
+    cd ${MainDirectoriy}
+    HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+    echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+    break
+    ;;
+    p|P )
+    HacKingProPlanning
+    ;;
+    cl )
+    ClearTarget
+    ;;
+    ls )
+    lahs
+    ;;
+    * )
+    echo "$InvalidOption"
+    ;;
+  esac
+done
+}
+
+###############################################
 #         Checking
 ###############################################
 
@@ -1352,6 +1424,7 @@ xDirectories(){
   x_Menu_1_CMI="${x_Menu_1}CMI - Collecting Machine Information/"
   x_Menu_1_CPI="${x_Menu_1}CPI - Collecting Public Information/"
   x_Menu_2="${MainDirectoriy}/Menu/AnLoMinus/02--Weaponization"
+  x_Menu_2_Android="${x_Menu_2}/Android"
   x_Menu_2_BrutePort="${x_Menu_2}/Brute Force"
   x_Menu_2_Winndows="${x_Menu_2}/Windows"
   x_Menu_3="${MainDirectoriy}/Menu/AnLoMinus/03--Delivery/"
@@ -7041,6 +7114,443 @@ UserFinder(){
   scanner
   }
 
+SubDomFind(){
+  #!/usr/local/bin/bash
+  # src: https://github.com/UncleJ4ck/Boxer/blob/main/boxer.sh
+
+  which nmap
+  if [ ${?} == 1 ]; then
+      echo " "
+      echo "${BRed} [-] ${resetT}Nmap is not installed. Installing nmap."
+      echo " "
+      sudo apt-get -y install nmap
+      clear
+    else
+      echo " "
+      echo "${BGreen} [+] ${resetT}Nmap is installed. Starting nmap."
+      echo " "
+  fi
+
+  which dirb
+  if [ ${?} == 1 ]; then
+      echo " "
+      echo "${BRed} [-] ${resetT}Dirb is not installed. Installing dirb."
+      echo " "
+      sudo apt-get -y install dirb
+      clear
+    else
+      echo " "
+      echo "${BGreen} [+] ${resetT}dirb is installed. Starting dirb."
+      echo " "
+  fi
+
+  which gobuster
+  if [ ${?} == 1 ]; then
+      echo " "
+      echo "${BRed} [-] ${resetT}Gobuster is not installed. Installing gobuster."
+      echo " "
+      sudo apt-get -y install gobuster
+      clear
+    else
+      echo "${BGreen} [+] ${resetT}gobuster is installed. Starting gobuster."
+  fi
+
+  which enum4linux
+  if [ ${?} == 1 ]; then
+      echo " "
+      echo "${BRed} [-] ${resetT}enum4linux is not installed. Installing enum4linux."
+      echo " "
+      sudo apt-get install enum4linux
+      clear
+    else
+      echo " "
+      echo "${BGreen} [+] ${resetT}enum4linux is installed. Starting enum4linux."
+      echo " "
+  fi
+
+  which showmount
+  if [ ${?} == 1 ]; then
+      echo " "
+      echo "${BRed} [-] ${resetT}nfs-common is not installed. Installing nfs-common."
+      echo " "
+      sudo apt-get install rpcbind nfs-common
+      clear
+    else
+      echo " "
+      echo "${BGreen} [+] ${resetT}nfs-common is installed. Starting nfs-common."
+      echo " "
+  fi
+
+  if [ -d "./reports" ]; then
+    rm -rf ./reports
+    mkdir ./reports
+  else
+      mkdir ./reports
+  fi
+
+  if [ $# -eq 0 ]; then
+      echo " "
+      echo "Usage: ./boxer.sh <target>"
+      echo " "
+      exit 1
+  fi
+
+  ([ -d "./reports/$1" ] && echo "${BRed} [-] ${resetT}Folder target already exists, creating new one..." && rm -rf ./reports/$1 && mkdir ./reports/$1) || mkdir ./reports/$1
+
+  if [[ $1 =~ ^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$ || $1 =~ ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$ ]]; then
+      echo " "
+      echo "  ____   ____"
+      echo " |  _ \ / __ \ "
+      echo " | |_) | |  | |_  _____ _ __ "
+      echo " |  _ <| |  | \ \/ / _ \ '__|"
+      echo " | |_) | |__| |>  <  __/ |"
+      echo " |____/ \____//_/\_\___|_|"
+      echo " "
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}Starting on $1"
+      echo " "
+  else
+      echo " "
+      echo "${BRed} [-] ${resetT}Invalid domain name."
+      echo " "
+
+      exit 1
+  fi
+
+  # Run Command #
+  ping -c 1 $1 > /dev/null 2>&1
+
+  if [ $? -ne 0 ]; then
+      echo " "
+      echo "${BRed} [-] ${resetT}I can't reach the host: $1! please check you vpn connection."
+      echo " "
+
+      exit 1
+  fi
+
+  echo " "
+  echo "${BGreen} [+] ${resetT}Running | nmap -sC -sV -p 1-10000 $1 ./reports/$1/nmap.txt | 5 Minute scan +/- .. "
+  echo " "
+
+  # Run Command #
+  # nmap -T5 -A -sC -sV -p 1-10000 $1 -oN ./reports/$1/nmap.txt # &> /dev/null
+
+  echo " "
+  echo "${BGreen} [+] ${resetT}Getting open ports..."
+  echo " "
+
+  if [ $(cat ./reports/$1/nmap.txt | grep open | wc -l) -gt 0 ]; then
+    # Run Command #
+    cat ./reports/$1/nmap.txt | grep open
+  else
+    echo " "
+    echo "${BRed} [-] ${resetT}No open ports found."
+    echo " "
+
+    rm -r ./reports/$1
+    exit 1
+  fi
+
+  if [ $(cat ./reports/$1/nmap.txt | grep ftp -m 1 | wc -l) -gt 0 ]; then
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}FTP service found."
+      echo " "
+
+      FTP_PORT=$(cat ./reports/$1/nmap.txt | grep ftp -m 1 | cut -d "/" -f 1)
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}FTP port: $FTP_PORT"
+      echo " "
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}Checking if FTP anon login is enabled..."
+      echo " "
+
+      if [ $? == "Login incorrect." ]; then
+          echo " "
+          echo "${BRed} [-] ${resetT}FTP anonymous login is not enabled."
+          echo " "
+      else
+          echo " "
+          echo "${BGreen} [+] ${resetT}FTP anonymous login is enabled."
+          echo " "
+      fi
+  fi
+
+  echo " "
+  echo "${BGreen} [+] ${resetT}Checking if there is any web server running on the target..."
+  echo " "
+
+  if [ $(cat ./reports/$1/nmap.txt | grep http | wc -l) -gt 0 ]; then
+    for i in $(cat ./reports/$1/nmap.txt | grep open | grep http | cut -d "/" -f 1); do
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}HTTP port: $i"
+      echo " "
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}Running dirb..."
+      echo " "
+
+      # Run Command #
+      dirb http://$1:$i -o ./reports/$1/dirb-$i.txt &> /dev/null
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}Getting paths from dirb output..."
+      echo " "
+
+      if [ $(grep -Eo '(http|https)://[^/"]+/.* ' ./reports/$1/dirb-$i.txt | wc -l) -gt 1 ]; then
+
+        echo " "
+        echo "${BGreen} [+] ${resetT}Paths found for http://$1:$i/ :"
+        echo " "
+
+        grep -Eo '${BGreen}[*]${resetT}(http|https)://[^/"]+/.* ' ./reports/$1/dirb-$i.txt | sort -u | uniq
+      else
+        echo "${BRed} [-] ${resetT}No paths found from dirb output."
+      fi
+    done
+  else
+
+    echo " "
+    echo "${BRed} [-] ${resetT}HTTP services not found"
+    echo " "
+
+    exit 1
+  fi
+
+  echo " "
+  echo "${BGreen} [+] ${resetT}Running gobuster for vhosts discovery..."
+  echo " "
+
+  # Run Command #
+  gobuster vhost -u https://$1 -w ./wordlists/vhosts.txt -t 100 -r -m 5 -o ./reports/$1/gobuster_vhosts.txt &> /dev/null
+
+  if [ $(cat ./reports/$1/gobuster_vhosts.txt | grep "Found" | wc -l) -gt 0 ]; then
+
+    echo " "
+    echo "${BGreen} [+] ${resetT}Vhosts found: "
+    echo " "
+
+    # Run Command #
+    cat ./reports/$1/gobuster_vhosts.txt | grep "Found" | awk '{print $2}'
+
+    echo " "
+    echo "${BGreen} [+] ${resetT}Running dirb..."
+    echo " "
+
+    for i in $(cat ./reports/$1/gobuster_vhosts.txt | grep "Found" | awk '{print $2}'); do
+
+      # Run Command #
+      dirb http://$i -o ./reports/$1/dirb-$i.txt &> /dev/null
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}Getting paths from dirb output..."
+      echo " "
+
+      if [ $(grep -Eo '(http|https)://[^/"]+/.* ' ./reports/$1/dirb-$i.txt | wc -l) -gt 1 ]; then
+
+        echo " "
+        echo "${BGreen} [+] ${resetT}Paths found for http://$i/ :"
+        echo " "
+
+        grep -Eo '(http|https)://[^/"]+/.* ' ./reports/$1/dirb-$i.txt | sort -u | uniq
+      else
+
+        echo " "
+        echo "${BRed} [-] ${resetT}No paths found from dirb output."
+        echo " "
+
+      fi
+    done
+  else
+    echo "${BRed} [-] ${resetT}No vhosts found."
+  fi
+
+  echo "${BGreen} [+] ${resetT}Checking for SMB..."
+  if [ $(cat ./reports/$1/nmap.txt | grep netbios-ssn | wc -l) -gt 0 ]; then
+    for i in $(cat ./reports/$1/nmap.txt | grep open | grep netbios-ssn | cut -d "/" -f 1); do
+      SMB=$(cat ./reports/$1/nmap.txt | grep open | grep netbios-ssn | grep 445 | cut -d "/" -f 1)
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}SMB found: "
+      echo " "
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}SMB port: $i / $SMB"
+      echo " "
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}Running Enum4Linux..."
+      echo " "
+
+      # Run Command #
+      enum4linux $1 -a &> ./reports/$1/enum-smb-$1.txt
+
+      echo " "
+      echo "${BGreen}[*]${resetT}Do you want to see the report ?"
+      echo " "
+
+      echo " "
+      echo "${BGreen}[*]${resetT}1) Yes "
+      echo " "
+
+      echo " "
+      echo "${BGreen}[*]${resetT}2) No "
+      echo " "
+
+      echo " "
+      echo "${BGreen}[*]${resetT}Option: "; read option
+      echo " "
+
+      case $option in
+      Yes | yes | 1)
+      head ./reports/$1/enum.txt
+      ;;
+      No | no | 2)
+      echo " "
+      echo "${BGreen} [+] ${resetT}Let's go to the next service"
+      echo " "
+      ;;
+      *)
+      echo " "
+      echo "${BRed} [-] ${resetT}Invalid answer! Please try again!"
+      echo " "
+      ;;
+    esac
+  done
+  else
+    echo " "
+    echo "${BRed} [-] ${resetT}SMB service not found"
+    echo " "
+  fi
+
+  echo " "
+  echo "${BGreen} [+] ${resetT}Checking for NFS..."
+  echo " "
+  if [ $(cat ./reports/$1/nmap.txt | grep nfs | wc -l) -gt 0 ]; then
+    for i in $(cat ./reports/$1/nmap.txt | grep open | grep nfs | cut -d "/" -f 1); do
+      echo " "
+      echo "${BGreen} [+] ${resetT}NFS found: "
+      echo " "
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}NFS port: $i"
+      echo " "
+
+      showmount -e $1
+    done
+  else
+    echo " "
+    echo "${BRed} [-] ${resetT}No NFS Shares found."
+    echo " "
+  fi
+
+  echo " "
+  echo "${BGreen} [+] ${resetT}Checking for MySQL..."
+  echo " "
+
+  # Run Command #
+  nmap -sV -p3306 --script=mysql-enum,mysql-databases,mysql-brute,mysql-users,mysql-audit,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-variables $1 -oN ./reports/$1/nmap-mysql.txt &> /dev/null
+  if [[ $(cat ./reports/$1/nmap-mysql.txt | grep mysql) = "0" ]]; then
+    for i in $(cat ./reports/$1/nmap-mysql.txt | grep open | grep mysql | cut -d "/" -f 1); do
+      echo " "
+      echo "${BGreen} [+] ${resetT}MySQL found: "
+      echo " "
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}MySQL port: $i"
+      echo " "
+
+      echo " "
+      echo "${BGreen} [+] ${resetT}Getting all infos about MySQL..."
+      echo " "
+
+      cat ./reports/$1/nmap-mysql.txt | grep "|"
+
+      echo " "
+    done
+  else
+    echo " "
+    echo "${BRed} [-] ${resetT}MySQL services not found"
+    echo " "
+  fi
+
+
+  echo " "
+  echo "${BGreen} [+] ${resetT}Checking for RDP..."
+  echo " "
+  # Run Command #
+  nmap -sV --script=rdp-enum-encryption,rdp-vuln-ms12-020,rdp-ntlm-info -p3389 -T4 $1 -oN ./reports/$1/nmap-rdp.txt &> /dev/null
+      if [[ "$(cat ./reports/$1/nmap-rdp.txt | grep ms-wbt-server)" = "0" ]]; then
+          for i in $(cat ./reports/$1/nmap-rdp.txt | grep open | grep ms-wbt-server | cut -d "/" -f 1); do
+              echo " "
+              echo "${BGreen} [+] ${resetT}RDP found: "
+              echo " "
+
+              echo " "
+              echo "${BGreen} [+] ${resetT}RDP port: $i"
+              echo " "
+
+              echo " "
+              echo "${BGreen} [+] ${resetT}Getting all infos about RDP..."
+              echo " "
+
+              echo " "
+              cat ./reports/$1/nmap-rdp.txt | grep "|"
+              echo " "
+          done
+      else
+              echo " "
+              echo "${BRed} [-] ${resetT}RDP service not found"
+              echo " "
+  fi
+
+
+  echo " "
+  echo "${BGreen} [+] ${resetT}Checking for Telnet..."
+  echo " "
+
+  # Run Command #
+  nmap -sV --script telnet-encryption,telnet-ntlm-info,telnet-brute --script-args userdb=myusers.lst,passdb=mypwds.lst,telnet-brute.timeout=8s -p23,8012 -vvv $1 -oN ./reports/$1/nmap-telnet.txt &> /dev/null
+      if [[ "$(cat ./reports/$1/nmap-telnet.txt | grep -E 'open | closed'| grep -E 'telnet | unknown')" = "0" ]]; then
+          for i in $(cat ./reports/$1/nmap-telnet.txt | grep -E 'open | closed'| grep -E 'telnet | unknown'); do
+              TLN=$(cat ./reports/$1/nmap-telnet.txt  | grep -E 'open | closed' | grep 8012 | cut -d "/" -f 1)
+              echo " "
+              echo "${BGreen} [+] ${resetT}Telnet found: "
+              echo " "
+
+              echo " "
+              echo "${BGreen} [+] ${resetT}Telnet port: $i/$TLN"
+              echo " "
+
+              echo " "
+              echo "${BGreen} [+] ${resetT}Getting all infos about Telnet..."
+              echo " "
+
+              echo " "
+              cat ./reports/$1/nmap-telnet.txt | grep "|"
+              echo " "
+
+          done
+      else
+              echo " "
+              echo "${BRed} [-] ${resetT}Telnet service not found"
+              echo " "
+  fi
+
+  echo " "
+  echo "${BGreen}[*]${resetT}You can check the report at the reports/$1 directory"
+  echo " "
+  echo "${BGreen}[*]${resetT}Good Hacking !"
+  echo " "
+
+  exit 0
+
+}
+
 #---------------------------------------#
 # CDI | Sub Domain Finder               #
 #---------------------------------------#
@@ -8110,7 +8620,8 @@ MainMenu(){
             HacKingProPlanning
             ;;
             cdi|CDI )
-            SubMaxPro
+            # SubMaxPro
+            SubDomFind ${targetIP} >> ${MainDirectoriyCaseNameRecon}-${targetNAME}-SubDomFind.log
             ;;
             cni|CNI )
             while true; do
@@ -8522,6 +9033,10 @@ MainMenu(){
         case $cmd in
           ls )
           lahs
+          ;;
+          2|02|android|Android )
+          AndroidPlan
+          read -p "${Press_ENTER}"
           ;;
           4|04 )
           MainDirectoriyCaseNameBrutePort="${MainDirectoriyCaseName}/BrutePort/"

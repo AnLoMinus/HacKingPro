@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+
 # Configurations :
 # src: https://github.com/utkarsh24122/VulnHunt/blob/main/vulnhunt.sh
 PATH_TO_DNS_Resolvers="/path/resolvers.txt"
@@ -36,13 +37,17 @@ mkdir $target
 cd $target
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Passive Subdomain Enumeration Running for $target \e[0m\n"
 echo ""
-subfinder -all -d $target -silent >> tempsubdomain.txt
-assetfinder --subs-only $target >> tempsubdomain.txt
+
+# Run Commands #
+subfinder -all -d $target  >> tempsubdomain.txt
+# assetfinder --subs-only $target >> tempsubdomain.txt
 findomain --quiet -t $target >> tempsubdomain.txt
-waybackurls $target | unfurl -u domains >> tempsubdomain.txt
-crobat -s $target >> tempsubdomain.txt
+# waybackurls $target | unfurl -u domains >> tempsubdomain.txt
+# crobat -s $target >> tempsubdomain.txt
 cat tempsubdomain.txt | sort -u >> temp2.txt
 rm tempsubdomain.txt
+# Run Commands #
+
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Passive Subdomain Enumeration Completed \e[0m\n"
 echo ""
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Now Running Active Subdomain Enumeration \e[0m\n"
@@ -51,6 +56,8 @@ echo ""
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Active Subdomain Enumeration Completed \e[0m\n"
 echo ""
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Now Running crt.sh Subdomain Enumeration \e[0m\n"
+
+# Run Commands #
 python3 $path_to_ctfr_tool -d $target -o lolo1.txt >> lolo2.txt
 cat lolo1.txt >> ctrshtemp.txt
 rm lolo1.txt lolo2.txt
@@ -63,9 +70,12 @@ rm  ctrshtemp.txt
 mv temp2.txt temp.txt
 cat crtsh_subs.txt >> temp.txt
 cat temp.txt | sort -u >> temp2.txt;rm temp.txt;rm crtsh_subs.txt
+# Run Commands #
+
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m crt.sh  Subdomain Enumeration Completed \e[0m\n"
 echo ""
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Now Running DNS Subdomain Enumeration \e[0m\n"
+
 # dnsx -retry 3 -a -aaaa -cname -ns -ptr -mx -soa -resp -silent -l temp2.txt -r  $PATH_TO_DNS_Resolvers >> sub_cname.txt
 # cat sub_cname.txt | cut -d '[' -f2 | sed 's/.$//' | grep ".$domain$" >> verytemp.txt
 # cat verytemp.txt | sort -u >> sub_dns.txt
@@ -73,30 +83,39 @@ echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Now Running DNS Subdomain Enumeration \e[
 # puredns resolve sub_dns.txt -r $PATH_TO_DNS_Resolvers >> rresolved.txt
 # cat rresolved.txt >> temp2.txt
 # rm rresolved.txt
+
+# Run Commands #
 cat temp2.txt | grep www. | cut -d w -f4 | sed 's/^.//' >> temp3.txt
 cat temp3.txt >> temp2.txt
 cat temp2.txt | grep -v www. | sort -u | grep -v '*' >> all_subs.txt
 rm temp2.txt temp3.txt
+# Run Commands #
 
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Probing \e[0m\n"
+# Run Commands #
 cat all_subs.txt | httprobe -prefer-https >> probed.txt
 cat probed.txt | cut -d / -f3 >> alive_subs.txt
+# Run Commands #
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Segregating \e[0m\n"
 
+# Run Commands #
 cat probed.txt | cut -d / -f3 | httpx -status-code -silent >> codes.txt
 cat codes.txt | grep 200 | cut -d [ -f1 >> 200.txt
 cat codes.txt | grep 30 | cut -d [ -f1 >> 30x.txt
 cat codes.txt | grep 403 | cut -d [ -f1 >> 403.txt
 cat codes.txt | grep 404 | cut -d [ -f1 >> 404.txt
 rm codes.txt
+# Run Commands #
 
 #										Subdomain Takeover Check
 
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Checking For Subdomain Takeover \e[0m\n"
 
 
+# Run Commands #
 touch tko.txt
 cat probed.txt | nuclei -silent -t $PATH_TO_NucleiTakeoverTemplate -o tko.txt
+# Run Commands #
 NUMOFLINES=$(cat tko.txt | wc -l)
 if [ "$NUMOFLINES" -gt 0 ]; then
 			echo "Possible Subdomain Takeover Found"
@@ -106,12 +125,15 @@ else echo "NOT Found XD "
 #										Nuclei templates Check
 
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Running Nuclei Templates \e[0m\n"
+
+# Run Commands #
 mkdir nuclei_output
 eval cat probed.txt | nuclei -silent -t $PATH_TO_NucleiTemplates -severity info -o nuclei_output/info.txt
 eval cat probed.txt | nuclei -silent -t $PATH_TO_NucleiTemplates -severity low -o nuclei_output/low.txt
 eval cat probed.txt | nuclei -silent -t $PATH_TO_NucleiTemplates -severity medium -o nuclei_output/medium.txt
 eval cat probed.txt | nuclei -silent -t $PATH_TO_NucleiTemplates -severity high -o nuclei_output/high.txt
 eval cat probed.txt | nuclei -silent -t $PATH_TO_NucleiTemplates -severity critical -o nuclei_output/critical.txt
+# Run Commands #
 
 #										URL Extraction , JavaScript files extraction & Parameter Discovery
 
@@ -387,11 +409,15 @@ echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m XSS Output Saved in /vulns/xss.txt \e[0m\
 
 
 echo -e "\n\e[36m[\e[32m+\e[36m]\e[92m Fuzzing \e[0m\n"
+
+# Run Commands #
 mkdir fuzz_out
 touch logfile.txt
 HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
 interlace -tL probed.txt -threads 10 -c "ffuf -mc all -fc 404 -ac -sf -s -H \"${HEADER}\" -w $Path_To_FUZZ_Wordlist -u  _target_/FUZZ -of csv -o _output_/_cleantarget_.csv -ac" -o fuzz_out >> logfile.txt
 rm logfile.txt
+# Run Commands #
+
 
 for sub in $(cat probed.txt); do
 sub_out=$(echo $sub | sed -e 's|^[^/]*//||' -e 's|/.*$||')
