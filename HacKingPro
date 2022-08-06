@@ -664,11 +664,21 @@ ReadTargetIPFromtheUser(){
 # This Variable is for AttacKing ~> IP Addresses .
 t1="$(echo "\n          ${BBlue}|──[ 🎯 ]──[${BRed} IP ${BBlue}]──╼  ")"
 read -p "$t1" targetIP
-if [ -z "$targetIP" ]; then
+
+if [ -z ${targetIP} ]; then
+  if [ ! -z ${targetDns} ]; then
+    #statements
+    GetIP="$(ping -c 1 "${targetDns}" | grep ttl | cut -d " " -f4 |  tr  -d :)"
+    targetIP="${GetIP}"
+  fi
   #statements
-  targetIP="127.0.0.1"
-  # targetIP=" "
+  if [ -z "$targetIP" ]; then
+    #statements
+    targetIP="127.0.0.1"
+    # targetIP=" "
+  fi
 fi
+
 }
 
 # Read Target URL From the User
@@ -788,6 +798,7 @@ HacKingProPlanning(){
   echo "\n"
   echo "          ${BRed}======================================================================================="
   echo "\n"
+
   # Define Case {Variable}
   MainDirectoriyCase="${MainDirectoriy}/Case"
   # Create Case Folder
@@ -824,12 +835,12 @@ HacKingProPlanning(){
   echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
   echo "### $targetNAME Case Date: $(date)" >> ${targetNAME}-HacKingPro-Planning-Log.md
   echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Planning-Log.md
-  # Input Target IP
-  ReadTargetIPFromtheUser
-  echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
   # Input Target URL
   ReadTargetURLFromtheUser
   echo "> - ### Target Domain: ${targetDns}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+  # Input Target IP
+  ReadTargetIPFromtheUser
+  echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
   # Input Target Email
   ReadTargetEmailFromtheUser
   echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
@@ -1213,6 +1224,7 @@ ToolHeaderRun(){
 
 TargetStatusRun(){
   ToolStatus=$(echo "
+    ${InternetStatus}
     ${BCyan}${faintT}┌──${resetT}${BRed}[${DGrey} ${slowBlink}P${resetT} ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
     ${BCyan}${faintT}|
     ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} Full Time ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} $(date) ${BRed}]
@@ -1226,7 +1238,7 @@ TargetStatusRun(){
     ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Phone${BBlue}: ${BGreen}${targetPhone}
     ${BCyan}${faintT}|
     ${BCyan}${faintT}└──${resetT}${BRed}[${DGrey} CL ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} Cleaning Target Variables ${BRed}]
-    ${InternetStatus}")
+    ")
     echo "$ToolStatus"
 }
 
