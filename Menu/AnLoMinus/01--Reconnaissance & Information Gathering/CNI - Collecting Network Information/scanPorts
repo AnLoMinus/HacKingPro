@@ -220,78 +220,82 @@ netcat_connect_udp_all() {
 }
 
 smb_enum() {
-        host=$1
-        list_open_tcp_ports $host
+  host=$1
+  list_open_tcp_ports $host
 
-        if [[ $open_TCP_ports_list == *"445"* ]] || [[ $open_TCP_ports_list == *"139"* ]]; then
-                echo "- enum4linux" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (enum4linux -v $host > $PWD/$host/139_445_enum4linux 2>&1 && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "enum4linux"; sed -i '/enum4linux/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
-                echo "- smbclient listing" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (smbclient -L\\ -N -I $host 2>&1 > $PWD/$host/139_445_listing && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "smbclient listing"; sed -i '/smbclient listing/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
-        fi
+  if [[ $open_TCP_ports_list == *"445"* ]] || [[ $open_TCP_ports_list == *"139"* ]]; then
+    echo "- enum4linux" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (enum4linux -v $host > $PWD/$host/139_445_enum4linux 2>&1 && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "enum4linux"; sed -i '/enum4linux/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+    echo "- smbclient listing" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (smbclient -L\\ -N -I $host 2>&1 > $PWD/$host/139_445_listing && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" "smbclient listing"; sed -i '/smbclient listing/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+  fi
 
-        if [[ $open_TCP_ports_list == *"445"* ]]; then
-                echo "- :445 smbmap" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (smbmap -u null -p "" -H $host -P 445 2>&1 > $PWD/$host/445_smbmap && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":445 smbmap"; sed -i '/:445 smbmap/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
-                echo "- :445 smbclient NULL sessions" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (connect_shares $host "445" > $PWD/$host/445_null_sessions && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":445 smbclient NULL sessions"; sed -i '/:445 smbclient NULL sessions/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
-        fi
+  if [[ $open_TCP_ports_list == *"445"* ]]; then
+    echo "- :445 smbmap" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (smbmap -u null -p "" -H $host -P 445 2>&1 > $PWD/$host/445_smbmap && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":445 smbmap"; sed -i '/:445 smbmap/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+    echo "- :445 smbclient NULL sessions" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (connect_shares $host "445" > $PWD/$host/445_null_sessions && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":445 smbclient NULL sessions"; sed -i '/:445 smbclient NULL sessions/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+  fi
 
-        if [[ $open_TCP_ports_list == *"139"* ]]; then
-                echo "- :139 smbmap" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (smbmap -u null -p "" -H $host -P 139 2>&1 > $PWD/$host/139_smbmap && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":139 smbmap"; sed -i '/:139 smbmap/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
-                echo "- :139 smbclient NULL sessions" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (connect_shares $host "139" > $PWD/$host/139_null_sessions && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":139 smbclient NULL sessions"; sed -i '/:139 smbclient NULL sessions/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
-        fi
+  if [[ $open_TCP_ports_list == *"139"* ]]; then
+    echo "- :139 smbmap" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (smbmap -u null -p "" -H $host -P 139 2>&1 > $PWD/$host/139_smbmap && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":139 smbmap"; sed -i '/:139 smbmap/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+    echo "- :139 smbclient NULL sessions" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (connect_shares $host "139" > $PWD/$host/139_null_sessions && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":139 smbclient NULL sessions"; sed -i '/:139 smbclient NULL sessions/d' $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+  fi
 
-        wait
+  wait
 }
 
-web_early_enum() { #ports 80 & 443
-        host=$1
+web_early_enum() {
+  # ports 80 & 443
+  host=$1
 
-        if [[ `grep "80/tcp" $PWD/$host/nmap/TCP_web |grep "open" |wc -l` == "1" ]]; then
-                echo "- :80 dirsearch (common list, recursion 2)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (python3 /home/kali/Desktop/dirsearch/dirsearch.py -u http://$host:80/ -e "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 10 -r -F -R 2 -f --plain-text-report=$PWD/$host/80_dirsearch_common.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 dirsearch (common list, recursion 2)"; sed -i "/:80 dirsearch (common list, recursion 2)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+  if [[ `grep "80/tcp" $PWD/$host/nmap/TCP_web |grep "open" |wc -l` == "1" ]]; then
+    echo "- :80 dirsearch (common list, recursion 2)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (python3 /home/kali/Desktop/dirsearch/dirsearch.py -u http://$host:80/ -e "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 10 -r -F -R 2 -f --plain-text-report=$PWD/$host/80_dirsearch_common.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 dirsearch (common list, recursion 2)"; sed -i "/:80 dirsearch (common list, recursion 2)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-                echo "- :80 dirsearch (medium list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (python3 /home/kali/Desktop/dirsearch/dirsearch.py -u http://$host:80/ -e "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -t 15 -F -f --plain-text-report=$PWD/$host/80_dirsearch_medium.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 dirsearch (medium list, no recursion)"; sed -i "/:80 dirsearch (medium list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+    echo "- :80 dirsearch (medium list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (python3 /home/kali/Desktop/dirsearch/dirsearch.py -u http://$host:80/ -e "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -t 15 -F -f --plain-text-report=$PWD/$host/80_dirsearch_medium.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 dirsearch (medium list, no recursion)"; sed -i "/:80 dirsearch (medium list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-                echo "- :80 nikto" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (nikto -ask=no -h http://$host:80/ -output $PWD/$host/80_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 nikto"; sed -i "/:80 nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+    echo "- :80 nikto" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (nikto -ask=no -h http://$host:80/ -output $PWD/$host/80_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 nikto"; sed -i "/:80 nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-                echo "- :80 nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                ( ((nmap --reason -Pn -n -sV -p 80 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/80_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p 80 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/80_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 nmap scripts"; sed -i "/:80 nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+    echo "- :80 nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    ( ((nmap --reason -Pn -n -sV -p 80 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/80_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p 80 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/80_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S' && printf "$fmt" "[$NOW]" "$host" ":80 nmap scripts"; sed -i "/:80 nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-                echo "- :80 /robots.txt" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (curl $host:80/robots.txt > $PWD/$host/80_robots.txt 2>/dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 /robots.txt"; sed -i "/:80 \/robots.txt/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+    echo "- :80 /robots.txt" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    (curl $host:80/robots.txt > $PWD/$host/80_robots.txt 2>/dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":80 /robots.txt"; sed -i "/:80 \/robots.txt/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-        fi
+    fi
 
-        if [[ `grep "443/tcp" $PWD/$host/nmap/TCP_web | grep "open" |wc -l` == "1" ]]; then
-                echo "- :443 gobuster (common list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+    if [[ `grep "443/tcp" $PWD/$host/nmap/TCP_web | grep "open" |wc -l` == "1" ]]; then
+      echo "- :443 gobuster (common list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
 
-                #With gobuster we make sure that it tried all the wordlist because sometimes it's erroring at some point, stops bruteforcing and we have no other way to know than
-                #counting the number of directories it tried to bruteforce
-                #11 extensions + 1 (=no extension)
-                wordlist_size=`cat /usr/share/seclists/Discovery/Web-Content/common.txt |wc -l`
-                (gobuster dir -x "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -r -k -u https://$host:443/ -z -q -t 10 -v -w /usr/share/seclists/Discovery/Web-Content/common.txt -o $PWD/$host/443_gobuster_common.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 gobuster (common list, no recursion)" && (output_size=`cat $PWD/$host/443_gobuster_common.txt |wc -l`; if [[ $((output_size)) != $((wordlist_size*(11+1))) ]]; then echo -e "\e[91m\e[1m\e[5mWARNING\e[0m gobuster output_size = \e[91m\e[1m$output_size < $((wordlist_size*(11+1)))\e[0m = wordlist_size*extensions_number\\e[0m"; fi); sed -i "/:443 gobuster (common list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+      #With gobuster we make sure that it tried all the wordlist because sometimes it's erroring at some point, stops bruteforcing and we have no other way to know than
+      #counting the number of directories it tried to bruteforce
+      #11 extensions + 1 (=no extension)
+      wordlist_size=`cat /usr/share/seclists/Discovery/Web-Content/common.txt |wc -l`
+      (gobuster dir -x "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -r -k -u https://$host:443/ -z -q -t 10 -v -w /usr/share/seclists/Discovery/Web-Content/common.txt -o $PWD/$host/443_gobuster_common.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 gobuster (common list, no recursion)" && (output_size=`cat $PWD/$host/443_gobuster_common.txt |wc -l`;
+      if [[ $((output_size)) != $((wordlist_size*(11+1)) ]]; then
+      echo -e "\e[91m\e[1m\e[5mWARNING\e[0m gobuster output_size = \e[91m\e[1m$output_size < $((wordlist_size*(11+1)))\e[0m = wordlist_size*extensions_number\\e[0m"; fi); sed -i "/:443 gobuster (common list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-                #With gobuster we make sure that it tried all the wordlist because sometimes it's erroring at some point, stops bruteforcing and we have no other way to know than
-                #counting the number of directories it tried to bruteforce
-                #11 extensions + 1 (=no extension)
-                wordlist_size=`cat /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt |wc -l`
-                echo "- :443 gobuster (medium list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (gobuster dir -x "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -r -k -u https://$host:443/ -z -q -t 15 -v -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -o $PWD/$host/443_gobuster_medium.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 gobuster (medium list, no recursion)" && (output_size=`cat $PWD/$host/443_gobuster_medium.txt |wc -l`; if [[ $((output_size)) != $((wordlist_size*(11+1))) ]]; then echo -e "\e[91m\e[1m\e[5mWARNING\e[0m gobuster output_size = \e[91m\e[1m$output_size < $((wordlist_size*(11+1)))\e[0m = wordlist_size*extensions_number\\e[0m"; fi); sed -i "/:443 gobuster (medium list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+      #With gobuster we make sure that it tried all the wordlist because sometimes it's erroring at some point, stops bruteforcing and we have no other way to know than
+      #counting the number of directories it tried to bruteforce
+      #11 extensions + 1 (=no extension)
+      wordlist_size=`cat /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt |wc -l`
+      echo "- :443 gobuster (medium list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+      (gobuster dir -x "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -r -k -u https://$host:443/ -z -q -t 15 -v -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -o $PWD/$host/443_gobuster_medium.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 gobuster (medium list, no recursion)" && (output_size=`cat $PWD/$host/443_gobuster_medium.txt |wc -l`; if [[ $((output_size)) != $((wordlist_size*(11+1))) ]]; then echo -e "\e[91m\e[1m\e[5mWARNING\e[0m gobuster output_size = \e[91m\e[1m$output_size < $((wordlist_size*(11+1)))\e[0m = wordlist_size*extensions_number\\e[0m"; fi); sed -i "/:443 gobuster (medium list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
                 echo "- :443 nikto" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (nikto -ask=no -h https://$host:443/ -output $PWD/$host/443_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 nikto"; sed -i "/:443 nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+      (nikto -ask=no -h https://$host:443/ -output $PWD/$host/443_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 nikto"; sed -i "/:443 nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-                echo "- :443 nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                ( ((nmap --reason -Pn -n -sV -p 443 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/443_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p 443 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/443_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 nmap scripts"; sed -i "/:443 nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+      echo "- :443 nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+      (nmap --reason -Pn -n -sV -p 443 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/443_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p 443 $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/443_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 nmap scripts";
+      sed -i "/:443 nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-                echo "- :443 /robots.txt" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                (curl $host:443/robots.txt > $PWD/$host/443_robots.txt 2>/dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 /robots.txt"; sed -i "/:443 \/robots.txt/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+      echo "- :443 /robots.txt" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+      (curl $host:443/robots.txt > $PWD/$host/443_robots.txt 2>/dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":443 /robots.txt"; sed -i "/:443 \/robots.txt/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
         fi
 
         wait
@@ -308,11 +312,11 @@ http_enum() {
                         echo "- :$port dirsearch (medium list, no recursion)" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
                         (python3 /home/kali/Desktop/dirsearch/dirsearch.py -u http://$host:$port/ -e "txt,html,php,asp,aspx,jsp,bak,old,cgi,py,pl" -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -t 15 -F -f --plain-text-report=$PWD/$host/${port}_dirsearch_medium.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port dirsearch (medium list, no recursion)"; sed -i "/:$port dirsearch (medium list, no recursion)/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-                        echo "- :$port nikto" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                        (nikto -ask=no -h http://$host:$port/ -output $PWD/$host/${port}_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port nikto"; sed -i "/:$port nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+      echo "- :$port nikto" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+      (nikto -ask=no -h http://$host:$port/ -output $PWD/$host/${port}_nikto.txt &> /dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port nikto"; sed -i "/:$port nikto/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
-                        echo "- :$port nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
-                        ( ((nmap --reason -Pn -n -sV -p $port $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/${port}_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p $port $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/${port}_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port nmap scripts"; sed -i "/:$port nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
+      echo "- :$port nmap scripts" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
+      ( ((nmap --reason -Pn -n -sV -p $port $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/${port}_nmap_scripts &>/dev/null) || (nmap --reason -Pn -n -sV -p $port $host --script="banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" -oN $PWD/$host/${port}_nmap_scripts &>/dev/null)) && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port nmap scripts"; sed -i "/:$port nmap scripts/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &
 
                         echo "- :$port /robots.txt" >> $PWD/$host/0000-----RUNNING-TASKS-----0000
                         (curl $host:$port/robots.txt > $PWD/$host/${port}_robots.txt 2>/dev/null && NOW=`date '+%H:%M:%S'` && printf "$fmt" "[$NOW]" "$host" ":$port /robots.txt"; sed -i "/:$port \/robots.txt/d" $PWD/$host/0000-----RUNNING-TASKS-----0000) &

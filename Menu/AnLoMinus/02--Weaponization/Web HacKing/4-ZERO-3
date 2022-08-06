@@ -14,13 +14,13 @@ termwidth="$(tput cols)"
 function print(){
 	status=$(echo ${code} | awk '{print $2}'|sed 's/,$//g')
 	if [[ ${status} =~ 2.. ]];then
-			printf "${green} ${code} ${end} 👌\n${payload}\n"
+		printf "${green} ${code} ${end} 👌\n${payload}\n"
 	elif [[ ${status} =~ 3.. ]]; then
-			printf "${yellow} ${code} ${end}\n"
+		printf "${yellow} ${code} ${end}\n"
 	elif [[ ${status} =~ 5.. ]]; then
-			printf "${ltcyan} ${code} ${end}\n"
+		printf "${ltcyan} ${code} ${end}\n"
 	else
-			printf "${red} ${code} ${end}\n"
+		printf "${red} ${code} ${end}\n"
 	fi
 }
 function banner(){
@@ -30,26 +30,26 @@ function banner(){
 	echo -e "     ${cyan}- twitter.com/Dheerajmadhukar : @me_dheeraj${end}"
 }
 function usage(){
-        printf "Usage:\n"
-        printf "\t403-bypass [URL]\n">&2
-        printf '\n' >&2
-        printf "\t-u, --url URL\t\t\ttarget DOMAIN.TLD/PATH\n">&2
-		printf '\n' >&2
-		printf "BYPASS MODEs\n">&2
-		printf "\t--header\t\t\tHeader Bypass\n">&2
-		printf "\t--protocol\t\t\tProtocol Bypass\n">&2
-		printf "\t--port\t\t\t\tPort Bypass\n">&2
-		printf "\t--HTTPmethod\t\t\tHTTP Method Bypass\n">&2
-		printf "\t--encode\t\t\tURL Encode Bypass\n">&2
-		printf "\t--SQLi\t\t\t\tMod_Security & libinjection Bypass\n">&2
-		printf '\n' >&2
-		printf "ALL BYPASSES\n">&2
-		printf "\t--exploit\t\t\tComplete Scan: 403/401 bypass modes \n">&2
-		printf '\n' >&2
-		printf "\t${green}GREEN${end}\t:\t${green}2xx Status Code${end}\n">&2
-		printf "\t${yellow}YELLOW${end}\t:\t${yellow}3xx Status Code${end}\n">&2
-		printf "\t${red}RED${end}\t:\t${red}4xx Status Code${end}\n">&2
-		printf "\t${ltcyan}BLUE${end}\t:\t${ltcyan}5xx Status Code${end}\n">&2
+	printf "Usage:\n"
+  printf "\t403-bypass [URL]\n">&2
+  printf '\n' >&2
+  printf "\t-u, --url URL\t\t\ttarget DOMAIN.TLD/PATH\n">&2
+	printf '\n' >&2
+	printf "BYPASS MODEs\n">&2
+	printf "\t--header\t\t\tHeader Bypass\n">&2
+	printf "\t--protocol\t\t\tProtocol Bypass\n">&2
+	printf "\t--port\t\t\t\tPort Bypass\n">&2
+	printf "\t--HTTPmethod\t\t\tHTTP Method Bypass\n">&2
+	printf "\t--encode\t\t\tURL Encode Bypass\n">&2
+	printf "\t--SQLi\t\t\t\tMod_Security & libinjection Bypass\n">&2
+	printf '\n' >&2
+	printf "ALL BYPASSES\n">&2
+	printf "\t--exploit\t\t\tComplete Scan: 403/401 bypass modes \n">&2
+	printf '\n' >&2
+	printf "\t${green}GREEN${end}\t:\t${green}2xx Status Code${end}\n">&2
+	printf "\t${yellow}YELLOW${end}\t:\t${yellow}3xx Status Code${end}\n">&2
+	printf "\t${red}RED${end}\t:\t${red}4xx Status Code${end}\n">&2
+	printf "\t${ltcyan}BLUE${end}\t:\t${ltcyan}5xx Status Code${end}\n">&2
 }
 function Header_Bypass(){
 	echo -e ${blue}"----------------------"${end}
