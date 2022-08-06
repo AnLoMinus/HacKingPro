@@ -285,13 +285,6 @@ InvalidOption=$(echo "\n\t\t ${BGreen}»»» ${HacKingPro} ${LRed}Invalid Option
 #         Checking Running Direction
 ###############################################
 
-BeautyPrint(){
-  echo "    ${ORANGE}${faintT}┌╼  $1 $2 $3 $4 "
-  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
-  echo "    ${resetT}${ORANGE}|──╼ $5 "
-  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
-  echo "    ${ORANGE}${faintT}└╼  $1 $2 $3 $4 "
-}
 
 CheckPWD(){
   # Define Current Direction Variable
@@ -307,6 +300,35 @@ CheckPWD
 
 thisPID=$(echo "$$")
 currentPID=$(echo "$thisPID")
+
+#########################################
+#         HacKingPro Variables          #
+#########################################
+
+BeautyPrint(){
+  echo "    ${ORANGE}${faintT}┌╼  $1 $2 $3 $4 "
+  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
+  echo "    ${resetT}${ORANGE}|──╼ $5 "
+  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
+  echo "    ${ORANGE}${faintT}└╼  $1 $2 $3 $4 "
+}
+
+XplorerPro(){
+  cd "${MainDirectoriyCaseName}"
+  xplr
+  read -p "${Press_ENTER}"
+}
+
+RangerPro(){
+  cd "${MainDirectoriyCaseName}"
+  ranger
+  read -p "${Press_ENTER}"
+}
+
+GTopPro(){
+  gtop
+  read -p "${Press_ENTER}"
+}
 
 ###############################################
 #         Cover Me Cleaning Logs and more.
@@ -7991,7 +8013,7 @@ MainMenu(){
     case $cmd in
       "?"|help|about|About )
       about
-      read -p "$Press_ENTER"
+      read -p "${Press_ENTER}"
       ;;
       00|0 )
       Anonymity(){
@@ -8752,6 +8774,57 @@ MainMenu(){
           ;;
         esac
       done
+      ;;
+      xp|r|R|ranger|Ranger|RangerPro )
+      while true; do
+        clear
+        cd "${MainDirectoriyCaseName}"
+        ToolHeaderRun
+        TargetStatusRun
+        #statements
+        TargetStatus=$(echo "
+    ${ORANGE}${faintT}┌──╼${resetT}${BBlue}┤${ORANGE} Xplorer Files Pro ${BBlue}├${ORANGE}${faintT}───────${resetT}${BCyan}╼▰▰▰
+    ${ORANGE}${faintT}│
+    ${ORANGE}${faintT}|──${resetT}${BCyan}╼▰${resetT}${BRed} [${ORANGE} 1 ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰ ${BRed}[${DGrey} XplorerPro ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰
+    ${ORANGE}${faintT}|──${resetT}${BCyan}╼▰${resetT}${BRed} [${ORANGE} 2 ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰ ${BRed}[${DGrey} RangerPro ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰
+    ${ORANGE}${faintT}|──${resetT}${BCyan}╼▰${resetT}${BRed} [${ORANGE} 3 ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰ ${BRed}[${DGrey} GTopPro ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰
+    ${ORANGE}${faintT}│
+    ${ORANGE}${faintT}└───────────────────────────────${resetT}${BCyan}╼▰▰▰
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Xplorer Files Pro ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    read -p "${TargetStatus}" cmd
+    case $cmd in
+      1 )
+      XplorerPro
+      ;;
+      2 )
+      RangerPro
+      ;;
+      3 )
+      GTopPro
+      ;;
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+      break
+      ;;
+      ls )
+      lahs
+      ;;
+      p|P )
+      HacKingProPlanning
+      ;;
+      cl )
+      ClearTarget
+      ;;
+    esac
+  done
       ;;
       any|Any|AnyTool|anytool )
       cd Menu

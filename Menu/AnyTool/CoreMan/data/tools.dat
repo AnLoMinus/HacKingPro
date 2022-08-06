@@ -40,6 +40,7 @@ powershell|powershell|Programming_Languages|null|package_manager|null
 brave-browser|brave-browser|Privacy_Browsers|null|package_manager|null
 midnight-commander|midnight-commander|File_Managers|null|package_manager|null
 torbrowser-launcher|torbrowser-launcher|Privacy_Tools|null|package_manager|null
+rlwrap|rlwrap|Servers_Tools|null|package_manager|null
 gtop|gtop|Monitoring_Tools|https://github.com/aksakalli/gtop|git|node
 navi|navi|Terminal_Emulators|https://github.com/denisidoro/navi|git|rust,zsh,csh,bash,shell
 shellcheck|shellcheck|Debugging_Tools|dhttps://github.com/koalaman/shellcheck|git,brew|sh,brew
