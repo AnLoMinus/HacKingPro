@@ -31,7 +31,7 @@
 
 Before Planning | After Planning
 :---:|:---:
-<img width="824" alt="image" src="https://user-images.githubusercontent.com/51442719/182826815-0d8ed6dc-f9d4-4bf1-9894-8cf8a14d9c0e.png"> | <img width="843" alt="image" src="https://user-images.githubusercontent.com/51442719/182826892-5906e458-ef66-435b-ad0f-f5d68bc46c95.png">
+<img width="761" alt="image" src="https://user-images.githubusercontent.com/51442719/183254327-ec7f543e-81f7-4361-b888-e7fbbb8da91e.png"> | <img width="761" alt="image" src="https://user-images.githubusercontent.com/51442719/183254347-91b199bd-577e-4bad-97a0-4a6e88025984.png">
 
 
 
