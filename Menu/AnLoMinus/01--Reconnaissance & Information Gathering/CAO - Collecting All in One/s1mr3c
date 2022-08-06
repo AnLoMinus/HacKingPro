@@ -1,0 +1,138 @@
+#!/bin/bash
+# src: https://github.com/0xarun/s1mr3c/blob/main/s1mr3c
+echo -e "\e[1;36m   ___          ______      \e[0m"
+echo -e "\e[1;36m  /     |\_/|  ___   /      \e[0m"
+echo -e "\e[1;36m  \  /| |   | /|     \ |\ | \e[0m"
+echo -e "\e[1;36m__/   | |   |  | ____/ | \| \e[0m"
+echo -e "\e[1;33m   simply by <3 @0xarun\e[0m"
+
+if [ $# -gt 2 ];
+then
+	echo "Usage ./log.sh <domain>"
+	echo "Example: ./log.sh google.com"
+	exit 1
+fi
+
+mkdir $1
+mkdir $1/wayback-all
+mkdir $1/nmap-all
+cd $1
+
+echo ""
+echo ""
+echo -e "\e[1;34mStarting Subdomains Enumerations \e[0m"
+echo ""
+subfinder -d $1 | sort -u | tee all.txt #you can change this as your peference as your fav tool!
+echo ""
+echo -e "\e[1;32m---------------Completed! Saved as all.txt------------------\e[0m"
+echo ""
+sleep 3
+
+echo -e "\e[1;34mStarting to filter live Domains \e[0m"
+echo ""
+cat all.txt | httprobe -s -p https:443 | sort -u | grep $1 | sed 's/https\?:\/\///' | tr -d ":443" | tee alive.txt
+chmod +X alive.txt
+echo ""
+echo -e "\e[1;32m---------------Completed! Saved as alive.txt------------------\e[0m"
+echo ""
+
+echo -e "\e[1;34mStarting Aquatone for Webscreenshots \e[0m"
+echo ""
+cat alive.txt | aquatone -out Aquatone-all
+echo ""
+echo -e "\e[1;32m---------------Completed! Saved as Aquatone-all.txt------------------\e[0m"
+
+
+echo ""
+echo -e "\e[1;34mChecking for vlun Subdomains \e[0m"
+echo ""
+subzy -targets all.txt -hide_fails | tee subsdomainvlun.txt
+echo ""
+echo -e "\e[1;33mWARNING: In txt file only shows vlun domains or else nothing there that case you can check Manually!\e[0m"
+echo ""
+echo -e "\e[1;32m---------------Completed! Saved as subsdomainvlun.txt------------------\e[0m"
+echo ""
+
+echo -e "\e[1;33mNow Starting Wayabackrls and Waybackurls realted Enumerations! \e[0m"
+sleep 2
+echo ""
+echo -e "\e[1;34mStart running Waybackurls \e[0m"
+echo ""
+waybackurls $1 | sort -u | tee wayback-all/waybackurls.txt | wc -l
+echo " "
+echo "How many numbers of urls found shown above!"
+echo -e "\e[1;32m---------------Completed! Saved as waybackurls.txt------------------\e[0m"
+sleep 3
+
+echo ""
+echo -e "\e[1;34mEnum for JS from waybackurls! \e[0m"
+echo ""
+cat wayback-all/waybackurls.txt | grep js | tee wayback-all/wayback-js.txt |  wc -l
+echo "Numaber of JS files found shown above"
+echo -e "\e[1;32m---------------Completed! Saved as wayback-js.txt------------------\e[0m"
+
+echo ""
+echo -e "\e[1;34mEnum for Parameter from waybackurls! \e[0m"
+cat wayback-all/waybackurls.txt | grep "=" | tee wayback-all/wayback-params.txt | wc -l
+echo "Number of params found shown above!"
+echo -e "\e[1;32m---------------Completed! Saved as wayback-params.txt------------------\e[0m"
+echo ""
+
+echo -e "\e[1;34mEnum for SSRF from waybackurls! \e[0m"
+cat wayback-all/waybackurls.txt | gf ssrf | tee wayback-all/wayback-ssrf.txt | wc -l
+echo "Number of ssrf found shown above!"
+echo -e "\e[1;32m---------------Completed! Saved as wayback-ssrf.txt------------------\e[0m"
+echo ""
+
+echo ""
+echo -e "\e[1;34mEnum for SQLI from waybackurls! \e[0m"
+cat wayback-all/waybackurls.txt | gf sqli | tee wayback-all/wayback-sqli.txt | wc -l
+echo "Number of ssrf found shown above!"
+echo -e "\e[1;32m---------------Completed! Saved as wayback-sqli.txt------------------\e[0m"
+echo ""
+
+
+echo -e "\e[1;34mEnum for IDORS from waybackurls! \e[0m"
+cat wayback-all/waybackurls.txt | gf idor | tee wayback-all/wayback-idor.txt | wc -l
+echo "Number of ssrf found shown above!"
+echo -e "\e[1;32m---------------Completed! Saved as wayback-idors.txt------------------\e[0m"
+echo ""
+
+echo -e "\e[1;34mEnum for XSS from waybackurls! \e[0m"
+cat wayback-all/waybackurls.txt | grep "=" | qsreplace '"<script>confirm(1)</script>' |tee wayback-all/wayback-xss.txt | wc -l
+echo "Number of ssrf found shown above!"
+echo -e "\e[1;32m---------------Completed! Saved as wayback-xss.txt------------------\e[0m"
+
+echo ""
+echo -e "\e[1;34mEnum for Redirect from waybackurls! \e[0m"
+cat wayback-all/waybackurls.txt | gf redirect | tee wayback-all/wayback-redirect.txt | wc -l
+echo "How many links realeted to rediret shown above!"
+echo -e "\e[1;32m---------------Completed! Saved as wayback-redirect.txt------------------\e[0m"
+
+echo ""
+echo -e "\e[1;34mTesting for sqlinjection urls from wayback-sqli.txt \e[0m"
+sqlmap -m wayback-all/wayback-sqli.txt --dbs --batch | tee sql-test-result.txt
+echo -e "\e[1;32m---------------Completed! Saved as sql-test-result.txt.txt------------------\e[0m"
+
+echo ""
+echo -e "\e[1;33mWARNING: Now nmap Starting you can stop it coz this takes lot time! \e[0m"
+sleep 5
+
+
+echo ""
+echo -e "\e[1;34mScanning Live Ports \e[0m"
+nmap -iL alive.txt T5 -oG nmap-all/scans.txt
+echo ""
+echo -e "\e[1;32m---------------Completed! Saved to nmap-all------------------\e[0m"
+
+echo ""
+echo -e "\e[1;33mWARNING: Now Gobuster Starting you can stop it coz this takes lot time! \e[0m"
+sleep 5
+
+echo ""
+echo -e "\e[1;34mStarting Gobuster to find Dirs \e[0m"
+echo "Starting Gobuster"
+cat alive.txt | while read -r url; do gobuster dir -u $url -w /usr/share/wordlists/dirb/common.txt; done | tee dirs.txt
+echo ""
+echo -e "\e[1;32m---------------Completed! Saved as dirs.txt------------------\e[0m"
+echo ""

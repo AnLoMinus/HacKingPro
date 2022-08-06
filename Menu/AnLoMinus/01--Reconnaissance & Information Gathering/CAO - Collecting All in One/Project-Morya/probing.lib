@@ -1,0 +1,25 @@
+#!/bin/bash
+
+probing_Domains()
+{
+
+printf "Running httpx on $DOMAIN" | notify --silent
+
+cd ${RUNNING_PATH} && mkdir httpx && cd httpx
+
+cat ${RUNNING_PATH}/subdomains/actual_Subdomains.txt | httpx -status-code -title -content-length -follow-redirects -tech-detect | tee httpx_with_details.txt
+
+cat httpx_with_details.txt | awk '{print $1}' | tee httpx.txt
+
+mkdir subdomains_with_status_code
+
+status_Code=(400 401 403 404 411  200 301 302)
+for i in "${status_Code[@]}";do
+	cat httpx_with_details.txt | grep "$i" | awk '{print $1}' | tee subdomains_with_status_code/"$i"_status_Code_subdomains.txt
+done
+
+cat httpx_with_details.txt| grep -v "200" | grep -v "400" | grep -v "401" | grep -v "403" | grep -v "411" | grep -v "200" | grep -v "301" | grep -v "302" |  awk '{print $1}' | tee subdomains_with_status_code/other_status_Code_subdomains.txt
+
+printf "Probing work is completed" | notify --silent
+
+}

@@ -239,14 +239,65 @@ cFalse="$yellow[$red✘$yellow]$red"
 cDanger="$yellow ⚠️ $red"
 # |
 
+
+###############################################
+#         Parsing Date and Time
+###############################################
+
+year=$(date +%Y)
+month=$(date +%m)
+day=$(date +%d)
+hour=$(date +%H)
+minute=$(date +%M)
+second=$(date +%S)
+DMY=$(date +%d-%m-%y)
+CurrentDate=$(echo "${DGrey}$day-$month-$year")
+StartingTime=$(echo "${DGrey}$hour:$minute:$second")
+FullTime=$(date)
+
+###############################################
+#     List Files ~ Executing: 'ls -lahs'
+###############################################
+
+lahs(){
+  ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
+  echo "$ls_lahs"
+  ls -lahs
+  read -p "$ls_lahs" cmd
+}
+
+#########################################
+#         HacKingPro Variables          #
+#########################################
+
+LastUPDATE="2022 August 4"
+ToolSource="https://github.com/AnLoMinus/HacKingPro"
+HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro$resetT")
+Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}24")
+HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
+HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
+Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
+Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
+InvalidOption=$(echo "\n\t\t ${BGreen}»»» ${HacKingPro} ${LRed}Invalid Option ${BRed}¯\_(ツ)_/¯ \n")
+
 ###############################################
 #         Checking Running Direction
 ###############################################
 
+BeautyPrint(){
+  echo "    ${ORANGE}${faintT}┌╼  $1 $2 $3 $4 "
+  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
+  echo "    ${resetT}${ORANGE}|──╼ $5 "
+  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
+  echo "    ${ORANGE}${faintT}└╼  $1 $2 $3 $4 "
+}
+
 CheckPWD(){
   # Define Current Direction Variable
   MainDirectoriy="$(pwd)"
-  echo ${MainDirectoriy}
+  dcdv="$(echo "Define Current Direction Variable")"
+  BeautyPrint ${dcdv} ${MainDirectoriy}
 }
 CheckPWD
 
@@ -665,7 +716,17 @@ User_WordlistLocation(){
   read -p "${readUsersWordList}" UserWordList
   echo "\n"
   if [ -z "${UserWordList}" ]; then
-    wget https://github.com/Cryilllic/Active-Directory-Wordlists/blob/master/User.txt
+    if [ -e "User.txt" ]; then
+      #statements
+      echo "\n"
+      echo "    ${BGreen}Found ${BWhite}User.txt"
+      echo "\n"
+    else
+      echo "\n"
+      echo "    ${BRed}Not Found ${BWhite}User.txt"
+      echo "\n"
+      # wget https://github.com/Cryilllic/Active-Directory-Wordlists/blob/master/User.txt
+    fi
     UserWordList="User.txt"
   fi
 }
@@ -677,7 +738,17 @@ Pass_WordlistLocation(){
   read -p "${readPasswordsWordList}" PassWordList
   echo "\n"
   if [ -z "${PassWordList}" ]; then
-    wget https://github.com/Cryilllic/Active-Directory-Wordlists/blob/master/Pass.txt
+    if [ -e "Pass.txt" ]; then
+      #statements
+      echo "\n"
+      echo "    ${BGreen}Found ${BWhite}Pass.txt"
+      echo "\n"
+    else
+      echo "\n"
+      echo "    ${BRed}Not Found ${BWhite}Pass.txt"
+      echo "\n"
+      # wget https://github.com/Cryilllic/Active-Directory-Wordlists/blob/master/Pass.txt
+    fi
     PassWordList="Pass.txt"
   fi
 }
@@ -738,8 +809,13 @@ HacKingProPlanning(){
   MainDirectoriyCaseNamePlanning="${MainDirectoriyCaseName}/Planning"
   # Create Case Name Planing Folder
   mkdir "${MainDirectoriyCaseNamePlanning}"
-  # Continue Case Name Planing Folder
   cd "${MainDirectoriyCaseNamePlanning}"
+
+  # Define Case Name Planing {Variable}
+  MainDirectoriyCaseNameRecon="${MainDirectoriyCaseName}/Recon"
+  # Create Case Name Recon Folder
+  mkdir "${MainDirectoriyCaseNameRecon}"
+  # Continue Case Name Planing Folder
 
   # Declear Planning File {Variable}
   Planning_File="${MainDirectoriyCaseNamePlanning}${targetNAME}-HacKingPro-Planning-Log.md"
@@ -992,10 +1068,11 @@ CheckingifCaseFolderExist(){
 # Checking For System Package Manager
 Check_System() {
   # checking for system package manager
+  echo "\n"
   if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
-  pac="pkg"
-  system="termux"
-elif [ $(command -v brew) ]; then
+    pac="pkg"
+    system="termux"
+  elif [ $(command -v brew) ]; then
     pac="brew"
     system="mac"
     sudo=""
@@ -1012,6 +1089,7 @@ elif [ $(command -v brew) ]; then
     pac="yum"
     system="fedora"
   fi
+  echo "    ${BCyan}${faintT}┌──${resetT}${BRed}[${DGrey} System ${BRed}]${faintT}${BCyan}───────────╼${resetT} ${BRed}[${DGrey} ${system} ${BRed}]"
 
   # checking for system root access
   if [ $(command -v sudo) ]; then
@@ -1026,6 +1104,7 @@ elif [ $(command -v brew) ]; then
   else
     home="~/"
   fi
+  echo "    ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} home dir ${BRed}]${faintT}${BCyan}─────────╼${resetT} ${BRed}[${DGrey} ${home} ${BRed}]"
 
   # checking for system bin dir
   if [ -d /data/data/com.termux/files/usr/bin ]; then
@@ -1037,8 +1116,11 @@ elif [ $(command -v brew) ]; then
   elif [ -d /sbin ]; then
     bin="/sbin"
   fi
-  cp $0 ${bin}
+  echo "    ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} bin dir ${BRed}]${faintT}${BCyan}──────────╼${resetT} ${BRed}[${DGrey} ${bin} ${BRed}]"
+  echo "    ${BCyan}${faintT}└──${resetT}${BRed}[${DGrey} package manager ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ${pac} ${BRed}]"
+  # cp $0 ${bin}
 
+  read -p "${Press_ENTER}"
 }
 Check_System
 
@@ -1099,57 +1181,16 @@ Checking_IP_Target(){
 CheckInternetConnection(){
   ping -c 1 google.com > /dev/null 2>&1
   if [[ "$?" == 0 ]]; then
-    InternetStatus="\n     ${DGrey}[${BGreen}+${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BGreen} True ${DGrey}]\n"
+    InternetStatus="\n     ${DGrey}[${BGreen}+${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BGreen}${slowBlink} True ${resetT}${DGrey}]\n"
     echo "${InternetStatus}"
-    read -p "$Press_ENTER"
+    read -p "${Press_ENTER}"
   else
-    InternetStatus="\n     ${DGrey}[${BRed}-${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow}  Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BRed} False ${DGrey}]\n"
+    InternetStatus="\n     ${DGrey}[${BRed}-${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow}  Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BRed}${slowBlink} False ${resetT}${DGrey}]\n"
     echo "${InternetStatus}"
-    read -p "$Press_ENTER"
+    read -p "${Press_ENTER}"
   fi
 }
 CheckInternetConnection
-
-###############################################
-#         Parsing Date and Time
-###############################################
-
-year=$(date +%Y)
-month=$(date +%m)
-day=$(date +%d)
-hour=$(date +%H)
-minute=$(date +%M)
-second=$(date +%S)
-DMY=$(date +%d-%m-%y)
-CurrentDate=$(echo "${DGrey}$day-$month-$year")
-StartingTime=$(echo "${DGrey}$hour:$minute:$second")
-FullTime=$(date)
-
-###############################################
-#     List Files ~ Executing: 'ls -lahs'
-###############################################
-
-lahs(){
-  ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
-  echo "$ls_lahs"
-  ls -lahs
-  read -p "$ls_lahs" cmd
-}
-
-#########################################
-#         HacKingPro Variables          #
-#########################################
-
-LastUPDATE="2022 August 4"
-ToolSource="https://github.com/AnLoMinus/HacKingPro"
-HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro$resetT")
-Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}24")
-HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
-HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
-Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
-Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
-InvalidOption=$(echo "\n\t\t ${BGreen}»»» ${HacKingPro} ${LRed}Invalid Option ${BRed}¯\_(ツ)_/¯ \n")
 
 ###############################################
 #         Header Status
@@ -1360,26 +1401,29 @@ Privileg_Escalation(){
     ToolHeaderRun
     TargetStatusRun
     HacKingProMenuMain=$(echo "
+    ${DGrey}${faintT}┌──╼ ${resetT}${BRed}[${BWhite} Privileg Escalation ${resetT}${BRed}]
+    ${DGrey}${faintT}┖─┲──╼ ${resetT}${BRed}[${BWhite}${faintT} Cheat Sheet for Privilege Escalation Enumerations ${BRed}]
+    ${DGrey}${faintT}  ┖──╼ ${resetT}${BRed}[${BWhite}${faintT} Intruder creates Remote Access Malware Weapon, such as a Virus or Worm, tailored to one or more Vulnerabilities. ${BRed}]
 
-    ${DGrey}${faintT}┌─╼ ${resetT}${BRed}[${LYellow} Why would someone perform privilege escalation? ${BRed}]
-    ${DGrey}${faintT}|────╼ ${resetT}${BRed}[${LYellow} Read/Write sensitive files ${BRed}]
-    ${DGrey}${faintT}|────╼ ${resetT}${BRed}[${LYellow} Persist easily between reboots ${BRed}]
-    ${DGrey}${faintT}└────╼ ${resetT}${BRed}[${LYellow} Insert a permanent bacdoor ${BRed}]
+    ${DGrey}${faintT}┌─╼ ${resetT}${BRed}[${DGrey} Why would someone perform privilege escalation? ${BRed}]
+    ${DGrey}${faintT}┖─┲──╼ ${resetT}${BRed}[${DGrey}${faintT} Read/Write sensitive files ${resetT}${BRed}]
+    ${DGrey}${faintT}  |──╼ ${resetT}${BRed}[${DGrey}${faintT} Persist easily between reboots ${resetT}${BRed}]
+    ${DGrey}${faintT}  └──╼ ${resetT}${BRed}[${DGrey}${faintT} Insert a permanent bacdoor ${resetT}${BRed}]
 
-    ${DGrey}┌──┲──╼ ${BRed}[${BYellow} Privileg Escalation ${BRed}]
-    ${DGrey}|  ┖─┲──╼ ${BRed}[${BYellow} Cheat Sheet for Privilege Escalation Enumerations ${BRed}]
-    ${DGrey}|    ┖──╼ ${BRed}[${BYellow} Intruder creates remote access malware weapon, such as a virus or worm, tailored to one or more vulnerabilities. ${BRed}]
-    ${DGrey}|
-    ${DGrey}|──╼ ${BRed}[${LYellow} LPP ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} LinPrivPro ${BRed}]
-    ${DGrey}|──╼ ${BRed}[${LYellow} LPE ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} LinPrivEsc ${BRed}]
-    ${DGrey}|
-    ${DGrey}└──╼ ${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+    ${DGrey}${faintT}┌╼ ${resetT}${BRed}[${BCyan} WinPrivPro ${BRed}]${BGreen}──╼ ${BRed}[${BCyan}${faintT} Windows Privilege Proffesional ${resetT}${BRed}]
+    ${DGrey}${faintT}┖───╼ ${resetT}${BRed}[${BCyan} WPP ${BRed}]${BGreen}──╼ ${BRed}[${BCyan}${faintT} WinPrivPro ${resetT}${BRed}]
+
+    ${DGrey}${faintT}┌╼ ${resetT}${BRed}[${ORANGE} LinPrivPro ${BRed}]${BGreen}──╼ ${BRed}[${ORANGE}${faintT} Linux Privilege Proffesional ${resetT}${BRed}]
+    ${DGrey}${faintT}┖─┲─╼ ${resetT}${BRed}[${ORANGE} LPP ${BRed}]${BGreen}──╼ ${BRed}[${ORANGE}${faintT} LinPrivPro ${resetT}${BRed}]
+    ${DGrey}${faintT}  ┖─╼ ${resetT}${BRed}[${ORANGE} FLP ${BRed}]${BGreen}──╼ ${BRed}[${ORANGE}${faintT} FunLinPEAS ${resetT}${BRed}]
+
+    ${DGrey}${faintT}─╼ ${resetT}${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
     ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Privilege Escalation ${BRed}]${BGreen}──╼ ${BGreen}   ")
 
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
@@ -1945,7 +1989,7 @@ LinPrivPro(){
 }
 
 ## Linux Privilege escalation
-LinPrivEsc(){
+FunLinPEAS(){
   #!/bin/sh
 
   VERSION="ng"
@@ -5772,7 +5816,7 @@ LinPrivEsc(){
 }
 
 ## Windows Privilege escalation
-WinPrivEsc(){
+WinPrivPro(){
 
   # Now we start the whole enumeration-process over gain.
   # This is a checklist. You need to check of every single one, in this order.
@@ -6025,6 +6069,89 @@ Host_Info(){
 
     ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Hostname and DNS information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
     "
+}
+
+Mac_Host_Info(){
+  # reports system hardware and software configuration
+  echo"
+    Examples:
+
+    system_profiler
+       Generates a text report with the standard detail level.
+
+    system_profiler -detailLevel mini
+       Generates a short report without identifying/personal information.
+
+    system_profiler -listDataTypes
+       Shows a list of the available data types.
+
+    system_profiler SPSoftwareDataType SPNetworkDataType
+       Generates a text report containing only software and network data.
+
+    system_profiler -xml >MySystem.spx
+       Creates a XML file which can be opened by System Profiler.app
+
+
+    Available Datatypes:
+      SPParallelATADataType
+      SPUniversalAccessDataType
+      SPSecureElementDataType
+      SPApplicationsDataType
+      SPAudioDataType
+      SPBluetoothDataType
+      SPCameraDataType
+      SPCardReaderDataType
+      SPiBridgeDataType
+      SPDeveloperToolsDataType
+      SPDiagnosticsDataType
+      SPDisabledSoftwareDataType
+      SPDiscBurningDataType
+      SPEthernetDataType
+      SPExtensionsDataType
+      SPFibreChannelDataType
+      SPFireWireDataType
+      SPFirewallDataType
+      SPFontsDataType
+      SPFrameworksDataType
+      SPDisplaysDataType
+      SPHardwareDataType
+      SPInstallHistoryDataType
+      SPInternationalDataType
+      SPLegacySoftwareDataType
+      SPNetworkLocationDataType
+      SPLogsDataType
+      SPManagedClientDataType
+      SPMemoryDataType
+      SPNVMeDataType
+      SPNetworkDataType
+      SPPCIDataType
+      SPParallelSCSIDataType
+      SPPowerDataType
+      SPPrefPaneDataType
+      SPPrintersSoftwareDataType
+      SPPrintersDataType
+      SPConfigurationProfileDataType
+      SPRawCameraDataType
+      SPSASDataType
+      SPSerialATADataType
+      SPSPIDataType
+      SPSmartCardsDataType
+      SPSoftwareDataType
+      SPStartupItemDataType
+      SPStorageDataType
+      SPSyncServicesDataType
+      SPThunderboltDataType
+      SPUSBDataType
+      SPNetworkVolumeDataType
+      SPWWANDataType
+      SPAirPortDataType
+
+
+
+
+
+"
+
 }
 
 #---------------------------------------#
@@ -6866,6 +6993,106 @@ UserFinder(){
 
   scanner
   }
+
+#---------------------------------------#
+# CDI | Sub Domain Finder               #
+#---------------------------------------#
+SubMaxPro(){
+  # src: https://github.com/gokulapap/submax
+
+  clear
+  cd "${MainDirectoriyCaseNameRecon}"
+
+  # printf "\n${BYellow}[*] Installing Requirements..please wait !\n"
+  # apt install toilet &> /dev/null
+
+  # toilet -f slant -F gay submax
+
+  # printf "\n\n${BWhite}[!] Enter domain to Enumerate subdomains : "
+  # read -r targetDns
+  clear
+  printf "\n"
+  echo "    ${BYellow}${faintT}┌──${resetT}${BRed}[${BYellow} SubMaxPro ${BRed}]"
+  echo "    ${BYellow}${faintT}|"
+  echo "    ${BYellow}${faintT}┖──┲─╼ ${resetT}${BRed}[${BYellow} * ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Subdomain Enumeration Started! ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from SubFinder ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  subfinder -d ${targetDns} > sub1
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from AssetFinder ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  assetfinder ${targetDns} > sub2
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from crt.sh ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  curl -s "https://crt.sh/?q=${targetDns}" | grep "<TD>" | grep ${targetDns} | cut -d ">" -f2 | cut -d "<" -f1 | sort -u | sed '/^*/d' > sub3
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from rapiddns ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  curl -s "https://rapiddns.io/subdomain/${targetDns}#result" | grep "<td><a" | cut -d '"' -f 2 | grep http | cut -d '/' -f3 | sort -u > sub4
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from bufferover ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  curl -s "https://dns.bufferover.run/dns?q=.${targetDns}" | jq -r .FDNS_A[] | cut -d '\' -f2 | cut -d "," -f2 |  sort -u > sub5
+  # echo "    ${BYellow}${faintT}   | "
+  # echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from riddler ${BRed}]"
+  # echo "    ${BYellow}${faintT}   | "
+  # curl -s "https://riddler.io/search/exportcsv?q=pld:${targetDns}" | grep -Po "(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | sort -u > sub6
+  # echo "    ${BYellow}${faintT}   | "
+  # echo "    ${BYellow}${faintT}   |──────────╼ ${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow}  Enumerating SubDomains from jldc ${BRed}]"
+  # echo "    ${BYellow}${faintT}   | "
+  # curl -s "https://jldc.me/anubis/subdomains/${targetDns}" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | cut -d "/" -f3 > sub7
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from omnisint ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  curl -s "https://sonar.omnisint.io/subdomains/${targetDns}" | cut -d "[" -f1 | cut -d "]" -f1 | cut -d "\"" -f 2 > sub8
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   ┖──────────╼ ${resetT}${BRed}[${BYellow} * ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BGreen} Subdomain Enumeration Completed ! ${BRed}]"
+
+  read -p "${Press_ENTER}"
+
+
+  # printf "${BGreen}\n[+] Enumerating subdomains from ridder .."
+
+  sort sub1 >> ${targetDns}-SubMa
+  sort sub2 >> ${targetDns}-SubMa
+  sort sub3 >> ${targetDns}-SubMa
+  sort sub4 >> ${targetDns}-SubMa
+  sort sub5 >> ${targetDns}-SubMa
+  # sort sub6 >> ${targetDns}-SubMa
+  # sort sub7 >> ${targetDns}-SubMa
+  sort sub8 >> ${targetDns}-SubMa
+  sort -u ${targetDns}-SubMa >> ${targetDns}-SubMax.logtmp
+  rm sub* ${targetDns}-SubMa
+
+  # for i in $xxxx ; do
+  #   #statements
+  #   echo "${ORANGE}|    ${i}    |"
+  # done
+
+  num=$( wc -l ${targetDns}-SubMax.logtmp | awk '{print $1; exit}')
+
+  echo "\n"  >> ${targetDns}-SubMax.log
+  ToolHeaderRun >> ${targetDns}-SubMax.log
+  TargetStatusRun >> ${targetDns}-SubMax.log
+  echo "\n"  >> ${targetDns}-SubMax.log
+  echo "    ${BYellow}${faintT}┌──╼ ${resetT}${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BCyan} SubMaxPro ${resetT}${BRed}]" >> ${targetDns}-SubMax.log
+  for i in $(cat ${targetDns}-SubMax.logtmp); do
+    #statements
+    echo "    ${BYellow}${faintT}| " >> ${targetDns}-SubMax.log
+    echo "    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BWhite} $i ${resetT}${BRed}]" >> ${targetDns}-SubMax.log
+    echo "    ${BYellow}${faintT}| " >> ${targetDns}-SubMax.log
+  done
+  echo "    ${BYellow}${faintT}| " >> ${targetDns}-SubMax.log
+  echo "    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} * ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Found! ${ORANGE}$num ${BWhite}SubDomains for ${targetDns}${BRed}]" >> ${targetDns}-SubMax.log
+  echo "    ${BYellow}${faintT}┖───╼ ${resetT}${BRed}[${BWhite} ! ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BWhite} view the ${ORANGE}${MainDirectoriyCaseNameRecon}/${targetDns}-SubMax.log ${BWhite}File for Results!${BRed}]" >> ${targetDns}-SubMax.log
+  echo "\n\n"  >> ${targetDns}-SubMax.log
+  rm ${targetDns}-SubMax.logtmp
+  less -R ${targetDns}-SubMax.log
+
+  read -p ${Press_ENTER}
+}
 
 ###############################################
 #                 Awesome
@@ -7835,6 +8062,9 @@ MainMenu(){
             p|P )
             HacKingProPlanning
             ;;
+            cdi|CDI )
+            SubMaxPro
+            ;;
             cni|CNI )
             while true; do
               cd "${x_Menu_1_CNI}"
@@ -8075,8 +8305,9 @@ MainMenu(){
     ${BYellow}${faintT}|    |──${BRed}[${DGrey} l4 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} CheckMacSec ${BRed}]
     ${BYellow}${faintT}|    |──${BRed}[${DGrey} l5 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} LinuxEnum ${BRed}]
     ${BYellow}${faintT}|    |──${BRed}[${DGrey} l6 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} BasicInfo ${BRed}]
-    ${BYellow}${faintT}|    ┖──${BRed}[${DGrey} l7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} UserInfo ${BRed}]
-    ${BYellow}${faintT}|    ┖──${BRed}[${DGrey} l8 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} PackVersion ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} UserInfo ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l8 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} PackVersion ${BRed}]
+    ${BYellow}${faintT}|    ┖──${BRed}[${DGrey} PE ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Privilege Escalation ${BRed}]
     ${BYellow}${faintT}|
     ${BYellow}${faintT}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
@@ -8093,13 +8324,12 @@ MainMenu(){
                   echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
                   break
                   ;;
-                  1|01 )
-                  privilegeEscalation
+                  pe|PE|"Privilege Escalation" )
+                  Privileg_Escalation
                   read -p "$Press_ENTER"
                   ;;
                   l0|myip|MyIP )
                   echo "${MainDirectoriyCaseNameLocal}"
-                  read -p "$Press_ENTER"
                   echo "$(bash MyIP ip=${targetIP} all)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-MyIP.txt"
                   less "${MainDirectoriyCaseNameLocal}/${targetNAME}-MyIP.txt"
                   read -p "${Press_ENTER}"

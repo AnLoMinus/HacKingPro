@@ -1,0 +1,26 @@
+#!/bin/bash
+
+subdomain_Takeover()
+{
+printf "Running Subdomain takeover on $DOMAIN" | notify --silent
+
+cd ${RUNNING_PATH} && mkdir subdomain_takeover && cd subdomain_takeover
+cat ${RUNNING_PATH}/subdomains/actual_Subdomains.txt ${RUNNING_PATH}/subdomains/probed_common_ports.txt | unfurl domaims | tee subdomains.txt
+
+printf "Subjack started scanning for Takeover's \n" | notify --silent
+subjack -w subdomains.txt -t 100 -timeout 30 -o subjack_results.txt -ssl
+wc -l subjack_results.txt | awk '{print $1 " takeover are founded by subjack"}' | notify --silent
+
+printf "Nuclei started scanning for Takeover's \n" | notify --silent
+nuclei -l subdomains.txt -silent -t ${HOME}/nuclei-templates/takeovers/ -o nuclei_takeover.txt
+printf "Scan for Nuclie Takeover completed\n" | notify --silent
+wc -l nuclei_takeover.txt | awk '{print $1 " takeover are founded by nuclei"}' | notify --silent
+
+printf "Appending S3 at last of domains for Takeover's \n" | notify --silent
+cat subdomains.txt | httpx -status-code --path .s3.amazonaws.com | tee s3_takeover.txt
+subjack -w s3_takeovers.txt -t 100 -timeout 30 -o s3_subjack_results.txt -ssl
+wc -l s3_subjack_results.txt | awk '{print $1 " takeover are founded by subjack"}' | notify --silent
+printf "Scan for S3 Takeover completed\n" | notify --silent
+
+printf "Subdomain takeover work is completed" | notify --silent
+}
