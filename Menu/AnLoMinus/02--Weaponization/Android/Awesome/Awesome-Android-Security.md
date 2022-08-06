@@ -1,9 +1,6 @@
 # Awesome-Android-Security ![awesome](https://awesome.re/badge.svg)
-![Screenshot](img/androidsec.png)
-
+![image](https://user-images.githubusercontent.com/51442719/183263647-809bf13a-c2d8-43b5-988f-b067e617aa06.png)
  
-
-
 # Table of Contents
 - [Blog](#blog)
 - [How To's](#how-tos)
