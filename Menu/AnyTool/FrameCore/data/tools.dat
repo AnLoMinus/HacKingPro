@@ -1,0 +1,7 @@
+metasploit|metasploit|All_FrameWorks|null|package_manager|null
+setoolkit|setoolkit|All_FrameWorks|null|package_manager|null
+AndroBugs_Framework|AndroBugs_Framework|Android_FrameWorks|https://github.com/AndroBugs/AndroBugs_Framework|git|python
+MARA_Framework|MARA_Framework|Android_FrameWorks|https://github.com/xtiankisutsa/MARA_Framework|git|python
+NightShade|NightShade|CTF_FrameWorks|https://github.com/UnrealAkama/NightShade|git|python,jave,node,nodejs
+pwntools|pwntools|CTF_FrameWorks|https://github.com/Gallopsled/pwntools|git|python,c,sh,zsh,docker
+regrippy|regrippy|Forensics_FrameWorks|https://github.com/airbus-cert/regrippy|git|python,c,sh,zsh,docker

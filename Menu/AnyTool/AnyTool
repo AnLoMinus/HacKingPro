@@ -153,7 +153,7 @@ MainMenu(){
     ${DGrey}|
     ${DGrey}|──${BRed}[${LGreen} 12 ${BRed}]${BGreen}── ${BRed}[${LGreen} Any Core Package  ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${LGreen} 13 ${BRed}]${BGreen}── ${BRed}[${LGreen} Any Exploit ${BRed}]
+    ${DGrey}|──${BRed}[${LGreen} 13 ${BRed}]${BGreen}── ${BRed}[${LGreen} FrameCore ${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] Exit / Quit / Close"
     # ${DGrey}|──${BRed}[${DGrey} About ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Information About The ${HacKingPro} ${BRed}]
@@ -241,6 +241,11 @@ prompt="$(PromptFun)"
       12)
       cd CoreMan
       sh CoreMan start
+      cd ..
+      ;;
+      13)
+      cd FrameCore
+      sh FrameCore start
       cd ..
       ;;
       x|exit|Exit)
