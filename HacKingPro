@@ -1075,14 +1075,18 @@ while  true; do
   # mkdir "${MainDirectoriyCaseNameRecon}/Android"
   clear
   cd "${x_Menu_2_Android}"
+  ToolHeaderRun
+  TargetStatusRun
   AndroidPlanningMainMenu="$(echo "
     ${BGreen}${faintT}┌──${resetT}${BGreen}╼▰${BGreen}${faintT}┤${resetT}${BGreen}${slowBlink} Android Planning ${resetT}${BGreen}${faintT}├${resetT}${BGreen}${faintT}───────${resetT}${BGreen}╼▰▰▰
     ${BGreen}${faintT}│
-    ${BGreen}${faintT}|──${resetT}${BGreen}╼▰ ${resetT}${BRed}[${DGrey}$(FunTargetIP)${BRed}]${BGreen}${faintT}──${resetT}${BGreen}╼▰ ${resetT}${ORANGE}◈ ${LRed}${faintT}IP${BBlue}: ${BGreen}${targetIP}
-    ${BGreen}${faintT}|──${resetT}${BGreen}╼▰ ${resetT}${BRed}[${DGrey}$(FunTargetName)${BRed}]${BGreen}${faintT}──${resetT}${BGreen}╼▰ ${resetT}${ORANGE}◈ ${LRed}${faintT}Name${BBlue}: ${BGreen}${targetNAME}
-    ${BGreen}${faintT}|──${resetT}${BGreen}╼▰ ${resetT}${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BGreen}${faintT}──${resetT}${BGreen}╼▰ ${resetT}${ORANGE}◈ ${LRed}${faintT}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${BGreen}${faintT}|──${resetT}${BGreen}╼▰ ${resetT}${BRed}[${DGrey}$(FunTargetIP)${BRed}]${BGreen}${faintT}──${resetT}${BGreen}╼▰
+    ${BGreen}${faintT}|──${resetT}${BGreen}╼▰ ${resetT}${BRed}[${DGrey}$(FunTargetName)${BRed}]${BGreen}${faintT}──${resetT}${BGreen}╼▰
+    ${BGreen}${faintT}|──${resetT}${BGreen}╼▰ ${resetT}${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BGreen}${faintT}──${resetT}${BGreen}╼▰
     ${BGreen}${faintT}│
-    ${BGreen}${faintT}└───────────────────────────────${resetT}${BGreen}╼▰▰▰  ")"
+    ${BGreen}${faintT}└───────────────────────────────${resetT}${BGreen}╼▰▰▰
+
+    ")"
   read -p "${AndroidPlanningMainMenu}" cmd
   case $cmd in
     x|X|exit|quit|Exit )
