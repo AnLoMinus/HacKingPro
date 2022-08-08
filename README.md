@@ -31,11 +31,9 @@
 
 Before Planning | After Planning
 :---:|:---:
-<img width="761" alt="image" src="https://user-images.githubusercontent.com/51442719/183254327-ec7f543e-81f7-4361-b888-e7fbbb8da91e.png"> | <img width="761" alt="image" src="https://user-images.githubusercontent.com/51442719/183254347-91b199bd-577e-4bad-97a0-4a6e88025984.png">
+<img width="748" alt="image" src="https://user-images.githubusercontent.com/51442719/183319656-4415ac63-eb9c-4f33-9f72-2938ff29173c.png"> | <img width="763" alt="image" src="https://user-images.githubusercontent.com/51442719/183319712-6d88206b-672f-4123-b33b-8a7ed59567b0.png">
 
-
-
-
+#### Get and Run
 ```bash
 git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKingPro; ./HacKingPro
 ```
@@ -59,28 +57,6 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 - [ ] [Linux Mint 21 "Vanessa"](https://linuxmint.com/download.php)
 - [ ] [Windows]()
 
-
----
-
-# Menu # ` xXx `
-- "?"|help|about|About ) # ` xXx `
-- bi ) # ` xXx `
-- 00|0 ) # ` xXx `
-- 01|1 ) # ` xXx `
-- 02|2 ) # ` xXx `
-- 03|3 ) # ` xXx `
-- 04|4 ) # ` xXx `
-- 05|5 ) # ` xXx `
-- 06|6 ) # ` xXx `
-- 07|7 ) # ` xXx `
-- a|A|AttacKing ) # ` xXx `
-- any|Any|AnyTool|anytool ) # ` xXx `
-- arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz ) # ` xXx `
-- x|X|exit|quit|Exit ) # ` xXx `
-- p|P ) # ` xXx `
-- cl ) # ` xXx `
-- ls ) # ` xXx `
-- * )
 
 ---
 
