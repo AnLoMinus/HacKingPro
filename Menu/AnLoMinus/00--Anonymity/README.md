@@ -17,6 +17,12 @@
 
 ---
 
+## [WireGuard-Manager](https://github.com/complexorganizations/wireguard-manager) ✔️  enables you to create and manage your own vpn under a minute.
+#### [Easy-WG-Quick](https://github.com/burghardt/easy-wg-quick) Creates Wireguard configuration for hub and peers with ease
+
+
+
+---
 
 ## 🔸 00 - Anonymity
 - ## [4nonimizer](https://github.com/Hackplayers/4nonimizer) 
