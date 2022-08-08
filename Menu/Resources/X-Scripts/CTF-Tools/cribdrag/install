@@ -1,0 +1,8 @@
+#!/bin/bash -ex
+
+git clone --depth 1 https://github.com/SpiderLabs/cribdrag
+
+mkdir bin
+cd bin
+ln -s ../cribdrag/* .
+cd ..

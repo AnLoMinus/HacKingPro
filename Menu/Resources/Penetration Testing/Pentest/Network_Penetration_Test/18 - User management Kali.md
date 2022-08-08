@@ -1,0 +1,6 @@
+- adduser user1
+- passwd user1
+  - type new password: xxxxxxxxxxxxxxx
+  - type confirm password: xxxxxxxxxxxx
+- Adding user to the sudoers hroup
+  - usermod -a -G sudo user1

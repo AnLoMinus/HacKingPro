@@ -1,4 +1,0 @@
-include README.md
-include LICENSE
-include licenses/*
-include mdv/ansi_tables.json

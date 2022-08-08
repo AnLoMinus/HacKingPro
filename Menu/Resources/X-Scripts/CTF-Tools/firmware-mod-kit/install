@@ -1,0 +1,16 @@
+#!/bin/bash -ex
+
+git clone --depth 1 https://github.com/mirror/firmware-mod-kit.git
+cd firmware-mod-kit/src
+./configure
+make
+cd ../..
+
+mkdir -p bin
+for i in firmware-mod-kit/*.sh
+do
+	echo "$(dirname $(readlink -m $0))/$i \"\$@\"" > bin/$(basename $i)
+	chmod 755 bin/$(basename $i)
+done
+
+sed -i -e "s/SUDO=\"sudo\"/SUDO=\"\"/" firmware-mod-kit/*.sh

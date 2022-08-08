@@ -1,0 +1,9 @@
+#!/bin/bash -ex
+
+git clone --depth 1 https://github.com/droe/sslsplit
+cd sslsplit
+make -j $(nproc)
+cd ..
+
+mkdir bin
+cp sslsplit/sslsplit bin/

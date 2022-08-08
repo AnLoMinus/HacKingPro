@@ -1,3 +1,0 @@
-dependencies:
-  post:
-    - npm run build
