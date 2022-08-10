@@ -1,0 +1,837 @@
+#!/usr/bin/env bash
+
+# ===================== Basic variable settings =====================
+
+if test -e /usr/local/bin/f8x
+then
+    sleep 0.001
+    # f8x -update
+else
+    curl -o f8x https://f8x.io/ && mv --force f8x /usr/local/bin/f8x && chmod +x /usr/local/bin/f8x && echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32mInstalled f8x tools\033[0m" || echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31mf8x installation failed\n\033[0m"
+fi
+
+. /usr/local/bin/f8x > /dev/null 2>&1
+
+F8x_dev_Version="0.1.1 Dev"
+
+# ===================== Software version variable setting =====================
+
+tomcat6_bin="apache-tomcat-6.0.53.tar.gz"
+tomcat6_dir="apache-tomcat-6.0.53"
+tomcat7_bin="apache-tomcat-7.0.109.tar.gz"
+tomcat7_dir="apache-tomcat-7.0.109"
+tomcat8_bin="apache-tomcat-8.5.68.tar.gz"
+tomcat8_dir="apache-tomcat-8.5.68"
+tomcat9_bin="apache-tomcat-9.0.50.tar.gz"
+tomcat9_dir="apache-tomcat-9.0.50"
+
+Main
+Pentest_Base_Install > /dev/null 2>&1
+
+# ===================== Install mariadb (pkg) =====================
+mariadb_Install(){
+
+    name="mariadb"
+
+    which mysql > /dev/null 2>&1
+
+    if [ $? == 0 ]
+    then
+        Echo_ALERT "$name installed"
+        systemctl start mariadb && Echo_INFOR "systemctl start mariadb"
+    else
+        Rm_Lock
+        case $Linux_Version in
+            *"CentOS"*|*"RedHat"*|*"Fedora"*)
+                Install_Switch "mariadb"
+                Install_Switch "mariadb-server"
+                ;;
+            *"Kali"*|*"Ubuntu"*|*"Debian"*)
+                Install_Switch "mariadb-client"
+                Install_Switch "mariadb-server"
+                ;;
+            *) ;;
+        esac
+
+        systemctl start mariadb
+        mysql_secure_installation
+
+        mysqlcmd="select User, host from mysql.user;
+        GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'IDENTIFIED BY 'toor' WITH GRANT OPTION;
+        FLUSH PRIVILEGES;"
+
+        mysql -u root -p -e "${mysqlcmd}"
+        Echo_INFOR "Default root/toor For security reasons, please do not deploy in a public network environment."
+
+        systemctl restart mariadb
+
+        # If you can't connect, you need to modify the configuration file
+        # vim /etc/mysql/mariadb.conf.d/50-server.cnf
+        # bind-address = 0.0.0.0
+        # :wq
+        # systemctl restart mariadb
+    fi
+
+}
+
+# ===================== Install influxdb (docker) (x86) (arm64) =====================
+influxdb_docker_Install(){
+
+    name="influxdb"
+
+    echo -e "\033[5;33m\nPlease enter your influxdb listening port (Default 8086)\033[0m" && read -r input
+    influxdb_port=$input
+
+    if [ $influxdb_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 8086"
+        influxdb_port="8086"
+    fi
+
+    # https://hub.docker.com/_/influxdb
+    docker pull influxdb
+    docker run -d -p $influxdb_port:8086 --name f8x-influxdb influxdb:latest || { Echo_ERROR "Deployment failed"; exit 1; }
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$influxdb_port, please do not deploy in public network environment"
+    Echo_INFOR "Connect database with following setting:\nlisten: 0.0.0.0:$influxdb_port"
+
+}
+
+# ===================== Install mariadb (docker) (x86) (arm64) =====================
+mariadb_docker_Install(){
+
+    name="mariadb"
+
+    echo -e "\033[5;33m\nPlease enter your mariadb listening port (Default 3306)\033[0m" && read -r input
+    mariadb_port=$input
+
+    if [ $mariadb_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 3306"
+        mariadb_port="3306"
+    fi
+
+    echo -e "\033[5;33m\nPlease enter your mariadb password (Default ffffffff0x)\033[0m" && read -r input
+    mariadb_pass=$input
+
+    if [ $mariadb_pass ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认密码为 ffffffff0x"
+        mariadb_pass="ffffffff0x"
+    fi
+
+    # https://hub.docker.com/_/mariadb
+    docker pull mariadb
+    docker run -d -p $mariadb_port:3306 --name f8x-mariadb -e MYSQL_ROOT_PASSWORD=$mariadb_pass mariadb:latest || { Echo_ERROR "Deployment failed"; exit 1; }
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$mariadb_port, please do not deploy in public network environment"
+    Echo_INFOR "Connect database with following setting:\nlisten: 0.0.0.0:$mariadb_port\nusername: root\npassword: $mariadb_pass"
+
+}
+
+# ===================== Install memcached (docker) =====================
+memcached_docker_Install(){
+
+    name="memcached"
+
+    echo -e "\033[5;33m\nPlease enter your memcached listening port (Default 11211)\033[0m" && read -r input
+    memcached_port=$input
+
+    if [ $memcached_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 11211"
+        memcached_port="11211"
+    fi
+
+    # https://hub.docker.com/_/memcached
+    docker pull memcached
+    docker run -d -p $memcached_port:11211 --name f8x-memcached memcached || { Echo_ERROR "Deployment failed"; exit 1; }
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$memcached_port, please do not deploy in public network environment"
+
+}
+
+# ===================== Install mongodb (docker) =====================
+mongodb_docker_Install(){
+
+    name="mongodb"
+
+    echo -e "\033[5;33m\nPlease enter your mongodb listening port (Default 27017)\033[0m" && read -r input
+    mongodb_port=$input
+
+    if [ $mongodb_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 27017"
+        mongodb_port="27017"
+    fi
+
+    # https://hub.docker.com/_/mongo
+    docker pull mongo
+    docker run -d -p $mongodb_port:27017 --name f8x-mongodb mongo || { Echo_ERROR "Deployment failed"; exit 1; }
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$mongodb_port, please do not deploy in public network environment"
+
+}
+
+# ===================== Install mssql2019 (docker) =====================
+mssql2019_docker_Install(){
+
+    name="mssql2019"
+
+    echo -e "\033[5;33m\nPlease enter your mssql2019 listening port (Default 1433)\033[0m" && read -r input
+    mssql2019_port=$input
+
+    if [ $mssql2019_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 1433"
+        mssql2019_port="1433"
+    fi
+
+    echo -e "\033[5;33m\nPlease enter your mssql2019 password(必须包含大小写、字母和数字、特殊符号)(Default Abcd1234!!)\033[0m" && read -r input
+    mssql2019_pass=$input
+
+    if [ $mssql2019_pass ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认密码为 Abcd1234!!"
+        mssql2019_pass='Abcd1234!!'
+    fi
+
+    # https://hub.docker.com/_/microsoft-mssql-server
+    docker pull mcr.microsoft.com/mssql/server:2019-CU15-ubuntu-20.04
+    docker run -d -p $mssql2019_port:1433 --name=f8x-sqlserver -e 'ACCEPT_EULA=Y' -e SA_PASSWORD=$mssql2019_pass -e 'MSSQL_PID=Developer' mcr.microsoft.com/mssql/server:2019-CU15-ubuntu-20.04 || { Echo_ERROR "Deployment failed"; exit 1; }
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$mssql2019_port, please do not deploy in public network environment"
+    Echo_INFOR "Connect database with following setting:\nlisten: 0.0.0.0:$mssql2019_port\nusername: sa\npassword: $mssql2019_pass"
+
+}
+
+# ===================== Install mysql (docker) (x86) =====================
+mysql_docker_Install(){
+
+    name="mysql"
+
+    echo -e "\033[5;33m\nPlease enter your mysql listening port (Default 3306)\033[0m" && read -r input
+    mysql_port=$input
+
+    if [ $mysql_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 3306"
+        mysql_port="3306"
+    fi
+
+    echo -e "\033[5;33m\nPlease enter your mysql password (Default ffffffff0x)\033[0m" && read -r input
+    mysql_pass=$input
+
+    if [ $mysql_pass ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认密码为 ffffffff0x"
+        mysql_pass="ffffffff0x"
+    fi
+
+    # https://hub.docker.com/_/mysql
+    docker pull mysql:latest
+    docker run -d -p $mysql_port:3306 --name f8x-mysql -e MYSQL_ROOT_PASSWORD=$mysql_pass mysql:latest || { Echo_ERROR "Deployment failed"; exit 1; }
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$mysql_port, please do not deploy in public network environment"
+    Echo_INFOR "Connect database with following setting:\nlisten: 0.0.0.0:$mysql_port\nusername: root\npassword: $mysql_pass"
+
+}
+
+# ===================== Install oracle11 (docker) =====================
+oracle11_docker_Install(){
+
+    name="oracle11"
+
+    echo -e "\033[5;33m\nPlease enter your oracle11 listening port (Default 1521)\033[0m" && read -r input
+    oracle11_port=$input
+
+    if [ $oracle11_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 1521"
+        oracle11_port="1521"
+    fi
+
+    echo -e "\033[5;33m\nPlease enter your oracle11 password (Default ffffffff0x)\033[0m" && read -r input
+    oracle11_pass=$input
+
+    if [ $oracle11_pass ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认密码为 ffffffff0x"
+        oracle11_pass="ffffffff0x"
+    fi
+
+    # https://hub.docker.com/r/gvenzl/oracle-xe
+    docker pull gvenzl/oracle-xe:11
+    docker run -d -p $oracle11_port:1521 --name f8x-oracle11 -e ORACLE_PASSWORD=$oracle11_pass gvenzl/oracle-xe:11 || { Echo_ERROR "Deployment failed"; exit 1; }
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$oracle11_port, please do not deploy in public network environment"
+    Echo_INFOR "Connect database with following setting:\nlisten: 0.0.0.0:$oracle11_port\nsid : XE\nusername: system\npassword: $oracle11_pass"
+
+}
+
+# ===================== Install postgres (docker) =====================
+postgres_docker_Install(){
+
+    name="postgres"
+
+    echo -e "\033[5;33m\nPlease enter your PostgreSQL listening port (Default 5432)\033[0m" && read -r input
+    postgres_port=$input
+
+    if [ $postgres_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 5432"
+        postgres_port="5432"
+    fi
+
+    echo -e "\033[5;33m\nPlease enter your PostgreSQL password (Default ffffffff0x)\033[0m" && read -r input
+    postgres_pass=$input
+
+    if [ $postgres_pass ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认密码为 ffffffff0x"
+        postgres_pass="ffffffff0x"
+    fi
+
+    # https://hub.docker.com/_/postgres
+    docker pull postgres
+    docker run -d -p $postgres_port:5432 --name f8x-postgres -e POSTGRES_PASSWORD=$postgres_pass postgres || { Echo_ERROR "Deployment failed"; exit 1; }
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$postgres_port, please do not deploy in public network environment"
+    Echo_INFOR "Connect database with following setting:\nlisten: 0.0.0.0:$postgres_port\nusername: postgres\npassword: $postgres_pass"
+
+}
+
+# ===================== Install redis (docker) =====================
+redis_docker_Install(){
+
+    name="redis"
+
+    echo -e "\033[5;33m\nPlease enter your redis listening port (Default 6379)\033[0m" && read -r input
+    redis_port=$input
+
+    if [ $redis_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 6379"
+        redis_port="6379"
+    fi
+
+    # https://hub.docker.com/_/redis
+    docker pull redis
+    docker run -d -p $redis_port:6379 --name f8x-redis redis || { Echo_ERROR "Deployment failed"; exit 1; }
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$redis_port, please do not deploy in public network environment!!!!"
+    Echo_ALERT "Already listening to 0.0.0.0:$redis_port, please do not deploy in public network environment!!!!"
+    Echo_ALERT "Already listening to 0.0.0.0:$redis_port, please do not deploy in public network environment!!!!"
+
+}
+
+# ===================== Install tomcat7 (docker) (x86) (arm) =====================
+tomcat7_docker_Install(){
+
+    name="tomcat7"
+
+    echo -e "\033[5;33m\nPlease enter your tomcat listening port (Default 8080)\033[0m" && read -r input
+    tomcat7_port=$input
+
+    if [ $tomcat7_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 8080"
+        tomcat7_port="8080"
+    fi
+
+    # https://hub.docker.com/_/tomcat
+    docker pull tomcat:7.0
+    docker run -d -p $tomcat7_port:8080 tomcat:7.0
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$tomcat7_port"
+
+}
+
+# ===================== Install tomcat8 (docker) (x86) =====================
+tomcat8_docker_Install(){
+
+    name="tomcat8"
+
+    echo -e "\033[5;33m\nPlease enter your tomcat listening port (Default 8080)\033[0m" && read -r input
+    tomcat8_port=$input
+
+    if [ $tomcat8_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 8080"
+        tomcat8_port="8080"
+    fi
+
+    # https://hub.docker.com/_/tomcat
+    docker pull tomcat:8.5.77
+    docker run -d -p $tomcat8_port:8080 tomcat:8.5.77
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$tomcat8_port"
+
+}
+
+# ===================== Install tomcat9 (docker) (x86) (arm) =====================
+tomcat9_docker_Install(){
+
+    name="tomcat9"
+
+    echo -e "\033[5;33m\nPlease enter your tomcat listening port (Default 8080)\033[0m" && read -r input
+    tomcat9_port=$input
+
+    if [ $tomcat9_port ==  ] 2>> /tmp/f8x_error.log
+    then
+        echo -e "输入为空,默认监听端口为 8080"
+        tomcat9_port="8080"
+    fi
+
+    # https://hub.docker.com/_/tomcat
+    docker pull tomcat:9.0
+    docker run -d -p $tomcat9_port:8080 tomcat:9.0
+    docker ps
+
+    Echo_ALERT "Already listening to 0.0.0.0:$tomcat9_port"
+
+}
+
+# ===================== Install tomcat6 (src) =====================
+tomcat6_src_Install(){
+
+    # Tomcat 6.0 requires JRE 5.0 or later.
+
+    name="tomcat6"
+    dir="/usr/local/$tomcat6_dir"
+
+    if test -d $dir
+    then
+        Echo_ALERT "$name is already installed in $dir"
+    else
+        cd $T_Dir && rm -rf $tomcat6_bin && $Proxy_OK wget https://archive.apache.org/dist/tomcat/tomcat-6/v6.0.53/bin/$tomcat6_bin > /dev/null 2>&1 || Echo_ERROR2
+        tar -zxf $tomcat6_bin -C /usr/local/ > /dev/null 2>&1 && rm -rf $tomcat6_bin
+
+    fi
+
+    rm -rf /usr/local/tomcat
+    ln -s /usr/local/${tomcat6_dir}/ /usr/local/tomcat
+    Echo_INFOR "Manually run the following command:\nexport CATALINA_HOME=/usr/local/tomcat\nexport PATH=\$CATALINA_HOME/bin:\$PATH"
+    Echo_INFOR "catalina.sh version"
+    Echo_INFOR "catalina.sh start"
+
+}
+
+# ===================== Install tomcat7 (src) =====================
+tomcat7_src_Install(){
+
+    # Tomcat 7.0 requires Java 6 or later.
+
+    name="tomcat7"
+    dir="/usr/local/$tomcat7_dir"
+
+    if test -d $dir
+    then
+        Echo_ALERT "$name is already installed in $dir"
+    else
+        cd $T_Dir && rm -rf $tomcat7_bin && $Proxy_OK wget https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.109/bin/$tomcat7_bin > /dev/null 2>&1 || Echo_ERROR2
+        tar -zxf $tomcat7_bin -C /usr/local/ > /dev/null 2>&1 && rm -rf $tomcat7_bin
+    fi
+
+    rm -rf /usr/local/tomcat
+    ln -s /usr/local/${tomcat7_dir}/ /usr/local/tomcat
+    Echo_INFOR "Manually run the following command:\nexport CATALINA_HOME=/usr/local/tomcat\nexport PATH=\$CATALINA_HOME/bin:\$PATH"
+    Echo_INFOR "catalina.sh version"
+    Echo_INFOR "catalina.sh start"
+
+}
+
+# ===================== Install tomcat8 (src) =====================
+tomcat8_src_Install(){
+
+    # Tomcat 8.5 requires Java 7 or later.
+
+    name="tomcat8"
+    dir="/usr/local/$tomcat8_dir"
+
+    if test -d $dir
+    then
+        Echo_ALERT "$name is already installed in $dir"
+    else
+        cd $T_Dir && rm -rf $tomcat8_bin && $Proxy_OK wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.68/bin/$tomcat8_bin > /dev/null 2>&1 || Echo_ERROR2
+        tar -zxf $tomcat8_bin -C /usr/local/ > /dev/null 2>&1 && rm -rf $tomcat8_bin
+
+    fi
+
+    rm -rf /usr/local/tomcat
+    ln -s /usr/local/${tomcat8_dir}/ /usr/local/tomcat
+    Echo_INFOR "Manually run the following command:\nexport CATALINA_HOME=/usr/local/tomcat\nexport PATH=\$CATALINA_HOME/bin:\$PATH"
+    Echo_INFOR "catalina.sh version"
+    Echo_INFOR "catalina.sh start"
+
+}
+
+# ===================== Install tomcat9 (src) =====================
+tomcat9_src_Install(){
+
+    # Tomcat 9.0 requires Java 8 or later.
+
+    name="tomcat9"
+    dir="/usr/local/$tomcat9_dir"
+
+    if test -d $dir
+    then
+        Echo_ALERT "$name is already installed in $dir"
+    else
+        cd $T_Dir && rm -rf $tomcat9_bin && $Proxy_OK wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.50/bin/$tomcat9_bin > /dev/null 2>&1 || Echo_ERROR2
+        tar -zxf $tomcat9_bin -C /usr/local/ > /dev/null 2>&1 && rm -rf $tomcat9_bin
+
+    fi
+
+    rm -rf /usr/local/tomcat
+    ln -s /usr/local/${tomcat9_dir}/ /usr/local/tomcat
+    Echo_INFOR "Manually run the following command:\nexport CATALINA_HOME=/usr/local/tomcat\nexport PATH=\$CATALINA_HOME/bin:\$PATH"
+    Echo_INFOR "catalina.sh version"
+    Echo_INFOR "catalina.sh start"
+
+}
+
+# ===================== Install nginx (pkg) =====================
+nginx_Install_pkg(){
+
+    name="nginx"
+
+    Rm_Lock
+    Install_Switch "nginx"
+
+    Echo_INFOR "systemctl status nginx"
+    systemctl status nginx
+
+}
+
+# ===================== Install apache (pkg) =====================
+apache_Install_pkg(){
+
+    name="apache2"
+
+    Rm_Lock
+    case $Linux_Version in
+        *"CentOS"*|*"RedHat"*|*"Fedora"*|*"AlmaLinux"*|*"VzLinux"*|*"Rocky"*)
+            Install_Switch "httpd"
+            Echo_INFOR "systemctl status httpd"
+            systemctl status httpd
+            ;;
+        *"Kali"*|*"Ubuntu"*|*"Debian"*)
+            Install_Switch "apache2"
+            Echo_INFOR "systemctl status apache2"
+            systemctl status apache2
+            ;;
+        *)
+            ;;
+    esac
+
+}
+
+php_base_Install(){
+
+    Rm_Lock
+    case $Linux_Version in
+        *"CentOS"*|*"RedHat"*|*"Fedora"*|*"AlmaLinux"*|*"VzLinux"*|*"Rocky"*)
+            Echo_INFOR "RedHat 系暂未适配"
+            ;;
+        *"Debian"*|*"Kali"*)
+            Install_Switch "software-properties-common"
+            Install_Switch "gnupg"
+
+            curl -fsSL https://packages.sury.org/php/apt.gpg | sudo apt-key add -
+            sudo add-apt-repository "deb https://packages.sury.org/php/ $(lsb_release -cs) main"
+            apt-get update > /dev/null 2>&1
+            ;;
+        *"Ubuntu"*)
+            Install_Switch "software-properties-common"
+            Install_Switch "gnupg"
+
+            sudo add-apt-repository ppa:ondrej/php
+            apt-get update > /dev/null 2>&1
+            ;;
+        *) ;;
+    esac
+
+}
+
+# ===================== Install php5.6 (pkg) =====================
+php56_Install(){
+
+    name="php5.6"
+
+    php_base_Install
+    case $Linux_Version in
+        *"Kali"*|*"Ubuntu"*|*"Debian"*)
+            Install_Switch "php5.6"
+            Install_Switch "php5.6-fpm"
+            Install_Switch "php5.6-mysql"
+            Install_Switch "php5.6-curl"
+            Install_Switch "php5.6-json"
+            Install_Switch "php5.6-mbstring"
+            Install_Switch "php5.6-gd"
+            Install_Switch "php5.6-xml"
+            Install_Switch "php5.6-intl"
+            Install_Switch "php5.6-odbc"
+            Install_Switch "php5.6-cgi"
+            Install_Switch "php5.6-zip"
+
+            update-alternatives --config php
+            php -v
+            Echo_INFOR "Run the following command to switch php version:\nupdate-alternatives --config php"
+            ;;
+        *) ;;
+    esac
+
+}
+
+# ===================== Install php7.2 (pkg) =====================
+php72_Install(){
+
+    name="php7.2"
+
+    php_base_Install
+    case $Linux_Version in
+        *"Kali"*|*"Ubuntu"*|*"Debian"*)
+            Install_Switch "php7.2"
+            Install_Switch "php7.2-fpm"
+            Install_Switch "php7.2-mysql"
+            Install_Switch "php7.2-curl"
+            Install_Switch "php7.2-json"
+            Install_Switch "php7.2-mbstring"
+            Install_Switch "php7.2-gd"
+            Install_Switch "php7.2-xml"
+            Install_Switch "php7.2-intl"
+            Install_Switch "php7.2-odbc"
+            Install_Switch "php7.2-cgi"
+            Install_Switch "php7.2-zip"
+
+            update-alternatives --config php
+            php -v
+            Echo_INFOR "Run the following command to switch php version:\nupdate-alternatives --config php"
+            ;;
+        *) ;;
+    esac
+
+}
+
+# ===================== Install php7.2 (pkg) + nginx (pkg) + autoconfig =====================
+php72_nginx_Install(){
+
+    service httpd stop > /dev/null 2>&1
+    apt remove -y apache2 > /dev/null 2>&1
+
+    nginx_Install_pkg
+    php72_Install
+
+    mkdir -p /var/www/f0x && cd $_
+    echo "<?php phpinfo() ?>" > /var/www/f0x/phpinfo.php
+
+    # nginx 配置
+    cd /etc/nginx/sites-available
+    rm -rf default
+
+tee default <<-'EOF'
+server {
+        listen 7777 default_server;
+
+        location / {
+                root /var/www/f0x;
+                index index.php;
+
+                try_files $uri $uri/ =404;
+        }
+
+        location ~ \.php$ {
+                root /var/www/f0x;
+
+                fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
+EOF
+
+    /usr/sbin/php-fpm7.2 1> /dev/null 2>> /tmp/f8x_error.log
+    /usr/sbin/nginx -t 1> /dev/null 2>> /tmp/f8x_error.log
+
+    service nginx restart
+    ufw disable 1> /dev/null 2>> /tmp/f8x_error.log
+    service firewalld stop 1> /dev/null 2>> /tmp/f8x_error.log
+    systemctl start nginx.service
+    ss -tnlp
+
+    chmod -R 777 /var/www/f0x/
+
+    Echo_INFOR "config : /etc/nginx/sites-available/default"
+    Echo_INFOR "www    : /var/www/f0x"
+    Echo_INFOR "test   : curl http://127.0.0.1:7777/phpinfo.php"
+
+}
+
+# -help
+Help_Info(){
+
+    echo -e "\033[1;34mapache \033[0m"
+    echo -e "  \033[1;34m-apache-pkg\033[0m \033[0;34m      : install apache    (Package Manager) \033[0m"
+    echo -e ""
+    echo -e "\033[1;34mnginx \033[0m"
+    echo -e "  \033[1;34m-nginx-pkg\033[0m \033[0;34m       : install nginx     (Package Manager) \033[0m"
+    echo -e "  \033[1;34m-nginx-src\033[0m \033[0;34m       : install nginx     (Compile) \033[0m"
+    echo -e ""
+    echo -e "\033[1;34mtomcat \033[0m"
+    echo -e "  \033[1;34m-tomcat6-src\033[0m \033[0;34m     : install tomcat6   (Compile)\033[0m"
+    echo -e "  \033[1;34m-tomcat7\033[0m \033[0;34m         : install tomcat7   (Docker)\033[0m"
+    echo -e "  \033[1;34m-tomcat7-src\033[0m \033[0;34m     : install tomcat7   (Compile)\033[0m"
+    echo -e "  \033[1;34m-tomcat8\033[0m \033[0;34m         : install tomcat8   (Docker)\033[0m"
+    echo -e "  \033[1;34m-tomcat8-src\033[0m \033[0;34m     : install tomcat8   (Compile)\033[0m"
+    echo -e "  \033[1;34m-tomcat9\033[0m \033[0;34m         : install tomcat9   (Docker)\033[0m"
+    echo -e "  \033[1;34m-tomcat9-src\033[0m \033[0;34m     : install tomcat9   (Compile)\033[0m"
+    echo -e ""
+    echo -e "\033[1;34mDatabase \033[0m"
+    echo -e "  \033[1;34m-influxdb\033[0m \033[0;34m        : install InfluxDB  (Docker) \033[0m"
+    echo -e "  \033[1;34m-mariadb\033[0m \033[0;34m         : install mariadb   (Docker) \033[0m"
+    echo -e "  \033[1;34m-memcached\033[0m \033[0;34m       : install memcached (Docker) \033[0m"
+    echo -e "  \033[1;34m-mongodb\033[0m \033[0;34m         : install mongodb   (Docker) \033[0m"
+    echo -e "  \033[1;34m-mssql2019\033[0m \033[0;34m       : install mssql2019 (Docker) \033[0m"
+    echo -e "  \033[1;34m-mysql\033[0m \033[0;34m           : install mysql     (Docker) \033[0m"
+    echo -e "  \033[1;34m-oracle11\033[0m \033[0;34m        : install oracle11  (Docker) \033[0m"
+    echo -e "  \033[1;34m-postgres\033[0m \033[0;34m        : install PostgreSQL(Docker) \033[0m"
+    echo -e "  \033[1;34m-redis\033[0m \033[0;34m           : install redis     (Docker) \033[0m"
+    echo -e ""
+    echo -e "\033[1;34mphp \033[0m"
+    echo -e "  \033[1;34m-php56\033[0m \033[0;34m           : install php5.6    (Package Manager)\033[0m"
+    echo -e "  \033[1;34m-php72\033[0m \033[0;34m           : install php7.2    (Package Manager)\033[0m"
+    echo -e "  \033[1;34m-php72-nginx\033[0m \033[0;34m     : install php7.2 + nginx (Package Manager) \033[0m"
+    echo -e ""
+    echo -e "\033[1;37mcreate by ffffffff0x\033[0m"
+    echo -e ""
+
+}
+
+for cmd in $@
+do
+    case $cmd in
+        -influxdb)
+            Base_Check
+            Docker_Check
+            influxdb_docker_Install
+            ;;
+        -mariadb)
+            Base_Check
+            Docker_Check
+            mariadb_docker_Install
+            ;;
+        -memcached)
+            Base_Check
+            Docker_Check
+            memcached_docker_Install
+            ;;
+        -mongodb)
+            Base_Check
+            Docker_Check
+            mongodb_docker_Install
+            ;;
+        -mssql2019)
+            Base_Check
+            Docker_Check
+            mssql2019_docker_Install
+            ;;
+        -mysql)
+            Base_Check
+            Docker_Check
+            mysql_docker_Install
+            ;;
+        -oracle11)
+            Base_Check
+            Docker_Check
+            oracle11_docker_Install
+            ;;
+        -postgres)
+            Base_Check
+            Docker_Check
+            postgres_docker_Install
+            ;;
+        -redis)
+            Base_Check
+            Docker_Check
+            redis_docker_Install
+            ;;
+        -tomcat7)
+            Base_Check
+            Docker_Check
+            tomcat7_docker_Install
+            ;;
+        -tomcat8)
+            Base_Check
+            Docker_Check
+            tomcat8_docker_Install
+            ;;
+        -tomcat9)
+            Base_Check
+            Docker_Check
+            tomcat9_docker_Install
+            ;;
+        -tomcat6-src)
+            Proxy_Switch
+            Base_Check
+            tomcat6_src_Install
+            ;;
+        -tomcat7-src)
+            Proxy_Switch
+            Base_Check
+            tomcat7_src_Install
+            ;;
+        -tomcat8-src)
+            Proxy_Switch
+            Base_Check
+            tomcat8_src_Install
+            ;;
+        -tomcat9-src)
+            Proxy_Switch
+            Base_Check
+            tomcat9_src_Install
+            ;;
+        -nginx-src)
+            Proxy_Switch
+            Base_Check
+            nginx_Install
+            ;;
+        -nginx-pkg)
+            nginx_Install_pkg
+            ;;
+        -apache-pkg)
+            apache_Install_pkg
+            ;;
+        -php56)
+            Base_Check
+            php56_Install
+            ;;
+        -php72)
+            Base_Check
+            php72_Install
+            ;;
+        -php72-nginx)
+            Base_Check
+            php72_nginx_Install
+            ;;
+        -help | help)
+            printf "\033c"
+            Help_Info
+            exit 1
+            ;;
+    esac
+done
+
+echo -e "\033[1;36m \n-----OVER-----\n \033[0m"

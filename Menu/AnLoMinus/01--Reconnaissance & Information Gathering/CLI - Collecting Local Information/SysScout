@@ -53,16 +53,16 @@ echo "By: Josh Brunty: josh [dot] brunty [at] marshall [dot] edu"
 
 # Display the header message
 # $1 - message
-function write_header(){
-	local h="$@"
+AwesomeHeader(){
+	local WhatHeader="$@"
 	echo "---------------------------------------------------------------"
-	echo "     ${h}"
+	echo "     ${WhatHeader}"
 	echo "---------------------------------------------------------------"
 }
 
 # Get info about Local Machine Operating System
 function os_info(){
-	write_header " Operating System Information "
+	AwesomeHeader " Operating System Information "
 	echo "Operating system : $(uname -no)"
 	echo "Operating System Version : $(uname -mv)"
 	#pause "Press [Enter] key to continue..."
@@ -71,7 +71,7 @@ function os_info(){
 
 # Get info about local machine time, date, and timezone
 function time_info(){
-	write_header " Time Information "
+	AwesomeHeader " Time Information "
 	echo "Local Machine Time : $(date +%R)"
 	echo "Local Machine Timezone : $(date +%Z)"
 	echo "Local Machine Date : $(date +"%m-%d-%y")"
@@ -82,7 +82,7 @@ function time_info(){
 # Get information about localhost
 function host_info(){
 	local dnsips=$(sed -e '/^$/d' /etc/resolv.conf | awk '{if (tolower($1)=="nameserver") print $2}')
-	write_header " Hostname and DNS information "
+	AwesomeHeader " Hostname and DNS information "
 	echo "Hostname : $(hostname)"
 	echo "DNS domain : $(hostname -d)"
 	echo "Fully qualified domain name : $(hostname -f)"
@@ -94,7 +94,7 @@ function host_info(){
 # Network Inferface/Routing/MAC Address info (i.e. IP & NetStat)
 function net_info(){
 	devices=$(netstat -i | cut -d" " -f1 | egrep -v "^Kernel|Iface|lo")
-	write_header " Network information "
+	AwesomeHeader " Network information "
 	echo "Total network interfaces found : $(wc -w <<<${devices})"
 
 	echo "-----------------------"
@@ -124,14 +124,14 @@ function net_info(){
 function user_info(){
 	local cmd="$1"
 	case "$cmd" in
-		who) write_header " Who is online "; who -H; pause ;;
-		last) write_header " List of last logged in users "; last ; pause ;;
+		who) AwesomeHeader " Who is online "; who -H; pause ;;
+		last) AwesomeHeader " List of last logged in users "; last ; pause ;;
 	esac
 }
 
 # Display used and free memory info
 function mem_info(){
-	write_header " Free and used memory "
+	AwesomeHeader " Free and used memory "
 	free -m
 
     echo "---------------------------------"

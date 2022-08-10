@@ -1,0 +1,189 @@
+#!/bin/bash
+
+case_sen="tmp/case_sensitive.tmp"
+#out_enc
+msg_enc1="tmp/enc1.tmp";msg_enc2="tmp/enc2.tmp";msg_enc3="tmp/enc3.tmp";msg_enc4="tmp/enc4.tmp"
+#out_dec
+msg_dec1="tmp/dec1.tmp";msg_dec2="tmp/dec2.tmp";msg_dec3="tmp/dec3.tmp";msg_dec4="tmp/dec4.tmp";msg_fin="tmp/msg_fin";tmp_check="tmp/out.send"
+
+
+decryption(){
+ clear;#imr0t_colour;#banner_
+   	while /bin/true
+    	do
+		echo -ne $okegreen"\nimR0T╺─╸[ "$white"dec"$okegreen" ] "$red"> " $RESET;read case1 case2 case3
+		#arguments
+	     	if   [[ $case1 == "help" ]];then
+	     		imr0t_help
+	     	elif [[ $case1 == "pwd" ]];then
+	     		echo;pwd
+	     	elif [[ $case1 == "clear" ]];then
+	     		clear
+	     	elif [[ $case1 == "list" ]] && [[ $case2 == "style" ]];then
+	     		echo -e "\n | "
+				echo " | "
+				echo " |_ "
+				echo "    style:"
+				echo ""
+				echo -e $okegreen "\t  [1] "$RESET"Cat Face \t\t  "$okegreen"[10] "$RESET"Chess\t\t "$okegreen"[19] "$RESET"Fraction"	   
+				echo -e $okegreen "\t  [2] "$RESET"Emoji \t\t  "$okegreen"[11] "$RESET"Degree\t\t "$okegreen"[20] "$RESET"Technical"
+				echo -e $okegreen "\t  [3] "$RESET"Cards \t\t  "$okegreen"[12] "$RESET"Astrological\t "$okegreen"[21] "$RESET"Square"	   
+				echo -e $okegreen "\t  [4] "$RESET"Fake Hex \t\t  "$okegreen"[13] "$RESET"Heart\t\t "$okegreen"[22] "$RESET"Triangle"	
+				echo -e $okegreen "\t  [5] "$RESET"Stars \t\t  "$okegreen"[14] "$RESET"Check mark\t "$okegreen"[23] "$RESET"Phonetic"
+				echo -e $okegreen "\t  [6] "$RESET"Hand sign\t\t  "$okegreen"[15] "$RESET"Greek"	
+				echo -e $okegreen "\t  [7] "$RESET"Weather \t\t  "$okegreen"[16] "$RESET"Greekv2"	
+				echo -e $okegreen "\t  [8] "$RESET"Music note\t  "$okegreen"[17] "$RESET"Math"
+				echo -e $okegreen "\t  [9] "$RESET"Arrow \t\t  "$okegreen"[18] "$RESET"Number japan"
+				echo -e ""
+
+	     	elif [[ $case1 == "options" ]];then
+
+	     		echo -e "\n | "
+				echo " | "
+				echo " |_ "
+				echo "    Options:"
+				echo ""
+				echo -e $okegreen"	     name      example              value"   
+				echo -e $okegreen"	     -----     ------------------   -----"
+				echo -e $okegreen"	     file      "$RESET"output/Smile.imROT   $file"
+				echo -e $okegreen"	     style     "$RESET"template/0x1.key     $type"
+
+
+				echo ""   
+			elif [[ $case1 == "set" ]];then
+				if [[ $case2 == "file" ]] && [[ ! $case3 == "" ]]
+					then
+						file=$case3
+				elif [[ $case2 == "style" ]] && [[ ! $case3 == "" ]]
+				then
+					if [[ $case3 == "1" ]];then
+			          type1=template/0x1.key
+			          type=$type1 
+			        elif [[ $case3 = "2" ]]; then
+			          type1=template/0x2.key
+			          type=$type1 
+			        elif [[ $case3 = "3" ]]; then
+			          type1=template/0x3.key
+			          type=$type1
+			        elif [[ $case3 = "4" ]]; then
+			          type1=template/0x4.key
+			          type=$type1 
+			        elif [[ $case3 = "5" ]]; then
+			          type1=template/0x5.key
+			          type=$type1 
+			        elif [[ $case3 = "6" ]]; then
+			          type1=template/0x6.key
+			          type=$type1 
+			        elif [[ $case3 = "7" ]]; then
+			          type1=template/0x7.key
+			          type=$type1 
+			        elif [[ $case3 = "8" ]]; then
+			          type1=template/0x8.key
+			          type=$type1
+			        elif [[ $case3 = "9" ]]; then
+			          type1=template/0x9.key
+			          type=$type1 
+			        elif [[ $case3 = "10" ]]; then
+			          type1=template/0x10.key
+			          type=$type1 
+			        elif [[ $case3 = "11" ]]; then
+			          type1=template/0x11.key
+			          type=$type1 
+			        elif [[ $case3 = "12" ]]; then
+			          type1=template/0x12.key
+			          type=$type1 
+			        elif [[ $case3 = "13" ]]; then
+			          type1=template/0x13.key
+			          type=$type1
+			        elif [[ $case3 = "14" ]]; then
+			          type1=template/0x14.key
+			          type=$type1 
+			        elif [[ $case3 = "15" ]]; then
+			          type1=template/0x15.key
+			          type=$type1 
+			        elif [[ $case3 = "16" ]]; then
+			          type1=template/0x16.key
+			          type=$type1 
+			        elif [[ $case3 = "17" ]]; then
+			          type1=template/0x17.key
+			          type=$type1 
+			        elif [[ $case3 = "18" ]]; then
+			          type1=template/0x18.key
+			          type=$type1
+			        elif [[ $case3 = "19" ]]; then
+			          type1=template/0x19.key
+			          type=$type1 
+			        elif [[ $case3 = "20" ]]; then
+			          type1=template/0x20.key
+			          type=$type1 
+			        elif [[ $case3 = "21" ]]; then
+			          type1=template/0x21.key
+			          type=$type1 			          			          
+			        elif [[ $case3 = "22" ]]; then
+			          type1=template/0x22.key
+			          type=$type1 			          			          
+			        elif [[ $case3 = "23" ]]; then
+			          type1=template/0x23.key
+			          type=$type1 			          			          
+			          			          			          
+
+			       fi 
+				fi
+
+	     	elif [[ $case1 == "ls" ]] || [[ $case1 == "dir" ]];then
+	     		echo -e $red "";ls 								
+	     	elif [[ $case1 == "cat" ]] && [[ $case2 == $case2 ]];then
+	     		echo;cat $case2      							 						
+	     	elif [[ $case1 == "use" ]];then #not spesific
+	     		err1  
+	     	elif [[ $case1 == "back" ]];then #not spesific
+	     		controller   	
+
+	     	elif [[ $case1 == "run" ]];then #not spesific
+					if [ -f "$file" ]
+						then
+						#clear 
+						echo -e "\n | "
+						echo " |_ "
+					    echo -e $okegreen"    [+]"$RESET" Process Decryption ROT13 \n "
+						echo -e $yellow"         [-] "$RESET"Process 0x1";
+						while IFS=" - " read x1 x2 x3 x4 x5 x6 x7 x8 x9 x10 x11 ; do
+						sed -e 's/'$x1'/N/g' -e 's/'$x2'/O/g' -e 's/'$x3'/P/g' -e 's/'$x4'/Q/g' -e 's/'$x5'/R/g' -e 's/'$x6'/S/g' -e 's/'$x7'/T/g' -e 's/'$x8'/U/g' -e 's/'$x9'/V/g' -e 's/'$x10'/W/g' -e 's/'$x11'/a/g'  < $file  > $msg_dec1
+						done < $type1
+						echo -e $yellow"         [-] "$RESET"Process 0x1";
+						tr '[A-Z]' '[N-ZA-M]' < $msg_dec1 > $msg_dec2 
+						value0xD2=$(<$msg_dec2);echo $value0xD2 | tr ABCDEFGHIJ 0123456789 | xxd -r -p > $msg_dec3
+						echo -e $yellow"         [-] "$RESET"Process 0x3"
+						value0xD3=$(<$msg_dec3);echo $value0xD3 | tr ABCDEFGHIJ 0123456789 | awk -F '' '{ for(i=1; i<=NF; i+=2) {printf "%s%s ", $i,$(i+1);}}' > $msg_dec3
+					 	awk '{ for(i=1;i<=NF;i++) printf("%c",$i); print "";  }' < $msg_dec3 > $msg_dec4 
+						echo -e $yellow"         [-] "$RESET"Process 0x4"						
+						awk '{print tolower($0)}' < $msg_dec4 > $msg_fin
+						tr '[a-z]' '[n-za-m]' < $msg_fin > output/imR0T.decrypt
+
+						echo;echo -e $okegreen"    [+]"$RESET" Process Complete \n"
+
+						#rm -rf tmp/*.sends;rm -rf tmp/*.tmp
+						#value0x4=$(<tmp/Smile.imROT)
+						#OK=`cat tmp/Smile.imROT`
+					 	#$OK
+					 	#sed s/PESANRAHASIA/$OK/g send.html > whatsapp.html
+						#firefox whatsapp.html
+
+						rm tmp/*	
+						#rm -rf tmp/*.send;rm -rf tmp/*.tmp;rm -rf tmp/msg_fin 
+
+						elif [ ! -f "$file" ] 
+							then
+	     					echo -e "\n | "
+							echo " |_ "
+							echo -e $red"    [-]$RESET Error: File not found - "$okegreen"[help] $RESET"
+							echo -e $red"    [-]$RESET set values to requirements before run "$okegreen"[options] $RESET"									
+						fi	
+						
+
+	     	else
+	     		oops
+	   fi
+	  done
+}	
+

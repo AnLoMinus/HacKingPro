@@ -1,0 +1,97 @@
+
+#!/bin/bash
+
+imr0t_colour(){
+
+cyan='\e[0;36m'
+green='\e[1;32m'
+okegreen='\033[92m'
+lightgreen='\e[1;32m'
+white='\e[1;37m'
+red='\e[1;31m'
+yellow='\e[1;33m'
+BlueF='\e[1;34m'
+RESET=$(tput sgr0)
+
+}
+
+
+
+oops(){
+	     					echo -e "\n | "
+							echo " |_ "
+							echo -e $red"    [-]$RESET Wrong: spesific your command - "$okegreen"[help] $RESET"
+}
+
+err(){
+
+	     					echo -e "\n | "
+							echo " |_ "
+							echo -e $red"    [-]$RESET Ops: before use this options, you must set module - "$okegreen"[use ID] $RESET "
+}
+
+err1(){
+
+	     					echo -e "\n | "
+							echo " |_ "	
+							echo -e $red"    [-]$RESET Ops: use ID - Example : "$okegreen"use 0x1 (encryption)$RESET "
+}
+
+
+
+
+fu_un_module(){
+echo -e "\n | "
+echo " | "
+echo " |_ "
+echo "    Options:[Use ID] "
+echo ""
+echo -e $okegreen"	     	     0x1  "$RESET"|"$okegreen":"$RESET"|  This option for encrypting "
+echo -e $okegreen"	     	     0x2"$RESET"  |"$okegreen":"$RESET"|  This option for decrypting "
+}
+
+
+imr0t_help(){
+
+echo -e "\n | "
+echo " | "
+echo " |_ "
+echo "    Options:[arguments] "
+echo ""
+echo -e $okegreen"	     help  "$RESET"     |"$okegreen":"$RESET"| show this message"
+echo -e $okegreen"	     show"$RESET"       |"$okegreen":"$RESET"| show all modules from this tools"
+echo -e $okegreen"	     list style"$RESET" |"$okegreen":"$RESET"| show list style  "
+echo -e $okegreen"	     use "$RESET"       |"$okegreen":"$RESET"| use a module, ex : use [ID] " 
+echo -e $okegreen"	     options"$RESET"    |"$okegreen":"$RESET"| show module options "
+echo -e $okegreen"	     run  "$RESET"      |"$okegreen":"$RESET"| Execute the module "
+echo -e $okegreen"	     set   "$RESET"     |"$okegreen":"$RESET"| Set a value"
+echo -e $okegreen"	     back   "$RESET"    |"$okegreen":"$RESET"| Back to main"
+echo -e $okegreen"	     clear  "$RESET"    |"$okegreen":"$RESET"| Clear window"
+echo -e $okegreen"	     ls     "$RESET"    |"$okegreen":"$RESET"| list directory content"
+echo -e $okegreen"	     cat    "$RESET"    |"$okegreen":"$RESET"| read file/standard input"
+echo -e $okegreen"	     pwd     "$RESET"   |"$okegreen":"$RESET"| print name of current/working director"
+echo -e $okegreen"	     exit     "$RESET"  |"$okegreen":"$RESET"| Exit program"
+echo ""
+}
+
+
+banner_(){
+echo "          "                
+echo          
+echo -e $white" _       _____ ___ _____        "
+echo -e "|_|_____| __  |   |_   _|      "
+echo -e "| |     |    -| | | | |         "
+echo -e "|_|_|_|_|__|__|___| |_| "$red"1.0"$okegreen" ⇠––" 
+echo -e "                               "$okegreen"¦"
+echo -e $okegreen"  	Author "$RESET": screetsec  "$okegreen"–––"
+echo -e $okegreen" Project "$BlueF": www.github.com/screetsec/imR0T"
+echo -e $RESET" Tested on : 4.17.0-kali3-amd64 #1 SMP Debian 4.17.17-1kali1 (2018-08-21) "
+echo
+echo " Send a quick message with simple text encryption to your whatsapp contact"
+echo " and protect your text by encrypting and decrypting, basically in ROT13 "
+echo " with new multi encryption based algorithm on ASCII and Symbols substitution"
+
+
+
+}
+export -f imr0t_colour 
