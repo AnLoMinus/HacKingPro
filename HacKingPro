@@ -100,24 +100,6 @@ MainDirectoriyCaseNameLocal="${MainDirectoriyCaseName}/Local"
 mkdir "${MainDirectoriyCaseNameLocal}"
 ###############################################
 
-if [ ${1} == "-d" ]; then
-  #statements
-  if [ -z ${2} ]; then
-    #statements
-    echo "    Need Domain/URL    "
-    exit
-  fi
-  targetDns=$2
-fi
-if [ ${1} == "-i" ]; then
-  #statements
-  if [ -z ${2} ]; then
-    #statements
-    echo "    Need IP Address    "
-    exit
-  fi
-  targetDns=$2
-fi
 if [ ! -z "$targetDns" ]; then
   #statements
   GetIP="$(ping -c 1 "${targetDns}" | grep ttl | cut -d " " -f4 |  tr  -d :)"
@@ -447,7 +429,6 @@ CheckRequiredPro(){
   MiniHeaderSta "System Pack"
   CheckThatPro ps
   CheckThatPro sh
-  CheckThatPro nc
   CheckThatPro su
   CheckThatPro top
   CheckThatPro git
@@ -509,6 +490,8 @@ CheckRequiredPro(){
   read -p "${Press_ENTER}"
 
   MiniHeaderSta "Exploitation "
+  CheckThatPro nc
+  CheckThatPro rlwrap
   MiniHeaderSta "Metasploit Framework"
   CheckThatPro msfd
   CheckThatPro msfdb
@@ -6407,7 +6390,8 @@ AndroidPayLoadPro(){
       read -p "${Press_ENTER}"
       ;;
       sl|SL)
-      nc -l ${lport}
+      # nc -l ${lport}
+      rlwrap nc ${LocalHostIP} ${lport}
       # nc -l ${lport} | nc ${UserName} ${TargetPort}
       read -p "${Press_ENTER}"
       ;;

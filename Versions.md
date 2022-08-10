@@ -32,6 +32,7 @@
 > 🔮 | Released | HacKingPro | v0.0.0.27 | 09:40 | 10/08/2022 | 🔮
 ### ➕ BugFix 🔮
 - [x] Every Enter hit Getting refreshing Netwrok Status   
+
 ### ➕ New Functions 🔮
 - [x] #### `CreateAndroidShell`  
 - [x] #### `AndroidPayLoadPro` | # Creating Android  PayLoad with `msfvenom`
