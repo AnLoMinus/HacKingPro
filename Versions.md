@@ -27,7 +27,21 @@
 ---
 
 # 🔮 Changelog 🔮
+🔮 HacKingPro | v0.0.0.26 | Released | 10/08/2022 | 09:40 🔮
 
+### 🤩 New Functions 🔮
+```
+####################
+| ✅ | AwesomePrint
+| ✅ | AwesomeLine
+| ✅ | MiniHeaderSta
+| ✅ | MiniHeaderEnd
+| ✅ | CheckThatPro
+| ✅ | CheckRequiredPro
+| ✅ | Input_Local_Interface
+| ✅ | Info_LocalNet
+####################
+```
 ## [0.0.0.26] ⌛️ 10-08-2022
 
 ## ➕ `Functions Print Awesome` ✅
