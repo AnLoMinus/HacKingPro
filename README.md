@@ -50,6 +50,7 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 - [x] [MacOS]()
 - [ ] [Parrot](https://parrotsec.org/download/)
 - [ ] [Kaisen](https://kaisenlinux.org/)
+- [ ] [Kodachi](https://www.digi77.com/linux-kodachi/)
 - [ ] [Ubuntu](https://www.ubuntu.com/download/)
 - [ ] [Debian](https://www.debian.org/distrib/ftplist)
 - [ ] [Fedora](https://admin.fedoraproject.org/mirrormanager/mirrors)
