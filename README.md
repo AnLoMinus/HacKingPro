@@ -49,6 +49,7 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 # Tested on:
 - [x] [MacOS]()
 - [ ] [Parrot](https://parrotsec.org/download/)
+- [ ] [Kaisen](https://kaisenlinux.org/)
 - [ ] [Ubuntu](https://www.ubuntu.com/download/)
 - [ ] [Debian](https://www.debian.org/distrib/ftplist)
 - [ ] [Fedora](https://admin.fedoraproject.org/mirrormanager/mirrors)
