@@ -1,1 +1,0 @@
-# CMI - Collecting Machine Information

@@ -1,0 +1,89 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                           OpenCTI                           #
+#-Info--------------------------------------------------------#
+# OpenCTI, an Open-Source Cyber Threat Intelligence Platform. #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-OpenCTI ]                 #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 10-10-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 10-10-2022 ]                              #
+###############################################################
+# Open Cyber Threat Intelligence Platform
+# Store, organize, visualize and share knowledge about cyber threats.
+# Open source application, community-centered approach.
+###############################################################
+
+clear
+
+#--╼▰[ Main Menu ]--╼▰ [ OpenCTI ]
+####### Table of contents
+# Task 1  Room Overview
+# Task 2  Introduction to OpenCTI
+# Task 3  OpenCTI Data Model
+# Task 4  OpenCTI Dashboard 1
+# Task 5  OpenCTI Dashboard 2
+# Task 6  Investigative Scenario
+# Task 7  Room Conclusion
+task__1(){
+  echo "
+
+  # OpenCTI, an open-source threat intelligence platform.
+
+  ### The room will help you understand and answer the following questions:
+    - What is OpenCTI and how is it used?
+    - How would I navigate through the platform?
+    - What functionalities will be important during a security threat analysis?
+"
+}
+
+task__2(){
+  echo "
+    Cyber Threat Intelligence is typically a managerial mystery to handle, with organisations battling with how to input, digest, analyse and present threat data in a way that will make sense.
+    From the rooms that have been linked on the overview, it is clear that there are numerous platforms that have been developed to tackle the juggernaut that is Threat Intelligence.
+
+    # OpenCTI
+    OpenCTI is another open-sourced platform designed to provide organisations with the means to manage CTI through the storage, analysis, visualisation and presentation of threat campaigns, malware and IOCs.
+    https://www.filigran.io/en/products/opencti/
+
+    # Objective
+    Developed by the collaboration of the French National cybersecurity agency (ANSSI),
+    the platform's main objective is to create a comprehensive tool that allows users to capitalise on technical and non-technical information while developing relationships between each piece of information and its primary source.
+    The platform can use the MITRE ATT&CK framework to structure the data.
+    Additionally, it can be integrated with other threat intel tools such as MISP and TheHive.
+    Rooms to these tools have been linked in the overview.
+
+  "
+}
+
+task__3(){
+  echo "
+  # OpenCTI Data Model
+  OpenCTI uses a variety of knowledge schemas in structuring data,
+  the main one being the Structured Threat Information Expression (STIX2) standards.
+  STIX is a serialised and standardised language format used in threat intelligence exchange.
+  It allows for the data to be implemented as entities and relationships,
+  effectively tracing the origin of the provided information.
+
+  This data model is supported by how the platform's architecture has been laid out.
+  The image below gives an architectural structure for your know-how.
+  "
+}

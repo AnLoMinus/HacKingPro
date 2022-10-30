@@ -1,0 +1,100 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-Explorer ]                #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 15-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 15-08-2022 ]                              #
+###############################################################
+
+##########################################
+#------╼╼▰[ File Explorer ]--╼▰ [ Head ] #
+##########################################
+#--╼[ File Explorer ]--╼▰ [ xplr ]
+XplorerPro(){
+  cd "${MainDirectoriyCaseName}"
+  xplr
+  Press_ENTER
+}
+#--╼[ File Explorer ]--╼▰ [ ranger ]
+RangerPro(){
+  cd "${MainDirectoriyCaseName}"
+  ranger
+  Press_ENTER
+}
+#--╼[ File Explorer ]--╼▰ [ gtop ]
+GTopPro(){
+  gtop
+  Press_ENTER
+}
+##########################################
+#------╼╼▰[ File Explorer ]--╼▰ [ End ] #
+##########################################
+while true; do
+  clear
+  cd "${MainDirectoriyCaseName}"
+  ToolHeaderRun
+  TargetStatusRun
+  #statements
+  TargetStatus=$(echo "
+${ORANGE}${faintT}┌──╼${resetT}${BBlue}┤${ORANGE} Xplorer Files Pro ${BBlue}├${ORANGE}${faintT}───────${resetT}${BCyan}╼▰▰▰
+${ORANGE}${faintT}│
+${ORANGE}${faintT}|──${resetT}${BCyan}╼▰${resetT}${BRed} [${ORANGE} 1 ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰ ${BRed}[${DGrey} XplorerPro ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰
+${ORANGE}${faintT}|──${resetT}${BCyan}╼▰${resetT}${BRed} [${ORANGE} 2 ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰ ${BRed}[${DGrey} RangerPro ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰
+${ORANGE}${faintT}|──${resetT}${BCyan}╼▰${resetT}${BRed} [${ORANGE} 3 ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰ ${BRed}[${DGrey} GTopPro ${BRed}]${ORANGE}${faintT}──${resetT}${BCyan}╼▰
+${ORANGE}${faintT}│
+${ORANGE}${faintT}└───────────────────────────────${resetT}${BCyan}╼▰▰▰
+
+${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+${BGreen}|
+${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+${BGreen}|
+${BGreen}└──${BRed}[${BYellow} $(AnLoMinus) ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Xplorer Files Pro ${BRed}]${BYellow}╼▰  ${BGreen}   ")
+read -p "${TargetStatus}" cmd
+case $cmd in
+1 )
+XplorerPro
+;;
+2 )
+RangerPro
+;;
+3 )
+GTopPro
+;;
+x|X|exit|quit|Exit )
+clear
+cd ${MainDirectoriy}
+AwesomeLineExit
+break
+;;
+ls )
+lahs
+;;
+p|P )
+HacKingProPlanning
+;;
+cl )
+ClearTarget
+;;
+esac
+done

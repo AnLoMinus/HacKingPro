@@ -1,0 +1,195 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#          Weaponization: Payloads/Viruses/Worms              #
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-02 ]                      #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 24-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 24-08-2022 ]                              #
+###############################################################
+#################################################
+#------╼╼▰[ Main Menu ]--╼▰ [ 02 ]--╼▰ [ Head ] #
+#################################################
+#--╼▰[ Main Menu ]--╼▰ [ 02 ]--╼▰ [  Weaponization  ]
+HacKingPro_Weaponization(){
+  while true; do
+    cd "$x_Menu_2"
+    clear
+    ToolHeaderRun
+    TargetStatusRun
+    HacKingProMenuMain=$(echo "
+    ${DGrey}┌────╼ ${BRed}[${BYellow} Weaponization ${BRed}]
+    ${DGrey}┖─┲──╼ ${BRed}[${BYellow} Intruder develops malware designed to exploit the vulnerability ${BRed}]
+    ${DGrey}  ┖──╼ ${BRed}[${BYellow} Intruder creates remote access malware weapon, such as a virus or worm, tailored to one or more vulnerabilities. ${BRed}]
+    ${DGrey}
+    ${DGrey}┌──────╼ ${BRed}[${BYellow} Weaponization ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 01 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Windows ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 02 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Android ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 03 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} MacOS ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${LYellow} 04 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Linux ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $(AnLoMinus) ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Weaponization ${BRed}]${BYellow}╼▰ ")
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      1|01|windows|Windows )
+      WindowsWeaponizationPro
+      Press_ENTER
+      ;;
+      ls )
+      lahs
+      ;;
+      2|02|android|Android )
+      AndroidPlan
+      Press_ENTER
+      ;;
+      4|04 )
+      MainDirectoriyCaseNameBrutePort="${MainDirectoriyCaseName}/BrutePort/"
+      mkdir "${MainDirectoriyCaseNameBrutePort}"
+      cd "${MainDirectoriyCaseNameBrutePort}"
+      echo "$(BrutePort)" >> ${targetNAME}-HacKingPro-BrutePort.log
+      less -R "${targetNAME}-HacKingPro-BrutePort.log"
+      Press_ENTER
+      ;;
+      12 )
+      PrivilegEscalationPro
+      Press_ENTER
+      ;;
+      22|"Kerberos" )
+      AttacKingKerberos
+      Press_ENTER
+      ;;
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+      Arsenal
+      ;;
+      p|P )
+      HacKingProPlanning
+      ReportPlanning
+      ;;
+      x|X|exit|EXIT )
+      cd ${MainDirectoriy}
+      clear
+      AwesomeLineExit
+      break
+      ;;
+    esac
+  done
+}
+#--╼▰[ Main Menu ]--╼▰ [ 02 ]--╼▰ [  Weaponization  ]--╼▰ [  Weapons  ]
+WeaponizedPro(){
+  echo "
+  ${DGrey}┌──────╼ ${BRed}[${BYellow} Weapons ${BRed}]
+  ${DGrey}|
+  ${DGrey}|──${BRed}[${LYellow} 01 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Adware ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 03 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Bots ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 04 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Brute Force ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 05 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Car Hacking ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 06 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Card Checker ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 07 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Keyloggers ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 08 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Local Server ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 09 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Logic bombs ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 10 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Malware Tools ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 11 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Mobile HacKing ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 12 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Privilege Escalation ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 13 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Ransomware ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 14 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Remote Access Trojan ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 15 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Rootkits ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 16 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Social Engineering ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 17 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Spyware ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 18 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Sql Injection ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 19 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Trojans ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 20 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Viruses ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 21 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Web HacKing ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 22 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Windows HacKing ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 23 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Wireless HacKing ${BRed}]
+  ${DGrey}|──${BRed}[${LYellow} 24 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} Worms ${BRed}]
+  ${DGrey}└──${BRed}[${LYellow} 25 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} info ${BRed}]"
+}
+#--╼▰[ Main Menu ]--╼▰ [ 02 ]--╼▰ [  Weaponization  ]--╼▰ [  Windows Weapons  ]
+WindowsWeaponizationPro(){
+  while true; do
+  clear
+  ToolHeaderRun
+  TargetStatusRun
+  WindowsWeaponizationProMenuMain=$(echo "
+  ${DGrey}┌────╼ ${BRed}[${BYellow} Windows Weaponization ${BRed}]
+  ${DGrey}┖─┲──╼ ${BRed}[${BYellow} xxxxxx ${BRed}]
+  ${DGrey}  ┖──╼ ${BRed}[${BYellow} xxxxxx ${BRed}]
+  ${DGrey}
+  ${DGrey}┌──────╼ ${BRed}[${BYellow} Weapons ${BRed}]
+  ${DGrey}|
+  ${DGrey}|──${BRed}[${LYellow} 01 ${BRed}]${DGrey}───╼ ${BRed}[${BYellow} AttacKing Kerberos ${BRed}]
+  ${DGrey}|
+  ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+
+
+  ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+  ${BGreen}|
+  ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+  ${BGreen}|
+  ${BGreen}└──${BRed}[${BYellow} $(AnLoMinus) ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Weaponization ${BRed}]${BYellow}╼▰ ")
+  read -p "$WindowsWeaponizationProMenuMain" cmd
+  case $cmd in
+    1|01|ak|AK|"Kerberos" )
+    AttacKingKerberos
+    Press_ENTER
+    ;;
+    ls )
+    lahs
+    ;;
+    x|X|exit|EXIT )
+    cd ${MainDirectoriy}
+    clear
+    AwesomeLineExit
+    break
+    ;;
+  esac
+done
+
+}
+#--╼▰[ Main Menu ]--╼▰ [ 02 ]--╼▰ [  Weaponization  ]--╼▰ [  Android Weapons  ]
+AndroidWeaponizationPro(){
+  echo "Android Weaponization"
+}
+#--╼▰[ Main Menu ]--╼▰ [ 02 ]--╼▰ [  Weaponization  ]--╼▰ [  Linux Weapons ]
+LinuxWeaponizationPro(){
+  echo "Linux Weaponization"
+}
+#--╼▰[ Main Menu ]--╼▰ [ 02 ]--╼▰ [  Weaponization  ]--╼▰ [  MacOS Weapons  ]
+MacOSWeaponizationPro(){
+  echo "MacOS Weaponization"
+}
+#--╼▰[ Main Menu ]--╼▰ [ 02 ]--╼▰ [  Weaponization  ]
+################################################
+#------╼╼▰[ Main Menu ]--╼▰ [ 02 ]--╼▰ [ End ] #
+################################################

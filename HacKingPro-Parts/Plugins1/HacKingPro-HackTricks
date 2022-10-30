@@ -1,0 +1,79 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-Hack-Tricks ]             #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 15-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 15-08-2022 ]                              #
+###############################################################
+
+###############################################
+#         HackTricks Menu
+###############################################
+
+HackTricks(){
+while true; do
+  clear
+  ToolHeaderRun
+  TargetStatusRun
+  HacKingProMenuMain=$(echo "${BRed}
+    ${DGrey}⤝${BRed}[${DGrey} https://book.hacktricks.xyz/generic-methodologies-and-resources/pentesting-methodology ${BRed}]${DGrey}⤞
+
+    ${DGrey}┌────╼ ${BRed}[${BYellow} HackTricks ${BRed}]${BGreen}──╼ ${BRed}[$BYellow Pentesting Methodology ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 00 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Physical Attacks ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Discovering hosts inside the network / Discovering Assets of the company ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Having Fun with the network (Internal) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 03 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Port Scan - Service discovery ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 04 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Searching service version exploits ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Pentesting Services ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 06 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Phishing ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 07 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Getting Shell ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 08 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Inside ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 09 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Exfiltration ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 10 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Privilege Escalation ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 11 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Post ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 12 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Pivoting ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} MM ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} More ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Pentesting Methodology ${BRed}]${BGreen}──╼  ")
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      x|X|exit|quit|Exit )
+      clear
+      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+      break
+      ;;
+      1|01 )
+      read -p "$Press_ENTER"
+      ;;
+    esac
+  done
+}

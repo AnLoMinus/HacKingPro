@@ -25,13 +25,11 @@
 <div align="center">
 
 ## `The Concept` | Hack Like A Pro ! 👋🏼
-# [HacKingPro](https://github.com/Anlominus/HacKingPro) `BETA` v0.0.0.26
-### [Time Management Assessment](https://github.com/Anlominus/HacKingPro/tree/main/Goals#readme)
-
+# [HacKingPro](https://github.com/Anlominus/HacKingPro) `Release` v1.8.0
 
 Before Planning | After Planning
 :---:|:---:
-<img width="748" alt="image" src="https://user-images.githubusercontent.com/51442719/183319656-4415ac63-eb9c-4f33-9f72-2938ff29173c.png"> | <img width="763" alt="image" src="https://user-images.githubusercontent.com/51442719/183319712-6d88206b-672f-4123-b33b-8a7ed59567b0.png">
+<img width="748" alt="image" src="https://"> | <img width="763" alt="image" src="https://">
 
 #### Get and Run
 ```bash
@@ -49,11 +47,10 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 # Tested on:
 - [x] [MacOS]()
 - [ ] [Parrot](https://parrotsec.org/download/)
-- [ ] [Kaisen](https://kaisenlinux.org/)
-- [ ] [Kodachi](https://www.digi77.com/linux-kodachi/)
 - [ ] [Ubuntu](https://www.ubuntu.com/download/)
 - [ ] [Debian](https://www.debian.org/distrib/ftplist)
 - [ ] [Fedora](https://admin.fedoraproject.org/mirrormanager/mirrors)
+- [ ] [Predator](https://predator-os.com/#downloadlink)
 - [ ] [Arch Linux](http://www.archlinux.org/download/)
 - [ ] [Kali Linux](https://www.kali.org/get-kali/)
 - [ ] [Linux Mint 21 "Vanessa"](https://linuxmint.com/download.php)
@@ -66,7 +63,7 @@ git clone https://github.com/Anlominus/HacKingPro; cd HacKingPro; chmod +x HacKi
 
 ![Alt](https://repobeats.axiom.co/api/embed/fc0848f26074f3b91e5236ae960338faa3d9fb1e.svg "Repobeats analytics image")
 
-<h4> Feel free to sponsor me for the maintenance of the tool: <a href="https://github.com/Anlominus/HacKingPro">HacKingPro</a> </h4>
+<h3> Feel free to sponsor me for the maintenance of the tool: <a href="https://github.com/Anlominus/HacKingPro">HacKingPro</a> </h3>
 
 </div>
 

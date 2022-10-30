@@ -1,0 +1,231 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-Installer ]               #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 15-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 15-08-2022 ]                              #
+###############################################################
+
+###############################################
+#         Installing Tools
+##############################################
+
+
+# Anonymous Installer
+AnonymousInstaller(){
+
+  AnonymousLogo(){
+    echo ""${BBlue}
+    echo "################################################################################################"
+    echo "                                                                                                "
+    echo "      █████╗ ███╗   ██╗ ██████╗ ███╗   ██╗██╗   ██╗███╗   ███╗ ██████╗ ██╗   ██╗███████╗        "
+    echo "     ██╔══██╗████╗  ██║██╔═══██╗████╗  ██║╚██╗ ██╔╝████╗ ████║██╔═══██╗██║   ██║██╔════╝        "
+    echo "     ███████║██╔██╗ ██║██║   ██║██╔██╗ ██║ ╚████╔╝ ██╔████╔██║██║   ██║██║   ██║███████╗        "
+    echo "     ██╔══██║██║╚██╗██║██║   ██║██║╚██╗██║  ╚██╔╝  ██║╚██╔╝██║██║   ██║██║   ██║╚════██║        "
+    echo "     ██║  ██║██║ ╚████║╚██████╔╝██║ ╚████║   ██║   ██║ ╚═╝ ██║╚██████╔╝╚██████╔╝███████║        "
+    echo "     ╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝>tools  "
+    echo "                                                                                                "
+    echo "################################################################################################"
+  }
+  anonsurf() {
+    clear
+    echo "${BGreen}"
+    echo "    Do you want install anonsurf ${BRed}?${BBlue} [Y/N] : "${BRed}
+    read install
+    if [[ $install = "Y" || $install = "y" ]]; then
+      clear
+      echo "    checking ${BRed}[internet]${BBlue} connections${BRed}........"
+      ping -c 1 google.com > /dev/null
+      if [ "$?" != 0 ]; then
+      echo "    [!] you not connect to the internet ! "
+      echo "    [!] please Connect to the internet and try again :) "
+      read -p "${Press_ENTER}"
+      exit
+    fi
+      echo "    ${BBlue}[*] ${BGreen}[ CONNECT ]"
+      echo "    ========== install anonsurf for you ==========="
+      echo "    [*] working........"
+      git clone https://github.com/Und3rf10w/kali-anonsurf.git
+  	  cd kali-anonsurf
+  	  chmod +x installer.sh
+  	  ./installer.sh
+      echo "    [*] Finishing....."
+      read -p "${Press_ENTER}"
+      clear
+    else
+      if [ $install = N || $install = n ]; then
+        clear
+      fi
+    fi
+  }
+  anonym8() {
+    clear
+    echo "${BGreen}"
+    echo "    Do you want install anonym8 ${BRed}?${BBlue} [Y/N] : "
+    read install
+    if [[ $install = Y || $install = y ]]; then
+      clear
+      echo "    checking ${BRed}[internet]${BBlue} connections${BRed}........"
+      ping -c 1 google.com > /dev/null
+      if [ "$?" != 0 ]; then
+        echo "    [!] you not connect to the internet ! "
+        echo "    [!] please Connect to the internet and try again :) "
+        read -p "${Press_ENTER}"
+        exit
+      fi
+      echo "${BBlue} [*] ${BGreen}[ CONNECT ]"
+      echo "    =========== install anonym8 for you ==========="
+      echo "    [*] working........."
+      git clone https://github.com/HiroshiManRise/anonym8.git
+  	  cd anonym8
+  	  chmod +x INSTALL.sh
+  	  ./INSTALL.sh
+      echo "    [*] Finishing....."
+      read -p "${Press_ENTER}"
+      clear
+    else
+      if [ $install = N || $install = n ]; then
+        clear
+      fi
+    fi
+  }
+  torghost() {
+    clear
+    echo "${BGreen}"
+    echo "    Do you want install 4nonimizer ${BRed}?${BBlue} [Y/N] : "
+    read install
+    if [[ $install = Y || $install = y ]]; then
+      echo "      checking ${BRed}[internet]${BBlue} connections${BRed}........"
+      ping -c 1 google.com > /dev/null 2>&1
+      if [ "$?" != 0 ]; then
+      clear
+      echo "      [!] you not connect to the internet ! "${BBlue}
+      echo "      [!] please Connect to the internet and try again :) "
+      read -p "${Press_ENTER}"
+      exit
+      fi
+      echo "      [*] [ CONNECT ]"
+      echo "      ============ install TorGhost for you ============="
+      echo "      [*] working..........."
+      git clone https://github.com/susmithHCK/torghost.git
+      cd torghost/
+      chmod +x install.sh
+      ./install.sh
+      echo ${BGreen}"      [*] Finishing....."
+      read -p "${Press_ENTER}"
+      clear
+    else
+      if [[ $install = N || $install = n ]];then
+      clear
+      fi
+    fi
+  }
+  non() {
+  clear
+  echo "${BGreen}"
+  echo "  Do you want install 4nonimizer ${BRed}?${BBlue} [Y/N] : "${BRed}
+  read install
+  if [[ $install = Y || $install = y ]]; then
+    clear
+    echo "  checking ${BRed}[internet]${BBlue} connections${BRed}........"
+    ping -c 1 google.com > /dev/null 2>&1
+    if [ "$?" != 0 ]; then
+      clear
+      echo "   [!] you not connect to the internet ! "${BBlue}
+      echo "   [!] please Connect to the internet and try again :) "
+      read -p "${Press_ENTER}"
+      exit
+    fi
+      echo "    [*] [ CONNECT ]"
+      echo "    ========== install 4nonimizer for you ==========="
+      echo "    [*] working........."
+      git clone https://github.com/Hackplayers/4nonimizer.git
+  		cd 4nonimizer
+  		chmod +x 4nonimizer
+  		./4nonimizer install
+  		apt-get -y install python-pip
+  		apt-get -y install php-curl
+  		gem install pcaprub
+  		gem install packetfu
+      echo "    [*] Finishing....."
+      read -p "${Press_ENTER}"
+      clear
+  else
+    if [[ $install = N || $install = n ]];then
+      clear
+    fi
+  fi
+}
+
+  ###### HOME
+  homenu() {
+   clear
+   echo ""${BGreen}
+   echo "################################################################################################"
+   echo "    [*]  We Are Anonymous !!                                                                          "
+   echo "     Until You Not Anonymous in the Network Dont Run Nothing !      "
+   echo "################################################################################################"
+
+   AnonymousLogo
+
+   echo "
+   1] install (4nonimizer)
+   2] install (anonsurf)
+   3] install (Anonym8)
+   4] install (TorGhost)
+   5] Exit"
+   echo "${BBlue}"
+   read -p "    Choose:->  " Anonselc
+   case $Anonselc in
+    1|"install(4nonimizer)")
+    non
+    read -p "${Press_ENTER}"
+    clear
+    ;;
+    2|"install anonsurf")
+    anonsurf
+    read -p "${Press_ENTER}"
+    clear
+    ;;
+    3|"install Anonym8")
+    anonym8
+    read -p "${Press_ENTER}"
+    clear
+    ;;
+    4|"install TorGhost")
+    torghost
+    read -p "${Press_ENTER}"
+    clear
+    ;;
+    5|"Exit")
+    clear && exit 0
+    ;;
+    * )
+    echo "${BRed}[x]${BBlue} The error of your choice does not exist"
+    read -p "${Press_ENTER}"
+    ;;
+   esac
+ }
+  homenu
+}

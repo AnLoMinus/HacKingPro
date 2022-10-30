@@ -1,6 +1,0 @@
---output-dir docs/yard
---protected
---private
--
---main README.md
-LICENSE.txt

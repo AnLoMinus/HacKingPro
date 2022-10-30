@@ -1,0 +1,94 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                           Admin                             #
+#-Info--------------------------------------------------------#
+#    Adding Deleting Users & Groups in Linux Systems          #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-Admin ]                   #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 31-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 31-08-2022 ]                              #
+###############################################################
+
+#--╼▰[ Main Menu ]--╼▰ [ Admin ]
+####### Table of contents
+# File permissions.
+# Number	Permission
+# 0	No permission
+# 1	Execute
+# 2	Write
+# 3	Execute and Write
+# 4	Read
+# 5	Read and Execute
+# 6	Read and Write
+# 7	Read, Write and Execute
+
+# User accounts.
+User_Accounts(){
+  # - Create a user.
+  CreateUser(){
+    # We can create a new user account by issuing the following command:
+    useradd AnLoMinus
+    # Afterwards, you need to set a new password to the AnLoMinus by:
+    passwd AnLoMinus
+    # After creating a new user and setting a password to it, you can log in in two ways:
+    su - testuser
+  }
+  # - Delete a user.
+  DeleteUser(){
+    ##### Deleting a User
+    # If you try that command, you will notice that the user directory has not been deleted and you need to delete it by yourself.
+    # If more than one person is using your server, you should give them their own user to log in.
+    # If there is a user you created that you no longer need, it is very easy to delete it.
+    # As a regular user with sudo privileges, you can delete a user using this syntax:
+    # The --remove-home option will delete the user’s home directory as well.
+    # If you are logged in as root, you do not need to add the sudo before the command:
+    #    deluser, delgroup - remove a user or group from the system
+    deluser --remove-home AnLoMinus
+    # Like the process of adding users, there are two commands that delete a user.
+    #    userdel - delete a user account and related files
+    userdel AnLoMinus
+  }
+}
+
+
+
+# User groups.
+User_Groups(){
+  # You can see all of the groups you have by opening the following file:
+  cat /etc/group
+  # - Create a group.
+  # Let’s create a group with the name of AnLoMinus by:
+  groupadd AnLoMinus
+  # - Add user to a group.
+  # We will add the testuser user to the section group by:
+  usermod -aG AnLoMinus AnLoMinus
+  # - Delete user from a group.
+  # You can delete the testuser from the group with:
+  gpasswd -d AnLoMinus AnLoMinus
+  # - Delete a group.
+  # Let’s delete the previous group by:
+  groupdel AnLoMinus
+
+  ####### Granting Users Administrative Privileges
+  # As root, run this command to add your new user to the sudo group (substitute the highlighted word with your new user):
+  usermod -aG sudo AnLoMinus
+}

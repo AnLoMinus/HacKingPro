@@ -1,0 +1,80 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#            Digital Forensics and Incident Response          #
+#-Info--------------------------------------------------------#
+#    Adding Deleting Users & Groups in Linux Systems          #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-DFIR ]
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 15-10-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 15-10-2022 ]                              #
+###############################################################
+
+#--╼▰[ Main Menu ]--╼▰ [ ProfilePro ]
+echo "
+
+Digital Forensics and Incident Response
+
+    - Introduction of DFIR
+    - Some basic concepts used in the DFIR field
+    - The Incident Response processes used in the industry
+    - Some of the tools used for DFIR
+
+########## The need for DFIR
+# DFIR helps security professionals in various ways, some of which are summarized below:
+
+    - Finding evidence of attacker activity in the network and sifting false alarms from actual incidents.
+    - Robustly removing the attacker,  so their foothold from the network no longer remains.
+    - Identifying the extent and timeframe of a breach. This helps in communicating with relevant stakeholders.
+    - Finding the loopholes that led to the breach. What needs to be changed to avoid the breach in the future?
+    - Understanding attacker behavior to pre-emptively block further intrusion attempts by the attacker.
+    - Sharing information about the attacker with the community.
+
+########### Who performs DFIR?
+# As the name suggests, DFIR requires expertise in both Digital Forensics and Incident Response.
+# Dividing these two fields this way, the following skillset is needed to become a DFIR professional:
+
+    # DF | Digital Forensics:
+    These professionals are experts in identifying forensic artifacts or evidence of human activity in digital devices.
+
+    # IR | Incident Response:
+    Incident responders are experts in cybersecurity and leverage forensic information to identify the activity of interest from a security perspective.
+
+
+############ The Incident Response process
+# In Security Operations, the prominent use of Digital Forensics is to perform Incident Response.
+# Different organizations have published standardized methods to perform Incident Response.
+
+##### NIST Process
+    1. Preparation
+    2. Detection and Analysis
+    3. Containment, Eradication, and Recovery
+    4. Post-incident Activity
+
+##### SANS Process
+    1. Preparation
+    2. Identification
+    3. Containment
+    4. Eradication
+    5. Recovery
+    6. Lessons Learned
+
+"

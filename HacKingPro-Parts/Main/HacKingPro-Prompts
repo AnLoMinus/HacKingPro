@@ -1,0 +1,91 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                       ALM-Prompts                           #
+#-Info--------------------------------------------------------#
+#                                                             #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-ALM-Prompts ]             #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 0.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 03-10-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 06-10-2022 ]                              #
+###############################################################
+Tool_Name="ALM-Prompts"
+####################################
+#------╼╼▰[ Variables ]-╼▰[ Head ] #
+####################################
+#--╼▰[ Variable ]-╼▰ [ Set Parameters ]
+g1="${1}" # Parameter ->
+g2="${2}" # Parameter ->
+g3="${3}" # Parameter ->
+###################################
+#------╼╼▰[ Variables ]-╼▰[ End ] #
+###################################
+
+ALMPrompts(){
+  clear
+  if [ "$#" -eq 0 ]; then
+    if [ -z $g3 ]; then
+      # echo "    You Dont Set The Third Parameter"
+      # read -p "some" thing
+      echo "    $g3"
+    else
+      echo "    Found Third Parameter: $g3"
+      read -p "some" thing
+    fi
+    if [ -z $g2 ]; then
+      # echo "    You Dont Set The Second Parameter"
+      # read -p "some" thing
+      echo "    $g1"
+    else
+      clear
+      echo "    Found Second Parameter: $g2"
+      echo "
+      ${BGreen}┏──${BRed}╼▰${BRed}[${DGrey} ~$(pwd) ${BRed}] - [${DGrey} ~$(date) ${BRed}]
+      ${BGreen}|──${BRed}╼▰${BRed}[${BYellow} ${USER} ${BRed}]
+      ${BGreen}┗──${BRed}╼▰${BRed}[${BYellow} ${Tool_Name} ${BRed}]${BYellow}╼▰[${BYellow} $g1 ${BRed}]${BYellow}╼▰[${BYellow} $g2 ${BRed}]${BYellow}╼▰    "
+      read -p "some" thing
+    fi
+    if [ -z $g1 ]; then
+      echo "    You Dont Set The First Parameter"
+      echo "
+      ${BGreen}┏──${BRed}╼▰${BRed}[${DGrey} ~$(pwd) ${BRed}] - [${DGrey} ~$(date) ${BRed}]
+      ${BGreen}|──${BRed}╼▰${BRed}[${BYellow} ${USER} ${BRed}]
+      ${BGreen}┗──${BRed}╼▰${BRed}[${BYellow} ${Tool_Name} ${BRed}]${BYellow}╼▰    "
+
+      read -p "some" thing
+    else
+      clear
+      echo "    Found First Parameter: $g1"
+      echo "
+      ${BGreen}┏──${BRed}╼▰${BRed}[${DGrey} ~$(pwd) ${BRed}] - [${DGrey} ~$(date) ${BRed}]
+      ${BGreen}|──${BRed}╼▰${BRed}[${BYellow} ${USER} ${BRed}]
+      ${BGreen}┗──${BRed}╼▰${BRed}[${BYellow} ${Tool_Name} ${BRed}]${BYellow}╼▰[${BYellow} $g1 ${BRed}]${BYellow}╼▰        "
+      read -p "some" thing
+    fi
+
+    #statements
+    ######################################
+    #------╼╼▰[ ALMPrompts ]-╼▰[ Start ] #
+    ######################################
+  fi
+}
+#--╼▰[ Main Menu ]--╼▰ [ ALM-Prompts ]
+ALMPrompts

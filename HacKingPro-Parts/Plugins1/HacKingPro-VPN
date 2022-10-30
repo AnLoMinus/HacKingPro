@@ -1,0 +1,70 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#             [ VPN ]--╼▰ [ Virtual Private Network ]         #
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-VPN ]                     #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 0.0.1 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 30-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 30-08-2022 ]                              #
+###############################################################
+
+#--╼▰[ HacKingPro ]-╼▰[ HacKingPro-VPN ]
+
+# Connect to the VPN
+StartVPN(){
+  # Run the VPN connection as a daemon in the background
+  openvpn --config ./Anlominus-breachingad.ovpn --daemon
+}
+TerminateVPN(){
+  # When finished with the room, you can terminate the VPN connection with this command:
+  # Find the PID of the OpenVPN process
+  pid=$(sudo ps aux | grep -v grep | grep -i breachingad | awk -v FS=' ' '{print $2}')
+
+  # Send SIGTERM to the PID
+  sudo kill -9 $pid
+}
+
+# Edit DNS Configuration
+# Edit ProxyChains Configuration
+
+# Configure Responder
+
+ConfigureResponder(){}
+echo "
+; Servers to start
+SQL = Off
+SMB = Off
+RDP = Off
+Kerberos = Off
+FTP = Off
+POP = Off
+SMTP = Off
+IMAP = Off
+HTTP = Off
+HTTPS = Off
+DNS = Off
+LDAP = On
+DCERPC = Off
+WINRM = Off
+"
+nano /etc/responder/Respoder.conf

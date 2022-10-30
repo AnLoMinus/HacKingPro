@@ -1,0 +1,74 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-Local-Info ]              #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 15-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 15-08-2022 ]                              #
+###############################################################
+. HacKingProColors
+
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Local Net Info ]
+GetLocalNetInfo(){
+  netstat -nr | grep "lo0" | grep -v "link#" | awk '{print $1}' | grep "^[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*$"
+  LocalHostNAME=$(route get 0.0.0.0 | awk -F": " '/interface:/{print $2}')
+  LocalVpnIP=$(ifconfig tun0 | grep inet | grep -v inet6 | awk '{print $2}')
+  LocalHostIP="$(ifconfig getifaddr "${LocalHostNAME}" 2>/dev/null)"
+  DefaultGatewayIP="$(arp -a 2>/dev/null | head -1 | awk -F"[)(]" '{print $2}')"
+  DefaultGatewayNAME="$(arp -a 2>/dev/null | head -1 | awk -F"[)(]" '{print $1}')"
+  service_all=$(networksetup -listnetworkserviceorder 2>/dev/null)
+  service_raw=$(echo "$service_all" | grep -B1 "Device: $LocalHostNAME)$")
+  HardwarePort=$(echo "$service_raw" | grep "$LocalHostNAME)$" | awk '{print substr($0, index($0,$3))}' | cut -d, -f1 | xargs)
+  HardwarePort_Name="$HardwarePort"
+  LocalHostMacAddress=$(networksetup -getmacaddress "${LocalHostNAME}" 2>/dev/null | awk '/Ethernet/ {print $3}')
+  echo "
+  ${LGreen}┌─╼ ${BRed}[${LGreen} Local Net Info ${BRed}]
+  ${LGreen}┖─┲─╼ ${BRed}[${BGreen} Host IP ${BRed}]${LGreen}──────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostIP} ${BRed}]${LGreen}──╼▰
+  ${LGreen}  |─╼ ${BRed}[${BGreen} Host NAME ${BRed}]${LGreen}────╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostNAME} ${BRed}]${LGreen}─────╼▰
+  ${LGreen}  |─╼ ${BRed}[${BGreen} Mac Address ${BRed}]${LGreen}──╼▰ ${resetT}${BRed}[${LGreen} ${LocalHostMacAddress} ${BRed}]${LGreen}─────╼▰
+  ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway IP ${BRed}]${LGreen}───╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayIP} ${BRed}]${LGreen}──╼▰
+  ${LGreen}  |─╼ ${BRed}[${BGreen} Gateway NAME ${BRed}]${LGreen}─╼▰ ${resetT}${BRed}[${LGreen} ${DefaultGatewayNAME} ${BRed}]${LGreen}╼▰
+  ${LGreen}  ┖─╼ ${BRed}[${BGreen} Hardware NAME ${BRed}]${LGreen}╼▰ ${resetT}${BRed}[${LGreen} ${HardwarePort_Name} ${BRed}]${LGreen}─╼▰
+  "
+}
+GetLocalNetInfo
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Get information User localhost ]
+GetLocalUserInfo() {
+  user=$(whoami)      2> /dev/null # Current user
+  host=$(uname -n)    2> /dev/null # Network node hostname
+  home=$(echo "$HOME")  2> /dev/null # User home directory
+  usid=$(id -u)       2> /dev/null # User ID
+  gpid=$(id -g)       2> /dev/null # Group ID
+  grps=$(for i in $(groups | tr "," " "); do printf "\t\t${BRed}[${LYellow} $i ${BRed}]"; done)      2> /dev/null # List all groups
+  printf "
+    ${DGrey}┌───────╼ ${BRed}[${BYellow} User Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Username  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${user} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Hostname  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${host} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} Home Path ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${home} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} EUID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${usid} ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} User ID   ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$(for i in $(id | tr "," " "); do echo "\t${BRed}[${LYellow} $i   ${BRed}]"; done) ${BRed}]
+    ${DGrey}|──╼ ${BRed}[${BYellow} EGID      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${gpid} ${BRed}]
+    ${DGrey}┖──╼ ${BRed}[${BYellow} Groups    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${grps} ${BRed}]"
+  Press_ENTER
+}

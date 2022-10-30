@@ -1,0 +1,47 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                     Hardering MacPro                        #
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-Hardering-MacPro ]        #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 19-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 29-08-2022 ]                              #
+###############################################################
+clear
+echo "    That Script Need Root Permissions \n"
+echo "    Getting Interfaces That in UP Status \n"
+ifconfig | grep UP | awk '{print $1}' | tr ":" " "
+echo " "
+# ifconfig lo0 down
+ifconfig en5 down
+ifconfig ap1 down
+# ifconfig en0 down
+ifconfig llw0 down
+ifconfig en3 down
+ifconfig en2 down
+ifconfig en1 down
+ifconfig en4 down
+# ifconfig bridge0 down
+ifconfig utun0 down
+ifconfig utun1 down
+ifconfig utun2 down

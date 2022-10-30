@@ -1,0 +1,2246 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#-Info--------------------------------------------------------#
+#    Comptia Linux+ | Learning to Shell Script Remainder      #
+#    LPIC-1 | Linux Professional Institute Certification      #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ LinuxPlusPro ]                       #
+#--╼▰[ Author ]-╼▰ [ Leon Yaakobov ]-╼▰ [ AnLoMinus ]         #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Update ]-╼▰[ 08-10-2022 ]                              #
+#--╼▰[ Created ]-╼▰[ 2022 ]                                   #
+#--╼▰[ Version ]-╼▰[ 1.0.4.24 ]                               #
+###############################################################
+#-Operating System--------------------------------------------#
+#--╼▰[ MacOS ]-╼▰ [ 🔮 ]                                      #
+#--╼▰[ Kali ]-╼▰ [ ⌛️ ]                                       #
+#--╼▰[ Parrot ]-╼▰ [ ⌛️ ]                                     #
+#-ToDO--------------------------------------------------------#
+
+
+# ✅ | LPIC-101 | Certified Linux Administrator
+# ⌛️ | LPIC-201 | Linux Engineer
+
+
+_LinuxPlusPro_101_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _101_1_Menu="$(echo "
+    ${BGreen}101.1 Determine and Configure Hardware Settings
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to determine and Configure Fundamental System Hardware
+
+    ${ORANGE}# Key Knowledge Areas: ${LGrey}
+      • Enable and Disable Integrated Peripherals.
+      • Differentiate between the various types of mass Storage Devices.
+      • Configure systems with or without external peripherals such as keyboards Differentiate between the various types of mass storage devices
+      • Determine Hardware Resources for Devices.
+      • Tools and Utilities to List various Hardware Information (e.g. lsusb, lspci, etc.).
+      • Tools and Utilities to Manipulate USB Devices.
+      • Conceptual Understanding of sysfs, udev and dbus.
+      • The following is a partial list of the used files, terms, and utilities: /sys, /proc, /dev, modprobe, lsmod, lspci, lsusb
+
+    ${ORANGE}# Key files, terms, and utilities include:${LGrey}
+      • /proc/pci              |  PCI bus information
+      • /proc/dma              |  Linux's view of assigned DMA channels | Lists the registered DMA (direct memory access) channels in use.
+      • /proc/ioports          |  Linux's view of used I/O ports        | Lists currently registered Input/Output port regions in use.
+      • /proc/cpuinfo          |  Lists detailed information about the CPU(s) found by the operating system.
+      • /proc/interrupts       |  Linux's view of used interrupts       | A list of numbers of the interrupts per IO device for each CPU.
+
+    ${ORANGE}# The following is a partial list of the used files, terms and utilities: ${LGrey}
+      • /sys/
+      • /proc/
+      • /dev/
+      • lsmod
+      • lspci
+      • lsusb
+      • modprobe
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 101.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_101_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Determine and Configure Hardware Settings
+_LinuxPlusPro_101_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _101_2_Menu="$(echo "
+    ${BGreen}101.2 Boot the System
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to guide the system through the booting process.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Awareness of Upstart.
+      • Check boot events in the log files.
+      • Understanding of SysVinit and systemd.
+      • Demonstrate knowledge of the boot sequence from BIOS/UEFI to boot completion.
+      • Provide common commands to the boot loader and options to the kernel at boot time.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • init
+      • dmesg
+      • BIOS
+      • UEFI
+      • kernel
+      • systemd
+      • SysVinit
+      • initramfs
+      • journalctl
+      • bootloader
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 101.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_101_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+} # Boot the System
+_LinuxPlusPro_101_3(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _101_3_Menu="$(echo "
+    ${BGreen}LinuxPlusPro 101.3 Change Runlevels and Boot Targets and Shutdown or Reboot System
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to manage the SysVinit runlevel or systemd boot target of the system.
+    This objective includes changing to single user mode, shutdown or rebooting the system.
+    Candidates should be able to alert users before switching runlevels / boot targets and properly terminate processes.
+    This objective also includes setting the default SysVinit runlevel or systemd boot target.
+    It also includes awareness of Upstart as an alternative to SysVinit or systemd.
+
+    ${ORANGE}# Key Knowledge Areas: ${LGrey}
+      • Awareness of acpid.
+      • Properly terminate processes.
+      • Set the default runlevel or boot target.
+      • Shutdown and reboot from the command line.
+      • Change between runlevels / boot targets including single user mode.
+      • Alert users before switching runlevels / boot targets or other major system events.
+
+    ${ORANGE}# The following is a partial list of the used files, terms and utilities: ${LGrey}
+      • init
+      • wall
+      • systemd
+      • telinit
+      • shutdown
+      • systemctl
+      • /etc/init.d/
+      • /etc/inittab
+      • /etc/systemd/
+      • /usr/lib/systemd/
+
+      ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+      ${BGreen}|
+      ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+      ${BGreen}|
+      ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 101.3 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+      read -p "$_101_3_Menu" cmd
+      case $cmd in
+        xx ) echo " ";; ##
+        x|X|exit|quit|Exit )
+        clear
+        cd ${MainDirectoriy}
+        AwesomeLineExit
+        break
+        ;;
+
+      esac
+    done
+
+
+} # Change Runlevels and Boot Targets and Shutdown or Reboot System
+
+_LinuxPlusPro_102_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    echo "        "
+    _102_1_Menu="$(echo "
+    ${BGreen}102.1 Design Hard Disk Layout
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to design a disk partitioning scheme for a Linux system.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Knowledge of basic features of LVM.
+      • Tailor the design to the intended use of the system.
+      • Allocate filesystems and swap space to separate partitions or disks.
+      • Ensure the /boot partition conforms to the hardware architecture requirements for booting.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • partitions
+      • swap space
+      • mount points
+      • /var filesystem
+      • /home filesystem
+      • /boot filesystem
+      • / (root) filesystem
+      • EFI System Partition (ESP)
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 102.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_102_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+} # Design Hard Disk Layout
+_LinuxPlusPro_102_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    echo "        "
+    _102_2_Menu="$(echo "
+    ${BGreen}102.2 Install a Boot Manager
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to select, install and configure a boot
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Interact with the boot loader.
+      • Perform basic configuration changes for GRUB 2.
+      • Install and configure a boot loader such as GRUB Legacy.
+      • Providing alternative boot locations and backup boot options.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • MBR
+      • grub-install
+      • grub-mkconfig
+      • menu.lst, grub.cfg and grub.conf
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 102.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_102_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Install a Boot Manager
+_LinuxPlusPro_102_3(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    echo "        "
+    _102_3_Menu="$(echo "
+    ${BGreen}102.3 Manage Shared Libraries
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to determine the shared libraries that executable programs depend on and install them when necessary.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Identify shared libraries.
+      • Identify the typical locations of system libraries.
+      • Load shared libraries.
+
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • ldd
+      • ldconfig
+      • /etc/ld.so.conf
+      • LD_LIBRARY_PATH
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 102.3 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_102_3_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Manage Shared Libraries
+_LinuxPlusPro_102_4(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _102_4_Menu="$(echo "
+    ${BGreen}102.4 Use Debian Package Management
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to perform package management using the Debian package tools.
+
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Awareness of apt.
+      • Install, upgrade and uninstall Debian binary packages.
+      • Find packages containing specific files or libraries which may or may not be installed.
+      • Obtain package information like version, content, dependencies, package integrity and installation status (whether or not the package is installed).
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • apt-get
+      • apt-cache
+      • dpkg-reconfigure
+      • /etc/apt/sources.list • dpkg
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 102.4 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_102_4_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Use Debian Package Management
+_LinuxPlusPro_102_5(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _102_5_Menu="$(echo "
+    ${BGreen}102.5 Use RPM and YUM Package Management
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to perform package management using RPM, YUM and Zypper.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Install, re-install, upgrade and remove packages using RPM, YUM and Zypper.
+      • Obtain information on RPM packages such as version, status, dependencies, integrity and signatures.
+      • Determine what files a package provides, as well as find which package a specific file comes from.
+      • Awareness of dnf.
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • rpm
+      • rpm2cpio
+      • /etc/yum.conf
+      • /etc/yum.repos.d/ • yum
+      • zypper
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 102.5 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_102_5_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+} # Use RPM and YUM Package Management
+_LinuxPlusPro_102_6(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _102_6_Menu="$(echo "
+    ${BGreen}102.6 Linux as a virtualization guest
+
+    ${BCyan}Description:${BWhite}\n Candidates should understand the implications of virtualization and cloud computing on a Linux guest system.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Understand the general concept of virtual machines and containers.
+      • Understand common elements virtual machines in an IaaS cloud, such as computing instances, block storage and networking.
+      • Understand unique properties of a Linux system which have to changed when a system is cloned or used as a template.
+      • Understand how system images are used to deploy virtual machines, cloud instances and containers.
+      • Understand Linux extensions which integrate Linux with a virtualization product.
+      • Awareness of cloud-init.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • Virtual machine
+      • Linux container
+      • Application container
+      • Guest drivers
+      • SSH host keys
+      • D-Bus machine id
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 102.6 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_102_6_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+} # Linux as a virtualization guest
+
+_LinuxPlusPro_103_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _103_1_Menu="$(echo "
+    ${BGreen}103.1 Work on the Command Line
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to interact with shells and commands using the command line. The objective assumes the Bash shell.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Use single shell commands and one line command sequences to perform basic tasks on the command line.
+      • Use and modify the shell environment including defining, referencing and exporting environment variables.
+      • Use and edit command history.
+      • Invoke commands inside and outside the defined path.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • bash
+      • echo
+      • env
+      • export
+      • pwd
+      • set
+      • unset
+      • type
+      • which
+      • man
+      • uname
+      • history
+      • .bash_history
+      • Quoting
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 103.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_103_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+} # Work on the Command Line
+_LinuxPlusPro_103_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _103_2_Menu="$(echo "
+    ${BGreen}103.2 Process Text Streams Using Filters
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to apply filters to text streams.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Send text files and output streams through text utility filters to modify the output using standard UNIX commands found in the GNU textutils package.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • bzcat
+      • cat
+      • cut
+      • head
+      • less
+      • md5sum
+      • nl
+      • od
+      • paste
+      • sed
+      • sha256sum
+      • sha512sum
+      • sort
+      • split
+      • tail
+      • tr
+      • uniq
+      • wc
+      • xzcat
+      • zcat
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 103.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_103_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+
+} # Process Text Streams Using Filters
+_LinuxPlusPro_103_3(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _103_3_Menu="$(echo "
+    ${BGreen}103.3 Perform Basic File Management
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to use the basic Linux commands to manage files and directories.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Copy, move and remove files and directories individually.
+      • Copy multiple files and directories recursively.
+      • Remove files and directories recursively.
+      • Use simple and advanced wildcard specifications in commands.
+      • Using find to locate and act on files based on type, size, or time.
+      • Usage of tar, cpio and dd.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • cp
+      • find
+      • mkdir
+      • mv
+      • ls
+      • rm
+      • rmdir
+      • touch
+      • tar
+      • cpio
+      • dd
+      • file
+      • gzip
+      • gunzip
+      • bzip2
+      • bunzip2
+      • xz
+      • unxz
+      • file globbing
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 103.3 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_103_3_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Perform Basic File Management
+_LinuxPlusPro_103_4(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _103_4_Menu="$(echo "
+    ${BGreen}103.4 Perform Basic File Management
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to redirect streams and connect them in order to efficiently process textual data.
+    Tasks include redirecting standard input, standard output and standard error, piping the output of one command to the input of another command, using the output of one command as arguments to another command and sending output to both stdout and a file.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Redirecting standard input, standard output and standard error.
+      • Pipe the output of one command to the input of another command.
+      • Use the output of one command as arguments to another command.
+      • Send output to both stdout and a file.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • xargs
+      • tee
+
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 103.4 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_103_4_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Use Streams Pipes and Redirection
+_LinuxPlusPro_103_5(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _103_5_Menu="$(echo "
+    ${BGreen}103.5 Create, monitor and kill processes
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to perform basic process management.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Run jobs in the foreground and background.
+      • Signal a program to continue running after logout.
+      • Monitor active processes.
+      • Select and sort processes for display.
+      • Send signals to processes.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • &
+      • bg
+      • fg
+      • jobs
+      • kill
+      • nohup
+      • ps
+      • top
+      • free
+      • uptime
+      • pgrep
+      • pkill
+      • killall
+      • watch
+      • screen
+      • tmux
+
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 103.5 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_103_5_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+    esac
+  done
+} # Create Monitor and Kill Proceses
+_LinuxPlusPro_103_6(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _103_6_Menu="$(echo "
+    ${BGreen}103.6 Modify Process Execution Priorities
+
+    ${BCyan}Description:${BWhite}\n Candidates should should be able to manage process execution priorities.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Know the default priority of a job that is created.
+      • Run a program with higher or lower priority than the default.
+      • Change the priority of a running process.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+    • nice
+    • ps
+    • renice
+    • top
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 103.6 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_103_6_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Modify Process Execution Priorities
+_LinuxPlusPro_103_7(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _103_7_Menu="$(echo "
+    ${BGreen}103.7 Search text files using regular expressions
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to manipulate files and text data using regular expressions.
+    This objective includes creating simple regular expressions containing several notational elements as well as understanding the differences between basic and extended regular expressions.
+    It also includes using regular expression tools to perform searches through a filesystem or file content.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Create simple regular expressions containing several notational elements.
+      • Understand the differences between basic and extended regular expressions.
+      • Understand the concepts of special characters, character classes, quantifiers and anchors.
+      • Use regular expression tools to perform searches through a filesystem or file content.
+      • Use regular expressions to delete, change and substitute text.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+        • grep
+        • egrep
+        • fgrep
+        • sed
+        • regex(7)
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 103.7 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_103_7_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Search text files using regular expressions
+_LinuxPlusPro_103_8(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _103_8_Menu="$(echo "
+    ${BGreen}103.8 Perform Basic File Editing Operations Using VI
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to edit text files using vi.
+    This objective includes vi navigation, vi modes, inserting, editing, deleting, copying and finding text.
+    It also includes awareness of other common editors and setting the default editor.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Navigate a document using vi.
+      • Understand and use vi modes.
+      • Insert, edit, delete, copy and find text in vi.
+      • Awareness of Emacs, nano and vim.
+      • Configure the standard editor.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • vi
+      • /,?
+      • h,j,k,l
+      • i,o,a
+      • d,p,y,dd,yy
+      • ZZ, :w!, :q!
+      • EDITOR
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 103.8 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_103_8_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Perform Basic File Editing Operations Using VI
+
+_LinuxPlusPro_104_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _104_1_Menu="$(echo "
+    ${BGreen}104.1 Create Partitions and Filesystems
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to configure disk partitions and then create filesystems on media such as hard disks.
+    This includes the handling of swap partitions.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Manage MBR and GPT partition tables
+      • Use various mkfs commands to create various filesystems such as:
+        - ext2/ext3/ext4
+        - XFS
+        - VFAT
+        - exFAT
+      • Basic feature knowledge of Btrfs, including multi-device filesystems, compression and subvolumes.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • fdisk
+      • gdisk
+      • parted
+      • mkfs
+      • mkswap
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 104.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_104_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Create Partitions and Filesystems
+_LinuxPlusPro_104_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _104_2_Menu="$(echo "
+    ${BGreen}104.2 Maintain the Integrity of Filesystems
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to maintain a standard filesystem, as well as the extra data associated with a journaling filesystem.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Verify the integrity of filesystems.
+      • Monitor free space and inodes.
+      • Repair simple filesystem problems.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • du
+      • df
+      • fsck
+      • e2fsck
+      • mke2fs
+      • tune2fs
+      • xfs_repair
+      • xfs_fsr
+      • xfs_db
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 104.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_104_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Maintain the Integrity of Filesystems
+_LinuxPlusPro_104_3(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _104_3_Menu="$(echo "
+    ${BGreen}104.3 Control Mounting and Unmounting of Filesystems
+
+    ${BCyan}Description:${BWhite}\n Candidates should should be able to manage process execution priorities.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Manually mount and unmount filesystems.
+      • Configure filesystem mounting on bootup.
+      • Configure user mountable removable filesystems.
+      • Use of labels and UUIDs for identifying and mounting file systems.
+      • Awareness of systemd mount units.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • /etc/fstab
+      • /media/
+      • mount
+      • umount
+      • blkid
+      • lsblk
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 104.3 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_104_3_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Control Mounting and Unmounting of Filesystems
+_LinuxPlusPro_104_4(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _104_4_Menu="$(echo "
+    ${BGreen}104.4 Manage Disk Quotas
+
+    ${BCyan}Description:${BWhite}\n Candidates should should be able to manage process execution priorities.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Know the default priority of a job that is created.
+      • Run a program with higher or lower priority than the default.
+      • Change the priority of a running process.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+    • nice
+    • ps
+    • renice
+    • top
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 104.4 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_104_4_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Manage Disk Quotas
+_LinuxPlusPro_104_5(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _104_5_Menu="$(echo "
+    ${BGreen}104.5 Manage File Permissions and Ownership
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to control file access through the proper use of permissions and ownerships.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Manage access permissions on regular and special files as well as directories.
+      • Use access modes such as suid, sgid and the sticky bit to maintain security.
+      • Know how to change the file creation mask.
+      • Use the group field to grant file access to group members.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • chmod
+      • umask
+      • chown
+      • chgrp
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 104.5 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_104_5_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Manage File Permissions and Ownership
+_LinuxPlusPro_104_6(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _104_6_Menu="$(echo "
+    ${BGreen}104.6 Create and Change Hard-Symbolic Links
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to create and manage hard and symbolic links to a file.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Create links.
+      • Identify hard and/or soft links.
+      • Copying versus linking files.
+      • Use links to support system administration tasks.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • ln
+      • ls
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 104.6 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_104_6_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Create and Change Hard-Symbolic Links
+_LinuxPlusPro_104_7(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _104_7_Menu="$(echo "
+    ${BGreen}104.7 Find System Files and Place Files in the Correct Location
+
+    ${BCyan}Description:${BWhite}\n Candidates should be thoroughly familiar with the Filesystem Hierarchy Standard (FHS), including typical file locations and directory classifications.
+
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+    • Understand the correct locations of files under the FHS.
+    • Find files and commands on a Linux system.
+    • Know the location and purpose of important file and directories as defined in the FHS.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+    • find
+    • locate
+    • updatedb
+    • whereis
+    • which
+    • type
+    • /etc/updatedb.conf
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 104.7 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_104_7_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} #  Find System Files and Place Files in the Correct Location
+
+_LinuxPlusPro_105_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _105_1_Menu="$(echo "
+    ${BGreen}105.1 Customize and use the Shell Environment
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to customize shell environments to meet users' needs.
+    Candidates should be able to modify global and user profiles.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Set environment variables (e.g. PATH) at login or when spawning a new shell.
+      • Write Bash functions for frequently used sequences of commands.
+      • Maintain skeleton directories for new user accounts.
+      • Set command search path with the proper directory.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • .
+      • source
+      • /etc/bash.bashrc
+      • /etc/profile
+      • env
+      • export
+      • set
+      • unset
+      • ~/.bash_profile
+      • ~/.bash_login
+      • ~/.profile
+      • ~/.bashrc
+      • ~/.bash_logout
+      • function
+      • alias
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 105.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_105_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Customize and use the shell environment
+_LinuxPlusPro_105_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _105_1_Menu="$(echo "
+    ${BGreen}105.2 Customize or Write Simple Scripts
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to customize existing scripts, or
+write simple new Bash scripts.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Use standard sh syntax (loops, tests).
+      • Use command substitution.
+      • Test return values for success or failure or other information provided by a command.
+      • Execute chained commands.
+      • Perform conditional mailing to the superuser.
+      • Correctly select the script interpreter through the shebang (#!) line.
+      • Manage the location, ownership, execution and suid-rights of scripts.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • for
+      • while
+      • test
+      • if
+      • read
+      • seq
+      • exec
+      • ||
+      • &&
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 105.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_105_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Customize or Write Simple Scripts
+
+_LinuxPlusPro_106_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _106_1_Menu="$(echo "
+    ${BGreen}106.1 Install and configure X11
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to install and configure X11.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Understanding of the X11 architecture.
+      • Basic understanding and knowledge of the X Window configuration file.
+      • Overwrite specific aspects of Xorg configuration, such as keyboard layout.
+      • Understand the components of desktop environments, such as display managers and window managers.
+      • Manage access to the X server and display applications on remote X servers.
+      • Awareness of Wayland.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • /etc/X11/xorg.conf
+      • /etc/X11/xorg.conf.d/
+      • ~/.xsession-errors
+      • xhost
+      • xauth
+      • DISPLAY
+      • X
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 106.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_106_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Install and configure X11
+_LinuxPlusPro_106_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _106_2_Menu="$(echo "
+    ${BGreen}106.2 Graphical Desktops
+
+    ${BCyan}Description:${BWhite}\n Candidates should be aware of major Linux desktops.
+    Furthermore, candidates should be aware of protocols used to access remote desktop sessions.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Awareness of major desktop environments
+      • Awareness of protocols to access remote desktop sessions
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • KDE
+      • Gnome
+      • Xfce
+      • X11
+      • XDMCP
+      • VNC
+      • Spice
+      • RDP
+
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 106.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_106_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Graphical Desktops
+_LinuxPlusPro_106_3(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _106_3_Menu="$(echo "
+    ${BGreen}106.3 Graphical Desktops
+
+    ${BCyan}Description:${BWhite}\n Demonstrate Knowledge and Awareness of Accessibility Technologies.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Basic knowledge of visual settings and themes.
+      • Basic knowledge of assistive technology.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • High Contrast/Large Print Desktop Themes.
+      • Screen Reader.
+      • Braille Display.
+      • Screen Magnifier.
+      • On-Screen Keyboard.
+      • Sticky/Repeat keys.
+      • Slow/Bounce/Toggle keys.
+      • Mouse keys.
+      • Gestures.
+      • Voice recognition.
+
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 106.3 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_106_3_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Accessibility
+
+_LinuxPlusPro_107_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _107_1_Menu="$(echo "
+    ${BGreen}107.1 Manage user and group accounts and related system files
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to add, remove, suspend and change user accounts.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Add, modify and remove users and groups.
+      • Manage user/group info in password/group databases.
+      • Create and manage special purpose and limited accounts.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • /etc/passwd
+      • /etc/shadow
+      • /etc/group
+      • /etc/skel/
+      • chage
+      • getent
+      • groupadd
+      • groupdel
+      • groupmod
+      • passwd
+      • useradd
+      • userdel
+      • usermod
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 107.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_107_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Manage user and group accounts and related system files
+_LinuxPlusPro_107_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _107_2_Menu="$(echo "
+    ${BGreen}107.2 Automate system administration tasks by scheduling jobs
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to use cron and systemd timers to run jobs at regular intervals and to use at to run jobs at a specific time.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Manage cron and at jobs.
+      • Configure user access to cron and at services.
+      • Understand systemd timer units.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • /etc/cron.{d,daily,hourly,monthly,weekly}/
+      • /etc/at.deny
+      • /etc/at.allow
+      • /etc/crontab
+      • /etc/cron.allow
+      • /etc/cron.deny
+      • /var/spool/cron/
+      • crontab
+      • at
+      • atq
+      • atrm
+      • systemctl
+      • systemd-run
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 107.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_107_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Automate system administration tasks by scheduling jobs
+_LinuxPlusPro_107_3(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _107_3_Menu="$(echo "
+    ${BGreen}107.3 Localisation and internationalisation
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to localize a system in a different language than English.
+    As well, an understanding of why LANG=C is useful when scripting.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Configure locale settings and environment variables.
+      • Configure timezone settings and environment variables.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • /etc/timezone
+      • /etc/localtime
+      • /usr/share/zoneinfo/ • LC_*
+      • LC_ALL
+      • LANG
+      • TZ
+      • /usr/bin/locale
+      • tzselect
+      • timedatectl
+      • date
+      • iconv
+      • UTF-8
+      • ISO-8859
+      • ASCII
+      • Unicode
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 107.3 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_107_3_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Localisation and internationalisation
+
+_LinuxPlusPro_108_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _108_1_Menu="$(echo "
+    ${BGreen}108.1 Maintain system time
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to properly maintain the system time and synchronize the clock via NTP.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Set the system date and time.
+      • Set the hardware clock to the correct time in UTC.
+      • Configure the correct timezone.
+      • Basic NTP configuration using ntpd and chrony.
+      • Knowledge of using the pool.ntp.org service.
+      • Awareness of the ntpq command.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • /usr/share/zoneinfo/
+      • /etc/timezone
+      • /etc/localtime
+      • /etc/ntp.conf
+      • /etc/chrony.conf
+      • date
+      • hwclock
+      • timedatectl
+      • ntpd
+      • ntpdate
+      • chronyc
+      • pool.ntp.org
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 108.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_108_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Maintain system time
+_LinuxPlusPro_108_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _108_2_Menu="$(echo "
+    ${BGreen}108.2 System logging
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to configure rsyslog.
+    This objective also includes configuring the logging daemon to send log output to a central log server or accept log output as a central log server.
+    Use of the systemd journal subsystem is covered.
+    Also, awareness of syslog and syslog-ng as alternative logging systems is included.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Basic configuration of rsyslog.
+      • Understanding of standard facilities, priorities and actions.
+      • Query the systemd journal.
+      • Filter systemd journal data by criteria such as date, service or priority.
+      • Configure persistent systemd journal storage and journal size.
+      • Delete old systemd journal data.
+      • Retrieve systemd journal data from a rescue system or file system copy.
+      • Understand interaction of rsyslog with systemd-journald.
+      • Configuration of logrotate.
+      • Awareness of syslog and syslog-ng.
+
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • /etc/rsyslog.conf
+      • /var/log/
+      • logger
+      • logrotate
+      • /etc/logrotate.conf
+      • /etc/logrotate.d/
+      • journalctl
+      • systemd-cat
+      • /etc/systemd/journald.conf
+      • /var/log/journal/
+
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 108.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_108_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # System logging
+_LinuxPlusPro_108_3(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _108_3_Menu="$(echo "
+    ${BGreen}108.3 Mail Transfer Agent (MTA) basics
+
+    ${BCyan}Description:${BWhite}\n Candidates should be aware of the commonly available MTA programs and be able to perform basic forward and alias configuration on a client host.
+    Other configuration files are not covered.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Create e-mail aliases.
+        Configure e-mail forwarding.
+        Knowledge of commonly available MTA programs (postfix, sendmail, exim) (no configuration).
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • ~/.forward
+      • sendmail emulation layer commands
+      • newaliases
+      • mail
+      • mailq
+      • postfix
+      • sendmail
+      • exim
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 108.3 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_108_3_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Mail Transfer Agent (MTA) basics
+_LinuxPlusPro_108_4(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _108_4_Menu="$(echo "
+    ${BGreen}108.4 Manage printers and printing
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to manage print queues and user print jobs using CUPS and the LPD compatibility interface.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Basic CUPS configuration (for local and remote printers).
+      • Manage user print queues.
+      • Troubleshoot general printing problems.
+      • Add and remove jobs from configured printer queues.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • CUPS configuration files, tools and utilities
+      • /etc/cups/
+      • lpd legacy interface (lpr, lprm, lpq)
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 108.4 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_108_4_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+} # Manage printers and printing
+
+_LinuxPlusPro_109_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _109_1_Menu="$(echo "
+    ${BGreen}109.1 Fundamentals of Internet Protocols
+
+    ${BCyan}Description:${BWhite}\n Candidates should demonstrate a proper understanding of TCP/IP network fundamentals.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Demonstrate an understanding of network masks and CIDR notation.
+      • Knowledge of the differences between private and public (dotted quad) IP addresses.
+      • Knowledge about common TCP and UDP ports and services (20, 21, 22, 23, 25, 53, 80, 110, 123, 139, 143, 161, 162, 389, 443, 465, 514, 636, 993, 995).
+      • Knowledge about the differences and major features of UDP, TCP and ICMP.
+      • Knowledge of the major differences between IPv4 and IPv6.
+      • Knowledge of the basic features of IPv6.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+    • /etc/services
+    • IPv4, IPv6
+    • Subnetting
+    • TCP, UDP, ICMP
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 109.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_109_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Fundamentals of Internet Protocols
+_LinuxPlusPro_109_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _109_2_Menu="$(echo "
+    ${BGreen}109.2 Persistent network configuration
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to manage the persistent network configuration of a Linux host.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Understand basic TCP/IP host configuration.
+      • Configure ethernet and wi-fi network using NetworkManager.
+      • Awareness of systemd-networkd.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • /etc/hostname
+      • /etc/hosts
+      • /etc/nsswitch.conf
+      • /etc/resolv.conf
+      • nmcli
+      • hostnamectl
+      • ifup
+      • ifdown
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 109.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_109_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Persistent network configuration
+_LinuxPlusPro_109_3(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _109_3_Menu="$(echo "
+    ${BGreen}109.3 Basic network troubleshooting
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to troubleshoot networking issues on client hosts.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Manually configure network interfaces, including viewing and changing the configuration of network interfaces using iproute2.
+      • Manually configure routing, including viewing and changing routing tables and setting the default route using iproute2.
+      • Debug problems associated with the network configuration.
+      • Awareness of legacy net-tools commands.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • ip
+      • hostname
+      • ss
+      • ping
+      • ping6
+      • traceroute
+      • traceroute6
+      • tracepath
+      • tracepath6
+      • netcat
+      • ifconfig
+      • netstat
+      • route
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 109.3 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_109_3_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Basic network troubleshooting
+_LinuxPlusPro_109_4(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _109_4_Menu="$(echo "
+    ${BGreen}109.4 Configure client side DNS
+
+    ${BCyan}Description:${BWhite}\n Candidates should be able to configure DNS on a client host.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+    • Query remote DNS servers.
+    • Configure local name resolution and use remote DNS servers.
+    • Modify the order in which name resolution is done.
+    • Debug errors related to name resolution.
+    • Awareness of systemd-resolved.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+    • /etc/hosts
+    • /etc/resolv.conf
+    • /etc/nsswitch.conf
+    • host
+    • dig
+    • getent
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 109.4 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_109_4_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Configure client side DNS
+
+_LinuxPlusPro_110_1(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _110_1_Menu="$(echo "
+    ${BGreen}110.1 Perform Security Administration Tasks
+
+    ${BCyan}Description:${BWhite}\n Candidates should know how to review system configuration to ensure host security in accordance with local security policies.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Audit a system to find files with the suid/sgid bit set.
+      • Set or change user passwords and password aging information.
+      • Being able to use nmap and netstat to discover open ports on a system.
+      • Set up limits on user logins, processes and memory usage.
+      • Determine which users have logged in to the system or are currently logged in.
+      • Basic sudo configuration and usage.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • find
+      • passwd
+      • fuser
+      • lsof
+      • nmap
+      • chage
+      • netstat
+      • sudo
+      • /etc/sudoers
+      • su
+      • usermod
+      • ulimit
+      • who, w, last
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 110.1 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_110_1_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Perform Security Administration Tasks
+_LinuxPlusPro_110_2(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _110_2_Menu="$(echo "
+    ${BGreen}110.2 Setup host security
+
+    ${BCyan}Description:${BWhite}\n Candidates should know how to set up a basic level of host security.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Awareness of shadow passwords and how they work.
+      • Turn off network services not in use.
+      • Understand the role of TCP wrappers.
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • /etc/nologin
+      • /etc/passwd
+      • /etc/shadow
+      • /etc/xinetd.d/
+      • /etc/xinetd.conf
+      • systemd.socket
+      • /etc/inittab
+      • /etc/init.d/
+      • /etc/hosts.allow
+      • /etc/hosts.deny
+
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 110.2 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_110_2_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Setup host security
+_LinuxPlusPro_110_3(){
+  while true; do
+    #statements
+    clear
+    ToolHeaderRun
+    # TargetStatusRun
+    _110_3_Menu="$(echo "
+    ${BGreen}110.3 Securing Data with Encryption
+
+    ${BCyan}Description:${BWhite}\n The candidate should be able to use public key techniques to secure data and communication.
+
+    ${ORANGE}Key Knowledge Areas:${LGrey}
+      • Perform basic OpenSSH 2 client configuration and usage.
+      • Understand the role of OpenSSH 2 server host keys.
+      • Perform basic GnuPG configuration, usage and revocation.
+      • Use GPG to encrypt, decrypt, sign and verify files.
+      • Understand SSH port tunnels (including X11 tunnels).
+
+    ${ORANGE}The following is a partial list of the used files, terms and utilities:${LGrey}
+      • ssh
+      • ssh-keygen
+      • ssh-agent
+      • ssh-add
+      • ~/.ssh/id_rsa and id_rsa.pub
+      • ~/.ssh/id_dsa and id_dsa.pub
+      • ~/.ssh/id_ecdsa and id_ecdsa.pub
+      • ~/.ssh/id_ed25519 and id_ed25519.pub
+      • /etc/ssh/ssh_host_rsa_key and ssh_host_rsa_key.pub
+      • /etc/ssh/ssh_host_dsa_key and ssh_host_dsa_key.pub
+      • /etc/ssh/ssh_host_ecdsa_key and ssh_host_ecdsa_key.pub
+      • /etc/ssh/ssh_host_ed25519_key and ssh_host_ed25519_key.pub
+      • ~/.ssh/authorized_keys
+      • ssh_known_hosts
+      • gpg
+      • gpg-agent
+      • ~/.gnupg/
+
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} 110.3 ${BRed}]${BGreen}──${resetT}${BYellow}╼▰    ")"
+    read -p "$_110_3_Menu" cmd
+    case $cmd in
+      xx ) echo " ";; ##
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+
+} # Securing Data with Encryption
+
+_LinuxPlusProMenu(){
+  while true; do
+    clear
+    ToolHeaderRun
+    # TargetStatusRun    #statements
+    LinuxPlusMenu="$(echo "
+    ${DGrey}Topic LPIC: Linux Professional Institute Certification
+    ${DGrey}┏--${BRed}[${BYellow} Topic 101 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} System Architecture ${BRed}]
+    ${DGrey}┃--${BRed}[${BYellow} Topic 102 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} Linux Installation an Package Management ${BRed}]
+    ${DGrey}┃--${BRed}[${BYellow} Topic 103 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} GNU and Linux Commands ${BRed}]
+    ${DGrey}┃--${BRed}[${BYellow} Topic 104 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} Devices. Linux FileSystem, File System Hierarchy Standard ${BRed}]
+    ${DGrey}┃--${BRed}[${BYellow} Topic 105 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} Shells and Shell Scripting ${BRed}]
+    ${DGrey}┃--${BRed}[${BYellow} Topic 106 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} User Interfaces and Desktops ${BRed}]
+    ${DGrey}┃--${BRed}[${BYellow} Topic 107 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} Administrative Tasks ${BRed}]
+    ${DGrey}┃--${BRed}[${BYellow} Topic 108 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} Essential System Services ${BRed}]
+    ${DGrey}┃--${BRed}[${BYellow} Topic 109 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} Networking Fundamentals ${BRed}]
+    ${DGrey}┗--${BRed}[${BYellow} Topic 110 ${BRed}]${BGreen}-╼▰ ${BRed}[${ORANGE} Security ${BRed}]
+
+    ${BYellow}Topic 101:${DGrey} System Architecture
+    ${DGrey}┏--${BRed}[${BGreen} 101.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Determine and Configure Hardware Settings ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 101.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Boot the System ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 101.3 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Change Runlevels and Boot Targets ${BRed}]
+
+    ${BYellow}Topic 102:${DGrey} Linux Installation an Package Management
+    ${DGrey}┏--${BRed}[${BGreen} 102.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Design Hard Disk Layout ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 102.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Install a Boot Manager ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 102.3 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Manage Shared Libraries ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 102.4 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Use Debian Package Management ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 102.5 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Use RPM and YUM Package Management ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 102.6 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Linux as a virtualization guest ${BRed}]
+
+    ${BYellow}Topic 103:${DGrey} GNU and Linux Commands
+    ${DGrey}┏--${BRed}[${BGreen} 103.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Work on the Command Line ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 103.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Process Text Streams Using Filters ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 103.3 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Perform Basic File Management ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 103.4 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Use Streams Pipes and Redirection ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 103.5 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Create Monitor and Kill Proceses ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 103.6 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Modify Process Execution Priorities ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 103.7 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Search Text Files Using Regular Expressions ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 103.8 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Perform Basic File Editing Operations Using VI ${BRed}]
+
+    ${BYellow}Topic 104:${DGrey}  Devices. Linux FileSystem, File System Hierarchy Standard
+    ${DGrey}┏--${BRed}[${BGreen} 104.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Create Partitions and Filesystems ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 104.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Maintain the Integrity of Filesystems ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 104.3 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Control Mounting and Unmounting of Filesystems ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 104.4 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Manage Disk Quotas ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 104.5 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Manage File Permissions and Ownership ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 104.6 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Create and Change Hard-Symbolic Links ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 104.7 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Find System Files and Place Files in the Correct Location ${BRed}]
+
+    ${BYellow}Topic 105:${DGrey} Shells and Shell Scripting
+    ${DGrey}┏--${BRed}[${BGreen} 105.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Customize and use the shell environment ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 105.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Customize or write simple scripts ${BRed}]
+
+    ${BYellow}Topic 106:${DGrey} User Interfaces and Desktops
+    ${DGrey}┏--${BRed}[${BGreen} 106.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Install and configure X11 ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 106.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Graphical Desktops ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 106.3 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Accessibility ${BRed}]
+
+    ${BYellow}Topic 107:${DGrey} Administrative Tasks
+    ${DGrey}┏--${BRed}[${BGreen} 107.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Manage user and group accounts and related system files ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 107.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Automate system administration tasks by scheduling jobs ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 107.3 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Localisation and internationalisation ${BRed}]
+
+    ${BYellow}Topic 108:${DGrey} Essential System Services
+    ${DGrey}┏--${BRed}[${BGreen} 108.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Maintain system time ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 108.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} System logging ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 108.3 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Mail Transfer Agent (MTA) basics ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 108.4 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Manage printers and printing ${BRed}]
+
+    ${BYellow}Topic 109:${DGrey} Networking Fundamentals
+    ${DGrey}┏--${BRed}[${BGreen} 109.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Fundamentals of internet protocols ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 109.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Persistent network configuration ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 109.3 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Basic network troubleshooting ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 109.4 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Configure client side DNS ${BRed}]
+
+    ${BYellow}Topic 110:${DGrey} Security
+    ${DGrey}┏--${BRed}[${BGreen} 110.1 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Perform security administration tasks ${BRed}]
+    ${DGrey}┃--${BRed}[${BGreen} 110.2 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Setup host security ${BRed}]
+    ${DGrey}┗--${BRed}[${BGreen} 110.3 ${BRed}]${BGreen}-╼▰ ${BRed}[ ${ORANGE} Securing data with encryption ${BRed}]
+
+
+    ${BGreen}┌──${BRed}[${ORANGE} Arsenal ${BRed}]${BGreen}──${resetT}${BYellow}╼▰  ${BRed}[${BGreen} $ArsenalCommand ${BRed}]${BGreen}${resetT}
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $(AnLoMinus) ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──${resetT}${BYellow}╼▰ ${BRed}[${BGreen} Linux+ ${BRed}]${BGreen}──${resetT}${BYellow}╼▰   ")"
+    read -p "${LinuxPlusMenu}" cmd
+    case $cmd in
+      "101.1" ) _LinuxPlusPro_101_1; read;;  ## Determine and Configure Hardware Settings
+      "101.2" ) _LinuxPlusPro_101_2; read;;  ## Boot the System
+      "101.3" ) _LinuxPlusPro_101_3; read;;  ## Change Runlevels and Boot Targets
+      "102.1" ) _LinuxPlusPro_102_1; read;;  ## Design Hard Disk Layout
+      "102.2" ) _LinuxPlusPro_102_2; read;;  ## Install a Boot Manager
+      "102.3" ) _LinuxPlusPro_102_3; read;;  ## Manage Shared Libraries
+      "102.4" ) _LinuxPlusPro_102_4; read;;  ## Use Debian Package Management
+      "102.5" ) _LinuxPlusPro_102_5; read;;  ## Use RPM and YUM Package Management
+      "103.1" ) _LinuxPlusPro_103_1; read;;  ## Linux as a virtualization guest
+      "103.2" ) _LinuxPlusPro_103_2; read;;  ## Process Text Streams Using Filters
+      "103.3" ) _LinuxPlusPro_103_3; read;;  ## Perform Basic File Management
+      "103.4" ) _LinuxPlusPro_103_4; read;;  ## Use Streams Pipes and Redirection
+      "103.5" ) _LinuxPlusPro_103_5; read;;  ## Create Monitor and Kill Proceses
+      "103.6" ) _LinuxPlusPro_103_6; read;;  ## Modify Process Execution Priorities
+      "103.7" ) _LinuxPlusPro_103_7; read;;  ## Search Text Files Using Regular Expressions
+      "103.8" ) _LinuxPlusPro_103_8; read;;  ## Perform Basic File Editing Operations Using VI
+      "104.1" ) _LinuxPlusPro_104_1; read;;  ## Create Partitions and Filesystems
+      "104.2" ) _LinuxPlusPro_104_2; read;;  ## Maintain the Integrity of Filesystems
+      "104.3" ) _LinuxPlusPro_104_3; read;;  ## Control Mounting and Unmounting of Filesystems
+      "104.4" ) _LinuxPlusPro_104_4; read;;  ## Manage Disk Quotas
+      "104.5" ) _LinuxPlusPro_104_5; read;;  ## Manage File Permissions and Ownership
+      "104.6" ) _LinuxPlusPro_104_6; read;;  ## Create and Change Hard-Symbolic Links
+      "104.7" ) _LinuxPlusPro_104_7; read;;  ## Find System Files and Place Files in the Correct Location
+      "105.1" ) _LinuxPlusPro_105_1; read;;  ## Customize and use the shell environment
+      "105.2" ) _LinuxPlusPro_105_2; read;;  ## Customize or write simple scripts
+      "106.1" ) _LinuxPlusPro_106_1; read;;  ## Install and configure X11
+      "106.2" ) _LinuxPlusPro_106_2; read;;  ## Graphical Desktops
+      "106.3" ) _LinuxPlusPro_106_3; read;;  ## Accessibility
+      "107.1" ) _LinuxPlusPro_107_1; read;;  ## Manage user and group accounts and related system files
+      "107.2" ) _LinuxPlusPro_107_2; read;;  ## Automate system administration tasks by scheduling jobs
+      "107.3" ) _LinuxPlusPro_107_3; read;;  ## Localisation and internationalisation
+      "108.1" ) _LinuxPlusPro_108_1; read;;  ## Maintain system time
+      "108.2" ) _LinuxPlusPro_108_2; read;;  ## System logging
+      "108.3" ) _LinuxPlusPro_108_3; read;;  ## Mail Transfer Agent (MTA) basics
+      "108.4" ) _LinuxPlusPro_108_4; read;;  ## Manage printers and printing
+      "109.1" ) _LinuxPlusPro_109_1; read;;  ## Fundamentals of internet protocols
+      "109.2" ) _LinuxPlusPro_109_2; read;;  ## Persistent network configuration
+      "109.3" ) _LinuxPlusPro_109_3; read;;  ## Basic network troubleshooting
+      "109.4" ) _LinuxPlusPro_109_4; read;;  ## Configure client side DNS
+      "110.1" ) _LinuxPlusPro_110_1; read;;  ## Perform security administration tasks
+      "110.2" ) _LinuxPlusPro_110_2; read;;  ## Setup host security
+      "110.3" ) _LinuxPlusPro_110_3; read;;  ## Securing data with encryption
+      x|X|exit|quit|Exit )
+      clear
+      cd ${MainDirectoriy}
+      AwesomeLineExit
+      break
+      ;;
+
+    esac
+  done
+}

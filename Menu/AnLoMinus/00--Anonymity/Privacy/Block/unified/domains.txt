@@ -1,3 +1,0 @@
-# Check page support
-0.0.0.0 watchdog-unified.energized.pro
-#

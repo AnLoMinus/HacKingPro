@@ -1,6 +1,0 @@
-  - ## 🔸 13 - Social Engineering
-    - [ ] [PhishMailer](https://github.com/BiZken/PhishMailer): Generate Professional Phishing Emails Fast And Easy
-    - [ ] [SocialBox](https://github.com/Cyb0r9/SocialBox): SocialBox is a Bruteforce Attack Framework [ Facebook , Gmail , Instagram ,Twitter ] , Coded By Belahsan Ouerghi
-    - [ ] [Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker): Social engineering tool [Access Webcam & Microphone & Location Finder] With Python
-    - [ ] [Cam-Hackers](https://github.com/AngelSecurityTeam/Cam-Hackers)
-    - [ ] [Camera Hacking](https://github.com/hasanfirnas/symbiote)

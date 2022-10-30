@@ -1,0 +1,331 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-MacChanger ]              #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 16-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 16-08-2022 ]                              #
+###############################################################
+. HacKingPro-Colors
+i="0"
+resize -s 27 96
+clear
+while [ $i -lt 1 ]; do
+  clear
+  e="0"
+  # '90:9c:4a:be:9d:35'
+  LocalHostNAME=$(route get 0.0.0.0 | awk -F": " '/interface:/{print $2}')
+  LocalHostIP=$(ifconfig getifaddr "${LocalHostNAME}" 2>/dev/null)
+  LocalHostMAC=$(ifconfig en0 | grep "ether" | awk {'print $2'})
+
+  # LocalHostIP=$(ip link show $LocalHostIP | awk '/ether/ {print $2}')
+  figlet HacKingPro
+  figlet MacChanger
+  echo "${BCyan}
+      01. DELL COMPUTER                11. HP PRINTER              ${LGreen} Mac address = ${BCyan}'${ORANGE}${LocalHostMAC}${BCyan}' ${BCyan}
+      02. APPLE LAPTOP                 12. CANON PRINTER
+      03. HUAWEI ANDROID PHONE         13. SAMSUNG TV
+      04. XIAOMI ANDROID PHONE         14. TVT CAMERA
+      05. SONY ANDROID PHONE           15. ZTE ROUTER
+      06. LG ANDROID PHONE             16. TP-LINK ROUTER           21. CUSTOM MAC ADDRESS
+      07. SAMSUNG ANDROID PHONE        17. OXYGEN ROUTER
+      08. IPOD                         18. SOLAR PANEL              22. MY ACCOUNTS - CONTACT WITH ME
+      09. IPAD                         19. NITENDO DS
+      10. IPHONE                       20. SONY PLAYSTATION 4       23. EXIT"
+
+
+  dell='1'
+  macbook='2'
+  huawei='3'
+  xiaomi='4'
+  sony='5'
+  lg='6'
+  samsung='7'
+  ipod='8'
+  ipad='9'
+  iphone='10'
+  hpprinter='11'
+  canonprinter='12'
+  samsungtv='13'
+  tvtcamera='14'
+  zte='15'
+  tplink='16'
+  oxygen='17'
+  solarpanel='18'
+  nitendods='19'
+  ps4='20'
+  custommac='21'
+  me='22'
+  exit='23'
+
+  read -r x
+
+  if [ "$x" == "$dell" ]; then                    #de  ll
+    ifconfig "${LocalHostIP}" down
+    ifconfig "${LocalHostIP}" hw ether 18:03:73:E9:FB:86
+    ifconfig "${LocalHostIP}" up
+    ifconfig eth0 down
+    ifconfig eth0 hw ether 18:03:73:E9:FB:86
+    ifconfig eth0 up
+    service network-manager restart
+  elif [ "$x" == "$macbook" ]; then                    #macbook
+    ifconfig "${LocalHostIP}" down
+    ifconfig "${LocalHostIP}" hw ether 00:1F:5B:C7:EE:2F
+    ifconfig "${LocalHostIP}" up
+    ifconfig eth0 down
+    ifconfig eth0 hw ether 00:1F:5B:C7:EE:2F
+    ifconfig eth0 up
+    service network-manager restart
+  elif [ "$x" == "$huawei" ]; then                    #huawei
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 8C:EB:C6:15:43:A4
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 8C:EB:C6:15:43:A4
+  ifconfig eth0 up
+  service network-manager restart
+
+
+  elif [ "$x" == "$xiaomi" ]; then                    #xiaomi
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether EC:D0:9F:82:EE:3F
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether EC:D0:9F:82:EE:3F
+  ifconfig eth0 up
+  service network-manager restart
+
+
+  elif [ "$x" == "$sony" ]; then                    #sony
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 9C:5C:F9:3F:17:D1
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 9C:5C:F9:3F:17:D1
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$lg" ]; then                    #lg
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether BC:F5:AC:FF:38:A6
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether BC:F5:AC:FF:38:A6
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$samsung" ]; then                    #samsung
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 8C:F5:A3:CB:14:C6
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 8C:F5:A3:CB:14:C6
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$ipod" ]; then                    #ipod
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether FC:D8:48:03:54:8C
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether FC:D8:48:03:54:8C
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$ipad" ]; then                    #ipad
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 04:15:52:AB:6B:A4
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 04:15:52:AB:6B:A4
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$iphone" ]; then                    #iphone
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 28:A0:2B:EC:6F:93
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 28:A0:2B:EC:6F:93
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$hpprinter" ]; then                    #hpprinter
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether D8:9D:67:DA:2F:32
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether D8:9D:67:DA:2F:32
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$canonprinter" ]; then                    #canonprinter
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 00:00:85:D2:01:4A
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 00:00:85:D2:01:4A
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$samsungtv" ]; then                    #samsungtv
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether F8:77:B8:0C:49:B1
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether F8:77:B8:0C:49:B1
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$tvtcamera" ]; then                    #tvtcamera
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 00:18:AE:63:81:70
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 00:18:AE:63:81:70
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$zte" ]; then                    #zte
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 34:4D:EA:87:8A:F8
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 34:4D:EA:87:8A:F8
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$tplink" ]; then                    #tplink
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 00:14:78:53:01:D8
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 00:14:78:53:01:D8
+  ifconfig eth0 up
+  service network-manager restart
+
+
+
+  elif [ "$x" == "$oxygen" ]; then                    #oxygen
+
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 00:1d:1c:06:b5:ee
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 00:1d:1c:06:b5:ee
+  ifconfig eth0 up
+  service network-manager restart
+  elif [ "$x" == "$solarpanel" ]; then                    #solarpanel
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 00:27:02:04:06:08
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 00:27:02:04:06:08
+  ifconfig eth0 up
+  service network-manager restart
+  elif [ "$x" == "$nitendods" ]; then                    #nitendods
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether 00:1D:BC:C9:CC:ED
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether 00:1D:BC:C9:CC:ED
+  ifconfig eth0 up
+  service network-manager restart
+  elif [ "$x" == "$ps4" ]; then                    #ps4
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether F8:46:1C:0D:27:1B
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether F8:46:1C:0D:27:1B
+  ifconfig eth0 up
+  service network-manager restart
+  elif [ "$x" == "$custommac" ]; then                 #custommac
+  read -r  'Type mac address (example AA:AA:AA:AA:AA:AA) : '  m
+  ifconfig "${LocalHostIP}" down
+  ifconfig "${LocalHostIP}" hw ether "$m"
+  ifconfig "${LocalHostIP}" up
+  ifconfig eth0 down
+  ifconfig eth0 hw ether "$m"
+  ifconfig eth0 up
+  service network-manager restart
+  sleep 3
+  e=1
+  clear
+  elif [ "$x" == "$me" ]; then                 #CONTACT WITH ME
+  clear
+  resize -s 32 54
+  clear
+  read -r
+  e=1
+  resize -s 27 96
+  clear
+  elif [ "$x" == "$exit" ]; then                 #exit
+  exit
+  else
+  e=1
+  echo  "Chooese Something"
+  fi
+
+  if [ "$e" -eq 0 ]; then
+    echo "${BGreen}
+  Your Mac Address Changes Succesfully!
+    "
+    sleep 4
+    clear
+  fi
+done

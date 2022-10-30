@@ -1,0 +1,65 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                     Crypt Pro                               #
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-ActiveDirectory ]         #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 10-09-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 10-09-2022 ]                              #
+###############################################################
+username='my_username'
+password='my_password'
+
+username_encoded=$(echo -n "$username" | openssl enc -base64)
+password_encoded=$(echo -n "$password" | openssl enc -base64)
+
+username_decoded=$(echo "$username_encoded" | openssl enc -d -base64)
+password_decoded=$(echo "$password_encoded" | openssl enc -d -base64)
+
+# echo "username: $username"
+echo "username_encoded: $username_encoded"
+# echo "username_decoded: $username_decoded"
+# echo "password: $password"
+echo "password_encoded: $password_encoded"
+# echo "password_decoded: $password_decoded"
+# base64 ${password_encoded} > Password-Encoded.txt
+# cat Password-Encoded.txt
+# base64 -d Password-Encoded.txt
+
+
+EncodeText(){
+  echo "Enter Secret text to encode"
+  read secretE
+  etext=`echo -n $secretE | base64`
+  echo "Encoded text is : $etext"
+}
+DecodeText(){
+  echo "Type your Secret code"
+  read secretD
+  otext=`echo "$secretE" | base64 --decode`
+  if [ $secretD == $otext ]; then
+    echo "You are authenticated"
+  else
+    echo "You are not authenticated"
+  fi
+}

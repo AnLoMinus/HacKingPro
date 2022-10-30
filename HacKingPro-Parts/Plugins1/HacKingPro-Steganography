@@ -1,0 +1,115 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#                        Steganography                        #
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-Steganography ]           #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 22-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 22-08-2022 ]                              #
+###############################################################
+
+
+SteganographyPro(){
+
+  if [ -d "Steganography-Collection" ]; then
+    #statements
+    cd "Steganography-Collection"
+  else
+    mkdir "Steganography-Collection"
+    cd "Steganography-Collection"
+  fi
+
+  # Steghide is a steganography program that is able to hide data in various kinds of image- and audio-files.
+  wget https://github.com/StefanoDeVuono/steghide/archive/refs/heads/master.zip
+  unzip master.zip
+  rm master.zip
+  mv steghide-master steghide
+  cd steghide
+  #   Linux / Unix : After unpacking the source distribution, enter the following commands:
+  ./configure
+  make
+  make check
+  make install # (as root)
+
+
+  # ExifTool meta information reader/writer
+  wget https://github.com/exiftool/exiftool/archive/refs/heads/master.zip
+  unzip master.zip
+  rm master.zip
+  mv exiftool-master exiftool
+  cd exiftool
+  # You can install the Image::ExifTool package to make it available for use by other Perl scripts by typing the following:
+  perl Makefile.PL
+  make
+  make test
+  make install
+
+  # detect stegano-hidden data in PNG & BMP
+  # https://github.com/zed-0xff/zsteg
+
+# 64-bit Linux AppImage
+# Download – primary:
+# wget https://code.soundsoftware.ac.uk/attachments/download/2825/SonicVisualiser-4.5-x86_64.AppImage
+# Download – mirror
+# wget https://github.com/sonic-visualiser/sonic-visualiser/releases/download/sv_v4.5/SonicVisualiser-4.5-x86_64.AppImage
+# 1. Save the file
+# 2. Make it executable
+# 3. Run it
+
+# 64-bit Ubuntu .deb package
+# Download – primary
+# wget https://code.soundsoftware.ac.uk/attachments/download/2822/sonic-visualiser_4.5_amd64.deb
+# Download – mirror
+# wget https://github.com/sonic-visualiser/sonic-visualiser/releases/download/sv_v4.5/sonic-visualiser_4.5_amd64.deb
+
+# for macOS 10.12 or newer
+# Download – primary
+# wget https://code.soundsoftware.ac.uk/attachments/download/2824/Sonic%20Visualiser-4.5.dmg
+# Download – mirror
+# https://github.com/sonic-visualiser/sonic-visualiser/releases/download/sv_v4.5/Sonic.Visualiser-4.5.dmg
+
+# Steganographic coder for WAV files: https://github.com/samolds/wavsteg
+
+}
+
+
+test1(){
+  passwords_list=$(cat $1)
+
+  `steghide info $1 -p admin`
+    for pass in $passwords_list; do
+      steghide info $1 -p $pass
+
+  for (( i = 0; )); do
+    #statements
+  done
+
+  if [[ condition ]]; then
+    #statements
+  fi
+
+  while [[ condition ]]; do
+    #statements
+  done
+
+}

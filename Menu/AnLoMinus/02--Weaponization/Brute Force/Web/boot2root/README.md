@@ -1,1 +1,0 @@
-# boot2root-scripts

