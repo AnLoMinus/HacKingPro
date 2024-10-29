@@ -1,0 +1,1499 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import json
+import datetime
+import importlib
+import warnings
+import asyncio
+import subprocess
+import re
+import ipaddress
+import ctypes
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel, QTextEdit, 
+                             QStatusBar, QHBoxLayout, QProgressBar, QMessageBox, QDialog, QScrollArea, QFileDialog, 
+                             QInputDialog, QTabWidget, QFormLayout, QLineEdit, QGroupBox, QListWidget, QSplitter,
+                             QDockWidget, QCheckBox, QListWidgetItem, QMenuBar, QAction, QComboBox, QDialogButtonBox,
+                             QRadioButton)  # הוספנו QRadioButton
+from PyQt5.QtGui import QFont, QPixmap, QPalette, QColor, QPainter, QIcon
+from PyQt5.QtCore import Qt, QTimer, QDateTime, QRunnable, QThreadPool, pyqtSlot, QObject, pyqtSignal, QThread, QProcess
+from plugins.system_monitor_plugin import SystemMonitorWidget
+from text_system_monitor import TextSystemMonitorWidget
+from network_monitor import NetworkMonitorWidget
+from intro_manager import get_intro_widget
+from help_content import HELP_CONTENT
+
+# Ignore DeprecationWarnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
+
+def run_as_admin():
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+
+def request_admin_privileges():
+    if sys.platform == 'win32':
+        if not is_admin():
+            reply = QMessageBox.question(None, 'בקשת הרשאות מנהל',
+                                         "האפליקציה זקוקה להרשאות מנהל לפעולות מסוימות. האם ברצונך להפעיל מחדש עם הרשאות מנהל?",
+                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                run_as_admin()
+                sys.exit()
+    elif sys.platform == 'linux':
+        if os.geteuid() != 0:
+            reply = QMessageBox.question(None, 'בקשת הרשאות מנהל',
+                                         "האפליקציה זקוקה להרשאות מנהל לפעולות מסוימות. האם ברצונך להפעיל מחדש עם הרשאות מנהל?",
+                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                subprocess.call(['sudo', 'python3'] + sys.argv)
+                sys.exit()
+
+class CustomWidget(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
+        
+        # Create a semi-transparent, frosted glass effect
+        painter.setBrush(QColor(30, 30, 30, 128))  # 50% opacity
+        painter.setPen(Qt.NoPen)
+        painter.drawRoundedRect(self.rect(), 10, 10)
+
+class HelpDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("מדריך למשתמש - HacKingPro")
+        self.setGeometry(200, 200, 600, 400)
+        self.initUI()
+
+    def initUI(self):
+        layout = QVBoxLayout()
+        scroll = QScrollArea()
+        content = QWidget()
+        content_layout = QVBoxLayout(content)
+
+        help_label = QLabel(HELP_CONTENT)
+        help_label.setWordWrap(True)
+        help_label.setStyleSheet("text-align: right; direction: rtl;")
+        
+        content_layout.addWidget(help_label)
+        content.setLayout(content_layout)
+        scroll.setWidget(content)
+        scroll.setWidgetResizable(True)
+        layout.addWidget(scroll)
+
+        self.setLayout(layout)
+
+class JournalDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("יומן משימות")
+        self.setGeometry(200, 200, 600, 500)
+        self.journal_file = "journal.json"
+        self.journal_data = self.load_journal()
+        self.init_ui()
+
+    def load_journal(self):
+        if os.path.exists(self.journal_file):
+            with open(self.journal_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        return {"tasks": []}
+
+    def init_ui(self):
+        layout = QVBoxLayout()
+        
+        self.tasks_list = QListWidget()
+        self.tasks_list.setStyleSheet("background-color: rgba(30, 30, 30, 200); color: white;")
+        self.tasks_list.itemDoubleClicked.connect(self.edit_task)
+        layout.addWidget(self.tasks_list)
+
+        buttons_layout = QHBoxLayout()
+
+        add_button = QPushButton("הוסף משימה")
+        add_button.clicked.connect(self.add_task_dialog)
+        buttons_layout.addWidget(add_button)
+
+        edit_button = QPushButton("ערוך משימה")
+        edit_button.clicked.connect(self.edit_selected_task)
+        buttons_layout.addWidget(edit_button)
+
+        delete_button = QPushButton("מחק משימה")
+        delete_button.clicked.connect(self.delete_selected_task)
+        buttons_layout.addWidget(delete_button)
+
+        layout.addLayout(buttons_layout)
+
+        save_button = QPushButton("שמור שינויים")
+        save_button.clicked.connect(self.save_journal)
+        save_button.setStyleSheet("background-color: rgba(60, 60, 60, 200); color: white;")
+        layout.addWidget(save_button)
+
+        self.setLayout(layout)
+
+        for task in self.journal_data.get('tasks', []):
+            self.add_task_to_list(task['text'], task['completed'])
+
+    def save_journal(self):
+        tasks = []
+        for i in range(self.tasks_list.count()):
+            item = self.tasks_list.item(i)
+            task = {
+                'text': item.text(),
+                'completed': item.checkState() == Qt.Checked
+            }
+            tasks.append(task)
+        
+        journal_data = {
+            'tasks': tasks,
+            'last_updated': datetime.datetime.now().isoformat()
+        }
+        with open(self.journal_file, 'w', encoding='utf-8') as f:
+            json.dump(journal_data, f, ensure_ascii=False, indent=2)
+        QMessageBox.information(self, "שמירה", "היומן נשמר בהצלחה!")
+
+    def add_task_dialog(self):
+        task_text, ok = QInputDialog.getText(self, "הוספת משמה", "הזן משימה חדשה:")
+        if ok and task_text:
+            self.add_task_to_list(task_text, False)
+
+    def add_task_to_list(self, task_text, completed):
+        item = QListWidgetItem(task_text)
+        item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+        item.setCheckState(Qt.Checked if completed else Qt.Unchecked)
+        self.tasks_list.addItem(item)
+
+    def edit_task(self, item):
+        old_text = item.text()
+        new_text, ok = QInputDialog.getText(self, "עריכת משימה", "ערוך משימה:", text=old_text)
+        if ok and new_text:
+            item.setText(new_text)
+
+    def edit_selected_task(self):
+        current_item = self.tasks_list.currentItem()
+        if current_item:
+            self.edit_task(current_item)
+        else:
+            QMessageBox.warning(self, "אזהרה", "אנא בחר משימה לעריכה")
+
+    def delete_selected_task(self):
+        current_item = self.tasks_list.currentItem()
+        if current_item:
+            reply = QMessageBox.question(self, 'מחיקת משימה', 
+                                         "האם אתה בטוח שברצונך למחוק את המשימה הזו?",
+                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                self.tasks_list.takeItem(self.tasks_list.row(current_item))
+        else:
+            QMessageBox.warning(self, "אזהרה", "אנא בחר משימה למחיקה")
+
+    def add_changelog_tasks(self):
+        changelog_tasks = [
+            "הוספת תמיכה במספר שפות עם אפשרויות לעברית ואנגית",
+            "הוספת ממשק שורת פקודה לד ממשק המשתמש הגרפי",
+            "שילוב יכולות ויזואליזציה של נתונים עבור תוצאות תקיפה ומיפוי רשת",
+            "פיתוח מערכת ניהול תוספים מתקדמת",
+            "הוספת עורך טקסט מובנה לעריכת סקריפטים",
+            "יצירת כלי לגילוי ומיפוי רשתות",
+            "הוספת מחולל דוחות מקצועי עבור דוחות בדיקת חדירה",
+            "שיפור גמישות ויכולת עגינה של חלקי ממשק המשתמש",
+            "הוספת ניפוי באגים בטרמינל לצד הרישום הקיים",
+            "יישום מערכת תוספים בסיסית להרחבת פונקציונליות",
+            "שיפור היומן עם סימון השלמת משימות והוספת משימות חדשות",
+            "הוספת קובץ CHANGELOG מלא מגרסה 0.1.0 ועד כה",
+            "יירת ספריה לסקריפטי קיפה מקוטלגים לפי סוג",
+            "יישום עיצוב ממשק משתמש מודרני בסגנן 'זכית מעורפלת' שקוף למחצה",
+            "הוספת ערכת צבעים כהה עם שקיפות",
+            "הטמעת ניהול יומן מבוסס JSON עם טענה אוטומטית",
+            "יצירת קבצי JSON ייעודיים לכל מטרה בספריית מטרות ייעודית",
+            "הוספת רשימת מטרות עם אפשרות גלילה ויכולת לצפות ולנהל תהליכי מטרה",
+            "הוספת חלון ניפוי באגים לניטור תוכנית בזמן אמת",
+            "יישום רישום פעילות ושמירה בתיקייה דוחות",
+            "הוספת אפשרות לשיים ולנהל מטרות כתהליכים מתמשכים",
+            "עדכון קרדיטים לכלול את כל המפתחים",
+            "הוספת פונקציונליות תקיפות אלחוטיות",
+            "שיפור תגובתיות ממשק המשתמש הגרפי",
+            "הוספת סרגל התקדמות עבור פעולות ארוכות",
+            "ישום טיפול בסיסי בשגיאות",
+            "הוספת פונקציונליות תקיפה וניצול של אפליקציות ינטרנט",
+            "שיפור פריסת ממשק המשתמש הגרפי",
+            "הוספת שורת סטטוס להצגת הפעולה הנוכחית",
+            "יישום בסיסי של ממשק משתמש גרפי עם PyQt5",
+            "יישום פונקציונליות ליבה: סיור מקדים, ניצול, תנועה רוחבית, התמדה, דיווח",
+            "הגדרת פרויקט ראשונית",
+            "מבנה פרויקט בסיסי ו-README"
+        ]
+        for task in changelog_tasks:
+            self.add_task_to_list(task, True)  # True indicates the task is completed
+
+class DebugWindow(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("חלון דיבוג")
+        self.setGeometry(200, 200, 500, 300)
+        self.initUI()
+
+    def initUI(self):
+        layout = QVBoxLayout()
+        self.debug_text = QTextEdit()
+        self.debug_text.setReadOnly(True)
+        layout.addWidget(self.debug_text)
+        self.setLayout(layout)
+
+    def log(self, message):
+        self.debug_text.append(f"{datetime.datetime.now()}: {message}")
+
+class TargetProfileDialog(QDialog):
+    def __init__(self, target_name, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle(f"פרופיל מטרה - {target_name}")
+        self.setGeometry(200, 200, 500, 400)
+        self.target_name = target_name
+        self.target_file = f"targets/{target_name}.json"
+        self.initUI()
+        self.load_target_data()
+
+    def initUI(self):
+        layout = QVBoxLayout()
+
+        form_layout = QFormLayout()
+        self.name_input = QLineEdit()
+        self.ip_input = QLineEdit()
+        self.website_input = QLineEdit()
+        self.phone_input = QLineEdit()
+        self.email_input = QLineEdit()  # חדש
+        self.location_input = QLineEdit()  # חדש
+        self.os_input = QLineEdit()  # חדש
+        self.profiles_input = QTextEdit()
+        self.notes_input = QTextEdit()  # חדש
+
+        form_layout.addRow("שם:", self.name_input)
+        form_layout.addRow("כתובת IP:", self.ip_input)
+        form_layout.addRow("אתר:", self.website_input)
+        form_layout.addRow("טלפון:", self.phone_input)
+        form_layout.addRow("אימייל:", self.email_input)
+        form_layout.addRow("מיקום:", self.location_input)
+        form_layout.addRow("מערכת הפעלה:", self.os_input)
+        form_layout.addRow("פרופילים ציבוריים:", self.profiles_input)
+        form_layout.addRow("הערות:", self.notes_input)
+
+        layout.addLayout(form_layout)
+
+        button_layout = QHBoxLayout()
+        update_button = QPushButton("עדכן פרופיל")
+        update_button.clicked.connect(self.update_profile)
+        button_layout.addWidget(update_button)
+
+        delete_button = QPushButton("מח מטרה")
+        delete_button.clicked.connect(self.delete_target)
+        button_layout.addWidget(delete_button)
+
+        layout.addLayout(button_layout)
+
+        self.setLayout(layout)
+
+    def load_target_data(self):
+        try:
+            if os.path.exists(self.target_file):
+                with open(self.target_file, 'r', encoding='utf-8') as f:
+                    target_data = json.load(f)
+                    self.name_input.setText(target_data.get('name', ''))
+                    self.ip_input.setText(target_data.get('ip', ''))
+                    self.website_input.setText(target_data.get('website', ''))
+                    self.phone_input.setText(target_data.get('phone', ''))
+                    self.email_input.setText(target_data.get('email', ''))
+                    self.location_input.setText(target_data.get('location', ''))
+                    self.os_input.setText(target_data.get('os', ''))
+                    self.profiles_input.setPlainText(target_data.get('profiles', ''))
+                    self.notes_input.setPlainText(target_data.get('notes', ''))
+        except Exception as e:
+            print(f"Error loading target data: {e}")
+
+    def update_profile(self):
+        try:
+            target_data = {
+                'name': self.name_input.text(),
+                'ip': self.ip_input.text(),
+                'website': self.website_input.text(),
+                'phone': self.phone_input.text(),
+                'email': self.email_input.text(),
+                'location': self.location_input.text(),
+                'os': self.os_input.text(),
+                'profiles': self.profiles_input.toPlainText(),
+                'notes': self.notes_input.toPlainText(),
+                'last_updated': datetime.datetime.now().isoformat()
+            }
+            
+            # Create targets directory if it doesn't exist
+            os.makedirs('targets', exist_ok=True)
+            
+            with open(self.target_file, 'w', encoding='utf-8') as f:
+                json.dump(target_data, f, ensure_ascii=False, indent=2)
+            
+            QMessageBox.information(self, "עדכון", "פרופיל המטרה עודכן בהצלחה!")
+            self.accept()  # Close the dialog after successful update
+        except Exception as e:
+            QMessageBox.critical(self, "שגיאה", f"שגיאה בעדכון פרופיל המטרה: {str(e)}")
+
+    def delete_target(self):
+        reply = QMessageBox.question(self, 'מחיקת מטרה', 
+                                     f"האם תה בטוח שברצונך למחוק את המטרה {self.target_name}?",
+                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if reply == QMessageBox.Yes:
+            if os.path.exists(self.target_file):
+                os.remove(self.target_file)
+                QMessageBox.information(self, "מחיקה", "המטרה נמחקה בהצלחה!")
+                self.parent().load_targets()  # רענון רשימת המטרות
+                self.close()
+            else:
+                QMessageBox.warning(self, "שגיאה", "קובץ המטרה לא נמצא!")
+
+class AsyncWorker(QRunnable):
+    class Signals(QObject):
+        finished = pyqtSignal(str)
+        error = pyqtSignal(str)
+
+    def __init__(self, coro):
+        super().__init__()
+        self.coro = coro
+        self.signals = self.Signals()
+
+    def run(self):
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            result = loop.run_until_complete(self.coro)
+            self.signals.finished.emit(result)
+        except Exception as e:
+            self.signals.error.emit(str(e))
+        finally:
+            loop.close()
+
+class SummaryDialog(QDialog):
+    def __init__(self, title, content, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle(title)
+        self.setGeometry(200, 200, 600, 400)
+        self.initUI(content)
+
+    def initUI(self, content):
+        layout = QVBoxLayout()
+        scroll = QScrollArea()
+        content_widget = QWidget()
+        content_layout = QVBoxLayout(content_widget)
+
+        summary_label = QLabel(content)
+        summary_label.setWordWrap(True)
+        summary_label.setStyleSheet("text-align: left; direction: ltr;")
+        
+        content_layout.addWidget(summary_label)
+        content_widget.setLayout(content_layout)
+        scroll.setWidget(content_widget)
+        scroll.setWidgetResizable(True)
+        layout.addWidget(scroll)
+
+        close_button = QPushButton("סגור")
+        close_button.clicked.connect(self.close)
+        layout.addWidget(close_button)
+
+        self.setLayout(layout)
+
+class SocialEngineeringDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("הנדסה חברתית")
+        self.setGeometry(200, 200, 400, 300)
+        self.initUI()
+
+    def initUI(self):
+        layout = QVBoxLayout()
+
+        # אפשרויות חיפוש
+        search_group = QGroupBox("אפשרויות חיפוש")
+        search_layout = QVBoxLayout()
+        self.phone_radio = QRadioButton("חיפוש לפי מספר טלפון")
+        self.nickname_radio = QRadioButton("חיפוש לפי כינוי")
+        self.phone_radio.setChecked(True)
+        search_layout.addWidget(self.phone_radio)
+        search_layout.addWidget(self.nickname_radio)
+        search_group.setLayout(search_layout)
+        layout.addWidget(search_group)
+
+        # שדה קלט
+        self.search_input = QLineEdit()
+        layout.addWidget(QLabel("הזן מספר טלפון או כינוי:"))
+        layout.addWidget(self.search_input)
+
+        # כפתור חיפוש
+        search_button = QPushButton("חפש")
+        search_button.clicked.connect(self.perform_search)
+        layout.addWidget(search_button)
+
+        # אזור תוצאות
+        self.results_area = QTextEdit()
+        self.results_area.setReadOnly(True)
+        layout.addWidget(QLabel("תוצאות:"))
+        layout.addWidget(self.results_area)
+
+        self.setLayout(layout)
+
+    def perform_search(self):
+        search_type = "phone" if self.phone_radio.isChecked() else "nickname"
+        search_term = self.search_input.text()
+        
+        # קריאה לפונקציה מ-social_engineering_script.py
+        from Menu_Attacks.social_engineering_script import run_search
+        results = run_search(search_type, search_term)
+        
+        self.results_area.setText(results)
+
+class HacKingProGUI(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("HacKingPro v0.3.1 🛡️")  # עדכון מספר הגרסה
+        self.setGeometry(100, 100, 1200, 800)
+        
+        self.is_admin_mode = False
+        
+        # Set window background to be semi-transparent
+        self.setAttribute(Qt.WA_TranslucentBackground)
+        self.setStyleSheet("""
+            QMainWindow {
+                background-color: rgba(20, 20, 20, 200);
+            }
+        """)
+        
+        self.debug_window = DebugWindow()
+        self.current_target = None
+        self.plugins = {}
+        self.tool_buttons = {}  # Initialize tool_buttons here
+        self.load_plugins()
+        self.initUI()
+        self.load_layout_settings()
+        self.threadpool = QThreadPool()
+        self.update_timer = QTimer()
+        self.update_timer.timeout.connect(self.update_ui)
+        self.update_timer.start(1000)  # Update every second
+        self.system_monitor_window = None
+        self.debug_window = DebugWindow()
+        self.open_system_monitor()
+        self.open_debug_window()
+        self.active_tools = {}  # מילון שמירת מצב הכלים
+        self.terminal_window = None
+
+    def initUI(self):
+        self.central_widget = CustomWidget()
+        self.setCentralWidget(self.central_widget)
+        main_layout = QVBoxLayout(self.central_widget)
+
+        # Update the style of the main layout
+        main_layout.setContentsMargins(10, 10, 10, 10)
+        main_layout.setSpacing(10)
+
+        # Create main horizontal splitter
+        main_splitter = QSplitter(Qt.Horizontal)
+
+        # Update the style of the splitters
+        splitter_style = """
+            QSplitter::handle {
+                background-color: rgba(255, 255, 255, 30);
+            }
+            QSplitter::handle:hover {
+                background-color: rgba(255, 255, 255, 50);
+            }
+        """
+        main_splitter.setStyleSheet(splitter_style)
+
+        # Left menu (English)
+        left_menu = QWidget()
+        self.left_layout = QVBoxLayout(left_menu)
+
+        # Attack menu (English)
+        attack_menu = self.create_framed_menu("Attack Menu", [
+            ("Reconnaissance 🔍", self.reconnaissance),
+            ("Exploitation 💥", self.exploitation),
+            ("Lateral Movement 🔀", self.lateral_movement),
+            ("Persistence 🔒", self.persistence),
+            ("Reporting 📊", self.reporting),
+            ("Web App Attack 🌐", self.web_app_attack),
+            ("Wireless Attacks 📡", self.wireless_attacks),
+            ("Sniffing and Decryption 👃", self.sniffing_decryption),
+            ("Social Engineering 🎭", self.social_engineering),
+            ("Password Attacks 🔑", self.password_attacks),
+            ("Hardware Hacking 🔧", self.hardware_hacking),
+            ("Maintaining Access 🚪", self.maintaining_access)
+        ])
+        self.left_layout.addWidget(attack_menu)
+
+        # Plugins menu
+        plugins_menu = self.create_framed_menu("Plugins 🧩", [])
+        plugins_layout = plugins_menu.layout()
+
+        # Add plugin buttons
+        for plugin_name, plugin in self.plugins.items():
+            if plugin_name == "example_plugin":
+                self.add_plugin_button(plugins_layout, "Example Plugin 🧩", self.run_example_plugin)
+            else:
+                self.add_plugin_button(plugins_layout, f"{plugin_name.replace('_', ' ').title()} 🧩", lambda _, p=plugin: self.run_plugin(p))
+
+        self.left_layout.addWidget(plugins_menu)
+
+        main_splitter.addWidget(left_menu)
+
+        # Central area
+        central_widget = QWidget()
+        central_layout = QVBoxLayout(central_widget)
+
+        # Create a horizontal layout for dashboard, system monitor, and network monitor
+        dashboard_monitor_layout = QHBoxLayout()
+
+        # Wrap the intro widget in a frame
+        intro_widget = get_intro_widget()
+        intro_frame = self.create_framed_widget("Dashboard 📊", intro_widget)
+        dashboard_monitor_layout.addWidget(intro_frame)
+
+        # Add system monitor
+        text_monitor = TextSystemMonitorWidget()
+        monitor_frame = self.create_framed_widget("System Monitor 📊", text_monitor)
+        dashboard_monitor_layout.addWidget(monitor_frame)
+
+        # Add network monitor
+        try:
+            network_monitor = NetworkMonitorWidget()
+            network_monitor_frame = self.create_framed_widget("Network Monitor 🌐", network_monitor)
+            dashboard_monitor_layout.addWidget(network_monitor_frame)
+        except Exception as e:
+            print(f"Error initializing Network Monitor: {e}")
+            self.debug_window.log(f"Error initializing Network Monitor: {e}")
+
+        central_layout.addLayout(dashboard_monitor_layout)
+
+        # Output area and progress bar
+        output_frame = self.create_framed_widget("Output 📋", QWidget())
+        output_widget = output_frame.layout().itemAt(0).widget()
+        output_layout = QVBoxLayout(output_widget)
+        
+        self.output_area = QTextEdit()
+        self.output_area.setReadOnly(True)
+        self.output_area.setStyleSheet("background-color: rgba(30, 30, 30, 128); color: rgba(255, 255, 255, 128);")
+        output_layout.addWidget(self.output_area)
+        
+        self.progress_bar = QProgressBar()
+        self.progress_bar.setVisible(False)
+        self.progress_bar.setStyleSheet("background-color: rgba(60, 60, 60, 128); color: rgba(255, 255, 255, 128);")
+        output_layout.addWidget(self.progress_bar)
+
+        # Target management area
+        target_management_layout = QHBoxLayout()
+
+        # Target list
+        targets_frame = self.create_framed_widget("Target List 📋", QListWidget())
+        self.targets_list = targets_frame.layout().itemAt(0).widget()
+        self.targets_list.setStyleSheet("background-color: rgba(30, 30, 30, 128); color: rgba(255, 255, 255, 128);")
+        self.targets_list.itemClicked.connect(self.set_current_target)
+        target_management_layout.addWidget(targets_frame)
+
+        # Now we can safely load targets because output_area exists
+        self.load_targets()
+
+        # Target details
+        target_details_frame = self.create_framed_widget("Target Details 🎯", QTextEdit())
+        self.target_details = target_details_frame.layout().itemAt(0).widget()
+        self.target_details.setReadOnly(True)
+        self.target_details.setStyleSheet("background-color: rgba(30, 30, 30, 128); color: rgba(255, 255, 255, 128);")
+        target_management_layout.addWidget(target_details_frame)
+
+        central_layout.addLayout(target_management_layout)
+
+        main_splitter.addWidget(central_widget)
+
+        # Right menu (Hebrew)
+        right_menu = QWidget()
+        self.right_layout = QVBoxLayout(right_menu)
+
+        # Tools menu (Hebrew)
+        tools_menu = self.create_framed_menu("תפריט כלים", [
+            ("יומן 📝", self.show_journal),
+            ("דיבוג 🐞", self.show_debug),
+            ("ניהול מטרות 🎯", self.manage_target),
+            ("עזרה ❓", self.show_help),
+            ("הצג/שמור מיקומים 📐", self.show_save_layout)
+        ])
+        self.right_layout.addWidget(tools_menu)
+
+        # New features menu
+        new_features_menu = self.create_framed_menu("תכונות חדשות 🆕", [
+            ("פתח ממשק שורת פקודה 💻", self.open_cli),
+            ("ויזואליזציה של נתונים 📊", self.show_data_visualization),
+            ("מנהל תוספים 🧩", self.open_plugin_manager),
+            ("עורך סקריפטים ✏️", self.open_text_editor),
+            ("גילוי רשת 🗺️", self.run_network_discovery),
+            ("יצירת דוח 📑", self.generate_report)
+        ])
+        self.right_layout.addWidget(new_features_menu)
+
+        # הוספת כפתור מצב מנהל
+        self.admin_mode_button = QPushButton("🔒 מצב רגיל")
+        self.admin_mode_button.clicked.connect(self.toggle_admin_mode)
+        self.right_layout.addWidget(self.admin_mode_button)
+
+        main_splitter.addWidget(right_menu)
+
+        main_layout.addWidget(main_splitter)
+
+        # Status bar
+        self.status_bar = QStatusBar()
+        self.status_bar.setStyleSheet("background-color: rgba(30, 30, 30, 200); color: white;")
+        self.setStatusBar(self.status_bar)
+
+        # Add clock to status bar
+        self.clock_label = QLabel()
+        self.status_bar.addPermanentWidget(self.clock_label)
+        self.update_clock()
+
+        # Add target indicator to status bar
+        self.target_indicator = QLabel("🔓 No Target")
+        self.status_bar.addPermanentWidget(self.target_indicator)
+
+        # Start clock timer
+        self.clock_timer = QTimer(self)
+        self.clock_timer.timeout.connect(self.update_clock)
+        self.clock_timer.start(1000)
+
+        self.load_targets()
+
+        # Add new features for version 0.2.0
+        self.add_language_support()
+
+    def update_ui(self):
+        self.update_clock()
+        # Add other periodic updates here
+
+    def update_clock(self):
+        current_time = QDateTime.currentDateTime()
+        time_display = current_time.toString('yyyy-MM-dd hh:mm:ss')
+        self.clock_label.setText(time_display)
+
+    def create_framed_menu(self, title, buttons):
+        frame = QGroupBox(title)
+        frame.setStyleSheet("""
+            QGroupBox {
+                background-color: rgba(30, 30, 30, 150);
+                border: 1px solid rgba(255, 255, 255, 50);
+                border-radius: 10px;
+                margin-top: 1ex;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            QGroupBox::title {
+                subcontrol-origin: margin;
+                subcontrol-position: top center;
+                padding: 0 3px;
+                color: white;
+            }
+        """)
+        layout = QVBoxLayout(frame)
+        for text, func in buttons:
+            if title == "Attack Menu":
+                button = QPushButton(f"🔴 {text}")
+                self.tool_buttons[text.split()[0].lower()] = button
+            else:
+                button = QPushButton(text)
+            button.setFont(QFont("Arial", 10))
+            button.clicked.connect(func)
+            button.setStyleSheet("""
+                QPushButton {
+                    background-color: rgba(60, 60, 60, 150);
+                    color: white;
+                    border: 1px solid rgba(255, 255, 255, 30);
+                    border-radius: 5px;
+                    padding: 5px;
+                    text-align: left;
+                }
+                QPushButton:hover {
+                    background-color: rgba(80, 80, 80, 180);
+                }
+                QPushButton:pressed {
+                    background-color: rgba(40, 40, 40, 180);
+                }
+            """)
+            layout.addWidget(button)
+        return frame
+
+    def load_plugins(self):
+        plugins_dir = "plugins"
+        if not os.path.exists(plugins_dir):
+            os.makedirs(plugins_dir)
+        sys.path.append(plugins_dir)
+        
+        # Use a dictionary comprehension for faster plugin loading
+        self.plugins = {
+            file[:-3]: importlib.import_module(file[:-3])
+            for file in os.listdir(plugins_dir)
+            if file.endswith(".py") and not file.startswith("__")
+            and hasattr(importlib.import_module(file[:-3]), 'run')
+        }
+
+    def run_plugin(self, plugin):
+        try:
+            if hasattr(plugin, 'get_widget'):
+                widget = plugin.get_widget()
+                dock = QDockWidget(f"{plugin.__name__.replace('_', ' ').title()} Plugin", self)
+                dock.setWidget(widget)
+                self.addDockWidget(Qt.RightDockWidgetArea, dock)
+                self.output_area.append(f"Plugin {plugin.__name__} widget added.\n")
+            else:
+                result = plugin.run()
+                self.output_area.append(f"Plugin result: {result}\n")
+        except Exception as e:
+            self.output_area.append(f"Error running plugin: {e}\n")
+
+    def load_targets(self):
+        self.targets_list.clear()
+        
+        # Create targets directory if it doesn't exist
+        if not os.path.exists('targets'):
+            os.makedirs('targets')
+            if hasattr(self, 'output_area'):
+                self.output_area.append("נוצרה תיקיית targets חדשה\n")
+            return
+
+        try:
+            # Get list of all json files in targets directory
+            target_files = [f for f in os.listdir('targets') if f.endswith('.json')]
+            
+            if not target_files:
+                if hasattr(self, 'output_area'):
+                    self.output_area.append("לא נמצאו מטרות\n")
+                return
+
+            for file in target_files:
+                try:
+                    with open(os.path.join('targets', file), 'r', encoding='utf-8') as f:
+                        target_data = json.load(f)
+                        target_name = file[:-5]  # Remove .json extension
+                        item = QListWidgetItem(target_name)
+                        self.targets_list.addItem(item)
+                        if hasattr(self, 'output_area'):
+                            self.output_area.append(f"נטענה מטרה: {target_name}\n")
+                except Exception as e:
+                    if hasattr(self, 'output_area'):
+                        self.output_area.append(f"שגיאה בטעינת {file}: {str(e)}\n")
+                    print(f"Error loading target {file}: {e}")
+
+        except Exception as e:
+            if hasattr(self, 'output_area'):
+                self.output_area.append(f"שגיאה בטעינת המטרות: {str(e)}\n")
+            print(f"Error loading targets: {e}")
+
+    def set_current_target(self, item):
+        self.current_target = item.text()
+        target_file = f"targets/{self.current_target}.json"
+        if os.path.exists(target_file):
+            with open(target_file, 'r', encoding='utf-8') as f:
+                target_data = json.load(f)
+                self.current_target_ip = target_data.get('ip', '')
+        else:
+            self.current_target_ip = ''
+        
+        if not self.current_target_ip:
+            QMessageBox.warning(self, "אזהרה", f"כתובת IP לא הוגדרה עבור המטרה '{self.current_target}'. אנא עדכן את פרטי המטרה.")
+        
+        self.target_indicator.setText(f"🔒 Target: {self.current_target} ({self.current_target_ip})")
+        self.output_area.append(f"מטרה נוכחית נבחרה: {self.current_target} ({self.current_target_ip})\n")
+        self.debug_window.log(f"מטרה נוכחית נבחרה: {self.current_target} ({self.current_target_ip})")
+        self.log_activity(f"מטרה נוכחית נבחרה: {self.current_target} ({self.current_target_ip})")
+        self.show_target_profile(item)
+
+    def show_target_profile(self, item):
+        target_name = item.text()
+        target_file = f"targets/{target_name}.json"
+        if os.path.exists(target_file):
+            with open(target_file, 'r', encoding='utf-8') as f:
+                target_data = json.load(f)
+                details = f"""שם: {target_data.get('name', '')}
+כתובת IP: {target_data.get('ip', '')}
+אתר: {target_data.get('website', '')}
+טלפון: {target_data.get('phone', '')}
+אימייל: {target_data.get('email', '')}
+מיקום: {target_data.get('location', '')}
+מערכת הפעלה: {target_data.get('os', '')}
+פרופילים ציבוריים:
+{target_data.get('profiles', '')}
+הערות:
+{target_data.get('notes', '')}
+עדכון אחרון: {target_data.get('last_updated', '')}"""
+                self.target_details.setPlainText(details)
+        else:
+            self.target_details.setPlainText("לא נמצא מידע על המטרה")
+
+    def start_operation(self, operation_name):
+        if not self.current_target:
+            QMessageBox.warning(self, "אזהרה", "אנא בחר מטרה לפני ביצוע פעולה.")
+            return
+
+        settings_dialog = OperationSettingsDialog(operation_name, self)
+        if settings_dialog.exec_() == QDialog.Accepted:
+            settings = settings_dialog.get_settings()
+            
+            self.output_area.append(f"מבצע {operation_name}...\n")
+            self.status_bar.showMessage(f"מבצע {operation_name}...")
+            self.progress_bar.setVisible(True)
+            self.progress_bar.setValue(0)
+            
+            self.timer = QTimer()
+            self.timer.timeout.connect(self.update_progress)
+            self.timer.start(100)
+
+            self.debug_window.log(f"התחת פעולה: {operation_name}")
+            self.log_activity(f"התחלת פעלה: {operation_name}")
+
+            tool_name = operation_name.lower().replace(" ", "_")
+            self.set_tool_status(tool_name, "active")
+
+            self.run_operation(operation_name, settings)
+        else:
+            self.output_area.append(f"פעולה {operation_name} בוטלה.\n")
+
+    def run_operation(self, operation_name, settings):
+        if operation_name == "סריקה":
+            self.run_scan(settings)
+        elif operation_name == "ניצול":
+            self.run_exploitation(settings)
+        elif operation_name == "תנועה רוחבית":
+            self.run_lateral_movement(settings)
+        elif operation_name == "התמדה":
+            self.run_persistence(settings)
+        elif operation_name == "דיווח":
+            self.run_reporting(settings)
+        # הוסף כאן תנאים נוספים לפעולות אחרות
+
+    def run_scan(self, settings):
+        scan_type = settings.get('scan_type', '1')
+        if self.current_target_ip:
+            if self.is_admin_mode:
+                self.output_area.append("מבצע סריקה עם הרשאות מנהל...")
+                self.run_with_admin(self.run_attack_script, "reconnaissance", self.current_target_ip, scan_type)
+            else:
+                self.run_attack_script("reconnaissance", self.current_target_ip, scan_type)
+        else:
+            error_msg = f"שגיאה: כתובת IP של המטרה '{self.current_target}' לא הוגדרה."
+            self.output_area.append(error_msg)
+            self.debug_window.log(error_msg)
+
+    def run_exploitation(self, settings):
+        exploit = settings.get('exploit', '')
+        self.run_attack_script("exploitation", self.current_target, exploit)
+
+    def run_lateral_movement(self, settings):
+        # הוסף כאן את הלוגיקה לתנועה רוחבית
+        pass
+
+    def run_persistence(self, settings):
+        # הוסף כאן את הלוגיקה להתמדה
+        pass
+
+    def run_reporting(self, settings):
+        # הוסף כאן את הלוגיקה לדיווח
+        pass
+
+    def update_progress(self):
+        current_value = self.progress_bar.value()
+        if current_value < 100:
+            self.progress_bar.setValue(current_value + 1)
+        else:
+            self.timer.stop()
+            self.progress_bar.setVisible(False)
+            self.status_bar.showMessage("הפעולה הושלמה", 3000)
+            self.debug_window.log("הפעולה הושלמה")
+            self.log_activity("הפעולה הושלמה")
+            # עדכון סטטוס הכלי לירוק כשהפעולה הושלמה
+            for tool, status in self.active_tools.items():
+                if status == "active":
+                    self.set_tool_status(tool, "completed")
+
+    def reconnaissance(self):
+        if not self.current_target:
+            QMessageBox.warning(self, "אזהרה", "אנא בחר מטרה לפני ביצוע סריקה.")
+            return
+
+        scan_types = [
+            "1. סריקה מהירה (פורטים נפוצים)",
+            "2. סריקה מלאה (כל הפורטים)",
+            "3. סריקת שירותים וגרסאות",
+            "4. סריקת מערכת הפעלה"
+        ]
+        scan_type, ok = QInputDialog.getItem(self, "בחירת סוג סריקה",
+                                             "בחר סוג סריקה:",
+                                             scan_types, 0, False)
+        if ok and scan_type:
+            self.start_operation("סריקה")
+            nmap_command = f"nmap {self.get_nmap_args(scan_type[0])} {self.current_target}"
+            self.run_in_terminal(nmap_command)
+
+    def exploitation(self):
+        self.start_operation("ניצול")
+        self.run_attack_script("exploitation")
+
+    def lateral_movement(self):
+        self.start_operation("תנועה רוחבית")
+        self.run_attack_script("lateral_movement")
+
+    def persistence(self):
+        self.start_operation("התמדה")
+        self.run_attack_script("persistence")
+
+    def reporting(self):
+        self.start_operation("דיווח")
+        self.run_attack_script("reporting")
+
+    def web_app_attack(self):
+        self.start_operation("תקיפת אפליקציית אינטרנט")
+        self.run_attack_script("web_app_attack")
+
+    def wireless_attacks(self):
+        self.start_operation("תקיפות אלחוטיות")
+        self.run_attack_script("wireless_attacks")
+
+    def show_error(self, message):
+        QMessageBox.critical(self, "שגיאה", message)
+        self.debug_window.log(f"שגאה: {message}")
+        self.log_activity(f"שגיאה: {message}")
+
+    def show_help(self):
+        help_dialog = HelpDialog(self)
+        help_dialog.exec_()
+
+    def show_journal(self):
+        journal_dialog = JournalDialog(self)
+        journal_dialog.exec_()
+
+    def show_debug(self):
+        if self.debug_window.isVisible():
+            self.debug_window.hide()
+        else:
+            self.debug_window.show()
+
+    def manage_target(self):
+        target_name, ok = QInputDialog.getText(self, "ניהול מטרות", "הזן שם למטרה:")
+        if ok and target_name:
+            try:
+                self.current_target = target_name
+                self.output_area.append(f"מטרה נוכחית: {self.current_target}\n")
+                self.debug_window.log(f"מטרה חדשה נוצרה: {self.current_target}")
+                self.log_activity(f"מטרה חדשה נוצרה: {self.current_target}")
+                
+                target_profile = TargetProfileDialog(target_name, self)
+                if target_profile.exec_() == QDialog.Accepted:
+                    self.refresh_targets()  # Refresh the list after adding/updating target
+                    self.target_indicator.setText(f"🔒 Target: {target_name}")
+                    
+                    # Select the newly added target in the list
+                    items = self.targets_list.findItems(target_name, Qt.MatchExactly)
+                    if items:
+                        self.targets_list.setCurrentItem(items[0])
+                        self.set_current_target(items[0])
+            except Exception as e:
+                self.show_error(f"שגיאה בהוספת מטרה: {str(e)}")
+
+    def log_activity(self, message):
+        log_dir = "activity_logs"
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        
+        log_file = os.path.join(log_dir, f"{datetime.date.today()}.log")
+        with open(log_file, 'a', encoding='utf-8') as f:
+            f.write(f"{datetime.datetime.now()}: {message}\n")
+        
+        # Terminal debugging
+        print(f"[DEBUG] {datetime.datetime.now()}: {message}")
+
+    def social_engineering(self):
+        self.start_operation("הנדסה חברתית")
+        self.run_attack_script("social_engineering")
+
+    def sniffing_decryption(self):
+        self.start_operation("סניפה ופענוח")
+        self.run_attack_script("sniffing_decryption")
+
+    def password_attacks(self):
+        self.start_operation("התקפות סיסמאות")
+        self.run_attack_script("password_attacks")
+
+    def hardware_hacking(self):
+        self.start_operation("פריצת חומרה")
+        self.run_attack_script("hardware_hacking")
+
+    def maintaining_access(self):
+        self.start_operation("שמירת גישה")
+        self.run_attack_script("maintaining_access")
+
+    def run_example_plugin(self):
+        result = self.plugins["example_plugin"].run()
+        self.output_area.append(f"Example Plugin Result: {result}\n")
+        QMessageBox.information(self, "Example Plugin", "This is a demonstration of a useful plugin functionality.")
+
+    def get_layout_info(self):
+        info = {
+            "main_window": {
+                "x": self.geometry().x(),
+                "y": self.geometry().y(),
+                "width": self.geometry().width(),
+                "height": self.geometry().height()
+            },
+            "main_splitter": self.findChild(QSplitter).sizes(),
+            "targets_splitter": next((splitter.sizes() for splitter in self.findChildren(QSplitter) if splitter != self.findChild(QSplitter)), None),
+            "output_area_height": self.output_area.height(),
+            "progress_bar_height": self.progress_bar.height(),
+            "targets_list_width": self.targets_list.width(),
+            "target_details_width": self.target_details.width()
+        }
+        return info
+
+    def save_layout_settings(self):
+        layout_info = self.get_layout_info()
+        with open('layout_settings.json', 'w', encoding='utf-8') as f:
+            json.dump(layout_info, f, ensure_ascii=False, indent=2)
+        QMessageBox.information(self, "שמירת הגדרות", "הגדרות המקום נשמרו בהצלחה!")
+
+    def load_layout_settings(self):
+        if os.path.exists('layout_settings.json'):
+            with open('layout_settings.json', 'r', encoding='utf-8') as f:
+                layout_info = json.load(f)
+            self.apply_layout_settings(layout_info)
+
+    def apply_layout_settings(self, layout_info):
+        # Main window
+        if "main_window" in layout_info:
+            self.setGeometry(
+                layout_info["main_window"]["x"],
+                layout_info["main_window"]["y"],
+                layout_info["main_window"]["width"],
+                layout_info["main_window"]["height"]
+            )
+        
+        # Main splitter
+        if "main_splitter" in layout_info:
+            main_splitter = self.findChild(QSplitter)
+            if main_splitter:
+                main_splitter.setSizes(layout_info["main_splitter"])
+        
+        # Targets splitter
+        if "targets_splitter" in layout_info:
+            targets_splitter = next((splitter for splitter in self.findChildren(QSplitter) if splitter != self.findChild(QSplitter)), None)
+            if targets_splitter:
+                targets_splitter.setSizes(layout_info["targets_splitter"])
+
+    def show_save_layout(self):
+        self.save_layout_settings()
+
+    def closeEvent(self, event):
+        reply = QMessageBox.question(self, 'סגירת אפליקציה',
+                                     "האם אתה בטוח שברצונך לסגור את האפליקציה?",
+                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+        if reply == QMessageBox.Yes:
+            self.save_layout_settings()
+            if self.system_monitor_window:
+                self.system_monitor_window.close()
+            self.debug_window.close()
+            event.accept()
+        else:
+            event.ignore()
+
+    def add_plugin_button(self, layout, text, func):
+        button = QPushButton(text)
+        button.setFont(QFont("Arial", 10))
+        button.clicked.connect(func)
+        button.setStyleSheet("""
+            QPushButton {
+                background-color: rgba(60, 60, 60, 150);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 30);
+                border-radius: 5px;
+                padding: 5px;
+            }
+            QPushButton:hover {
+                background-color: rgba(80, 80, 80, 180);
+            }
+            QPushButton:pressed {
+                background-color: rgba(40, 40, 40, 180);
+            }
+        """)
+        layout.addWidget(button)
+
+    def add_language_support(self):
+        language_menu = self.menuBar().addMenu("שפה / Language")
+        hebrew_action = QAction("עברית", self)
+        english_action = QAction("English", self)
+        language_menu.addAction(hebrew_action)
+        language_menu.addAction(english_action)
+        hebrew_action.triggered.connect(lambda: self.change_language("he"))
+        english_action.triggered.connect(lambda: self.change_language("en"))
+
+    def change_language(self, lang):
+        # Placeholder for language change functionality
+        self.output_area.append(f"Changing language to: {lang}\n")
+
+    def open_cli(self):
+        # Placeholder for CLI functionality
+        self.output_area.append("Opening CLI interface...\n")
+
+    def show_data_visualization(self):
+        # Placeholder for data visualization functionality
+        self.output_area.append("Showing data visualization...\n")
+
+    def open_plugin_manager(self):
+        # Placeholder for plugin manager functionality
+        self.output_area.append("Opening plugin manager...\n")
+
+    def open_text_editor(self):
+        # Placeholder for text editor functionality
+        self.output_area.append("Opening script editor...\n")
+
+    def run_network_discovery(self):
+        self.start_operation("גילוי רשת")
+        network_range = self.get_network_range()
+        if network_range:
+            self.run_in_terminal(f"sudo netdiscover -r {network_range}")
+        else:
+            QMessageBox.warning(self, "שגיאה", "לא ניתן לקבוע את טווח הרשת. אנא הזן טווח ידנית.")
+
+    def generate_report(self):
+        # Placeholder for report generation functionality
+        self.output_area.append("Generating pentest report...\n")
+
+    def create_framed_widget(self, title, widget):
+        frame = QGroupBox(title)
+        frame.setStyleSheet("""
+            QGroupBox {
+                background-color: rgba(30, 30, 30, 150);
+                border: 1px solid rgba(255, 255, 255, 50);
+                border-radius: 10px;
+                margin-top: 1ex;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            QGroupBox::title {
+                subcontrol-origin: margin;
+                subcontrol-position: top center;
+                padding: 0 3px;
+                color: white;
+            }
+        """)
+        layout = QVBoxLayout(frame)
+        layout.addWidget(widget)
+        return frame
+
+    def run_attack_script(self, category, *args):
+        script_path = os.path.join("Menu Attacks", f"{category}_script.py")
+        if os.path.exists(script_path):
+            try:
+                spec = importlib.util.spec_from_file_location(category, script_path)
+                module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(module)
+                result = module.run(*args)
+                self.output_area.append(result)
+            except Exception as e:
+                error_msg = f"שגיאה בהרצת סקריפט {category}: {str(e)}"
+                self.output_area.append(error_msg)
+                self.debug_window.log(error_msg)
+        else:
+            error_msg = f"סקריפט {category} לא נמצא."
+            self.output_area.append(error_msg)
+            self.debug_window.log(error_msg)
+
+    def open_system_monitor(self):
+        if not self.system_monitor_window:
+            self.system_monitor = SystemMonitorWidget()
+            self.system_monitor_window = QMainWindow()
+            self.system_monitor_window.setCentralWidget(self.system_monitor)
+            self.system_monitor_window.setWindowTitle("System Monitor")
+            self.system_monitor_window.setGeometry(100, 100, 600, 800)
+        self.system_monitor_window.show()
+
+    def open_debug_window(self):
+        self.debug_window.show()
+
+    def toggle_system_monitor(self):
+        if self.system_monitor_window.isVisible():
+            self.system_monitor_window.hide()
+        else:
+            self.system_monitor_window.show()
+
+    def set_tool_status(self, tool_name, status):
+        if tool_name in self.tool_buttons:
+            button = self.tool_buttons[tool_name]
+            if status == "active":
+                button.setText(f"🟠 {button.text()[2:]}")
+                button.setStyleSheet(button.styleSheet() + "QPushButton { color: #FFA500; }")
+            elif status == "completed":
+                button.setText(f"🟢 {button.text()[2:]}")
+                button.setStyleSheet(button.styleSheet() + "QPushButton { color: #00FF00; }")
+            else:  # inactive
+                button.setText(f"🔴 {button.text()[2:]}")
+                button.setStyleSheet(button.styleSheet() + "QPushButton { color: #FF0000; }")
+        self.active_tools[tool_name] = status
+
+    def run_in_terminal(self, command):
+        if not self.terminal_window:
+            self.terminal_window = TerminalWindow(self)
+        self.terminal_window.show()
+        self.terminal_window.run_command(command)
+
+    def get_nmap_args(self, scan_type):
+        if scan_type == '1':
+            return "-F"
+        elif scan_type == '2':
+            return "-p-"
+        elif scan_type == '3':
+            return "-sV"
+        elif scan_type == '4':
+            return "-O"
+        else:
+            return "-F"
+
+    def get_network_range(self):
+        try:
+            # Get the default gateway
+            result = subprocess.run(['ip', 'route', 'show', 'default'], capture_output=True, text=True)
+            default_gateway = re.search(r'default via (\d+\.\d+\.\d+\.\d+)', result.stdout).group(1)
+            
+            # Get the network interface
+            interface = re.search(r'dev (\w+)', result.stdout).group(1)
+            
+            # Get the IP address and netmask
+            result = subprocess.run(['ip', 'addr', 'show', interface], capture_output=True, text=True)
+            ip_info = re.search(r'inet (\d+\.\d+\.\d+\.\d+)/(\d+)', result.stdout)
+            ip_address = ip_info.group(1)
+            netmask = ip_info.group(2)
+            
+            # Calculate network range
+            network = ipaddress.IPv4Network(f'{ip_address}/{netmask}', strict=False)
+            return str(network)
+        except Exception as e:
+            print(f"Error getting network range: {str(e)}")
+            return None
+
+    def update_target_details(self):
+        if not self.current_target:
+            QMessageBox.warning(self, "אזהרה", "אנא בחר מטרה לעדכון.")
+            return
+        
+        target_file = f"targets/{self.current_target}.json"
+        if os.path.exists(target_file):
+            with open(target_file, 'r', encoding='utf-8') as f:
+                target_data = json.load(f)
+        else:
+            target_data = {}
+        
+        new_ip, ok = QInputDialog.getText(self, "עדכון כתובת IP", "הזן כתובת IP חדשה:", text=target_data.get('ip', ''))
+        if ok and new_ip:
+            target_data['ip'] = new_ip
+            with open(target_file, 'w', encoding='utf-8') as f:
+                json.dump(target_data, f, ensure_ascii=False, indent=2)
+            self.current_target_ip = new_ip
+            self.target_indicator.setText(f"🔒 Target: {self.current_target} ({self.current_target_ip})")
+            self.output_area.append(f"כתובת IP של המטרה '{self.current_target}' עודכנה ל-{new_ip}\n")
+            self.debug_window.log(f"כתובת IP של המטרה '{self.current_target}' עודכנה ל-{new_ip}")
+            self.log_activity(f"כתובת IP של המטרה '{self.current_target}' עודכנה ל-{new_ip}")
+            self.show_target_profile(self.targets_list.currentItem())
+
+    def toggle_admin_mode(self):
+        if not self.is_admin_mode:
+            if self.request_admin_privileges():
+                self.is_admin_mode = True
+                self.admin_mode_button.setText("🔓 מצב מנהל")
+                self.admin_mode_button.setStyleSheet("background-color: #FFD700;")  # צבע זהב
+                self.output_area.append("מצב מנהל הופעל. יש להשתמש בזהירות!")
+                self.debug_window.log("מצב מנהל הופעל")
+            else:
+                self.output_area.append("לא ניתן להפעיל מצב מנהל. נדרשות הרשאות מנהל.")
+        else:
+            self.is_admin_mode = False
+            self.admin_mode_button.setText("🔒 מצב רגיל")
+            self.admin_mode_button.setStyleSheet("")  # חזרה לסגנון רגיל
+            self.output_area.append("מצב מנהל כובה.")
+            self.debug_window.log("מצב מנהל כובה")
+
+    def request_admin_privileges(self):
+        if sys.platform == 'win32':
+            try:
+                return ctypes.windll.shell32.IsUserAnAdmin() or ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1) > 32
+            except:
+                return False
+        elif sys.platform == 'linux':
+            if os.geteuid() == 0:
+                return True
+            else:
+                try:
+                    subprocess.check_call(['sudo', '-v'])
+                    return True
+                except subprocess.CalledProcessError:
+                    return False
+        else:  # macOS או מערכות אחרות
+            return os.geteuid() == 0
+
+    def run_with_admin(self, func, *args, **kwargs):
+        if self.is_admin_mode:
+            if sys.platform == 'win32':
+                # בWindows, הפעל את הפונקציה עם הרשאות מנהל
+                return ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, f"-c \"import {func.__module__}; {func.__module__}.{func.__name__}(*{args}, **{kwargs})\"", None, 1)
+            elif sys.platform in ['linux', 'darwin']:
+                # בLinux ו-macOS, השתמש ב-sudo
+                cmd = f"sudo python3 -c \"import {func.__module__}; {func.__module__}.{func.__name__}(*{args}, **{kwargs})\""
+                return subprocess.call(cmd, shell=True)
+        else:
+            # הפעל את הפונקציה באופן רגיל
+            return func(*args, **kwargs)
+
+    def refresh_targets(self):
+        """Refresh the targets list"""
+        self.load_targets()
+        self.output_area.append("רשימת המטרות רועננה\n")
+        self.debug_window.log("רשימת המטרות רועננה")
+
+    def validate_target_file(self, file_path):
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                required_fields = ['name', 'ip']
+                for field in required_fields:
+                    if field not in data:
+                        return False
+                return True
+        except Exception:
+            return False
+
+class TerminalWindow(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Terminal Output")
+        self.setGeometry(100, 100, 600, 400)
+        layout = QVBoxLayout(self)
+        self.output = QTextEdit(self)
+        self.output.setReadOnly(True)
+        layout.addWidget(self.output)
+        self.process = QProcess(self)
+        self.process.readyReadStandardOutput.connect(self.handle_stdout)
+        self.process.readyReadStandardError.connect(self.handle_stderr)
+
+    def run_command(self, command):
+        self.output.clear()
+        self.process.start(command)
+
+    def handle_stdout(self):
+        data = self.process.readAllStandardOutput().data().decode()
+        self.output.append(data)
+
+    def handle_stderr(self):
+        data = self.process.readAllStandardError().data().decode()
+        self.output.append(data)
+
+class OperationSettingsDialog(QDialog):
+    def __init__(self, operation_name, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle(f"הגדרות {operation_name}")
+        self.operation_name = operation_name
+        self.layout = QVBoxLayout(self)
+        self.settings = {}
+
+        if operation_name == "סריקה":
+            self.add_scan_settings()
+        elif operation_name == "ניצול":
+            self.add_exploitation_settings()
+        elif operation_name == "תנועה רוחבית":
+            self.add_lateral_movement_settings()
+        elif operation_name == "התמדה":
+            self.add_persistence_settings()
+        elif operation_name == "דיווח":
+            self.add_reporting_settings()
+        # הוסף כאן תנאים נוספים לפעולות אחרות
+
+    def add_scan_settings(self):
+        scan_types = [
+            "1. סריקה מהירה (פורטים נפוצים)",
+            "2. סריקה מלאה (כל הפורטים)",
+            "3. סריקת שירותים וגרסאות",
+            "4. סריקת מערכת הפעלה"
+        ]
+        self.scan_type_combo = QComboBox()
+        self.scan_type_combo.addItems(scan_types)
+        self.layout.addWidget(QLabel("סוג סריקה:"))
+        self.layout.addWidget(self.scan_type_combo)
+
+    def add_exploitation_settings(self):
+        self.exploit_input = QLineEdit()
+        self.layout.addWidget(QLabel("שם ה-exploit:"))
+        self.layout.addWidget(self.exploit_input)
+
+    def add_lateral_movement_settings(self):
+        # הוסף כאן את ההגדרות לתנועה רוחבית
+        pass
+
+    def add_persistence_settings(self):
+        # הוסף כאן את ההגדרות להתמדה
+        pass
+
+    def add_reporting_settings(self):
+        # הוסף כאן את ההגדרות לדיווח
+        pass
+
+    def get_settings(self):
+        if self.operation_name == "סריקה":
+            self.settings['scan_type'] = self.scan_type_combo.currentText()[0]
+        elif self.operation_name == "ניצול":
+            self.settings['exploit'] = self.exploit_input.text()
+        return self.settings
+
+def main():
+    app = QApplication(sys.argv)
+    
+    # Set the global style
+    app.setStyle("Fusion")
+    palette = QPalette()
+    
+    # Define base colors with transparency
+    base_color = QColor(30, 30, 30, 200)
+    text_color = QColor(255, 255, 255, 230)
+    highlight_color = QColor(42, 130, 218, 200)
+    
+    palette.setColor(QPalette.Window, base_color)
+    palette.setColor(QPalette.WindowText, text_color)
+    palette.setColor(QPalette.Base, QColor(25, 25, 25, 200))
+    palette.setColor(QPalette.AlternateBase, base_color)
+    palette.setColor(QPalette.ToolTipBase, base_color)
+    palette.setColor(QPalette.ToolTipText, text_color)
+    palette.setColor(QPalette.Text, text_color)
+    palette.setColor(QPalette.Button, base_color)
+    palette.setColor(QPalette.ButtonText, text_color)
+    palette.setColor(QPalette.BrightText, Qt.red)
+    palette.setColor(QPalette.Link, highlight_color)
+    palette.setColor(QPalette.Highlight, highlight_color)
+    palette.setColor(QPalette.HighlightedText, Qt.black)
+    
+    app.setPalette(palette)
+    
+    # Set a semi-transparent background image (optional)
+    background_image = QPixmap("background.jpg")  # Make sure you have this image
+    if not background_image.isNull():
+        background_label = QLabel(window)
+        background_label.setPixmap(background_image)
+        background_label.setGeometry(0, 0, 1200, 800)  # Adjust size as needed
+        background_label.setStyleSheet("QLabel { background-color: rgba(0, 0, 0, 100); }")
+        background_label.lower()
+    
+    window = HacKingProGUI()
+    window.show()
+    sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main()
