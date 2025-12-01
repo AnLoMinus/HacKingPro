@@ -51,8 +51,10 @@ HacKingPro is a tool kit for ethical hackers to perform reconnaissance, exploita
 
 <img width="1024" height="1536" alt="Exploitation" src="https://github.com/user-attachments/assets/e4e08075-0ef3-4907-bf67-d383db03a48e" />
 
-
 - [x] 3. Lateral Movement 🔀
+
+<img width="1024" height="1536" alt="Lateral Titan_ Network Shift" src="https://github.com/user-attachments/assets/73a31b9b-f9c1-425e-a1eb-2c604f344300" />
+
 - [x] 4. Persistence 🔒
 - [x] 5. Reporting 📊
 - [x] 6. Web Application Attack and Exploitation 🌐
