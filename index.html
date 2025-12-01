@@ -469,10 +469,60 @@
         height: auto;
       }
     }
+
+    /* ===== Global HackDash Nav ===== */
+.hk-nav {
+  height: 42px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: radial-gradient(circle at top, #181b26 0, #05060b 60%);
+  border-bottom: 1px solid #262833;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.8);
+  font-size: 13px;
+}
+
+.hk-nav-logo {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.hk-nav-links a {
+  margin-left: 12px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.hk-nav-links a:hover {
+  opacity: 1;
+  text-shadow: 0 0 6px rgba(79, 209, 255, 0.9);
+}
+
   </style>
 </head>
 
 <body>
+    <!-- 🔗 Global HackDash Navigation -->
+<nav class="hk-nav">
+  <div class="hk-nav-left">
+    <span class="hk-nav-logo">🛡 HacKingPro · HackDash</span>
+  </div>
+  <div class="hk-nav-links">
+    <a href="index.html">📊 Dashboard</a>
+    <a href="recon.html">🛰 Recon</a>
+    <a href="exploitation.html">💥 Exploitation</a>
+    <a href="webapp.html">🌐 Web Apps</a>
+    <a href="social.html">🎭 Social Eng.</a>
+    <a href="reporting.html">📑 Reporting</a>
+  </div>
+</nav>
+
+  
   <!-- ===== Top Bar ===== -->
   <header class="topbar">
     <div class="topbar-title">
