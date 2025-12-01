@@ -44,6 +44,9 @@ HacKingPro is a tool kit for ethical hackers to perform reconnaissance, exploita
 ## Version 0.2.0:
 
 - [x] 1. Reconnaissance 🔍
+
+<img width="1024" height="1536" alt="Data-Enhanced Reconnaissance Vision" src="https://github.com/user-attachments/assets/bf655911-d9e0-4876-abc1-cf4762002a68" />
+
 - [x] 2. Exploitation 💥
 - [x] 3. Lateral Movement 🔀
 - [x] 4. Persistence 🔒
