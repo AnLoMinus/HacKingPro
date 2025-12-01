@@ -1,6 +1,20 @@
 
 # HacKingPro - Ethical Hacking Arsenal tool kit 🛡️
 
+<!-- HacKingPro Titan – Image 1 -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/916b66be-8047-4dfb-bb30-490ea0615559" 
+       alt="Cybernetic Titan of HacKingPro" 
+       width="800">
+</p>
+
+<!-- HacKingPro Titan – Image 2 -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a4c6dbe4-6367-4a87-be22-3f22f8516d2e" 
+       alt="Cyborg Titan in Electrifying Futuristic Power" 
+       width="800">
+</p>
+
 <img width="1536" height="1024" alt="HacKingPro_ Digital Lightning Surge" src="https://github.com/user-attachments/assets/d6f08a6c-c68b-405b-918f-3197426b29ac" />
 
 <img width="1536" height="1024" alt="My ChatGPT image" src="https://github.com/user-attachments/assets/e83efa88-db48-4784-afaf-5e97cc022949" />
