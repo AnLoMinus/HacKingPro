@@ -3,6 +3,8 @@
 
 <img width="1536" height="1024" alt="HacKingPro_ Digital Lightning Surge" src="https://github.com/user-attachments/assets/d6f08a6c-c68b-405b-918f-3197426b29ac" />
 
+<img width="1536" height="1024" alt="My ChatGPT image" src="https://github.com/user-attachments/assets/e83efa88-db48-4784-afaf-5e97cc022949" />
+
 <img width="1536" height="1024" alt="Electrifying HacKingPro Logo Design" src="https://github.com/user-attachments/assets/846f57bf-ac8d-4884-97a9-e4931f2a959e" />
 
 <img width="1219" alt="image" src="https://github.com/user-attachments/assets/221f2720-628e-449c-a025-520d3401dd70">
