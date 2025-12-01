@@ -1,6 +1,8 @@
 
 # HacKingPro - Ethical Hacking Arsenal tool kit 🛡️
 
+<img width="1536" height="1024" alt="Electrifying HacKingPro Logo Design" src="https://github.com/user-attachments/assets/846f57bf-ac8d-4884-97a9-e4931f2a959e" />
+
 <img width="1219" alt="image" src="https://github.com/user-attachments/assets/221f2720-628e-449c-a025-520d3401dd70">
 
 HacKingPro is a tool kit for ethical hackers to perform reconnaissance, exploitation, lateral movement, persistence, reporting, web application attack and exploitation, wireless attacks, sniffing and decryption, social engineering, password attacks, hardware hacking, maintaining access, and reporting.
