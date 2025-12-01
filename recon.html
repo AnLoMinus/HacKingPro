@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>HacKingPro – Reconnaissance 🛰</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="HacKingPro – Reconnaissance Lab Page · AttackMatrix (AM)." />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans Hebrew", sans-serif;
+      background: radial-gradient(circle at top, #151823 0, #05060b 40%, #010104 100%);
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: #4fd1ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== Global HackDash Nav ===== */
+    .hk-nav {
+      height: 42px;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: radial-gradient(circle at top, #181b26 0, #05060b 60%);
+      border-bottom: 1px solid #262833;
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.8);
+      font-size: 13px;
+    }
+    .hk-nav-logo {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+    .hk-nav-links a {
+      margin-left: 12px;
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 12px;
+      opacity: 0.85;
+    }
+    .hk-nav-links a:hover {
+      opacity: 1;
+      text-shadow: 0 0 6px rgba(79, 209, 255, 0.9);
+    }
+
+    /* ===== Page Layout ===== */
+    .page-shell {
+      flex: 1;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .panel {
+      background: radial-gradient(circle at top, #1a1d27 0, #10121a 45%, #080910 100%);
+      border-radius: 14px;
+      border: 1px solid #282a36;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.65);
+      padding: 12px;
+      position: relative;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .panel-subtitle {
+      font-size: 11px;
+      color: #a8abc6;
+      margin-bottom: 8px;
+    }
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #303241, transparent);
+      margin-bottom: 10px;
+    }
+
+    /* Left: Docs & Checklist */
+    .section-title {
+      font-size: 13px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-title span.icon {
+      font-size: 18px;
+    }
+
+    .docs-block {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #d5d7f0;
+      margin-bottom: 10px;
+    }
+    .docs-block p + p {
+      margin-top: 6px;
+    }
+    .list {
+      margin-top: 6px;
+      padding-right: 15px;
+      font-size: 12px;
+      color: #c4c6e0;
+    }
+    .list li {
+      margin-bottom: 4px;
+    }
+
+    .code-box {
+      margin-top: 10px;
+      background: #05060c;
+      border-radius: 8px;
+      border: 1px solid #2d313f;
+      padding: 8px;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+      font-size: 11px;
+      color: #e5e7eb;
+      white-space: pre-wrap;
+    }
+
+    /* Right: Notes & Logs */
+    .notes-list {
+      font-size: 11px;
+      color: #d1d5db;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .note-item {
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid #303241;
+      background: linear-gradient(135deg, #10121b, #171a26);
+    }
+    .note-title {
+      font-weight: 600;
+      margin-bottom: 3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+    .note-tag {
+      font-size: 10px;
+      padding: 1px 7px;
+      border-radius: 999px;
+      background: #0f766e;
+      border: 1px solid #14b8a6;
+    }
+    .note-body {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    .log-box {
+      margin-top: 8px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px dashed #343646;
+      padding: 8px;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+      font-size: 11px;
+      background: radial-gradient(circle at bottom, rgba(250, 204, 21, 0.08), transparent 55%);
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+
+    .footer-bar {
+      height: 28px;
+      padding: 0 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      background: #05060b;
+      border-top: 1px solid #262833;
+      color: #9fa3c2;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #4ade80;
+      margin-left: 5px;
+      box-shadow: 0 0 6px rgba(74, 222, 128, 0.9);
+      display: inline-block;
+    }
+
+    @media (max-width: 900px) {
+      body { overflow-y: auto; }
+      .page-shell {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🔗 Global Nav -->
+  <nav class="hk-nav">
+    <div class="hk-nav-left">
+      <span class="hk-nav-logo">🛡 HacKingPro · HackDash</span>
+    </div>
+    <div class="hk-nav-links">
+      <a href="index.html">📊 Dashboard</a>
+      <a href="recon.html">🛰 Recon</a>
+      <a href="exploitation.html">💥 Exploitation</a>
+      <a href="webapp.html">🌐 Web Apps</a>
+      <a href="social.html">🎭 Social Eng.</a>
+      <a href="reporting.html">📑 Reporting</a>
+    </div>
+  </nav>
+
+  <!-- ===== Page Content ===== -->
+  <main class="page-shell">
+    <!-- Left: Docs -->
+    <section class="panel">
+      <div class="panel-header">
+        <span>🛰 Reconnaissance – AttackMatrix · AM-01</span>
+        <span style="font-size:11px;opacity:0.8;">Read-Only · Lab Ethics</span>
+      </div>
+      <div class="panel-subtitle">
+        שלב איסוף המידע – לפני שנוגעים במערכת, מבינים את המפה.
+      </div>
+      <div class="divider"></div>
+
+      <h2 class="section-title">
+        <span class="icon">📘</span>
+        <span>מהות השלב – Recon ב־3 משפטים</span>
+      </h2>
+      <div class="docs-block">
+        <p>1️⃣ להבין מי המטרה – דומיינים, טווחי IP, שירותים ותשתיות.</p>
+        <p>2️⃣ למפות שטח – DNS, פורטים, טכנולוגיות, גרסאות ותלויות.</p>
+        <p>3️⃣ לשמור על אתיקה – רק מערכות שיש לך רשות מלאה לבדוק.</p>
+      </div>
+
+      <h2 class="section-title">
+        <span class="icon">✅</span>
+        <span>CheckList – לפני שמריצים כלים</span>
+      </h2>
+      <ul class="list">
+        <li>📜 האם יש הרשאה בכתב / חוזה לביצוע בדיקות?</li>
+        <li>🎯 האם המטרות מוגדרות (Scope) בצורה ברורה?</li>
+        <li>🕒 מה זמן הבדיקה? האם יש חלונות רגישים למערכת?</li>
+        <li>📂 האם מוגדר מקום מסודר לשמירת Logs ו־Reports?</li>
+      </ul>
+
+      <h2 class="section-title" style="margin-top:10px;">
+        <span class="icon">💻</span>
+        <span>דוגמאות פקודות – Passive & Active Recon</span>
+      </h2>
+
+      <div class="code-box">
+# Passive – בלי לגעת בשרת
+whois target.com
+nslookup target.com
+dig target.com any
+
+# Passive – OSINT tools
+theHarvester -d target.com -b all
+subfinder -d target.com
+
+# Active – Port Scan (Demo Scope Only)
+nmap -sV -T4 target.com
+nmap -A 10.0.0.0/24
+
+# Active – Web Tech Detection
+whatweb https://target.com
+      </div>
+    </section>
+
+    <!-- Right: Notes & Logs -->
+    <section class="panel">
+      <div class="panel-header">
+        <span>🧩 Recon Notes & Lab Log</span>
+        <span style="font-size:11px;opacity:0.8;" id="recon-time">--:--:--</span>
+      </div>
+      <div class="panel-subtitle">
+        רשומות קצרות, החלטות, ותובנות מהשטח.
+      </div>
+      <div class="divider"></div>
+
+      <div class="notes-list">
+        <div class="note-item">
+          <div class="note-title">
+            <span>🎯 Scope Definition</span>
+            <span class="note-tag">SCOPE</span>
+          </div>
+          <div class="note-body">
+            כל בדיקה מוגבלת ל־Domains / IPs המאושרים בלבד. אין גישה למערכות צד שלישי ללא רשות.
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-title">
+            <span>🧱 Data Hygiene</span>
+            <span class="note-tag">LOGS</span>
+          </div>
+          <div class="note-body">
+            כל תוצאה נשמרת בתיקייה מסודרת לפי תאריך–מטרה, כדי להקל על כתיבת דוח מסכם.
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-title">
+            <span>🛡 Ethics First</span>
+            <span class="note-tag">ETHICS</span>
+          </div>
+          <div class="note-body">
+            Recon נועד להגן – לא לפגוע. המטרה: לזהות חולשות כדי לחזק, לא כדי לנצל ללא אישור.
+          </div>
+        </div>
+      </div>
+
+      <div class="log-box" id="log-box">
+[Recon] Lab page loaded.
+[Recon] Waiting for target selection from main dashboard...
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-bar">
+    <div>
+      <span class="status-dot"></span>
+      <span>Recon Mode · Simulation Only</span>
+    </div>
+    <div id="footer-clock"></div>
+  </footer>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      document.getElementById("recon-time").textContent =
+        now.toLocaleTimeString();
+      document.getElementById("footer-clock").textContent =
+        now.toLocaleDateString() + " · " + now.toLocaleTimeString();
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+</body>
+</html>
