@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>HacKingPro – HackDash Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="HacKingPro – HackDash (HD) · Cyber dashboard style panel for GitHub Pages." />
+
+  <style>
+    /* ===== Base Reset ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans Hebrew", sans-serif;
+      background: radial-gradient(circle at top, #151823 0, #05060b 40%, #010104 100%);
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    a {
+      color: #4fd1ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Top Bar ===== */
+    .topbar {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, #05060b, #151823, #05060b);
+      border-bottom: 1px solid #262833;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.75);
+      position: relative;
+      padding: 0 16px;
+    }
+
+    .topbar-title {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .topbar-badge {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff4b6a 0, #ff0033 40%, #660018 100%);
+      box-shadow: 0 0 8px #ff4b6a;
+    }
+
+    .topbar-version {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    /* ===== Layout ===== */
+    .app-shell {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr) 260px;
+      grid-template-rows: minmax(0, 1fr);
+      gap: 10px;
+      padding: 10px;
+      height: calc(100vh - 40px - 26px);
+    }
+
+    .panel {
+      background: radial-gradient(circle at top, #1a1d27 0, #10121a 45%, #080910 100%);
+      border-radius: 14px;
+      border: 1px solid #282a36;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.65);
+      padding: 10px;
+      position: relative;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #f5f5f5;
+    }
+
+    .panel-header span.icon {
+      font-size: 16px;
+      margin-left: 6px;
+    }
+
+    .panel-subtitle {
+      font-size: 11px;
+      color: #9fa3c2;
+      margin-bottom: 8px;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #303241, transparent);
+      margin: 6px 0 10px;
+    }
+
+    /* ===== Left Sidebar: Attack Menu ===== */
+    .sidebar-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .attack-menu {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .attack-menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .attack-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      background: linear-gradient(135deg, #10121b, #141725);
+      border: 1px solid #272a37;
+      cursor: pointer;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border-color 0.12s ease-out;
+    }
+
+    .attack-item span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .attack-item-tag {
+      font-size: 10px;
+      padding: 1px 7px;
+      border-radius: 30px;
+      background: radial-gradient(circle, #ff4b6a 0, #ff0033 45%, #660018 100%);
+      box-shadow: 0 0 8px rgba(255, 75, 106, 0.7);
+    }
+
+    .attack-item:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+      border-color: #3b3f55;
+    }
+
+    .plugins-box {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed #36394a;
+      font-size: 11px;
+      color: #9fa3c2;
+    }
+
+    .plugins-list {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .plugin-pill {
+      font-size: 11px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      border: 1px solid #2f3242;
+      background: linear-gradient(135deg, #11131c, #171a26);
+      width: fit-content;
+    }
+
+    /* ===== Center: Dashboard ===== */
+    .center-main {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    .center-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .center-mid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .center-bottom {
+      min-height: 120px;
+    }
+
+    .metric-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: #c7cae1;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .bar-outer {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: #1a1c26;
+      overflow: hidden;
+      border: 1px solid #292b38;
+    }
+
+    .bar-inner {
+      height: 100%;
+      width: 30%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #38bdf8, #4ade80);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
+      transition: width 0.5s ease-out;
+    }
+
+    .metric-list {
+      list-style: none;
+      margin-top: 6px;
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .metric-list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #c7cae1;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+    }
+
+    .dot.red {
+      background: #fb7185;
+      box-shadow: 0 0 8px rgba(251, 113, 133, 0.7);
+    }
+
+    .dot.yellow {
+      background: #facc15;
+      box-shadow: 0 0 8px rgba(250, 204, 21, 0.7);
+    }
+
+    .target-box {
+      font-size: 12px;
+      color: #b7bad5;
+      height: 100%;
+      border-radius: 10px;
+      border: 1px dashed #303241;
+      padding: 8px;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.06), transparent 55%);
+    }
+
+    .target-hint {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-bottom: 5px;
+    }
+
+    .output-box {
+      height: 100%;
+      border-radius: 10px;
+      border: 1px dashed #303241;
+      padding: 8px;
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+      font-size: 11px;
+      background: radial-gradient(circle at bottom, rgba(250, 204, 21, 0.06), transparent 55%);
+      color: #e5e7eb;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+
+    /* ===== Right Sidebar ===== */
+    .sidebar-right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .field-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .field-item {
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .field-label {
+      opacity: 0.8;
+    }
+
+    .field-value {
+      padding: 5px 7px;
+      border-radius: 8px;
+      background: #10121b;
+      border: 1px solid #272a37;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .badge {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #1f2937;
+      border: 1px solid #374151;
+      opacity: 0.8;
+    }
+
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: 11px;
+    }
+
+    .news-card {
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #10121b, #171a26);
+      border: 1px solid #272a37;
+    }
+
+    .news-title {
+      font-weight: 600;
+      margin-bottom: 3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .news-tag {
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: #0f766e;
+      border: 1px solid #14b8a6;
+      opacity: 0.9;
+    }
+
+    .news-body {
+      font-size: 10px;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+
+    .status-footer {
+      margin-top: 8px;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0.75;
+    }
+
+    /* ===== Bottom Bar ===== */
+    .bottombar {
+      height: 26px;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #05060b;
+      border-top: 1px solid #262833;
+      font-size: 11px;
+      color: #9fa3c2;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      margin-left: 5px;
+      background: #facc15;
+      box-shadow: 0 0 6px rgba(250, 204, 21, 0.9);
+    }
+
+    .status-dot.green {
+      background: #4ade80;
+      box-shadow: 0 0 6px rgba(74, 222, 128, 0.9);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 220px minmax(0, 1fr);
+        grid-template-rows: auto minmax(0, 1fr);
+        grid-template-areas:
+          "left right"
+          "center center";
+        height: auto;
+        overflow-y: auto;
+      }
+
+      .sidebar-left {
+        grid-area: left;
+      }
+
+      .sidebar-right {
+        grid-area: right;
+      }
+
+      .center-main {
+        grid-area: center;
+      }
+    }
+
+    @media (max-width: 800px) {
+      body {
+        overflow-y: auto;
+      }
+      .app-shell {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== Top Bar ===== -->
+  <header class="topbar">
+    <div class="topbar-title">
+      <div class="topbar-badge"></div>
+      <span>HacKingPro · HackDash Panel</span>
+      <span>🛡️</span>
+      <span class="topbar-version">v0.3.1 · GitHub Pages</span>
+    </div>
+  </header>
+
+  <!-- ===== Main Layout ===== -->
+  <main class="app-shell">
+    <!-- ==== Left Sidebar: Attack Menu ==== -->
+    <section class="panel sidebar-left">
+      <div class="attack-menu">
+        <div class="panel-header">
+          <span><span class="icon">🧨</span>Attack Menu</span>
+          <span style="font-size:10px;opacity:0.7;">Live Lab</span>
+        </div>
+        <div class="divider"></div>
+
+        <div class="attack-menu-list">
+          <div class="attack-item">
+            <span>🔍 Reconnaissance</span>
+            <span class="attack-item-tag">R1</span>
+          </div>
+          <div class="attack-item">
+            <span>💥 Exploitation</span>
+            <span class="attack-item-tag">R2</span>
+          </div>
+          <div class="attack-item">
+            <span>📦 Lateral Movement</span>
+            <span class="attack-item-tag">R3</span>
+          </div>
+          <div class="attack-item">
+            <span>🧬 Persistence</span>
+            <span class="attack-item-tag">R4</span>
+          </div>
+          <div class="attack-item">
+            <span>📑 Reporting</span>
+            <span class="attack-item-tag">R5</span>
+          </div>
+          <div class="attack-item">
+            <span>🌐 Web App Attacks</span>
+            <span class="attack-item-tag">R6</span>
+          </div>
+          <div class="attack-item">
+            <span>📡 Wireless Attacks</span>
+            <span class="attack-item-tag">R7</span>
+          </div>
+          <div class="attack-item">
+            <span>🧪 Sniffing &amp; Decryption</span>
+            <span class="attack-item-tag">R8</span>
+          </div>
+          <div class="attack-item">
+            <span>🎭 Social Engineering</span>
+            <span class="attack-item-tag">R9</span>
+          </div>
+          <div class="attack-item">
+            <span>🔑 Password Attacks</span>
+            <span class="attack-item-tag">R10</span>
+          </div>
+          <div class="attack-item">
+            <span>🛠 Hardware Hacking</span>
+            <span class="attack-item-tag">R11</span>
+          </div>
+          <div class="attack-item">
+            <span>🔒 Maintaining Access</span>
+            <span class="attack-item-tag">R12</span>
+          </div>
+        </div>
+
+        <div class="plugins-box">
+          <div>🧩 Plugins</div>
+          <div class="plugins-list">
+            <div class="plugin-pill">💹 Traffic Visualizer</div>
+            <div class="plugin-pill">🛰️ Port Scanner Mini</div>
+            <div class="plugin-pill">📓 Report Exporter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== Center: Dashboard & Targets ==== -->
+    <section class="panel center-main">
+      <!-- Top row -->
+      <div class="center-top">
+        <!-- Dashboard -->
+        <section class="panel">
+          <div class="panel-header">
+            <span><span class="icon">📊</span>Dashboard – HacKingPro</span>
+            <span style="font-size:11px;opacity:0.8;">System: Darwin 23.6.0 (x86_64)</span>
+          </div>
+          <div class="panel-subtitle">Real-time lab stats · SparKing style</div>
+          <div class="divider"></div>
+
+          <div class="metric-row">
+            <div class="metric-label">
+              <span>CPU Usage</span>
+              <span id="cpu-label">16%</span>
+            </div>
+            <div class="bar-outer">
+              <div class="bar-inner" id="cpu-bar"></div>
+            </div>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-label">
+              <span>Memory Usage</span>
+              <span id="mem-label">45%</span>
+            </div>
+            <div class="bar-outer">
+              <div class="bar-inner" id="mem-bar"></div>
+            </div>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-label">
+              <span>Disk Usage</span>
+              <span id="disk-label">4%</span>
+            </div>
+            <div class="bar-outer">
+              <div class="bar-inner" id="disk-bar"></div>
+            </div>
+          </div>
+
+          <ul class="metric-list" style="margin-top:10px;">
+            <li><span class="dot"></span> Network: ↑ <span id="net-up">0.00</span> MB/s · ↓ <span id="net-down">0.00</span> MB/s</li>
+            <li><span class="dot yellow"></span> Sessions: <span id="session-count">0</span> active</li>
+            <li><span class="dot red"></span> Alerts: <span id="alert-count">0</span> open findings</li>
+          </ul>
+        </section>
+
+        <!-- System Monitor -->
+        <section class="panel">
+          <div class="panel-header">
+            <span><span class="icon">🧠</span>System Monitor</span>
+            <span style="font-size:11px;opacity:0.75;">Lab Host</span>
+          </div>
+          <div class="divider"></div>
+
+          <ul class="metric-list">
+            <li><span class="dot"></span> CPU: <span id="cpu-detail">28.6%</span> (Freq: 2300 MHz)</li>
+            <li><span class="dot"></span> Memory: <span id="mem-detail">45.0%</span> (Used: 13.46 GB)</li>
+            <li><span class="dot"></span> Disk: <span id="disk-detail">4.1%</span> (Free: 221.57 GB)</li>
+            <li><span class="dot"></span> Network: <span id="net-detail">0.00 MB/s</span></li>
+            <li><span class="dot"></span> Battery: 100% (Charging)</li>
+            <li><span class="dot yellow"></span> Temperature: Not supported on this system</li>
+            <li><span class="dot red"></span> Running Processes: <span id="proc-count">705</span></li>
+          </ul>
+        </section>
+
+        <!-- Network Monitor -->
+        <section class="panel">
+          <div class="panel-header">
+            <span><span class="icon">🌐</span>Network Monitor</span>
+            <span style="font-size:11px;opacity:0.75;">Interface: en0</span>
+          </div>
+          <div class="divider"></div>
+
+          <ul class="metric-list">
+            <li><span class="dot"></span> Internal IP: <code>10.0.0.3</code></li>
+            <li><span class="dot"></span> External IP: <code>147.235.213.44</code></li>
+            <li><span class="dot yellow"></span> ↑ Sent: <span id="net-sent">0.00 MB/s</span></li>
+            <li><span class="dot yellow"></span> ↓ Received: <span id="net-recv">0.00 MB/s</span></li>
+            <li><span class="dot red"></span> Connections: Access Denied</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Middle row: Targets -->
+      <div class="center-mid">
+        <section class="panel">
+          <div class="panel-header">
+            <span><span class="icon">🎯</span>Target List</span>
+            <span style="font-size:11px;opacity:0.75;">Session Queue</span>
+          </div>
+          <div class="divider"></div>
+
+          <div class="target-box" id="target-list">
+            <div class="target-hint">💡 גרור כאן מטרות (Domains / IPs) או לחץ כדי לטעון דוגמאות.</div>
+            <!-- Targets יתווספו כאן ב-JS -->
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <span><span class="icon">🧬</span>Target Details</span>
+            <span style="font-size:11px;opacity:0.75;">Live Preview</span>
+          </div>
+          <div class="divider"></div>
+
+          <div class="target-box" id="target-details">
+            <div class="target-hint">בחר מטרה משמאל כדי לראות פרטי סריקה, פתיחות פורטים וסטטוס.</div>
+            <div id="target-details-body" style="font-size:11px;white-space:pre-line;"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Bottom row: Output -->
+      <div class="center-bottom panel">
+        <div class="panel-header">
+          <span><span class="icon">📜</span>Output</span>
+          <span style="font-size:11px;opacity:0.75;">Console · Read-only</span>
+        </div>
+        <div class="divider"></div>
+
+        <div class="output-box" id="output-box">
+[HackDash] Loaded cyber-lab dashboard.
+[HackDash] Waiting for targets...
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== Right Sidebar ==== -->
+    <section class="panel sidebar-right">
+      <!-- Tool Info -->
+      <section class="panel">
+        <div class="panel-header">
+          <span><span class="icon">🧰</span>פרטי כלים</span>
+          <span style="font-size:11px;opacity:0.75;">HacKingPro</span>
+        </div>
+        <div class="divider"></div>
+
+        <div class="field-list">
+          <div class="field-item">
+            <div class="field-label">יומן ⏱</div>
+            <div class="field-value">
+              <span id="hk-time">--:--:--</span>
+              <span class="badge">Local</span>
+            </div>
+          </div>
+
+          <div class="field-item">
+            <div class="field-label">דירוג ⚙️</div>
+            <div class="field-value">
+              <span>Lab · Demo Mode</span>
+              <span class="badge">Safe</span>
+            </div>
+          </div>
+
+          <div class="field-item">
+            <div class="field-label">ניהול מטרות 🎯</div>
+            <div class="field-value">
+              <span>0 Active Targets</span>
+              <span class="badge" id="targets-badge">Idle</span>
+            </div>
+          </div>
+
+          <div class="field-item">
+            <div class="field-label">עזרה ❓</div>
+            <div class="field-value">
+              <span><a href="https://github.com/AnLoMinus/HacKingPro" target="_blank" rel="noopener">Open Repository</a></span>
+              <span class="badge">GitHub</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- New Features -->
+      <section class="panel">
+        <div class="panel-header">
+          <span><span class="icon">🆕</span>תכונות חדשות</span>
+          <span style="font-size:11px;opacity:0.75;">HackDash · HD</span>
+        </div>
+        <div class="divider"></div>
+
+        <div class="news-list">
+          <article class="news-card">
+            <div class="news-title">
+              <span>🎛 GitHub Pages Mode</span>
+              <span class="news-tag">NEW</span>
+            </div>
+            <p class="news-body">
+              פאנל רספונסיבי מלא, מותאם לדשבורד פריצות ניסיוני – ללא קוד צד שרת.
+            </p>
+          </article>
+
+          <article class="news-card">
+            <div class="news-title">
+              <span>⚡ SparKing Theme</span>
+              <span class="news-tag">STYLE</span>
+            </div>
+            <p class="news-body">
+              גרדיאנטים קוסמיים, מסגרות ניאון וצללים עמוקים בסגנון AnLoMinus SparKing.
+            </p>
+          </article>
+
+          <article class="news-card">
+            <div class="news-title">
+              <span>🧪 Fake Metrics Engine</span>
+              <span class="news-tag">LAB</span>
+            </div>
+            <p class="news-body">
+              נתוני CPU/Memory/Network זזים בצורה דינמית ליצירת תחושת מעבדה חיה.
+            </p>
+          </article>
+        </div>
+
+        <div class="status-footer">
+          <span>🔐 מצב רשת: <strong>Lab-Only</strong></span>
+          <span>🧷 No real targets</span>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- ===== Bottom Bar ===== -->
+  <footer class="bottombar">
+    <div>
+      <span class="status-dot green"></span>
+      <span>HackDash Ready · No Target Selected</span>
+    </div>
+    <div id="footer-clock"></div>
+  </footer>
+
+  <!-- ===== Minimal JS: Fake Metrics & Time ===== -->
+  <script>
+    function randRange(min, max) {
+      return Math.round((Math.random() * (max - min) + min) * 10) / 10;
+    }
+
+    function updateBars() {
+      const cpu = randRange(8, 64);
+      const mem = randRange(32, 90);
+      const disk = randRange(2, 22);
+
+      const cpuBar = document.getElementById("cpu-bar");
+      const memBar = document.getElementById("mem-bar");
+      const diskBar = document.getElementById("disk-bar");
+
+      cpuBar.style.width = cpu + "%";
+      memBar.style.width = mem + "%";
+      diskBar.style.width = disk + "%";
+
+      document.getElementById("cpu-label").textContent = cpu + "%";
+      document.getElementById("mem-label").textContent = mem + "%";
+      document.getElementById("disk-label").textContent = disk + "%";
+
+      document.getElementById("cpu-detail").textContent = cpu + "%";
+      document.getElementById("mem-detail").textContent = mem + "%";
+      document.getElementById("disk-detail").textContent = disk + "%";
+
+      const netUp = randRange(0, 2.5);
+      const netDown = randRange(0, 3.2);
+      document.getElementById("net-up").textContent = netUp.toFixed(2);
+      document.getElementById("net-down").textContent = netDown.toFixed(2);
+      document.getElementById("net-sent").textContent = netUp.toFixed(2) + " MB/s";
+      document.getElementById("net-recv").textContent = netDown.toFixed(2) + " MB/s";
+      document.getElementById("net-detail").textContent = netUp.toFixed(2) + " / " + netDown.toFixed(2) + " MB/s";
+
+      const sessions = Math.floor(Math.random() * 4);
+      const alerts = Math.floor(Math.random() * 3);
+      const procs = 650 + Math.floor(Math.random() * 120);
+      document.getElementById("session-count").textContent = sessions;
+      document.getElementById("alert-count").textContent = alerts;
+      document.getElementById("proc-count").textContent = procs;
+
+      const output = document.getElementById("output-box");
+      if (Math.random() > 0.7) {
+        const line = `[${new Date().toLocaleTimeString()}] Scan heartbeat · CPU ${cpu}% · MEM ${mem}% · NET ${netDown.toFixed(2)} MB/s`;
+        output.textContent += "\n" + line;
+        output.scrollTop = output.scrollHeight;
+      }
+    }
+
+    // Fake target list
+    const sampleTargets = [
+      { host: "demo.internal", ip: "10.0.0.12" },
+      { host: "lab-web01", ip: "10.0.0.21" },
+      { host: "api.gateway.local", ip: "10.0.0.42" }
+    ];
+
+    function renderTargets() {
+      const container = document.getElementById("target-list");
+      container.innerHTML = "";
+      const hint = document.createElement("div");
+      hint.className = "target-hint";
+      hint.textContent = "בחר מטרה כדי לראות פרטים · Demo Only";
+      container.appendChild(hint);
+
+      sampleTargets.forEach((t, idx) => {
+        const row = document.createElement("div");
+        row.style.padding = "5px 6px";
+        row.style.borderRadius = "7px";
+        row.style.marginTop = "4px";
+        row.style.cursor = "pointer";
+        row.style.display = "flex";
+        row.style.justifyContent = "space-between";
+        row.style.alignItems = "center";
+        row.style.fontSize = "11px";
+        row.style.border = "1px solid #303241";
+        row.style.background = "linear-gradient(135deg,#0f111a,#151825)";
+        row.innerHTML = `
+          <span>🎯 ${t.host}</span>
+          <span style="opacity:0.8;">${t.ip}</span>
+        `;
+        row.addEventListener("click", () => selectTarget(idx));
+        container.appendChild(row);
+      });
+
+      document.getElementById("targets-badge").textContent = sampleTargets.length + " Targets";
+    }
+
+    function selectTarget(index) {
+      const t = sampleTargets[index];
+      const body = document.getElementById("target-details-body");
+      body.textContent =
+        `Host: ${t.host}\n` +
+        `IP: ${t.ip}\n` +
+        `Ports: 22/tcp · 80/tcp · 443/tcp (demo)\n` +
+        `Last Scan: ${new Date().toLocaleTimeString()}\n` +
+        `Notes: Lab-only simulated target.`;
+      const output = document.getElementById("output-box");
+      output.textContent += `\n[HackDash] Selected target: ${t.host} (${t.ip})`;
+      output.scrollTop = output.scrollHeight;
+    }
+
+    function updateClocks() {
+      const now = new Date();
+      document.getElementById("hk-time").textContent = now.toLocaleTimeString();
+      document.getElementById("footer-clock").textContent =
+        now.toLocaleDateString() + " · " + now.toLocaleTimeString() + " · HackDash Local Time";
+    }
+
+    // Init
+    renderTargets();
+    updateBars();
+    updateClocks();
+    setInterval(updateBars, 2200);
+    setInterval(updateClocks, 1000);
+  </script>
+</body>
+</html>
