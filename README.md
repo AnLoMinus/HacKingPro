@@ -61,6 +61,8 @@ HacKingPro is a tool kit for ethical hackers to perform reconnaissance, exploita
 
 - [x] 5. Reporting 📊
 
+<img width="1024" height="1536" alt="Powerful Titan of Digital Insight" src="https://github.com/user-attachments/assets/a769a1ed-43e0-49f3-945f-92ca36db27a2" />
+
 <img width="1024" height="1536" alt="Cybernetic Titan with Holographic Data Display" src="https://github.com/user-attachments/assets/15a2793d-81d7-4852-96bf-fc6d28fcaa1f" />
 
 - [x] 6. Web Application Attack and Exploitation 🌐
